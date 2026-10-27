@@ -1,0 +1,601 @@
+
+# libave.so.0.1 a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777 .text [0x243db4,0x243ea8)
+00243db4 ldr        r2, [pc, #0xf0]                          
+00243db6 ldr        r3, [pc, #0xf4]                          
+00243db8 add        r2, pc                                   
+00243dba push       {r4, r5, r6, r7, lr}                     
+00243dbc mov        r5, r0                                   
+00243dbe sub        sp, #0x34                                
+00243dc0 ldr        r3, [r2, r3]                             
+00243dc2 add        r7, sp, #0x20                            
+00243dc4 mov        r4, r1                                   
+00243dc6 ldr        r3, [r3]                                 
+00243dc8 str        r3, [r7, #0xc]                           
+00243dca mov.w      r3, #0                                   
+00243dce blx        #0x8ec88                                 _Z11get_ave_shmv
+00243dd2 ldr        r3, [r0, #0x24]                          
+00243dd4 cmp        r3, #0                                   
+00243dd6 bne        #0x243e3e                                
+00243dd8 blx        #0x8ec88                                 _Z11get_ave_shmv
+00243ddc ldr        r3, [r0, #0x78]                          
+00243dde cbnz       r3, #0x243e1c                            
+00243de0 ldr        r3, [pc, #0xcc]                          
+00243de2 add        r3, pc                                   
+00243de4 ldr        r3, [r3, #0x20]                          
+00243de6 cmp        r3, #1                                   
+00243de8 it         eq                                       
+00243dea moveq      r4, #0                                   
+00243dec beq        #0x243e04                                
+00243dee adds       r1, r7, #4                               
+00243df0 movw       r0, #0x6623                              
+00243df4 movt       r0, #0xc008                              
+00243df8 strd       r5, r4, [r7, #4]                         
+00243dfc blx        #0x90680                                 _Z9frc_ioctlmPv
+00243e00 subs       r4, r0, #0                               
+00243e02 blt        #0x243e72                                
+00243e04 ldr        r2, [pc, #0xac]                          
+00243e06 ldr        r3, [pc, #0xa4]                          
+00243e08 add        r2, pc                                   
+00243e0a ldr        r3, [r2, r3]                             
+00243e0c ldr        r2, [r3]                                 
+00243e0e ldr        r3, [r7, #0xc]                           
+00243e10 eors       r2, r3                                   
+00243e12 bne        #0x243ea2                                
+00243e14 mov        r0, r4                                   
+00243e16 adds       r7, #0x14                                
+00243e18 mov        sp, r7                                   
+00243e1a pop        {r4, r5, r6, r7, pc}                     
+00243e1c ldr        r2, [pc, #0x98]                          
+00243e1e movw       r3, #0xe7d                               
+00243e22 str        r4, [sp, #8]                             
+00243e24 movs       r0, #5                                   
+00243e26 add        r2, pc                                   
+00243e28 strd       r5, r4, [sp]                             
+00243e2c ldr        r1, [pc, #0x8c]                          
+00243e2e ldr        r2, [r2, #0x20]                          
+00243e30 add        r1, pc                                   
+00243e32 str        r2, [sp, #0xc]                           
+00243e34 ldr        r2, [pc, #0x88]                          
+00243e36 add        r2, pc                                   
+00243e38 blx        #0x8a86c                                 _Z14print_usb_fileiPKcz
+00243e3c b          #0x243de0                                
+00243e3e ldr        r0, [pc, #0x84]                          
+00243e40 movw       r6, #0xe7d                               
+00243e44 ldr        r3, [pc, #0x80]                          
+00243e46 movs       r1, #4                                   
+00243e48 add        r0, pc                                   
+00243e4a str        r4, [sp, #0x14]                          
+00243e4c ldr        r2, [pc, #0x7c]                          
+00243e4e add        r3, pc                                   
+00243e50 adds       r3, #0x46                                
+00243e52 ldr        r0, [r0, #0x20]                          
+00243e54 add        r2, pc                                   
+00243e56 strd       r3, r2, [sp]                             
+00243e5a ldr        r3, [pc, #0x74]                          
+00243e5c ldr        r2, [pc, #0x74]                          
+00243e5e str        r0, [sp, #0x18]                          
+00243e60 add        r3, pc                                   
+00243e62 add        r2, pc                                   
+00243e64 strd       r5, r4, [sp, #0xc]                       
+00243e68 str        r6, [sp, #8]                             
+00243e6a movs       r0, #0                                   
+00243e6c blx        #0x8df44                                 __dlog_print
+00243e70 b          #0x243dd8                                
+00243e72 blx        #0x9095c                                 __errno_location
+00243e76 ldr        r3, [pc, #0x60]                          
+00243e78 ldr        r6, [pc, #0x60]                          
+00243e7a movw       r2, #0xe8a                               
+00243e7e add        r3, pc                                   
+00243e80 ldr        r0, [r0]                                 
+00243e82 add        r6, pc                                   
+00243e84 adds       r3, #0x46                                
+00243e86 str        r2, [sp, #8]                             
+00243e88 movs       r1, #6                                   
+00243e8a strd       r3, r6, [sp]                             
+00243e8e ldr        r2, [pc, #0x50]                          
+00243e90 ldr        r3, [pc, #0x50]                          
+00243e92 str        r0, [sp, #0x10]                          
+00243e94 add        r2, pc                                   
+00243e96 add        r3, pc                                   
+00243e98 str        r5, [sp, #0xc]                           
+00243e9a movs       r0, #0                                   
+00243e9c blx        #0x8df44                                 __dlog_print
+00243ea0 b          #0x243e04                                
+00243ea2 blx        #0x8e2e0                                 __stack_chk_fail
+00243ea6 nop                                                 
+
+# tztv_frc_tcon_api.ko 3a34e9507c44f3ca9b7955e92844187a5396e30e3ab7c745bf0296145be3f7c6 .text [0x195c,0x1974)
+0000195c mov        w1, #0x6623                              
+00001960 movk       w1, #0xc008, lsl #16                     
+00001964 cmp        w3, w1                                   
+00001968 b.eq       #0x2a54                                  
+0000196c add        w1, w1, #3                               
+00001970 cmp        w3, w1                                   
+
+# tztv_frc_tcon_api.ko 3a34e9507c44f3ca9b7955e92844187a5396e30e3ab7c745bf0296145be3f7c6 .text [0x2a54,0x2a7c)
+00002a54 mov        x1, x19                                  
+00002a58 add        x0, sp, #0xd0                            
+00002a5c mov        x2, #8                                   
+00002a60 mov        x20, #-0xe                               
+00002a64 bl         #0xd0                                    
+00002a68 cbnz       x0, #0x1478                              
+00002a6c ldp        w0, w1, [sp, #0xd0]                      
+00002a70 bl         #0x2a70                                  ('FRC_WriteI2CData', 0)
+00002a74 sxtw       x20, w0                                  
+00002a78 b          #0x1478                                  
+
+# tztv_frc_tcon_api.ko 3a34e9507c44f3ca9b7955e92844187a5396e30e3ab7c745bf0296145be3f7c6 .text [0x9438,0x94b8)
+00009438 stp        x29, x30, [sp, #-0x20]!                  
+0000943c adrp       x3, #0x9000                              ('frc_tcon_debug_level', 0)
+00009440 mov        x29, sp                                  
+00009444 stp        x19, x20, [sp, #0x10]                    
+00009448 mov        w19, w0                                  
+0000944c ldr        w0, [x3]                                 ('frc_tcon_debug_level', 0)
+00009450 mov        w20, w1                                  
+00009454 cbnz       w0, #0x9494                              
+00009458 adrp       x0, #0x9000                              ('', 1560)
+0000945c ldr        x0, [x0]                                 ('', 1560)
+00009460 cbz        x0, #0x9484                              
+00009464 ldr        x4, [x0, #0xf0]                          
+00009468 cbz        x4, #0x9484                              
+0000946c mov        w1, w20                                  
+00009470 mov        w0, w19                                  
+00009474 blr        x4                                       
+00009478 ldp        x19, x20, [sp, #0x10]                    
+0000947c ldp        x29, x30, [sp], #0x20                    
+00009480 ret                                                 
+00009484 mov        w0, #0                                   
+00009488 ldp        x19, x20, [sp, #0x10]                    
+0000948c ldp        x29, x30, [sp], #0x20                    
+00009490 ret                                                 
+00009494 adrp       x1, #0x9000                              ('', 2096)
+00009498 add        x1, x1, #0                               ('', 2096)
+0000949c add        x1, x1, #0x3d8                           
+000094a0 mov        w3, w20                                  
+000094a4 mov        w2, w19                                  
+000094a8 adrp       x0, #0x9000                              ('', 5040)
+000094ac add        x0, x0, #0                               ('', 5040)
+000094b0 bl         #0x94b0                                  ('printk', 0)
+000094b4 b          #0x9458                                  
+
+# tztv_frc_tcon_api.ko 3a34e9507c44f3ca9b7955e92844187a5396e30e3ab7c745bf0296145be3f7c6 .text [0x7c48,0x7c54)
+00007c48 adrp       x1, #0x7000                              ('', 1560)
+00007c4c str        x0, [x1]                                 ('', 1560)
+00007c50 ret                                                 
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .init.text [0x1fc,0x208)
+000001fc adrp       x2, #0                                   ('RosemFrc_WriteI2CData', 0)
+00000200 add        x2, x2, #0                               ('RosemFrc_WriteI2CData', 0)
+00000204 str        x2, [x19, #0xf0]                         
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .init.text [0x3bc,0x3d0)
+000003bc str        x3, [x19, #0x310]                        
+000003c0 str        x2, [x19, #0x330]                        
+000003c4 str        x1, [x19, #0x338]                        
+000003c8 bl         #0x3c8                                   ('map_frc_functions', 0)
+000003cc adrp       x0, #0                                   ('', 40480)
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0x618,0x77c)
+00000618 stp        x29, x30, [sp, #-0x50]!                  
+0000061c mov        x29, sp                                  
+00000620 stp        x19, x20, [sp, #0x10]                    
+00000624 mov        w20, w0                                  
+00000628 stp        x21, x22, [sp, #0x20]                    
+0000062c adrp       x22, #0                                  ('', 0)
+00000630 add        x19, x22, #0                             ('', 0)
+00000634 mov        w21, w1                                  
+00000638 ldr        w0, [x19, #0x14]                         
+0000063c cbnz       w0, #0x6c8                               
+00000640 ldr        x3, [x19, #0x100]                        
+00000644 cbz        x3, #0x6c8                               
+00000648 ldr        x1, [x19, #0x2a0]                        
+0000064c cbz        x1, #0x6c8                               
+00000650 ldr        w2, [x19, #0x298]                        
+00000654 cbz        w2, #0x6c8                               
+00000658 stp        x23, x24, [sp, #0x30]                    
+0000065c mov        x24, #0                                  
+00000660 b          #0x670                                   
+00000664 add        x24, x24, #1                             
+00000668 cmp        w2, w24                                  
+0000066c b.ls       #0x6c4                                   
+00000670 ldr        w0, [x1, x24, lsl #2]                    
+00000674 lsl        x23, x24, #2                             
+00000678 cmp        w0, w20                                  
+0000067c b.ne       #0x664                                   
+00000680 ldr        w0, [x22]                                ('', 0)
+00000684 str        w21, [x3, x23]                           
+00000688 cbnz       w0, #0x708                               
+0000068c ldr        w0, [x19, #0x44]                         
+00000690 cmp        w0, #1                                   
+00000694 b.eq       #0x6fc                                   
+00000698 ldr        w0, [x19, #0x6c]                         
+0000069c cmp        w0, #1                                   
+000006a0 b.eq       #0x6fc                                   
+000006a4 ldp        x23, x24, [sp, #0x30]                    
+000006a8 mov        w1, w21                                  
+000006ac mov        w0, w20                                  
+000006b0 bl         #0x488                                   
+000006b4 ldp        x19, x20, [sp, #0x10]                    
+000006b8 ldp        x21, x22, [sp, #0x20]                    
+000006bc ldp        x29, x30, [sp], #0x50                    
+000006c0 ret                                                 
+000006c4 ldp        x23, x24, [sp, #0x30]                    
+000006c8 ldr        w1, [x19, #0x44]                         
+000006cc cmp        w1, #1                                   
+000006d0 b.eq       #0x6e0                                   
+000006d4 ldr        w0, [x19, #0x6c]                         
+000006d8 cmp        w0, #1                                   
+000006dc b.ne       #0x6a8                                   
+000006e0 ldr        w0, [x22]                                ('', 0)
+000006e4 cbnz       w0, #0x758                               
+000006e8 mov        w0, #0                                   
+000006ec ldp        x19, x20, [sp, #0x10]                    
+000006f0 ldp        x21, x22, [sp, #0x20]                    
+000006f4 ldp        x29, x30, [sp], #0x50                    
+000006f8 ret                                                 
+000006fc mov        w0, #0                                   
+00000700 ldp        x23, x24, [sp, #0x30]                    
+00000704 b          #0x6ec                                   
+00000708 str        x25, [sp, #0x40]                         
+0000070c bl         #0x70c                                   ('ft_current_pid', 0)
+00000710 mov        w25, w0                                  
+00000714 bl         #0x714                                   ('ft_current_comm', 0)
+00000718 ldr        x3, [x19, #0x100]                        
+0000071c adrp       x1, #0                                   ('', 0)
+00000720 ldr        x5, [x19, #0x2a0]                        
+00000724 add        x1, x1, #0                               ('', 0)
+00000728 ldr        w6, [x3, x23]                            
+0000072c mov        w2, w25                                  
+00000730 mov        w4, w24                                  
+00000734 mov        x3, x0                                   
+00000738 ldr        w5, [x5, x23]                            
+0000073c add        x1, x1, #0x88                            
+00000740 adrp       x0, #0                                   ('', 720)
+00000744 add        x0, x0, #0                               ('', 720)
+00000748 bl         #0x748                                   ('printk', 0)
+0000074c ldp        x23, x24, [sp, #0x30]                    
+00000750 ldr        x25, [sp, #0x40]                         
+00000754 b          #0x6c8                                   
+00000758 ldr        w2, [x19, #0x6c]                         
+0000075c adrp       x3, #0                                   ('', 0)
+00000760 add        x3, x3, #0                               ('', 0)
+00000764 adrp       x0, #0                                   ('', 792)
+00000768 add        x3, x3, #0x88                            
+0000076c add        x0, x0, #0                               ('', 792)
+00000770 bl         #0x770                                   ('printk', 0)
+00000774 mov        w0, #0                                   
+00000778 b          #0x6ec                                   
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0x488,0x55c)
+00000488 stp        x29, x30, [sp, #-0x30]!                  
+0000048c adrp       x3, #0                                   ('', 0)
+00000490 add        x2, x3, #0                               ('', 0)
+00000494 mov        x29, sp                                  
+00000498 stp        x19, x20, [sp, #0x10]                    
+0000049c ldr        w19, [x2, #0x14]                         
+000004a0 ldr        w2, [x2, #0x19c]                         
+000004a4 orr        w19, w19, w2                             
+000004a8 cbz        w19, #0x4f0                              
+000004ac adrp       x3, #0                                   ('tztv_frc_tcon_ext_cmd', 0)
+000004b0 mov        w2, #1                                   
+000004b4 stp        wzr, w1, [sp, #0x20]                     
+000004b8 ldr        x3, [x3]                                 ('tztv_frc_tcon_ext_cmd', 0)
+000004bc stp        w0, w2, [sp, #0x28]                      
+000004c0 cbz        x3, #0x51c                               
+000004c4 add        x1, sp, #0x20                            
+000004c8 mov        w2, #0x10                                
+000004cc mov        w0, #2                                   
+000004d0 blr        x3                                       
+000004d4 mov        w19, w0                                  
+000004d8 cbnz       w0, #0x520                               
+000004dc mov        w19, #0                                  
+000004e0 mov        w0, w19                                  
+000004e4 ldp        x19, x20, [sp, #0x10]                    
+000004e8 ldp        x29, x30, [sp], #0x30                    
+000004ec ret                                                 
+000004f0 ldr        w2, [x3]                                 ('', 0)
+000004f4 cbz        w2, #0x4dc                               
+000004f8 adrp       x4, #0                                   ('', 0)
+000004fc add        x4, x4, #0                               ('', 0)
+00000500 mov        w3, w1                                   
+00000504 mov        w2, w0                                   
+00000508 add        x1, x4, #0x38                            
+0000050c adrp       x0, #0                                   ('', 424)
+00000510 add        x0, x0, #0                               ('', 424)
+00000514 bl         #0x514                                   ('printk', 0)
+00000518 b          #0x4e0                                   
+0000051c mov        w19, #-1                                 
+00000520 bl         #0x520                                   ('ft_current_pid', 0)
+00000524 mov        w20, w0                                  
+00000528 bl         #0x528                                   ('ft_current_comm', 0)
+0000052c ldr        w5, [sp, #0x28]                          
+00000530 ldp        w4, w6, [sp, #0x20]                      
+00000534 adrp       x1, #0                                   ('', 0)
+00000538 add        x1, x1, #0                               ('', 0)
+0000053c mov        x3, x0                                   
+00000540 mov        w2, w20                                  
+00000544 add        x1, x1, #0x38                            
+00000548 adrp       x0, #0                                   ('', 480)
+0000054c mov        x7, #0x10                                
+00000550 add        x0, x0, #0                               ('', 480)
+00000554 bl         #0x554                                   ('printk', 0)
+00000558 b          #0x4e0                                   
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0x7138,0x71a8)
+00007138 ldrh       w1, [x19, #0x68]                         
+0000713c mov        w0, #-0xef90000                          
+00007140 bl         #0xe50                                   
+00007144 mov        w22, w0                                  
+00007148 bl         #0x2110                                  
+0000714c orr        w22, w22, w0                             
+00007150 ldr        w1, [x19, #0xf4]                         
+00007154 cmp        w1, #1                                   
+00007158 b.ne       #0x7780                                  
+0000715c ldr        w0, [x19, #0x8c]                         
+00007160 cmp        w0, #3                                   
+00007164 b.eq       #0x77dc                                  
+00007168 b.gt       #0x7870                                  
+0000716c str        wzr, [x19, #0x298]                       
+00007170 bl         #0x7170                                  ('ft_current_pid', 0)
+00007174 mov        w24, w0                                  
+00007178 bl         #0x7178                                  ('ft_current_comm', 0)
+0000717c ldr        w4, [x19, #0x8c]                         
+00007180 mov        x3, x0                                   
+00007184 ldr        w5, [x19, #0xf4]                         
+00007188 adrp       x0, #0x7000                              ('', 13984)
+0000718c ldr        w6, [x19, #0x298]                        
+00007190 mov        w2, w24                                  
+00007194 add        x1, x20, #0xaf0                          
+00007198 add        x0, x0, #0                               ('', 13984)
+0000719c bl         #0x719c                                  ('printk', 0)
+000071a0 ldr        x0, [x19, #0x100]                        
+000071a4 cbz        x0, #0x7904                              
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0x7780,0x7798)
+00007780 ldr        w0, [x19, #0x1ac]                        
+00007784 stp        x27, x28, [sp, #0x70]                    
+00007788 cmp        w0, #2                                   
+0000778c b.eq       #0x7968                                  
+00007790 cmp        w0, #1                                   
+00007794 b.eq       #0x79f8                                  
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0x79f8,0x7a88)
+000079f8 mov        w0, #9                                   
+000079fc str        w0, [x19, #0x298]                        
+00007a00 add        x28, x20, #0xaf0                         
+00007a04 bl         #0x7a04                                  ('ft_current_pid', 0)
+00007a08 mov        w25, w0                                  
+00007a0c bl         #0x7a0c                                  ('ft_current_comm', 0)
+00007a10 mov        x3, x0                                   
+00007a14 ldr        w4, [x19, #0x298]                        
+00007a18 mov        w2, w25                                  
+00007a1c mov        x1, x28                                  
+00007a20 adrp       x0, #0x7000                              ('', 14160)
+00007a24 add        x0, x0, #0                               ('', 14160)
+00007a28 bl         #0x7a28                                  ('printk', 0)
+00007a2c ldr        x0, [x19, #0x2a0]                        
+00007a30 cbnz       x0, #0x77d4                              
+00007a34 ldr        w0, [x19, #0x298]                        
+00007a38 lsl        x0, x0, #2                               
+00007a3c bl         #0x7a3c                                  ('ft_vmalloc', 0)
+00007a40 str        x0, [x19, #0x2a0]                        
+00007a44 cbz        x0, #0x77d4                              
+00007a48 adrp       x25, #0x7000                             ('', 13856)
+00007a4c add        x6, x20, #0xf00                          
+00007a50 add        x25, x25, #0                             ('', 13856)
+00007a54 mov        x24, #0                                  
+00007a58 ldr        w0, [x19, #0x298]                        
+00007a5c add        x26, x19, #0x288                         
+00007a60 lsl        x5, x24, #2                              
+00007a64 cmp        w0, w24                                  
+00007a68 b.ls       #0x77d4                                  
+00007a6c ldr        x1, [x26, #0x18]                         
+00007a70 ldr        w0, [x19]                                
+00007a74 ldr        w2, [x6, x24, lsl #2]                    
+00007a78 str        w2, [x1, x5]                             
+00007a7c cbnz       w0, #0x7b5c                              
+00007a80 add        x24, x24, #1                             
+00007a84 b          #0x7a58                                  
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0x7904,0x791c)
+00007904 ldr        w0, [x19, #0x298]                        
+00007908 cbz        w0, #0x71a8                              
+0000790c ubfiz      x0, x0, #2, #0x20                        
+00007910 bl         #0x7910                                  ('ft_vmalloc', 0)
+00007914 str        x0, [x19, #0x100]                        
+00007918 b          #0x71a8                                  
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0xd550,0xd6a4)
+0000d550 sub        sp, sp, #0x80                            
+0000d554 adrp       x2, #0xd000                              ('', 0)
+0000d558 stp        x29, x30, [sp, #0x10]                    
+0000d55c add        x29, sp, #0x10                           
+0000d560 stp        x19, x20, [sp, #0x20]                    
+0000d564 add        x19, x2, #0                              ('', 0)
+0000d568 ldr        w1, [x19, #0x44]                         
+0000d56c cmp        w1, #1                                   
+0000d570 b.eq       #0xd58c                                  
+0000d574 stp        x21, x22, [sp, #0x30]                    
+0000d578 mov        w21, w0                                  
+0000d57c ldr        w0, [x19, #0x6c]                         
+0000d580 cmp        w0, #1                                   
+0000d584 b.ne       #0xd5ac                                  
+0000d588 ldp        x21, x22, [sp, #0x30]                    
+0000d58c ldr        w0, [x2]                                 ('', 0)
+0000d590 cbnz       w0, #0xdf10                              
+0000d594 mov        w20, #0                                  
+0000d598 mov        w0, w20                                  
+0000d59c ldp        x29, x30, [sp, #0x10]                    
+0000d5a0 ldp        x19, x20, [sp, #0x20]                    
+0000d5a4 add        sp, sp, #0x80                            
+0000d5a8 ret                                                 
+0000d5ac bl         #0xd5ac                                  ('ft_current_pid', 0)
+0000d5b0 adrp       x22, #0xd000                             ('', 4352)
+0000d5b4 mov        w20, w0                                  
+0000d5b8 add        x22, x22, #0                             ('', 4352)
+0000d5bc bl         #0xd5bc                                  ('ft_current_comm', 0)
+0000d5c0 mov        x3, x0                                   
+0000d5c4 mov        w2, w20                                  
+0000d5c8 add        x1, x22, #0x2d8                          
+0000d5cc mov        w4, w21                                  
+0000d5d0 adrp       x0, #0xd000                              ('', 24632)
+0000d5d4 add        x0, x0, #0                               ('', 24632)
+0000d5d8 bl         #0xd5d8                                  ('printk', 0)
+0000d5dc mov        w2, #1                                   
+0000d5e0 str        w2, [x19, #0x14]                         
+0000d5e4 str        wzr, [x19, #0x16c]                       
+0000d5e8 cmp        w21, #0x1e                               
+0000d5ec b.eq       #0xd988                                  
+0000d5f0 b.gt       #0xd6a4                                  
+0000d5f4 cbz        w21, #0xd6f4                             
+0000d5f8 cmp        w21, #0x14                               
+0000d5fc b.ne       #0xdc34                                  
+0000d600 bl         #0x2dc0                                  
+0000d604 mov        w20, w0                                  
+0000d608 ldr        w0, [x19, #0x164]                        
+0000d60c add        x22, x22, #0x320                         
+0000d610 bl         #0x2c78                                  
+0000d614 orr        w20, w20, w0                             
+0000d618 bl         #0xd618                                  ('ft_current_pid', 0)
+0000d61c mov        w21, w0                                  
+0000d620 bl         #0xd620                                  ('ft_current_comm', 0)
+0000d624 mov        x3, x0                                   
+0000d628 mov        w2, w21                                  
+0000d62c mov        x1, x22                                  
+0000d630 adrp       x0, #0xd000                              ('', 24728)
+0000d634 add        x0, x0, #0                               ('', 24728)
+0000d638 bl         #0xd638                                  ('printk', 0)
+0000d63c ldr        x0, [x19, #0x100]                        
+0000d640 cbz        x0, #0xdc2c                              
+0000d644 ldr        x1, [x19, #0x2a0]                        
+0000d648 cbz        x1, #0xdc2c                              
+0000d64c ldr        w0, [x19, #0x298]                        
+0000d650 cbz        w0, #0xdc2c                              
+0000d654 adrp       x0, #0xd000                              ('', 10272)
+0000d658 stp        x25, x26, [sp, #0x50]                    
+0000d65c mov        x25, x22                                 
+0000d660 add        x22, x0, #0                              ('', 10272)
+0000d664 mov        w21, #0                                  
+0000d668 stp        x23, x24, [sp, #0x40]                    
+0000d66c ldr        w0, [x19, #0x298]                        
+0000d670 add        x24, x19, #0x288                         
+0000d674 ubfiz      x23, x21, #2, #0x20                      
+0000d678 cmp        w21, w0                                  
+0000d67c b.hs       #0xdc1c                                  
+0000d680 ldr        x0, [x24, #0x18]                         
+0000d684 ldr        x1, [x19, #0x100]                        
+0000d688 ldr        w0, [x0, x23]                            
+0000d68c ldr        w1, [x1, x23]                            
+0000d690 bl         #0x488                                   
+0000d694 ldr        w0, [x19]                                
+0000d698 cbnz       w0, #0xdbe0                              
+0000d69c add        w21, w21, #1                             
+0000d6a0 b          #0xd66c                                  
+
+# rosem_frc.ko c646b45d8ab5028defca91b5f8188bf905b8d29f8927fae292be591c94cdbd34 .text [0x5dd8,0x5f80)
+00005dd8 stp        x29, x30, [sp, #-0x50]!                  
+00005ddc adrp       x0, #0x5000                              ('', 0)
+00005de0 mov        x29, sp                                  
+00005de4 stp        x19, x20, [sp, #0x10]                    
+00005de8 add        x20, x0, #0                              ('', 0)
+00005dec ldr        w1, [x20, #0x44]                         
+00005df0 cmp        w1, #1                                   
+00005df4 b.eq       #0x5e04                                  
+00005df8 ldr        w2, [x20, #0x6c]                         
+00005dfc cmp        w2, #1                                   
+00005e00 b.ne       #0x5e1c                                  
+00005e04 ldr        w19, [x0]                                ('', 0)
+00005e08 cbnz       w19, #0x5f5c                             
+00005e0c mov        w0, w19                                  
+00005e10 ldp        x19, x20, [sp, #0x10]                    
+00005e14 ldp        x29, x30, [sp], #0x50                    
+00005e18 ret                                                 
+00005e1c adrp       x19, #0x5000                             ('', 0)
+00005e20 add        x19, x19, #0                             ('', 0)
+00005e24 stp        x21, x22, [sp, #0x20]                    
+00005e28 bl         #0x5e28                                  ('ft_current_pid', 0)
+00005e2c mov        w21, w0                                  
+00005e30 bl         #0x5e30                                  ('ft_current_comm', 0)
+00005e34 mov        x3, x0                                   
+00005e38 mov        w2, w21                                  
+00005e3c add        x1, x19, #0x8d0                          
+00005e40 adrp       x0, #0x5000                              ('', 10184)
+00005e44 add        x19, x19, #0x8e8                         
+00005e48 add        x0, x0, #0                               ('', 10184)
+00005e4c bl         #0x5e4c                                  ('printk', 0)
+00005e50 str        wzr, [x20, #0x16c]                       
+00005e54 bl         #0x5e54                                  ('ft_current_pid', 0)
+00005e58 mov        w21, w0                                  
+00005e5c bl         #0x5e5c                                  ('ft_current_comm', 0)
+00005e60 mov        w2, w21                                  
+00005e64 mov        x3, x0                                   
+00005e68 mov        x1, x19                                  
+00005e6c adrp       x0, #0x5000                              ('', 10224)
+00005e70 add        x0, x0, #0                               ('', 10224)
+00005e74 bl         #0x5e74                                  ('printk', 0)
+00005e78 ldr        x0, [x20, #0x100]                        
+00005e7c cbz        x0, #0x5edc                              
+00005e80 ldr        x1, [x20, #0x2a0]                        
+00005e84 cbz        x1, #0x5edc                              
+00005e88 ldr        w0, [x20, #0x298]                        
+00005e8c cbz        w0, #0x5edc                              
+00005e90 stp        x23, x24, [sp, #0x30]                    
+00005e94 adrp       x23, #0x5000                             ('', 10272)
+00005e98 add        x23, x23, #0                             ('', 10272)
+00005e9c mov        w21, #0                                  
+00005ea0 ldr        w0, [x20, #0x298]                        
+00005ea4 add        x24, x20, #0x288                         
+00005ea8 ubfiz      x22, x21, #2, #0x20                      
+00005eac cmp        w21, w0                                  
+00005eb0 b.hs       #0x5ed8                                  
+00005eb4 ldr        x0, [x24, #0x18]                         
+00005eb8 ldr        x1, [x20, #0x100]                        
+00005ebc ldr        w0, [x0, x22]                            
+00005ec0 add        x1, x1, x22                              
+00005ec4 bl         #0x780                                   
+00005ec8 ldr        w0, [x20]                                
+00005ecc cbnz       w0, #0x5f18                              
+00005ed0 add        w21, w21, #1                             
+00005ed4 b          #0x5ea0                                  
+00005ed8 ldp        x23, x24, [sp, #0x30]                    
+00005edc mov        w0, #-0xefc0000                          
+00005ee0 ldrh       w1, [x20, #0x68]                         
+00005ee4 bl         #0xe50                                   
+00005ee8 mov        w19, w0                                  
+00005eec ldr        x1, [x20, #0x338]                        
+00005ef0 cbz        x1, #0x5f10                              
+00005ef4 ldr        x1, [x1, #0x430]                         
+00005ef8 cbz        x1, #0x5f10                              
+00005efc mov        w0, #1                                   
+00005f00 blr        x1                                       
+00005f04 orr        w19, w19, w0                             
+00005f08 ldp        x21, x22, [sp, #0x20]                    
+00005f0c b          #0x5e0c                                  
+00005f10 ldp        x21, x22, [sp, #0x20]                    
+00005f14 b          #0x5e0c                                  
+00005f18 str        x25, [sp, #0x40]                         
+00005f1c bl         #0x5f1c                                  ('ft_current_pid', 0)
+00005f20 mov        w25, w0                                  
+00005f24 bl         #0x5f24                                  ('ft_current_comm', 0)
+00005f28 ldr        x1, [x24, #0x18]                         
+00005f2c mov        w2, w25                                  
+00005f30 ldr        x6, [x20, #0x100]                        
+00005f34 mov        x3, x0                                   
+00005f38 ldr        w5, [x1, x22]                            
+00005f3c mov        w4, w21                                  
+00005f40 mov        x0, x23                                  
+00005f44 mov        x1, x19                                  
+00005f48 ldr        w6, [x6, x22]                            
+00005f4c add        w21, w21, #1                             
+00005f50 bl         #0x5f50                                  ('printk', 0)
+00005f54 ldr        x25, [sp, #0x40]                         
+00005f58 b          #0x5ea0                                  
+00005f5c ldr        w2, [x20, #0x6c]                         
+00005f60 adrp       x3, #0x5000                              ('', 0)
+00005f64 add        x3, x3, #0                               ('', 0)
+00005f68 adrp       x0, #0x5000                              ('', 792)
+00005f6c add        x3, x3, #0x8d0                           
+00005f70 mov        w19, #0                                  
+00005f74 add        x0, x0, #0                               ('', 792)
+00005f78 bl         #0x5f78                                  ('printk', 0)
+00005f7c b          #0x5e0c                                  

@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ HASH_START'\nsha256sum /lib/modules/5.4.261/kernel/soc/sdp_ocl_jp.ko\necho '@@ DATA'\ndd if=/lib/modules/5.4.261/kernel/soc/sdp_ocl_jp.ko bs=32768 skip=8 count=1 2>/dev/null | base64\necho '@@ HASH_END'\nsha256sum /lib/modules/5.4.261/kernel/soc/sdp_ocl_jp.ko\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "3c4e6ac7a172ae50a7831135f74420c0d0c5e04dde7ec2ed12ca78506a0869dd",
+  "purpose": "Finite fixed-module passive copy; no load/callback/getter/control/trace; no retry; physical panel unobserved.",
+  "started_utc": "2026-10-26T20:17:18.870031+00:00"
+}

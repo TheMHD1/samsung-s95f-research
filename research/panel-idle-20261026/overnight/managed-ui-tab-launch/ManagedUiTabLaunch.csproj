@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>ManagedUiTabLaunch</AssemblyName>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseAppHost>false</UseAppHost>
+    <DebugType>none</DebugType>
+    <Deterministic>true</Deterministic>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="inspection/**/*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Tizen.Applications.Common">
+      <HintPath>${S95F_EVIDENCE_ROOT}/live-cast/framework/Tizen.Applications.Common.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Tizen">
+      <HintPath>${S95F_EVIDENCE_ROOT}/live-cast/framework/Tizen.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Tizen.Log">
+      <HintPath>${S95F_EVIDENCE_ROOT}/live-cast/framework/Tizen.Log.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "cat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndmesg | grep -Ei \"Fac_ss|ss_brightness|screen saver brightness|SetFactoryData|ERR DET|Fault Occurred|turn off TCON|turn on TCON|panel.*dpms\" | tail -n 100",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n5562.77 20474.36\n[ 5520.926508] [TCON:QDF] QDFTcon_SetFactoryData[1085:TIFSDaemon]: UID:[20505], Value:[0]\n[ 5520.926519] [TCON:QDF] m_set_ss_brightness[1085:TIFSDaemon]: screen saver brightness : 0\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

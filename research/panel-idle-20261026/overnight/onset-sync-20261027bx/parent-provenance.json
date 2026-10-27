@@ -1,0 +1,47 @@
+{
+  "changes": [
+    [
+      "internal static class Program",
+      "internal static partial class Program"
+    ],
+    [
+      "public readonly Capture Initial = new();",
+      "public readonly Capture Initial = new();"
+    ],
+    [
+      "public string Schema { get; set; } = \"managed-usb-rt-passive-observer-v1\";",
+      "public string Schema { get; set; } = \"managed-usb-rt-synchronized-key-v1\";"
+    ],
+    [
+      "static Outcome Run(IOps ops, IClock clock, Config config)",
+      "static Outcome Run(IOps ops, IClock clock, Config config, IIntervention? intervention = null)"
+    ],
+    [
+      "buffers.LastClean.CopyFrom(buffers.Current, \"last-clean\"); buffers.Current.Clear();",
+      "buffers.LastClean.CopyFrom(buffers.Current, \"last-clean\"); buffers.Current.Clear();"
+    ],
+    [
+      "string? endError = null; result.EndUs = Stamp(clock, ref endError); result.Error ??= endError;",
+      "if (intervention != null)"
+    ],
+    [
+      "buffers.LastClean, buffers.Initial, buffers.Transition, buffers.PostFault, buffers.Current",
+      "buffers.TriggerBaseline, buffers.LastClean, buffers.Initial, buffers.Transition, buffers.PostFault, buffers.Current"
+    ],
+    [
+      "if (args.Length == 1 && args[0] == \"--self-test\") return SelfTest();",
+      "if (args.Length == 1 && args[0] == \"--self-test\") return SelfTest();"
+    ],
+    [
+      "Outcome outcome = Run(new RealOps(), new RealClock(), new Config());",
+      "Outcome outcome = Run(new RealOps(), new RealClock(), new Config(), new OneLeft(new RealKeyOps()));"
+    ],
+    [
+      "schema = \"managed-usb-rt-passive-observer-dry-v1\", dryRun = true,",
+      "schema = \"managed-usb-rt-synchronized-key-dry-v1\", intervention = \"one Left down/up after first complete clean cycle\", dryRun = true,"
+    ]
+  ],
+  "parent": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-usb-rt-passive-observer/Program.cs",
+  "sha256": "0edd0363c0969e3abc1d69c9116e2b06c9414632a069a78a767379f1cd19887e",
+  "target_operations": 0
+}

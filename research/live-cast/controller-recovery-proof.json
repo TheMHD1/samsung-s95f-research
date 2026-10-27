@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "echo SESSION; id -u; test ! -d /proc/22709; echo HOME_HASHES; sha256sum /opt/usr/apps/com.samsung.tv.ContentsBrowser/shared/res/CompTerra.dll /opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompHome.dll; echo ANALYTICS_STATUS; systemctl show media-analytics-service.service -p ActiveState -p SubState -p Result -p ExecMainCode -p ExecMainStatus -p ExecMainExitTimestamp -p NRestarts; echo CORE; systemctl is-active muse-server.service connman.service source-service.service pulseaudio.service com.samsung.tv.airplay-service-2.service com.samsung.tv.googlecast-service.service",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "SESSION\n0\nHOME_HASHES\nb085608b9da114f46b4cf162d9faf73f552fb5fe27d74cb37f8b6edc3ddf9c4f  /opt/usr/apps/com.samsung.tv.ContentsBrowser/shared/res/CompTerra.dll\na459badb5665b6c1b60da459f4676cff0da1d231e63381fe83695331a4a4cade  /opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompHome.dll\nANALYTICS_STATUS\nResult=success\nNRestarts=0\nExecMainExitTimestamp=\nExecMainCode=0\nExecMainStatus=0\nActiveState=active\nSubState=running\nCORE\nactive\nactive\nactive\nactive\nactive\nactive\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

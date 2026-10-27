@@ -1,0 +1,48 @@
+{
+  "address_convention": "image1 FILE = linked VA + 0x40200",
+  "limitations": [
+    "The qualified 64-byte read proves visibility only, not freshness or stability of the full region.",
+    "Static package evidence does not establish running-image identity.",
+    "A successful opaque full read does not prove log validity, formatter activity, record boundaries, or fault causality."
+  ],
+  "no_live_io": true,
+  "qualified_header_read": {
+    "accepted": true,
+    "address": "0x20200000",
+    "length": 64,
+    "payload_sha256": "c3adf13d0ea6ae4678758c97de3639dfcb068eca1e92fdb089d9212f3be020b4",
+    "record_sha256": "6bdf6ef5ae71915763f4aa38022184fd80c95c9795a5d89a878aa61e5133be59",
+    "scope": "This proves direct read visibility for the sampled 64-byte header only.",
+    "stdout_sha256": "fe08a1079175b24a6a1a2effc205ee53aeea572f5cabc0579de9c1ab707b11a3"
+  },
+  "request_candidate": {
+    "address": "0x20200000",
+    "extent": {
+      "metadata_bytes": 12,
+      "ring_bytes": 15360,
+      "total_bytes": 15372
+    },
+    "header_hex": "01010000000020200c3c0000",
+    "length": 15372,
+    "response_geometry": "30*512+12",
+    "target": "0x101",
+    "usb_max_packet": 512
+  },
+  "schema": "secondary-event-log-evidence-input-v1",
+  "source_package": {
+    "name": "F_RSM1_BN9659934B_COMMON.bin",
+    "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0",
+    "size": 5242880
+  },
+  "static_evidence": {
+    "flag_address": "0x20200008",
+    "index_address": "0x20200000",
+    "mapper_changes_candidate": false,
+    "mapper_range": "[0x20000000,0x20200000)",
+    "report_source_sha256": "83d499bd9a44fd602b0211491521774f4fc53c86765fc3bb437386cd7fedcc6f",
+    "ring_end_inclusive": "0x20203c0b",
+    "ring_length": 15360,
+    "ring_start": "0x2020000c",
+    "verifier_source_sha256": "a82bdb61e7ff94e412a9c0304fef61f0819c157bcdca37503243c5fd98eb5ded"
+  }
+}

@@ -1,0 +1,39 @@
+TYPE AutoLayout, AnsiClass, Class, Public, Serializable, BeforeFieldInit Tizen.TV.Service.CoBA.BPI.TableElement : Tizen.TV.Service.CoBA.Common.TableBase
+ FIELD 04000007 Private Int32 <entityUID>k__BackingField
+ FIELD 04000008 Private String <elementID>k__BackingField
+ FIELD 04000009 Private String <UIJson>k__BackingField
+ FIELD 0400000a Private Boolean <elementFocusable>k__BackingField
+ FIELD 0400000b Private Int32 <menuItemCount>k__BackingField
+ FIELD 0400000c Private String <childMenuItemList>k__BackingField
+ METHOD 06000008 PrivateScope, Public, HideBySig, SpecialName Int32 get_entityUID()
+ METHOD 06000009 PrivateScope, Public, HideBySig, SpecialName Void set_entityUID(Int32)
+ METHOD 0600000a PrivateScope, Public, HideBySig, SpecialName String get_elementID()
+ METHOD 0600000b PrivateScope, Public, HideBySig, SpecialName Void set_elementID(String)
+ METHOD 0600000c PrivateScope, Public, HideBySig, SpecialName String get_UIJson()
+ METHOD 0600000d PrivateScope, Public, HideBySig, SpecialName Void set_UIJson(String)
+ METHOD 0600000e PrivateScope, Public, HideBySig, SpecialName Boolean get_elementFocusable()
+ METHOD 0600000f PrivateScope, Public, HideBySig, SpecialName Void set_elementFocusable(Boolean)
+ METHOD 06000010 PrivateScope, Public, HideBySig, SpecialName Int32 get_menuItemCount()
+ METHOD 06000011 PrivateScope, Public, HideBySig, SpecialName Void set_menuItemCount(Int32)
+ METHOD 06000012 PrivateScope, Public, HideBySig, SpecialName String get_childMenuItemList()
+ METHOD 06000013 PrivateScope, Public, HideBySig, SpecialName Void set_childMenuItemList(String)
+ METHOD 06000014 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit Tizen.TV.Service.CoBA.BPI.Element : System.Object
+ FIELD 04000023 Private String <ElementID>k__BackingField
+ FIELD 04000024 Private Tizen.TV.Service.CoBA.BPI.Entity <Parent>k__BackingField
+ FIELD 04000025 Private Boolean <Focusable>k__BackingField
+ FIELD 04000026 Private String <UIJson>k__BackingField
+ FIELD 04000027 Private System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.BPI.MenuItem> menu
+ METHOD 06000043 PrivateScope, Public, HideBySig, SpecialName String get_ElementID()
+ METHOD 06000044 PrivateScope, Public, HideBySig, SpecialName Void set_ElementID(String)
+ METHOD 06000045 PrivateScope, Public, HideBySig, SpecialName Tizen.TV.Service.CoBA.BPI.Entity get_Parent()
+ METHOD 06000046 PrivateScope, Private, HideBySig, SpecialName Void set_Parent(Tizen.TV.Service.CoBA.BPI.Entity)
+ METHOD 06000047 PrivateScope, Public, HideBySig, SpecialName Boolean get_Focusable()
+ METHOD 06000048 PrivateScope, Public, HideBySig, SpecialName Void set_Focusable(Boolean)
+ METHOD 06000049 PrivateScope, Public, HideBySig, SpecialName String get_UIJson()
+ METHOD 0600004a PrivateScope, Public, HideBySig, SpecialName Void set_UIJson(String)
+ METHOD 0600004b PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.BPI.MenuItem> get_Menu()
+ METHOD 0600004c PrivateScope, Public, HideBySig, SpecialName Void set_Menu(System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.BPI.MenuItem>)
+ METHOD 0600004d PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 0600004e PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(.Attribute)
+ METHOD 0600004f PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract Void Update()

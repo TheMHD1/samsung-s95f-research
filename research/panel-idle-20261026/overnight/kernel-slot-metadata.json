@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "cat /proc/cmdline\nls -l /dev/mmcblk0p5 /dev/mmcblk0p6\ncat /sys/class/block/mmcblk0p5/uevent /sys/class/block/mmcblk0p6/uevent",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "dtsversion=13781814_1_rosem-2.75G-oc root=/dev/mmcblk0p19 init=/sbin/init rootfstype=vdfs ro console=ttyS3,115200N8 rs232=1 SELP_ENABLE=20257676 onboot_ver=13774418 rootwait no_console_suspend earlycon sdp-soc sdp_sparsemem main quiet trace_event=early_event,user ffinfo=00000401 beinfo=00001301 model=4koc product=tv pba_none           \nbrw-rw---- 1 owner disk 179, 5 2026-10-25 21:33 /dev/mmcblk0p5\nbrw-rw---- 1 owner disk 179, 6 2026-10-25 21:33 /dev/mmcblk0p6\nMAJOR=179\nMINOR=5\nDEVNAME=mmcblk0p5\nDEVTYPE=partition\nPARTN=5\nPARTNAME=uImage\nMAJOR=179\nMINOR=6\nDEVNAME=mmcblk0p6\nDEVTYPE=partition\nPARTN=6\nPARTNAME=uImage\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

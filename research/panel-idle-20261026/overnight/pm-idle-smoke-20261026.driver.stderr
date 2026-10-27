@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 770, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 766, in main
+    run_capture(args.label, args.seconds, smoke_unobserved=args.smoke_unobserved)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 708, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-preroll-onset-capture.py", line 625, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-branch-onset-capture.py", line 544, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1197, in run_capture
+    manifest = parse_manifest(fetch_collector_transport(label, destination))
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 737, in parse_manifest
+    require(lines and lines[-1] == "CAPTURE_COMPLETE", "capture completion missing")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 84, in require
+    raise ValueError(message)
+ValueError: capture completion missing

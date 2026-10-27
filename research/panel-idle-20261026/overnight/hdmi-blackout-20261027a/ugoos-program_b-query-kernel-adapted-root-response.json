@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndmesg | awk -F '[][]' 'NF>1 {t=$2+0; if(!have){first=t;have=1};last=t;if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)){if(n<80)print;n++}} END{print \"RING_FIRST\",first,\"RING_LAST\",last,\"MATCHING_ROWS\",n+0}'\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n90788.17 339830.48\n[90686.406468] [TCON:QDF] QDFTcon_GetErrDetStatus[23379:TconStatusRead.]: ERR DET Status:0x0\nRING_FIRST 90615.6 RING_LAST 90788.4 MATCHING_ROWS 1\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

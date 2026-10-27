@@ -1,0 +1,69 @@
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/kernel-export-view.elf:     file format elf64-littleaarch64
+
+
+Disassembly of section .image:
+
+00000000003c22b0 <gpiod_set_transitory>:
+  3c22b0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+  3c22b4:	d00024a2 	adrp	x2, 858000 <font_vga_8x16+0x23b8>
+  3c22b8:	9125c042 	add	x2, x2, #0x970
+  3c22bc:	910003fd 	mov	x29, sp
+  3c22c0:	a90153f3 	stp	x19, x20, [sp, #16]
+  3c22c4:	12001c34 	and	w20, w1, #0xff
+  3c22c8:	aa0003f3 	mov	x19, x0
+  3c22cc:	910f0041 	add	x1, x2, #0x3c0
+  3c22d0:	97fff930 	bl	3c0790 <gpiod_to_irq+0xd8>
+  3c22d4:	7100001f 	cmp	w0, #0x0
+  3c22d8:	540001ad 	b.le	3c230c <gpiod_set_transitory+0x5c>
+  3c22dc:	91002260 	add	x0, x19, #0x8
+  3c22e0:	340001d4 	cbz	w20, 3c2318 <gpiod_set_transitory+0x68>
+  3c22e4:	14000013 	b	3c2330 <gpiod_set_transitory+0x80>
+  3c22e8:	14000012 	b	3c2330 <gpiod_set_transitory+0x80>
+  3c22ec:	d2820001 	mov	x1, #0x1000                	// #4096
+  3c22f0:	f821301f 	stset	x1, [x0]
+  3c22f4:	f9400261 	ldr	x1, [x19]
+  3c22f8:	f941b820 	ldr	x0, [x1, #880]
+  3c22fc:	f9403403 	ldr	x3, [x0, #104]
+  3c2300:	b50002c3 	cbnz	x3, 3c2358 <gpiod_set_transitory+0xa8>
+  3c2304:	d503201f 	nop
+  3c2308:	52800000 	mov	w0, #0x0                   	// #0
+  3c230c:	a94153f3 	ldp	x19, x20, [sp, #16]
+  3c2310:	a8c27bfd 	ldp	x29, x30, [sp], #32
+  3c2314:	d65f03c0 	ret
+  3c2318:	1400001c 	b	3c2388 <gpiod_set_transitory+0xd8>
+  3c231c:	1400001b 	b	3c2388 <gpiod_set_transitory+0xd8>
+  3c2320:	d2820001 	mov	x1, #0x1000                	// #4096
+  3c2324:	91002262 	add	x2, x19, #0x8
+  3c2328:	f821105f 	stclr	x1, [x2]
+  3c232c:	14000007 	b	3c2348 <gpiod_set_transitory+0x98>
+  3c2330:	91002262 	add	x2, x19, #0x8
+  3c2334:	f9800051 	prfm	pstl1strm, [x2]
+  3c2338:	c85f7c40 	ldxr	x0, [x2]
+  3c233c:	b2740000 	orr	x0, x0, #0x1000
+  3c2340:	c8017c40 	stxr	w1, x0, [x2]
+  3c2344:	35ffffa1 	cbnz	w1, 3c2338 <gpiod_set_transitory+0x88>
+  3c2348:	f9400261 	ldr	x1, [x19]
+  3c234c:	f941b820 	ldr	x0, [x1, #880]
+  3c2350:	f9403403 	ldr	x3, [x0, #104]
+  3c2354:	b4fffda3 	cbz	x3, 3c2308 <gpiod_set_transitory+0x58>
+  3c2358:	f941bc21 	ldr	x1, [x1, #888]
+  3c235c:	52000294 	eor	w20, w20, #0x1
+  3c2360:	528002c2 	mov	w2, #0x16                  	// #22
+  3c2364:	cb010261 	sub	x1, x19, x1
+  3c2368:	2a142042 	orr	w2, w2, w20, lsl #8
+  3c236c:	d3459021 	ubfx	x1, x1, #5, #32
+  3c2370:	d63f0060 	blr	x3
+  3c2374:	3108301f 	cmn	w0, #0x20c
+  3c2378:	54fffc80 	b.eq	3c2308 <gpiod_set_transitory+0x58>  // b.none
+  3c237c:	a94153f3 	ldp	x19, x20, [sp, #16]
+  3c2380:	a8c27bfd 	ldp	x29, x30, [sp], #32
+  3c2384:	d65f03c0 	ret
+  3c2388:	91002263 	add	x3, x19, #0x8
+  3c238c:	d2820000 	mov	x0, #0x1000                	// #4096
+  3c2390:	f9800071 	prfm	pstl1strm, [x3]
+  3c2394:	c85f7c61 	ldxr	x1, [x3]
+  3c2398:	8a200021 	bic	x1, x1, x0
+  3c239c:	c8027c61 	stxr	w2, x1, [x3]
+  3c23a0:	35ffffa2 	cbnz	w2, 3c2394 <gpiod_set_transitory+0xe4>
+  3c23a4:	17ffffe9 	b	3c2348 <gpiod_set_transitory+0x98>

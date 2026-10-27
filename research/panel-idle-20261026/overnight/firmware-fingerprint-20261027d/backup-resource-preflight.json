@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndf -k /tmp\ncat /proc/meminfo\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n102978.16 384842.51\nFilesystem           1K-blocks      Used Available Use% Mounted on\ntmpfs                   977552      7060    970492   1% /tmp\nMemTotal:        1955108 kB\nMemFree:          113172 kB\nMemAvailable:     379164 kB\nBuffers:            5872 kB\nCached:           312776 kB\nSwapCached:         1140 kB\nActive:           424684 kB\nInactive:         312396 kB\nActive(anon):     200104 kB\nInactive(anon):   224852 kB\nActive(file):     224580 kB\nInactive(file):    87544 kB\nUnevictable:        5516 kB\nMlocked:            5516 kB\nDMA32Total:      1582372 kB\nDMA32Free:         61100 kB\nNormalTotal:           0 kB\nNormal Free:           0 kB\nSwapTotal:       1270400 kB\nSwapFree:          97624 kB\nDirty:                76 kB\nWriteback:             0 kB\nAnonPages:        422840 kB\nMapped:           131576 kB\nShmem:              3396 kB\nKReclaimable:      23740 kB\nSlab:             167188 kB\nSReclaimable:      23740 kB\nSUnreclaim:       143448 kB\nKernelStack:       40672 kB\nOn-demandKStack:       0 kB\nPageTables:        53268 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:     2247952 kB\nCommitted_AS:   15199996 kB\nPercpu:             1184 kB\nCmaTotal:         372736 kB\nCmaFree:           52072 kB\nCmaUsed-DMA:        2048 kB\nCmaUsed-USER:     318616 kB\nzram0: 1172780 kB OrigDataSize, 293205 kB ComprDataSize, 311428 kB MemUsedTotal\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

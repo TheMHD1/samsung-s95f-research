@@ -1,0 +1,436 @@
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentFileManager : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.CoBA.Core.ComponentFileManager>
+ FIELD 04000047 Private, Static, InitOnly String FILENAME_CACHE
+ FIELD 04000048 Private System.Collections.Generic.Dictionary`2<String,System.Collections.Generic.List`1<String>> dic
+ FIELD 04000049 Private System.Collections.Generic.List`1<String> listCache
+ FIELD 0400004a Private Object diclock
+ FIELD 0400004b Private Object objectReq
+ FIELD 0400004c Private Int32 indexReq
+ METHOD 0600002f PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000030 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 06000031 PrivateScope, Public, HideBySig Void Finish()
+ METHOD 06000032 PrivateScope, Public, HideBySig System.Collections.Generic.List`1<String> Files(String,String,Boolean)
+ METHOD 06000033 PrivateScope, Public, HideBySig Void Delete(String)
+ METHOD 06000034 PrivateScope, Private, HideBySig Void m_Load()
+ METHOD 06000035 PrivateScope, Private, HideBySig Void m_Save()
+ METHOD 06000036 PrivateScope, Private, HideBySig Void RequestCheck(String,Boolean)
+ METHOD 06000037 PrivateScope, Private, HideBySig Void CompareAndSave(String,Boolean)
+ METHOD 06000038 PrivateScope, Private, HideBySig Boolean Equal(System.Collections.Generic.List`1<String>,System.Collections.Generic.List`1<String>)
+ METHOD 06000039 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit Tizen.TV.Service.CoBA.Core.Component : Tizen.TV.Service.CoBA.BPI.Entity
+ FIELD 040000ba Private .SubMenu <MenuOption>k__BackingField
+ FIELD 040000bb Private Object <Node>k__BackingField
+ FIELD 040000bc Private Tizen.TV.Service.CoBA.Core.Component <Parent>k__BackingField
+ FIELD 040000bd Public .Status status
+ FIELD 040000be FamORAssem Tizen.TV.Service.CoBA.Core.ComponentControl m_control
+ FIELD 040000bf Private Tizen.TV.Service.CoBA.Core.ComponentBase m_base
+ FIELD 040000c0 Family Boolean LaunchAppOnSelect
+ FIELD 040000c1 Private Object userdata
+ FIELD 040000c2 Private Boolean flagInsert
+ FIELD 040000c3 Private Tizen.TV.Service.CoBA.Core.Component prevComponent
+ FIELD 040000c4 Public Boolean PriorityLoad
+ FIELD 040000c5 Assembly, Static Int64 LastFocuseTime
+ FIELD 040000c6 Public Boolean IsVirtual
+ FIELD 040000c7 Private Int32 <CompPriority>k__BackingField
+ FIELD 040000c8 Public Int32 LoadDepth
+ FIELD 040000c9 Public Boolean Valid
+ FIELD 040000ca Public Boolean ForceFullLoad
+ FIELD 040000cb Assembly, Static System.Collections.Generic.List`1<System.Threading.Thread> listThread
+ FIELD 040000cc Assembly, Static System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component> listUpdateComponent
+ FIELD 040000cd Assembly, Static Tizen.TV.Service.CoBA.Core.Component focusComponent
+ FIELD 040000ce Assembly, Static Int32 minPriority
+ FIELD 040000cf Assembly, Static Int32 updateCount
+ FIELD 040000d0 Assembly, Static Object updateCountLock
+ METHOD 06000100 PrivateScope, Public, HideBySig, SpecialName .SubMenu get_MenuOption()
+ METHOD 06000101 PrivateScope, Family, HideBySig, SpecialName Void set_MenuOption(.SubMenu)
+ METHOD 06000102 PrivateScope, Public, HideBySig, SpecialName Object get_Node()
+ METHOD 06000103 PrivateScope, Family, HideBySig, SpecialName Void set_Node(Object)
+ METHOD 06000104 PrivateScope, Public, HideBySig, SpecialName Tizen.TV.Service.CoBA.Core.Component get_Parent()
+ METHOD 06000105 PrivateScope, Family, HideBySig, SpecialName Void set_Parent(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000106 PrivateScope, Public, HideBySig, SpecialName Int32 get_CompPriority()
+ METHOD 06000107 PrivateScope, Family, HideBySig, SpecialName Void set_CompPriority(Int32)
+ METHOD 06000108 PrivateScope, Family, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String,String)
+ METHOD 06000109 PrivateScope, Family, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600010a PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Boolean WantToFocus(Int32&)
+ METHOD 0600010b PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Boolean WantToAddApp(Int32&,String)
+ METHOD 0600010c PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void AddApp(String)
+ METHOD 0600010d PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Boolean WantToAddSource(Int32&,String)
+ METHOD 0600010e PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void AddSource(String,.AddToHomeFrom)
+ METHOD 0600010f PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void AddSourceBG(String,.AddToHomeFrom)
+ METHOD 06000110 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask .Preloading WantToPreload()
+ METHOD 06000111 PrivateScope, Public, HideBySig Void SetStatus(.Status)
+ METHOD 06000112 PrivateScope, Public, HideBySig .Status GetStatus()
+ METHOD 06000113 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void SetUserData(Object)
+ METHOD 06000114 PrivateScope, Public, HideBySig Object UserData()
+ METHOD 06000115 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Boolean WantToMaintainLastFocus()
+ METHOD 06000116 PrivateScope, Assembly, HideBySig Boolean GetComponents(String,System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component>,Int32,Int32)
+ METHOD 06000117 PrivateScope, Public, HideBySig Boolean GetComponents(String,System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component>,Int32)
+ METHOD 06000118 PrivateScope, Public, HideBySig Object AddItem()
+ METHOD 06000119 PrivateScope, Assembly, HideBySig Object ForceAddItem()
+ METHOD 0600011a PrivateScope, Public, HideBySig Object InsertItem(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600011b PrivateScope, Public, HideBySig Void ReplaceItem(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600011c PrivateScope, Public, HideBySig Tizen.TV.Service.CoBA.Core.Component Child(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600011d PrivateScope, Public, HideBySig Tizen.TV.Service.CoBA.Core.Component Child(String)
+ METHOD 0600011e PrivateScope, Public, HideBySig System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component> ChildAll()
+ METHOD 0600011f PrivateScope, Public, HideBySig System.Collections.Generic.List`1<String> CacheList()
+ METHOD 06000120 PrivateScope, Public, HideBySig Int32 Position(Tizen.TV.Service.CoBA.Core.Component,Boolean)
+ METHOD 06000121 PrivateScope, Public, HideBySig Int32 VisibleChildCount()
+ METHOD 06000122 PrivateScope, Public, HideBySig Void UpdateAll()
+ METHOD 06000123 PrivateScope, Public, HideBySig Void UpdateItem()
+ METHOD 06000124 PrivateScope, Public, HideBySig Void SetFocus()
+ METHOD 06000125 PrivateScope, Public, HideBySig Boolean IsVisible()
+ METHOD 06000126 PrivateScope, Public, HideBySig Void RemoveChild(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000127 PrivateScope, Public, HideBySig Void RemoveChildAll()
+ METHOD 06000128 PrivateScope, Public, HideBySig Void ReloadChild()
+ METHOD 06000129 PrivateScope, Public, HideBySig Void ClearChild()
+ METHOD 0600012a PrivateScope, Public, Static, HideBySig String ComponentID(String,String)
+ METHOD 0600012b PrivateScope, Public, HideBySig Void RequestCreateSubComponents(String[],Boolean)
+ METHOD 0600012c PrivateScope, Public, HideBySig Void Run(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600012d PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Run(Int32)
+ METHOD 0600012e PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void OnExit()
+ METHOD 0600012f PrivateScope, Public, HideBySig String Address()
+ METHOD 06000130 PrivateScope, Public, HideBySig Int32 Depth()
+ METHOD 06000131 PrivateScope, Public, Static, HideBySig Void SeperateComponentID(String,String&,String&)
+ METHOD 06000132 PrivateScope, Public, Virtual, HideBySig Void OnShow()
+ METHOD 06000133 PrivateScope, Public, Virtual, HideBySig Void OnShow(Int32)
+ METHOD 06000134 PrivateScope, Public, Virtual, HideBySig Void OnHide()
+ METHOD 06000135 PrivateScope, Public, Virtual, HideBySig Void OnFocused(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 06000136 PrivateScope, Public, Virtual, HideBySig Void OnUnfocused(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 06000137 PrivateScope, Private, HideBySig String JsonPerf(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 06000138 PrivateScope, Public, Virtual, HideBySig Void OnSelected(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 06000139 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void OnVoiceCommand(String)
+ METHOD 0600013a PrivateScope, Public, HideBySig Void UpdateElements()
+ METHOD 0600013b PrivateScope, Assembly, Static, HideBySig Int32 UpdateCount()
+ METHOD 0600013c PrivateScope, Assembly, HideBySig Void ChangeParent(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600013d PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.BPI.Entity FocusedEntity()
+ METHOD 0600013e PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String ContentType()
+ METHOD 0600013f PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String ContentInfo()
+ METHOD 06000140 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String AcceleratorSectionInfo()
+ METHOD 06000141 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String AcceleratorType()
+ METHOD 06000142 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String AcceleratorInfo()
+ METHOD 06000143 PrivateScope, Public, HideBySig Void AcceleratorTileCount(Int32&)
+ METHOD 06000144 PrivateScope, Public, HideBySig Void GetAcceleratorTilePositionIndex(Int32&)
+ METHOD 06000145 PrivateScope, Public, HideBySig Boolean PositionIndex(Int32&,String&,Int32&)
+ METHOD 06000146 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String VoiceName()
+ METHOD 06000147 PrivateScope, Public, HideBySig String DebugInfo(Int32)
+ METHOD 06000148 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String[] AppList()
+ METHOD 06000149 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.Collections.Generic.List`1<String> Components()
+ METHOD 0600014a PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void OnChildEvent(.ChildEvent,Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600014b PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 0600014c PrivateScope, Private, HideBySig Void <UpdateElements>b__90_0()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentAppLayerBase : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000d1 Public, Static, InitOnly String CLASS_ID
+ METHOD 0600014d PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String,String)
+ METHOD 0600014e PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void ReloadSmartHub(Boolean)
+ METHOD 0600014f PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Boolean AddComponent(String,Boolean,Object)
+ METHOD 06000150 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void RemoveComponent(String)
+ METHOD 06000151 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void RenameComponent(String,String)
+ METHOD 06000152 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void MoveComponent(Int32,Int32)
+ METHOD 06000153 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Int32 LauncherTileCount()
+ METHOD 06000154 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Tizen.TV.Service.CoBA.Core.Component InsertComponent(String,String,Boolean,Object)
+ METHOD 06000155 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void ReloadAppLayer(System.Collections.Generic.List`1<String>)
+ METHOD 06000156 PrivateScope, Assembly, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000157 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Abstract, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentBase : System.Object
+ FIELD 040000d2 Family Tizen.TV.Service.CoBA.Core.Component m_component
+ METHOD 06000158 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000159 PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Boolean AddItem(Object&,Boolean)
+ METHOD 0600015a PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Boolean InsertItem(Tizen.TV.Service.CoBA.Core.Component,Object&)
+ METHOD 0600015b PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Void ReplaceItem(Tizen.TV.Service.CoBA.Core.Component,Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600015c PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Void RunToAddItem(Int32)
+ METHOD 0600015d PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Void RunToInsertItem(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600015e PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Void UpdateItem()
+ METHOD 0600015f PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Void ClearChild()
+ METHOD 06000160 PrivateScope, Assembly, Virtual, HideBySig, VtableLayoutMask, CheckAccessOnOverride, Abstract Void ReloadChild()
+ METHOD 06000161 PrivateScope, Assembly, HideBySig Int32 Depth()
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentBaseCoBA1 : Tizen.TV.Service.CoBA.Core.ComponentBase
+ METHOD 06000162 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000163 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Boolean AddItem(Object&,Boolean)
+ METHOD 06000164 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Boolean InsertItem(Tizen.TV.Service.CoBA.Core.Component,Object&)
+ METHOD 06000165 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void ReplaceItem(Tizen.TV.Service.CoBA.Core.Component,Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000166 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void RunToAddItem(Int32)
+ METHOD 06000167 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void RunToInsertItem(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000168 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void UpdateItem()
+ METHOD 06000169 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void ReloadChild()
+ METHOD 0600016a PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void ClearChild()
+ METHOD 0600016b PrivateScope, Private, HideBySig Boolean CheckMainThread(Boolean)
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentBaseCoBA2 : Tizen.TV.Service.CoBA.Core.ComponentBase
+ METHOD 0600016c PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600016d PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Boolean AddItem(Object&,Boolean)
+ METHOD 0600016e PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Boolean InsertItem(Tizen.TV.Service.CoBA.Core.Component,Object&)
+ METHOD 0600016f PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void ReplaceItem(Tizen.TV.Service.CoBA.Core.Component,Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000170 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void RunToAddItem(Int32)
+ METHOD 06000171 PrivateScope, Private, HideBySig Void InvokeAddItem()
+ METHOD 06000172 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void RunToInsertItem(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000173 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void UpdateItem()
+ METHOD 06000174 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void ReloadChild()
+ METHOD 06000175 PrivateScope, Assembly, Virtual, HideBySig, CheckAccessOnOverride Void ClearChild()
+ METHOD 06000176 PrivateScope, Private, HideBySig Void ReloadVirtualComponent()
+ METHOD 06000177 PrivateScope, Private, HideBySig Void OrganizeRemovedComponents(System.Collections.Generic.List`1<String>)
+ METHOD 06000178 PrivateScope, Private, HideBySig Void OrganizeAddComponents(System.Collections.Generic.List`1<String>)
+ METHOD 06000179 PrivateScope, Private, HideBySig Void AddToParent()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentCache : System.Object
+ FIELD 040000d3 Family Tizen.TV.Service.CoBA.Core.Component m_component
+ METHOD 0600017a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600017b PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600017c PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentControl : System.Object
+ FIELD 040000d4 Public System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component> listComponent
+ FIELD 040000d5 Private UInt32 ticketToAddNewComponent
+ FIELD 040000d6 Private Tizen.TV.Service.CoBA.Core.ComponentCache m_list
+ FIELD 040000d7 Private Object m_parentNode
+ FIELD 040000d8 Private System.Collections.Generic.List`1<String> requestedSubCompListToThread
+ FIELD 040000d9 Family Tizen.TV.Service.CoBA.Core.Component m_component
+ FIELD 040000da Private System.Collections.Generic.List`1<String> cacheList
+ FIELD 040000db Private, Static, Literal, HasDefault String PREFIX_EXTRA_SECTIONS
+ FIELD 040000dc Private, Static System.Collections.Generic.List`1<.Object> listObj
+ METHOD 0600017d PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,Tizen.TV.Service.CoBA.Core.ComponentCache)
+ METHOD 0600017e PrivateScope, Public, HideBySig Void GenerateItem()
+ METHOD 0600017f PrivateScope, Public, HideBySig Void RemoveChild(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000180 PrivateScope, Public, HideBySig Void RequestCreateSubComponents(String[],Boolean)
+ METHOD 06000181 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void OnAddComponent(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000182 PrivateScope, Private, HideBySig Void RemoveAllChildComponents()
+ METHOD 06000183 PrivateScope, Private, HideBySig Void ReplaceSection(String[]&)
+ METHOD 06000184 PrivateScope, Private, HideBySig Void OrganizeRemovedComponents(String[]&)
+ METHOD 06000185 PrivateScope, Private, HideBySig System.Collections.Generic.List`1<String> OrganizeAddComponents(String[]&)
+ METHOD 06000186 PrivateScope, Private, HideBySig Void OrganizeMovedComponents(String[]&,Boolean,System.Collections.Generic.List`1<String>)
+ METHOD 06000187 PrivateScope, Private, HideBySig Void CheckVarification(String[]&)
+ METHOD 06000188 PrivateScope, Public, HideBySig Void LoadAndUpdateAsync()
+ METHOD 06000189 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Boolean Load(Int32)
+ METHOD 0600018a PrivateScope, Assembly, HideBySig Boolean Load(Boolean,Int32)
+ METHOD 0600018b PrivateScope, Assembly, HideBySig Int32 FindChildPosition(String)
+ METHOD 0600018c PrivateScope, Assembly, HideBySig Void SortChild()
+ METHOD 0600018d PrivateScope, Family, Virtual, HideBySig, VtableLayoutMask Tizen.TV.Service.CoBA.Core.Component Alloc(String,Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 0600018e PrivateScope, Assembly, HideBySig System.Collections.Generic.List`1<String> CacheList()
+ METHOD 0600018f PrivateScope, Private, HideBySig Void Alloc(String[],System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component>)
+ METHOD 06000190 PrivateScope, Private, HideBySig Void ThreadAlloc(String[],Boolean,Boolean)
+ METHOD 06000191 PrivateScope, Private, Static, HideBySig Void CbThreadAllocForMainThread(.Object)
+ METHOD 06000192 PrivateScope, Private, HideBySig Void ThreadAllocForMainThread(System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component>,.Object)
+ METHOD 06000193 PrivateScope, Private, HideBySig System.Tuple`2<Boolean,UInt32> AddNewComponent(Tizen.TV.Service.CoBA.Core.Component,System.Collections.Generic.List`1<String>,Boolean,Int32)
+ METHOD 06000194 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 06000195 PrivateScope, Private, HideBySig Int32 <SortChild>b__24_0(Tizen.TV.Service.CoBA.Core.Component,Tizen.TV.Service.CoBA.Core.Component)
+TYPE AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract Tizen.TV.Service.CoBA.Core.IComponentListener : 
+ METHOD 06000197 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract Boolean OnCompPreCondition(Tizen.TV.Service.CoBA.Core.CompEventType,Object)
+ METHOD 06000198 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract Void OnCompPostCondition(Tizen.TV.Service.CoBA.Core.CompEventType,Object)
+ METHOD 06000199 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract Void OnCompNotify(Tizen.TV.Service.CoBA.Core.CompNotifyType,Object)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentObserver : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.CoBA.Core.ComponentObserver>
+ INTERFACE Tizen.TV.Service.CoBA.BPI.IEntityListenter
+ FIELD 040000f1 Private System.Collections.Generic.Dictionary`2<Int32,System.Collections.Generic.List`1<System.WeakReference`1<Tizen.TV.Service.CoBA.Core.IComponentListener>>> dicType
+ FIELD 040000f2 Private Tizen.TV.Service.CoBA.Core.Component lastFocusedComponent
+ METHOD 0600019a PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600019b PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 0600019c PrivateScope, Public, HideBySig Void SubscribeListener(Tizen.TV.Service.CoBA.Core.IComponentListener,UInt32)
+ METHOD 0600019d PrivateScope, Public, HideBySig Void UnsubscribeListener(Tizen.TV.Service.CoBA.Core.IComponentListener,UInt32)
+ METHOD 0600019e PrivateScope, Private, HideBySig System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.IComponentListener> Listener(Tizen.TV.Service.CoBA.Core.CompEventType)
+ METHOD 0600019f PrivateScope, Private, HideBySig System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.IComponentListener> Listener(Tizen.TV.Service.CoBA.Core.CompNotifyType)
+ METHOD 060001a0 PrivateScope, Assembly, HideBySig Boolean CheckPreCondition(Tizen.TV.Service.CoBA.Core.CompEventType,Object)
+ METHOD 060001a1 PrivateScope, Assembly, HideBySig Void SetPostCondition(Tizen.TV.Service.CoBA.Core.CompEventType,Object)
+ METHOD 060001a2 PrivateScope, Assembly, HideBySig Void SetNotify(Tizen.TV.Service.CoBA.Core.CompNotifyType,Object)
+ METHOD 060001a3 PrivateScope, Assembly, HideBySig Tizen.TV.Service.CoBA.Core.Component LastFocusedComponent()
+ METHOD 060001a4 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnEntityPostCondition(Tizen.TV.Service.CoBA.BPI.EntityEventType,Object)
+ METHOD 060001a5 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Boolean OnEntityPreCondition(Tizen.TV.Service.CoBA.BPI.EntityEventType,Object)
+ METHOD 060001a6 PrivateScope, Private, HideBySig Tizen.TV.Service.CoBA.Core.CompEventType GetCompEventType(Tizen.TV.Service.CoBA.BPI.EntityEventType)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentSystemLayerBase : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000f3 Public, Static, InitOnly String CLASS_ID
+ METHOD 060001a7 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String,String)
+ METHOD 060001a8 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void ReloadSmartHub(Boolean)
+ METHOD 060001a9 PrivateScope, Assembly, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060001aa PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentControlManager : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.CoBA.Core.ComponentControlManager>
+ FIELD 040000f4 Private System.Collections.Generic.Dictionary`2<String,String> disabledList
+ METHOD 060001b4 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060001b5 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 060001b6 PrivateScope, Public, HideBySig Void MakeComponentDisable(String,String)
+ METHOD 060001b7 PrivateScope, Public, HideBySig Void MakeComponentEnable(String,String)
+ METHOD 060001b8 PrivateScope, Private, HideBySig Void SetVisiblity(String,Boolean)
+ METHOD 060001b9 PrivateScope, Private, HideBySig Void TerminateHandler(Object,Tizen.Applications.ApplicationTerminatedEventArgs)
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentFirstScreen : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000f5 Public, Static, InitOnly String CLASS_ID
+ METHOD 060001be PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060001bf PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060001c0 PrivateScope, Public, Virtual, HideBySig Void OnShow()
+ METHOD 060001c1 PrivateScope, Public, Virtual, HideBySig Void OnPrepare()
+ METHOD 060001c2 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentInstaller : System.Object
+ FIELD 040000f6 Assembly, Static Boolean existsCache
+ FIELD 040000f7 Assembly, Static Boolean existsPackage
+ METHOD 060001c3 PrivateScope, Public, Static, HideBySig Boolean ExistComponentByPackageId(String)
+ METHOD 060001c4 PrivateScope, Public, Static, HideBySig Boolean InstallTpkComponent(String,String)
+ METHOD 060001c5 PrivateScope, Public, Static, HideBySig Void UninstallTpkComponent(String)
+ METHOD 060001c6 PrivateScope, Private, Static, HideBySig Void UninstallEventCallback(String,String,Tizen.Applications.PackageEventType,Tizen.Applications.PackageEventState,Int32)
+ METHOD 060001c7 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentAgent : System.Object
+ FIELD 040000f8 Assembly String id
+ FIELD 040000f9 Assembly String packageId
+ FIELD 040000fa Assembly String packageVersion
+ FIELD 040000fb Assembly String dllPath
+ FIELD 040000fc Public Tizen.TV.Service.CoBA.Core.DelegateFork function
+ FIELD 040000fd Public Int32 version
+ METHOD 060001c8 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.DelegateFork,Int32)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentVersionManager : System.Object
+ FIELD 040000fe Assembly System.Collections.Generic.Dictionary`2<String,System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.ComponentAgent>> hashs
+ METHOD 060001cd PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060001ce PrivateScope, Public, HideBySig Boolean Add(String,Tizen.TV.Service.CoBA.Core.ComponentAgent)
+ METHOD 060001cf PrivateScope, Public, HideBySig Boolean Add(String,String,Tizen.TV.Service.CoBA.Core.ComponentAgent)
+ METHOD 060001d0 PrivateScope, Public, HideBySig Void Remove(String)
+ METHOD 060001d1 PrivateScope, Public, HideBySig Void Remove(String,String)
+ METHOD 060001d2 PrivateScope, Assembly, HideBySig Void Remove(String,Int32)
+ METHOD 060001d3 PrivateScope, Assembly, HideBySig Tizen.TV.Service.CoBA.Core.DelegateFork GetData(String,String)
+ METHOD 060001d4 PrivateScope, Assembly, HideBySig Void SetData(String,Tizen.TV.Service.CoBA.Core.ComponentAgent)
+ METHOD 060001d5 PrivateScope, Assembly, HideBySig Void Clear()
+ METHOD 060001d6 PrivateScope, Assembly, HideBySig Tizen.TV.Service.CoBA.Core.ComponentAgent DataComponentAgent(String,String)
+TYPE AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract Tizen.TV.Service.CoBA.Core.IComponentFactory : 
+ METHOD 060001d7 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract Boolean GetComponents(Tizen.TV.Service.CoBA.Core.ComponentVersionManager&)
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentManager : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.CoBA.Core.ComponentManager>
+ INTERFACE Tizen.TV.Service.CoBA.BPI.Library.ITimer
+ FIELD 040000ff Private System.Collections.Generic.List`1<String> listBlocklist
+ FIELD 04000100 Private System.Collections.Generic.List`1<String> listLoadingOrder
+ FIELD 04000101 Private, Static, InitOnly String EXTERNAL_COMPONENT_METADATA_KEY
+ FIELD 04000102 Private, Static, InitOnly String PLATFORM_PRIVILEGE_NAME
+ FIELD 04000103 Private, Static, InitOnly String UPDATE_IN_REALTIME
+ FIELD 04000104 Private, Static, InitOnly UInt32 TIMER_RECHECK
+ FIELD 04000105 Private System.EventHandler`1<Tizen.Applications.PackageManagerEventArgs> packageEventHandler
+ FIELD 04000106 Private System.EventHandler`1<Tizen.Applications.PackageManagerEventArgs> packageUninstallEventHandler
+ FIELD 04000107 Private System.EventHandler`1<Tizen.Applications.PackageManagerEventArgs> packageUpdateEventHandler
+ FIELD 04000108 Private System.Threading.Semaphore sem
+ FIELD 04000109 Private System.Threading.Semaphore semFilter
+ FIELD 0400010a Private System.Threading.Semaphore semDelay
+ FIELD 0400010b Private Boolean escape
+ FIELD 0400010c Private Tizen.TV.Service.CoBA.BPI.Library.CSTimer recheckTimer
+ FIELD 0400010d Private Boolean cacheExist
+ FIELD 0400010e Private System.Timers.Timer saveTimer
+ FIELD 0400010f Private System.Collections.Generic.Dictionary`2<String,.LoadType> loadPackageID
+ FIELD 04000110 Private Tizen.Applications.ApplicationInfoMetadataFilter filter
+ FIELD 04000111 Private System.Collections.Generic.IEnumerable`1<Tizen.Applications.ApplicationInfo> listApp
+ FIELD 04000112 Private System.Collections.Generic.List`1<String> listPackage
+ FIELD 04000113 Private Tizen.TV.Service.CoBA.Core.ComponentVersionManager cvm
+ FIELD 04000114 Private Tizen.TV.Service.CoBA.Core.ComponentManagerCache compCache
+ FIELD 04000115 Private Boolean complete
+ FIELD 04000116 Private Int32 compLoadingCount
+ FIELD 04000117 Private, Static, InitOnly Object lockForCompCache
+ FIELD 04000118 Private System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.ComponentAgent> listRequest
+ FIELD 04000119 Private System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.CoBA.Core.ComponentAgent> dicPackageId
+ FIELD 0400011a Private Boolean dirty
+ FIELD 0400011b Private System.Collections.Generic.List`1<String> listOrder
+ FIELD 0400011c Private System.Collections.Generic.List`1<String> unloadPackage
+ METHOD 060001d8 PrivateScope, Public, HideBySig Boolean AddComponent(String,Tizen.TV.Service.CoBA.Core.DelegateFork,Int32)
+ METHOD 060001d9 PrivateScope, Public, HideBySig Boolean AvailableClassID(String)
+ METHOD 060001da PrivateScope, Public, HideBySig Void SetBlackList(System.Collections.Generic.List`1<String>)
+ METHOD 060001db PrivateScope, Assembly, HideBySig System.Collections.Generic.List`1<String> GetBlackList()
+ METHOD 060001dc PrivateScope, Public, HideBySig Void SetLoadingOrder(System.Collections.Generic.List`1<String>)
+ METHOD 060001dd PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060001de PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 060001df PrivateScope, Assembly, HideBySig Void Finish()
+ METHOD 060001e0 PrivateScope, Private, HideBySig Void OnTimedEvent(Object,System.Timers.ElapsedEventArgs)
+ METHOD 060001e1 PrivateScope, Assembly, HideBySig Void PreStart()
+ METHOD 060001e2 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Boolean OnTimer()
+ METHOD 060001e3 PrivateScope, Assembly, HideBySig Void Start()
+ METHOD 060001e4 PrivateScope, Private, HideBySig Void m_GetInstalledApplication()
+ METHOD 060001e5 PrivateScope, Private, HideBySig Void UpdateCache()
+ METHOD 060001e6 PrivateScope, Private, HideBySig Void m_LoadDllComponents()
+ METHOD 060001e7 PrivateScope, Private, HideBySig Void RecheckLoadDll()
+ METHOD 060001e8 PrivateScope, Assembly, HideBySig Void Sync()
+ METHOD 060001e9 PrivateScope, Assembly, HideBySig Void Stop()
+ METHOD 060001ea PrivateScope, Private, HideBySig Boolean m_AllocInstance()
+ METHOD 060001eb PrivateScope, Private, HideBySig Void ReleaseInstance()
+ METHOD 060001ec PrivateScope, Assembly, HideBySig Int32 LoadDllComponents(Tizen.Applications.Package,String,Boolean,Boolean)
+ METHOD 060001ed PrivateScope, Assembly, HideBySig Void LoadExtComponent(String,Boolean)
+ METHOD 060001ee PrivateScope, Private, HideBySig Void UnloadComponent(String)
+ METHOD 060001ef PrivateScope, Private, HideBySig Void ReplaceComponent(String)
+ METHOD 060001f0 PrivateScope, Assembly, HideBySig Tizen.TV.Service.CoBA.Core.ComponentAgent Module(String,String)
+ METHOD 060001f1 PrivateScope, Private, HideBySig System.Collections.Generic.List`1<String> LoadCobaOrder()
+ METHOD 060001f2 PrivateScope, Private, HideBySig Boolean CheckOrderChange()
+ METHOD 060001f3 PrivateScope, Private, HideBySig Void SaveHistory()
+ METHOD 060001f4 PrivateScope, Private, HideBySig Void LoadHistory()
+ METHOD 060001f5 PrivateScope, Private, HideBySig Void ArrangeOrder()
+ METHOD 060001f6 PrivateScope, Assembly, HideBySig Tizen.TV.Service.CoBA.Core.Component _Instance(String,String,Tizen.TV.Service.CoBA.Core.Component,Boolean)
+ METHOD 060001f7 PrivateScope, Assembly, HideBySig Tizen.TV.Service.CoBA.Core.Component Instance(String,Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 060001f8 PrivateScope, Assembly, HideBySig Void RemoveComponent(String)
+ METHOD 060001f9 PrivateScope, Private, HideBySig Void sm_CbProgressChanged(Object,Tizen.Applications.PackageManagerEventArgs)
+ METHOD 060001fa PrivateScope, Private, HideBySig Void sm_CbUninstallProgressChanged(Object,Tizen.Applications.PackageManagerEventArgs)
+ METHOD 060001fb PrivateScope, Private, HideBySig Void sm_CbUpdateProgressChanged(Object,Tizen.Applications.PackageManagerEventArgs)
+ METHOD 060001fc PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060001fd PrivateScope, Private, HideBySig Void <PreStart>b__27_0()
+ METHOD 060001fe PrivateScope, Private, HideBySig Void <PreStart>b__27_2(.Object)
+ METHOD 060001ff PrivateScope, Private, HideBySig Void <PreStart>b__27_1(Object)
+ METHOD 06000200 PrivateScope, Private, HideBySig Object <OnTimer>b__28_0(Object)
+ METHOD 06000201 PrivateScope, Private, HideBySig System.Threading.Tasks.Task <Start>b__29_0(Tizen.TV.Application.Fiber.Fiber)
+ METHOD 06000202 PrivateScope, Private, HideBySig System.Threading.Tasks.Task`1<System.Collections.Generic.IEnumerable`1<Tizen.Applications.ApplicationInfo>> <m_GetInstalledApplication>b__32_0()
+ METHOD 06000203 PrivateScope, Private, HideBySig Void <Module>b__53_0(.Object)
+ METHOD 06000204 PrivateScope, Private, HideBySig Void <SaveHistory>b__56_0(Object)
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentManagerCache : System.Object
+ FIELD 0400011d Private, InitOnly String FILENAME_CACHE
+ FIELD 0400011e Private, InitOnly String CACHE_VERSION
+ FIELD 0400011f Public System.Collections.Generic.Dictionary`2<String,System.Collections.Generic.List`1<.Object>> dic
+ FIELD 04000120 Assembly System.Collections.Generic.Dictionary`2<String,String> packages
+ FIELD 04000121 Assembly Boolean flagDirty
+ FIELD 04000122 Assembly, InitOnly Object flagDirtyLock
+ METHOD 06000205 PrivateScope, Assembly, HideBySig .Object Data(String)
+ METHOD 06000206 PrivateScope, Assembly, HideBySig Boolean Load(Tizen.TV.Service.CoBA.Core.ComponentVersionManager&)
+ METHOD 06000207 PrivateScope, Assembly, HideBySig Void Set(Tizen.TV.Service.CoBA.Core.ComponentVersionManager)
+ METHOD 06000208 PrivateScope, Assembly, HideBySig Void Save()
+ METHOD 06000209 PrivateScope, Assembly, HideBySig Boolean CheckVersion(Tizen.TV.Service.CoBA.Core.ComponentVersionManager)
+ METHOD 0600020a PrivateScope, Assembly, HideBySig Boolean IsEmpty()
+ METHOD 0600020b PrivateScope, Assembly, HideBySig String GetPackageVersion(String)
+ METHOD 0600020c PrivateScope, Assembly, HideBySig String GetPackageId(String)
+ METHOD 0600020d PrivateScope, Assembly, HideBySig System.Collections.Generic.List`1<String> GetDllPath(String)
+ METHOD 0600020e PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ComponentThreadPool : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.CoBA.Core.ComponentThreadPool>
+ FIELD 04000123 Private, Static, InitOnly Int32 TIMER_DELAY
+ FIELD 04000124 Private Boolean enable
+ FIELD 04000125 Private Boolean escape
+ FIELD 04000126 Private System.Threading.Semaphore semWakeupBGLoading
+ FIELD 04000127 Private System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component> listBgLoading
+ FIELD 04000128 Private System.Collections.Generic.Dictionary`2<Tizen.TV.Service.CoBA.Core.Component,.ParallelComponent> hash
+ FIELD 04000129 Private System.Threading.Thread th
+ METHOD 0600020f PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000210 PrivateScope, Public, HideBySig Void Start()
+ METHOD 06000211 PrivateScope, Public, HideBySig Void Stop()
+ METHOD 06000212 PrivateScope, Assembly, HideBySig Void Finish()
+ METHOD 06000213 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 06000214 PrivateScope, Private, HideBySig Void m_Main()
+ METHOD 06000215 PrivateScope, Public, HideBySig Void PriorityUp(String)
+ METHOD 06000216 PrivateScope, Public, HideBySig Void Set(System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component>)
+ METHOD 06000217 PrivateScope, Public, HideBySig Void RemoveAll()
+ METHOD 06000218 PrivateScope, Public, HideBySig Object AutoLock()
+ METHOD 06000219 PrivateScope, Public, HideBySig Void SetEnable(Boolean)
+ METHOD 0600021a PrivateScope, Public, HideBySig Boolean Enable()
+ METHOD 0600021b PrivateScope, Public, HideBySig Boolean AddComponents(Tizen.TV.Service.CoBA.Core.Component,String[])
+ METHOD 0600021c PrivateScope, Public, HideBySig Boolean GetComponents(System.Collections.Generic.List`1<Tizen.TV.Service.CoBA.Core.Component>)
+ METHOD 0600021d PrivateScope, Public, HideBySig Boolean RunComponent(Tizen.TV.Service.CoBA.Core.Component,Boolean)
+ METHOD 0600021e PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 0600021f PrivateScope, Private, HideBySig Void <Start>b__9_0(Object)
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.ResourceBaseComponent : System.Object
+ METHOD 06000423 PrivateScope, Public, Static, HideBySig String Text(.TextType)
+ METHOD 06000424 PrivateScope, Public, Static, HideBySig String MessageBoxTitle(.MessageType)
+ METHOD 06000425 PrivateScope, Public, Static, HideBySig String ImagePath(.AppType)
+ METHOD 06000426 PrivateScope, Public, Static, HideBySig String ToastPopupMessage(.MessageType)
+ METHOD 06000427 PrivateScope, Public, Static, HideBySig String MessageBoxContent(.MessageType)
+ METHOD 06000428 PrivateScope, Public, Static, HideBySig String MessageBoxContent(.AppType,.MessageType,String)
+ METHOD 06000429 PrivateScope, Private, Static, HideBySig String GetAddGuideForSourceLayer()
+ METHOD 0600042a PrivateScope, Private, Static, HideBySig String GetSourceLayerTitle()
+ METHOD 0600042b PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<OrganizeAddComponents>d__12 : System.Object
+ INTERFACE System.Runtime.CompilerServices.IAsyncStateMachine
+ FIELD 040003ee Public Int32 <>1__state
+ FIELD 040003ef Public System.Runtime.CompilerServices.AsyncVoidMethodBuilder <>t__builder
+ FIELD 040003f0 Public System.Collections.Generic.List`1<String> ids
+ FIELD 040003f1 Public Tizen.TV.Service.CoBA.Core.ComponentBaseCoBA2 <>4__this
+ FIELD 040003f2 Private .Enumerator<String> <>s__1
+ FIELD 040003f3 Private .<>c__DisplayClass12_0 <>8__2
+ FIELD 040003f4 Private Tizen.TV.Service.CoBA.Core.Component <comp>5__3
+ METHOD 060006b1 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060006b2 PrivateScope, Private, Final, Virtual, HideBySig, VtableLayoutMask Void MoveNext()
+ METHOD 060006b3 PrivateScope, Private, Final, Virtual, HideBySig, VtableLayoutMask Void SetStateMachine(System.Runtime.CompilerServices.IAsyncStateMachine)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, BeforeFieldInit .AllocComponent : System.Object
+ FIELD 040003f5 Public Tizen.TV.Service.CoBA.Core.Component comp
+ FIELD 040003f6 Private Tizen.TV.Service.CoBA.Core.Component parent
+ FIELD 040003f7 Private String id
+ FIELD 040003f8 Private System.Threading.Thread th
+ METHOD 060006b4 PrivateScope, Private, HideBySig Void MAlloc()
+ METHOD 060006b5 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(String,Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 060006b6 PrivateScope, Public, HideBySig Void Wait()
+ METHOD 060006b7 PrivateScope, Private, HideBySig Void <.ctor>b__5_0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, BeforeFieldInit .ParallelComponent : System.Object
+ FIELD 04000481 Public Tizen.TV.Service.CoBA.Core.Component comp
+ FIELD 04000482 Public String[] ids
+ METHOD 06000706 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String[])

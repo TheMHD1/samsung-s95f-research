@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest -x /usr/bin/input_keyevent\ntest \"$(sha256sum /usr/bin/input_keyevent | cut -d \" \" -f1)\" = 7284ad5b0117a96a166a4fe327c6361bea998e5d2086a0e1a36d2a3477a87db9\ndown_status=0\n/usr/bin/input_keyevent Left down >/dev/null 2>&1 || down_status=$?\nsleep 0.15\nup_status=0\n/usr/bin/input_keyevent Left up >/dev/null 2>&1 || up_status=$?\nprintf \"LOCAL_KEY_DOWN_EXIT=%s\\n\" \"$down_status\"\nprintf \"LOCAL_KEY_UP_EXIT=%s\\n\" \"$up_status\"\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "LOCAL_KEY_DOWN_EXIT=0\nLOCAL_KEY_UP_EXIT=0\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

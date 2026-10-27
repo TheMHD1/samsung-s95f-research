@@ -1,0 +1,194 @@
+
+binaries/rosem_frc.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000250 <RosemFrc_InitVariable+0x248>:
+     250:	f9400001 	ldr	x1, [x0]
+			250: R_AARCH64_LDST64_ABS_LO12_NC	tztv_frc_tcon_get_panel_freq
+     254:	b4fff9c1 	cbz	x1, 18c <RosemFrc_InitVariable+0x184>
+     258:	b9002fff 	str	wzr, [sp, #44]
+     25c:	9100b3e0 	add	x0, sp, #0x2c
+     260:	d63f0020 	blr	x1
+     264:	b9402fe0 	ldr	w0, [sp, #44]
+     268:	7100081f 	cmp	w0, #0x2
+     26c:	54000060 	b.eq	278 <RosemFrc_InitVariable+0x270>  // b.none
+     270:	71000c1f 	cmp	w0, #0x3
+     274:	54fff8c1 	b.ne	18c <RosemFrc_InitVariable+0x184>  // b.any
+     278:	b901c260 	str	w0, [x19, #448]
+     27c:	17ffffc4 	b	18c <RosemFrc_InitVariable+0x184>
+     280:	90000004 	adrp	x4, 0 <RosemFrc_IsSupportFRCPattern>
+			280: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x8
+     284:	91000084 	add	x4, x4, #0x0
+			284: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x8
+     288:	17ffffe1 	b	20c <RosemFrc_InitVariable+0x204>
+     28c:	d503201f 	nop
+
+0000000000000290 <m_rosem_set_tcon_frame_rate>:
+     290:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+     294:	910003fd 	mov	x29, sp
+     298:	a90153f3 	stp	x19, x20, [sp, #16]
+     29c:	90000013 	adrp	x19, 0 <RosemFrc_IsSupportFRCPattern>
+			29c: R_AARCH64_ADR_PREL_PG_HI21	.bss
+     2a0:	91000273 	add	x19, x19, #0x0
+			2a0: R_AARCH64_ADD_ABS_LO12_NC	.bss
+     2a4:	a9025bf5 	stp	x21, x22, [sp, #32]
+     2a8:	b9415e60 	ldr	w0, [x19, #348]
+     2ac:	7100041f 	cmp	w0, #0x1
+     2b0:	540006a0 	b.eq	384 <m_rosem_set_tcon_frame_rate+0xf4>  // b.none
+     2b4:	b940d660 	ldr	w0, [x19, #212]
+     2b8:	7100041f 	cmp	w0, #0x1
+     2bc:	540004c0 	b.eq	354 <m_rosem_set_tcon_frame_rate+0xc4>  // b.none
+     2c0:	b9406674 	ldr	w20, [x19, #100]
+     2c4:	52870801 	mov	w1, #0x3840                	// #14400
+     2c8:	52880e80 	mov	w0, #0x4074                	// #16500
+     2cc:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			2cc: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     2d0:	6b01029f 	cmp	w20, w1
+     2d4:	910002d6 	add	x22, x22, #0x0
+			2d4: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     2d8:	7a401284 	ccmp	w20, w0, #0x4, ne	// ne = any
+     2dc:	54000040 	b.eq	2e4 <m_rosem_set_tcon_frame_rate+0x54>  // b.none
+     2e0:	5285dc14 	mov	w20, #0x2ee0                	// #12000
+     2e4:	b9418e60 	ldr	w0, [x19, #396]
+     2e8:	7100041f 	cmp	w0, #0x1
+     2ec:	540000a1 	b.ne	300 <m_rosem_set_tcon_frame_rate+0x70>  // b.any
+     2f0:	b9419661 	ldr	w1, [x19, #404]
+     2f4:	5285dc00 	mov	w0, #0x2ee0                	// #12000
+     2f8:	7100003f 	cmp	w1, #0x0
+     2fc:	1a801294 	csel	w20, w20, w0, ne	// ne = any
+     300:	b9434260 	ldr	w0, [x19, #832]
+     304:	52800015 	mov	w21, #0x0                   	// #0
+     308:	6b14001f 	cmp	w0, w20
+     30c:	54000541 	b.ne	3b4 <m_rosem_set_tcon_frame_rate+0x124>  // b.any
+     310:	94000000 	bl	12790 <ft_current_pid>
+			310: R_AARCH64_CALL26	ft_current_pid
+     314:	2a0003f4 	mov	w20, w0
+     318:	94000000 	bl	127a0 <ft_current_comm>
+			318: R_AARCH64_CALL26	ft_current_comm
+     31c:	aa0003e3 	mov	x3, x0
+     320:	b9406665 	ldr	w5, [x19, #100]
+     324:	2a1403e2 	mov	w2, w20
+     328:	b940ee66 	ldr	w6, [x19, #236]
+     32c:	910062c1 	add	x1, x22, #0x18
+     330:	b9434264 	ldr	w4, [x19, #832]
+     334:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			334: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x158
+     338:	91000000 	add	x0, x0, #0x0
+			338: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x158
+     33c:	94000000 	bl	0 <printk>
+			33c: R_AARCH64_CALL26	printk
+     340:	2a1503e0 	mov	w0, w21
+     344:	a94153f3 	ldp	x19, x20, [sp, #16]
+     348:	a9425bf5 	ldp	x21, x22, [sp, #32]
+     34c:	a8c47bfd 	ldp	x29, x30, [sp], #64
+     350:	d65f03c0 	ret
+     354:	b940ee60 	ldr	w0, [x19, #236]
+     358:	7100f01f 	cmp	w0, #0x3c
+     35c:	540001c8 	b.hi	394 <m_rosem_set_tcon_frame_rate+0x104>  // b.pmore
+     360:	52800c94 	mov	w20, #0x64                  	// #100
+     364:	1b147c14 	mul	w20, w0, w20
+     368:	b941ca60 	ldr	w0, [x19, #456]
+     36c:	34000060 	cbz	w0, 378 <m_rosem_set_tcon_frame_rate+0xe8>
+     370:	b941c660 	ldr	w0, [x19, #452]
+     374:	350004e0 	cbnz	w0, 410 <m_rosem_set_tcon_frame_rate+0x180>
+     378:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			378: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     37c:	910002d6 	add	x22, x22, #0x0
+			37c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     380:	17ffffd9 	b	2e4 <m_rosem_set_tcon_frame_rate+0x54>
+     384:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			384: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     388:	5282ee14 	mov	w20, #0x1770                	// #6000
+     38c:	910002d6 	add	x22, x22, #0x0
+			38c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     390:	17ffffd5 	b	2e4 <m_rosem_set_tcon_frame_rate+0x54>
+     394:	5101e401 	sub	w1, w0, #0x79
+     398:	71005c3f 	cmp	w1, #0x17
+     39c:	54fffe29 	b.ls	360 <m_rosem_set_tcon_frame_rate+0xd0>  // b.plast
+     3a0:	51024401 	sub	w1, w0, #0x91
+     3a4:	5285dc14 	mov	w20, #0x2ee0                	// #12000
+     3a8:	7100503f 	cmp	w1, #0x14
+     3ac:	54fffde8 	b.hi	368 <m_rosem_set_tcon_frame_rate+0xd8>  // b.pmore
+     3b0:	17ffffec 	b	360 <m_rosem_set_tcon_frame_rate+0xd0>
+     3b4:	a90363f7 	stp	x23, x24, [sp, #48]
+     3b8:	94000000 	bl	12790 <ft_current_pid>
+			3b8: R_AARCH64_CALL26	ft_current_pid
+     3bc:	2a0003f8 	mov	w24, w0
+     3c0:	94000000 	bl	127a0 <ft_current_comm>
+			3c0: R_AARCH64_CALL26	ft_current_comm
+     3c4:	910062d7 	add	x23, x22, #0x18
+     3c8:	b9434264 	ldr	w4, [x19, #832]
+     3cc:	aa0003e3 	mov	x3, x0
+     3d0:	2a1803e2 	mov	w2, w24
+     3d4:	aa1703e1 	mov	x1, x23
+     3d8:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			3d8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0xd0
+     3dc:	91000000 	add	x0, x0, #0x0
+			3dc: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0xd0
+     3e0:	94000000 	bl	0 <printk>
+			3e0: R_AARCH64_CALL26	printk
+     3e4:	f9419e60 	ldr	x0, [x19, #824]
+     3e8:	b40000e0 	cbz	x0, 404 <m_rosem_set_tcon_frame_rate+0x174>
+     3ec:	f9410401 	ldr	x1, [x0, #520]
+     3f0:	b40000a1 	cbz	x1, 404 <m_rosem_set_tcon_frame_rate+0x174>
+     3f4:	2a1403e0 	mov	w0, w20
+     3f8:	d63f0020 	blr	x1
+     3fc:	2a0003f5 	mov	w21, w0
+     400:	350002a0 	cbnz	w0, 454 <m_rosem_set_tcon_frame_rate+0x1c4>
+     404:	b9034274 	str	w20, [x19, #832]
+     408:	a94363f7 	ldp	x23, x24, [sp, #48]
+     40c:	17ffffc1 	b	310 <m_rosem_set_tcon_frame_rate+0x80>
+     410:	b941b674 	ldr	w20, [x19, #436]
+     414:	52800c80 	mov	w0, #0x64                  	// #100
+     418:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			418: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     41c:	910002d6 	add	x22, x22, #0x0
+			41c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     420:	1b007e94 	mul	w20, w20, w0
+     424:	94000000 	bl	12790 <ft_current_pid>
+			424: R_AARCH64_CALL26	ft_current_pid
+     428:	2a0003f5 	mov	w21, w0
+     42c:	94000000 	bl	127a0 <ft_current_comm>
+			42c: R_AARCH64_CALL26	ft_current_comm
+     430:	b941b664 	ldr	w4, [x19, #436]
+     434:	aa0003e3 	mov	x3, x0
+     438:	2a1503e2 	mov	w2, w21
+     43c:	2a1403e5 	mov	w5, w20
+     440:	910062c1 	add	x1, x22, #0x18
+     444:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			444: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x68
+     448:	91000000 	add	x0, x0, #0x0
+			448: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x68
+     44c:	94000000 	bl	0 <printk>
+			44c: R_AARCH64_CALL26	printk
+     450:	17ffffa5 	b	2e4 <m_rosem_set_tcon_frame_rate+0x54>
+     454:	94000000 	bl	12790 <ft_current_pid>
+			454: R_AARCH64_CALL26	ft_current_pid
+     458:	2a0003f8 	mov	w24, w0
+     45c:	94000000 	bl	127a0 <ft_current_comm>
+			45c: R_AARCH64_CALL26	ft_current_comm
+     460:	aa0003e3 	mov	x3, x0
+     464:	b9406664 	ldr	w4, [x19, #100]
+     468:	2a1803e2 	mov	w2, w24
+     46c:	b9434265 	ldr	w5, [x19, #832]
+     470:	aa1703e1 	mov	x1, x23
+     474:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			474: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x108
+     478:	91000000 	add	x0, x0, #0x0
+			478: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x108
+     47c:	94000000 	bl	0 <printk>
+			47c: R_AARCH64_CALL26	printk
+     480:	17ffffe1 	b	404 <m_rosem_set_tcon_frame_rate+0x174>
+     484:	d503201f 	nop
+
+0000000000000488 <m_rosem_reg_write>:
+     488:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+     48c:	90000003 	adrp	x3, 0 <RosemFrc_IsSupportFRCPattern>
+			48c: R_AARCH64_ADR_PREL_PG_HI21	.bss
+     490:	91000062 	add	x2, x3, #0x0
+			490: R_AARCH64_ADD_ABS_LO12_NC	.bss
+     494:	910003fd 	mov	x29, sp
+     498:	a90153f3 	stp	x19, x20, [sp, #16]
+     49c:	b9401453 	ldr	w19, [x2, #20]

@@ -1,0 +1,2065 @@
+METHOD 06000026 Tizen.Tv.App.CoBA.Components.Home.TabListInfo::SetTabList
+ 0000: newobj .ctor
+ 0005: stloc.0 
+ 0006: ldloc.0 
+ 0007: ldarg.0 
+ 0008: stfld FieldDefinition:04000119
+ 000d: nop 
+ 000e: ldloc.0 
+ 000f: ldftn <SetTabList>b__0
+ 0015: newobj Tizen.TV.Service.CoBA.Common.WorkerTask::.ctor
+ 001a: ldnull 
+ 001b: ldc.i4.0 
+ 001c: ldc.i4 88130000
+ 0021: call Tizen.TV.Service.CoBA.Common.FSParallelThread::Task
+ 0026: pop 
+ 0027: ret 
+METHOD 06000027 Tizen.Tv.App.CoBA.Components.Home.TabListInfo::GetTabCache
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b00000f::.ctor
+ 0006: stloc.0 
+ 0007: nop 
+ 0008: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 000d: ldc.i4.s 58
+ 000f: ldloca.s 01
+ 0011: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 0016: pop 
+ 0017: ldloc.1 
+ 0018: call System.String::IsNullOrWhiteSpace
+ 001d: ldc.i4.0 
+ 001e: ceq 
+ 0020: stloc.2 
+ 0021: ldloc.2 
+ 0022: brfalse.s 0A
+ 0024: nop 
+ 0025: ldloc.1 
+ 0026: ldnull 
+ 0027: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 002c: stloc.0 
+ 002d: nop 
+ 002e: nop 
+ 002f: leave.s 1B
+ 0031: stloc.3 
+ 0032: nop 
+ 0033: ldloc.3 
+ 0034: ldstr "GetTabCache"
+ 0039: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Common/Common.cs"
+ 003e: ldc.i4 A9000000
+ 0043: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 0048: nop 
+ 0049: nop 
+ 004a: leave.s 00
+ 004c: ldloc.0 
+ 004d: stloc.s 04
+ 004f: br.s 00
+ 0051: ldloc.s 04
+ 0053: ret 
+METHOD 06000142 Tizen.Tv.App.CoBA.Components.Home.CompStateTabCache::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0007: nop 
+ 0008: nop 
+ 0009: ret 
+METHOD 06000143 Tizen.Tv.App.CoBA.Components.Home.CompStateTabCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "d/stateinfo.layer"
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: ldarg.1 
+ 0014: ldloc.0 
+ 0015: callvirt TypeSpecification:1b000009::ToArray
+ 001a: stind.ref 
+ 001b: ldc.i4.1 
+ 001c: stloc.1 
+ 001d: br.s 00
+ 001f: ldloc.1 
+ 0020: ret 
+METHOD 06000144 Tizen.Tv.App.CoBA.Components.Home.CompStateTabElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldnull 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 06000145 Tizen.Tv.App.CoBA.Components.Home.CompStateTabElement::Update
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000042::.ctor
+ 0006: dup 
+ 0007: ldstr "title"
+ 000c: ldstr "stateinfo"
+ 0011: callvirt TypeSpecification:1b000042::Add
+ 0016: nop 
+ 0017: dup 
+ 0018: ldstr "focused_icon"
+ 001d: ldsfld FieldDefinition:04000018
+ 0022: ldstr "movingscreen_indicator_ic_bluetooth.svg"
+ 0027: call System.String::Concat
+ 002c: callvirt TypeSpecification:1b000042::Add
+ 0031: nop 
+ 0032: dup 
+ 0033: ldstr "type"
+ 0038: ldstr "statetab"
+ 003d: callvirt TypeSpecification:1b000042::Add
+ 0042: nop 
+ 0043: stloc.0 
+ 0044: ldarg.0 
+ 0045: ldloc.0 
+ 0046: ldnull 
+ 0047: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 004c: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0051: nop 
+ 0052: ret 
+METHOD 06000146 Tizen.Tv.App.CoBA.Components.Home.CompStateTab::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:04000088
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldc.i4.1 
+ 0011: stfld Tizen.TV.Service.CoBA.Core.Component::ForceFullLoad
+ 0016: ldarg.0 
+ 0017: ldc.i4.1 
+ 0018: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 001d: dup 
+ 001e: ldc.i4.0 
+ 001f: ldarg.0 
+ 0020: newobj .ctor
+ 0025: stelem.ref 
+ 0026: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 002b: nop 
+ 002c: ldarg.0 
+ 002d: ldarg.0 
+ 002e: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 0033: ldc.i4.0 
+ 0034: ldelem.ref 
+ 0035: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 003a: nop 
+ 003b: ldarg.0 
+ 003c: ldarg.0 
+ 003d: ldarg.0 
+ 003e: newobj .ctor
+ 0043: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 0048: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 004d: ret 
+METHOD 06000147 Tizen.Tv.App.CoBA.Components.Home.CompStateTab::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 06000148 Tizen.Tv.App.CoBA.Components.Home.CompStateTab::.cctor
+ 0000: ldstr "d/stateinfo"
+ 0005: stsfld FieldDefinition:04000088
+ 000a: ret 
+METHOD 06000149 Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayerCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 0600014a Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayerCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "d/stateinfo.time"
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: ldloc.0 
+ 0014: ldstr "d/stateinfo.bluetooth"
+ 0019: callvirt TypeSpecification:1b000009::Add
+ 001e: nop 
+ 001f: ldloc.0 
+ 0020: ldstr "d/stateinfo.wifi"
+ 0025: callvirt TypeSpecification:1b000009::Add
+ 002a: nop 
+ 002b: ldloc.0 
+ 002c: ldstr "d/stateinfo.battery"
+ 0031: callvirt TypeSpecification:1b000009::Add
+ 0036: nop 
+ 0037: ldarg.1 
+ 0038: ldloc.0 
+ 0039: callvirt TypeSpecification:1b000009::ToArray
+ 003e: stind.ref 
+ 003f: ldstr "CompStateTabLayerCache add"
+ 0044: ldc.i4 7F969800
+ 0049: conv.i8 
+ 004a: ldc.i4 7F969800
+ 004f: conv.i8 
+ 0050: ldc.i4 7F969800
+ 0055: conv.i8 
+ 0056: ldc.i4 7F969800
+ 005b: conv.i8 
+ 005c: ldc.i4 7F969800
+ 0061: conv.i8 
+ 0062: ldnull 
+ 0063: ldnull 
+ 0064: ldnull 
+ 0065: ldnull 
+ 0066: ldnull 
+ 0067: ldc.r8 000000E0CF126341
+ 0070: ldc.r8 000000E0CF126341
+ 0079: ldc.r8 000000E0CF126341
+ 0082: ldc.r8 000000E0CF126341
+ 008b: ldc.r8 000000E0CF126341
+ 0094: ldstr "GetItems"
+ 0099: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Category/CompStateTabLayer.cs"
+ 009e: ldc.i4.s 1B
+ 00a0: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00a5: nop 
+ 00a6: ldc.i4.1 
+ 00a7: stloc.1 
+ 00a8: br.s 00
+ 00aa: ldloc.1 
+ 00ab: ret 
+METHOD 0600014b Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 0600014c Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayerElement::Update
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000042::.ctor
+ 0006: dup 
+ 0007: ldstr "title"
+ 000c: ldstr "stateinfolayer"
+ 0011: callvirt TypeSpecification:1b000042::Add
+ 0016: nop 
+ 0017: dup 
+ 0018: ldstr "focused_icon"
+ 001d: ldsfld FieldDefinition:04000018
+ 0022: ldstr "movingscreen_indicator_ic_bluetooth.svg"
+ 0027: call System.String::Concat
+ 002c: callvirt TypeSpecification:1b000042::Add
+ 0031: nop 
+ 0032: dup 
+ 0033: ldstr "type"
+ 0038: ldstr "Layer"
+ 003d: callvirt TypeSpecification:1b000042::Add
+ 0042: nop 
+ 0043: stloc.0 
+ 0044: ldarg.0 
+ 0045: ldloc.0 
+ 0046: ldnull 
+ 0047: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 004c: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0051: nop 
+ 0052: ret 
+METHOD 0600014d Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:04000089
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 0600014e Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600014f Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayer::.cctor
+ 0000: ldstr "d/stateinfo.layer"
+ 0005: stsfld FieldDefinition:04000089
+ 000a: ret 
+METHOD 060002c4 Tizen.Tv.App.CoBA.Components.Home.CompHomeTabCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "d/recent.row@OnNow"
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: ldloc.0 
+ 0014: ldsfld FieldDefinition:040000c7
+ 0019: callvirt TypeSpecification:1b000009::Add
+ 001e: nop 
+ 001f: ldloc.0 
+ 0020: ldstr "d/external.vac.row"
+ 0025: callvirt TypeSpecification:1b000009::Add
+ 002a: nop 
+ 002b: ldloc.0 
+ 002c: ldstr "d/continuewatchrow"
+ 0031: callvirt TypeSpecification:1b000009::Add
+ 0036: nop 
+ 0037: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 003c: ldstr "db/eden/homeRecommendation"
+ 0041: ldloca.s 01
+ 0043: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 0048: pop 
+ 0049: ldloc.1 
+ 004a: ldstr "false"
+ 004f: call System.String::op_Equality
+ 0054: brtrue.s 07
+ 0056: call Tizen.TV.Service.CoBA.Common.FSSystemProperty::get_IsSdkEmulator
+ 005b: br.s 01
+ 005d: ldc.i4.1 
+ 005e: stloc.2 
+ 005f: ldloc.2 
+ 0060: brfalse.s 70
+ 0062: nop 
+ 0063: call Tizen.TV.Service.CoBA.Core.AppListManager::GetInstance
+ 0068: callvirt Tizen.TV.Service.CoBA.Core.AppListManager::Components
+ 006d: stloc.3 
+ 006e: nop 
+ 006f: ldloc.3 
+ 0070: callvirt TypeSpecification:1b000009::GetEnumerator
+ 0075: stloc.s 04
+ 0077: br.s 3E
+ 0079: ldloca.s 04
+ 007b: call TypeSpecification:1b000017::get_Current
+ 0080: stloc.s 05
+ 0082: nop 
+ 0083: ldloc.s 05
+ 0085: ldloca.s 06
+ 0087: ldloca.s 07
+ 0089: call Tizen.TV.Service.CoBA.Core.Component::SeperateComponentID
+ 008e: nop 
+ 008f: ldloc.s 06
+ 0091: ldstr "d/webapp"
+ 0096: call System.String::Equals
+ 009b: stloc.s 08
+ 009d: ldloc.s 08
+ 009f: brfalse.s 15
+ 00a1: nop 
+ 00a2: ldloc.0 
+ 00a3: ldstr "d/webapp.row@"
+ 00a8: ldloc.s 07
+ 00aa: call System.String::Concat
+ 00af: callvirt TypeSpecification:1b000009::Add
+ 00b4: nop 
+ 00b5: nop 
+ 00b6: nop 
+ 00b7: ldloca.s 04
+ 00b9: call TypeSpecification:1b000017::MoveNext
+ 00be: brtrue.s B9
+ 00c0: leave.s 0F
+ 00c2: ldloca.s 04
+ 00c4: constrained. TypeSpecification:1b000017
+ 00ca: callvirt System.IDisposable::Dispose
+ 00cf: nop 
+ 00d0: endfinally 
+ 00d1: nop 
+ 00d2: ldloc.0 
+ 00d3: ldsfld FieldDefinition:040000d8
+ 00d8: callvirt TypeSpecification:1b000009::Add
+ 00dd: nop 
+ 00de: ldloc.0 
+ 00df: ldstr "s/terra.bottom@"
+ 00e4: ldsfld FieldDefinition:040000ea
+ 00e9: call System.String::Concat
+ 00ee: callvirt TypeSpecification:1b000009::Add
+ 00f3: nop 
+ 00f4: nop 
+ 00f5: ldloc.0 
+ 00f6: callvirt TypeSpecification:1b000009::GetEnumerator
+ 00fb: stloc.s 09
+ 00fd: br.s 6F
+ 00ff: ldloca.s 09
+ 0101: call TypeSpecification:1b000017::get_Current
+ 0106: stloc.s 0A
+ 0108: nop 
+ 0109: ldloc.s 0A
+ 010b: ldc.i4 7F969800
+ 0110: conv.i8 
+ 0111: ldc.i4 7F969800
+ 0116: conv.i8 
+ 0117: ldc.i4 7F969800
+ 011c: conv.i8 
+ 011d: ldc.i4 7F969800
+ 0122: conv.i8 
+ 0123: ldc.i4 7F969800
+ 0128: conv.i8 
+ 0129: ldnull 
+ 012a: ldnull 
+ 012b: ldnull 
+ 012c: ldnull 
+ 012d: ldnull 
+ 012e: ldc.r8 000000E0CF126341
+ 0137: ldc.r8 000000E0CF126341
+ 0140: ldc.r8 000000E0CF126341
+ 0149: ldc.r8 000000E0CF126341
+ 0152: ldc.r8 000000E0CF126341
+ 015b: ldstr "GetItems"
+ 0160: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompHomeTab.cs"
+ 0165: ldc.i4.s 29
+ 0167: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 016c: nop 
+ 016d: nop 
+ 016e: ldloca.s 09
+ 0170: call TypeSpecification:1b000017::MoveNext
+ 0175: brtrue.s 88
+ 0177: leave.s 0F
+ 0179: ldloca.s 09
+ 017b: constrained. TypeSpecification:1b000017
+ 0181: callvirt System.IDisposable::Dispose
+ 0186: nop 
+ 0187: endfinally 
+ 0188: ldarg.1 
+ 0189: ldloc.0 
+ 018a: callvirt TypeSpecification:1b000009::ToArray
+ 018f: stind.ref 
+ 0190: ldc.i4.1 
+ 0191: stloc.s 0B
+ 0193: br.s 00
+ 0195: ldloc.s 0B
+ 0197: ret 
+METHOD 060002c5 Tizen.Tv.App.CoBA.Components.Home.CompHomeTabCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 060002c6 Tizen.Tv.App.CoBA.Components.Home.CompHomeTabElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 060002c7 Tizen.Tv.App.CoBA.Components.Home.CompHomeTabElement::Update
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000042::.ctor
+ 0006: dup 
+ 0007: ldstr "title"
+ 000c: ldc.i4.1 
+ 000d: call Tizen.Tv.App.CoBA.Components.Home.ResourceTab::Text
+ 0012: callvirt TypeSpecification:1b000042::Add
+ 0017: nop 
+ 0018: dup 
+ 0019: ldstr "type"
+ 001e: ldstr "MultiTab"
+ 0023: callvirt TypeSpecification:1b000042::Add
+ 0028: nop 
+ 0029: dup 
+ 002a: ldstr "unfocused_bg_icon"
+ 002f: ldc.i4.s 12
+ 0031: call Tizen.Tv.App.CoBA.Components.Home.ResourceTab::Image
+ 0036: callvirt TypeSpecification:1b000042::Add
+ 003b: nop 
+ 003c: stloc.0 
+ 003d: newobj TypeSpecification:1b000042::.ctor
+ 0042: dup 
+ 0043: ldstr "auto_play_tab"
+ 0048: ldc.i4.1 
+ 0049: box System.Boolean
+ 004e: callvirt TypeSpecification:1b000042::Add
+ 0053: nop 
+ 0054: stloc.1 
+ 0055: ldloc.0 
+ 0056: ldstr "extension"
+ 005b: ldloc.1 
+ 005c: callvirt TypeSpecification:1b000042::Add
+ 0061: nop 
+ 0062: ldarg.0 
+ 0063: ldloc.0 
+ 0064: ldnull 
+ 0065: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 006a: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 006f: nop 
+ 0070: ret 
+METHOD 060002c8 Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:040000ec
+ 0007: ldarg.0 
+ 0008: ldarg.1 
+ 0009: ldsfld FieldDefinition:040000ea
+ 000e: ldarg.2 
+ 000f: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 0014: nop 
+ 0015: nop 
+ 0016: ldarg.0 
+ 0017: ldarg.0 
+ 0018: newobj .ctor
+ 001d: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 0022: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0027: ldarg.0 
+ 0028: ldc.i4.1 
+ 0029: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 002e: dup 
+ 002f: ldc.i4.0 
+ 0030: ldarg.0 
+ 0031: ldnull 
+ 0032: newobj .ctor
+ 0037: stelem.ref 
+ 0038: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 003d: nop 
+ 003e: ldarg.0 
+ 003f: ldarg.0 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 0045: ldc.i4.0 
+ 0046: ldelem.ref 
+ 0047: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 004c: nop 
+ 004d: ldarg.0 
+ 004e: ldarg.0 
+ 004f: newobj Tizen.TV.Service.CoBA.Core.AppListManager::.ctor
+ 0054: stfld FieldDefinition:040000ec
+ 0059: ret 
+METHOD 060002c9 Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: leave.s 08
+ 0004: ldarg.0 
+ 0005: call System.Object::Finalize
+ 000a: nop 
+ 000b: endfinally 
+ 000c: ret 
+METHOD 060002ca Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 060002cb Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::OnAddApp
+ 0000: nop 
+ 0001: ret 
+METHOD 060002cc Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::OnRemoveApp
+ 0000: nop 
+ 0001: ret 
+METHOD 060002cd Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::OnMoveApp
+ 0000: nop 
+ 0001: ret 
+METHOD 060002ce Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::OnLauncherChanged
+ 0000: nop 
+ 0001: ldstr "%s1, %s2, %s3"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.1 
+ 0025: ldfld Tizen.TV.Service.CoBA.Core.LauncherChangedEventArgs::id
+ 002a: ldarg.1 
+ 002b: ldfld Tizen.TV.Service.CoBA.Core.LauncherChangedEventArgs::type
+ 0030: box Tizen.TV.Service.CoBA.Core.ChangeType
+ 0035: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 003a: ldarg.1 
+ 003b: ldfld Tizen.TV.Service.CoBA.Core.LauncherChangedEventArgs::move
+ 0040: brtrue.s 07
+ 0042: ldstr "F"
+ 0047: br.s 05
+ 0049: ldstr "T"
+ 004e: ldnull 
+ 004f: ldnull 
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldc.r8 000000E0CF126341
+ 006b: ldc.r8 000000E0CF126341
+ 0074: ldc.r8 000000E0CF126341
+ 007d: ldstr "OnLauncherChanged"
+ 0082: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompHomeTab.cs"
+ 0087: ldc.i4.s 71
+ 0089: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008e: nop 
+ 008f: ldarg.1 
+ 0090: ldfld Tizen.TV.Service.CoBA.Core.LauncherChangedEventArgs::move
+ 0095: stloc.0 
+ 0096: ldloc.0 
+ 0097: brfalse.s 03
+ 0099: nop 
+ 009a: br.s 07
+ 009c: ldarg.0 
+ 009d: call Tizen.TV.Service.CoBA2.Core.CategoryManager::UpdateChild
+ 00a2: nop 
+ 00a3: ret 
+METHOD 060002cf Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::OnSelected
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call Tizen.TV.Service.CoBA.Core.Component::OnSelected
+ 0008: nop 
+ 0009: ret 
+METHOD 060002d0 Tizen.Tv.App.CoBA.Components.Home.CompHomeTab::.cctor
+ 0000: ldstr "d/home.tab"
+ 0005: stsfld FieldDefinition:040000ea
+ 000a: ldstr "Discover"
+ 000f: stsfld FieldDefinition:040000eb
+ 0014: ret 
+METHOD 060002d1 Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTabCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "d/recent.row@OnNow"
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: ldloc.0 
+ 0014: ldsfld FieldDefinition:040000cb
+ 0019: callvirt TypeSpecification:1b000009::Add
+ 001e: nop 
+ 001f: nop 
+ 0020: ldloc.0 
+ 0021: callvirt TypeSpecification:1b000009::GetEnumerator
+ 0026: stloc.1 
+ 0027: br.s 6D
+ 0029: ldloca.s 01
+ 002b: call TypeSpecification:1b000017::get_Current
+ 0030: stloc.2 
+ 0031: nop 
+ 0032: ldloc.2 
+ 0033: ldc.i4 7F969800
+ 0038: conv.i8 
+ 0039: ldc.i4 7F969800
+ 003e: conv.i8 
+ 003f: ldc.i4 7F969800
+ 0044: conv.i8 
+ 0045: ldc.i4 7F969800
+ 004a: conv.i8 
+ 004b: ldc.i4 7F969800
+ 0050: conv.i8 
+ 0051: ldnull 
+ 0052: ldnull 
+ 0053: ldnull 
+ 0054: ldnull 
+ 0055: ldnull 
+ 0056: ldc.r8 000000E0CF126341
+ 005f: ldc.r8 000000E0CF126341
+ 0068: ldc.r8 000000E0CF126341
+ 0071: ldc.r8 000000E0CF126341
+ 007a: ldc.r8 000000E0CF126341
+ 0083: ldstr "GetItems"
+ 0088: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompHomeZeroTab.cs"
+ 008d: ldc.i4.s 14
+ 008f: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0094: nop 
+ 0095: nop 
+ 0096: ldloca.s 01
+ 0098: call TypeSpecification:1b000017::MoveNext
+ 009d: brtrue.s 8A
+ 009f: leave.s 0F
+ 00a1: ldloca.s 01
+ 00a3: constrained. TypeSpecification:1b000017
+ 00a9: callvirt System.IDisposable::Dispose
+ 00ae: nop 
+ 00af: endfinally 
+ 00b0: ldarg.1 
+ 00b1: ldloc.0 
+ 00b2: callvirt TypeSpecification:1b000009::ToArray
+ 00b7: stind.ref 
+ 00b8: ldc.i4.1 
+ 00b9: stloc.3 
+ 00ba: br.s 00
+ 00bc: ldloc.3 
+ 00bd: ret 
+METHOD 060002d2 Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTabCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 060002d3 Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTab::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:040000ed
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 060002d4 Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTab::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: leave.s 08
+ 0004: ldarg.0 
+ 0005: call System.Object::Finalize
+ 000a: nop 
+ 000b: endfinally 
+ 000c: ret 
+METHOD 060002d5 Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTab::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 060002d6 Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTab::OnSelected
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call Tizen.TV.Service.CoBA.Core.Component::OnSelected
+ 0008: nop 
+ 0009: ret 
+METHOD 060002d7 Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTab::.cctor
+ 0000: ldstr "d/home.zero.tab"
+ 0005: stsfld FieldDefinition:040000ed
+ 000a: ret 
+METHOD 060002d8 Tizen.Tv.App.CoBA.Components.Home.CompLiveTabCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "s/livetv.row@OnNow"
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: call Tizen.Tv.App.CoBA.Components.Home.HomeCommon::get_IsEPGTVPlusGenreSupport
+ 0018: stloc.1 
+ 0019: ldloc.1 
+ 001a: brfalse.s 0E
+ 001c: nop 
+ 001d: ldloc.0 
+ 001e: ldstr "s/epg.row"
+ 0023: callvirt TypeSpecification:1b000009::Add
+ 0028: nop 
+ 0029: nop 
+ 002a: ldloc.0 
+ 002b: ldstr "s/terra.bottom@"
+ 0030: ldsfld FieldDefinition:040000ee
+ 0035: call System.String::Concat
+ 003a: callvirt TypeSpecification:1b000009::Add
+ 003f: nop 
+ 0040: nop 
+ 0041: ldloc.0 
+ 0042: callvirt TypeSpecification:1b000009::GetEnumerator
+ 0047: stloc.2 
+ 0048: br.s 6D
+ 004a: ldloca.s 02
+ 004c: call TypeSpecification:1b000017::get_Current
+ 0051: stloc.3 
+ 0052: nop 
+ 0053: ldloc.3 
+ 0054: ldc.i4 7F969800
+ 0059: conv.i8 
+ 005a: ldc.i4 7F969800
+ 005f: conv.i8 
+ 0060: ldc.i4 7F969800
+ 0065: conv.i8 
+ 0066: ldc.i4 7F969800
+ 006b: conv.i8 
+ 006c: ldc.i4 7F969800
+ 0071: conv.i8 
+ 0072: ldnull 
+ 0073: ldnull 
+ 0074: ldnull 
+ 0075: ldnull 
+ 0076: ldnull 
+ 0077: ldc.r8 000000E0CF126341
+ 0080: ldc.r8 000000E0CF126341
+ 0089: ldc.r8 000000E0CF126341
+ 0092: ldc.r8 000000E0CF126341
+ 009b: ldc.r8 000000E0CF126341
+ 00a4: ldstr "GetItems"
+ 00a9: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompLiveTab.cs"
+ 00ae: ldc.i4.s 1A
+ 00b0: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00b5: nop 
+ 00b6: nop 
+ 00b7: ldloca.s 02
+ 00b9: call TypeSpecification:1b000017::MoveNext
+ 00be: brtrue.s 8A
+ 00c0: leave.s 0F
+ 00c2: ldloca.s 02
+ 00c4: constrained. TypeSpecification:1b000017
+ 00ca: callvirt System.IDisposable::Dispose
+ 00cf: nop 
+ 00d0: endfinally 
+ 00d1: ldarg.1 
+ 00d2: ldloc.0 
+ 00d3: callvirt TypeSpecification:1b000009::ToArray
+ 00d8: stind.ref 
+ 00d9: ldc.i4.1 
+ 00da: stloc.s 04
+ 00dc: br.s 00
+ 00de: ldloc.s 04
+ 00e0: ret 
+METHOD 060002d9 Tizen.Tv.App.CoBA.Components.Home.CompLiveTabCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 060002da Tizen.Tv.App.CoBA.Components.Home.CompLiveTabElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 060002db Tizen.Tv.App.CoBA.Components.Home.CompLiveTabElement::Update
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000042::.ctor
+ 0006: dup 
+ 0007: ldstr "title"
+ 000c: ldc.i4.2 
+ 000d: call Tizen.Tv.App.CoBA.Components.Home.ResourceTab::Text
+ 0012: callvirt TypeSpecification:1b000042::Add
+ 0017: nop 
+ 0018: dup 
+ 0019: ldstr "type"
+ 001e: ldstr "MultiTab"
+ 0023: callvirt TypeSpecification:1b000042::Add
+ 0028: nop 
+ 0029: dup 
+ 002a: ldstr "unfocused_bg_icon"
+ 002f: ldc.i4.s 12
+ 0031: call Tizen.Tv.App.CoBA.Components.Home.ResourceTab::Image
+ 0036: callvirt TypeSpecification:1b000042::Add
+ 003b: nop 
+ 003c: stloc.0 
+ 003d: newobj TypeSpecification:1b000042::.ctor
+ 0042: dup 
+ 0043: ldstr "tab_icon"
+ 0048: ldc.i4.s 13
+ 004a: call Tizen.Tv.App.CoBA.Components.Home.ResourceTab::Image
+ 004f: callvirt TypeSpecification:1b000042::Add
+ 0054: nop 
+ 0055: stloc.1 
+ 0056: ldloc.0 
+ 0057: ldstr "extension"
+ 005c: ldloc.1 
+ 005d: callvirt TypeSpecification:1b000042::Add
+ 0062: nop 
+ 0063: ldarg.0 
+ 0064: ldloc.0 
+ 0065: ldnull 
+ 0066: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 006b: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0070: nop 
+ 0071: ret 
+METHOD 060002dc Tizen.Tv.App.CoBA.Components.Home.CompLiveTab::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:040000ee
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 060002dd Tizen.Tv.App.CoBA.Components.Home.CompLiveTab::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 060002de Tizen.Tv.App.CoBA.Components.Home.CompLiveTab::OnSelected
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call Tizen.TV.Service.CoBA.Core.Component::OnSelected
+ 0008: nop 
+ 0009: ret 
+METHOD 060002df Tizen.Tv.App.CoBA.Components.Home.CompLiveTab::.cctor
+ 0000: ldstr "d/live.tab"
+ 0005: stsfld FieldDefinition:040000ee
+ 000a: ldstr "Live"
+ 000f: stsfld FieldDefinition:040000ef
+ 0014: ret 
+METHOD 060002e0 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayerCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 060002e1 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayerCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b00000f::.ctor
+ 0006: dup 
+ 0007: ldsfld FieldDefinition:040000ea
+ 000c: ldsfld FieldDefinition:040000eb
+ 0011: callvirt TypeSpecification:1b00000f::Add
+ 0016: nop 
+ 0017: stloc.0 
+ 0018: ldarg.1 
+ 0019: ldloc.0 
+ 001a: callvirt TypeSpecification:1b00000f::get_Keys
+ 001f: call System.Linq.Enumerable::ToArray
+ 0024: stind.ref 
+ 0025: ldloc.0 
+ 0026: call SetTabList
+ 002b: nop 
+ 002c: ldc.i4.1 
+ 002d: stloc.1 
+ 002e: br.s 00
+ 0030: ldloc.1 
+ 0031: ret 
+METHOD 060002e2 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 060002e3 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayerElement::Update
+ 0000: nop 
+ 0001: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "title"
+ 000d: ldstr ""
+ 0012: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0017: pop 
+ 0018: ldloc.0 
+ 0019: ldstr "focused_icon"
+ 001e: ldstr ""
+ 0023: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0028: pop 
+ 0029: ldloc.0 
+ 002a: ldstr "type"
+ 002f: ldstr "Layer"
+ 0034: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0039: pop 
+ 003a: ldarg.0 
+ 003b: ldloc.0 
+ 003c: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0046: nop 
+ 0047: ldloc.0 
+ 0048: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 004d: nop 
+ 004e: ret 
+METHOD 060002e4 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:040000f0
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 060002e5 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayer::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: leave.s 08
+ 0004: ldarg.0 
+ 0005: call System.Object::Finalize
+ 000a: nop 
+ 000b: endfinally 
+ 000c: ret 
+METHOD 060002e6 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 060002e7 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayer::.cctor
+ 0000: ldstr "d/nativeTV.tab.layer"
+ 0005: stsfld FieldDefinition:040000f0
+ 000a: ret 
+METHOD 060002e8 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabsCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 060002e9 Tizen.Tv.App.CoBA.Components.Home.CompNativeTabsCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldsfld FieldDefinition:040000f0
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: nop 
+ 0014: ldloc.0 
+ 0015: callvirt TypeSpecification:1b000009::GetEnumerator
+ 001a: stloc.1 
+ 001b: br.s 6D
+ 001d: ldloca.s 01
+ 001f: call TypeSpecification:1b000017::get_Current
+ 0024: stloc.2 
+ 0025: nop 
+ 0026: ldloc.2 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldc.i4 7F969800
+ 0032: conv.i8 
+ 0033: ldc.i4 7F969800
+ 0038: conv.i8 
+ 0039: ldc.i4 7F969800
+ 003e: conv.i8 
+ 003f: ldc.i4 7F969800
+ 0044: conv.i8 
+ 0045: ldnull 
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldstr "GetItems"
+ 007c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompNativeTabs.cs"
+ 0081: ldc.i4.s 17
+ 0083: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0088: nop 
+ 0089: nop 
+ 008a: ldloca.s 01
+ 008c: call TypeSpecification:1b000017::MoveNext
+ 0091: brtrue.s 8A
+ 0093: leave.s 0F
+ 0095: ldloca.s 01
+ 0097: constrained. TypeSpecification:1b000017
+ 009d: callvirt System.IDisposable::Dispose
+ 00a2: nop 
+ 00a3: endfinally 
+ 00a4: ldarg.1 
+ 00a5: ldloc.0 
+ 00a6: callvirt TypeSpecification:1b000009::ToArray
+ 00ab: stind.ref 
+ 00ac: ldc.i4.1 
+ 00ad: stloc.3 
+ 00ae: br.s 00
+ 00b0: ldloc.3 
+ 00b1: ret 
+METHOD 060002ea Tizen.Tv.App.CoBA.Components.Home.CompNativeTabsElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 060002eb Tizen.Tv.App.CoBA.Components.Home.CompNativeTabsElement::Update
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000042::.ctor
+ 0006: dup 
+ 0007: ldstr "title"
+ 000c: ldnull 
+ 000d: callvirt TypeSpecification:1b000042::Add
+ 0012: nop 
+ 0013: dup 
+ 0014: ldstr "focused_icon"
+ 0019: ldnull 
+ 001a: callvirt TypeSpecification:1b000042::Add
+ 001f: nop 
+ 0020: dup 
+ 0021: ldstr "type"
+ 0026: ldstr "MultiTabLayer"
+ 002b: callvirt TypeSpecification:1b000042::Add
+ 0030: nop 
+ 0031: dup 
+ 0032: ldstr "fixed_position"
+ 0037: ldc.i4.1 
+ 0038: box System.Boolean
+ 003d: callvirt TypeSpecification:1b000042::Add
+ 0042: nop 
+ 0043: dup 
+ 0044: ldstr "priority"
+ 0049: ldc.i4.s 0F
+ 004b: box System.Int32
+ 0050: callvirt TypeSpecification:1b000042::Add
+ 0055: nop 
+ 0056: stloc.0 
+ 0057: newobj TypeSpecification:1b000042::.ctor
+ 005c: dup 
+ 005d: ldstr "layer_type"
+ 0062: ldstr "tablist"
+ 0067: callvirt TypeSpecification:1b000042::Add
+ 006c: nop 
+ 006d: dup 
+ 006e: ldstr "layer_style"
+ 0073: ldstr "tablist01"
+ 0078: callvirt TypeSpecification:1b000042::Add
+ 007d: nop 
+ 007e: dup 
+ 007f: ldstr "bg_colorchip"
+ 0084: ldstr "CC_Home_BG_Main_Home"
+ 0089: callvirt TypeSpecification:1b000042::Add
+ 008e: nop 
+ 008f: dup 
+ 0090: ldstr "bg_dim_colorchip"
+ 0095: ldstr "CC_Home_BG_Dim_Home"
+ 009a: callvirt TypeSpecification:1b000042::Add
+ 009f: nop 
+ 00a0: stloc.1 
+ 00a1: ldloc.0 
+ 00a2: ldstr "extension"
+ 00a7: ldloc.1 
+ 00a8: callvirt TypeSpecification:1b000042::Add
+ 00ad: nop 
+ 00ae: ldarg.0 
+ 00af: ldloc.0 
+ 00b0: ldnull 
+ 00b1: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 00b6: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 00bb: nop 
+ 00bc: ret 
+METHOD 060002ec Tizen.Tv.App.CoBA.Components.Home.CompNativeTabs::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:040000f1
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 060002ed Tizen.Tv.App.CoBA.Components.Home.CompNativeTabs::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: leave.s 08
+ 0004: ldarg.0 
+ 0005: call System.Object::Finalize
+ 000a: nop 
+ 000b: endfinally 
+ 000c: ret 
+METHOD 060002ee Tizen.Tv.App.CoBA.Components.Home.CompNativeTabs::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 060002ef Tizen.Tv.App.CoBA.Components.Home.CompNativeTabs::.cctor
+ 0000: ldstr "d/tabs.nativeTV"
+ 0005: stsfld FieldDefinition:040000f1
+ 000a: ret 
+METHOD 060002f0 Tizen.Tv.App.CoBA.Components.Home.CompTabLayerCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 060002f1 Tizen.Tv.App.CoBA.Components.Home.CompTabLayerCache::GetItems
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldloca.s 00
+ 0004: call GetTabList
+ 0009: nop 
+ 000a: ldloc.0 
+ 000b: call SetTabList
+ 0010: nop 
+ 0011: ldarg.1 
+ 0012: ldloc.0 
+ 0013: callvirt TypeSpecification:1b00000f::get_Keys
+ 0018: call System.Linq.Enumerable::ToArray
+ 001d: stind.ref 
+ 001e: ldc.i4.1 
+ 001f: stloc.1 
+ 0020: br.s 00
+ 0022: ldloc.1 
+ 0023: ret 
+METHOD 060002f2 Tizen.Tv.App.CoBA.Components.Home.CompTabLayerCache::GetTabList
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: newobj TypeSpecification:1b00000f::.ctor
+ 0007: stind.ref 
+ 0008: ldarg.1 
+ 0009: ldind.ref 
+ 000a: ldsfld FieldDefinition:040000ea
+ 000f: ldsfld FieldDefinition:040000eb
+ 0014: callvirt TypeSpecification:1b00000f::Add
+ 0019: nop 
+ 001a: call Tizen.Tv.App.CoBA.Components.Home.HomeCommon::IsTVPlusSupportedCountry
+ 001f: stloc.0 
+ 0020: ldloc.0 
+ 0021: ldc.i4.m1 
+ 0022: ceq 
+ 0024: stloc.1 
+ 0025: ldloc.1 
+ 0026: brfalse.s 4E
+ 0028: nop 
+ 0029: call GetTabCache
+ 002e: stloc.2 
+ 002f: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0034: ldc.i4.s 1B
+ 0036: ldloca.s 03
+ 0038: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 003d: pop 
+ 003e: ldloc.2 
+ 003f: brfalse.s 0D
+ 0041: ldloc.2 
+ 0042: ldsfld FieldDefinition:040000ee
+ 0047: call TypeSpecification:1b00000f::ContainsKey
+ 004c: brtrue.s 06
+ 004e: ldloc.3 
+ 004f: ldc.i4.0 
+ 0050: cgt 
+ 0052: br.s 01
+ 0054: ldc.i4.1 
+ 0055: stloc.s 04
+ 0057: ldloc.s 04
+ 0059: stloc.s 05
+ 005b: ldloc.s 05
+ 005d: brfalse.s 14
+ 005f: nop 
+ 0060: ldarg.1 
+ 0061: ldind.ref 
+ 0062: ldsfld FieldDefinition:040000ee
+ 0067: ldsfld FieldDefinition:040000ef
+ 006c: callvirt TypeSpecification:1b00000f::Add
+ 0071: nop 
+ 0072: nop 
+ 0073: nop 
+ 0074: br.s 1E
+ 0076: ldloc.0 
+ 0077: ldc.i4.1 
+ 0078: ceq 
+ 007a: stloc.s 06
+ 007c: ldloc.s 06
+ 007e: brfalse.s 14
+ 0080: nop 
+ 0081: ldarg.1 
+ 0082: ldind.ref 
+ 0083: ldsfld FieldDefinition:040000ee
+ 0088: ldsfld FieldDefinition:040000ef
+ 008d: callvirt TypeSpecification:1b00000f::Add
+ 0092: nop 
+ 0093: nop 
+ 0094: ldarg.1 
+ 0095: ldind.ref 
+ 0096: ldstr "d/apps.tab"
+ 009b: ldstr "Apps"
+ 00a0: callvirt TypeSpecification:1b00000f::Add
+ 00a5: nop 
+ 00a6: ret 
+METHOD 060002f3 Tizen.Tv.App.CoBA.Components.Home.CompTabLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 060002f4 Tizen.Tv.App.CoBA.Components.Home.CompTabLayerElement::Update
+ 0000: nop 
+ 0001: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "title"
+ 000d: ldstr ""
+ 0012: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0017: pop 
+ 0018: ldloc.0 
+ 0019: ldstr "focused_icon"
+ 001e: ldstr ""
+ 0023: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0028: pop 
+ 0029: ldloc.0 
+ 002a: ldstr "type"
+ 002f: ldstr "Layer"
+ 0034: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0039: pop 
+ 003a: ldarg.0 
+ 003b: ldloc.0 
+ 003c: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0046: nop 
+ 0047: ldloc.0 
+ 0048: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 004d: nop 
+ 004e: ret 
+METHOD 060002f5 Tizen.Tv.App.CoBA.Components.Home.CompTabLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:040000f3
+ 0007: ldarg.0 
+ 0008: ldarg.1 
+ 0009: ldsfld FieldDefinition:040000f2
+ 000e: ldarg.2 
+ 000f: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 0014: nop 
+ 0015: nop 
+ 0016: ldarg.0 
+ 0017: newobj .ctor
+ 001c: stfld FieldDefinition:040000f3
+ 0021: ldarg.0 
+ 0022: ldarg.0 
+ 0023: ldarg.0 
+ 0024: ldfld FieldDefinition:040000f3
+ 0029: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 002e: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0033: ldarg.0 
+ 0034: ldc.i4.1 
+ 0035: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 003a: dup 
+ 003b: ldc.i4.0 
+ 003c: ldarg.0 
+ 003d: ldnull 
+ 003e: newobj .ctor
+ 0043: stelem.ref 
+ 0044: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0049: nop 
+ 004a: ldarg.0 
+ 004b: ldarg.0 
+ 004c: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 0051: ldc.i4.0 
+ 0052: ldelem.ref 
+ 0053: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0058: nop 
+ 0059: call TypeSpecification:1b00004d::GetInstance
+ 005e: ldc.i4 9E5F0100
+ 0063: ldarg.0 
+ 0064: callvirt Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventSubscriber::Subscribe
+ 0069: nop 
+ 006a: ret 
+METHOD 060002f6 Tizen.Tv.App.CoBA.Components.Home.CompTabLayer::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: leave.s 08
+ 0004: ldarg.0 
+ 0005: call System.Object::Finalize
+ 000a: nop 
+ 000b: endfinally 
+ 000c: ret 
+METHOD 060002f7 Tizen.Tv.App.CoBA.Components.Home.CompTabLayer::OnExit
+ 0000: nop 
+ 0001: call TypeSpecification:1b00004d::GetInstance
+ 0006: ldc.i4 9E5F0100
+ 000b: ldarg.0 
+ 000c: callvirt Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventSubscriber::Unsubscribe
+ 0011: nop 
+ 0012: ldarg.0 
+ 0013: call Tizen.TV.Service.CoBA.Core.Component::OnExit
+ 0018: nop 
+ 0019: ldarg.0 
+ 001a: ldnull 
+ 001b: stfld FieldDefinition:040000f3
+ 0020: ret 
+METHOD 060002f8 Tizen.Tv.App.CoBA.Components.Home.CompTabLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 060002f9 Tizen.Tv.App.CoBA.Components.Home.CompTabLayer::OnHybridcastEvent
+ 0000: nop 
+ 0001: ldloca.s 00
+ 0003: ldc.i4.s 35
+ 0005: ldc.i4.4 
+ 0006: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor
+ 000b: ldloca.s 00
+ 000d: ldstr "Event Received [EVENT] "
+ 0012: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 0017: nop 
+ 0018: ldloca.s 00
+ 001a: ldarg.1 
+ 001b: ldfld Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventArgs::EventName
+ 0020: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 0025: nop 
+ 0026: ldloca.s 00
+ 0028: ldstr ", param1: "
+ 002d: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 0032: nop 
+ 0033: ldloca.s 00
+ 0035: ldarg.1 
+ 0036: ldfld Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventArgs::param1
+ 003b: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 0040: nop 
+ 0041: ldloca.s 00
+ 0043: ldstr ", param2: "
+ 0048: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 004d: nop 
+ 004e: ldloca.s 00
+ 0050: ldarg.1 
+ 0051: ldfld Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventArgs::param2
+ 0056: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 005b: nop 
+ 005c: ldloca.s 00
+ 005e: ldstr ", param3: "
+ 0063: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 0068: nop 
+ 0069: ldloca.s 00
+ 006b: ldarg.1 
+ 006c: ldfld Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventArgs::param3
+ 0071: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 0076: nop 
+ 0077: ldloca.s 00
+ 0079: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear
+ 007e: ldstr "OnHybridcastEvent"
+ 0083: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompTabLayer.cs"
+ 0088: ldc.i4.s 6A
+ 008a: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 008f: nop 
+ 0090: ldarg.1 
+ 0091: ldfld Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventArgs::EventName
+ 0096: stloc.2 
+ 0097: ldloc.2 
+ 0098: stloc.1 
+ 0099: ldloc.1 
+ 009a: ldc.i4 9E5F0100
+ 009f: beq.s 02
+ 00a1: br.s 15
+ 00a3: ldarg.0 
+ 00a4: call IsTabListChanged
+ 00a9: stloc.3 
+ 00aa: ldloc.3 
+ 00ab: brfalse.s 09
+ 00ad: nop 
+ 00ae: ldarg.0 
+ 00af: call Tizen.TV.Service.CoBA.Core.Component::ReloadChild
+ 00b4: nop 
+ 00b5: nop 
+ 00b6: br.s 02
+ 00b8: br.s 00
+ 00ba: ret 
+METHOD 060002fa Tizen.Tv.App.CoBA.Components.Home.CompTabLayer::IsTabListChanged
+ 0000: nop 
+ 0001: ldnull 
+ 0002: stloc.0 
+ 0003: ldarg.0 
+ 0004: ldfld FieldDefinition:040000f3
+ 0009: dup 
+ 000a: brtrue.s 03
+ 000c: pop 
+ 000d: br.s 08
+ 000f: ldloca.s 00
+ 0011: call GetTabList
+ 0016: nop 
+ 0017: ldloc.0 
+ 0018: brtrue.s 03
+ 001a: ldnull 
+ 001b: br.s 12
+ 001d: ldloc.0 
+ 001e: call TypeSpecification:1b00000f::get_Keys
+ 0023: dup 
+ 0024: brtrue.s 04
+ 0026: pop 
+ 0027: ldnull 
+ 0028: br.s 05
+ 002a: call System.Linq.Enumerable::ToList
+ 002f: dup 
+ 0030: brtrue.s 06
+ 0032: pop 
+ 0033: newobj TypeSpecification:1b000009::.ctor
+ 0038: stloc.1 
+ 0039: call GetTabCache
+ 003e: dup 
+ 003f: brtrue.s 04
+ 0041: pop 
+ 0042: ldnull 
+ 0043: br.s 11
+ 0045: call TypeSpecification:1b00000f::get_Keys
+ 004a: dup 
+ 004b: brtrue.s 04
+ 004d: pop 
+ 004e: ldnull 
+ 004f: br.s 05
+ 0051: call System.Linq.Enumerable::ToList
+ 0056: dup 
+ 0057: brtrue.s 06
+ 0059: pop 
+ 005a: newobj TypeSpecification:1b000009::.ctor
+ 005f: stloc.2 
+ 0060: ldloc.1 
+ 0061: callvirt TypeSpecification:1b000009::get_Count
+ 0066: ldloc.2 
+ 0067: callvirt TypeSpecification:1b000009::get_Count
+ 006c: ceq 
+ 006e: ldc.i4.0 
+ 006f: ceq 
+ 0071: stloc.3 
+ 0072: ldloc.3 
+ 0073: brfalse.s 06
+ 0075: nop 
+ 0076: ldc.i4.1 
+ 0077: stloc.s 04
+ 0079: br.s 0E
+ 007b: ldloc.1 
+ 007c: ldloc.2 
+ 007d: call System.Linq.Enumerable::SequenceEqual
+ 0082: ldc.i4.0 
+ 0083: ceq 
+ 0085: stloc.s 04
+ 0087: br.s 00
+ 0089: ldloc.s 04
+ 008b: ret 
+METHOD 060002fb Tizen.Tv.App.CoBA.Components.Home.CompTabLayer::.cctor
+ 0000: ldstr "d/tab.layer"
+ 0005: stsfld FieldDefinition:040000f2
+ 000a: ret 
+METHOD 060002fc Tizen.Tv.App.CoBA.Components.Home.CompTabsCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 060002fd Tizen.Tv.App.CoBA.Components.Home.CompTabsCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldsfld FieldDefinition:040000f2
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: nop 
+ 0014: ldloc.0 
+ 0015: callvirt TypeSpecification:1b000009::GetEnumerator
+ 001a: stloc.1 
+ 001b: br.s 6D
+ 001d: ldloca.s 01
+ 001f: call TypeSpecification:1b000017::get_Current
+ 0024: stloc.2 
+ 0025: nop 
+ 0026: ldloc.2 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldc.i4 7F969800
+ 0032: conv.i8 
+ 0033: ldc.i4 7F969800
+ 0038: conv.i8 
+ 0039: ldc.i4 7F969800
+ 003e: conv.i8 
+ 003f: ldc.i4 7F969800
+ 0044: conv.i8 
+ 0045: ldnull 
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldstr "GetItems"
+ 007c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompTabs.cs"
+ 0081: ldc.i4.s 16
+ 0083: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0088: nop 
+ 0089: nop 
+ 008a: ldloca.s 01
+ 008c: call TypeSpecification:1b000017::MoveNext
+ 0091: brtrue.s 8A
+ 0093: leave.s 0F
+ 0095: ldloca.s 01
+ 0097: constrained. TypeSpecification:1b000017
+ 009d: callvirt System.IDisposable::Dispose
+ 00a2: nop 
+ 00a3: endfinally 
+ 00a4: ldarg.1 
+ 00a5: ldloc.0 
+ 00a6: callvirt TypeSpecification:1b000009::ToArray
+ 00ab: stind.ref 
+ 00ac: ldc.i4.1 
+ 00ad: stloc.3 
+ 00ae: br.s 00
+ 00b0: ldloc.3 
+ 00b1: ret 
+METHOD 060002fe Tizen.Tv.App.CoBA.Components.Home.CompTabsElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 060002ff Tizen.Tv.App.CoBA.Components.Home.CompTabsElement::Update
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000042::.ctor
+ 0006: dup 
+ 0007: ldstr "title"
+ 000c: ldnull 
+ 000d: callvirt TypeSpecification:1b000042::Add
+ 0012: nop 
+ 0013: dup 
+ 0014: ldstr "focused_icon"
+ 0019: ldnull 
+ 001a: callvirt TypeSpecification:1b000042::Add
+ 001f: nop 
+ 0020: dup 
+ 0021: ldstr "type"
+ 0026: ldstr "MultiTabLayer"
+ 002b: callvirt TypeSpecification:1b000042::Add
+ 0030: nop 
+ 0031: dup 
+ 0032: ldstr "fixed_position"
+ 0037: ldc.i4.1 
+ 0038: box System.Boolean
+ 003d: callvirt TypeSpecification:1b000042::Add
+ 0042: nop 
+ 0043: dup 
+ 0044: ldstr "priority"
+ 0049: ldc.i4.s 0F
+ 004b: box System.Int32
+ 0050: callvirt TypeSpecification:1b000042::Add
+ 0055: nop 
+ 0056: stloc.0 
+ 0057: newobj TypeSpecification:1b000042::.ctor
+ 005c: dup 
+ 005d: ldstr "layer_type"
+ 0062: ldstr "tablist"
+ 0067: callvirt TypeSpecification:1b000042::Add
+ 006c: nop 
+ 006d: dup 
+ 006e: ldstr "layer_style"
+ 0073: ldstr "tablist01"
+ 0078: callvirt TypeSpecification:1b000042::Add
+ 007d: nop 
+ 007e: dup 
+ 007f: ldstr "bg_colorchip"
+ 0084: ldstr "CC_Home_BG_Main_Home"
+ 0089: callvirt TypeSpecification:1b000042::Add
+ 008e: nop 
+ 008f: dup 
+ 0090: ldstr "bg_dim_colorchip"
+ 0095: ldstr "CC_Home_BG_Dim_Home"
+ 009a: callvirt TypeSpecification:1b000042::Add
+ 009f: nop 
+ 00a0: stloc.1 
+ 00a1: ldloc.0 
+ 00a2: ldstr "extension"
+ 00a7: ldloc.1 
+ 00a8: callvirt TypeSpecification:1b000042::Add
+ 00ad: nop 
+ 00ae: ldarg.0 
+ 00af: ldloc.0 
+ 00b0: ldnull 
+ 00b1: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 00b6: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 00bb: nop 
+ 00bc: ret 
+METHOD 06000300 Tizen.Tv.App.CoBA.Components.Home.CompTabs::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:040000f4
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 06000301 Tizen.Tv.App.CoBA.Components.Home.CompTabs::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 06000302 Tizen.Tv.App.CoBA.Components.Home.CompTabs::.cctor
+ 0000: ldstr "d/tabs"
+ 0005: stsfld FieldDefinition:040000f4
+ 000a: ret 
+METHOD 06000303 Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayerCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 06000304 Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayerCache::GetItems
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.1 
+ 0003: newarr System.String
+ 0008: dup 
+ 0009: ldc.i4.0 
+ 000a: ldsfld FieldDefinition:040000ed
+ 000f: stelem.ref 
+ 0010: stind.ref 
+ 0011: ldc.i4.1 
+ 0012: stloc.0 
+ 0013: br.s 00
+ 0015: ldloc.0 
+ 0016: ret 
+METHOD 06000305 Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:040000f5
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 06000306 Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayer::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: leave.s 08
+ 0004: ldarg.0 
+ 0005: call System.Object::Finalize
+ 000a: nop 
+ 000b: endfinally 
+ 000c: ret 
+METHOD 06000307 Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayer::OnExit
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.Component::OnExit
+ 0007: nop 
+ 0008: ret 
+METHOD 06000308 Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 06000309 Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayer::.cctor
+ 0000: ldstr "d/tab.zero.layer"
+ 0005: stsfld FieldDefinition:040000f5
+ 000a: ret 
+METHOD 0600030a Tizen.Tv.App.CoBA.Components.Home.CompZeroTabsCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 0600030b Tizen.Tv.App.CoBA.Components.Home.CompZeroTabsCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000009::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldsfld FieldDefinition:040000f5
+ 000d: callvirt TypeSpecification:1b000009::Add
+ 0012: nop 
+ 0013: nop 
+ 0014: ldloc.0 
+ 0015: callvirt TypeSpecification:1b000009::GetEnumerator
+ 001a: stloc.1 
+ 001b: br.s 6D
+ 001d: ldloca.s 01
+ 001f: call TypeSpecification:1b000017::get_Current
+ 0024: stloc.2 
+ 0025: nop 
+ 0026: ldloc.2 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldc.i4 7F969800
+ 0032: conv.i8 
+ 0033: ldc.i4 7F969800
+ 0038: conv.i8 
+ 0039: ldc.i4 7F969800
+ 003e: conv.i8 
+ 003f: ldc.i4 7F969800
+ 0044: conv.i8 
+ 0045: ldnull 
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldstr "GetItems"
+ 007c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Components/Tab/CompZeroTabs.cs"
+ 0081: ldc.i4.s 16
+ 0083: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0088: nop 
+ 0089: nop 
+ 008a: ldloca.s 01
+ 008c: call TypeSpecification:1b000017::MoveNext
+ 0091: brtrue.s 8A
+ 0093: leave.s 0F
+ 0095: ldloca.s 01
+ 0097: constrained. TypeSpecification:1b000017
+ 009d: callvirt System.IDisposable::Dispose
+ 00a2: nop 
+ 00a3: endfinally 
+ 00a4: ldarg.1 
+ 00a5: ldloc.0 
+ 00a6: callvirt TypeSpecification:1b000009::ToArray
+ 00ab: stind.ref 
+ 00ac: ldc.i4.1 
+ 00ad: stloc.3 
+ 00ae: br.s 00
+ 00b0: ldloc.3 
+ 00b1: ret 
+METHOD 0600030c Tizen.Tv.App.CoBA.Components.Home.CompZeroTabs::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:040000f6
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 0600030d Tizen.Tv.App.CoBA.Components.Home.CompZeroTabs::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600030e Tizen.Tv.App.CoBA.Components.Home.CompZeroTabs::.cctor
+ 0000: ldstr "d/tabs.zero"
+ 0005: stsfld FieldDefinition:040000f6
+ 000a: ret 
+METHOD 0600035f .<>c__DisplayClass0_0::<SetTabList>b__0
+ 0000: nop 
+ 0001: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0006: ldc.i4.s 58
+ 0008: ldloca.s 00
+ 000a: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 000f: pop 
+ 0010: ldarg.0 
+ 0011: ldfld FieldDefinition:04000119
+ 0016: ldnull 
+ 0017: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 001c: stloc.1 
+ 001d: ldloc.1 
+ 001e: ldnull 
+ 001f: ceq 
+ 0021: stloc.2 
+ 0022: ldloc.2 
+ 0023: brfalse.s 6F
+ 0025: nop 
+ 0026: ldstr "data is null"
+ 002b: ldc.i4 7F969800
+ 0030: conv.i8 
+ 0031: ldc.i4 7F969800
+ 0036: conv.i8 
+ 0037: ldc.i4 7F969800
+ 003c: conv.i8 
+ 003d: ldc.i4 7F969800
+ 0042: conv.i8 
+ 0043: ldc.i4 7F969800
+ 0048: conv.i8 
+ 0049: ldnull 
+ 004a: ldnull 
+ 004b: ldnull 
+ 004c: ldnull 
+ 004d: ldnull 
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldc.r8 000000E0CF126341
+ 0072: ldc.r8 000000E0CF126341
+ 007b: ldstr "SetTabList"
+ 0080: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompHome/Common/Common.cs"
+ 0085: ldc.i4 8E000000
+ 008a: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008f: nop 
+ 0090: ldnull 
+ 0091: stloc.3 
+ 0092: br.s 24
+ 0094: ldloc.1 
+ 0095: ldloc.0 
+ 0096: call System.String::Equals
+ 009b: ldc.i4.0 
+ 009c: ceq 
+ 009e: stloc.s 04
+ 00a0: ldloc.s 04
+ 00a2: brfalse.s 10
+ 00a4: nop 
+ 00a5: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 00aa: ldc.i4.s 58
+ 00ac: ldloc.1 
+ 00ad: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigStr
+ 00b2: pop 
+ 00b3: nop 
+ 00b4: ldnull 
+ 00b5: stloc.3 
+ 00b6: br.s 00
+ 00b8: ldloc.3 
+ 00b9: ret 

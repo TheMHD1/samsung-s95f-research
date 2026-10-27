@@ -1,0 +1,72 @@
+{
+  "fixed_protocol": {
+    "bulk_timeout_ms": 2000,
+    "callback_read": {
+      "address": "0x45000580",
+      "header_hex": "010100008005004540000000",
+      "length": 64,
+      "target": "0x101"
+    },
+    "gate_write": {
+      "address": "0x47012406",
+      "arm_payload_hex": "0100",
+      "header_hex": "020100000624014702000000",
+      "length": 2,
+      "restore_payload_hex": "0000",
+      "target": "0x102"
+    },
+    "hard_arm_deadline_ms": 10000,
+    "hold_ms": 3000,
+    "retries": 0,
+    "ring_read": {
+      "address": "0x20200000",
+      "header_hex": "01010000000020200c3c0000",
+      "length": 15372,
+      "target": "0x101"
+    },
+    "rt_read": {
+      "address": "0x47012400",
+      "header_hex": "010100000024014740000000",
+      "length": 64,
+      "target": "0x101"
+    },
+    "whole_deadline_ms": 20000
+  },
+  "limits": [
+    "This qualifies one volatile logger gate and is not a panel repair.",
+    "A USB OUT completion is not a memory acknowledgement; fixed readback is required.",
+    "Unknown protocol phase forbids retry, blind restore, new header, reset, or a second native invocation.",
+    "No persisted-storage, high-bank, POFLG, threshold, protection, flash, EEPROM, cursor, or flag mutation is in scope."
+  ],
+  "live_read_evidence": {
+    "callback_payload_sha256": "55e0afcfdba1aa1fa14985f63d02aebaa60b77bf535afe955ce92745e967895f",
+    "callback_runtime_audit_sha256": "d5e8abecd865b81deb18904127a13179117ebfe323b415be4ecba74d2c6e822c",
+    "full_secondary_ring_reader_manifest_sha256": "fca9538254a4b4e442e3ff20249624af96d52be650a9d25e6ade3545327a76cd",
+    "packaged_callback_words_at_offset_0x0c": [
+      "0x2945d",
+      "0x293d1",
+      "0x294fb",
+      "0x0",
+      "0x0",
+      "0x28b85",
+      "0x28cf1",
+      "0x294f5"
+    ],
+    "secondary_ring_header_payload_sha256": "c3adf13d0ea6ae4678758c97de3639dfcb068eca1e92fdb089d9212f3be020b4",
+    "secondary_ring_header_record_sha256": "6bdf6ef5ae71915763f4aa38022184fd80c95c9795a5d89a878aa61e5133be59"
+  },
+  "no_live_io": true,
+  "review_sources": {
+    "arm_protocol_verifier_sha256": "4858efeaaa6fbf3185b9eed9c7741e3e2ab5f9cd656b18b4c7a87d5075fd87e7",
+    "secondary_event_log_report_sha256": "83d499bd9a44fd602b0211491521774f4fc53c86765fc3bb437386cd7fedcc6f",
+    "secondary_event_log_verifier_sha256": "a82bdb61e7ff94e412a9c0304fef61f0819c157bcdca37503243c5fd98eb5ded",
+    "secondary_logger_arm_protocol_sha256": "859190a1ff5d3b2817723221a1c88b01e0377f5f2f6a4a374eedc1dfbb547003",
+    "volatile_logger_review_sha256": "16c9a6198317c5e144db274a94d7ba983190e07abd49b797f9aa9cee9afd28fe"
+  },
+  "schema": "secondary-logger-smoke-evidence-input-v1",
+  "source_package": {
+    "name": "F_RSM1_BN9659934B_COMMON.bin",
+    "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0",
+    "size": 5242880
+  }
+}

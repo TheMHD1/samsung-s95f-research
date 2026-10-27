@@ -1,0 +1,101 @@
+# Selected exact-build instruction evidence
+# Offline only. Addresses are ELF link VAs or module .text offsets.
+
+INPUTS
+libave.so.0.1 sha256 a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777
+qdf_tcon.ko sha256 97fff5ba5cf3cff758807abbc2bdfb835b4696cbf88626dec5f7eb0e33b7ea63
+libdisplay-panel-impl-sec.so.0.1 sha256 40df6d6e83da608e47d0143c268a964d97fddc7010972b5842f0e21f9b058ca4
+
+LIBAVE ARM32 THUMB: ave_tcon_get_err_det_status, 0x25d164
+0025d174  47f29f40   movw r0,#0x749f
+0025d178  ccf21000   movt r0,#0xc010
+0025d188  1f23       movs r3,#0x1f
+0025d18a  c7e90135   strd r3,r5,[r7,#4]
+0025d18e  30f6e6ee   blx  #0x8df5c          ; ioctl PLT
+0025d192  bb68       ldr  r3,[r7,#8]
+0025d194  2360       str  r3,[r4]           ; return word to caller
+
+LIBAVE ARM32 THUMB: QD decoder, 0x268cbc
+00268ce8  3846       mov  r0,r7
+00268cea  23f650ea   blx  #0x8c18c          ; ave_tcon_get_err_det_status PLT
+00268d7c  3b68       ldr  r3,[r7]
+00268d86  c3f30013   ubfx r3,r3,#4,#1       ; bit 4
+00268d8a  cde90213   strd r1,r3,[sp,#8]
+00268d96  25f6d6e8   blx  #0x8df44          ; logging
+00268df4  3868       ldr  r0,[r7]           ; return unmodified word
+literal string at 0x567dbc: "ERR Detect Status RT Protect:%d"
+
+QDF AARCH64: QDFTcon_GetErrDetStatus, .text+0xa000
+0000a024  b9406ea0   ldr  w0,[x21,#108]     ; gate checked before transport
+0000a030  d2800100   mov  x0,#8
+0000a034  aa1303e1   mov  x1,x19
+0000a038  f2de7000   movk x0,#0xf380,lsl#32 ; command F3 80 00 00 00 08
+0000a040  97fffed2   bl   0x9b88            ; m_read_cmd.constprop.0
+0000a05c  b9400264   ldr  w4,[x19]          ; raw word for printk
+0000a06c  90000000   adrp x0,raw-format
+0000a074  94000000   bl   printk             ; raw log occurs here
+0000a078  b9402aa0   ldr  w0,[x21,#40]      ; m_err_debug at BSS+0x28
+0000a07c  7100041f   cmp  w0,#1
+0000a080  54000280   b.eq 0xa0d0
+0000a0d0  b94122a0   ldr  w0,[x21,#288]     ; debug word at BSS+0x120
+0000a0d4  b9000260   str  w0,[x19]          ; optional overwrite after raw log
+
+LIBAVE ARM32 THUMB: monitor uses GPIO predicate, status only for logging
+00269640  9a6d       ldr  r2,[r3,#0x58]     ; qd_tcon_off
+00269644  00f0a882   beq.w #0x269b98        ; latched report/return route
+00269666  22f6c2ed   blx  #0x8c1ec          ; ave_tcon_qd_err_detect_check
+002696aa  23f6feed   blx  #0x8d2a8          ; qd status decoder/log
+002696c4  26f644eb   blx  #0x8fd50          ; usleep(100000)
+002696cc  22f68eed   blx  #0x8c1ec          ; GPIO recheck
+00269778  0020       movs r0,#0
+0026977a  22f63cef   blx  #0x8c5f4          ; power control operation 0
+00269782  0122       movs r2,#1
+00269786  9a65       str  r2,[r3,#0x58]     ; qd_tcon_off=1
+00269ade  0220       movs r0,#2
+00269ae0  22f688ed   blx  #0x8c5f4          ; recovery operation 2
+00269b20  23f6c2eb   blx  #0x8d2a8          ; status decoder/log
+00269b24  0220       movs r0,#2
+00269b26  22f666ed   blx  #0x8c5f4          ; recovery operation 2
+
+LIBAVE ARM32 THUMB: power-control ioctl wrapper, 0x25c2e0
+0025c304  2923       movs r3,#0x29          ; ioctl operation command
+0025c306  7b60       str  r3,[r7,#4]
+0025c308  31f628ee   blx  #0x8df5c          ; ioctl 0xc010749f
+
+QDF AARCH64: QDFTcon_SetQdTconPowerControl operation 2 (selected)
+# Exact wrapper body is .text+0x11c48. Its operation-2 branch contains:
+00011ce0              bl   m_set_power_control ; argument 0 (off)
+00011cec              bl   m_set_power_control ; argument 1 (on)
+00011cf0              orr  w0,...               ; combine return values
+# m_set_power_control itself is .text+0x11848 and is hardware-affecting.
+
+LIBDISPLAY ARM32 THUMB: DisplayPanelImplSec::setTconPower(mode), 0x5ab0
+00005abc  0c46       mov  r4,r1             ; preserve mode
+00005adc  fef710ef   blx  #0x4900           ; logging
+00005ae0  2046       mov  r0,r4             ; mode becomes AVE argument
+00005ae8  fef74abe   b.w  #0x4780           ; tail call
+
+LIBDISPLAY interworking PLT/GOT identity
+00004780  7847fde7   Thumb-to-ARM interworking shim
+00004784  00c68fe2   add  ip,pc,#0
+00004788  16ca8ce2   add  ip,ip,#0x16000
+0000478c  5cf9bce5   ldr  pc,[ip,#0x95c]!
+calculated GOT = 0x1b0e8
+relocation 0x1b0e8 R_ARM_JUMP_SLOT ave_api_set_qd_tcon_power_control
+
+LIBDISPLAY ARM32 THUMB: displaypanel_impl_set_tcon_power(mode), 0x81fc
+00008206  1868       ldr  r0,[r3]           ; existing singleton
+00008208  d0b1       cbz  r0,#0x8240        ; otherwise inject/create
+00008230  2146       mov  r1,r4             ; pass mode
+00008234  1868       ldr  r0,[r3]
+0000823c  fcf782bc   b.w  #0x4b44           ; setTconPower PLT
+00008262  fcf72aeb   blx  #0x48b8           ; injection path
+00008266  e2e7       b    #0x822e           ; then common call
+
+BOUNDARIES
+- No instruction above expands the letters RT.
+- The QDF getter proves a host transaction and raw word, not controller-side
+  producer, threshold, persistence, or clear semantics.
+- The monitor's recovery predicate is the separate ERR_DET GPIO.
+- The display-panel method is a real stock control boundary but does not prove
+  a safe recovery enum, UI caller, live invocation, or successful panel output.

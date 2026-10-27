@@ -1,0 +1,20 @@
+{
+  "absence_claim_supported": false,
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ RETAINED_PRIVATE_HDMI_MESSAGES'\ndmesg | awk 'index($0,\"[sdp_runtime_pm]\") && index($0,\"sdp-hdmi\") {n++; if(length($0)>512){bad=1;next} a[n%64]=$0} END {print \"MATCHED_ROWS \" n+0; if(bad){print \"OVERSIZE_ROW\";exit 66} first=n>64?n-63:1; for(i=first;i<=n;i++)print a[i%64]; print \"END_ROWS\"}'\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ RETAINED_PRIVATE_HDMI_MESSAGES'\ndmesg | awk 'index($0,\"[sdp_runtime_pm]\") && index($0,\"sdp-hdmi\") {n++; if(length($0)>512){bad=1;next} a[n%64]=$0} END {print \"MATCHED_ROWS \" n+0; if(bad){print \"OVERSIZE_ROW\";exit 66} first=n>64?n-63:1; for(i=first;i<=n;i++)print a[i%64]; print \"END_ROWS\"}'\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "398661e6a8baf0a335b957dd5bd6166b59d8c75f5b86ea93e995c264a62b5a39",
+  "physical_state": "unobserved",
+  "purpose": "Read a filtered snapshot of retained kernel messages; never clear the ring.\n\nOnly positive retained text is evidence. Omitted/overwritten records, truncation,\nand logging gates prevent any absence or physical inference.\n",
+  "retry": false,
+  "started_utc": "2026-10-26T20:15:39.867157+00:00"
+}

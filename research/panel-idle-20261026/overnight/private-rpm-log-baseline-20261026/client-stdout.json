@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ RETAINED_PRIVATE_HDMI_MESSAGES'\ndmesg | awk 'index($0,\"[sdp_runtime_pm]\") && index($0,\"sdp-hdmi\") {n++; if(length($0)>512){bad=1;next} a[n%64]=$0} END {print \"MATCHED_ROWS \" n+0; if(bad){print \"OVERSIZE_ROW\";exit 66} first=n>64?n-63:1; for(i=first;i<=n;i++)print a[i%64]; print \"END_ROWS\"}'\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "@@ BOOT_START\n00000000-0000-4000-8000-000000000000\n@@ TIME_START\n1793045741\n67350.82 252022.69\n@@ RETAINED_PRIVATE_HDMI_MESSAGES\nMATCHED_ROWS 0\nEND_ROWS\n@@ BOOT_END\n00000000-0000-4000-8000-000000000000\n@@ TIME_END\n1793045741\n67350.89 252022.84\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

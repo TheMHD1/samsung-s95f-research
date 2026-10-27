@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\nfor f in /usr/apps/reminder-service/bin/* /usr/apps/ep-power-manager/bin/* /usr/apps/global-notif-service/bin/* /usr/apps/settings-datafw/bin/* /usr/apps/org.tizen.ep-system-manager/bin/* /usr/apps/org.tizen.homesetting/bin/* /usr/apps/privileged-service/bin/* /usr/lib/libnotification*.so* /usr/lib/libpower*.so*; do\n if [ -f \"$f\" ]; then\n  grep -a -l -E 'qd_display_request_el_sensing|el_sensing_poweroff|EL_SENSING|ScreenRestoration|SCREEN_RESTORATION|SCREEN_OPTIM|E.L.S.e.n.s.i.n.g|S.C.R.E.E.N._.R.E.S.T.O.R.A.T.I.O.N' \"$f\"\n fi\ndone\ndate -u\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Mon Oct 26 12:07:08 UTC 2026\nMon Oct 26 12:07:08 UTC 2026\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

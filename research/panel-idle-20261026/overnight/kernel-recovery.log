@@ -1,0 +1,42 @@
+[+] Version string: Linux version 5.4.261 (abuild@A2001DPG) (gcc version 9.2.0 (GCC)) #1 SMP PREEMPT Wed Jul 1 16:51:36 UTC 2026
+[+] Guessed architecture: aarch64 successfully in 0.00 seconds
+Traceback (most recent call last):
+  File "/tmp/tv-kernel-analysis/vmlinux_to_elf/core/kallsyms.py", line 213, in __init__
+    self.find_kallsyms_names_uncompressed()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/tv-kernel-analysis/vmlinux_to_elf/core/kallsyms.py", line 613, in find_kallsyms_names_uncompressed
+    raise KallsymsNotFoundException(
+        "No embedded symbol table found in this kernel"
+    )
+vmlinux_to_elf.core.kallsyms.KallsymsNotFoundException: No embedded symbol table found in this kernel
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/tv-kernel-analysis/bin/vmlinux-to-elf", line 8, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/tmp/tv-kernel-analysis/vmlinux_to_elf/scripts/vmlinux_to_elf.py", line 90, in main
+    ElfSymbolizer(
+    ~~~~~~~~~~~~~^
+        obtain_raw_kernel_from_file(kernel_bin.read()),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        args.use_absolute,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/tmp/tv-kernel-analysis/vmlinux_to_elf/core/elf_symbolizer.py", line 64, in __init__
+    kallsyms_finder = KallsymsFinder(
+        file_contents, bit_size, override_relative, base_address
+    )
+  File "/tmp/tv-kernel-analysis/vmlinux_to_elf/core/kallsyms.py", line 218, in __init__
+    raise first_error
+  File "/tmp/tv-kernel-analysis/vmlinux_to_elf/core/kallsyms.py", line 205, in __init__
+    self.find_kallsyms_token_table()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/tmp/tv-kernel-analysis/vmlinux_to_elf/core/kallsyms.py", line 490, in find_kallsyms_token_table
+    raise KallsymsNotFoundException(
+    ...<2 lines>...
+    )
+vmlinux_to_elf.core.kallsyms.KallsymsNotFoundException: 0 candidates for kallsyms_token_table in kernel image

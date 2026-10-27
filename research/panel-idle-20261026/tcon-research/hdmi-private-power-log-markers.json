@@ -1,0 +1,47 @@
+{
+  "absence_claim_supported": false,
+  "limits": [
+    "caller-specific stock messages, not universal callback instrumentation",
+    "an OUT row proves return to this caller, not callback or hardware success",
+    "record lookup/bypass/count gates can skip a hardware callback",
+    "raw message identity does not uniquely prove which binary emitted it",
+    "no physical onset, recovery, prevention, or cause established"
+  ],
+  "markers": [
+    {
+      "exact_message": "[HDMISW] suspend_hdmi_suspend : sdp_runtime_pm_put(sdp-hdmi) [IN]",
+      "literal_offset": "0xa70",
+      "literal_section": ".rodata.str1.8",
+      "log_call_text_offset": "0x1bf8",
+      "operation": "put",
+      "position_relative_to_private_call": "before"
+    },
+    {
+      "exact_message": "[HDMISW] suspend_hdmi_suspend : sdp_runtime_pm_put(sdp-hdmi) [OUT]",
+      "literal_offset": "0xac8",
+      "literal_section": ".rodata.str1.8",
+      "log_call_text_offset": "0x1c10",
+      "operation": "put",
+      "position_relative_to_private_call": "after"
+    },
+    {
+      "exact_message": "[HDMISW] suspend_hdmi_resume : sdp_runtime_pm_get(sdp_hdmi) [IN]",
+      "literal_offset": "0xb88",
+      "literal_section": ".rodata.str1.8",
+      "log_call_text_offset": "0x1c94",
+      "operation": "get",
+      "position_relative_to_private_call": "before"
+    },
+    {
+      "exact_message": "[HDMISW] suspend_hdmi_resume : sdp_runtime_pm_get(sdp_hdmi) [OUT]",
+      "literal_offset": "0xbd0",
+      "literal_section": ".rodata.str1.8",
+      "log_call_text_offset": "0x1cac",
+      "operation": "get",
+      "position_relative_to_private_call": "after"
+    }
+  ],
+  "module_sha256": "c586a2601665a778a1e7401cd6b7553e03684f2e4536a282047b17059b7eec97",
+  "physical_state": "unobserved",
+  "private_record": "sdp-hdmi"
+}

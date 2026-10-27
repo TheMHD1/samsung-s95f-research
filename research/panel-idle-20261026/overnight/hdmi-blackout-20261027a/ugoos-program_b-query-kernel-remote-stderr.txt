@@ -1,0 +1,10 @@
+awk: cmd. line:1: /^\\[/ { t=$0; sub(/^\\[[ ]*/, "", t); sub(/\\].*$/, "", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }
+awk: cmd. line:1:                                  ^ syntax error
+awk: cmd. line:1: each rule must have a pattern or an action part
+awk: cmd. line:1: /^\\[/ { t=$0; sub(/^\\[[ ]*/, "", t); sub(/\\].*$/, "", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }
+awk: cmd. line:1:                                                                     ^ syntax error
+awk: cmd. line:1: /^\\[/ { t=$0; sub(/^\\[[ ]*/, "", t); sub(/\\].*$/, "", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }
+awk: cmd. line:1:                                                                                                           ^ syntax error
+awk: cmd. line:1: /^\\[/ { t=$0; sub(/^\\[[ ]*/, "", t); sub(/\\].*$/, "", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }
+awk: cmd. line:1:                                                                                                                                                                                                   ^ syntax error
+dmesg: write error

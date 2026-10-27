@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\nif test -r /proc/25620/cmdline; then\n observed=$(tr '\\000' ' ' < /proc/25620/cmdline)\n case \"$observed\" in *\"sleep 105\"*\"enlightenment_info -hwc 0\"*) kill -TERM 25620;; *) echo UNEXPECTED_EXPIRY_PROCESS; exit 72;; esac\nfi\n/bin/sh -c 'sleep 105; enlightenment_info -hwc 1; sleep 2; enlightenment_info -hwc_wins' > /tmp/researcher-panel-trace-20261026/hwc-corrected-expiry.log 2>&1 < /dev/null &\nexpiry_pid=$!\nsleep 1\nkill -0 \"$expiry_pid\"\nprintf \"corrected_expiry_pid=%s\\n\" \"$expiry_pid\"\nenlightenment_info -hwc_wins\n",
+      "exit_code": 72,
+      "stderr": "",
+      "stdout": "UNEXPECTED_EXPIRY_PROCESS\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

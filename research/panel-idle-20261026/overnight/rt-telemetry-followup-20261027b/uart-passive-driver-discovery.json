@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\necho BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho TTY_DRIVERS\ncat /proc/tty/drivers\necho DRIVER_NAMES\nls -l /proc/tty/driver\necho UART_IRQS\nawk 'tolower($0) ~ /uart|serial/' /proc/interrupts\necho END\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BEGIN\n00000000-0000-4000-8000-000000000000\n97134.81 363150.84\nTTY_DRIVERS\n/dev/tty             /dev/tty        5       0 system:/dev/tty\n/dev/console         /dev/console    5       1 system:console\n/dev/ptmx            /dev/ptmx       5       2 system\n/dev/vc/0            /dev/vc/0       4       0 system:vtmaster\nusbserial            /dev/ttyUSB   188 0-511 serial\nttynull              /dev/ttynull  249       0 console\nttySD                /dev/ttySD    204 74-78 serial\nsdp-uart2            /dev/ttyS     204 64-68 serial\npty_slave            /dev/pts      136 0-1048575 pty:slave\npty_master           /dev/ptm      128 0-1048575 pty:master\nunknown              /dev/tty        4 1-63 console\nDRIVER_NAMES\ntotal 0\n-r--r--r-- 1 owner root 0 2026-10-27 00:32 sdp-uart2\n-r--r--r-- 1 owner root 0 2026-10-27 00:32 ttySD\n-r--r--r-- 1 owner root 0 2026-10-27 00:32 usbserial\nUART_IRQS\n 12:          0          0          0          0     GIC-0 167 Level      190a00.serial (   0us/   0us)\n 13:          0          0          0          0     GIC-0 166 Level      190a00.serial (   0us/   0us)\n 16:          0          0        483          0     GIC-0 148 Level      550f00.serial (   3us/   9us) [ 91840.9555s| +    3549ns]\n 17:          0          0       2010          0     GIC-0 145 Level      550f00.serial (   3us/  29us) [ 91841.0119s| +    3781ns]\n 18:          0          0          1          0     GIC-0 149 Level      551000.serial (   1us/   1us) [     0.0841s| +    1081ns]\n 19:          1          0          0          0     GIC-0 146 Level      551000.serial (   7us/   7us) [     0.0841s| +    7099ns]\nEND\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

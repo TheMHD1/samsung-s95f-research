@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho GLOBAL_START\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\nstatus=0\nfor p in /sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-qpm-smoke-20261026t204819 /sys/kernel/debug/tracing/instances/researcher-pm-onset-qpm-smoke-20261026t204819 /tmp/researcher-observed-quiescent-pm-onset-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-quiescent-pm-onset-stage-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-pm-onset-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-pm-onset-stage-20261026/qpm-smoke-20261026t204819; do\n if test -e \"$p\" || test -L \"$p\"; then printf 'PRESENT %s\n' \"$p\"; status=1; else printf 'ABSENT %s\n' \"$p\"; fi\ndone\necho GLOBAL_END\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\nexit \"$status\"\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho GLOBAL_START\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\nstatus=0\nfor p in /sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-qpm-smoke-20261026t204819 /sys/kernel/debug/tracing/instances/researcher-pm-onset-qpm-smoke-20261026t204819 /tmp/researcher-observed-quiescent-pm-onset-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-quiescent-pm-onset-stage-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-pm-onset-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-pm-onset-stage-20261026/qpm-smoke-20261026t204819; do\n if test -e \"$p\" || test -L \"$p\"; then printf 'PRESENT %s\n' \"$p\"; status=1; else printf 'ABSENT %s\n' \"$p\"; fi\ndone\necho GLOBAL_END\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\nexit \"$status\"\n",
+  "command_sha256": "c004f6fea0ac51c5f1dd3ecb6b44cf6e6cf381cbceb2612128e4c11d0a29fab9",
+  "physical_state": "unobserved",
+  "purpose": "One fixed read-only residue check for the completed quiescence smoke.",
+  "retry": false,
+  "started_utc": "2026-10-26T20:54:19.721368+00:00"
+}

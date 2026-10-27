@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\nfind /lib/firmware /prd/lib/firmware /usr/share /prd/usr/share -maxdepth 4 -type f \\( -iname '*tcon*' -o -iname '*qdf*' -o -iname '*rheam*' -o -iname '*fwfa*' -o -iname '*f77abu*' \\) 2>/dev/null | head -n 100\nls -l /sys/kernel/debug/tracing/instances\ncat /sys/kernel/debug/tracing/tracing_on\n",
+      "exit_code": 2,
+      "stderr": "/bin/sh: -c: line 1: syntax error near unexpected token `('\n/bin/sh: -c: line 1: `find /lib/firmware /prd/lib/firmware /usr/share /prd/usr/share -maxdepth 4 -type f \\\\( -iname '*tcon*' -o -iname '*qdf*' -o -iname '*rheam*' -o -iname '*fwfa*' -o -iname '*f77abu*' \\\\) 2>/dev/null | head -n 100'\n",
+      "stdout": "Mon Oct 26 04:09:30 UTC 2026\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

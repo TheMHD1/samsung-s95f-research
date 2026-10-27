@@ -1,0 +1,43 @@
+Collector start is scheduled near 2026-10-27T21:17:14.977187+00:00 with at least ±1.111s clock/transport uncertainty; this is a countdown, not verified readiness. Enter annotations as: picture visible|black reaction_ms=N clock_ms=N (apps/warning/audio/note also accepted).
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-hdmi-onset-capture.py", line 192, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-hdmi-onset-capture.py", line 188, in main
+    run_capture(args.label)
+    ~~~~~~~~~~~^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-hdmi-onset-capture.py", line 141, in run_capture
+    _short.run_capture(label)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-short-onset-capture.py", line 142, in run_capture
+    _frozen.run_capture(label, WINDOW_SECONDS, smoke_unobserved=False)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-quiescent-pm-onset-capture.py", line 266, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 708, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-preroll-onset-capture.py", line 625, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-branch-onset-capture.py", line 544, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1204, in run_capture
+    meta = validate_metadata(data["meta"].decode(), stage["bytes"], stage["sha256"], seconds)
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 286, in validate_metadata
+    meta = _ORIGINAL_VALIDATE_METADATA(stripped, script_bytes, script_sha, seconds)
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-branch-onset-capture.py", line 340, in validate_metadata
+    report = _ORIGINAL_VALIDATE_METADATA(converted, script_size, script_sha256, seconds)
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 318, in validate_metadata
+    require(len(window) == 12 and window[6:] == ["0", "0", "0", "0", "0", "0"],
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "vlog/trace/hash export failed or window malformed")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-short-onset-capture.py", line 84, in guarded
+    old(condition, message)
+    ~~~^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 84, in require
+    raise ValueError(message)
+ValueError: vlog/trace/hash export failed or window malformed

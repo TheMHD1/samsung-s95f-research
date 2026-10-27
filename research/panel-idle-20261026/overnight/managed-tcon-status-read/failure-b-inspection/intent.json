@@ -1,0 +1,3 @@
+{
+  "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\necho BOOT; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\necho DIRECTORY\nstat -c '%u:%g:%a:%F' /tmp/researcher-tcon-ff8723b1725944ce872489d3d4350ce5\nfor n in TconStatusRead.dll TconStatusRead.deps.json TconStatusRead.runtimeconfig.json managed.stdout managed.stderr helper.ready helper.go; do\nf=/tmp/researcher-tcon-ff8723b1725944ce872489d3d4350ce5/$n\necho \"$n\"\nif test -e \"$f\"; then stat -c '%u:%g:%a:%F:%s' \"$f\"; sha256sum \"$f\"; case \"$n\" in helper.ready|managed.stdout|managed.stderr) head -c 4096 \"$f\"; echo;; esac; else echo ABSENT; fi\ndone\necho DONE\n"
+}

@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -eu\nT=/sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-owner-power-on-20261026a\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ PRIVATE_TRACE_ON'; test -d \"$T\"; cat \"$T/tracing_on\"; test \"$(cat \"$T/tracing_on\")\" = 1\necho '@@ START_MARKER'; grep 'CAPTURE_START utc=' \"$T/trace\"\necho '@@ READY_OBSERVED'\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -eu\nT=/sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-owner-power-on-20261026a\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ PRIVATE_TRACE_ON'; test -d \"$T\"; cat \"$T/tracing_on\"; test \"$(cat \"$T/tracing_on\")\" = 1\necho '@@ START_MARKER'; grep 'CAPTURE_START utc=' \"$T/trace\"\necho '@@ READY_OBSERVED'\n",
+  "command_sha256": "4cf904e973faa94ac381d68482b069b0bae815f669e91c9648e444f878921f94",
+  "physical_state": "unobserved",
+  "purpose": "Read one stock event format and global baseline; no trace enable or control.",
+  "retry": false,
+  "started_utc": "2026-10-26T21:51:11.215469+00:00"
+}

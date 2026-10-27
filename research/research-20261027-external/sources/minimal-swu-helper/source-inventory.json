@@ -1,0 +1,68 @@
+{
+  "compile_flags": "-std=c11 -Wall -Wextra -Werror -Wpedantic -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer",
+  "compiler": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "created_utc": "2026-10-27T23:10:07.020449+00:00",
+  "files": {
+    "Makefile": {
+      "bytes": 375,
+      "sha256": "3265a3e3432507ab035fc0f884f1600954efc87ff53e6825496b78ca91fcd338"
+    },
+    "host-check.log": {
+      "bytes": 4459,
+      "sha256": "3e64ad55760f6d899dd558eb3ba146d6324df96153265bba13f9b4744e28496b"
+    },
+    "host-test": {
+      "bytes": 225240,
+      "sha256": "e2ccbd212951d9c4c41d264b32fbab5612dc0885deedf75ae18ebb04e0a02c28"
+    },
+    "input-manifest.json": {
+      "bytes": 1829,
+      "sha256": "8e2386434dcb14bcea8d3f6dd2d2e785d201b7ef60d9d1436f0c1fbc84b4deae"
+    },
+    "offline_validate.py": {
+      "bytes": 5112,
+      "sha256": "8a2b52f1edd7c965a3cc9bd66ee058ca7d99f6bfc6ddf24fb0132bc13e6be1ca"
+    },
+    "swu_prototype.c": {
+      "bytes": 6349,
+      "sha256": "6fd11b9956072f5f4c68810315da38bf905393e4715815cefc889e6798c98865"
+    },
+    "swu_prototype.h": {
+      "bytes": 4586,
+      "sha256": "b40bf410ac51d98ccee485972c4513c105798d79236e26bd8c40c94d5f95b197"
+    },
+    "test_host.c": {
+      "bytes": 7543,
+      "sha256": "a76ae5cb30e8e919148ed4bf654d4180b041108515a1de0f555d138248627a8e"
+    },
+    "validation.normal.json": {
+      "bytes": 1873,
+      "sha256": "d485b9ca5079dc1313ef7f8b18d89d75c5c7bb3d60171b757f65554847e4f6a0"
+    },
+    "validation.optimized.json": {
+      "bytes": 1873,
+      "sha256": "d485b9ca5079dc1313ef7f8b18d89d75c5c7bb3d60171b757f65554847e4f6a0"
+    }
+  },
+  "independent_prototype_review": {
+    "additional_allocation_fault_cases": 12,
+    "result": "no material ABI/state/count/cleanup defect found; host-only",
+    "results": "../../reviews/swu-audit-artifacts/prototype-review/independent-prototype-results.json",
+    "source_hashes_match_current": true
+  },
+  "machine": "x86_64-linux-gnu",
+  "normal_optimized_identical": true,
+  "read_dependencies": {
+    "reports/hardware-firmware.md": "8c93984cd3a58922e3283756662c5c27b345999cc5ee32af6caf33f23ce3b935",
+    "reports/swu-target-applicability.md": "5c8b07852942203e21042f4703b6637f93522f6e35b251396b4ca1e356e7e792",
+    "reviews/swu-independent-review.md": "06a27c62d32d7e8f30c20b1aa6ab126666e3d4b055a608ad9e1073efc4edad46",
+    "sources/swu-target-applicability/core-swu-disassembly.txt": "8d3c674f3bc645f95ea1de5cf569199506f1792c7ea4605f45c84adaf311c493",
+    "sources/swu-target-applicability/operation-tail-disassembly.txt": "2220f8636dd31340ec8092be1faccc1895edb2e484b7eff65bca2cd14fdd7de2",
+    "target-swu-selector-05/metadata.txt": "8e594466e64625f7de32bdc1bbf803e31de8c87b1d9804778a33a834871c5b16"
+  },
+  "review_report": "../../reports/minimal-swu-helper-design.md",
+  "scope": "host-only source prototype, no target calls, no live adapter or runner",
+  "selected_encrypted_blob_acquired": false,
+  "target_calls": 0,
+  "target_execution_qualified": false
+}

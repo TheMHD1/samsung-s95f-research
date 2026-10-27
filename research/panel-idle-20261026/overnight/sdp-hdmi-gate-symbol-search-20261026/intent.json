@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\nn=0\nfor f in /lib/modules/5.4.261/kernel/*.ko /lib/modules/5.4.261/kernel/soc/*.ko; do\n  [ -f \"$f\" ] || continue\n  n=$((n+1))\n  [ \"$n\" -le 256 ] || exit 65\n  if LC_ALL=C grep -q 'tztv_sys_use_hdmi_cell_sw' \"$f\"; then\n    echo \"@@ MATCH $f\"\n    wc -c < \"$f\"\n    sha256sum \"$f\"\n  fi\ndone\necho \"@@ SCANNED $n\"\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "247a6027848e7be3e101be506814a7393c8ec779e81c9e02aaef4de53d8a483a",
+  "purpose": "Bounded exact-symbol literal search in two fixed module directories; <=256 files. Reads only; no module load/control/getter/trace.",
+  "started_utc": "2026-10-26T19:25:13.270515+00:00"
+}

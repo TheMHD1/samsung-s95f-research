@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "cat /proc/uptime\ndmesg | grep -Ei \"Fac_ss|ss_brightness|screen saver brightness|SetFactoryData|ERR DET|Fault Occurred|turn off TCON|turn on TCON|panel.*dpms\" | tail -n 100\ndbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetItem int32:60802",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "5599.65 20610.57\n[ 5520.926508] [TCON:QDF] QDFTcon_SetFactoryData[1085:TIFSDaemon]: UID:[20505], Value:[0]\n[ 5520.926519] [TCON:QDF] m_set_ss_brightness[1085:TIFSDaemon]: screen saver brightness : 0\nmethod return time=1792983990.684123 sender=:1.249 -> destination=:1.890 serial=138 reply_serial=2\n   struct {\n      int32 60802\n      int32 0\n      int32 5\n      int32 5\n      int32 5\n      byte 1\n      string \"0\"\n      string \"Screen Saver Brightness\"\n   }\n   struct {\n      int32 1\n   }\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,143 @@
+{
+  "acceptance_scope": "One finite volatile diagnostic gate qualification only. Exact callbacks, baseline ring, fresh-zero RT precondition, arm-one readback, no-USB three-second hold, restore-zero readback, and post-ring collection are required. Any ambiguous transfer enters Unknown and forbids later traffic. This does not establish a panel repair, physical picture state, causality, or persisted change.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"variant\":\"arm-verified\",\"fixedSequence\":\"callbacks64,baseline15372,preRT64,arm2,armedRT64,hold3s,restore2,restoredRT64,post15372\",\"writeHeaderHex\":\"020100000624014702000000\",\"armPayloadHex\":\"0100\",\"restorePayloadHex\":\"0000\",\"timeoutMs\":2000,\"hardArmDeadlineMs\":10000,\"wholeDeadlineMs\":20000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":74,\"baselineTestsPassed\":26,\"stateMachineTestsPassed\":48,\"successOutputBytes\":45119,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "evidence_input_sha256": "7fd4a6fb53381af0bea1902aa54c7ec6bab33073d4a9ec08010594208e26c989",
+  "files": {
+    "ManagedUsbSecondaryLoggerSmoke.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "abbfd7bbfafe11c4204934187600983379db1a93de9fde4fe9ac1fe3736a6991",
+      "size": 42424
+    },
+    "bin/Release/net6.0/ManagedUsbSecondaryLoggerSmoke.deps.json": {
+      "sha256": "889c4ea2bd2102698449bb5a47cc5a55e95abd206dee804fcb7c3d7671f75561",
+      "size": 460
+    },
+    "bin/Release/net6.0/ManagedUsbSecondaryLoggerSmoke.dll": {
+      "sha256": "03296496c42c01453d05a02678ef7a79d121e5822ff17097f7f6ae8b34eea3b5",
+      "size": 58368
+    },
+    "bin/Release/net6.0/ManagedUsbSecondaryLoggerSmoke.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_protocol": {
+    "bulk_timeout_ms": 2000,
+    "callback_read": {
+      "address": "0x45000580",
+      "header_hex": "010100008005004540000000",
+      "length": 64,
+      "target": "0x101"
+    },
+    "gate_write": {
+      "address": "0x47012406",
+      "arm_payload_hex": "0100",
+      "header_hex": "020100000624014702000000",
+      "length": 2,
+      "restore_payload_hex": "0000",
+      "target": "0x102"
+    },
+    "hard_arm_deadline_ms": 10000,
+    "hold_ms": 3000,
+    "retries": 0,
+    "ring_read": {
+      "address": "0x20200000",
+      "header_hex": "01010000000020200c3c0000",
+      "length": 15372,
+      "target": "0x101"
+    },
+    "rt_read": {
+      "address": "0x47012400",
+      "header_hex": "010100000024014740000000",
+      "length": 64,
+      "target": "0x101"
+    },
+    "whole_deadline_ms": 20000
+  },
+  "local_evidence": {
+    "callback-runtime-audit.json": "d5e8abecd865b81deb18904127a13179117ebfe323b415be4ecba74d2c6e822c",
+    "evidence-input.json": "7fd4a6fb53381af0bea1902aa54c7ec6bab33073d4a9ec08010594208e26c989",
+    "qualified-callbacks.bin": "55e0afcfdba1aa1fa14985f63d02aebaa60b77bf535afe955ce92745e967895f",
+    "qualified-secondary-ring-header.bin": "c3adf13d0ea6ae4678758c97de3639dfcb068eca1e92fdb089d9212f3be020b4",
+    "secondary-event-log-buffer.md": "83d499bd9a44fd602b0211491521774f4fc53c86765fc3bb437386cd7fedcc6f",
+    "secondary-logger-arm-protocol.md": "859190a1ff5d3b2817723221a1c88b01e0377f5f2f6a4a374eedc1dfbb547003",
+    "verify-secondary-event-log-buffer.py": "a82bdb61e7ff94e412a9c0304fef61f0819c157bcdca37503243c5fd98eb5ded",
+    "verify-secondary-logger-arm-protocol.py": "4858efeaaa6fbf3185b9eed9c7741e3e2ab5f9cd656b18b4c7a87d5075fd87e7",
+    "volatile-logger-review.md": "16c9a6198317c5e144db274a94d7ba983190e07abd49b797f9aa9cee9afd28fe"
+  },
+  "local_files": {
+    "root-with-margin.py": {
+      "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a",
+      "size": 3388
+    },
+    "run-once.py": {
+      "sha256": "eeb852c8e1b9a0d2611abc17e853ad2ee834f4e42712b2810bf8309eda5e59ca",
+      "size": 20130
+    }
+  },
+  "max_native_json_bytes": 55000,
+  "phase_model": [
+    "ReadyForHeader",
+    "ExpectingWritePayload",
+    "ExpectingReadIn",
+    "Unknown"
+  ],
+  "program_sha256": "abbfd7bbfafe11c4204934187600983379db1a93de9fde4fe9ac1fe3736a6991",
+  "project_sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+  "root_adapter": {
+    "access_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+    "base_runner_path": "../managed-tcon-status-read/run-status-read.py",
+    "base_runner_sha256": "7ca9bf01f3df4524f4f04e561dc4839d0805f4062f665b5c1b9a397adf788c8a",
+    "host_timeout_seconds": 75,
+    "max_command_bytes": 8192,
+    "max_response_bytes": 65536,
+    "path": "root-with-margin.py",
+    "remote_timeout_seconds": 45,
+    "retry_count": 0,
+    "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a"
+  },
+  "schema": "usb-fixed-secondary-logger-smoke-build-v1",
+  "wrapper_checks": {
+    "adapter_fake_success_calls": 1,
+    "adapter_fake_timeout_calls": 1,
+    "adapter_retry_or_fallback": false,
+    "dry_run_exit": 0,
+    "dry_run_stdout": "{\"target_operations\": 0, \"variant\": \"arm-verified\", \"fixed_write_header\": \"020100000624014702000000\", \"arm_payload\": \"0100\", \"restore_payload\": \"0000\", \"hold_ms\": 3000, \"hard_arm_deadline_ms\": 10000}\n",
+    "wrong_manifest_refused_before_output": true
+  },
+  "wrapper_sha256": "eeb852c8e1b9a0d2611abc17e853ad2ee834f4e42712b2810bf8309eda5e59ca"
+}

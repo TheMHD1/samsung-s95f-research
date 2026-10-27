@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\ntimeout 20 grep -a -l -E 'QDDisplayRequestELSensing|qd_display_request_el_sensing|ScreenOptimization|ELSensing|PixelRefresh|BurnInProtection|ScreenOptimisation' /usr/apps/*/bin/*.dll /opt/usr/apps/*/bin/*.dll /usr/share/dotnet.tizen/tvappapi/*.dll\n",
+      "exit_code": 127,
+      "stderr": "/bin/sh: line 1: timeout: command not found\n",
+      "stdout": "Mon Oct 26 11:38:45 UTC 2026\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

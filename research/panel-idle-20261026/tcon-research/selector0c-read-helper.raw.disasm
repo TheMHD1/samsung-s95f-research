@@ -1,0 +1,168 @@
+
+binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000009b20 <m_i2c_burst_write.part.0.constprop.0+0x118>:
+    9b20:	aa0003e3 	mov	x3, x0
+    9b24:	90000001 	adrp	x1, 0 <QDFTcon_GetUSITVersion>
+			9b24: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    9b28:	91000021 	add	x1, x1, #0x0
+			9b28: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    9b2c:	2a1303e2 	mov	w2, w19
+    9b30:	91324021 	add	x1, x1, #0xc90
+    9b34:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			9b34: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x44a0
+    9b38:	52800045 	mov	w5, #0x2                   	// #2
+    9b3c:	529fda04 	mov	w4, #0xfed0                	// #65232
+    9b40:	91000000 	add	x0, x0, #0x0
+			9b40: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x44a0
+    9b44:	94000000 	bl	0 <printk>
+			9b44: R_AARCH64_CALL26	printk
+    9b48:	17ffffc1 	b	9a4c <m_i2c_burst_write.part.0.constprop.0+0x44>
+    9b4c:	94000000 	bl	16ba8 <ft_current_pid>
+			9b4c: R_AARCH64_CALL26	ft_current_pid
+    9b50:	2a0003f4 	mov	w20, w0
+    9b54:	94000000 	bl	16bb8 <ft_current_comm>
+			9b54: R_AARCH64_CALL26	ft_current_comm
+    9b58:	aa0003e3 	mov	x3, x0
+    9b5c:	b9401264 	ldr	w4, [x19, #16]
+    9b60:	90000001 	adrp	x1, 0 <QDFTcon_GetUSITVersion>
+			9b60: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    9b64:	91000021 	add	x1, x1, #0x0
+			9b64: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    9b68:	2a1403e2 	mov	w2, w20
+    9b6c:	91324021 	add	x1, x1, #0xc90
+    9b70:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			9b70: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x3510
+    9b74:	52800013 	mov	w19, #0x0                   	// #0
+    9b78:	91000000 	add	x0, x0, #0x0
+			9b78: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x3510
+    9b7c:	94000000 	bl	0 <printk>
+			9b7c: R_AARCH64_CALL26	printk
+    9b80:	17ffffd1 	b	9ac4 <m_i2c_burst_write.part.0.constprop.0+0xbc>
+    9b84:	d503201f 	nop
+
+0000000000009b88 <m_read_cmd.constprop.0>:
+    9b88:	d10183ff 	sub	sp, sp, #0x60
+    9b8c:	90000002 	adrp	x2, 0 <QDFTcon_GetUSITVersion>
+			9b8c: R_AARCH64_ADR_PREL_PG_HI21	.bss
+    9b90:	a9017bfd 	stp	x29, x30, [sp, #16]
+    9b94:	910043fd 	add	x29, sp, #0x10
+    9b98:	a90253f3 	stp	x19, x20, [sp, #32]
+    9b9c:	aa0003f3 	mov	x19, x0
+    9ba0:	b9400040 	ldr	w0, [x2]
+			9ba0: R_AARCH64_LDST32_ABS_LO12_NC	.bss
+    9ba4:	a9035bf5 	stp	x21, x22, [sp, #48]
+    9ba8:	91000056 	add	x22, x2, #0x0
+			9ba8: R_AARCH64_ADD_ABS_LO12_NC	.bss
+    9bac:	7100041f 	cmp	w0, #0x1
+    9bb0:	54000840 	b.eq	9cb8 <m_read_cmd.constprop.0+0x130>  // b.none
+    9bb4:	aa0103f5 	mov	x21, x1
+    9bb8:	b9410ec1 	ldr	w1, [x22, #268]
+    9bbc:	d2800180 	mov	x0, #0xc                   	// #12
+    9bc0:	7100043f 	cmp	w1, #0x1
+    9bc4:	f2de7000 	movk	x0, #0xf380, lsl #32
+    9bc8:	fa400264 	ccmp	x19, x0, #0x4, eq	// eq = none
+    9bcc:	54001061 	b.ne	9dd8 <m_read_cmd.constprop.0+0x250>  // b.any
+    9bd0:	a90463f7 	stp	x23, x24, [sp, #64]
+    9bd4:	90000017 	adrp	x23, 0 <QDFTcon_GetUSITVersion>
+			9bd4: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    9bd8:	910002f7 	add	x23, x23, #0x0
+			9bd8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    9bdc:	9132a2f8 	add	x24, x23, #0xca8
+    9be0:	aa1803e0 	mov	x0, x24
+    9be4:	94000000 	bl	16508 <frc_tcon_lock>
+			9be4: R_AARCH64_CALL26	frc_tcon_lock
+    9be8:	b94012c1 	ldr	w1, [x22, #16]
+    9bec:	d2de7000 	mov	x0, #0xf38000000000        	// #267731081363456
+    9bf0:	7100043f 	cmp	w1, #0x1
+    9bf4:	fa401264 	ccmp	x19, x0, #0x4, ne	// ne = any
+    9bf8:	54000d81 	b.ne	9da8 <m_read_cmd.constprop.0+0x220>  // b.any
+    9bfc:	52800014 	mov	w20, #0x0                   	// #0
+    9c00:	b40004b5 	cbz	x21, 9c94 <m_read_cmd.constprop.0+0x10c>
+    9c04:	b94046c0 	ldr	w0, [x22, #68]
+    9c08:	d368fe62 	lsr	x2, x19, #40
+    9c0c:	d360fe61 	lsr	x1, x19, #32
+    9c10:	5ac00a73 	rev	w19, w19
+    9c14:	b80563ff 	stur	wzr, [sp, #86]
+    9c18:	39016be2 	strb	w2, [sp, #90]
+    9c1c:	39016fe1 	strb	w1, [sp, #91]
+    9c20:	b9005ff3 	str	w19, [sp, #92]
+    9c24:	350009e0 	cbnz	w0, 9d60 <m_read_cmd.constprop.0+0x1d8>
+    9c28:	b9404ac0 	ldr	w0, [x22, #72]
+    9c2c:	121c7801 	and	w1, w0, #0xfffffff7
+    9c30:	71000c3f 	cmp	w1, #0x3
+    9c34:	7a481804 	ccmp	w0, #0x8, #0x4, ne	// ne = any
+    9c38:	54000561 	b.ne	9ce4 <m_read_cmd.constprop.0+0x15c>  // b.any
+    9c3c:	90000000 	adrp	x0, 0 <tztv_i2c_write_raw>
+			9c3c: R_AARCH64_ADR_PREL_PG_HI21	tztv_i2c_write_raw
+    9c40:	f9400004 	ldr	x4, [x0]
+			9c40: R_AARCH64_LDST64_ABS_LO12_NC	tztv_i2c_write_raw
+    9c44:	b4000e84 	cbz	x4, 9e14 <m_read_cmd.constprop.0+0x28c>
+    9c48:	91016be2 	add	x2, sp, #0x5a
+    9c4c:	528000c3 	mov	w3, #0x6                   	// #6
+    9c50:	52800ec1 	mov	w1, #0x76                  	// #118
+    9c54:	528000a0 	mov	w0, #0x5                   	// #5
+    9c58:	d63f0080 	blr	x4
+    9c5c:	2a0003f4 	mov	w20, w0
+    9c60:	90000000 	adrp	x0, 0 <tztv_i2c_read_raw>
+			9c60: R_AARCH64_ADR_PREL_PG_HI21	tztv_i2c_read_raw
+    9c64:	f9400004 	ldr	x4, [x0]
+			9c64: R_AARCH64_LDST64_ABS_LO12_NC	tztv_i2c_read_raw
+    9c68:	b4000ee4 	cbz	x4, 9e44 <m_read_cmd.constprop.0+0x2bc>
+    9c6c:	91015be2 	add	x2, sp, #0x56
+    9c70:	52800083 	mov	w3, #0x4                   	// #4
+    9c74:	52800ec1 	mov	w1, #0x76                  	// #118
+    9c78:	528000a0 	mov	w0, #0x5                   	// #5
+    9c7c:	d63f0080 	blr	x4
+    9c80:	2a140014 	orr	w20, w0, w20
+    9c84:	350004b4 	cbnz	w20, 9d18 <m_read_cmd.constprop.0+0x190>
+    9c88:	b84563e0 	ldur	w0, [sp, #86]
+    9c8c:	5ac00800 	rev	w0, w0
+    9c90:	b90002a0 	str	w0, [x21]
+    9c94:	9132a2e0 	add	x0, x23, #0xca8
+    9c98:	94000000 	bl	16528 <frc_tcon_unlock>
+			9c98: R_AARCH64_CALL26	frc_tcon_unlock
+    9c9c:	a94463f7 	ldp	x23, x24, [sp, #64]
+    9ca0:	2a1403e0 	mov	w0, w20
+    9ca4:	a9417bfd 	ldp	x29, x30, [sp, #16]
+    9ca8:	a94253f3 	ldp	x19, x20, [sp, #32]
+    9cac:	a9435bf5 	ldp	x21, x22, [sp, #48]
+    9cb0:	910183ff 	add	sp, sp, #0x60
+    9cb4:	d65f03c0 	ret
+    9cb8:	b94046d4 	ldr	w20, [x22, #68]
+    9cbc:	34ffff34 	cbz	w20, 9ca0 <m_read_cmd.constprop.0+0x118>
+    9cc0:	90000001 	adrp	x1, 0 <QDFTcon_GetUSITVersion>
+			9cc0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    9cc4:	91000021 	add	x1, x1, #0x0
+			9cc4: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    9cc8:	aa1303e2 	mov	x2, x19
+    9ccc:	9132a021 	add	x1, x1, #0xca8
+    9cd0:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			9cd0: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x4518
+    9cd4:	52800014 	mov	w20, #0x0                   	// #0
+    9cd8:	91000000 	add	x0, x0, #0x0
+			9cd8: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x4518
+    9cdc:	94000000 	bl	0 <printk>
+			9cdc: R_AARCH64_CALL26	printk
+    9ce0:	17fffff0 	b	9ca0 <m_read_cmd.constprop.0+0x118>
+    9ce4:	90000000 	adrp	x0, 0 <tztv_i2c_read_common>
+			9ce4: R_AARCH64_ADR_PREL_PG_HI21	tztv_i2c_read_common
+    9ce8:	f9400006 	ldr	x6, [x0]
+			9ce8: R_AARCH64_LDST64_ABS_LO12_NC	tztv_i2c_read_common
+    9cec:	b4000146 	cbz	x6, 9d14 <m_read_cmd.constprop.0+0x18c>
+    9cf0:	91015be4 	add	x4, sp, #0x56
+    9cf4:	91016be2 	add	x2, sp, #0x5a
+    9cf8:	52800085 	mov	w5, #0x4                   	// #4
+    9cfc:	528000c3 	mov	w3, #0x6                   	// #6
+    9d00:	52800ec1 	mov	w1, #0x76                  	// #118
+    9d04:	528000a0 	mov	w0, #0x5                   	// #5
+    9d08:	d63f00c0 	blr	x6
+    9d0c:	2a0003f4 	mov	w20, w0
+    9d10:	17ffffdd 	b	9c84 <m_read_cmd.constprop.0+0xfc>
+    9d14:	12800014 	mov	w20, #0xffffffff            	// #-1
+    9d18:	94000000 	bl	16ba8 <ft_current_pid>
+			9d18: R_AARCH64_CALL26	ft_current_pid
+    9d1c:	2a0003f3 	mov	w19, w0

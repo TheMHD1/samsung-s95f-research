@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ HASH_START'\nsha256sum /prd/usr/lib/libhdmi-control-impl-sec.so.0.1\necho '@@ DATA'\ndd if=/prd/usr/lib/libhdmi-control-impl-sec.so.0.1 bs=32768 skip=0 count=1 2>/dev/null | base64\necho '@@ HASH_END'\nsha256sum /prd/usr/lib/libhdmi-control-impl-sec.so.0.1\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "1d90d25cb5970f2528a48db31f9978fcfd18e10b78012798ebceb10e732e52b6",
+  "purpose": "Finite fixed-module passive copy; no load/callback/getter/control/trace; no retry; physical panel unobserved.",
+  "started_utc": "2026-10-26T21:05:43.058243+00:00"
+}

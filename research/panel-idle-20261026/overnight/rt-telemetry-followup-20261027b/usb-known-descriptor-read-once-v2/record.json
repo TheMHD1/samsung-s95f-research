@@ -1,0 +1,48 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\numask 077\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nmkdir /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc\necho STAGE_CREATED\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_CREATED\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.dll.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.deps.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.runtimeconfig.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n/usr/bin/dotnet /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.dll --self-test\necho ACTIVE_READ_BEGIN\nrc=0\n/usr/bin/dotnet /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.dll --execute || rc=$?\necho HELPER_EXIT=$rc\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n99909.27 373520.90\n{\"selfTestsPassed\":27,\"targetOperations\":0}\nACTIVE_READ_BEGIN\n{\"Stage\":\"complete\",\"Steps\":[{\"Phase\":\"open\",\"Value\":25,\"Errno\":0,\"Error\":null},{\"Phase\":\"claim\",\"Value\":0,\"Errno\":0,\"Error\":null},{\"Phase\":\"out\",\"Value\":12,\"Errno\":0,\"Error\":null},{\"Phase\":\"in\",\"Value\":18,\"Errno\":0,\"Error\":null},{\"Phase\":\"release\",\"Value\":0,\"Errno\":0,\"Error\":null},{\"Phase\":\"close\",\"Value\":0,\"Errno\":0,\"Error\":null}],\"Opened\":true,\"Claimed\":true,\"Released\":true,\"Closed\":true,\"Accepted\":true,\"OutCount\":12,\"InCount\":18,\"DataBase64\":\"EgEAAu8CAUDoBAEgUAIBAgMB\",\"DataSha256\":\"f78bbb5a0e0a2fbe4944247d54be966c533da8ad91feac8df848106e9f54825b\"}\n[GC_INFO] GC_Start #1: Gen(0), Time(99909616 ms), Reason(0)\n[GC_INFO] GC_End #1: Gen(0), Time(99909616 ms)\nHELPER_EXIT=0\n99909.74 373522.19\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest ! -L /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc\nif test -d /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc; then\nrm -f /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.dll /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.dll.b64 /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.deps.json /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.deps.json.b64 /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.runtimeconfig.json /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc/ManagedUsbDescriptorReadOnce.runtimeconfig.json.b64\nrmdir /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc\nfi\ntest ! -e /tmp/researcher-usb-descriptor-0c22d3cddd854c969f4620b439e587cc\necho STAGE_ABSENT\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_ABSENT\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

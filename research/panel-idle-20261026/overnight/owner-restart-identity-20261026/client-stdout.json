@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ AVOC'; pidof avocd; p=$(pidof avocd); readlink -f /proc/$p/exe; cat /proc/$p/stat\necho '@@ DEVICED'; pidof deviced; p=$(pidof deviced); readlink -f /proc/$p/exe; cat /proc/$p/stat\necho '@@ TRACE'; cat /sys/kernel/debug/tracing/tracing_on /sys/kernel/debug/tracing/current_tracer\necho '@@ COMPLETE'\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "@@ BOOT\n00000000-0000-4000-8000-000000000000\n@@ TIME\n1793051335\n72944.63 273078.64\n@@ AVOC\n706\n/usr/bin/avocd\n706 (avocd) S 1 642 642 0 -1 4194624 442362 0 8693 0 365145 118641 0 0 20 0 23 0 603 204062720 2896 18446744073709551615 65536 1387296 4291230352 0 0 0 0 4096 16384 0 0 0 17 2 0 0 48 0 0 1608924 1733396 34242560 4291231407 4291231425 4291231425 4291231721 0\n@@ DEVICED\n675\n/usr/bin/deviced\n675 (deviced) S 1 675 675 0 -1 4194560 5953 0 1546 0 289 695 0 0 20 0 6 0 560 150208512 2669 18446744073709551615 12042240 13186052 4289469216 0 0 0 0 0 86528 0 0 0 17 1 0 0 34 0 0 13255136 13266120 18071552 4289470251 4289470268 4289470268 4289470439 0\n@@ TRACE\n0\nnop\n@@ COMPLETE\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

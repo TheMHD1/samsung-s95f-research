@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -eu\nidentity() {\n boot=$(cat /proc/sys/kernel/random/boot_id); echo \"$boot\"\n test \"$boot\" = 00000000-0000-4000-8000-000000000000\n grep -qx 'BUILD_ID=T-RSMFAKUC-0090-REL-202607141953' /etc/tizen-release\n test \"$(pidof avocd)\" = 706\n test \"$(readlink -f /proc/706/exe)\" = /usr/bin/avocd\n row=$(cat /proc/706/stat); rest=${row##*) }; set -- $rest\n test \"$#\" -ge 20; test \"${20}\" = 603; echo 'AVOC 706 603'\n ah=$(sha256sum /usr/bin/avocd); echo \"$ah\"\n vh=$(sha256sum /prd/usr/lib/libave.so.0.1); echo \"$vh\"\n test \"${ah%% *}\" = ab450eaf99c793f3c7a9360629b1a1677e9d86dcd74a1f93796b56ba07401de9\n test \"${vh%% *}\" = a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777\n test \"$(cat /sys/kernel/debug/tracing/tracing_on)\" = 0\n test \"$(cat /sys/kernel/debug/tracing/current_tracer)\" = nop\n}\nstamp() { date -u +%s; cat /proc/uptime; }\ngetter() {\n dbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.avoc /org/tizen/tv/avoc \"org.tizen.tv.avoc.AvOutputControl.$1\"\n}\nbaseline() {\n reply=$(getter \"$1\") || return 1\n echo \"$reply\"\n printf '%s\n' \"$reply\" | awk '$1==\"int32\"{n++;if($2!=0)bad=1} END{exit(n==2 && !bad?0:1)}'\n}\necho '@@ ID_START'; identity\necho '@@ BEFORE_BASELINE'; stamp\necho '@@ BASELINE_MUTE'; baseline GetPanelMute\necho '@@ BASELINE_CASE'; baseline GetPanelMuteCaseStatus\necho '@@ BEFORE_SINGLE_UNMUTE_ZERO'; stamp\nstatus=0\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.avoc /org/tizen/tv/avoc org.tizen.tv.avoc.AvOutputControl.SetPanelMute int32:0 || status=$?\necho \"SETTER_DBUS_EXIT=$status\"\necho '@@ AFTER_SINGLE_UNMUTE_ZERO'; stamp\necho '@@ POST_MUTE'; post=0; getter GetPanelMute || post=$?; echo \"POST_MUTE_EXIT=$post\"\necho '@@ POST_CASE'; post=0; getter GetPanelMuteCaseStatus || post=$?; echo \"POST_CASE_EXIT=$post\"\necho '@@ ID_END'; identity\necho '@@ COMPLETE'; echo SINGLE_REQUEST_NO_RETRY\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -eu\nidentity() {\n boot=$(cat /proc/sys/kernel/random/boot_id); echo \"$boot\"\n test \"$boot\" = 00000000-0000-4000-8000-000000000000\n grep -qx 'BUILD_ID=T-RSMFAKUC-0090-REL-202607141953' /etc/tizen-release\n test \"$(pidof avocd)\" = 706\n test \"$(readlink -f /proc/706/exe)\" = /usr/bin/avocd\n row=$(cat /proc/706/stat); rest=${row##*) }; set -- $rest\n test \"$#\" -ge 20; test \"${20}\" = 603; echo 'AVOC 706 603'\n ah=$(sha256sum /usr/bin/avocd); echo \"$ah\"\n vh=$(sha256sum /prd/usr/lib/libave.so.0.1); echo \"$vh\"\n test \"${ah%% *}\" = ab450eaf99c793f3c7a9360629b1a1677e9d86dcd74a1f93796b56ba07401de9\n test \"${vh%% *}\" = a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777\n test \"$(cat /sys/kernel/debug/tracing/tracing_on)\" = 0\n test \"$(cat /sys/kernel/debug/tracing/current_tracer)\" = nop\n}\nstamp() { date -u +%s; cat /proc/uptime; }\ngetter() {\n dbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.avoc /org/tizen/tv/avoc \"org.tizen.tv.avoc.AvOutputControl.$1\"\n}\nbaseline() {\n reply=$(getter \"$1\") || return 1\n echo \"$reply\"\n printf '%s\n' \"$reply\" | awk '$1==\"int32\"{n++;if($2!=0)bad=1} END{exit(n==2 && !bad?0:1)}'\n}\necho '@@ ID_START'; identity\necho '@@ BEFORE_BASELINE'; stamp\necho '@@ BASELINE_MUTE'; baseline GetPanelMute\necho '@@ BASELINE_CASE'; baseline GetPanelMuteCaseStatus\necho '@@ BEFORE_SINGLE_UNMUTE_ZERO'; stamp\nstatus=0\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.avoc /org/tizen/tv/avoc org.tizen.tv.avoc.AvOutputControl.SetPanelMute int32:0 || status=$?\necho \"SETTER_DBUS_EXIT=$status\"\necho '@@ AFTER_SINGLE_UNMUTE_ZERO'; stamp\necho '@@ POST_MUTE'; post=0; getter GetPanelMute || post=$?; echo \"POST_MUTE_EXIT=$post\"\necho '@@ POST_CASE'; post=0; getter GetPanelMuteCaseStatus || post=$?; echo \"POST_CASE_EXIT=$post\"\necho '@@ ID_END'; identity\necho '@@ COMPLETE'; echo SINGLE_REQUEST_NO_RETRY\n",
+  "command_sha256": "a879b2f90ae2ac23dcda2c3e0a4b8f99b6714c037b2638e6e70485fde8ad32e4",
+  "owner_report": {
+    "optimization_cycle": "not running",
+    "panel": "black while powered on"
+  },
+  "persistent_config_write": false,
+  "physical_state_source": "owner chat report; not directly observed by operator",
+  "retry": false,
+  "started_utc": "2026-10-26T21:45:07.902493+00:00",
+  "wire_capture": false
+}

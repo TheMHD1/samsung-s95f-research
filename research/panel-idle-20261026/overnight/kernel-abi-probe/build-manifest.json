@@ -1,0 +1,22 @@
+{
+  "architecture": "AArch64 native Linux userspace",
+  "binary_bytes": 592,
+  "binary_sha256": "7621e61295a1137bc542080bc43aab070b26a958f36560ad4531b0a61719fe2b",
+  "build_command": [
+    "aarch64-linux-gnu-gcc-15",
+    "-nostdlib",
+    "-static",
+    "-Wl,-n,--build-id=none,-e,_start,-z,noexecstack,-s",
+    "-o",
+    "probe",
+    "probe.S"
+  ],
+  "files": {
+    "probe": "7621e61295a1137bc542080bc43aab070b26a958f36560ad4531b0a61719fe2b",
+    "probe.S": "e6d79e2d91303a27b45894b5983c7b123a00f79a64ed6b693fc5090a0f4a087b",
+    "run-probe.py": "d72e0dfd420ee4b657dbeb00196c159f8df287b89c18b80b8b838371c7e17e0d"
+  },
+  "kernel_objects_requested": false,
+  "source_sha256": "e6d79e2d91303a27b45894b5983c7b123a00f79a64ed6b693fc5090a0f4a087b",
+  "valid_bpf_or_perf_requests": false
+}

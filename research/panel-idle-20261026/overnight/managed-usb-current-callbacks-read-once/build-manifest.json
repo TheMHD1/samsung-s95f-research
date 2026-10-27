@@ -1,0 +1,64 @@
+{
+  "acceptance_scope": "Exact counts and cleanup only; opaque 64-byte controller-RAM snapshot. Callback-table identity and running-image identity require separate static comparison.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x20000580\",\"operation\":\"opaque-current-callback-table-memory-IN\",\"headerHex\":\"010100008005002040000000\",\"inputLength\":64,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":26,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "files": {
+    "ManagedUsbRtBlockReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "1a333a85ab001e5f64e27a1e416840a61b1f2b7f24921212388257a2b91705f3",
+      "size": 16845
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.deps.json": {
+      "sha256": "0594831db607c7c2f313830330313e4464c89a02262ca0f17ac23380cb18b111",
+      "size": 445
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.dll": {
+      "sha256": "63cfa3c7681f72ab18bdac12ce0a0b32277720a2944b038cbfb90b68e339c420",
+      "size": 28672
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x20000580",
+  "fixed_length": 64,
+  "fixed_target": "0x101",
+  "header_hex": "010100008005002040000000",
+  "schema": "usb-fixed-current-callbacks-read-build-v1",
+  "source_parent_sha256": "d0871f634d645ba4d72c4456f98bead008148159f283d25423a5eba538fd0d36",
+  "wrapper_parent_sha256": "9740e33ca76f39e6a0a97000e81f3a0d3cc08e559d2676c16b245ec760dd1794"
+}

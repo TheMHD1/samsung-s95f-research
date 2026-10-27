@@ -1,0 +1,140 @@
+TYPE AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.TabListInfo : System.Object
+ METHOD 06000026 PrivateScope, Public, Static, HideBySig Void SetTabList(System.Collections.Generic.Dictionary`2<String,String>)
+ METHOD 06000027 PrivateScope, Public, Static, HideBySig System.Collections.Generic.Dictionary`2<String,String> GetTabCache()
+TYPE BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompStateTabCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 06000142 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component)
+ METHOD 06000143 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompStateTabElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 06000144 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity)
+ METHOD 06000145 PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompStateTab : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 04000088 Public, Static, InitOnly String CLASS_ID
+ METHOD 06000146 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000147 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000148 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayerCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 06000149 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600014a PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayerElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 0600014b PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 0600014c PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompStateTabLayer : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 04000089 Public, Static, InitOnly String CLASS_ID
+ METHOD 0600014d PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 0600014e PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 0600014f PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompHomeTabCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 060002c4 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+ METHOD 060002c5 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompHomeTabElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 060002c6 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 060002c7 PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompHomeTab : Tizen.TV.Service.CoBA.Core.Component
+ INTERFACE Tizen.TV.Service.CoBA.Core.ILauncherChange
+ INTERFACE Tizen.TV.Service.CoBA.Core.IChangeApp
+ FIELD 040000ea Public, Static, InitOnly String CLASS_ID
+ FIELD 040000eb Public, Static, InitOnly String TAB_ID
+ FIELD 040000ec Private Tizen.TV.Service.CoBA.Core.AppListManager alm
+ METHOD 060002c8 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002c9 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 060002ca PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002cb PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnAddApp(String)
+ METHOD 060002cc PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnRemoveApp(String)
+ METHOD 060002cd PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnMoveApp(String)
+ METHOD 060002ce PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnLauncherChanged(Tizen.TV.Service.CoBA.Core.LauncherChangedEventArgs)
+ METHOD 060002cf PrivateScope, Public, Virtual, HideBySig Void OnSelected(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 060002d0 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTabCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 060002d1 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+ METHOD 060002d2 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompHomeZeroTab : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000ed Public, Static, InitOnly String CLASS_ID
+ METHOD 060002d3 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002d4 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 060002d5 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002d6 PrivateScope, Public, Virtual, HideBySig Void OnSelected(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 060002d7 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompLiveTabCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 060002d8 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+ METHOD 060002d9 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompLiveTabElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 060002da PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 060002db PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompLiveTab : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000ee Public, Static, InitOnly String CLASS_ID
+ FIELD 040000ef Public, Static, InitOnly String TAB_ID
+ METHOD 060002dc PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002dd PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002de PrivateScope, Public, Virtual, HideBySig Void OnSelected(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 060002df PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayerCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 060002e0 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002e1 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayerElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 060002e2 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 060002e3 PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompNativeTabLayer : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000f0 Public, Static, InitOnly String CLASS_ID
+ METHOD 060002e4 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002e5 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 060002e6 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002e7 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompNativeTabsCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 060002e8 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002e9 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompNativeTabsElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 060002ea PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 060002eb PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompNativeTabs : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000f1 Public, Static, InitOnly String CLASS_ID
+ METHOD 060002ec PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002ed PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 060002ee PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002ef PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompTabLayerCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 060002f0 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002f1 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+ METHOD 060002f2 PrivateScope, Public, HideBySig Void GetTabList(System.Collections.Generic.Dictionary`2<String,String>&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompTabLayerElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 060002f3 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 060002f4 PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompTabLayer : Tizen.TV.Service.CoBA.Core.Component
+ INTERFACE Tizen.TV.Service.CoBA.Core.Manager.IHybridcastEventListener
+ FIELD 040000f2 Public, Static, InitOnly String CLASS_ID
+ FIELD 040000f3 Private Tizen.Tv.App.CoBA.Components.Home.CompTabLayerCache layerCahce
+ METHOD 060002f5 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002f6 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 060002f7 PrivateScope, Public, Virtual, HideBySig Void OnExit()
+ METHOD 060002f8 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 060002f9 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnHybridcastEvent(Tizen.TV.Service.CoBA.Core.Manager.HybridcastEventArgs)
+ METHOD 060002fa PrivateScope, Private, HideBySig Boolean IsTabListChanged()
+ METHOD 060002fb PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompTabsCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 060002fc PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002fd PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompTabsElement : Tizen.TV.Service.CoBA.BPI.Element
+ METHOD 060002fe PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 060002ff PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompTabs : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000f4 Public, Static, InitOnly String CLASS_ID
+ METHOD 06000300 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000301 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000302 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayerCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 06000303 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000304 PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompZeroTabLayer : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000f5 Public, Static, InitOnly String CLASS_ID
+ METHOD 06000305 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000306 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 06000307 PrivateScope, Public, Virtual, HideBySig Void OnExit()
+ METHOD 06000308 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000309 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompZeroTabsCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ METHOD 0600030a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600030b PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.Tv.App.CoBA.Components.Home.CompZeroTabs : Tizen.TV.Service.CoBA.Core.Component
+ FIELD 040000f6 Public, Static, InitOnly String CLASS_ID
+ METHOD 0600030c PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 0600030d PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 0600030e PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\npidof avocd\nfor tv_pid in $(pidof avocd); do\n echo PROCESS=$tv_pid\n awk 'index($0,\"libave.so\") || index($0,\"libvideoenhance\") || index($0,\"[heap]\") { print }' /proc/$tv_pid/maps\n if test -r /proc/$tv_pid/mem; then echo PROC_MEM_READABLE; else echo PROC_MEM_NOT_READABLE; fi\n readlink /proc/$tv_pid/exe\ndone\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Mon Oct 26 11:20:47 UTC 2026\n00000000-0000-4000-8000-000000000000\n35256.84 131525.20\n706\nPROCESS=706\n020a8000-020cd000 rw-p 00000000 00:00 0                                  [heap]\n020cd000-022d1000 rw-p 00000000 00:00 0                                  [heap]\n46f30000-46f4e000 r-xp 00000000 b3:1a 63663                              /usr/lib/libvideoenhance.so.0.1\n46f4e000-46f5d000 ---p 0001e000 b3:1a 63663                              /usr/lib/libvideoenhance.so.0.1\n46f5d000-46f5e000 r--p 0001d000 b3:1a 63663                              /usr/lib/libvideoenhance.so.0.1\n46f5e000-46f5f000 rw-p 0001e000 b3:1a 63663                              /usr/lib/libvideoenhance.so.0.1\nf6b77000-f7103000 r-xp 00000000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nf7103000-f7113000 ---p 0058c000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nf7113000-f711b000 r--p 0058c000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nf711b000-f7125000 rw-p 00594000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nPROC_MEM_READABLE\n/usr/bin/avocd\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

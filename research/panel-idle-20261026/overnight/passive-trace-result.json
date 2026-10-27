@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ngrep -qx 'BUILD_ID=T-RSMFAKUC-0090-REL-202607141953' /etc/tizen-release\nTRACE_DIR=/sys/kernel/debug/tracing/instances/researcher-black-20261026\nTRACE_OUT=/tmp/researcher-panel-trace-20261026/passive-black-i2c.trace\ntest ! -e \"$TRACE_DIR\"\ntest ! -e \"$TRACE_OUT\"\nmkdir \"$TRACE_DIR\"\ncleanup() {\n  printf '0\\n' > \"$TRACE_DIR/tracing_on\" || true\n  printf '0\\n' > \"$TRACE_DIR/events/enable\" || true\n  rmdir \"$TRACE_DIR\" || true\n}\ntrap cleanup EXIT HUP INT TERM\nprintf '0\\n' > \"$TRACE_DIR/tracing_on\"\nprintf '64\\n' > \"$TRACE_DIR/buffer_size_kb\"\nprintf 'mono\\n' > \"$TRACE_DIR/trace_clock\"\nfor event_name in i2c_write i2c_read i2c_reply i2c_result; do\n  printf 'adapter_nr == 5\\n' > \"$TRACE_DIR/events/i2c/$event_name/filter\"\n  printf '1\\n' > \"$TRACE_DIR/events/i2c/$event_name/enable\"\ndone\nfor event_name in sys_enter sys_exit; do\n  printf 'common_pid == 1013 && (id == 54 || id == 29)\\n' > \"$TRACE_DIR/events/raw_syscalls/$event_name/filter\"\n  printf '1\\n' > \"$TRACE_DIR/events/raw_syscalls/$event_name/enable\"\ndone\nprintf '1\\n' > \"$TRACE_DIR/tracing_on\"\nsleep 2\nprintf '0\\n' > \"$TRACE_DIR/tracing_on\"\ncat \"$TRACE_DIR/trace\" > \"$TRACE_OUT\"\ndate -u\ncat /proc/uptime\nwc -c \"$TRACE_OUT\"\nsha256sum \"$TRACE_OUT\"\n",
+      "exit_code": 1,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

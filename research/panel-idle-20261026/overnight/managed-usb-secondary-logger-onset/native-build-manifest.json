@@ -1,0 +1,144 @@
+{
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"variant\":\"arm-verified\",\"fixedSequence\":\"callbacks64,baseline15372,preRT64-zero-gate-fault,arm2,armedRT64,ready,hold20s,restore2,restoredRT64,post15372\",\"writeHeaderHex\":\"020100000624014702000000\",\"armPayloadHex\":\"0100\",\"restorePayloadHex\":\"0000\",\"timeoutMs\":2000,\"hardArmDeadlineMs\":30000,\"wholeDeadlineMs\":45000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":85,\"baselineTestsPassed\":26,\"stateMachineTestsPassed\":59,\"successOutputBytes\":45851,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "files": {
+    "ManagedUsbSecondaryLoggerOnset.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "db45feac5d5bda5e670da51be296cdb39769f898b4d7c8d9224a36cc65e13cdd",
+      "size": 56905
+    },
+    "bin/Release/net6.0/ManagedUsbSecondaryLoggerOnset.deps.json": {
+      "sha256": "d905733139977c0436bfd4ac520a13c29498c406961c0d9e39717dbac7b4b320",
+      "size": 460
+    },
+    "bin/Release/net6.0/ManagedUsbSecondaryLoggerOnset.dll": {
+      "sha256": "4870eed095247b8f5c86a58044e10e8c3682248b4c0465c49e5d4642cb8e54e9",
+      "size": 71680
+    },
+    "bin/Release/net6.0/ManagedUsbSecondaryLoggerOnset.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_protocol": {
+    "bulk_timeout_ms": 2000,
+    "callback_read": {
+      "address": "0x45000580",
+      "header_hex": "010100008005004540000000",
+      "length": 64,
+      "target": "0x101"
+    },
+    "gate_write": {
+      "address": "0x47012406",
+      "arm_payload_hex": "0100",
+      "header_hex": "020100000624014702000000",
+      "length": 2,
+      "restore_payload_hex": "0000",
+      "target": "0x102"
+    },
+    "hard_arm_deadline_ms": 30000,
+    "hold_ms": 20000,
+    "minimum_prearm_budget_ms": 43000,
+    "publication_budget_ms": 2000,
+    "retries": 0,
+    "ring_read": {
+      "address": "0x20200000",
+      "header_hex": "01010000000020200c3c0000",
+      "length": 15372,
+      "target": "0x101"
+    },
+    "rt_read": {
+      "address": "0x47012400",
+      "header_hex": "010100000024014740000000",
+      "length": 64,
+      "target": "0x101"
+    },
+    "whole_deadline_ms": 45000
+  },
+  "fresh_precondition": {
+    "fault_halfword_offset": 10,
+    "fault_value": 0,
+    "gate_halfword_offset": 6,
+    "gate_value": 0
+  },
+  "max_native_json_bytes": 55000,
+  "offline_files": {
+    "README-native.md": {
+      "sha256": "9dd109d569cceeb62258df9fa1f16a37f18483bfa868d67acf0454a02f0c4cfc",
+      "size": 2085
+    },
+    "build-native.py": {
+      "sha256": "6d454eb1495b0dd43e1e3fc9435bcf661379578c4ab496908d641052d2e6fbd3",
+      "size": 7231
+    }
+  },
+  "phase_model": [
+    "ReadyForHeader",
+    "ExpectingWritePayload",
+    "ExpectingReadIn",
+    "Unknown"
+  ],
+  "qualified_parent": {
+    "dll_sha256": "03296496c42c01453d05a02678ef7a79d121e5822ff17097f7f6ae8b34eea3b5",
+    "program_sha256": "abbfd7bbfafe11c4204934187600983379db1a93de9fde4fe9ac1fe3736a6991"
+  },
+  "ready_file": {
+    "create_new": true,
+    "durable_flush": true,
+    "fields": [
+      "schema",
+      "stage_token",
+      "boot_id",
+      "pid",
+      "at_ms",
+      "uptime",
+      "gate",
+      "protocol_phase"
+    ],
+    "final": "logger.ready",
+    "final_binding": [
+      "ReadyJson",
+      "ReadySha256"
+    ],
+    "non_overwrite_rename": true,
+    "schema": "secondary-logger-onset-ready-v1",
+    "temporary": "logger.ready.tmp"
+  },
+  "reproducible_build": true,
+  "schema": "usb-fixed-secondary-logger-onset-native-build-v1",
+  "scope": "Finite volatile onset logger only. It publishes readiness after exact arm readback, holds without USB traffic, restores from a known ready boundary, and collects fixed post-state. It does not trigger UI, flash, change protection policy, or establish physical output or repair.",
+  "target_operations_during_build": 0
+}

@@ -1,0 +1,174 @@
+SHA256 org.tizen.menu.dll f2a5c1daaa515330503800d39d6025267615dff20f6bf78d8ef67d0e4c0c1921
+SHA256 Tizen.TV.System.dll 72056f70facd6433bd696de41ba857c387c22abfdeaa6032d39f0a640acc9065
+
+METHOD org.tizen.menu.dll 0x06000baa System.Void Tizen.TV.App.Menu.PixelRefreshView::CreateViews(System.Object)
+IL 0000 IL_0000: ldarg.0
+IL 0001 IL_0001: ldarg.1
+IL 0002 IL_0002: call System.Void Tizen.TV.App.Menu.EndDepthViewInfo_01::CreateViews(System.Object)
+IL 0007 IL_0007: ldstr "30"
+IL 000c IL_000c: stloc.0
+IL 000d IL_000d: ldc.i4 1163
+IL 0012 IL_0012: call System.Int32 Tizen.TV.System.Config.system_info::GetInt(Tizen.TV.System.Config.SystemInfoKeye)
+IL 0017 IL_0017: stloc.1
+IL 0018 IL_0018: ldloca.s V_2
+IL 001a IL_001a: ldc.i4.s 13
+IL 001c IL_001c: ldc.i4.1
+IL 001d IL_001d: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor(System.Int32,System.Int32)
+IL 0022 IL_0022: ldloca.s V_2
+IL 0024 IL_0024: ldstr "tcondevice : "
+IL 0029 IL_0029: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral(System.String)
+IL 002e IL_002e: ldloca.s V_2
+IL 0030 IL_0030: ldloc.1
+IL 0031 IL_0031: call System.Void System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted<System.Int32>(!!0)
+IL 0036 IL_0036: ldloca.s V_2
+IL 0038 IL_0038: call System.String System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear()
+IL 003d IL_003d: ldstr "CreateViews"
+IL 0042 IL_0042: ldstr "/home/researcher/rpmbuild/BUILD/org.tizen.menu-0.0.1/AppMain/src/View/EndDepthView/PixelRefreshView.cs"
+IL 0047 IL_0047: ldc.i4.s 18
+IL 0049 IL_0049: call System.Void Tizen.TV.Service.CoBA.Common.FSLogger::Info(System.String,System.String,System.String,System.Int32)
+IL 004e IL_004e: ldloc.1
+IL 004f IL_004f: ldc.i4.s 37
+IL 0051 IL_0051: bne.un.s IL_0059
+IL 0053 IL_0053: ldstr "60"
+IL 0058 IL_0058: stloc.0
+IL 0059 IL_0059: ldarg.0
+IL 005a IL_005a: ldstr "COM_SID_GNP_MIX_CDOCT_WHEN_PIXEL_REFRESH_STARTS_THE_POWER_IS_TURNED_OFF_FOR_ABOUT_MINUTES_TURNING_ON_THE_POWER_WHILE_PIX"
+IL 005f IL_005f: call System.String Tizen.TV.App.Menu.CommonUtil::GetTranslation(System.String)
+IL 0064 IL_0064: ldstr "<<A>>"
+IL 0069 IL_0069: ldloc.0
+IL 006a IL_006a: callvirt System.String System.String::Replace(System.String,System.String)
+IL 006f IL_006f: call System.Void Tizen.TV.App.Menu.EndDepthViewInfo_Base::UpdateInfoArea(System.String)
+IL 0074 IL_0074: ret
+
+METHOD org.tizen.menu.dll 0x06000bab System.Void Tizen.TV.App.Menu.PixelRefreshView::SetButtonsInfo()
+IL 0000 IL_0000: ldarg.0
+IL 0001 IL_0001: newobj System.Void System.Collections.Generic.List`1<Tizen.TV.App.Menu.Button>::.ctor()
+IL 0006 IL_0006: dup
+IL 0007 IL_0007: ldstr "COM_TV_SID_START_NOW"
+IL 000c IL_000c: call System.String Tizen.TV.App.Menu.CommonUtil::GetTranslation(System.String)
+IL 0011 IL_0011: ldsfld Tizen.TV.App.Menu.ButtonSelectHandler Tizen.TV.App.Menu.PixelRefreshView/<>c::<>9__2_0
+IL 0016 IL_0016: dup
+IL 0017 IL_0017: brtrue.s IL_0030
+IL 0019 IL_0019: pop
+IL 001a IL_001a: ldsfld Tizen.TV.App.Menu.PixelRefreshView/<>c Tizen.TV.App.Menu.PixelRefreshView/<>c::<>9
+IL 001f IL_001f: ldftn System.Void Tizen.TV.App.Menu.PixelRefreshView/<>c::<SetButtonsInfo>b__2_0()
+IL 0025 IL_0025: newobj System.Void Tizen.TV.App.Menu.ButtonSelectHandler::.ctor(System.Object,System.IntPtr)
+IL 002a IL_002a: dup
+IL 002b IL_002b: stsfld Tizen.TV.App.Menu.ButtonSelectHandler Tizen.TV.App.Menu.PixelRefreshView/<>c::<>9__2_0
+IL 0030 IL_0030: newobj System.Void Tizen.TV.App.Menu.Button::.ctor(System.String,Tizen.TV.App.Menu.ButtonSelectHandler)
+IL 0035 IL_0035: callvirt System.Void System.Collections.Generic.List`1<Tizen.TV.App.Menu.Button>::Add(!0)
+IL 003a IL_003a: dup
+IL 003b IL_003b: call System.String Tizen.TV.App.Menu.CommonUtil::GetProductSID()
+IL 0040 IL_0040: ldstr "_SID_SMNT_CCJUL_START_AFTER_OFF"
+IL 0045 IL_0045: call System.String System.String::Concat(System.String,System.String)
+IL 004a IL_004a: call System.String Tizen.TV.App.Menu.CommonUtil::GetTranslation(System.String)
+IL 004f IL_004f: ldsfld Tizen.TV.App.Menu.ButtonSelectHandler Tizen.TV.App.Menu.PixelRefreshView/<>c::<>9__2_1
+IL 0054 IL_0054: dup
+IL 0055 IL_0055: brtrue.s IL_006e
+IL 0057 IL_0057: pop
+IL 0058 IL_0058: ldsfld Tizen.TV.App.Menu.PixelRefreshView/<>c Tizen.TV.App.Menu.PixelRefreshView/<>c::<>9
+IL 005d IL_005d: ldftn System.Void Tizen.TV.App.Menu.PixelRefreshView/<>c::<SetButtonsInfo>b__2_1()
+IL 0063 IL_0063: newobj System.Void Tizen.TV.App.Menu.ButtonSelectHandler::.ctor(System.Object,System.IntPtr)
+IL 0068 IL_0068: dup
+IL 0069 IL_0069: stsfld Tizen.TV.App.Menu.ButtonSelectHandler Tizen.TV.App.Menu.PixelRefreshView/<>c::<>9__2_1
+IL 006e IL_006e: newobj System.Void Tizen.TV.App.Menu.Button::.ctor(System.String,Tizen.TV.App.Menu.ButtonSelectHandler)
+IL 0073 IL_0073: callvirt System.Void System.Collections.Generic.List`1<Tizen.TV.App.Menu.Button>::Add(!0)
+IL 0078 IL_0078: stfld System.Collections.Generic.List`1<Tizen.TV.App.Menu.Button> Tizen.TV.App.Menu.EndDepthViewInfo_01::buttonsInfo
+IL 007d IL_007d: ret
+
+METHOD org.tizen.menu.dll 0x06001211 System.Void Tizen.TV.App.Menu.PixelRefreshView/<>c::<SetButtonsInfo>b__2_0()
+IL 0000 IL_0000: ldstr "buttonStartNow handler"
+IL 0005 IL_0005: ldc.i4 9999999
+IL 000a IL_000a: conv.i8
+IL 000b IL_000b: ldc.i4 9999999
+IL 0010 IL_0010: conv.i8
+IL 0011 IL_0011: ldc.i4 9999999
+IL 0016 IL_0016: conv.i8
+IL 0017 IL_0017: ldc.i4 9999999
+IL 001c IL_001c: conv.i8
+IL 001d IL_001d: ldc.i4 9999999
+IL 0022 IL_0022: conv.i8
+IL 0023 IL_0023: ldnull
+IL 0024 IL_0024: ldnull
+IL 0025 IL_0025: ldnull
+IL 0026 IL_0026: ldnull
+IL 0027 IL_0027: ldnull
+IL 0028 IL_0028: ldc.r8 9999999
+IL 0031 IL_0031: ldc.r8 9999999
+IL 003a IL_003a: ldc.r8 9999999
+IL 0043 IL_0043: ldc.r8 9999999
+IL 004c IL_004c: ldc.r8 9999999
+IL 0055 IL_0055: ldstr "SetButtonsInfo"
+IL 005a IL_005a: ldstr "/home/researcher/rpmbuild/BUILD/org.tizen.menu-0.0.1/AppMain/src/View/EndDepthView/PixelRefreshView.cs"
+IL 005f IL_005f: ldc.i4.s 31
+IL 0061 IL_0061: call System.Void Tizen.TV.Service.CoBA.Common.FSLogger::InfoC(System.String,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.String,System.String,System.Int32)
+IL 0066 IL_0066: ldc.i4.0
+IL 0067 IL_0067: call Tizen.TV.System.Manager.QDDisplayError Tizen.TV.System.Manager.DDDisplay::QDDisplayRequestELSensing(Tizen.TV.System.Manager.QDDisplayELSensingMode)
+IL 006c IL_006c: pop
+IL 006d IL_006d: ret
+
+METHOD org.tizen.menu.dll 0x06001212 System.Void Tizen.TV.App.Menu.PixelRefreshView/<>c::<SetButtonsInfo>b__2_1()
+IL 0000 IL_0000: ldstr "buttonStartAfterOff handler"
+IL 0005 IL_0005: ldc.i4 9999999
+IL 000a IL_000a: conv.i8
+IL 000b IL_000b: ldc.i4 9999999
+IL 0010 IL_0010: conv.i8
+IL 0011 IL_0011: ldc.i4 9999999
+IL 0016 IL_0016: conv.i8
+IL 0017 IL_0017: ldc.i4 9999999
+IL 001c IL_001c: conv.i8
+IL 001d IL_001d: ldc.i4 9999999
+IL 0022 IL_0022: conv.i8
+IL 0023 IL_0023: ldnull
+IL 0024 IL_0024: ldnull
+IL 0025 IL_0025: ldnull
+IL 0026 IL_0026: ldnull
+IL 0027 IL_0027: ldnull
+IL 0028 IL_0028: ldc.r8 9999999
+IL 0031 IL_0031: ldc.r8 9999999
+IL 003a IL_003a: ldc.r8 9999999
+IL 0043 IL_0043: ldc.r8 9999999
+IL 004c IL_004c: ldc.r8 9999999
+IL 0055 IL_0055: ldstr "SetButtonsInfo"
+IL 005a IL_005a: ldstr "/home/researcher/rpmbuild/BUILD/org.tizen.menu-0.0.1/AppMain/src/View/EndDepthView/PixelRefreshView.cs"
+IL 005f IL_005f: ldc.i4.s 36
+IL 0061 IL_0061: call System.Void Tizen.TV.Service.CoBA.Common.FSLogger::InfoC(System.String,System.Int64,System.Int64,System.Int64,System.Int64,System.Int64,System.String,System.String,System.String,System.String,System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.String,System.String,System.Int32)
+IL 0066 IL_0066: ldc.i4.1
+IL 0067 IL_0067: call Tizen.TV.System.Manager.QDDisplayError Tizen.TV.System.Manager.DDDisplay::QDDisplayRequestELSensing(Tizen.TV.System.Manager.QDDisplayELSensingMode)
+IL 006c IL_006c: pop
+IL 006d IL_006d: call !0 Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.App.Menu.ViewEventHandler>::GetInstance()
+IL 0072 IL_0072: ldc.i4.s 45
+IL 0074 IL_0074: ldc.i4.1
+IL 0075 IL_0075: newarr System.Object
+IL 007a IL_007a: dup
+IL 007b IL_007b: ldc.i4.0
+IL 007c IL_007c: ldstr "TV_SID_QD_CBSEP_INFO_MSG_SCREEN_RESTORATION_CLEARER"
+IL 0081 IL_0081: call System.String Tizen.TV.App.Menu.CommonUtil::GetTranslation(System.String)
+IL 0086 IL_0086: ldc.i4 3000
+IL 008b IL_008b: call Tizen.TV.App.Menu.PopupAttributes Tizen.TV.App.Menu.PopupGUIUtil::GetMenuCommonToastPopupAttributes(System.String,System.UInt32)
+IL 0090 IL_0090: stelem.ref
+IL 0091 IL_0091: callvirt System.Boolean Tizen.TV.App.Menu.ViewEventHandler::SendViewEvent(Tizen.TV.App.Menu.ViewEvent,System.Object[])
+IL 0096 IL_0096: pop
+IL 0097 IL_0097: ret
+
+METHOD Tizen.TV.System.dll 0x060000b2 Tizen.TV.System.Manager.QDDisplayError Tizen.TV.System.Manager.DDDisplay::QDDisplayRequestELSensing(Tizen.TV.System.Manager.QDDisplayELSensingMode)
+IL 0000 IL_0000: nop
+IL 0001 IL_0001: ldsfld System.String Tizen.TV.System.Manager.DDDisplay::PlatformPrivilege
+IL 0006 IL_0006: call System.Boolean Tizen.TV.System.Manager.DDDisplay/PrivilegeUtil::IsAllowedStatic(System.String)
+IL 000b IL_000b: ldc.i4.0
+IL 000c IL_000c: ceq
+IL 000e IL_000e: stloc.0
+IL 000f IL_000f: ldloc.0
+IL 0010 IL_0010: brfalse.s IL_001e
+IL 0012 IL_0012: nop
+IL 0013 IL_0013: ldsfld System.String Tizen.TV.System.Manager.DDDisplay::PlatformPrivilege
+IL 0018 IL_0018: newobj System.Void System.MethodAccessException::.ctor(System.String)
+IL 001d IL_001d: throw
+IL 001e IL_001e: ldarg.0
+IL 001f IL_001f: call Tizen.TV.System.Manager.QDDisplayError Interop/Deviced::qd_display_request_el_sensing(Tizen.TV.System.Manager.QDDisplayELSensingMode)
+IL 0024 IL_0024: stloc.1
+IL 0025 IL_0025: br.s IL_0027
+IL 0027 IL_0027: ldloc.1
+IL 0028 IL_0028: ret
+PINVOKE 0x0600066d Tizen.TV.System.Manager.QDDisplayError Interop/Deviced::qd_display_request_el_sensing(Tizen.TV.System.Manager.QDDisplayELSensingMode) module=/usr/lib/libdeviced.so.1 entry=qd_display_request_el_sensing
+PASS: bounded metadata/argument checks; UI execution and popup identity unproven.

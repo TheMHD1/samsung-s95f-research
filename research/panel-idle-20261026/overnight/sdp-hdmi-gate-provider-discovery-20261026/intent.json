@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\nprintf '@@ BOOT_START\\n'\ncat /proc/sys/kernel/random/boot_id\nprintf '@@ TIME_START\\n'\ndate -u +%s\ncat /proc/uptime\nprintf '@@ LOADED_MATCHES\\n'\nawk '$1 == \"tztv_sys\" || $1 == \"sdp_frc\" || $1 == \"tztv_frc_tcon\" {print}' /proc/modules\nfor f in /lib/modules/5.4.261/kernel/*sys*.ko /lib/modules/5.4.261/kernel/soc/*sys*.ko; do\n  [ -f \"$f\" ] || continue\n  printf '@@ MODULE %s\\n' \"$f\"\n  wc -c < \"$f\"\n  sha256sum \"$f\"\ndone\nprintf '@@ BOOT_END\\n'\ncat /proc/sys/kernel/random/boot_id\nprintf '@@ TIME_END\\n'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "d4f766cd8728c1d8b45d487f9936498bade0a21642a93a549dfc075ac4cbf8a9",
+  "purpose": "Finite passive fixed-directory provider module metadata discovery for unresolved tztv_sys_use_hdmi_cell_sw callback. No module load/getter/control/MMIO/trace. Physical panel unobserved.",
+  "started_utc": "2026-10-26T19:21:34.321460+00:00"
+}

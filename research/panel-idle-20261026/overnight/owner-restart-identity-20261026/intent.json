@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -eu\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ AVOC'; pidof avocd; p=$(pidof avocd); readlink -f /proc/$p/exe; cat /proc/$p/stat\necho '@@ DEVICED'; pidof deviced; p=$(pidof deviced); readlink -f /proc/$p/exe; cat /proc/$p/stat\necho '@@ TRACE'; cat /sys/kernel/debug/tracing/tracing_on /sys/kernel/debug/tracing/current_tracer\necho '@@ COMPLETE'\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -eu\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ AVOC'; pidof avocd; p=$(pidof avocd); readlink -f /proc/$p/exe; cat /proc/$p/stat\necho '@@ DEVICED'; pidof deviced; p=$(pidof deviced); readlink -f /proc/$p/exe; cat /proc/$p/stat\necho '@@ TRACE'; cat /sys/kernel/debug/tracing/tracing_on /sys/kernel/debug/tracing/current_tracer\necho '@@ COMPLETE'\n",
+  "command_sha256": "191ca6968ee4b1b502383d8dfd84543c259bf9e66c02097c2ed14144d7940a59",
+  "physical_state": "unobserved",
+  "purpose": "Read one stock event format and global baseline; no trace enable or control.",
+  "retry": false,
+  "started_utc": "2026-10-26T21:48:53.435613+00:00"
+}

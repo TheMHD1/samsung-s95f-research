@@ -1,0 +1,341 @@
+{
+  "additionalPrimaryPages": [
+    {
+      "URL": "https://securitylab.github.com/advisories/GHSL-2024-356_Arm_Mali/",
+      "accessedUTC": "2026-10-27",
+      "role": "Original Mali vulnerability report; tested Pixel8/r53, not S95F proof"
+    },
+    {
+      "URL": "https://samsungtvbounty.com/securityUpdates",
+      "accessedUTC": "2026-10-27",
+      "role": "Vendor advisory index checked; no S95F archive-root patch status established"
+    }
+  ],
+  "localTargetEvidence": [
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/live-cast/boot-suitability.summary",
+      "reviewedUTC": "2026-10-27",
+      "role": "Exact-target managed substitution/manual launch and denied child; restoration record",
+      "sha256": "0c015aad4a4493a544f0ca3566806fab181b8d8af482758f88a48e4404e55c97"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/live-cast/boot-socket-test.summary",
+      "reviewedUTC": "2026-10-27",
+      "role": "Exact-target zero-byte loopback exchange, LAN listener and restoration record",
+      "sha256": "597d46bad52ad5c4c94c39e67923d609a9d6d7e72f0b7d76eac165b554891f08"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/live-cast/boot-suitability.sh",
+      "reviewedUTC": "2026-10-27",
+      "role": "Original manual-launch runner; no boot flag modification",
+      "sha256": "00c620fa16860334770b3ebccc3dbfa5e82168098903f3547157b2b0f1dd6201"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/live-cast/boot-socket-test.sh",
+      "reviewedUTC": "2026-10-27",
+      "role": "Socket manual-launch runner; no boot flag modification",
+      "sha256": "6eae066af189dae605fc0db051f085d6daef27a8bfc878affe72e84ff6855750"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/live-cast/boot-probe/Program.cs",
+      "reviewedUTC": "2026-10-27",
+      "role": "Current retained probe source including socket test; not assumed byteidentical to first probe source",
+      "sha256": "3f10ccf646da1b4a9627c2a902a175d03dd679f7ef0aba3bbd0800819e44109a"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/live-cast/boot-suitability.json",
+      "reviewedUTC": "2026-10-27",
+      "role": "Original acquisition result for suitability test",
+      "sha256": "1f834f8d808ac081bdc281edb81b71f2e20596d628be6a7a70cec325ce759de0"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/live-cast/boot-socket-test.json",
+      "reviewedUTC": "2026-10-27",
+      "role": "Original acquisition result for socket test",
+      "sha256": "48a1d73afeb87f80e486352950fe1b4e6aecd7c8e6ed5fdc64328ed33d38dac8"
+    }
+  ],
+  "relatedSourceLineage": {
+    "comparedFiles": [
+      {
+        "path": "docs/FIRMWARE_RESEARCH_QE77S95F_1296.md",
+        "paths": [
+          "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/BigSant--HyperTizen/HyperTizen-e6b4acea23bd4fd53a779ac23f371db70a55eda1/docs/FIRMWARE_RESEARCH_QE77S95F_1296.md",
+          "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/hardware-firmware/tizenwled/docs/FIRMWARE_RESEARCH_QE77S95F_1296.md"
+        ],
+        "sameBytes": true,
+        "sha256": "c613d0d90fc7513cc24c63ddecaaf04cd61314f16fbc27980cfb8ee77f556141"
+      },
+      {
+        "path": "Probe/Program.cs",
+        "paths": [
+          "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/BigSant--HyperTizen/HyperTizen-e6b4acea23bd4fd53a779ac23f371db70a55eda1/Probe/Program.cs",
+          "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/hardware-firmware/tizenwled/Probe/Program.cs"
+        ],
+        "sameBytes": true,
+        "sha256": "d296b2c57ed1705953d48c5f73954a818d8a7ed671d9720ccd927447989ef9cd"
+      }
+    ],
+    "independentHardwareReplications": false,
+    "interpretation": "One externally reported S95F research lineage; same commit and reviewed bytes do not constitute independent replications.",
+    "repoURLs": [
+      "https://github.com/BigSant/HyperTizen",
+      "https://github.com/hTobi02/TizenWLED"
+    ],
+    "reviewedCommit": "e6b4acea23bd4fd53a779ac23f371db70a55eda1",
+    "reviewedUTC": "2026-10-27"
+  },
+  "scope": "Read-only source research; no source code executed; no TV contact",
+  "sources": [
+    {
+      "accessedUTC": "2026-10-27",
+      "archiveSha256": "f620d6d48cec1aee06371499c30b2144b3681aec38349c478a47e03e4fc5135a",
+      "commit": "ec5a8fcdc22e4014bde24a1970ce4cd4adc823de",
+      "commitDateUTC": "2026-10-18T16:30:15Z",
+      "license": "CC-BY-4.0",
+      "localSnapshot": "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/DemonKingSwarn--samsung-tv-tizen-root/samsung-tv-tizen-root-ec5a8fcdc22e4014bde24a1970ce4cd4adc823de",
+      "repoURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root",
+      "reviewedpaths": [
+        {
+          "path": "README.md",
+          "sha256": "f715cc54882e379702bb58ba8130f61a3819f5126b2c071c338cbd9ce68f6fbb",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/README.md"
+        },
+        {
+          "path": "ROOTING-RESEARCH.md",
+          "sha256": "193073e1321921dea6e924df607e8ec9c2b8b4f24ac65a7f66d65aa80f4ac8d8",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/ROOTING-RESEARCH.md"
+        },
+        {
+          "path": "tools/tv-rootwatch.sh",
+          "sha256": "04e8939dd862be2ea98b5492c430bbd2f8237f0e04274028f39bc45181a1e1c1",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/tools/tv-rootwatch.sh"
+        },
+        {
+          "path": "tools/tv-debloat-apply.sh",
+          "sha256": "7a9a060aaf4966f00524877788522cb69e915d4dc0d95de0f5c934f92c0cc7e6",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/tools/tv-debloat-apply.sh"
+        },
+        {
+          "path": "docs/DEBLOAT.md",
+          "sha256": "21abb04b5c08d123d2ceaea18221c5eca2640f9046e2b4705deec11844556945",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/docs/DEBLOAT.md"
+        },
+        {
+          "path": "evidence/README.md",
+          "sha256": "9a38ee6d06f0526d5e40111922be10de726a1afa2b6284287be30fb44c433b72",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/evidence/README.md"
+        },
+        {
+          "path": "evidence/do_root.py",
+          "sha256": "377c20d697bbc889ebfc0fdf98d872c4dea6fee1ccb831f21f8d1d5aac6e10ff",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/evidence/do_root.py"
+        },
+        {
+          "path": "evidence/root-evidence.json",
+          "sha256": "8b104bc35ee8680e500d72a99968a20da102a0cb6d510f58469357eb632ee252",
+          "sourceURL": "https://github.com/DemonKingSwarn/samsung-tv-tizen-root/blob/ec5a8fcdc22e4014bde24a1970ce4cd4adc823de/evidence/root-evidence.json"
+        }
+      ]
+    },
+    {
+      "accessedUTC": "2026-10-27",
+      "archiveSha256": "6ee73ea735dc18dcf436ce529452a4a89ffc18d0aaea881c77283606d56ac39d",
+      "commit": "2b0629381b3eaf5a78f84332d630d6d4b10681e7",
+      "commitDateUTC": "2026-10-10T12:21:13Z",
+      "license": "Unlicense",
+      "localSnapshot": "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/levkropp--samsung-tv-root-untethered/samsung-tv-root-untethered-2b0629381b3eaf5a78f84332d630d6d4b10681e7",
+      "repoURL": "https://github.com/levkropp/samsung-tv-root-untethered",
+      "reviewedpaths": [
+        {
+          "path": "README.md",
+          "sha256": "923cdcb41cb1df01146e8e43358beeeb5bbf70e863b984ccb4aa4fbcbbf9b8e6",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/README.md"
+        },
+        {
+          "path": "boot-agent/README.md",
+          "sha256": "79d375592e4caddaa623d38b3ec846a2667b1105b2a394985a37045981d665b6",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/boot-agent/README.md"
+        },
+        {
+          "path": "boot-agent/Program.cs",
+          "sha256": "e1786fb379e681627558f7e3d038c8828fc0a67aa3234e4730df13625980eff3",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/boot-agent/Program.cs"
+        },
+        {
+          "path": "boot-agent/staging/build.py",
+          "sha256": "cf1d0173ea866c0545caeea7f29c1a7eb54c29ba1876d679211ec33ee9676322",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/boot-agent/staging/build.py"
+        },
+        {
+          "path": "boot-agent/bridge-relay/Program.cs",
+          "sha256": "738c85032db1f21c478dee24744f15f4e16cd41cd793f114013f1b6f9ebb058d",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/boot-agent/bridge-relay/Program.cs"
+        },
+        {
+          "path": "modules/bridge-service/boot.sh",
+          "sha256": "112cdf61412f61b43806e569b48b9a731d634489cb1625b05e8e8f21551199a4",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/modules/bridge-service/boot.sh"
+        },
+        {
+          "path": "modules/sw-update-off/boot.sh",
+          "sha256": "5a99b2facb67bc4dd2dce09106f2c6209c07fe95b65a5e7de06501916e295f19",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/modules/sw-update-off/boot.sh"
+        },
+        {
+          "path": "modules/samsung-telemetry-off/boot.sh",
+          "sha256": "ac84edb7de13dd9ad60a2eb8f315f41278688bd06341a7acdb4df761f36fd8b7",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/modules/samsung-telemetry-off/boot.sh"
+        },
+        {
+          "path": "payloads/common/SamsungTvArchiveRoot.cs",
+          "sha256": "71cdf2f0d41ce1078e60c9459092af7264a076753be9456178ebaaa4c2bee1fe",
+          "sourceURL": "https://github.com/levkropp/samsung-tv-root-untethered/blob/2b0629381b3eaf5a78f84332d630d6d4b10681e7/payloads/common/SamsungTvArchiveRoot.cs"
+        }
+      ]
+    },
+    {
+      "accessedUTC": "2026-10-27",
+      "archiveSha256": "64507dbe1fb2eaf73e6a02a151e42680832279593bcd3905de5bea522d07af07",
+      "commit": "3b97edf3762db7670585d73e29623dc56195bf98",
+      "commitDateUTC": "2026-10-23T11:21:28Z",
+      "license": "Unlicense",
+      "localSnapshot": "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/chris-ritsen--samsung-tv-root/samsung-tv-root-3b97edf3762db7670585d73e29623dc56195bf98",
+      "repoURL": "https://github.com/chris-ritsen/samsung-tv-root",
+      "reviewedpaths": [
+        {
+          "path": "README.md",
+          "sha256": "0d6e3c393d1ba0f391345c0d1952fb4168e6ff944d23698e621bf25356a491ed",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/README.md"
+        },
+        {
+          "path": "src/samsung_tv_root/archive_root.py",
+          "sha256": "e4d39170d76df6f42bf20fdafb7f559b8a63252ec901c8008851973668671b79",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/src/samsung_tv_root/archive_root.py"
+        },
+        {
+          "path": "src/samsung_tv_root/sdb.py",
+          "sha256": "77c89d9a9f38566dfb2c5ef6a9fd371e54b9e3ca52a0feb3c05fd7cdd60ab153",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/src/samsung_tv_root/sdb.py"
+        },
+        {
+          "path": "src/samsung_tv_root/cli.py",
+          "sha256": "da76522bbeeccf0c153073db26130423a36c222b1d0ead32c41debbb12ced98a",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/src/samsung_tv_root/cli.py"
+        },
+        {
+          "path": "src/samsung_tv_root/compatibility.py",
+          "sha256": "89acea95172dbb5d9eddd356901cd8a98b54b8a93988202487c40b53c9c8a800",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/src/samsung_tv_root/compatibility.py"
+        },
+        {
+          "path": "src/samsung_tv_root/root_agent.py",
+          "sha256": "ee959b0e3c315d819a2a0fe89f3a45b744cea7f0330482b8059a82893b2a9c87",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/src/samsung_tv_root/root_agent.py"
+        },
+        {
+          "path": "payloads/common/SamsungTvArchiveRoot.cs",
+          "sha256": "868ce8957a421931dc191bc9289dbbb31073a68b7cf02e53104a6a150ae1371e",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/payloads/common/SamsungTvArchiveRoot.cs"
+        },
+        {
+          "path": "payloads/common31/SamsungTvArchiveRoot.csproj",
+          "sha256": "f231b30998ec4f05121518ba31c0ae944021a1f3a1fe26cd33e38d614fb46665",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/payloads/common31/SamsungTvArchiveRoot.csproj"
+        },
+        {
+          "path": "payloads/qn90f/Qn90fDisplayNative.cs",
+          "sha256": "de10199f026fd9cbda5b4858f9b3a110b1f7cb001c950507e319dc26070ec357",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/payloads/qn90f/Qn90fDisplayNative.cs"
+        },
+        {
+          "path": "payloads/qn90f/Qn90fDisplayControl.cs",
+          "sha256": "5e377e1e7248618f6f99b6067fce7a347d907b1651cc14e71a10ca6c280978bc",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/payloads/qn90f/Qn90fDisplayControl.cs"
+        },
+        {
+          "path": "docs/research-notes/EXPLOIT_CHAIN.md",
+          "sha256": "a813d848bcc3003391036813e3a90c47d5d2ec7b87f437c7043ec90ca3f75820",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/docs/research-notes/EXPLOIT_CHAIN.md"
+        },
+        {
+          "path": "docs/research-notes/AES_EXTRACTION.md",
+          "sha256": "dbcc1d3445d46b03bcd2963dc28c8a9bc31b9743133b9a13c38076e9dd1d1bb4",
+          "sourceURL": "https://github.com/chris-ritsen/samsung-tv-root/blob/3b97edf3762db7670585d73e29623dc56195bf98/docs/research-notes/AES_EXTRACTION.md"
+        }
+      ]
+    },
+    {
+      "accessedUTC": "2026-10-27",
+      "archiveSha256": "87b09f0e26597f8864d3599ce286df5eb252980728fa54dc357a20e18c415120",
+      "commit": "cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e",
+      "commitDateUTC": "2026-10-27T18:25:18Z",
+      "license": "MIT",
+      "localSnapshot": "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/cfloinc--samsung-q70t-tizen-root/samsung-q70t-tizen-root-cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e",
+      "repoURL": "https://github.com/cfloinc/samsung-q70t-tizen-root",
+      "reviewedpaths": [
+        {
+          "path": "README.md",
+          "sha256": "e22c706de8ddca6881534772d7775d7999ebab31eb2df18420443304bbf27351",
+          "sourceURL": "https://github.com/cfloinc/samsung-q70t-tizen-root/blob/cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e/README.md"
+        },
+        {
+          "path": "persistent-hook/apply-persistent-hook.sh",
+          "sha256": "48f8ab780f79903153aef90265ed6dc94f32bd40b0aaef88db50b81fd8f89e2c",
+          "sourceURL": "https://github.com/cfloinc/samsung-q70t-tizen-root/blob/cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e/persistent-hook/apply-persistent-hook.sh"
+        },
+        {
+          "path": "persistent-hook/rollback.sh",
+          "sha256": "4b312784022161037158db1392bfe4ab7906abec6ee64d0f7b0b7107265af012",
+          "sourceURL": "https://github.com/cfloinc/samsung-q70t-tizen-root/blob/cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e/persistent-hook/rollback.sh"
+        },
+        {
+          "path": "persistent-hook/boot.sh",
+          "sha256": "22918f0c54480269d166357da9c0978ced84ce70d65a84d6fb67bb48e42a551e",
+          "sourceURL": "https://github.com/cfloinc/samsung-q70t-tizen-root/blob/cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e/persistent-hook/boot.sh"
+        },
+        {
+          "path": "docs/methodology/08-boot-chain-and-persistence.md",
+          "sha256": "f2b53a03b6f48e6ba2659e6b728c0e546bc082800453da44b5a1abda06acd34a",
+          "sourceURL": "https://github.com/cfloinc/samsung-q70t-tizen-root/blob/cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e/docs/methodology/08-boot-chain-and-persistence.md"
+        },
+        {
+          "path": "docs/methodology/10-debug-channels.md",
+          "sha256": "e045b6c7b650b9b435446a42f76fab7d6dddb956074d2d52e5325b43d5dc5aa5",
+          "sourceURL": "https://github.com/cfloinc/samsung-q70t-tizen-root/blob/cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e/docs/methodology/10-debug-channels.md"
+        }
+      ]
+    },
+    {
+      "accessedUTC": "2026-10-27",
+      "archiveSha256": "8e2d3667df9218fcfe765a40ba4c2c2aff80f95cd69536728308d8e6753f031c",
+      "commit": "e6b4acea23bd4fd53a779ac23f371db70a55eda1",
+      "commitDateUTC": "2026-08-12T15:12:11Z",
+      "license": "GPL-3.0",
+      "localSnapshot": "${S95F_EVIDENCE_ROOT}/research-20261027-external/sources/root-sources/BigSant--HyperTizen/HyperTizen-e6b4acea23bd4fd53a779ac23f371db70a55eda1",
+      "repoURL": "https://github.com/BigSant/HyperTizen",
+      "reviewedpaths": [
+        {
+          "path": "README.md",
+          "sha256": "3a9a43745687a28101c48d49cba50c49a290026e3418e8597d31a4074b684966",
+          "sourceURL": "https://github.com/BigSant/HyperTizen/blob/e6b4acea23bd4fd53a779ac23f371db70a55eda1/README.md"
+        },
+        {
+          "path": "Probe/Program.cs",
+          "sha256": "d296b2c57ed1705953d48c5f73954a818d8a7ed671d9720ccd927447989ef9cd",
+          "sourceURL": "https://github.com/BigSant/HyperTizen/blob/e6b4acea23bd4fd53a779ac23f371db70a55eda1/Probe/Program.cs"
+        },
+        {
+          "path": "HyperTizen/Capture/EflScreenMirrorCaptureMethod.cs",
+          "sha256": "09ae8628d2bb9cff6be518565d662c096cc97e05ccdd7f0bfa3f60b32d041e23",
+          "sourceURL": "https://github.com/BigSant/HyperTizen/blob/e6b4acea23bd4fd53a779ac23f371db70a55eda1/HyperTizen/Capture/EflScreenMirrorCaptureMethod.cs"
+        },
+        {
+          "path": "docs/FIRMWARE_RESEARCH_QE77S95F_1296.md",
+          "sha256": "c613d0d90fc7513cc24c63ddecaaf04cd61314f16fbc27980cfb8ee77f556141",
+          "sourceURL": "https://github.com/BigSant/HyperTizen/blob/e6b4acea23bd4fd53a779ac23f371db70a55eda1/docs/FIRMWARE_RESEARCH_QE77S95F_1296.md"
+        }
+      ]
+    }
+  ]
+}

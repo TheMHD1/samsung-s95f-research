@@ -1,0 +1,6835 @@
+METHOD 060001d8 Tizen.TV.Service.CoBA.Core.ComponentManager::AddComponent
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000113
+ 0007: ldarg.1 
+ 0008: ldarg.2 
+ 0009: ldarg.3 
+ 000a: newobj .ctor
+ 000f: callvirt Add
+ 0014: stloc.0 
+ 0015: br.s 00
+ 0017: ldloc.0 
+ 0018: ret 
+METHOD 060001d9 Tizen.TV.Service.CoBA.Core.ComponentManager::AvailableClassID
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000113
+ 0007: ldfld FieldDefinition:040000fe
+ 000c: stloc.0 
+ 000d: ldc.i4.0 
+ 000e: stloc.1 
+ 000f: ldloc.0 
+ 0010: ldloca.s 01
+ 0012: call System.Threading.Monitor::Enter
+ 0017: nop 
+ 0018: nop 
+ 0019: ldarg.0 
+ 001a: ldfld FieldDefinition:04000113
+ 001f: ldfld FieldDefinition:040000fe
+ 0024: ldarg.1 
+ 0025: callvirt TypeSpecification:1b00006b::ContainsKey
+ 002a: stloc.2 
+ 002b: leave.s 0B
+ 002d: ldloc.1 
+ 002e: brfalse.s 07
+ 0030: ldloc.0 
+ 0031: call System.Threading.Monitor::Exit
+ 0036: nop 
+ 0037: endfinally 
+ 0038: ldloc.2 
+ 0039: ret 
+METHOD 060001da Tizen.TV.Service.CoBA.Core.ComponentManager::SetBlackList
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.1 
+ 0011: stfld FieldDefinition:040000ff
+ 0016: nop 
+ 0017: leave.s 0B
+ 0019: ldloc.1 
+ 001a: brfalse.s 07
+ 001c: ldloc.0 
+ 001d: call System.Threading.Monitor::Exit
+ 0022: nop 
+ 0023: endfinally 
+ 0024: ret 
+METHOD 060001db Tizen.TV.Service.CoBA.Core.ComponentManager::GetBlackList
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040000ff
+ 0015: ldnull 
+ 0016: ceq 
+ 0018: stloc.2 
+ 0019: ldloc.2 
+ 001a: brfalse.s 05
+ 001c: nop 
+ 001d: ldnull 
+ 001e: stloc.3 
+ 001f: leave.s 19
+ 0021: ldarg.0 
+ 0022: ldfld FieldDefinition:040000ff
+ 0027: newobj TypeSpecification:1b00002e::.ctor
+ 002c: stloc.3 
+ 002d: leave.s 0B
+ 002f: ldloc.1 
+ 0030: brfalse.s 07
+ 0032: ldloc.0 
+ 0033: call System.Threading.Monitor::Exit
+ 0038: nop 
+ 0039: endfinally 
+ 003a: ldloc.3 
+ 003b: ret 
+METHOD 060001dc Tizen.TV.Service.CoBA.Core.ComponentManager::SetLoadingOrder
+ 0000: nop 
+ 0001: ldstr "Loading dll files on demand, SetLoadingOrder is not necessary"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldnull 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "SetLoadingOrder"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.cs"
+ 0060: ldc.i4 65010000
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006a: nop 
+ 006b: br.s 00
+ 006d: ret 
+METHOD 060001dd Tizen.TV.Service.CoBA.Core.ComponentManager::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000105
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:04000106
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:04000107
+ 0015: ldarg.0 
+ 0016: ldc.i4.0 
+ 0017: ldc.i4.5 
+ 0018: newobj System.Threading.Semaphore::.ctor
+ 001d: stfld FieldDefinition:04000108
+ 0022: ldarg.0 
+ 0023: ldc.i4.0 
+ 0024: ldc.i4.5 
+ 0025: newobj System.Threading.Semaphore::.ctor
+ 002a: stfld FieldDefinition:04000109
+ 002f: ldarg.0 
+ 0030: ldc.i4.0 
+ 0031: ldc.i4.1 
+ 0032: newobj System.Threading.Semaphore::.ctor
+ 0037: stfld FieldDefinition:0400010a
+ 003c: ldarg.0 
+ 003d: ldc.i4.0 
+ 003e: stfld FieldDefinition:0400010b
+ 0043: ldarg.0 
+ 0044: ldnull 
+ 0045: stfld FieldDefinition:0400010c
+ 004a: ldarg.0 
+ 004b: ldc.i4.0 
+ 004c: stfld FieldDefinition:0400010d
+ 0051: ldarg.0 
+ 0052: ldnull 
+ 0053: stfld FieldDefinition:0400010e
+ 0058: ldarg.0 
+ 0059: newobj TypeSpecification:1b00006f::.ctor
+ 005e: stfld FieldDefinition:0400010f
+ 0063: ldarg.0 
+ 0064: newobj Tizen.Applications.ApplicationInfoMetadataFilter::.ctor
+ 0069: stfld FieldDefinition:04000110
+ 006e: ldarg.0 
+ 006f: ldnull 
+ 0070: stfld FieldDefinition:04000111
+ 0075: ldarg.0 
+ 0076: newobj TypeSpecification:1b00002e::.ctor
+ 007b: stfld FieldDefinition:04000112
+ 0080: ldarg.0 
+ 0081: newobj .ctor
+ 0086: stfld FieldDefinition:04000113
+ 008b: ldarg.0 
+ 008c: ldnull 
+ 008d: stfld FieldDefinition:04000114
+ 0092: ldarg.0 
+ 0093: ldc.i4.0 
+ 0094: stfld FieldDefinition:04000115
+ 0099: ldarg.0 
+ 009a: ldc.i4.0 
+ 009b: stfld FieldDefinition:04000116
+ 00a0: ldarg.0 
+ 00a1: newobj TypeSpecification:1b00006c::.ctor
+ 00a6: stfld FieldDefinition:04000118
+ 00ab: ldarg.0 
+ 00ac: newobj TypeSpecification:1b000070::.ctor
+ 00b1: stfld FieldDefinition:04000119
+ 00b6: ldarg.0 
+ 00b7: ldc.i4.0 
+ 00b8: stfld FieldDefinition:0400011a
+ 00bd: ldarg.0 
+ 00be: newobj TypeSpecification:1b00002e::.ctor
+ 00c3: stfld FieldDefinition:0400011b
+ 00c8: ldarg.0 
+ 00c9: newobj TypeSpecification:1b00002e::.ctor
+ 00ce: stfld FieldDefinition:0400011c
+ 00d3: ldarg.0 
+ 00d4: call TypeSpecification:1b000007::.ctor
+ 00d9: nop 
+ 00da: nop 
+ 00db: ldarg.0 
+ 00dc: ldfld FieldDefinition:0400010e
+ 00e1: ldnull 
+ 00e2: cgt.un 
+ 00e4: stloc.0 
+ 00e5: ldloc.0 
+ 00e6: brfalse.s 15
+ 00e8: nop 
+ 00e9: ldarg.0 
+ 00ea: ldfld FieldDefinition:0400010e
+ 00ef: callvirt System.Timers.Timer::Stop
+ 00f4: nop 
+ 00f5: ldarg.0 
+ 00f6: ldnull 
+ 00f7: stfld FieldDefinition:0400010e
+ 00fc: nop 
+ 00fd: ldarg.0 
+ 00fe: ldc.r8 000000000088B340
+ 0107: newobj System.Timers.Timer::.ctor
+ 010c: stfld FieldDefinition:0400010e
+ 0111: ldarg.0 
+ 0112: ldfld FieldDefinition:0400010e
+ 0117: ldarg.0 
+ 0118: ldftn OnTimedEvent
+ 011e: newobj System.Timers.ElapsedEventHandler::.ctor
+ 0123: callvirt System.Timers.Timer::add_Elapsed
+ 0128: nop 
+ 0129: ldarg.0 
+ 012a: ldfld FieldDefinition:0400010e
+ 012f: callvirt System.Timers.Timer::Start
+ 0134: nop 
+ 0135: ret 
+METHOD 060001de Tizen.TV.Service.CoBA.Core.ComponentManager::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: ldstr "Destructor"
+ 0007: ldc.i4 7F969800
+ 000c: conv.i8 
+ 000d: ldc.i4 7F969800
+ 0012: conv.i8 
+ 0013: ldc.i4 7F969800
+ 0018: conv.i8 
+ 0019: ldc.i4 7F969800
+ 001e: conv.i8 
+ 001f: ldc.i4 7F969800
+ 0024: conv.i8 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldnull 
+ 002a: ldc.r8 000000E0CF126341
+ 0033: ldc.r8 000000E0CF126341
+ 003c: ldc.r8 000000E0CF126341
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldstr "Finalize"
+ 005c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0061: ldc.i4.s 46
+ 0063: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0068: nop 
+ 0069: ldarg.0 
+ 006a: call Stop
+ 006f: nop 
+ 0070: leave.s 08
+ 0072: ldarg.0 
+ 0073: call System.Object::Finalize
+ 0078: nop 
+ 0079: endfinally 
+ 007a: ret 
+METHOD 060001df Tizen.TV.Service.CoBA.Core.ComponentManager::Finish
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldc.i4.1 
+ 0003: stfld FieldDefinition:0400010b
+ 0008: ldarg.0 
+ 0009: ldfld FieldDefinition:0400010a
+ 000e: callvirt System.Threading.Semaphore::Release
+ 0013: pop 
+ 0014: ret 
+METHOD 060001e0 Tizen.TV.Service.CoBA.Core.ComponentManager::OnTimedEvent
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000114
+ 0007: ldfld FieldDefinition:04000122
+ 000c: stloc.0 
+ 000d: ldc.i4.0 
+ 000e: stloc.1 
+ 000f: ldloc.0 
+ 0010: ldloca.s 01
+ 0012: call System.Threading.Monitor::Enter
+ 0017: nop 
+ 0018: nop 
+ 0019: ldarg.0 
+ 001a: ldfld FieldDefinition:04000114
+ 001f: ldfld FieldDefinition:04000121
+ 0024: stloc.2 
+ 0025: ldloc.2 
+ 0026: brfalse.s 0E
+ 0028: nop 
+ 0029: ldarg.0 
+ 002a: ldfld FieldDefinition:04000114
+ 002f: callvirt Save
+ 0034: nop 
+ 0035: nop 
+ 0036: nop 
+ 0037: leave.s 0B
+ 0039: ldloc.1 
+ 003a: brfalse.s 07
+ 003c: ldloc.0 
+ 003d: call System.Threading.Monitor::Exit
+ 0042: nop 
+ 0043: endfinally 
+ 0044: ret 
+METHOD 060001e1 Tizen.TV.Service.CoBA.Core.ComponentManager::PreStart
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldftn <PreStart>b__27_0
+ 0008: newobj System.Action::.ctor
+ 000d: call System.Threading.Tasks.Task::Run
+ 0012: pop 
+ 0013: ldarg.0 
+ 0014: ldftn <PreStart>b__27_1
+ 001a: newobj System.Threading.ParameterizedThreadStart::.ctor
+ 001f: newobj System.Threading.Thread::.ctor
+ 0024: call System.Threading.Thread::Start
+ 0029: nop 
+ 002a: ret 
+METHOD 060001e2 Tizen.TV.Service.CoBA.Core.ComponentManager::OnTimer
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000115
+ 0007: ldc.i4.0 
+ 0008: ceq 
+ 000a: stloc.0 
+ 000b: ldloc.0 
+ 000c: brfalse.s 05
+ 000e: nop 
+ 000f: ldc.i4.1 
+ 0010: stloc.1 
+ 0011: br.s 1D
+ 0013: ldarg.0 
+ 0014: ldftn <OnTimer>b__28_0
+ 001a: newobj Tizen.TV.Service.CoBA.Common.WorkerTask::.ctor
+ 001f: ldnull 
+ 0020: ldc.i4.0 
+ 0021: ldc.i4 88130000
+ 0026: call Tizen.TV.Service.CoBA.Common.FSParallelThread::Task
+ 002b: pop 
+ 002c: ldc.i4.0 
+ 002d: stloc.1 
+ 002e: br.s 00
+ 0030: ldloc.1 
+ 0031: ret 
+METHOD 060001e3 Tizen.TV.Service.CoBA.Core.ComponentManager::Start
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldftn <Start>b__29_0
+ 0008: newobj TypeSpecification:1b000071::.ctor
+ 000d: call Tizen.TV.Application.Fiber.FiberFactory::Create
+ 0012: stloc.0 
+ 0013: ldloc.0 
+ 0014: callvirt Tizen.TV.Application.Fiber.Fiber::Run
+ 0019: nop 
+ 001a: ret 
+METHOD 060001e4 Tizen.TV.Service.CoBA.Core.ComponentManager::m_GetInstalledApplication
+ 0000: nop 
+ 0001: ldstr "GetInstallApp"
+ 0006: call Tizen.TV.Service.CoBA.Common.FSThread::SetName
+ 000b: nop 
+ 000c: ldarg.0 
+ 000d: ldfld FieldDefinition:04000110
+ 0012: stloc.0 
+ 0013: ldc.i4.0 
+ 0014: stloc.1 
+ 0015: ldloc.0 
+ 0016: ldloca.s 01
+ 0018: call System.Threading.Monitor::Enter
+ 001d: nop 
+ 001e: nop 
+ 001f: ldstr "."
+ 0024: ldc.i4 7F969800
+ 0029: conv.i8 
+ 002a: ldc.i4 7F969800
+ 002f: conv.i8 
+ 0030: ldc.i4 7F969800
+ 0035: conv.i8 
+ 0036: ldc.i4 7F969800
+ 003b: conv.i8 
+ 003c: ldc.i4 7F969800
+ 0041: conv.i8 
+ 0042: ldnull 
+ 0043: ldnull 
+ 0044: ldnull 
+ 0045: ldnull 
+ 0046: ldnull 
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldc.r8 000000E0CF126341
+ 006b: ldc.r8 000000E0CF126341
+ 0074: ldstr "m_GetInstalledApplication"
+ 0079: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 007e: ldc.i4 B9000000
+ 0083: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0088: nop 
+ 0089: ldarg.0 
+ 008a: ldfld FieldDefinition:04000110
+ 008f: callvirt Tizen.Applications.ApplicationInfoFilter::get_Filter
+ 0094: ldsfld FieldDefinition:04000101
+ 0099: ldstr "true"
+ 009e: callvirt TypeSpecification:1b000072::Add
+ 00a3: nop 
+ 00a4: ldstr "."
+ 00a9: ldc.i4 7F969800
+ 00ae: conv.i8 
+ 00af: ldc.i4 7F969800
+ 00b4: conv.i8 
+ 00b5: ldc.i4 7F969800
+ 00ba: conv.i8 
+ 00bb: ldc.i4 7F969800
+ 00c0: conv.i8 
+ 00c1: ldc.i4 7F969800
+ 00c6: conv.i8 
+ 00c7: ldnull 
+ 00c8: ldnull 
+ 00c9: ldnull 
+ 00ca: ldnull 
+ 00cb: ldnull 
+ 00cc: ldc.r8 000000E0CF126341
+ 00d5: ldc.r8 000000E0CF126341
+ 00de: ldc.r8 000000E0CF126341
+ 00e7: ldc.r8 000000E0CF126341
+ 00f0: ldc.r8 000000E0CF126341
+ 00f9: ldstr "m_GetInstalledApplication"
+ 00fe: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0103: ldc.i4 BB000000
+ 0108: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 010d: nop 
+ 010e: ldarg.0 
+ 010f: ldarg.0 
+ 0110: ldftn <m_GetInstalledApplication>b__32_0
+ 0116: newobj TypeSpecification:1b000073::.ctor
+ 011b: call System.Threading.Tasks.Task::Run
+ 0120: callvirt TypeSpecification:1b000074::get_Result
+ 0125: stfld FieldDefinition:04000111
+ 012a: ldstr "."
+ 012f: ldc.i4 7F969800
+ 0134: conv.i8 
+ 0135: ldc.i4 7F969800
+ 013a: conv.i8 
+ 013b: ldc.i4 7F969800
+ 0140: conv.i8 
+ 0141: ldc.i4 7F969800
+ 0146: conv.i8 
+ 0147: ldc.i4 7F969800
+ 014c: conv.i8 
+ 014d: ldnull 
+ 014e: ldnull 
+ 014f: ldnull 
+ 0150: ldnull 
+ 0151: ldnull 
+ 0152: ldc.r8 000000E0CF126341
+ 015b: ldc.r8 000000E0CF126341
+ 0164: ldc.r8 000000E0CF126341
+ 016d: ldc.r8 000000E0CF126341
+ 0176: ldc.r8 000000E0CF126341
+ 017f: ldstr "m_GetInstalledApplication"
+ 0184: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0189: ldc.i4 BD000000
+ 018e: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0193: nop 
+ 0194: nop 
+ 0195: leave.s 0B
+ 0197: ldloc.1 
+ 0198: brfalse.s 07
+ 019a: ldloc.0 
+ 019b: call System.Threading.Monitor::Exit
+ 01a0: nop 
+ 01a1: endfinally 
+ 01a2: ldarg.0 
+ 01a3: ldfld FieldDefinition:04000109
+ 01a8: callvirt System.Threading.Semaphore::Release
+ 01ad: pop 
+ 01ae: ldstr "."
+ 01b3: ldc.i4 7F969800
+ 01b8: conv.i8 
+ 01b9: ldc.i4 7F969800
+ 01be: conv.i8 
+ 01bf: ldc.i4 7F969800
+ 01c4: conv.i8 
+ 01c5: ldc.i4 7F969800
+ 01ca: conv.i8 
+ 01cb: ldc.i4 7F969800
+ 01d0: conv.i8 
+ 01d1: ldnull 
+ 01d2: ldnull 
+ 01d3: ldnull 
+ 01d4: ldnull 
+ 01d5: ldnull 
+ 01d6: ldc.r8 000000E0CF126341
+ 01df: ldc.r8 000000E0CF126341
+ 01e8: ldc.r8 000000E0CF126341
+ 01f1: ldc.r8 000000E0CF126341
+ 01fa: ldc.r8 000000E0CF126341
+ 0203: ldstr "m_GetInstalledApplication"
+ 0208: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 020d: ldc.i4 C0000000
+ 0212: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0217: nop 
+ 0218: ret 
+METHOD 060001e5 Tizen.TV.Service.CoBA.Core.ComponentManager::UpdateCache
+ 0000: nop 
+ 0001: ldsfld FieldDefinition:04000117
+ 0006: stloc.0 
+ 0007: ldc.i4.0 
+ 0008: stloc.1 
+ 0009: ldloc.0 
+ 000a: ldloca.s 01
+ 000c: call System.Threading.Monitor::Enter
+ 0011: nop 
+ 0012: nop 
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:04000114
+ 0019: callvirt IsEmpty
+ 001e: stloc.2 
+ 001f: ldloc.2 
+ 0020: brfalse.s 19
+ 0022: nop 
+ 0023: ldarg.0 
+ 0024: ldfld FieldDefinition:04000114
+ 0029: ldarg.0 
+ 002a: ldfld FieldDefinition:04000113
+ 002f: callvirt Set
+ 0034: nop 
+ 0035: nop 
+ 0036: br 98000000
+ 003b: nop 
+ 003c: ldarg.0 
+ 003d: ldfld FieldDefinition:04000114
+ 0042: ldarg.0 
+ 0043: ldfld FieldDefinition:04000113
+ 0048: callvirt CheckVersion
+ 004d: ldc.i4.0 
+ 004e: ceq 
+ 0050: stloc.3 
+ 0051: ldloc.3 
+ 0052: brfalse.s 7E
+ 0054: nop 
+ 0055: ldarg.0 
+ 0056: ldfld FieldDefinition:04000114
+ 005b: ldarg.0 
+ 005c: ldfld FieldDefinition:04000113
+ 0061: callvirt Set
+ 0066: nop 
+ 0067: ldstr "Component version mismatch !!! Please restart the application using CoBA"
+ 006c: ldc.i4 7F969800
+ 0071: conv.i8 
+ 0072: ldc.i4 7F969800
+ 0077: conv.i8 
+ 0078: ldc.i4 7F969800
+ 007d: conv.i8 
+ 007e: ldc.i4 7F969800
+ 0083: conv.i8 
+ 0084: ldc.i4 7F969800
+ 0089: conv.i8 
+ 008a: ldnull 
+ 008b: ldnull 
+ 008c: ldnull 
+ 008d: ldnull 
+ 008e: ldnull 
+ 008f: ldc.r8 000000E0CF126341
+ 0098: ldc.r8 000000E0CF126341
+ 00a1: ldc.r8 000000E0CF126341
+ 00aa: ldc.r8 000000E0CF126341
+ 00b3: ldc.r8 000000E0CF126341
+ 00bc: ldstr "UpdateCache"
+ 00c1: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00c6: ldc.i4 D1000000
+ 00cb: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00d0: nop 
+ 00d1: nop 
+ 00d2: nop 
+ 00d3: nop 
+ 00d4: leave.s 0B
+ 00d6: ldloc.1 
+ 00d7: brfalse.s 07
+ 00d9: ldloc.0 
+ 00da: call System.Threading.Monitor::Exit
+ 00df: nop 
+ 00e0: endfinally 
+ 00e1: ret 
+METHOD 060001e6 Tizen.TV.Service.CoBA.Core.ComponentManager::m_LoadDllComponents
+ 0000: nop 
+ 0001: ldstr "ComponentMgr"
+ 0006: call Tizen.TV.Service.CoBA.Common.FSThread::SetName
+ 000b: nop 
+ 000c: ldstr "m_LoadDllComponents Start"
+ 0011: ldc.i4 7F969800
+ 0016: conv.i8 
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldnull 
+ 0030: ldnull 
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldstr "m_LoadDllComponents"
+ 0066: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 006b: ldc.i4 DC000000
+ 0070: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0075: nop 
+ 0076: ldarg.0 
+ 0077: stloc.0 
+ 0078: ldc.i4.0 
+ 0079: stloc.1 
+ 007a: ldloc.0 
+ 007b: ldloca.s 01
+ 007d: call System.Threading.Monitor::Enter
+ 0082: nop 
+ 0083: nop 
+ 0084: ldarg.0 
+ 0085: call m_AllocInstance
+ 008a: pop 
+ 008b: ldstr "."
+ 0090: ldc.i4 7F969800
+ 0095: conv.i8 
+ 0096: ldc.i4 7F969800
+ 009b: conv.i8 
+ 009c: ldc.i4 7F969800
+ 00a1: conv.i8 
+ 00a2: ldc.i4 7F969800
+ 00a7: conv.i8 
+ 00a8: ldc.i4 7F969800
+ 00ad: conv.i8 
+ 00ae: ldnull 
+ 00af: ldnull 
+ 00b0: ldnull 
+ 00b1: ldnull 
+ 00b2: ldnull 
+ 00b3: ldc.r8 000000E0CF126341
+ 00bc: ldc.r8 000000E0CF126341
+ 00c5: ldc.r8 000000E0CF126341
+ 00ce: ldc.r8 000000E0CF126341
+ 00d7: ldc.r8 000000E0CF126341
+ 00e0: ldstr "m_LoadDllComponents"
+ 00e5: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00ea: ldc.i4 E2000000
+ 00ef: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00f4: nop 
+ 00f5: ldarg.0 
+ 00f6: newobj .ctor
+ 00fb: stfld FieldDefinition:04000114
+ 0100: ldstr "."
+ 0105: ldc.i4 7F969800
+ 010a: conv.i8 
+ 010b: ldc.i4 7F969800
+ 0110: conv.i8 
+ 0111: ldc.i4 7F969800
+ 0116: conv.i8 
+ 0117: ldc.i4 7F969800
+ 011c: conv.i8 
+ 011d: ldc.i4 7F969800
+ 0122: conv.i8 
+ 0123: ldnull 
+ 0124: ldnull 
+ 0125: ldnull 
+ 0126: ldnull 
+ 0127: ldnull 
+ 0128: ldc.r8 000000E0CF126341
+ 0131: ldc.r8 000000E0CF126341
+ 013a: ldc.r8 000000E0CF126341
+ 0143: ldc.r8 000000E0CF126341
+ 014c: ldc.r8 000000E0CF126341
+ 0155: ldstr "m_LoadDllComponents"
+ 015a: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 015f: ldc.i4 E4000000
+ 0164: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0169: nop 
+ 016a: ldsfld FieldDefinition:04000117
+ 016f: stloc.2 
+ 0170: ldc.i4.0 
+ 0171: stloc.3 
+ 0172: ldloc.2 
+ 0173: ldloca.s 03
+ 0175: call System.Threading.Monitor::Enter
+ 017a: nop 
+ 017b: nop 
+ 017c: ldstr "."
+ 0181: ldc.i4 7F969800
+ 0186: conv.i8 
+ 0187: ldc.i4 7F969800
+ 018c: conv.i8 
+ 018d: ldc.i4 7F969800
+ 0192: conv.i8 
+ 0193: ldc.i4 7F969800
+ 0198: conv.i8 
+ 0199: ldc.i4 7F969800
+ 019e: conv.i8 
+ 019f: ldnull 
+ 01a0: ldnull 
+ 01a1: ldnull 
+ 01a2: ldnull 
+ 01a3: ldnull 
+ 01a4: ldc.r8 000000E0CF126341
+ 01ad: ldc.r8 000000E0CF126341
+ 01b6: ldc.r8 000000E0CF126341
+ 01bf: ldc.r8 000000E0CF126341
+ 01c8: ldc.r8 000000E0CF126341
+ 01d1: ldstr "m_LoadDllComponents"
+ 01d6: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 01db: ldc.i4 E7000000
+ 01e0: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 01e5: nop 
+ 01e6: ldarg.0 
+ 01e7: ldfld FieldDefinition:04000108
+ 01ec: callvirt System.Threading.Semaphore::Release
+ 01f1: pop 
+ 01f2: ldstr "."
+ 01f7: ldc.i4 7F969800
+ 01fc: conv.i8 
+ 01fd: ldc.i4 7F969800
+ 0202: conv.i8 
+ 0203: ldc.i4 7F969800
+ 0208: conv.i8 
+ 0209: ldc.i4 7F969800
+ 020e: conv.i8 
+ 020f: ldc.i4 7F969800
+ 0214: conv.i8 
+ 0215: ldnull 
+ 0216: ldnull 
+ 0217: ldnull 
+ 0218: ldnull 
+ 0219: ldnull 
+ 021a: ldc.r8 000000E0CF126341
+ 0223: ldc.r8 000000E0CF126341
+ 022c: ldc.r8 000000E0CF126341
+ 0235: ldc.r8 000000E0CF126341
+ 023e: ldc.r8 000000E0CF126341
+ 0247: ldstr "m_LoadDllComponents"
+ 024c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0251: ldc.i4 E9000000
+ 0256: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 025b: nop 
+ 025c: ldarg.0 
+ 025d: ldarg.0 
+ 025e: ldfld FieldDefinition:04000114
+ 0263: ldarg.0 
+ 0264: ldflda FieldDefinition:04000113
+ 0269: callvirt Load
+ 026e: stfld FieldDefinition:0400010d
+ 0273: ldstr "."
+ 0278: ldc.i4 7F969800
+ 027d: conv.i8 
+ 027e: ldc.i4 7F969800
+ 0283: conv.i8 
+ 0284: ldc.i4 7F969800
+ 0289: conv.i8 
+ 028a: ldc.i4 7F969800
+ 028f: conv.i8 
+ 0290: ldc.i4 7F969800
+ 0295: conv.i8 
+ 0296: ldnull 
+ 0297: ldnull 
+ 0298: ldnull 
+ 0299: ldnull 
+ 029a: ldnull 
+ 029b: ldc.r8 000000E0CF126341
+ 02a4: ldc.r8 000000E0CF126341
+ 02ad: ldc.r8 000000E0CF126341
+ 02b6: ldc.r8 000000E0CF126341
+ 02bf: ldc.r8 000000E0CF126341
+ 02c8: ldstr "m_LoadDllComponents"
+ 02cd: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 02d2: ldc.i4 EB000000
+ 02d7: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 02dc: nop 
+ 02dd: nop 
+ 02de: leave.s 0B
+ 02e0: ldloc.3 
+ 02e1: brfalse.s 07
+ 02e3: ldloc.2 
+ 02e4: call System.Threading.Monitor::Exit
+ 02e9: nop 
+ 02ea: endfinally 
+ 02eb: nop 
+ 02ec: nop 
+ 02ed: ldstr "Loading External Components"
+ 02f2: ldstr "m_LoadDllComponents"
+ 02f7: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 02fc: ldc.i4 F1000000
+ 0301: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 0306: stloc.s 04
+ 0308: newobj .ctor
+ 030d: stloc.s 05
+ 030f: ldloc.s 05
+ 0311: ldarg.0 
+ 0312: stfld FieldDefinition:04000462
+ 0317: nop 
+ 0318: ldarg.0 
+ 0319: ldfld FieldDefinition:04000109
+ 031e: callvirt System.Threading.WaitHandle::WaitOne
+ 0323: pop 
+ 0324: ldloc.s 04
+ 0326: ldc.i4 F4000000
+ 032b: callvirt Tizen.TV.Service.CoBA.Common.CheckTime::Check
+ 0330: nop 
+ 0331: call Tizen.TV.Service.CoBA.Common.PackageManagerAgent::GetInstance
+ 0336: pop 
+ 0337: nop 
+ 0338: ldarg.0 
+ 0339: ldfld FieldDefinition:04000111
+ 033e: callvirt TypeSpecification:1b000075::GetEnumerator
+ 0343: stloc.s 06
+ 0345: br E3000000
+ 034a: ldloc.s 06
+ 034c: callvirt TypeSpecification:1b000076::get_Current
+ 0351: stloc.s 07
+ 0353: nop 
+ 0354: ldarg.0 
+ 0355: ldfld FieldDefinition:040000ff
+ 035a: ldnull 
+ 035b: cgt.un 
+ 035d: stloc.s 08
+ 035f: ldloc.s 08
+ 0361: brfalse 8D000000
+ 0366: nop 
+ 0367: ldarg.0 
+ 0368: ldfld FieldDefinition:040000ff
+ 036d: ldloc.s 07
+ 036f: callvirt Tizen.Applications.ApplicationInfo::get_PackageId
+ 0374: callvirt TypeSpecification:1b00002e::Contains
+ 0379: stloc.s 09
+ 037b: ldloc.s 09
+ 037d: brfalse.s 73
+ 037f: nop 
+ 0380: ldstr "DenyList:%s1"
+ 0385: ldc.i4 7F969800
+ 038a: conv.i8 
+ 038b: ldc.i4 7F969800
+ 0390: conv.i8 
+ 0391: ldc.i4 7F969800
+ 0396: conv.i8 
+ 0397: ldc.i4 7F969800
+ 039c: conv.i8 
+ 039d: ldc.i4 7F969800
+ 03a2: conv.i8 
+ 03a3: ldloc.s 07
+ 03a5: callvirt Tizen.Applications.ApplicationInfo::get_PackageId
+ 03aa: ldnull 
+ 03ab: ldnull 
+ 03ac: ldnull 
+ 03ad: ldnull 
+ 03ae: ldc.r8 000000E0CF126341
+ 03b7: ldc.r8 000000E0CF126341
+ 03c0: ldc.r8 000000E0CF126341
+ 03c9: ldc.r8 000000E0CF126341
+ 03d2: ldc.r8 000000E0CF126341
+ 03db: ldstr "m_LoadDllComponents"
+ 03e0: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 03e5: ldc.i4 FE000000
+ 03ea: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 03ef: nop 
+ 03f0: br.s 3B
+ 03f2: nop 
+ 03f3: ldarg.0 
+ 03f4: ldfld FieldDefinition:04000112
+ 03f9: stloc.s 0A
+ 03fb: ldc.i4.0 
+ 03fc: stloc.s 0B
+ 03fe: ldloc.s 0A
+ 0400: ldloca.s 0B
+ 0402: call System.Threading.Monitor::Enter
+ 0407: nop 
+ 0408: nop 
+ 0409: ldarg.0 
+ 040a: ldfld FieldDefinition:04000112
+ 040f: ldloc.s 07
+ 0411: callvirt Tizen.Applications.ApplicationInfo::get_PackageId
+ 0416: callvirt TypeSpecification:1b00002e::Add
+ 041b: nop 
+ 041c: nop 
+ 041d: leave.s 0D
+ 041f: ldloc.s 0B
+ 0421: brfalse.s 08
+ 0423: ldloc.s 0A
+ 0425: call System.Threading.Monitor::Exit
+ 042a: nop 
+ 042b: endfinally 
+ 042c: nop 
+ 042d: ldloc.s 06
+ 042f: callvirt System.Collections.IEnumerator::MoveNext
+ 0434: brtrue 11FFFFFF
+ 0439: leave.s 0D
+ 043b: ldloc.s 06
+ 043d: brfalse.s 08
+ 043f: ldloc.s 06
+ 0441: callvirt System.IDisposable::Dispose
+ 0446: nop 
+ 0447: endfinally 
+ 0448: ldarg.0 
+ 0449: ldfld FieldDefinition:04000112
+ 044e: stloc.s 0C
+ 0450: ldc.i4.0 
+ 0451: stloc.s 0D
+ 0453: ldloc.s 0C
+ 0455: ldloca.s 0D
+ 0457: call System.Threading.Monitor::Enter
+ 045c: nop 
+ 045d: nop 
+ 045e: ldarg.0 
+ 045f: ldarg.0 
+ 0460: ldfld FieldDefinition:04000112
+ 0465: call System.Linq.Enumerable::Count
+ 046a: stfld FieldDefinition:04000116
+ 046f: nop 
+ 0470: leave.s 0D
+ 0472: ldloc.s 0D
+ 0474: brfalse.s 08
+ 0476: ldloc.s 0C
+ 0478: call System.Threading.Monitor::Exit
+ 047d: nop 
+ 047e: endfinally 
+ 047f: ldloc.s 05
+ 0481: newobj System.Object::.ctor
+ 0486: stfld FieldDefinition:04000461
+ 048b: ldstr "Loading %d1 CoBA Components"
+ 0490: ldarg.0 
+ 0491: ldfld FieldDefinition:04000116
+ 0496: conv.i8 
+ 0497: ldc.i4 7F969800
+ 049c: conv.i8 
+ 049d: ldc.i4 7F969800
+ 04a2: conv.i8 
+ 04a3: ldc.i4 7F969800
+ 04a8: conv.i8 
+ 04a9: ldc.i4 7F969800
+ 04ae: conv.i8 
+ 04af: ldnull 
+ 04b0: ldnull 
+ 04b1: ldnull 
+ 04b2: ldnull 
+ 04b3: ldnull 
+ 04b4: ldc.r8 000000E0CF126341
+ 04bd: ldc.r8 000000E0CF126341
+ 04c6: ldc.r8 000000E0CF126341
+ 04cf: ldc.r8 000000E0CF126341
+ 04d8: ldc.r8 000000E0CF126341
+ 04e1: ldstr "m_LoadDllComponents"
+ 04e6: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 04eb: ldc.i4 0E010000
+ 04f0: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 04f5: nop 
+ 04f6: br 96000000
+ 04fb: newobj .ctor
+ 0500: stloc.s 0E
+ 0502: ldloc.s 0E
+ 0504: ldloc.s 05
+ 0506: stfld FieldDefinition:04000464
+ 050b: nop 
+ 050c: ldloc.s 0E
+ 050e: ldstr ""
+ 0513: stfld FieldDefinition:04000463
+ 0518: ldarg.0 
+ 0519: ldfld FieldDefinition:04000112
+ 051e: stloc.s 0F
+ 0520: ldc.i4.0 
+ 0521: stloc.s 10
+ 0523: ldloc.s 0F
+ 0525: ldloca.s 10
+ 0527: call System.Threading.Monitor::Enter
+ 052c: nop 
+ 052d: nop 
+ 052e: ldarg.0 
+ 052f: ldfld FieldDefinition:04000112
+ 0534: callvirt TypeSpecification:1b00002e::get_Count
+ 0539: ldc.i4.0 
+ 053a: ceq 
+ 053c: stloc.s 11
+ 053e: ldloc.s 11
+ 0540: brfalse.s 03
+ 0542: nop 
+ 0543: leave.s 54
+ 0545: ldloc.s 0E
+ 0547: ldarg.0 
+ 0548: ldfld FieldDefinition:04000112
+ 054d: ldc.i4.0 
+ 054e: callvirt TypeSpecification:1b00002e::get_Item
+ 0553: stfld FieldDefinition:04000463
+ 0558: ldarg.0 
+ 0559: ldfld FieldDefinition:04000112
+ 055e: ldc.i4.0 
+ 055f: callvirt TypeSpecification:1b00002e::RemoveAt
+ 0564: nop 
+ 0565: nop 
+ 0566: leave.s 0D
+ 0568: ldloc.s 10
+ 056a: brfalse.s 08
+ 056c: ldloc.s 0F
+ 056e: call System.Threading.Monitor::Exit
+ 0573: nop 
+ 0574: endfinally 
+ 0575: nop 
+ 0576: ldloc.s 0E
+ 0578: ldftn <m_LoadDllComponents>b__0
+ 057e: newobj System.Action::.ctor
+ 0583: call System.Threading.Tasks.Task::Run
+ 0588: ldc.i4.0 
+ 0589: callvirt System.Threading.Tasks.Task::ConfigureAwait
+ 058e: pop 
+ 058f: nop 
+ 0590: nop 
+ 0591: ldc.i4.1 
+ 0592: stloc.s 12
+ 0594: br 62FFFFFF
+ 0599: ldloc.s 04
+ 059b: ldc.i4 30010000
+ 05a0: callvirt Tizen.TV.Service.CoBA.Common.CheckTime::Check
+ 05a5: nop 
+ 05a6: nop 
+ 05a7: leave.s 0D
+ 05a9: ldloc.s 04
+ 05ab: brfalse.s 08
+ 05ad: ldloc.s 04
+ 05af: callvirt System.IDisposable::Dispose
+ 05b4: nop 
+ 05b5: endfinally 
+ 05b6: ldstr "------- END"
+ 05bb: ldc.i4 7F969800
+ 05c0: conv.i8 
+ 05c1: ldc.i4 7F969800
+ 05c6: conv.i8 
+ 05c7: ldc.i4 7F969800
+ 05cc: conv.i8 
+ 05cd: ldc.i4 7F969800
+ 05d2: conv.i8 
+ 05d3: ldc.i4 7F969800
+ 05d8: conv.i8 
+ 05d9: ldnull 
+ 05da: ldnull 
+ 05db: ldnull 
+ 05dc: ldnull 
+ 05dd: ldnull 
+ 05de: ldc.r8 000000E0CF126341
+ 05e7: ldc.r8 000000E0CF126341
+ 05f0: ldc.r8 000000E0CF126341
+ 05f9: ldc.r8 000000E0CF126341
+ 0602: ldc.r8 000000E0CF126341
+ 060b: ldstr "m_LoadDllComponents"
+ 0610: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0615: ldc.i4 33010000
+ 061a: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 061f: nop 
+ 0620: nop 
+ 0621: leave.s 1E
+ 0623: stloc.s 13
+ 0625: nop 
+ 0626: ldloc.s 13
+ 0628: ldstr "m_LoadDllComponents"
+ 062d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0632: ldc.i4 37010000
+ 0637: ldnull 
+ 0638: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 063d: nop 
+ 063e: nop 
+ 063f: leave.s 00
+ 0641: nop 
+ 0642: leave.s 0B
+ 0644: ldloc.1 
+ 0645: brfalse.s 07
+ 0647: ldloc.0 
+ 0648: call System.Threading.Monitor::Exit
+ 064d: nop 
+ 064e: endfinally 
+ 064f: ldarg.0 
+ 0650: ldc.i4.1 
+ 0651: stfld FieldDefinition:04000115
+ 0656: br.s 0A
+ 0658: nop 
+ 0659: ldc.i4.s 64
+ 065b: call System.Threading.Thread::Sleep
+ 0660: nop 
+ 0661: nop 
+ 0662: ldarg.0 
+ 0663: ldfld FieldDefinition:04000116
+ 0668: ldc.i4.0 
+ 0669: cgt 
+ 066b: stloc.s 14
+ 066d: ldloc.s 14
+ 066f: brtrue.s E7
+ 0671: ldarg.0 
+ 0672: call UpdateCache
+ 0677: nop 
+ 0678: ldarg.0 
+ 0679: ldfld FieldDefinition:0400010a
+ 067e: ldc.i4 10270000
+ 0683: callvirt System.Threading.WaitHandle::WaitOne
+ 0688: pop 
+ 0689: ldstr "m_LoadDllComponents Finished"
+ 068e: ldc.i4 7F969800
+ 0693: conv.i8 
+ 0694: ldc.i4 7F969800
+ 0699: conv.i8 
+ 069a: ldc.i4 7F969800
+ 069f: conv.i8 
+ 06a0: ldc.i4 7F969800
+ 06a5: conv.i8 
+ 06a6: ldc.i4 7F969800
+ 06ab: conv.i8 
+ 06ac: ldnull 
+ 06ad: ldnull 
+ 06ae: ldnull 
+ 06af: ldnull 
+ 06b0: ldnull 
+ 06b1: ldc.r8 000000E0CF126341
+ 06ba: ldc.r8 000000E0CF126341
+ 06c3: ldc.r8 000000E0CF126341
+ 06cc: ldc.r8 000000E0CF126341
+ 06d5: ldc.r8 000000E0CF126341
+ 06de: ldstr "m_LoadDllComponents"
+ 06e3: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 06e8: ldc.i4 45010000
+ 06ed: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 06f2: nop 
+ 06f3: ret 
+METHOD 060001e7 Tizen.TV.Service.CoBA.Core.ComponentManager::RecheckLoadDll
+ 0000: newobj .ctor
+ 0005: stloc.0 
+ 0006: ldloc.0 
+ 0007: call System.Runtime.CompilerServices.AsyncVoidMethodBuilder::Create
+ 000c: stfld FieldDefinition:0400046e
+ 0011: ldloc.0 
+ 0012: ldarg.0 
+ 0013: stfld FieldDefinition:0400046f
+ 0018: ldloc.0 
+ 0019: ldc.i4.m1 
+ 001a: stfld FieldDefinition:0400046d
+ 001f: ldloc.0 
+ 0020: ldflda FieldDefinition:0400046e
+ 0025: ldloca.s 00
+ 0027: call System.Runtime.CompilerServices.AsyncVoidMethodBuilder::Start
+ 002c: ret 
+METHOD 060001e8 Tizen.TV.Service.CoBA.Core.ComponentManager::Sync
+ 0000: nop 
+ 0001: ldstr "Sync"
+ 0006: ldstr "Sync"
+ 000b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0010: ldc.i4 93010000
+ 0015: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 001a: stloc.0 
+ 001b: nop 
+ 001c: ldarg.0 
+ 001d: ldfld FieldDefinition:04000108
+ 0022: callvirt System.Threading.WaitHandle::WaitOne
+ 0027: pop 
+ 0028: nop 
+ 0029: leave.s 0B
+ 002b: ldloc.0 
+ 002c: brfalse.s 07
+ 002e: ldloc.0 
+ 002f: callvirt System.IDisposable::Dispose
+ 0034: nop 
+ 0035: endfinally 
+ 0036: ret 
+METHOD 060001e9 Tizen.TV.Service.CoBA.Core.ComponentManager::Stop
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000105
+ 0007: call Tizen.Applications.PackageManager::remove_InstallProgressChanged
+ 000c: nop 
+ 000d: ldarg.0 
+ 000e: ldfld FieldDefinition:04000107
+ 0013: call Tizen.Applications.PackageManager::remove_UpdateProgressChanged
+ 0018: nop 
+ 0019: ldarg.0 
+ 001a: ldfld FieldDefinition:04000106
+ 001f: call Tizen.Applications.PackageManager::remove_UninstallProgressChanged
+ 0024: nop 
+ 0025: ldarg.0 
+ 0026: ldnull 
+ 0027: stfld FieldDefinition:04000105
+ 002c: ldarg.0 
+ 002d: ldnull 
+ 002e: stfld FieldDefinition:04000107
+ 0033: ldarg.0 
+ 0034: ldnull 
+ 0035: stfld FieldDefinition:04000106
+ 003a: ldarg.0 
+ 003b: ldfld FieldDefinition:0400010c
+ 0040: dup 
+ 0041: brtrue.s 03
+ 0043: pop 
+ 0044: br.s 07
+ 0046: ldc.i4.1 
+ 0047: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 004c: nop 
+ 004d: ldarg.0 
+ 004e: ldnull 
+ 004f: stfld FieldDefinition:0400010c
+ 0054: ldarg.0 
+ 0055: ldfld FieldDefinition:0400010e
+ 005a: dup 
+ 005b: brtrue.s 03
+ 005d: pop 
+ 005e: br.s 06
+ 0060: call System.Timers.Timer::Stop
+ 0065: nop 
+ 0066: ldarg.0 
+ 0067: ldnull 
+ 0068: stfld FieldDefinition:0400010e
+ 006d: ret 
+METHOD 060001ea Tizen.TV.Service.CoBA.Core.ComponentManager::m_AllocInstance
+ 0000: nop 
+ 0001: ldstr "m_AllocInstance"
+ 0006: ldstr "m_AllocInstance"
+ 000b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0010: ldc.i4 AE010000
+ 0015: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 001a: stloc.0 
+ 001b: nop 
+ 001c: call TypeSpecification:1b000007::GetInstance
+ 0021: ldfld FieldDefinition:04000113
+ 0026: ldsfld FieldDefinition:040000f5
+ 002b: ldnull 
+ 002c: ldftn Alloc
+ 0032: newobj .ctor
+ 0037: ldc.i4.1 
+ 0038: newobj .ctor
+ 003d: callvirt Add
+ 0042: pop 
+ 0043: call TypeSpecification:1b000007::GetInstance
+ 0048: ldfld FieldDefinition:04000113
+ 004d: ldsfld FieldDefinition:040000f3
+ 0052: ldnull 
+ 0053: ldftn Alloc
+ 0059: newobj .ctor
+ 005e: ldc.i4.1 
+ 005f: newobj .ctor
+ 0064: callvirt Add
+ 0069: pop 
+ 006a: call TypeSpecification:1b000007::GetInstance
+ 006f: ldfld FieldDefinition:04000113
+ 0074: ldsfld FieldDefinition:040000d1
+ 0079: ldnull 
+ 007a: ldftn Alloc
+ 0080: newobj .ctor
+ 0085: ldc.i4.1 
+ 0086: newobj .ctor
+ 008b: callvirt Add
+ 0090: pop 
+ 0091: call TypeSpecification:1b000007::GetInstance
+ 0096: ldfld FieldDefinition:04000113
+ 009b: ldstr "s/setup.layer"
+ 00a0: ldnull 
+ 00a1: ldftn Alloc
+ 00a7: newobj .ctor
+ 00ac: ldc.i4.1 
+ 00ad: newobj .ctor
+ 00b2: callvirt Add
+ 00b7: pop 
+ 00b8: call TypeSpecification:1b000007::GetInstance
+ 00bd: ldfld FieldDefinition:04000113
+ 00c2: ldstr "s/setup.layer.preview"
+ 00c7: ldnull 
+ 00c8: ldftn Alloc
+ 00ce: newobj .ctor
+ 00d3: ldc.i4.1 
+ 00d4: newobj .ctor
+ 00d9: callvirt Add
+ 00de: pop 
+ 00df: nop 
+ 00e0: leave.s 0B
+ 00e2: ldloc.0 
+ 00e3: brfalse.s 07
+ 00e5: ldloc.0 
+ 00e6: callvirt System.IDisposable::Dispose
+ 00eb: nop 
+ 00ec: endfinally 
+ 00ed: ldc.i4.1 
+ 00ee: stloc.1 
+ 00ef: br.s 00
+ 00f1: ldloc.1 
+ 00f2: ret 
+METHOD 060001eb Tizen.TV.Service.CoBA.Core.ComponentManager::ReleaseInstance
+ 0000: nop 
+ 0001: ldstr "ReleaseInstance"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldnull 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "ReleaseInstance"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0060: ldc.i4 BD010000
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006a: nop 
+ 006b: call TypeSpecification:1b000007::GetInstance
+ 0070: ldfld FieldDefinition:04000113
+ 0075: callvirt Clear
+ 007a: nop 
+ 007b: ret 
+METHOD 060001ec Tizen.TV.Service.CoBA.Core.ComponentManager::LoadDllComponents
+ 0000: nop 
+ 0001: ldstr "path:"
+ 0006: ldarg.2 
+ 0007: call System.String::Concat
+ 000c: ldstr "LoadDllComponents"
+ 0011: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0016: ldc.i4 C4010000
+ 001b: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 0020: stloc.0 
+ 0021: nop 
+ 0022: call TypeSpecification:1b000001::GetInstance
+ 0027: ldarg.1 
+ 0028: callvirt Tizen.Applications.Package::get_Id
+ 002d: ldarg.2 
+ 002e: ldarg.3 
+ 002f: callvirt Files
+ 0034: stloc.1 
+ 0035: nop 
+ 0036: ldloc.1 
+ 0037: callvirt TypeSpecification:1b00002e::GetEnumerator
+ 003c: stloc.2 
+ 003d: br 7F010000
+ 0042: ldloca.s 02
+ 0044: call TypeSpecification:1b00002f::get_Current
+ 0049: stloc.3 
+ 004a: nop 
+ 004b: ldloc.3 
+ 004c: call Tizen.TV.Dotnet.ReflectionEliminator.ComponentLoader::Invoke
+ 0051: castclass Tizen.TV.Service.CoBA.Core.ComponentVersionManager
+ 0056: stloc.s 04
+ 0058: ldloc.0 
+ 0059: ldc.i4 CA010000
+ 005e: callvirt Tizen.TV.Service.CoBA.Common.CheckTime::Check
+ 0063: nop 
+ 0064: ldstr "[%s1] %d1 (localCvm.hashs count)"
+ 0069: ldloc.3 
+ 006a: stloc.s 05
+ 006c: ldloc.s 04
+ 006e: ldfld FieldDefinition:040000fe
+ 0073: callvirt TypeSpecification:1b00006b::get_Count
+ 0078: conv.i8 
+ 0079: ldc.i4 7F969800
+ 007e: conv.i8 
+ 007f: ldc.i4 7F969800
+ 0084: conv.i8 
+ 0085: ldc.i4 7F969800
+ 008a: conv.i8 
+ 008b: ldc.i4 7F969800
+ 0090: conv.i8 
+ 0091: ldloc.s 05
+ 0093: ldnull 
+ 0094: ldnull 
+ 0095: ldnull 
+ 0096: ldnull 
+ 0097: ldc.r8 000000E0CF126341
+ 00a0: ldc.r8 000000E0CF126341
+ 00a9: ldc.r8 000000E0CF126341
+ 00b2: ldc.r8 000000E0CF126341
+ 00bb: ldc.r8 000000E0CF126341
+ 00c4: ldstr "LoadDllComponents"
+ 00c9: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00ce: ldc.i4 CC010000
+ 00d3: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00d8: nop 
+ 00d9: nop 
+ 00da: ldloc.s 04
+ 00dc: ldfld FieldDefinition:040000fe
+ 00e1: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 00e6: stloc.s 06
+ 00e8: br.s 6E
+ 00ea: ldloca.s 06
+ 00ec: call TypeSpecification:1b000077::get_Current
+ 00f1: stloc.s 07
+ 00f3: nop 
+ 00f4: ldloca.s 07
+ 00f6: call TypeSpecification:1b000078::get_Value
+ 00fb: ldc.i4.0 
+ 00fc: callvirt TypeSpecification:1b00006c::get_Item
+ 0101: ldarg.1 
+ 0102: callvirt Tizen.Applications.Package::get_Id
+ 0107: stfld FieldDefinition:040000f9
+ 010c: ldloca.s 07
+ 010e: call TypeSpecification:1b000078::get_Value
+ 0113: ldc.i4.0 
+ 0114: callvirt TypeSpecification:1b00006c::get_Item
+ 0119: ldarg.1 
+ 011a: callvirt Tizen.Applications.Package::get_Version
+ 011f: stfld FieldDefinition:040000fa
+ 0124: ldloca.s 07
+ 0126: call TypeSpecification:1b000078::get_Value
+ 012b: ldc.i4.0 
+ 012c: callvirt TypeSpecification:1b00006c::get_Item
+ 0131: ldloc.3 
+ 0132: stfld FieldDefinition:040000fb
+ 0137: ldarg.0 
+ 0138: ldfld FieldDefinition:04000113
+ 013d: ldloca.s 07
+ 013f: call TypeSpecification:1b000078::get_Key
+ 0144: ldloca.s 07
+ 0146: call TypeSpecification:1b000078::get_Value
+ 014b: ldc.i4.0 
+ 014c: callvirt TypeSpecification:1b00006c::get_Item
+ 0151: callvirt Add
+ 0156: pop 
+ 0157: nop 
+ 0158: ldloca.s 06
+ 015a: call TypeSpecification:1b000077::MoveNext
+ 015f: brtrue.s 89
+ 0161: leave.s 0F
+ 0163: ldloca.s 06
+ 0165: constrained. TypeSpecification:1b000077
+ 016b: callvirt System.IDisposable::Dispose
+ 0170: nop 
+ 0171: endfinally 
+ 0172: ldarg.s 04
+ 0174: stloc.s 08
+ 0176: ldloc.s 08
+ 0178: brfalse.s 46
+ 017a: nop 
+ 017b: nop 
+ 017c: ldloc.s 04
+ 017e: ldfld FieldDefinition:040000fe
+ 0183: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 0188: stloc.s 09
+ 018a: br.s 19
+ 018c: ldloca.s 09
+ 018e: call TypeSpecification:1b000077::get_Current
+ 0193: stloc.s 0A
+ 0195: nop 
+ 0196: ldarg.0 
+ 0197: ldloca.s 0A
+ 0199: call TypeSpecification:1b000078::get_Key
+ 019e: call ReplaceComponent
+ 01a3: nop 
+ 01a4: nop 
+ 01a5: ldloca.s 09
+ 01a7: call TypeSpecification:1b000077::MoveNext
+ 01ac: brtrue.s DE
+ 01ae: leave.s 0F
+ 01b0: ldloca.s 09
+ 01b2: constrained. TypeSpecification:1b000077
+ 01b8: callvirt System.IDisposable::Dispose
+ 01bd: nop 
+ 01be: endfinally 
+ 01bf: nop 
+ 01c0: nop 
+ 01c1: ldloca.s 02
+ 01c3: call TypeSpecification:1b00002f::MoveNext
+ 01c8: brtrue 75FEFFFF
+ 01cd: leave.s 0F
+ 01cf: ldloca.s 02
+ 01d1: constrained. TypeSpecification:1b00002f
+ 01d7: callvirt System.IDisposable::Dispose
+ 01dc: nop 
+ 01dd: endfinally 
+ 01de: ldloc.1 
+ 01df: callvirt TypeSpecification:1b00002e::get_Count
+ 01e4: ldc.i4.0 
+ 01e5: ceq 
+ 01e7: stloc.s 0B
+ 01e9: ldloc.s 0B
+ 01eb: brfalse.s 7D
+ 01ed: nop 
+ 01ee: ldstr "No CoBA Dlls : %s1 (%s2)"
+ 01f3: ldc.i4 7F969800
+ 01f8: conv.i8 
+ 01f9: ldc.i4 7F969800
+ 01fe: conv.i8 
+ 01ff: ldc.i4 7F969800
+ 0204: conv.i8 
+ 0205: ldc.i4 7F969800
+ 020a: conv.i8 
+ 020b: ldc.i4 7F969800
+ 0210: conv.i8 
+ 0211: ldarg.1 
+ 0212: callvirt Tizen.Applications.Package::get_Id
+ 0217: ldarg.2 
+ 0218: ldnull 
+ 0219: ldnull 
+ 021a: ldnull 
+ 021b: ldc.r8 000000E0CF126341
+ 0224: ldc.r8 000000E0CF126341
+ 022d: ldc.r8 000000E0CF126341
+ 0236: ldc.r8 000000E0CF126341
+ 023f: ldc.r8 000000E0CF126341
+ 0248: ldstr "LoadDllComponents"
+ 024d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0252: ldc.i4 E0010000
+ 0257: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 025c: nop 
+ 025d: ldloc.1 
+ 025e: callvirt TypeSpecification:1b00002e::get_Count
+ 0263: stloc.s 0C
+ 0265: leave 82010000
+ 026a: call Tizen.TV.Service.CoBA.Common.FSSystemProperty::get_IsDebugMode
+ 026f: stloc.s 0D
+ 0271: ldloc.s 0D
+ 0273: brfalse 5F010000
+ 0278: nop 
+ 0279: ldstr "------- BEGIN : Loaded Dll Components : %d1"
+ 027e: ldarg.0 
+ 027f: ldfld FieldDefinition:04000113
+ 0284: ldfld FieldDefinition:040000fe
+ 0289: callvirt TypeSpecification:1b00006b::get_Count
+ 028e: conv.i8 
+ 028f: ldc.i4 7F969800
+ 0294: conv.i8 
+ 0295: ldc.i4 7F969800
+ 029a: conv.i8 
+ 029b: ldc.i4 7F969800
+ 02a0: conv.i8 
+ 02a1: ldc.i4 7F969800
+ 02a6: conv.i8 
+ 02a7: ldnull 
+ 02a8: ldnull 
+ 02a9: ldnull 
+ 02aa: ldnull 
+ 02ab: ldnull 
+ 02ac: ldc.r8 000000E0CF126341
+ 02b5: ldc.r8 000000E0CF126341
+ 02be: ldc.r8 000000E0CF126341
+ 02c7: ldc.r8 000000E0CF126341
+ 02d0: ldc.r8 000000E0CF126341
+ 02d9: ldstr "LoadDllComponents"
+ 02de: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 02e3: ldc.i4 E6010000
+ 02e8: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 02ed: nop 
+ 02ee: ldstr " - ID:"
+ 02f3: stloc.s 0E
+ 02f5: ldarg.0 
+ 02f6: ldfld FieldDefinition:04000113
+ 02fb: ldfld FieldDefinition:040000fe
+ 0300: stloc.s 0F
+ 0302: ldc.i4.0 
+ 0303: stloc.s 10
+ 0305: ldloc.s 0F
+ 0307: ldloca.s 10
+ 0309: call System.Threading.Monitor::Enter
+ 030e: nop 
+ 030f: nop 
+ 0310: nop 
+ 0311: ldarg.0 
+ 0312: ldfld FieldDefinition:04000113
+ 0317: ldfld FieldDefinition:040000fe
+ 031c: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 0321: stloc.s 11
+ 0323: br.s 20
+ 0325: ldloca.s 11
+ 0327: call TypeSpecification:1b000077::get_Current
+ 032c: stloc.s 12
+ 032e: nop 
+ 032f: ldloc.s 0E
+ 0331: ldloca.s 12
+ 0333: call TypeSpecification:1b000078::get_Key
+ 0338: ldstr ", "
+ 033d: call System.String::Concat
+ 0342: stloc.s 0E
+ 0344: nop 
+ 0345: ldloca.s 11
+ 0347: call TypeSpecification:1b000077::MoveNext
+ 034c: brtrue.s D7
+ 034e: leave.s 0F
+ 0350: ldloca.s 11
+ 0352: constrained. TypeSpecification:1b000077
+ 0358: callvirt System.IDisposable::Dispose
+ 035d: nop 
+ 035e: endfinally 
+ 035f: nop 
+ 0360: leave.s 0D
+ 0362: ldloc.s 10
+ 0364: brfalse.s 08
+ 0366: ldloc.s 0F
+ 0368: call System.Threading.Monitor::Exit
+ 036d: nop 
+ 036e: endfinally 
+ 036f: ldloc.s 0E
+ 0371: ldc.i4 7F969800
+ 0376: conv.i8 
+ 0377: ldc.i4 7F969800
+ 037c: conv.i8 
+ 037d: ldc.i4 7F969800
+ 0382: conv.i8 
+ 0383: ldc.i4 7F969800
+ 0388: conv.i8 
+ 0389: ldc.i4 7F969800
+ 038e: conv.i8 
+ 038f: ldnull 
+ 0390: ldnull 
+ 0391: ldnull 
+ 0392: ldnull 
+ 0393: ldnull 
+ 0394: ldc.r8 000000E0CF126341
+ 039d: ldc.r8 000000E0CF126341
+ 03a6: ldc.r8 000000E0CF126341
+ 03af: ldc.r8 000000E0CF126341
+ 03b8: ldc.r8 000000E0CF126341
+ 03c1: ldstr "LoadDllComponents"
+ 03c6: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 03cb: ldc.i4 F1010000
+ 03d0: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 03d5: nop 
+ 03d6: nop 
+ 03d7: ldloc.1 
+ 03d8: callvirt TypeSpecification:1b00002e::get_Count
+ 03dd: stloc.s 0C
+ 03df: leave.s 0B
+ 03e1: ldloc.0 
+ 03e2: brfalse.s 07
+ 03e4: ldloc.0 
+ 03e5: callvirt System.IDisposable::Dispose
+ 03ea: nop 
+ 03eb: endfinally 
+ 03ec: ldloc.s 0C
+ 03ee: ret 
+METHOD 060001ed Tizen.TV.Service.CoBA.Core.ComponentManager::LoadExtComponent
+ 0000: nop 
+ 0001: ldnull 
+ 0002: stloc.0 
+ 0003: ldloca.s 02
+ 0005: ldc.i4.4 
+ 0006: ldc.i4.2 
+ 0007: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor
+ 000c: ldloca.s 02
+ 000e: ldstr "("
+ 0013: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 0018: nop 
+ 0019: ldloca.s 02
+ 001b: call System.Threading.Thread::get_CurrentThread
+ 0020: callvirt System.Threading.Thread::get_ManagedThreadId
+ 0025: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 002a: nop 
+ 002b: ldloca.s 02
+ 002d: ldstr ")- "
+ 0032: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 0037: nop 
+ 0038: ldloca.s 02
+ 003a: ldarg.1 
+ 003b: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 0040: nop 
+ 0041: ldloca.s 02
+ 0043: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear
+ 0048: ldstr "LoadExtComponent"
+ 004d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0052: ldc.i4 FB010000
+ 0057: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 005c: stloc.1 
+ 005d: nop 
+ 005e: nop 
+ 005f: ldarg.1 
+ 0060: ldnull 
+ 0061: cgt.un 
+ 0063: stloc.s 04
+ 0065: ldloc.s 04
+ 0067: brfalse.s 09
+ 0069: nop 
+ 006a: ldarg.1 
+ 006b: call Tizen.Applications.PackageManager::GetPackage
+ 0070: stloc.0 
+ 0071: nop 
+ 0072: ldloc.0 
+ 0073: ldnull 
+ 0074: ceq 
+ 0076: stloc.s 05
+ 0078: ldloc.s 05
+ 007a: brfalse.s 70
+ 007c: nop 
+ 007d: ldstr "Package (%s1) is Null"
+ 0082: ldc.i4 7F969800
+ 0087: conv.i8 
+ 0088: ldc.i4 7F969800
+ 008d: conv.i8 
+ 008e: ldc.i4 7F969800
+ 0093: conv.i8 
+ 0094: ldc.i4 7F969800
+ 0099: conv.i8 
+ 009a: ldc.i4 7F969800
+ 009f: conv.i8 
+ 00a0: ldarg.1 
+ 00a1: ldnull 
+ 00a2: ldnull 
+ 00a3: ldnull 
+ 00a4: ldnull 
+ 00a5: ldc.r8 000000E0CF126341
+ 00ae: ldc.r8 000000E0CF126341
+ 00b7: ldc.r8 000000E0CF126341
+ 00c0: ldc.r8 000000E0CF126341
+ 00c9: ldc.r8 000000E0CF126341
+ 00d2: ldstr "LoadExtComponent"
+ 00d7: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00dc: ldc.i4 06020000
+ 00e1: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00e6: nop 
+ 00e7: leave 77020000
+ 00ec: ldc.i4.0 
+ 00ed: stloc.3 
+ 00ee: ldarg.0 
+ 00ef: ldfld FieldDefinition:0400010f
+ 00f4: stloc.s 06
+ 00f6: ldc.i4.0 
+ 00f7: stloc.s 07
+ 00f9: ldloc.s 06
+ 00fb: ldloca.s 07
+ 00fd: call System.Threading.Monitor::Enter
+ 0102: nop 
+ 0103: nop 
+ 0104: ldarg.0 
+ 0105: ldfld FieldDefinition:0400010f
+ 010a: ldarg.1 
+ 010b: callvirt TypeSpecification:1b00006f::ContainsKey
+ 0110: stloc.3 
+ 0111: ldloc.3 
+ 0112: ldc.i4.0 
+ 0113: ceq 
+ 0115: stloc.s 08
+ 0117: ldloc.s 08
+ 0119: brfalse.s 10
+ 011b: nop 
+ 011c: ldarg.0 
+ 011d: ldfld FieldDefinition:0400010f
+ 0122: ldarg.1 
+ 0123: ldc.i4.0 
+ 0124: callvirt TypeSpecification:1b00006f::Add
+ 0129: nop 
+ 012a: nop 
+ 012b: nop 
+ 012c: leave.s 0D
+ 012e: ldloc.s 07
+ 0130: brfalse.s 08
+ 0132: ldloc.s 06
+ 0134: call System.Threading.Monitor::Exit
+ 0139: nop 
+ 013a: endfinally 
+ 013b: ldloc.3 
+ 013c: ldc.i4.0 
+ 013d: ceq 
+ 013f: stloc.s 09
+ 0141: ldloc.s 09
+ 0143: brfalse 4D010000
+ 0148: nop 
+ 0149: ldarg.0 
+ 014a: ldfld FieldDefinition:04000114
+ 014f: ldarg.1 
+ 0150: callvirt GetPackageVersion
+ 0155: stloc.s 0A
+ 0157: ldloc.s 0A
+ 0159: ldloc.0 
+ 015a: callvirt Tizen.Applications.Package::get_Version
+ 015f: call System.String::op_Inequality
+ 0164: stloc.s 0B
+ 0166: ldloc.s 0B
+ 0168: brtrue.s 03
+ 016a: ldarg.2 
+ 016b: br.s 01
+ 016d: ldc.i4.1 
+ 016e: stloc.s 0C
+ 0170: ldloc.s 0C
+ 0172: brfalse AA000000
+ 0177: nop 
+ 0178: ldstr "%s1 - %s2(pkg) vs %s3(cache)"
+ 017d: ldc.i4 7F969800
+ 0182: conv.i8 
+ 0183: ldc.i4 7F969800
+ 0188: conv.i8 
+ 0189: ldc.i4 7F969800
+ 018e: conv.i8 
+ 018f: ldc.i4 7F969800
+ 0194: conv.i8 
+ 0195: ldc.i4 7F969800
+ 019a: conv.i8 
+ 019b: ldloc.0 
+ 019c: callvirt Tizen.Applications.Package::get_Id
+ 01a1: ldloc.0 
+ 01a2: callvirt Tizen.Applications.Package::get_Version
+ 01a7: ldloc.s 0A
+ 01a9: ldnull 
+ 01aa: ldnull 
+ 01ab: ldc.r8 000000E0CF126341
+ 01b4: ldc.r8 000000E0CF126341
+ 01bd: ldc.r8 000000E0CF126341
+ 01c6: ldc.r8 000000E0CF126341
+ 01cf: ldc.r8 000000E0CF126341
+ 01d8: ldstr "LoadExtComponent"
+ 01dd: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 01e2: ldc.i4 1B020000
+ 01e7: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 01ec: nop 
+ 01ed: call Tizen.TV.Service.CoBA.Common.PackageManagerAgent::GetInstance
+ 01f2: ldarg.1 
+ 01f3: callvirt Tizen.TV.Service.CoBA.Common.PackageManagerAgent::Path
+ 01f8: ldstr "/shared/res/"
+ 01fd: call System.String::Concat
+ 0202: stloc.s 0D
+ 0204: ldloc.1 
+ 0205: ldc.i4 1D020000
+ 020a: callvirt Tizen.TV.Service.CoBA.Common.CheckTime::Check
+ 020f: nop 
+ 0210: ldarg.0 
+ 0211: ldloc.0 
+ 0212: ldloc.s 0D
+ 0214: ldloc.s 0B
+ 0216: ldarg.2 
+ 0217: call LoadDllComponents
+ 021c: stloc.s 0E
+ 021e: nop 
+ 021f: br.s 71
+ 0221: nop 
+ 0222: ldstr "%s1 - %s2 is cached"
+ 0227: ldc.i4 7F969800
+ 022c: conv.i8 
+ 022d: ldc.i4 7F969800
+ 0232: conv.i8 
+ 0233: ldc.i4 7F969800
+ 0238: conv.i8 
+ 0239: ldc.i4 7F969800
+ 023e: conv.i8 
+ 023f: ldc.i4 7F969800
+ 0244: conv.i8 
+ 0245: ldarg.1 
+ 0246: ldloc.0 
+ 0247: callvirt Tizen.Applications.Package::get_Version
+ 024c: ldnull 
+ 024d: ldnull 
+ 024e: ldnull 
+ 024f: ldc.r8 000000E0CF126341
+ 0258: ldc.r8 000000E0CF126341
+ 0261: ldc.r8 000000E0CF126341
+ 026a: ldc.r8 000000E0CF126341
+ 0273: ldc.r8 000000E0CF126341
+ 027c: ldstr "LoadExtComponent"
+ 0281: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0286: ldc.i4 23020000
+ 028b: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0290: nop 
+ 0291: nop 
+ 0292: nop 
+ 0293: br.s 6C
+ 0295: nop 
+ 0296: ldstr "%s1 already loaded"
+ 029b: ldc.i4 7F969800
+ 02a0: conv.i8 
+ 02a1: ldc.i4 7F969800
+ 02a6: conv.i8 
+ 02a7: ldc.i4 7F969800
+ 02ac: conv.i8 
+ 02ad: ldc.i4 7F969800
+ 02b2: conv.i8 
+ 02b3: ldc.i4 7F969800
+ 02b8: conv.i8 
+ 02b9: ldarg.1 
+ 02ba: ldnull 
+ 02bb: ldnull 
+ 02bc: ldnull 
+ 02bd: ldnull 
+ 02be: ldc.r8 000000E0CF126341
+ 02c7: ldc.r8 000000E0CF126341
+ 02d0: ldc.r8 000000E0CF126341
+ 02d9: ldc.r8 000000E0CF126341
+ 02e2: ldc.r8 000000E0CF126341
+ 02eb: ldstr "LoadExtComponent"
+ 02f0: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 02f5: ldc.i4 28020000
+ 02fa: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 02ff: nop 
+ 0300: nop 
+ 0301: ldarg.0 
+ 0302: ldfld FieldDefinition:0400010f
+ 0307: stloc.s 0F
+ 0309: ldc.i4.0 
+ 030a: stloc.s 10
+ 030c: ldloc.s 0F
+ 030e: ldloca.s 10
+ 0310: call System.Threading.Monitor::Enter
+ 0315: nop 
+ 0316: nop 
+ 0317: ldarg.0 
+ 0318: ldfld FieldDefinition:0400010f
+ 031d: ldarg.1 
+ 031e: ldc.i4.1 
+ 031f: callvirt TypeSpecification:1b00006f::set_Item
+ 0324: nop 
+ 0325: nop 
+ 0326: leave.s 0D
+ 0328: ldloc.s 10
+ 032a: brfalse.s 08
+ 032c: ldloc.s 0F
+ 032e: call System.Threading.Monitor::Exit
+ 0333: nop 
+ 0334: endfinally 
+ 0335: nop 
+ 0336: leave.s 1D
+ 0338: stloc.s 11
+ 033a: nop 
+ 033b: ldloc.s 11
+ 033d: ldstr "LoadExtComponent"
+ 0342: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0347: ldc.i4 31020000
+ 034c: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 0351: nop 
+ 0352: nop 
+ 0353: leave.s 00
+ 0355: nop 
+ 0356: leave.s 0B
+ 0358: ldloc.1 
+ 0359: brfalse.s 07
+ 035b: ldloc.1 
+ 035c: callvirt System.IDisposable::Dispose
+ 0361: nop 
+ 0362: endfinally 
+ 0363: ret 
+METHOD 060001ee Tizen.TV.Service.CoBA.Core.ComponentManager::UnloadComponent
+ 0000: nop 
+ 0001: ldstr "UnloadComponent of %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.1 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "UnloadComponent"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0060: ldc.i4 38020000
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006a: nop 
+ 006b: ldarg.0 
+ 006c: ldfld FieldDefinition:0400010f
+ 0071: stloc.1 
+ 0072: ldc.i4.0 
+ 0073: stloc.2 
+ 0074: ldloc.1 
+ 0075: ldloca.s 02
+ 0077: call System.Threading.Monitor::Enter
+ 007c: nop 
+ 007d: nop 
+ 007e: ldarg.0 
+ 007f: ldfld FieldDefinition:0400010f
+ 0084: ldarg.1 
+ 0085: callvirt TypeSpecification:1b00006f::ContainsKey
+ 008a: stloc.3 
+ 008b: ldloc.3 
+ 008c: brfalse.s 0F
+ 008e: nop 
+ 008f: ldarg.0 
+ 0090: ldfld FieldDefinition:0400010f
+ 0095: ldarg.1 
+ 0096: callvirt TypeSpecification:1b00006f::Remove
+ 009b: pop 
+ 009c: nop 
+ 009d: nop 
+ 009e: leave.s 0B
+ 00a0: ldloc.2 
+ 00a1: brfalse.s 07
+ 00a3: ldloc.1 
+ 00a4: call System.Threading.Monitor::Exit
+ 00a9: nop 
+ 00aa: endfinally 
+ 00ab: newobj TypeSpecification:1b000079::.ctor
+ 00b0: stloc.0 
+ 00b1: ldarg.0 
+ 00b2: ldfld FieldDefinition:04000113
+ 00b7: ldfld FieldDefinition:040000fe
+ 00bc: stloc.s 04
+ 00be: ldc.i4.0 
+ 00bf: stloc.s 05
+ 00c1: ldloc.s 04
+ 00c3: ldloca.s 05
+ 00c5: call System.Threading.Monitor::Enter
+ 00ca: nop 
+ 00cb: nop 
+ 00cc: nop 
+ 00cd: ldarg.0 
+ 00ce: ldfld FieldDefinition:04000113
+ 00d3: ldfld FieldDefinition:040000fe
+ 00d8: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 00dd: stloc.s 06
+ 00df: br EB000000
+ 00e4: ldloca.s 06
+ 00e6: call TypeSpecification:1b000077::get_Current
+ 00eb: stloc.s 07
+ 00ed: nop 
+ 00ee: nop 
+ 00ef: ldloca.s 07
+ 00f1: call TypeSpecification:1b000078::get_Value
+ 00f6: callvirt TypeSpecification:1b00006c::GetEnumerator
+ 00fb: stloc.s 08
+ 00fd: br AF000000
+ 0102: ldloca.s 08
+ 0104: call TypeSpecification:1b00006d::get_Current
+ 0109: stloc.s 09
+ 010b: nop 
+ 010c: ldloc.s 09
+ 010e: ldfld FieldDefinition:040000f9
+ 0113: ldarg.1 
+ 0114: call System.String::op_Equality
+ 0119: stloc.s 0A
+ 011b: ldloc.s 0A
+ 011d: brfalse 8E000000
+ 0122: nop 
+ 0123: ldstr "Remove %s1, %d1"
+ 0128: ldloca.s 07
+ 012a: call TypeSpecification:1b000078::get_Key
+ 012f: stloc.s 0B
+ 0131: ldloc.s 09
+ 0133: ldfld FieldDefinition:040000fd
+ 0138: conv.i8 
+ 0139: ldc.i4 7F969800
+ 013e: conv.i8 
+ 013f: ldc.i4 7F969800
+ 0144: conv.i8 
+ 0145: ldc.i4 7F969800
+ 014a: conv.i8 
+ 014b: ldc.i4 7F969800
+ 0150: conv.i8 
+ 0151: ldloc.s 0B
+ 0153: ldnull 
+ 0154: ldnull 
+ 0155: ldnull 
+ 0156: ldnull 
+ 0157: ldc.r8 000000E0CF126341
+ 0160: ldc.r8 000000E0CF126341
+ 0169: ldc.r8 000000E0CF126341
+ 0172: ldc.r8 000000E0CF126341
+ 017b: ldc.r8 000000E0CF126341
+ 0184: ldstr "UnloadComponent"
+ 0189: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 018e: ldc.i4 4B020000
+ 0193: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0198: nop 
+ 0199: ldloc.0 
+ 019a: ldloca.s 07
+ 019c: call TypeSpecification:1b000078::get_Key
+ 01a1: ldloc.s 09
+ 01a3: ldfld FieldDefinition:040000fd
+ 01a8: callvirt TypeSpecification:1b000079::Add
+ 01ad: nop 
+ 01ae: br.s 0D
+ 01b0: nop 
+ 01b1: ldloca.s 08
+ 01b3: call TypeSpecification:1b00006d::MoveNext
+ 01b8: brtrue 45FFFFFF
+ 01bd: leave.s 0F
+ 01bf: ldloca.s 08
+ 01c1: constrained. TypeSpecification:1b00006d
+ 01c7: callvirt System.IDisposable::Dispose
+ 01cc: nop 
+ 01cd: endfinally 
+ 01ce: nop 
+ 01cf: ldloca.s 06
+ 01d1: call TypeSpecification:1b000077::MoveNext
+ 01d6: brtrue 09FFFFFF
+ 01db: leave.s 0F
+ 01dd: ldloca.s 06
+ 01df: constrained. TypeSpecification:1b000077
+ 01e5: callvirt System.IDisposable::Dispose
+ 01ea: nop 
+ 01eb: endfinally 
+ 01ec: nop 
+ 01ed: leave.s 0D
+ 01ef: ldloc.s 05
+ 01f1: brfalse.s 08
+ 01f3: ldloc.s 04
+ 01f5: call System.Threading.Monitor::Exit
+ 01fa: nop 
+ 01fb: endfinally 
+ 01fc: nop 
+ 01fd: ldloc.0 
+ 01fe: callvirt TypeSpecification:1b000079::GetEnumerator
+ 0203: stloc.s 0C
+ 0205: br A3000000
+ 020a: ldloca.s 0C
+ 020c: call TypeSpecification:1b00007a::get_Current
+ 0211: stloc.s 0D
+ 0213: nop 
+ 0214: ldstr "Remove %s1 from cvm"
+ 0219: ldc.i4 7F969800
+ 021e: conv.i8 
+ 021f: ldc.i4 7F969800
+ 0224: conv.i8 
+ 0225: ldc.i4 7F969800
+ 022a: conv.i8 
+ 022b: ldc.i4 7F969800
+ 0230: conv.i8 
+ 0231: ldc.i4 7F969800
+ 0236: conv.i8 
+ 0237: ldloca.s 0D
+ 0239: call TypeSpecification:1b00007b::get_Key
+ 023e: ldnull 
+ 023f: ldnull 
+ 0240: ldnull 
+ 0241: ldnull 
+ 0242: ldc.r8 000000E0CF126341
+ 024b: ldc.r8 000000E0CF126341
+ 0254: ldc.r8 000000E0CF126341
+ 025d: ldc.r8 000000E0CF126341
+ 0266: ldc.r8 000000E0CF126341
+ 026f: ldstr "UnloadComponent"
+ 0274: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0279: ldc.i4 55020000
+ 027e: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0283: nop 
+ 0284: ldarg.0 
+ 0285: ldfld FieldDefinition:04000113
+ 028a: ldloca.s 0D
+ 028c: call TypeSpecification:1b00007b::get_Key
+ 0291: ldloca.s 0D
+ 0293: call TypeSpecification:1b00007b::get_Value
+ 0298: callvirt Remove
+ 029d: nop 
+ 029e: ldarg.0 
+ 029f: ldloca.s 0D
+ 02a1: call TypeSpecification:1b00007b::get_Key
+ 02a6: call ReplaceComponent
+ 02ab: nop 
+ 02ac: nop 
+ 02ad: ldloca.s 0C
+ 02af: call TypeSpecification:1b00007a::MoveNext
+ 02b4: brtrue 51FFFFFF
+ 02b9: leave.s 0F
+ 02bb: ldloca.s 0C
+ 02bd: constrained. TypeSpecification:1b00007a
+ 02c3: callvirt System.IDisposable::Dispose
+ 02c8: nop 
+ 02c9: endfinally 
+ 02ca: ret 
+METHOD 060001ef Tizen.TV.Service.CoBA.Core.ComponentManager::ReplaceComponent
+ 0000: nop 
+ 0001: ldstr "ReplaceComponent : "
+ 0006: ldarg.1 
+ 0007: call System.String::Concat
+ 000c: ldstr "ReplaceComponent"
+ 0011: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0016: ldc.i4 5E020000
+ 001b: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 0020: stloc.0 
+ 0021: nop 
+ 0022: newobj TypeSpecification:1b000042::.ctor
+ 0027: stloc.1 
+ 0028: call GetInstance
+ 002d: ldarg.1 
+ 002e: ldloca.s 01
+ 0030: callvirt GetComponents
+ 0035: pop 
+ 0036: nop 
+ 0037: ldloc.1 
+ 0038: callvirt TypeSpecification:1b000042::GetEnumerator
+ 003d: stloc.2 
+ 003e: br 61040000
+ 0043: newobj .ctor
+ 0048: stloc.3 
+ 0049: ldloc.3 
+ 004a: ldloca.s 02
+ 004c: call TypeSpecification:1b000043::get_Current
+ 0051: stfld FieldDefinition:04000469
+ 0056: nop 
+ 0057: ldstr "replace %s1"
+ 005c: ldc.i4 7F969800
+ 0061: conv.i8 
+ 0062: ldc.i4 7F969800
+ 0067: conv.i8 
+ 0068: ldc.i4 7F969800
+ 006d: conv.i8 
+ 006e: ldc.i4 7F969800
+ 0073: conv.i8 
+ 0074: ldc.i4 7F969800
+ 0079: conv.i8 
+ 007a: ldloc.3 
+ 007b: ldfld FieldDefinition:04000469
+ 0080: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0085: ldnull 
+ 0086: ldnull 
+ 0087: ldnull 
+ 0088: ldnull 
+ 0089: ldc.r8 000000E0CF126341
+ 0092: ldc.r8 000000E0CF126341
+ 009b: ldc.r8 000000E0CF126341
+ 00a4: ldc.r8 000000E0CF126341
+ 00ad: ldc.r8 000000E0CF126341
+ 00b6: ldstr "ReplaceComponent"
+ 00bb: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00c0: ldc.i4 65020000
+ 00c5: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00ca: nop 
+ 00cb: ldloc.3 
+ 00cc: ldfld FieldDefinition:04000469
+ 00d1: callvirt get_Parent
+ 00d6: stloc.s 04
+ 00d8: ldloc.s 04
+ 00da: ldfld FieldDefinition:040000be
+ 00df: ldfld FieldDefinition:040000d4
+ 00e4: ldloc.3 
+ 00e5: ldftn <ReplaceComponent>b__0
+ 00eb: newobj TypeSpecification:1b000050::.ctor
+ 00f0: callvirt TypeSpecification:1b000042::FindIndex
+ 00f5: stloc.s 05
+ 00f7: ldstr "replace index %d1"
+ 00fc: ldloc.s 05
+ 00fe: conv.i8 
+ 00ff: ldc.i4 7F969800
+ 0104: conv.i8 
+ 0105: ldc.i4 7F969800
+ 010a: conv.i8 
+ 010b: ldc.i4 7F969800
+ 0110: conv.i8 
+ 0111: ldc.i4 7F969800
+ 0116: conv.i8 
+ 0117: ldnull 
+ 0118: ldnull 
+ 0119: ldnull 
+ 011a: ldnull 
+ 011b: ldnull 
+ 011c: ldc.r8 000000E0CF126341
+ 0125: ldc.r8 000000E0CF126341
+ 012e: ldc.r8 000000E0CF126341
+ 0137: ldc.r8 000000E0CF126341
+ 0140: ldc.r8 000000E0CF126341
+ 0149: ldstr "ReplaceComponent"
+ 014e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0153: ldc.i4 69020000
+ 0158: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 015d: nop 
+ 015e: ldnull 
+ 015f: stloc.s 06
+ 0161: ldloc.s 05
+ 0163: ldc.i4.0 
+ 0164: cgt 
+ 0166: stloc.s 09
+ 0168: ldloc.s 09
+ 016a: brfalse 89000000
+ 016f: nop 
+ 0170: ldloc.s 04
+ 0172: ldfld FieldDefinition:040000be
+ 0177: ldfld FieldDefinition:040000d4
+ 017c: ldloc.s 05
+ 017e: ldc.i4.1 
+ 017f: sub 
+ 0180: callvirt TypeSpecification:1b000042::get_Item
+ 0185: stloc.s 06
+ 0187: ldstr "previous componet : %s1"
+ 018c: ldc.i4 7F969800
+ 0191: conv.i8 
+ 0192: ldc.i4 7F969800
+ 0197: conv.i8 
+ 0198: ldc.i4 7F969800
+ 019d: conv.i8 
+ 019e: ldc.i4 7F969800
+ 01a3: conv.i8 
+ 01a4: ldc.i4 7F969800
+ 01a9: conv.i8 
+ 01aa: ldloc.s 06
+ 01ac: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 01b1: ldnull 
+ 01b2: ldnull 
+ 01b3: ldnull 
+ 01b4: ldnull 
+ 01b5: ldc.r8 000000E0CF126341
+ 01be: ldc.r8 000000E0CF126341
+ 01c7: ldc.r8 000000E0CF126341
+ 01d0: ldc.r8 000000E0CF126341
+ 01d9: ldc.r8 000000E0CF126341
+ 01e2: ldstr "ReplaceComponent"
+ 01e7: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 01ec: ldc.i4 71020000
+ 01f1: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 01f6: nop 
+ 01f7: nop 
+ 01f8: call TypeSpecification:1b000007::GetInstance
+ 01fd: ldarg.1 
+ 01fe: ldloc.s 04
+ 0200: callvirt Instance
+ 0205: stloc.s 07
+ 0207: ldc.i4.0 
+ 0208: stloc.s 08
+ 020a: ldloc.s 07
+ 020c: ldnull 
+ 020d: ceq 
+ 020f: stloc.s 0A
+ 0211: ldloc.s 0A
+ 0213: brfalse.s 1D
+ 0215: nop 
+ 0216: ldarg.1 
+ 0217: ldloca.s 0B
+ 0219: ldloca.s 0C
+ 021b: call SeperateComponentID
+ 0220: nop 
+ 0221: ldloc.s 04
+ 0223: ldloc.s 0B
+ 0225: ldloc.s 0C
+ 0227: newobj .ctor
+ 022c: stloc.s 07
+ 022e: ldc.i4.1 
+ 022f: stloc.s 08
+ 0231: nop 
+ 0232: ldloc.s 07
+ 0234: ldloc.3 
+ 0235: ldfld FieldDefinition:04000469
+ 023a: ldfld FieldDefinition:040000c8
+ 023f: stfld FieldDefinition:040000c8
+ 0244: call get_CoBAVersion
+ 0249: ldc.i4.0 
+ 024a: ceq 
+ 024c: stloc.s 0D
+ 024e: ldloc.s 0D
+ 0250: brfalse 06010000
+ 0255: nop 
+ 0256: ldstr "[YY] Remove %s1 from %s2"
+ 025b: ldc.i4 7F969800
+ 0260: conv.i8 
+ 0261: ldc.i4 7F969800
+ 0266: conv.i8 
+ 0267: ldc.i4 7F969800
+ 026c: conv.i8 
+ 026d: ldc.i4 7F969800
+ 0272: conv.i8 
+ 0273: ldc.i4 7F969800
+ 0278: conv.i8 
+ 0279: ldloc.3 
+ 027a: ldfld FieldDefinition:04000469
+ 027f: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0284: ldloc.s 04
+ 0286: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 028b: ldnull 
+ 028c: ldnull 
+ 028d: ldnull 
+ 028e: ldc.r8 000000E0CF126341
+ 0297: ldc.r8 000000E0CF126341
+ 02a0: ldc.r8 000000E0CF126341
+ 02a9: ldc.r8 000000E0CF126341
+ 02b2: ldc.r8 000000E0CF126341
+ 02bb: ldstr "ReplaceComponent"
+ 02c0: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 02c5: ldc.i4 83020000
+ 02ca: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 02cf: nop 
+ 02d0: ldloc.s 04
+ 02d2: ldloc.3 
+ 02d3: ldfld FieldDefinition:04000469
+ 02d8: callvirt RemoveChild
+ 02dd: nop 
+ 02de: ldstr "[YY] Run %s1"
+ 02e3: ldc.i4 7F969800
+ 02e8: conv.i8 
+ 02e9: ldc.i4 7F969800
+ 02ee: conv.i8 
+ 02ef: ldc.i4 7F969800
+ 02f4: conv.i8 
+ 02f5: ldc.i4 7F969800
+ 02fa: conv.i8 
+ 02fb: ldc.i4 7F969800
+ 0300: conv.i8 
+ 0301: ldloc.s 07
+ 0303: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0308: ldnull 
+ 0309: ldnull 
+ 030a: ldnull 
+ 030b: ldnull 
+ 030c: ldc.r8 000000E0CF126341
+ 0315: ldc.r8 000000E0CF126341
+ 031e: ldc.r8 000000E0CF126341
+ 0327: ldc.r8 000000E0CF126341
+ 0330: ldc.r8 000000E0CF126341
+ 0339: ldstr "ReplaceComponent"
+ 033e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0343: ldc.i4 86020000
+ 0348: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 034d: nop 
+ 034e: ldloc.s 07
+ 0350: ldloc.s 06
+ 0352: callvirt Run
+ 0357: nop 
+ 0358: nop 
+ 0359: br.s 0B
+ 035b: nop 
+ 035c: ldloc.s 07
+ 035e: ldc.i4.0 
+ 035f: callvirt Run
+ 0364: nop 
+ 0365: nop 
+ 0366: ldloc.s 04
+ 0368: ldfld FieldDefinition:040000be
+ 036d: ldfld FieldDefinition:040000d4
+ 0372: ldloc.s 05
+ 0374: ldloc.s 07
+ 0376: callvirt TypeSpecification:1b000042::Insert
+ 037b: nop 
+ 037c: call get_CoBAVersion
+ 0381: ldc.i4.0 
+ 0382: ceq 
+ 0384: stloc.s 0E
+ 0386: ldloc.s 0E
+ 0388: brfalse.s 07
+ 038a: nop 
+ 038b: nop 
+ 038c: br 12010000
+ 0391: nop 
+ 0392: ldloc.s 04
+ 0394: ldfld FieldDefinition:040000be
+ 0399: ldfld FieldDefinition:040000d4
+ 039e: ldloc.3 
+ 039f: ldfld FieldDefinition:04000469
+ 03a4: callvirt TypeSpecification:1b000042::Remove
+ 03a9: pop 
+ 03aa: ldloc.s 08
+ 03ac: ldc.i4.0 
+ 03ad: ceq 
+ 03af: stloc.s 0F
+ 03b1: ldloc.s 0F
+ 03b3: brfalse C8000000
+ 03b8: nop 
+ 03b9: ldloc.3 
+ 03ba: ldfld FieldDefinition:04000469
+ 03bf: ldfld FieldDefinition:040000be
+ 03c4: ldnull 
+ 03c5: cgt.un 
+ 03c7: stloc.s 10
+ 03c9: ldloc.s 10
+ 03cb: brfalse.s 5B
+ 03cd: nop 
+ 03ce: nop 
+ 03cf: ldloc.3 
+ 03d0: ldfld FieldDefinition:04000469
+ 03d5: ldfld FieldDefinition:040000be
+ 03da: ldfld FieldDefinition:040000d4
+ 03df: callvirt TypeSpecification:1b000042::GetEnumerator
+ 03e4: stloc.s 11
+ 03e6: br.s 25
+ 03e8: ldloca.s 11
+ 03ea: call TypeSpecification:1b000043::get_Current
+ 03ef: stloc.s 12
+ 03f1: nop 
+ 03f2: ldloc.s 07
+ 03f4: ldfld FieldDefinition:040000be
+ 03f9: dup 
+ 03fa: brtrue.s 03
+ 03fc: pop 
+ 03fd: br.s 0D
+ 03ff: ldfld FieldDefinition:040000d4
+ 0404: ldloc.s 12
+ 0406: callvirt TypeSpecification:1b000042::Add
+ 040b: nop 
+ 040c: nop 
+ 040d: ldloca.s 11
+ 040f: call TypeSpecification:1b000043::MoveNext
+ 0414: brtrue.s D2
+ 0416: leave.s 0F
+ 0418: ldloca.s 11
+ 041a: constrained. TypeSpecification:1b000043
+ 0420: callvirt System.IDisposable::Dispose
+ 0425: nop 
+ 0426: endfinally 
+ 0427: nop 
+ 0428: ldloc.s 07
+ 042a: ldfld FieldDefinition:040000be
+ 042f: ldnull 
+ 0430: cgt.un 
+ 0432: stloc.s 13
+ 0434: ldloc.s 13
+ 0436: brfalse.s 47
+ 0438: nop 
+ 0439: nop 
+ 043a: ldloc.s 07
+ 043c: ldfld FieldDefinition:040000be
+ 0441: ldfld FieldDefinition:040000d4
+ 0446: callvirt TypeSpecification:1b000042::GetEnumerator
+ 044b: stloc.s 14
+ 044d: br.s 15
+ 044f: ldloca.s 14
+ 0451: call TypeSpecification:1b000043::get_Current
+ 0456: stloc.s 15
+ 0458: nop 
+ 0459: ldloc.s 15
+ 045b: ldloc.s 07
+ 045d: callvirt ChangeParent
+ 0462: nop 
+ 0463: nop 
+ 0464: ldloca.s 14
+ 0466: call TypeSpecification:1b000043::MoveNext
+ 046b: brtrue.s E2
+ 046d: leave.s 0F
+ 046f: ldloca.s 14
+ 0471: constrained. TypeSpecification:1b000043
+ 0477: callvirt System.IDisposable::Dispose
+ 047c: nop 
+ 047d: endfinally 
+ 047e: nop 
+ 047f: nop 
+ 0480: ldloc.s 07
+ 0482: ldloc.3 
+ 0483: ldfld FieldDefinition:04000469
+ 0488: callvirt ReplaceItem
+ 048d: nop 
+ 048e: ldloc.3 
+ 048f: ldfld FieldDefinition:04000469
+ 0494: callvirt OnExit
+ 0499: nop 
+ 049a: ldloc.s 07
+ 049c: callvirt ReloadChild
+ 04a1: nop 
+ 04a2: nop 
+ 04a3: nop 
+ 04a4: ldloca.s 02
+ 04a6: call TypeSpecification:1b000043::MoveNext
+ 04ab: brtrue 93FBFFFF
+ 04b0: leave.s 0F
+ 04b2: ldloca.s 02
+ 04b4: constrained. TypeSpecification:1b000043
+ 04ba: callvirt System.IDisposable::Dispose
+ 04bf: nop 
+ 04c0: endfinally 
+ 04c1: nop 
+ 04c2: leave.s 0B
+ 04c4: ldloc.0 
+ 04c5: brfalse.s 07
+ 04c7: ldloc.0 
+ 04c8: callvirt System.IDisposable::Dispose
+ 04cd: nop 
+ 04ce: endfinally 
+ 04cf: ret 
+METHOD 060001f0 Tizen.TV.Service.CoBA.Core.ComponentManager::Module
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000113
+ 0007: ldarg.1 
+ 0008: ldarg.2 
+ 0009: callvirt DataComponentAgent
+ 000e: stloc.0 
+ 000f: ldstr "Module"
+ 0014: ldstr "Module"
+ 0019: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 001e: ldc.i4 C1020000
+ 0023: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 0028: stloc.1 
+ 0029: nop 
+ 002a: ldloc.0 
+ 002b: brfalse.s 10
+ 002d: ldloc.0 
+ 002e: ldfld FieldDefinition:040000f9
+ 0033: call System.String::IsNullOrEmpty
+ 0038: ldc.i4.0 
+ 0039: ceq 
+ 003b: br.s 01
+ 003d: ldc.i4.0 
+ 003e: stloc.2 
+ 003f: ldloc.2 
+ 0040: brfalse 9C000000
+ 0045: nop 
+ 0046: ldarg.0 
+ 0047: ldfld FieldDefinition:04000118
+ 004c: stloc.3 
+ 004d: ldc.i4.0 
+ 004e: stloc.s 04
+ 0050: ldloc.3 
+ 0051: ldloca.s 04
+ 0053: call System.Threading.Monitor::Enter
+ 0058: nop 
+ 0059: nop 
+ 005a: ldarg.0 
+ 005b: ldfld FieldDefinition:04000119
+ 0060: ldloc.0 
+ 0061: ldfld FieldDefinition:040000f9
+ 0066: callvirt TypeSpecification:1b000070::ContainsKey
+ 006b: ldc.i4.0 
+ 006c: ceq 
+ 006e: stloc.s 05
+ 0070: ldloc.s 05
+ 0072: brfalse.s 5D
+ 0074: nop 
+ 0075: ldarg.0 
+ 0076: ldfld FieldDefinition:04000118
+ 007b: ldloc.0 
+ 007c: callvirt TypeSpecification:1b00006c::Add
+ 0081: nop 
+ 0082: ldarg.0 
+ 0083: ldfld FieldDefinition:04000119
+ 0088: ldloc.0 
+ 0089: ldfld FieldDefinition:040000f9
+ 008e: ldloc.0 
+ 008f: callvirt TypeSpecification:1b000070::Add
+ 0094: nop 
+ 0095: ldarg.0 
+ 0096: ldfld FieldDefinition:0400011a
+ 009b: ldc.i4.0 
+ 009c: ceq 
+ 009e: stloc.s 06
+ 00a0: ldloc.s 06
+ 00a2: brfalse.s 2C
+ 00a4: nop 
+ 00a5: ldarg.0 
+ 00a6: ldc.i4.1 
+ 00a7: stfld FieldDefinition:0400011a
+ 00ac: ldarg.0 
+ 00ad: ldftn <Module>b__53_0
+ 00b3: newobj TypeSpecification:1b000028::.ctor
+ 00b8: ldnull 
+ 00b9: ldc.i4.1 
+ 00ba: ldstr "Module"
+ 00bf: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00c4: ldc.i4 CE020000
+ 00c9: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 00ce: nop 
+ 00cf: nop 
+ 00d0: nop 
+ 00d1: nop 
+ 00d2: leave.s 0C
+ 00d4: ldloc.s 04
+ 00d6: brfalse.s 07
+ 00d8: ldloc.3 
+ 00d9: call System.Threading.Monitor::Exit
+ 00de: nop 
+ 00df: endfinally 
+ 00e0: nop 
+ 00e1: nop 
+ 00e2: leave.s 0B
+ 00e4: ldloc.1 
+ 00e5: brfalse.s 07
+ 00e7: ldloc.1 
+ 00e8: callvirt System.IDisposable::Dispose
+ 00ed: nop 
+ 00ee: endfinally 
+ 00ef: ldloc.0 
+ 00f0: stloc.s 07
+ 00f2: br.s 00
+ 00f4: ldloc.s 07
+ 00f6: ret 
+METHOD 060001f1 Tizen.TV.Service.CoBA.Core.ComponentManager::LoadCobaOrder
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b00002e::.ctor
+ 0006: stloc.0 
+ 0007: nop 
+ 0008: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 000d: ldstr "cobaorder"
+ 0012: call System.String::Concat
+ 0017: newobj Tizen.TV.Service.CoBA.Common.FSStreamReader::.ctor
+ 001c: stloc.1 
+ 001d: nop 
+ 001e: ldloc.1 
+ 001f: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0024: stloc.2 
+ 0025: ldloc.2 
+ 0026: stloc.s 04
+ 0028: ldloc.s 04
+ 002a: stloc.3 
+ 002b: ldloc.3 
+ 002c: ldstr "1"
+ 0031: call System.String::op_Equality
+ 0036: brtrue.s 05
+ 0038: br 94000000
+ 003d: br.s 7E
+ 003f: nop 
+ 0040: ldloc.1 
+ 0041: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0046: stloc.s 05
+ 0048: ldstr "        ---\u003E %s1"
+ 004d: ldc.i4 7F969800
+ 0052: conv.i8 
+ 0053: ldc.i4 7F969800
+ 0058: conv.i8 
+ 0059: ldc.i4 7F969800
+ 005e: conv.i8 
+ 005f: ldc.i4 7F969800
+ 0064: conv.i8 
+ 0065: ldc.i4 7F969800
+ 006a: conv.i8 
+ 006b: ldloc.s 05
+ 006d: ldnull 
+ 006e: ldnull 
+ 006f: ldnull 
+ 0070: ldnull 
+ 0071: ldc.r8 000000E0CF126341
+ 007a: ldc.r8 000000E0CF126341
+ 0083: ldc.r8 000000E0CF126341
+ 008c: ldc.r8 000000E0CF126341
+ 0095: ldc.r8 000000E0CF126341
+ 009e: ldstr "LoadCobaOrder"
+ 00a3: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00a8: ldc.i4 E9020000
+ 00ad: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00b2: nop 
+ 00b3: ldloc.0 
+ 00b4: ldloc.s 05
+ 00b6: callvirt TypeSpecification:1b00002e::Add
+ 00bb: nop 
+ 00bc: nop 
+ 00bd: ldloc.1 
+ 00be: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::EndOfStream
+ 00c3: ldc.i4.0 
+ 00c4: ceq 
+ 00c6: stloc.s 06
+ 00c8: ldloc.s 06
+ 00ca: brtrue 70FFFFFF
+ 00cf: br.s 6C
+ 00d1: ldstr "Unknown version : %s1"
+ 00d6: ldc.i4 7F969800
+ 00db: conv.i8 
+ 00dc: ldc.i4 7F969800
+ 00e1: conv.i8 
+ 00e2: ldc.i4 7F969800
+ 00e7: conv.i8 
+ 00e8: ldc.i4 7F969800
+ 00ed: conv.i8 
+ 00ee: ldc.i4 7F969800
+ 00f3: conv.i8 
+ 00f4: ldloc.2 
+ 00f5: ldnull 
+ 00f6: ldnull 
+ 00f7: ldnull 
+ 00f8: ldnull 
+ 00f9: ldc.r8 000000E0CF126341
+ 0102: ldc.r8 000000E0CF126341
+ 010b: ldc.r8 000000E0CF126341
+ 0114: ldc.r8 000000E0CF126341
+ 011d: ldc.r8 000000E0CF126341
+ 0126: ldstr "LoadCobaOrder"
+ 012b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0130: ldc.i4 EF020000
+ 0135: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 013a: nop 
+ 013b: br.s 00
+ 013d: nop 
+ 013e: leave.s 0B
+ 0140: ldloc.1 
+ 0141: brfalse.s 07
+ 0143: ldloc.1 
+ 0144: callvirt System.IDisposable::Dispose
+ 0149: nop 
+ 014a: endfinally 
+ 014b: nop 
+ 014c: leave.s 29
+ 014e: stloc.s 07
+ 0150: nop 
+ 0151: ldloc.s 07
+ 0153: callvirt System.Exception::get_Message
+ 0158: ldstr "LoadCobaOrder"
+ 015d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0162: ldc.i4 F7020000
+ 0167: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 016c: nop 
+ 016d: ldloc.0 
+ 016e: callvirt TypeSpecification:1b00002e::Clear
+ 0173: nop 
+ 0174: nop 
+ 0175: leave.s 00
+ 0177: ldloc.0 
+ 0178: stloc.s 08
+ 017a: br.s 00
+ 017c: ldloc.s 08
+ 017e: ret 
+METHOD 060001f2 Tizen.TV.Service.CoBA.Core.ComponentManager::CheckOrderChange
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call LoadCobaOrder
+ 0007: stloc.0 
+ 0008: ldarg.0 
+ 0009: ldfld FieldDefinition:04000118
+ 000e: stloc.1 
+ 000f: ldc.i4.0 
+ 0010: stloc.2 
+ 0011: ldloc.1 
+ 0012: ldloca.s 02
+ 0014: call System.Threading.Monitor::Enter
+ 0019: nop 
+ 001a: nop 
+ 001b: ldarg.0 
+ 001c: ldfld FieldDefinition:04000118
+ 0021: callvirt TypeSpecification:1b00006c::get_Count
+ 0026: ldloc.0 
+ 0027: callvirt TypeSpecification:1b00002e::get_Count
+ 002c: cgt 
+ 002e: stloc.s 04
+ 0030: ldloc.s 04
+ 0032: brfalse.s 7A
+ 0034: nop 
+ 0035: ldstr "count changed: %d1 -\u003E %d2"
+ 003a: ldloc.0 
+ 003b: callvirt TypeSpecification:1b00002e::get_Count
+ 0040: conv.i8 
+ 0041: ldarg.0 
+ 0042: ldfld FieldDefinition:04000118
+ 0047: callvirt TypeSpecification:1b00006c::get_Count
+ 004c: conv.i8 
+ 004d: ldc.i4 7F969800
+ 0052: conv.i8 
+ 0053: ldc.i4 7F969800
+ 0058: conv.i8 
+ 0059: ldc.i4 7F969800
+ 005e: conv.i8 
+ 005f: ldnull 
+ 0060: ldnull 
+ 0061: ldnull 
+ 0062: ldnull 
+ 0063: ldnull 
+ 0064: ldc.r8 000000E0CF126341
+ 006d: ldc.r8 000000E0CF126341
+ 0076: ldc.r8 000000E0CF126341
+ 007f: ldc.r8 000000E0CF126341
+ 0088: ldc.r8 000000E0CF126341
+ 0091: ldstr "CheckOrderChange"
+ 0096: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 009b: ldc.i4 06030000
+ 00a0: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00a5: nop 
+ 00a6: ldc.i4.1 
+ 00a7: stloc.s 05
+ 00a9: leave 50010000
+ 00ae: ldc.i4.0 
+ 00af: stloc.3 
+ 00b0: nop 
+ 00b1: ldarg.0 
+ 00b2: ldfld FieldDefinition:04000118
+ 00b7: callvirt TypeSpecification:1b00006c::GetEnumerator
+ 00bc: stloc.s 06
+ 00be: br A1000000
+ 00c3: ldloca.s 06
+ 00c5: call TypeSpecification:1b00006d::get_Current
+ 00ca: stloc.s 07
+ 00cc: nop 
+ 00cd: ldloc.s 07
+ 00cf: ldfld FieldDefinition:040000f9
+ 00d4: ldloc.0 
+ 00d5: ldloc.3 
+ 00d6: callvirt TypeSpecification:1b00002e::get_Item
+ 00db: call System.String::op_Inequality
+ 00e0: stloc.s 08
+ 00e2: ldloc.s 08
+ 00e4: brfalse.s 79
+ 00e6: nop 
+ 00e7: ldstr "item changed: %s1"
+ 00ec: ldc.i4 7F969800
+ 00f1: conv.i8 
+ 00f2: ldc.i4 7F969800
+ 00f7: conv.i8 
+ 00f8: ldc.i4 7F969800
+ 00fd: conv.i8 
+ 00fe: ldc.i4 7F969800
+ 0103: conv.i8 
+ 0104: ldc.i4 7F969800
+ 0109: conv.i8 
+ 010a: ldloc.s 07
+ 010c: ldfld FieldDefinition:040000f9
+ 0111: ldnull 
+ 0112: ldnull 
+ 0113: ldnull 
+ 0114: ldnull 
+ 0115: ldc.r8 000000E0CF126341
+ 011e: ldc.r8 000000E0CF126341
+ 0127: ldc.r8 000000E0CF126341
+ 0130: ldc.r8 000000E0CF126341
+ 0139: ldc.r8 000000E0CF126341
+ 0142: ldstr "CheckOrderChange"
+ 0147: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 014c: ldc.i4 0F030000
+ 0151: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0156: nop 
+ 0157: ldc.i4.1 
+ 0158: stloc.s 05
+ 015a: leave 9F000000
+ 015f: ldloc.3 
+ 0160: ldc.i4.1 
+ 0161: add 
+ 0162: stloc.3 
+ 0163: nop 
+ 0164: ldloca.s 06
+ 0166: call TypeSpecification:1b00006d::MoveNext
+ 016b: brtrue 53FFFFFF
+ 0170: leave.s 0F
+ 0172: ldloca.s 06
+ 0174: constrained. TypeSpecification:1b00006d
+ 017a: callvirt System.IDisposable::Dispose
+ 017f: nop 
+ 0180: endfinally 
+ 0181: nop 
+ 0182: leave.s 0B
+ 0184: ldloc.2 
+ 0185: brfalse.s 07
+ 0187: ldloc.1 
+ 0188: call System.Threading.Monitor::Exit
+ 018d: nop 
+ 018e: endfinally 
+ 018f: ldstr "not changed"
+ 0194: ldc.i4 7F969800
+ 0199: conv.i8 
+ 019a: ldc.i4 7F969800
+ 019f: conv.i8 
+ 01a0: ldc.i4 7F969800
+ 01a5: conv.i8 
+ 01a6: ldc.i4 7F969800
+ 01ab: conv.i8 
+ 01ac: ldc.i4 7F969800
+ 01b1: conv.i8 
+ 01b2: ldnull 
+ 01b3: ldnull 
+ 01b4: ldnull 
+ 01b5: ldnull 
+ 01b6: ldnull 
+ 01b7: ldc.r8 000000E0CF126341
+ 01c0: ldc.r8 000000E0CF126341
+ 01c9: ldc.r8 000000E0CF126341
+ 01d2: ldc.r8 000000E0CF126341
+ 01db: ldc.r8 000000E0CF126341
+ 01e4: ldstr "CheckOrderChange"
+ 01e9: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 01ee: ldc.i4 16030000
+ 01f3: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 01f8: nop 
+ 01f9: ldc.i4.0 
+ 01fa: stloc.s 05
+ 01fc: br.s 00
+ 01fe: ldloc.s 05
+ 0200: ret 
+METHOD 060001f3 Tizen.TV.Service.CoBA.Core.ComponentManager::SaveHistory
+ 0000: nop 
+ 0001: ldstr "SaveHistory"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldnull 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "SaveHistory"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0060: ldc.i4 1C030000
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006a: nop 
+ 006b: ldarg.0 
+ 006c: ldc.i4.0 
+ 006d: stfld FieldDefinition:0400011a
+ 0072: ldarg.0 
+ 0073: ldftn <SaveHistory>b__56_0
+ 0079: newobj Tizen.TV.Service.CoBA.Common.DelegateJob::.ctor
+ 007e: ldstr "ComponentManager.SaveHistory"
+ 0083: ldnull 
+ 0084: call Tizen.TV.Service.CoBA.Common.FSLazyThread::RegisterJob
+ 0089: nop 
+ 008a: ret 
+METHOD 060001f4 Tizen.TV.Service.CoBA.Core.ComponentManager::LoadHistory
+ 0000: nop 
+ 0001: ldstr "LoadHistory"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldnull 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "LoadHistory"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0060: ldc.i4 3F030000
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006a: nop 
+ 006b: nop 
+ 006c: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0071: ldstr "cobaorder"
+ 0076: call System.String::Concat
+ 007b: newobj Tizen.TV.Service.CoBA.Common.FSStreamReader::.ctor
+ 0080: stloc.0 
+ 0081: nop 
+ 0082: ldloc.0 
+ 0083: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0088: stloc.1 
+ 0089: ldstr "Version: %s1"
+ 008e: ldc.i4 7F969800
+ 0093: conv.i8 
+ 0094: ldc.i4 7F969800
+ 0099: conv.i8 
+ 009a: ldc.i4 7F969800
+ 009f: conv.i8 
+ 00a0: ldc.i4 7F969800
+ 00a5: conv.i8 
+ 00a6: ldc.i4 7F969800
+ 00ab: conv.i8 
+ 00ac: ldloc.1 
+ 00ad: ldnull 
+ 00ae: ldnull 
+ 00af: ldnull 
+ 00b0: ldnull 
+ 00b1: ldc.r8 000000E0CF126341
+ 00ba: ldc.r8 000000E0CF126341
+ 00c3: ldc.r8 000000E0CF126341
+ 00cc: ldc.r8 000000E0CF126341
+ 00d5: ldc.r8 000000E0CF126341
+ 00de: ldstr "LoadHistory"
+ 00e3: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00e8: ldc.i4 45030000
+ 00ed: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00f2: nop 
+ 00f3: ldloc.1 
+ 00f4: stloc.3 
+ 00f5: ldloc.3 
+ 00f6: stloc.2 
+ 00f7: ldloc.2 
+ 00f8: ldstr "1"
+ 00fd: call System.String::op_Equality
+ 0102: brtrue.s 05
+ 0104: br 9C000000
+ 0109: br 83000000
+ 010e: nop 
+ 010f: ldloc.0 
+ 0110: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0115: stloc.s 04
+ 0117: ldstr "        ---\u003E %s1"
+ 011c: ldc.i4 7F969800
+ 0121: conv.i8 
+ 0122: ldc.i4 7F969800
+ 0127: conv.i8 
+ 0128: ldc.i4 7F969800
+ 012d: conv.i8 
+ 012e: ldc.i4 7F969800
+ 0133: conv.i8 
+ 0134: ldc.i4 7F969800
+ 0139: conv.i8 
+ 013a: ldloc.s 04
+ 013c: ldnull 
+ 013d: ldnull 
+ 013e: ldnull 
+ 013f: ldnull 
+ 0140: ldc.r8 000000E0CF126341
+ 0149: ldc.r8 000000E0CF126341
+ 0152: ldc.r8 000000E0CF126341
+ 015b: ldc.r8 000000E0CF126341
+ 0164: ldc.r8 000000E0CF126341
+ 016d: ldstr "LoadHistory"
+ 0172: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0177: ldc.i4 4C030000
+ 017c: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0181: nop 
+ 0182: ldarg.0 
+ 0183: ldfld FieldDefinition:0400011b
+ 0188: ldloc.s 04
+ 018a: callvirt TypeSpecification:1b00002e::Add
+ 018f: nop 
+ 0190: nop 
+ 0191: ldloc.0 
+ 0192: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::EndOfStream
+ 0197: ldc.i4.0 
+ 0198: ceq 
+ 019a: stloc.s 05
+ 019c: ldloc.s 05
+ 019e: brtrue 6BFFFFFF
+ 01a3: br.s 6C
+ 01a5: ldstr "Unknown version : %s1"
+ 01aa: ldc.i4 7F969800
+ 01af: conv.i8 
+ 01b0: ldc.i4 7F969800
+ 01b5: conv.i8 
+ 01b6: ldc.i4 7F969800
+ 01bb: conv.i8 
+ 01bc: ldc.i4 7F969800
+ 01c1: conv.i8 
+ 01c2: ldc.i4 7F969800
+ 01c7: conv.i8 
+ 01c8: ldloc.1 
+ 01c9: ldnull 
+ 01ca: ldnull 
+ 01cb: ldnull 
+ 01cc: ldnull 
+ 01cd: ldc.r8 000000E0CF126341
+ 01d6: ldc.r8 000000E0CF126341
+ 01df: ldc.r8 000000E0CF126341
+ 01e8: ldc.r8 000000E0CF126341
+ 01f1: ldc.r8 000000E0CF126341
+ 01fa: ldstr "LoadHistory"
+ 01ff: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0204: ldc.i4 53030000
+ 0209: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 020e: nop 
+ 020f: br.s 00
+ 0211: nop 
+ 0212: leave.s 0B
+ 0214: ldloc.0 
+ 0215: brfalse.s 07
+ 0217: ldloc.0 
+ 0218: callvirt System.IDisposable::Dispose
+ 021d: nop 
+ 021e: endfinally 
+ 021f: nop 
+ 0220: leave.s 1D
+ 0222: stloc.s 06
+ 0224: nop 
+ 0225: ldloc.s 06
+ 0227: ldstr "LoadHistory"
+ 022c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0231: ldc.i4 5A030000
+ 0236: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 023b: nop 
+ 023c: nop 
+ 023d: leave.s 00
+ 023f: ret 
+METHOD 060001f5 Tizen.TV.Service.CoBA.Core.ComponentManager::ArrangeOrder
+ 0000: nop 
+ 0001: ldstr "ArrangeOrder"
+ 0006: ldstr "ArrangeOrder"
+ 000b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0010: ldc.i4 5F030000
+ 0015: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 001a: stloc.0 
+ 001b: nop 
+ 001c: ldarg.0 
+ 001d: ldfld FieldDefinition:0400011b
+ 0022: ldnull 
+ 0023: cgt.un 
+ 0025: stloc.1 
+ 0026: ldloc.1 
+ 0027: brfalse B9000000
+ 002c: nop 
+ 002d: ldarg.0 
+ 002e: ldfld FieldDefinition:0400011b
+ 0033: newobj TypeSpecification:1b00002e::.ctor
+ 0038: stloc.2 
+ 0039: ldarg.0 
+ 003a: ldfld FieldDefinition:04000112
+ 003f: stloc.3 
+ 0040: ldc.i4.0 
+ 0041: stloc.s 04
+ 0043: ldloc.3 
+ 0044: ldloca.s 04
+ 0046: call System.Threading.Monitor::Enter
+ 004b: nop 
+ 004c: nop 
+ 004d: br.s 74
+ 004f: newobj .ctor
+ 0054: stloc.s 05
+ 0056: nop 
+ 0057: ldloc.2 
+ 0058: callvirt TypeSpecification:1b00002e::get_Count
+ 005d: ldc.i4.1 
+ 005e: sub 
+ 005f: stloc.s 06
+ 0061: ldloc.s 05
+ 0063: ldloc.2 
+ 0064: ldloc.s 06
+ 0066: callvirt TypeSpecification:1b00002e::get_Item
+ 006b: stfld FieldDefinition:0400046a
+ 0070: ldarg.0 
+ 0071: ldfld FieldDefinition:04000112
+ 0076: ldloc.s 05
+ 0078: ldftn <ArrangeOrder>b__0
+ 007e: newobj TypeSpecification:1b00007c::.ctor
+ 0083: callvirt TypeSpecification:1b00002e::Find
+ 0088: stloc.s 07
+ 008a: ldloc.s 07
+ 008c: call System.String::IsNullOrEmpty
+ 0091: ldc.i4.0 
+ 0092: ceq 
+ 0094: stloc.s 08
+ 0096: ldloc.s 08
+ 0098: brfalse.s 1F
+ 009a: nop 
+ 009b: ldarg.0 
+ 009c: ldfld FieldDefinition:04000112
+ 00a1: ldloc.s 07
+ 00a3: callvirt TypeSpecification:1b00002e::Remove
+ 00a8: pop 
+ 00a9: ldarg.0 
+ 00aa: ldfld FieldDefinition:04000112
+ 00af: ldc.i4.0 
+ 00b0: ldloc.s 07
+ 00b2: callvirt TypeSpecification:1b00002e::Insert
+ 00b7: nop 
+ 00b8: nop 
+ 00b9: ldloc.2 
+ 00ba: ldloc.s 06
+ 00bc: callvirt TypeSpecification:1b00002e::RemoveAt
+ 00c1: nop 
+ 00c2: nop 
+ 00c3: ldloc.2 
+ 00c4: callvirt TypeSpecification:1b00002e::get_Count
+ 00c9: ldc.i4.0 
+ 00ca: cgt 
+ 00cc: stloc.s 09
+ 00ce: ldloc.s 09
+ 00d0: brtrue 7AFFFFFF
+ 00d5: nop 
+ 00d6: leave.s 0C
+ 00d8: ldloc.s 04
+ 00da: brfalse.s 07
+ 00dc: ldloc.3 
+ 00dd: call System.Threading.Monitor::Exit
+ 00e2: nop 
+ 00e3: endfinally 
+ 00e4: nop 
+ 00e5: ldarg.0 
+ 00e6: ldfld FieldDefinition:04000100
+ 00eb: ldnull 
+ 00ec: cgt.un 
+ 00ee: stloc.s 0A
+ 00f0: ldloc.s 0A
+ 00f2: brfalse C1000000
+ 00f7: nop 
+ 00f8: ldarg.0 
+ 00f9: ldfld FieldDefinition:04000100
+ 00fe: newobj TypeSpecification:1b00002e::.ctor
+ 0103: stloc.s 0B
+ 0105: ldarg.0 
+ 0106: ldfld FieldDefinition:04000112
+ 010b: stloc.s 0C
+ 010d: ldc.i4.0 
+ 010e: stloc.s 0D
+ 0110: ldloc.s 0C
+ 0112: ldloca.s 0D
+ 0114: call System.Threading.Monitor::Enter
+ 0119: nop 
+ 011a: nop 
+ 011b: br.s 77
+ 011d: newobj .ctor
+ 0122: stloc.s 0E
+ 0124: nop 
+ 0125: ldloc.s 0B
+ 0127: callvirt TypeSpecification:1b00002e::get_Count
+ 012c: ldc.i4.1 
+ 012d: sub 
+ 012e: stloc.s 0F
+ 0130: ldloc.s 0E
+ 0132: ldloc.s 0B
+ 0134: ldloc.s 0F
+ 0136: callvirt TypeSpecification:1b00002e::get_Item
+ 013b: stfld FieldDefinition:0400046b
+ 0140: ldarg.0 
+ 0141: ldfld FieldDefinition:04000112
+ 0146: ldloc.s 0E
+ 0148: ldftn <ArrangeOrder>b__1
+ 014e: newobj TypeSpecification:1b00007c::.ctor
+ 0153: callvirt TypeSpecification:1b00002e::Find
+ 0158: stloc.s 10
+ 015a: ldloc.s 10
+ 015c: call System.String::IsNullOrEmpty
+ 0161: ldc.i4.0 
+ 0162: ceq 
+ 0164: stloc.s 11
+ 0166: ldloc.s 11
+ 0168: brfalse.s 1F
+ 016a: nop 
+ 016b: ldarg.0 
+ 016c: ldfld FieldDefinition:04000112
+ 0171: ldloc.s 10
+ 0173: callvirt TypeSpecification:1b00002e::Remove
+ 0178: pop 
+ 0179: ldarg.0 
+ 017a: ldfld FieldDefinition:04000112
+ 017f: ldc.i4.0 
+ 0180: ldloc.s 10
+ 0182: callvirt TypeSpecification:1b00002e::Insert
+ 0187: nop 
+ 0188: nop 
+ 0189: ldloc.s 0B
+ 018b: ldloc.s 0F
+ 018d: callvirt TypeSpecification:1b00002e::RemoveAt
+ 0192: nop 
+ 0193: nop 
+ 0194: ldloc.s 0B
+ 0196: callvirt TypeSpecification:1b00002e::get_Count
+ 019b: ldc.i4.0 
+ 019c: cgt 
+ 019e: stloc.s 12
+ 01a0: ldloc.s 12
+ 01a2: brtrue 76FFFFFF
+ 01a7: nop 
+ 01a8: leave.s 0D
+ 01aa: ldloc.s 0D
+ 01ac: brfalse.s 08
+ 01ae: ldloc.s 0C
+ 01b0: call System.Threading.Monitor::Exit
+ 01b5: nop 
+ 01b6: endfinally 
+ 01b7: nop 
+ 01b8: nop 
+ 01b9: leave.s 0B
+ 01bb: ldloc.0 
+ 01bc: brfalse.s 07
+ 01be: ldloc.0 
+ 01bf: callvirt System.IDisposable::Dispose
+ 01c4: nop 
+ 01c5: endfinally 
+ 01c6: ret 
+METHOD 060001f6 Tizen.TV.Service.CoBA.Core.ComponentManager::_Instance
+ 0000: nop 
+ 0001: ldnull 
+ 0002: stloc.0 
+ 0003: ldarg.0 
+ 0004: ldfld FieldDefinition:04000114
+ 0009: ldarg.1 
+ 000a: callvirt GetPackageId
+ 000f: stloc.1 
+ 0010: ldc.i4.0 
+ 0011: stloc.2 
+ 0012: ldarg.s 04
+ 0014: brfalse.s 0B
+ 0016: ldloc.1 
+ 0017: call System.String::IsNullOrEmpty
+ 001c: ldc.i4.0 
+ 001d: ceq 
+ 001f: br.s 01
+ 0021: ldc.i4.0 
+ 0022: stloc.s 05
+ 0024: ldloc.s 05
+ 0026: brfalse F0000000
+ 002b: nop 
+ 002c: br E1000000
+ 0031: nop 
+ 0032: ldarg.0 
+ 0033: ldfld FieldDefinition:0400010f
+ 0038: stloc.s 06
+ 003a: ldc.i4.0 
+ 003b: stloc.s 07
+ 003d: ldloc.s 06
+ 003f: ldloca.s 07
+ 0041: call System.Threading.Monitor::Enter
+ 0046: nop 
+ 0047: nop 
+ 0048: ldarg.0 
+ 0049: ldfld FieldDefinition:0400010f
+ 004e: ldloc.1 
+ 004f: callvirt TypeSpecification:1b00006f::ContainsKey
+ 0054: stloc.s 08
+ 0056: ldloc.s 08
+ 0058: brfalse.s 1F
+ 005a: nop 
+ 005b: ldarg.0 
+ 005c: ldfld FieldDefinition:0400010f
+ 0061: ldloc.1 
+ 0062: callvirt TypeSpecification:1b00006f::get_Item
+ 0067: ldc.i4.1 
+ 0068: ceq 
+ 006a: stloc.s 09
+ 006c: ldloc.s 09
+ 006e: brfalse.s 06
+ 0070: nop 
+ 0071: leave A4000000
+ 0076: nop 
+ 0077: br.s 16
+ 0079: nop 
+ 007a: ldarg.0 
+ 007b: ldfld FieldDefinition:0400010f
+ 0080: ldloc.1 
+ 0081: ldc.i4.0 
+ 0082: callvirt TypeSpecification:1b00006f::Add
+ 0087: nop 
+ 0088: ldc.i4.1 
+ 0089: stloc.2 
+ 008a: leave 8B000000
+ 008f: nop 
+ 0090: leave.s 0D
+ 0092: ldloc.s 07
+ 0094: brfalse.s 08
+ 0096: ldloc.s 06
+ 0098: call System.Threading.Monitor::Exit
+ 009d: nop 
+ 009e: endfinally 
+ 009f: ldstr "[%s1] is in the process of loading now"
+ 00a4: ldc.i4 7F969800
+ 00a9: conv.i8 
+ 00aa: ldc.i4 7F969800
+ 00af: conv.i8 
+ 00b0: ldc.i4 7F969800
+ 00b5: conv.i8 
+ 00b6: ldc.i4 7F969800
+ 00bb: conv.i8 
+ 00bc: ldc.i4 7F969800
+ 00c1: conv.i8 
+ 00c2: ldloc.1 
+ 00c3: ldnull 
+ 00c4: ldnull 
+ 00c5: ldnull 
+ 00c6: ldnull 
+ 00c7: ldc.r8 000000E0CF126341
+ 00d0: ldc.r8 000000E0CF126341
+ 00d9: ldc.r8 000000E0CF126341
+ 00e2: ldc.r8 000000E0CF126341
+ 00eb: ldc.r8 000000E0CF126341
+ 00f4: ldstr "_Instance"
+ 00f9: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00fe: ldc.i4 A9030000
+ 0103: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0108: nop 
+ 0109: ldc.i4.s 32
+ 010b: call System.Threading.Thread::Sleep
+ 0110: nop 
+ 0111: nop 
+ 0112: ldc.i4.1 
+ 0113: stloc.s 0A
+ 0115: br 17FFFFFF
+ 011a: nop 
+ 011b: ldloc.2 
+ 011c: stloc.s 0B
+ 011e: ldloc.s 0B
+ 0120: brfalse 3F010000
+ 0125: nop 
+ 0126: ldloc.1 
+ 0127: call Tizen.Applications.PackageManager::GetPackage
+ 012c: stloc.s 0C
+ 012e: ldloc.s 0C
+ 0130: ldnull 
+ 0131: ceq 
+ 0133: stloc.s 0F
+ 0135: ldloc.s 0F
+ 0137: brfalse A6000000
+ 013c: nop 
+ 013d: ldstr "Package (%s1) is Null"
+ 0142: ldc.i4 7F969800
+ 0147: conv.i8 
+ 0148: ldc.i4 7F969800
+ 014d: conv.i8 
+ 014e: ldc.i4 7F969800
+ 0153: conv.i8 
+ 0154: ldc.i4 7F969800
+ 0159: conv.i8 
+ 015a: ldc.i4 7F969800
+ 015f: conv.i8 
+ 0160: ldloc.1 
+ 0161: ldnull 
+ 0162: ldnull 
+ 0163: ldnull 
+ 0164: ldnull 
+ 0165: ldc.r8 000000E0CF126341
+ 016e: ldc.r8 000000E0CF126341
+ 0177: ldc.r8 000000E0CF126341
+ 0180: ldc.r8 000000E0CF126341
+ 0189: ldc.r8 000000E0CF126341
+ 0192: ldstr "_Instance"
+ 0197: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 019c: ldc.i4 B3030000
+ 01a1: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 01a6: nop 
+ 01a7: ldarg.0 
+ 01a8: ldfld FieldDefinition:0400010f
+ 01ad: stloc.s 10
+ 01af: ldc.i4.0 
+ 01b0: stloc.s 11
+ 01b2: ldloc.s 10
+ 01b4: ldloca.s 11
+ 01b6: call System.Threading.Monitor::Enter
+ 01bb: nop 
+ 01bc: nop 
+ 01bd: ldarg.0 
+ 01be: ldfld FieldDefinition:0400010f
+ 01c3: ldloc.1 
+ 01c4: callvirt TypeSpecification:1b00006f::Remove
+ 01c9: pop 
+ 01ca: nop 
+ 01cb: leave.s 0D
+ 01cd: ldloc.s 11
+ 01cf: brfalse.s 08
+ 01d1: ldloc.s 10
+ 01d3: call System.Threading.Monitor::Exit
+ 01d8: nop 
+ 01d9: endfinally 
+ 01da: ldnull 
+ 01db: stloc.s 12
+ 01dd: br 60030000
+ 01e2: ldarg.0 
+ 01e3: ldfld FieldDefinition:04000114
+ 01e8: ldloc.1 
+ 01e9: callvirt GetPackageVersion
+ 01ee: stloc.s 0D
+ 01f0: ldloc.s 0D
+ 01f2: ldloc.s 0C
+ 01f4: callvirt Tizen.Applications.Package::get_Version
+ 01f9: call System.String::op_Inequality
+ 01fe: stloc.s 0E
+ 0200: ldloc.s 0E
+ 0202: stloc.s 13
+ 0204: ldloc.s 13
+ 0206: brfalse.s 27
+ 0208: nop 
+ 0209: call Tizen.TV.Service.CoBA.Common.PackageManagerAgent::GetInstance
+ 020e: ldloc.1 
+ 020f: callvirt Tizen.TV.Service.CoBA.Common.PackageManagerAgent::Path
+ 0214: ldstr "/shared/res/"
+ 0219: call System.String::Concat
+ 021e: stloc.s 14
+ 0220: ldarg.0 
+ 0221: ldloc.s 0C
+ 0223: ldloc.s 14
+ 0225: ldloc.s 0E
+ 0227: ldc.i4.0 
+ 0228: call LoadDllComponents
+ 022d: pop 
+ 022e: nop 
+ 022f: ldarg.0 
+ 0230: ldfld FieldDefinition:0400010f
+ 0235: stloc.s 15
+ 0237: ldc.i4.0 
+ 0238: stloc.s 16
+ 023a: ldloc.s 15
+ 023c: ldloca.s 16
+ 023e: call System.Threading.Monitor::Enter
+ 0243: nop 
+ 0244: nop 
+ 0245: ldarg.0 
+ 0246: ldfld FieldDefinition:0400010f
+ 024b: ldloc.1 
+ 024c: ldc.i4.1 
+ 024d: callvirt TypeSpecification:1b00006f::set_Item
+ 0252: nop 
+ 0253: nop 
+ 0254: leave.s 0D
+ 0256: ldloc.s 16
+ 0258: brfalse.s 08
+ 025a: ldloc.s 15
+ 025c: call System.Threading.Monitor::Exit
+ 0261: nop 
+ 0262: endfinally 
+ 0263: nop 
+ 0264: ldarg.0 
+ 0265: ldfld FieldDefinition:04000113
+ 026a: ldarg.1 
+ 026b: ldarg.2 
+ 026c: callvirt DataComponentAgent
+ 0271: stloc.3 
+ 0272: ldloc.3 
+ 0273: brtrue.s 03
+ 0275: ldnull 
+ 0276: br.s 06
+ 0278: ldloc.3 
+ 0279: ldfld FieldDefinition:040000fc
+ 027e: stloc.0 
+ 027f: ldloc.0 
+ 0280: ldnull 
+ 0281: ceq 
+ 0283: stloc.s 17
+ 0285: ldloc.s 17
+ 0287: brfalse.s 1D
+ 0289: nop 
+ 028a: ldarg.0 
+ 028b: ldfld FieldDefinition:04000113
+ 0290: ldarg.1 
+ 0291: ldnull 
+ 0292: callvirt DataComponentAgent
+ 0297: stloc.3 
+ 0298: ldloc.3 
+ 0299: brtrue.s 03
+ 029b: ldnull 
+ 029c: br.s 06
+ 029e: ldloc.3 
+ 029f: ldfld FieldDefinition:040000fc
+ 02a4: stloc.0 
+ 02a5: nop 
+ 02a6: ldloc.0 
+ 02a7: ldnull 
+ 02a8: ceq 
+ 02aa: stloc.s 18
+ 02ac: ldloc.s 18
+ 02ae: brfalse E9010000
+ 02b3: nop 
+ 02b4: ldarg.0 
+ 02b5: ldfld FieldDefinition:04000114
+ 02ba: ldarg.1 
+ 02bb: callvirt GetDllPath
+ 02c0: stloc.s 19
+ 02c2: ldloc.s 19
+ 02c4: ldnull 
+ 02c5: cgt.un 
+ 02c7: stloc.s 1A
+ 02c9: ldloc.s 1A
+ 02cb: brfalse CB010000
+ 02d0: nop 
+ 02d1: nop 
+ 02d2: ldloc.s 19
+ 02d4: callvirt TypeSpecification:1b00002e::GetEnumerator
+ 02d9: stloc.s 1B
+ 02db: br 9D010000
+ 02e0: ldloca.s 1B
+ 02e2: call TypeSpecification:1b00002f::get_Current
+ 02e7: stloc.s 1C
+ 02e9: nop 
+ 02ea: ldloc.s 1C
+ 02ec: call System.IO.File::Exists
+ 02f1: stloc.s 1D
+ 02f3: ldloc.s 1D
+ 02f5: brfalse 82010000
+ 02fa: nop 
+ 02fb: ldloc.s 1C
+ 02fd: call Tizen.TV.Dotnet.ReflectionEliminator.ComponentLoader::Invoke
+ 0302: castclass Tizen.TV.Service.CoBA.Core.ComponentVersionManager
+ 0307: stloc.s 1E
+ 0309: ldloc.s 1E
+ 030b: ldarg.1 
+ 030c: ldnull 
+ 030d: callvirt GetData
+ 0312: stloc.0 
+ 0313: ldloc.0 
+ 0314: ldnull 
+ 0315: ceq 
+ 0317: stloc.s 1F
+ 0319: ldloc.s 1F
+ 031b: brfalse.s 71
+ 031d: nop 
+ 031e: ldstr "callback is null from %s1"
+ 0323: ldc.i4 7F969800
+ 0328: conv.i8 
+ 0329: ldc.i4 7F969800
+ 032e: conv.i8 
+ 032f: ldc.i4 7F969800
+ 0334: conv.i8 
+ 0335: ldc.i4 7F969800
+ 033a: conv.i8 
+ 033b: ldc.i4 7F969800
+ 0340: conv.i8 
+ 0341: ldloc.s 1C
+ 0343: ldnull 
+ 0344: ldnull 
+ 0345: ldnull 
+ 0346: ldnull 
+ 0347: ldc.r8 000000E0CF126341
+ 0350: ldc.r8 000000E0CF126341
+ 0359: ldc.r8 000000E0CF126341
+ 0362: ldc.r8 000000E0CF126341
+ 036b: ldc.r8 000000E0CF126341
+ 0374: ldstr "_Instance"
+ 0379: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 037e: ldc.i4 DF030000
+ 0383: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0388: nop 
+ 0389: br EF000000
+ 038e: ldstr "Invoke : %s1"
+ 0393: ldc.i4 7F969800
+ 0398: conv.i8 
+ 0399: ldc.i4 7F969800
+ 039e: conv.i8 
+ 039f: ldc.i4 7F969800
+ 03a4: conv.i8 
+ 03a5: ldc.i4 7F969800
+ 03aa: conv.i8 
+ 03ab: ldc.i4 7F969800
+ 03b0: conv.i8 
+ 03b1: ldloc.s 1C
+ 03b3: ldnull 
+ 03b4: ldnull 
+ 03b5: ldnull 
+ 03b6: ldnull 
+ 03b7: ldc.r8 000000E0CF126341
+ 03c0: ldc.r8 000000E0CF126341
+ 03c9: ldc.r8 000000E0CF126341
+ 03d2: ldc.r8 000000E0CF126341
+ 03db: ldc.r8 000000E0CF126341
+ 03e4: ldstr "_Instance"
+ 03e9: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 03ee: ldc.i4 E3030000
+ 03f3: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 03f8: nop 
+ 03f9: nop 
+ 03fa: ldloc.s 1E
+ 03fc: ldfld FieldDefinition:040000fe
+ 0401: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 0406: stloc.s 20
+ 0408: br.s 56
+ 040a: ldloca.s 20
+ 040c: call TypeSpecification:1b000077::get_Current
+ 0411: stloc.s 21
+ 0413: nop 
+ 0414: nop 
+ 0415: ldloca.s 21
+ 0417: call TypeSpecification:1b000078::get_Value
+ 041c: callvirt TypeSpecification:1b00006c::GetEnumerator
+ 0421: stloc.s 22
+ 0423: br.s 20
+ 0425: ldloca.s 22
+ 0427: call TypeSpecification:1b00006d::get_Current
+ 042c: stloc.s 23
+ 042e: nop 
+ 042f: ldarg.0 
+ 0430: ldfld FieldDefinition:04000113
+ 0435: ldloca.s 21
+ 0437: call TypeSpecification:1b000078::get_Key
+ 043c: ldloc.s 23
+ 043e: callvirt SetData
+ 0443: nop 
+ 0444: nop 
+ 0445: ldloca.s 22
+ 0447: call TypeSpecification:1b00006d::MoveNext
+ 044c: brtrue.s D7
+ 044e: leave.s 0F
+ 0450: ldloca.s 22
+ 0452: constrained. TypeSpecification:1b00006d
+ 0458: callvirt System.IDisposable::Dispose
+ 045d: nop 
+ 045e: endfinally 
+ 045f: nop 
+ 0460: ldloca.s 20
+ 0462: call TypeSpecification:1b000077::MoveNext
+ 0467: brtrue.s A1
+ 0469: leave.s 0F
+ 046b: ldloca.s 20
+ 046d: constrained. TypeSpecification:1b000077
+ 0473: callvirt System.IDisposable::Dispose
+ 0478: nop 
+ 0479: endfinally 
+ 047a: br.s 0D
+ 047c: nop 
+ 047d: ldloca.s 1B
+ 047f: call TypeSpecification:1b00002f::MoveNext
+ 0484: brtrue 57FEFFFF
+ 0489: leave.s 0F
+ 048b: ldloca.s 1B
+ 048d: constrained. TypeSpecification:1b00002f
+ 0493: callvirt System.IDisposable::Dispose
+ 0498: nop 
+ 0499: endfinally 
+ 049a: nop 
+ 049b: nop 
+ 049c: ldloc.0 
+ 049d: ldnull 
+ 049e: ceq 
+ 04a0: stloc.s 24
+ 04a2: ldloc.s 24
+ 04a4: brfalse.s 70
+ 04a6: nop 
+ 04a7: ldstr "Can\u0027t find the key Component class [%s1]"
+ 04ac: ldc.i4 7F969800
+ 04b1: conv.i8 
+ 04b2: ldc.i4 7F969800
+ 04b7: conv.i8 
+ 04b8: ldc.i4 7F969800
+ 04bd: conv.i8 
+ 04be: ldc.i4 7F969800
+ 04c3: conv.i8 
+ 04c4: ldc.i4 7F969800
+ 04c9: conv.i8 
+ 04ca: ldarg.1 
+ 04cb: ldnull 
+ 04cc: ldnull 
+ 04cd: ldnull 
+ 04ce: ldnull 
+ 04cf: ldc.r8 000000E0CF126341
+ 04d8: ldc.r8 000000E0CF126341
+ 04e1: ldc.r8 000000E0CF126341
+ 04ea: ldc.r8 000000E0CF126341
+ 04f3: ldc.r8 000000E0CF126341
+ 04fc: ldstr "_Instance"
+ 0501: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0506: ldc.i4 F3030000
+ 050b: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0510: nop 
+ 0511: ldnull 
+ 0512: stloc.s 12
+ 0514: br.s 2C
+ 0516: ldloc.0 
+ 0517: ldarg.3 
+ 0518: ldarg.2 
+ 0519: callvirt Invoke
+ 051e: stloc.s 04
+ 0520: ldloc.s 04
+ 0522: ldnull 
+ 0523: cgt.un 
+ 0525: stloc.s 25
+ 0527: ldloc.s 25
+ 0529: brfalse.s 11
+ 052b: nop 
+ 052c: call TypeSpecification:1b000005::GetInstance
+ 0531: ldc.i4.s 0E
+ 0533: ldloc.s 04
+ 0535: callvirt SetNotify
+ 053a: nop 
+ 053b: nop 
+ 053c: ldloc.s 04
+ 053e: stloc.s 12
+ 0540: br.s 00
+ 0542: ldloc.s 12
+ 0544: ret 
+METHOD 060001f7 Tizen.TV.Service.CoBA.Core.ComponentManager::Instance
+ 0000: nop 
+ 0001: ldstr "Instance:"
+ 0006: ldarg.1 
+ 0007: call System.String::Concat
+ 000c: ldstr "Instance"
+ 0011: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0016: ldc.i4 02040000
+ 001b: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 0020: stloc.0 
+ 0021: nop 
+ 0022: ldarg.1 
+ 0023: ldloca.s 01
+ 0025: ldloca.s 02
+ 0027: call SeperateComponentID
+ 002c: nop 
+ 002d: nop 
+ 002e: br 11010000
+ 0033: nop 
+ 0034: ldarg.0 
+ 0035: ldfld FieldDefinition:04000114
+ 003a: ldarg.1 
+ 003b: callvirt Data
+ 0040: stloc.3 
+ 0041: ldarg.1 
+ 0042: stloc.s 04
+ 0044: ldloc.3 
+ 0045: ldnull 
+ 0046: ceq 
+ 0048: stloc.s 06
+ 004a: ldloc.s 06
+ 004c: brfalse.s 12
+ 004e: nop 
+ 004f: ldarg.0 
+ 0050: ldfld FieldDefinition:04000114
+ 0055: ldloc.1 
+ 0056: callvirt Data
+ 005b: stloc.3 
+ 005c: ldloc.1 
+ 005d: stloc.s 04
+ 005f: nop 
+ 0060: ldc.i4.0 
+ 0061: stloc.s 05
+ 0063: ldarg.0 
+ 0064: ldfld FieldDefinition:04000113
+ 0069: ldfld FieldDefinition:040000fe
+ 006e: stloc.s 07
+ 0070: ldc.i4.0 
+ 0071: stloc.s 08
+ 0073: ldloc.s 07
+ 0075: ldloca.s 08
+ 0077: call System.Threading.Monitor::Enter
+ 007c: nop 
+ 007d: nop 
+ 007e: ldarg.0 
+ 007f: ldfld FieldDefinition:04000113
+ 0084: ldfld FieldDefinition:040000fe
+ 0089: ldloc.s 04
+ 008b: callvirt TypeSpecification:1b00006b::ContainsKey
+ 0090: stloc.s 09
+ 0092: ldloc.s 09
+ 0094: brfalse.s 11
+ 0096: nop 
+ 0097: ldloc.3 
+ 0098: ldnull 
+ 0099: cgt.un 
+ 009b: stloc.s 0A
+ 009d: ldloc.s 0A
+ 009f: brfalse.s 05
+ 00a1: nop 
+ 00a2: ldc.i4.1 
+ 00a3: stloc.s 05
+ 00a5: nop 
+ 00a6: nop 
+ 00a7: nop 
+ 00a8: leave.s 0D
+ 00aa: ldloc.s 08
+ 00ac: brfalse.s 08
+ 00ae: ldloc.s 07
+ 00b0: call System.Threading.Monitor::Exit
+ 00b5: nop 
+ 00b6: endfinally 
+ 00b7: ldloc.s 05
+ 00b9: stloc.s 0B
+ 00bb: ldloc.s 0B
+ 00bd: brfalse.s 12
+ 00bf: nop 
+ 00c0: ldarg.0 
+ 00c1: ldloc.1 
+ 00c2: ldloc.2 
+ 00c3: ldarg.2 
+ 00c4: ldc.i4.1 
+ 00c5: call _Instance
+ 00ca: stloc.s 0C
+ 00cc: leave 9A020000
+ 00d1: ldstr "wait 50ms"
+ 00d6: ldc.i4 7F969800
+ 00db: conv.i8 
+ 00dc: ldc.i4 7F969800
+ 00e1: conv.i8 
+ 00e2: ldc.i4 7F969800
+ 00e7: conv.i8 
+ 00e8: ldc.i4 7F969800
+ 00ed: conv.i8 
+ 00ee: ldc.i4 7F969800
+ 00f3: conv.i8 
+ 00f4: ldnull 
+ 00f5: ldnull 
+ 00f6: ldnull 
+ 00f7: ldnull 
+ 00f8: ldnull 
+ 00f9: ldc.r8 000000E0CF126341
+ 0102: ldc.r8 000000E0CF126341
+ 010b: ldc.r8 000000E0CF126341
+ 0114: ldc.r8 000000E0CF126341
+ 011d: ldc.r8 000000E0CF126341
+ 0126: ldstr "Instance"
+ 012b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0130: ldc.i4 25040000
+ 0135: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 013a: nop 
+ 013b: ldc.i4.s 32
+ 013d: call System.Threading.Thread::Sleep
+ 0142: nop 
+ 0143: nop 
+ 0144: ldarg.0 
+ 0145: ldfld FieldDefinition:04000115
+ 014a: brfalse.s 0B
+ 014c: ldarg.0 
+ 014d: ldfld FieldDefinition:04000116
+ 0152: ldc.i4.0 
+ 0153: cgt 
+ 0155: br.s 01
+ 0157: ldc.i4.1 
+ 0158: stloc.s 0D
+ 015a: ldloc.s 0D
+ 015c: brtrue D2FEFFFF
+ 0161: ldarg.0 
+ 0162: ldfld FieldDefinition:04000113
+ 0167: ldfld FieldDefinition:040000fe
+ 016c: stloc.s 0E
+ 016e: ldc.i4.0 
+ 016f: stloc.s 0F
+ 0171: ldloc.s 0E
+ 0173: ldloca.s 0F
+ 0175: call System.Threading.Monitor::Enter
+ 017a: nop 
+ 017b: nop 
+ 017c: ldarg.0 
+ 017d: ldfld FieldDefinition:04000113
+ 0182: ldfld FieldDefinition:040000fe
+ 0187: ldloc.1 
+ 0188: callvirt TypeSpecification:1b00006b::ContainsKey
+ 018d: ldc.i4.0 
+ 018e: ceq 
+ 0190: stloc.s 10
+ 0192: ldloc.s 10
+ 0194: brfalse 2F010000
+ 0199: nop 
+ 019a: ldstr "Can\u0027t find the key Component class:%s1, CNT:%d1"
+ 019f: ldarg.1 
+ 01a0: stloc.s 11
+ 01a2: ldarg.0 
+ 01a3: ldfld FieldDefinition:04000113
+ 01a8: ldfld FieldDefinition:040000fe
+ 01ad: callvirt TypeSpecification:1b00006b::get_Count
+ 01b2: conv.i8 
+ 01b3: ldc.i4 7F969800
+ 01b8: conv.i8 
+ 01b9: ldc.i4 7F969800
+ 01be: conv.i8 
+ 01bf: ldc.i4 7F969800
+ 01c4: conv.i8 
+ 01c5: ldc.i4 7F969800
+ 01ca: conv.i8 
+ 01cb: ldloc.s 11
+ 01cd: ldnull 
+ 01ce: ldnull 
+ 01cf: ldnull 
+ 01d0: ldnull 
+ 01d1: ldc.r8 000000E0CF126341
+ 01da: ldc.r8 000000E0CF126341
+ 01e3: ldc.r8 000000E0CF126341
+ 01ec: ldc.r8 000000E0CF126341
+ 01f5: ldc.r8 000000E0CF126341
+ 01fe: ldstr "Instance"
+ 0203: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0208: ldc.i4 2D040000
+ 020d: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0212: nop 
+ 0213: nop 
+ 0214: ldarg.0 
+ 0215: ldfld FieldDefinition:04000113
+ 021a: ldfld FieldDefinition:040000fe
+ 021f: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 0224: stloc.s 12
+ 0226: br.s 7B
+ 0228: ldloca.s 12
+ 022a: call TypeSpecification:1b000077::get_Current
+ 022f: stloc.s 13
+ 0231: nop 
+ 0232: ldstr "     =\u003E %s1"
+ 0237: ldc.i4 7F969800
+ 023c: conv.i8 
+ 023d: ldc.i4 7F969800
+ 0242: conv.i8 
+ 0243: ldc.i4 7F969800
+ 0248: conv.i8 
+ 0249: ldc.i4 7F969800
+ 024e: conv.i8 
+ 024f: ldc.i4 7F969800
+ 0254: conv.i8 
+ 0255: ldloca.s 13
+ 0257: call TypeSpecification:1b000078::get_Key
+ 025c: ldnull 
+ 025d: ldnull 
+ 025e: ldnull 
+ 025f: ldnull 
+ 0260: ldc.r8 000000E0CF126341
+ 0269: ldc.r8 000000E0CF126341
+ 0272: ldc.r8 000000E0CF126341
+ 027b: ldc.r8 000000E0CF126341
+ 0284: ldc.r8 000000E0CF126341
+ 028d: ldstr "Instance"
+ 0292: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0297: ldc.i4 30040000
+ 029c: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 02a1: nop 
+ 02a2: nop 
+ 02a3: ldloca.s 12
+ 02a5: call TypeSpecification:1b000077::MoveNext
+ 02aa: brtrue 79FFFFFF
+ 02af: leave.s 0F
+ 02b1: ldloca.s 12
+ 02b3: constrained. TypeSpecification:1b000077
+ 02b9: callvirt System.IDisposable::Dispose
+ 02be: nop 
+ 02bf: endfinally 
+ 02c0: ldnull 
+ 02c1: stloc.s 0C
+ 02c3: leave A3000000
+ 02c8: nop 
+ 02c9: leave.s 0D
+ 02cb: ldloc.s 0F
+ 02cd: brfalse.s 08
+ 02cf: ldloc.s 0E
+ 02d1: call System.Threading.Monitor::Exit
+ 02d6: nop 
+ 02d7: endfinally 
+ 02d8: ldarg.0 
+ 02d9: ldloc.1 
+ 02da: ldloc.2 
+ 02db: ldarg.2 
+ 02dc: ldc.i4.0 
+ 02dd: call _Instance
+ 02e2: stloc.s 0C
+ 02e4: leave 82000000
+ 02e9: stloc.s 14
+ 02eb: nop 
+ 02ec: ldloc.s 14
+ 02ee: callvirt System.Exception::get_Message
+ 02f3: ldc.i4 7F969800
+ 02f8: conv.i8 
+ 02f9: ldc.i4 7F969800
+ 02fe: conv.i8 
+ 02ff: ldc.i4 7F969800
+ 0304: conv.i8 
+ 0305: ldc.i4 7F969800
+ 030a: conv.i8 
+ 030b: ldc.i4 7F969800
+ 0310: conv.i8 
+ 0311: ldnull 
+ 0312: ldnull 
+ 0313: ldnull 
+ 0314: ldnull 
+ 0315: ldnull 
+ 0316: ldc.r8 000000E0CF126341
+ 031f: ldc.r8 000000E0CF126341
+ 0328: ldc.r8 000000E0CF126341
+ 0331: ldc.r8 000000E0CF126341
+ 033a: ldc.r8 000000E0CF126341
+ 0343: ldstr "Instance"
+ 0348: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 034d: ldc.i4 39040000
+ 0352: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0357: nop 
+ 0358: nop 
+ 0359: leave.s 00
+ 035b: ldnull 
+ 035c: stloc.s 0C
+ 035e: leave.s 0B
+ 0360: ldloc.0 
+ 0361: brfalse.s 07
+ 0363: ldloc.0 
+ 0364: callvirt System.IDisposable::Dispose
+ 0369: nop 
+ 036a: endfinally 
+ 036b: ldloc.s 0C
+ 036d: ret 
+METHOD 060001f8 Tizen.TV.Service.CoBA.Core.ComponentManager::RemoveComponent
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000113
+ 0007: ldarg.1 
+ 0008: callvirt Remove
+ 000d: nop 
+ 000e: ret 
+METHOD 060001f9 Tizen.TV.Service.CoBA.Core.ComponentManager::sm_CbProgressChanged
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.2 
+ 0003: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 0008: ldc.i4.0 
+ 0009: ceq 
+ 000b: stloc.0 
+ 000c: ldloc.0 
+ 000d: brfalse 8F000000
+ 0012: nop 
+ 0013: ldarg.2 
+ 0014: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0019: ldc.i4 7F969800
+ 001e: conv.i8 
+ 001f: ldc.i4 7F969800
+ 0024: conv.i8 
+ 0025: ldc.i4 7F969800
+ 002a: conv.i8 
+ 002b: ldc.i4 7F969800
+ 0030: conv.i8 
+ 0031: ldc.i4 7F969800
+ 0036: conv.i8 
+ 0037: ldnull 
+ 0038: ldnull 
+ 0039: ldnull 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldc.r8 000000E0CF126341
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldstr "sm_CbProgressChanged"
+ 006e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0073: ldc.i4 4A040000
+ 0078: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 007d: nop 
+ 007e: call TypeSpecification:1b000001::GetInstance
+ 0083: ldarg.2 
+ 0084: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0089: callvirt Delete
+ 008e: nop 
+ 008f: call Tizen.TV.Service.CoBA.Common.PackageManagerAgent::GetInstance
+ 0094: ldarg.2 
+ 0095: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 009a: callvirt Tizen.TV.Service.CoBA.Common.PackageManagerAgent::Remove
+ 009f: nop 
+ 00a0: nop 
+ 00a1: ldarg.2 
+ 00a2: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageType
+ 00a7: ldc.i4.1 
+ 00a8: ceq 
+ 00aa: ldc.i4.0 
+ 00ab: ceq 
+ 00ad: stloc.1 
+ 00ae: ldloc.1 
+ 00af: brfalse 89000000
+ 00b4: nop 
+ 00b5: ldstr "Non-TPK package : [%s1|%s2|%d1]"
+ 00ba: ldarg.2 
+ 00bb: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageType
+ 00c0: box Tizen.Applications.PackageType
+ 00c5: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 00ca: stloc.2 
+ 00cb: ldarg.2 
+ 00cc: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 00d1: stloc.3 
+ 00d2: ldarg.2 
+ 00d3: callvirt Tizen.Applications.PackageManagerEventArgs::get_Progress
+ 00d8: conv.i8 
+ 00d9: ldc.i4 7F969800
+ 00de: conv.i8 
+ 00df: ldc.i4 7F969800
+ 00e4: conv.i8 
+ 00e5: ldc.i4 7F969800
+ 00ea: conv.i8 
+ 00eb: ldc.i4 7F969800
+ 00f0: conv.i8 
+ 00f1: ldloc.2 
+ 00f2: ldloc.3 
+ 00f3: ldnull 
+ 00f4: ldnull 
+ 00f5: ldnull 
+ 00f6: ldc.r8 000000E0CF126341
+ 00ff: ldc.r8 000000E0CF126341
+ 0108: ldc.r8 000000E0CF126341
+ 0111: ldc.r8 000000E0CF126341
+ 011a: ldc.r8 000000E0CF126341
+ 0123: ldstr "sm_CbProgressChanged"
+ 0128: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 012d: ldc.i4 51040000
+ 0132: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0137: nop 
+ 0138: leave 8A010000
+ 013d: ldarg.2 
+ 013e: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 0143: ldc.i4.2 
+ 0144: ceq 
+ 0146: stloc.s 04
+ 0148: ldloc.s 04
+ 014a: brfalse 58010000
+ 014f: nop 
+ 0150: ldarg.2 
+ 0151: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0156: call Tizen.Applications.ApplicationManager::GetInstalledApplication
+ 015b: stloc.s 05
+ 015d: nop 
+ 015e: ldloc.s 05
+ 0160: ldnull 
+ 0161: ceq 
+ 0163: stloc.s 07
+ 0165: ldloc.s 07
+ 0167: brfalse.s 75
+ 0169: nop 
+ 016a: ldstr "appInfo is null pkgID: [%s1]"
+ 016f: ldc.i4 7F969800
+ 0174: conv.i8 
+ 0175: ldc.i4 7F969800
+ 017a: conv.i8 
+ 017b: ldc.i4 7F969800
+ 0180: conv.i8 
+ 0181: ldc.i4 7F969800
+ 0186: conv.i8 
+ 0187: ldc.i4 7F969800
+ 018c: conv.i8 
+ 018d: ldarg.2 
+ 018e: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0193: ldnull 
+ 0194: ldnull 
+ 0195: ldnull 
+ 0196: ldnull 
+ 0197: ldc.r8 000000E0CF126341
+ 01a0: ldc.r8 000000E0CF126341
+ 01a9: ldc.r8 000000E0CF126341
+ 01b2: ldc.r8 000000E0CF126341
+ 01bb: ldc.r8 000000E0CF126341
+ 01c4: ldstr "sm_CbProgressChanged"
+ 01c9: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 01ce: ldc.i4 5B040000
+ 01d3: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 01d8: nop 
+ 01d9: leave E9000000
+ 01de: ldstr ""
+ 01e3: stloc.s 06
+ 01e5: ldloc.s 05
+ 01e7: callvirt Tizen.Applications.ApplicationInfo::get_Metadata
+ 01ec: ldsfld FieldDefinition:04000101
+ 01f1: ldloca.s 06
+ 01f3: callvirt TypeSpecification:1b000072::TryGetValue
+ 01f8: pop 
+ 01f9: ldloc.s 06
+ 01fb: brtrue.s 03
+ 01fd: ldnull 
+ 01fe: br.s 07
+ 0200: ldloc.s 06
+ 0202: call System.String::ToLowerInvariant
+ 0207: ldstr "true"
+ 020c: call System.String::op_Equality
+ 0211: stloc.s 08
+ 0213: ldloc.s 08
+ 0215: brfalse.s 7F
+ 0217: nop 
+ 0218: ldstr "A New External Component has been installed : %s1"
+ 021d: ldc.i4 7F969800
+ 0222: conv.i8 
+ 0223: ldc.i4 7F969800
+ 0228: conv.i8 
+ 0229: ldc.i4 7F969800
+ 022e: conv.i8 
+ 022f: ldc.i4 7F969800
+ 0234: conv.i8 
+ 0235: ldc.i4 7F969800
+ 023a: conv.i8 
+ 023b: ldarg.2 
+ 023c: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0241: ldnull 
+ 0242: ldnull 
+ 0243: ldnull 
+ 0244: ldnull 
+ 0245: ldc.r8 000000E0CF126341
+ 024e: ldc.r8 000000E0CF126341
+ 0257: ldc.r8 000000E0CF126341
+ 0260: ldc.r8 000000E0CF126341
+ 0269: ldc.r8 000000E0CF126341
+ 0272: ldstr "sm_CbProgressChanged"
+ 0277: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 027c: ldc.i4 63040000
+ 0281: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0286: nop 
+ 0287: ldarg.0 
+ 0288: ldarg.2 
+ 0289: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 028e: ldc.i4.1 
+ 028f: call LoadExtComponent
+ 0294: nop 
+ 0295: nop 
+ 0296: nop 
+ 0297: leave.s 0D
+ 0299: ldloc.s 05
+ 029b: brfalse.s 08
+ 029d: ldloc.s 05
+ 029f: callvirt System.IDisposable::Dispose
+ 02a4: nop 
+ 02a5: endfinally 
+ 02a6: nop 
+ 02a7: nop 
+ 02a8: leave.s 1D
+ 02aa: stloc.s 09
+ 02ac: nop 
+ 02ad: ldloc.s 09
+ 02af: ldstr "sm_CbProgressChanged"
+ 02b4: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 02b9: ldc.i4 6B040000
+ 02be: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 02c3: nop 
+ 02c4: nop 
+ 02c5: leave.s 00
+ 02c7: ret 
+METHOD 060001fa Tizen.TV.Service.CoBA.Core.ComponentManager::sm_CbUninstallProgressChanged
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.2 
+ 0003: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageType
+ 0008: ldc.i4.1 
+ 0009: ceq 
+ 000b: ldc.i4.0 
+ 000c: ceq 
+ 000e: stloc.0 
+ 000f: ldloc.0 
+ 0010: brfalse.s 06
+ 0012: nop 
+ 0013: leave 93020000
+ 0018: ldstr "Uninstall package : [%s1|%s2|%d1|%s3]"
+ 001d: ldarg.2 
+ 001e: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageType
+ 0023: box Tizen.Applications.PackageType
+ 0028: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 002d: stloc.1 
+ 002e: ldarg.2 
+ 002f: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0034: stloc.2 
+ 0035: ldarg.2 
+ 0036: callvirt Tizen.Applications.PackageManagerEventArgs::get_Progress
+ 003b: conv.i8 
+ 003c: ldc.i4 7F969800
+ 0041: conv.i8 
+ 0042: ldc.i4 7F969800
+ 0047: conv.i8 
+ 0048: ldc.i4 7F969800
+ 004d: conv.i8 
+ 004e: ldc.i4 7F969800
+ 0053: conv.i8 
+ 0054: ldloc.1 
+ 0055: ldloc.2 
+ 0056: ldarg.2 
+ 0057: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 005c: box Tizen.Applications.PackageEventState
+ 0061: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0066: ldnull 
+ 0067: ldnull 
+ 0068: ldc.r8 000000E0CF126341
+ 0071: ldc.r8 000000E0CF126341
+ 007a: ldc.r8 000000E0CF126341
+ 0083: ldc.r8 000000E0CF126341
+ 008c: ldc.r8 000000E0CF126341
+ 0095: ldstr "sm_CbUninstallProgressChanged"
+ 009a: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 009f: ldc.i4 77040000
+ 00a4: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00a9: nop 
+ 00aa: ldarg.2 
+ 00ab: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 00b0: brfalse.s 0B
+ 00b2: ldarg.2 
+ 00b3: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 00b8: ldc.i4.2 
+ 00b9: ceq 
+ 00bb: br.s 01
+ 00bd: ldc.i4.1 
+ 00be: stloc.3 
+ 00bf: ldloc.3 
+ 00c0: brfalse C6010000
+ 00c5: nop 
+ 00c6: ldstr "%s1 uninstall started"
+ 00cb: ldc.i4 7F969800
+ 00d0: conv.i8 
+ 00d1: ldc.i4 7F969800
+ 00d6: conv.i8 
+ 00d7: ldc.i4 7F969800
+ 00dc: conv.i8 
+ 00dd: ldc.i4 7F969800
+ 00e2: conv.i8 
+ 00e3: ldc.i4 7F969800
+ 00e8: conv.i8 
+ 00e9: ldarg.2 
+ 00ea: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 00ef: ldnull 
+ 00f0: ldnull 
+ 00f1: ldnull 
+ 00f2: ldnull 
+ 00f3: ldc.r8 000000E0CF126341
+ 00fc: ldc.r8 000000E0CF126341
+ 0105: ldc.r8 000000E0CF126341
+ 010e: ldc.r8 000000E0CF126341
+ 0117: ldc.r8 000000E0CF126341
+ 0120: ldstr "sm_CbUninstallProgressChanged"
+ 0125: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 012a: ldc.i4 7B040000
+ 012f: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0134: nop 
+ 0135: ldarg.2 
+ 0136: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 013b: call Tizen.Applications.ApplicationManager::GetInstalledApplication
+ 0140: stloc.s 04
+ 0142: nop 
+ 0143: ldloc.s 04
+ 0145: ldnull 
+ 0146: ceq 
+ 0148: stloc.s 06
+ 014a: ldloc.s 06
+ 014c: brfalse.s 75
+ 014e: nop 
+ 014f: ldstr "appInfo is null pkgID: [%s1]"
+ 0154: ldc.i4 7F969800
+ 0159: conv.i8 
+ 015a: ldc.i4 7F969800
+ 015f: conv.i8 
+ 0160: ldc.i4 7F969800
+ 0165: conv.i8 
+ 0166: ldc.i4 7F969800
+ 016b: conv.i8 
+ 016c: ldc.i4 7F969800
+ 0171: conv.i8 
+ 0172: ldarg.2 
+ 0173: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0178: ldnull 
+ 0179: ldnull 
+ 017a: ldnull 
+ 017b: ldnull 
+ 017c: ldc.r8 000000E0CF126341
+ 0185: ldc.r8 000000E0CF126341
+ 018e: ldc.r8 000000E0CF126341
+ 0197: ldc.r8 000000E0CF126341
+ 01a0: ldc.r8 000000E0CF126341
+ 01a9: ldstr "sm_CbUninstallProgressChanged"
+ 01ae: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 01b3: ldc.i4 80040000
+ 01b8: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 01bd: nop 
+ 01be: leave E8000000
+ 01c3: ldstr ""
+ 01c8: stloc.s 05
+ 01ca: ldloc.s 04
+ 01cc: callvirt Tizen.Applications.ApplicationInfo::get_Metadata
+ 01d1: ldsfld FieldDefinition:04000101
+ 01d6: ldloca.s 05
+ 01d8: callvirt TypeSpecification:1b000072::TryGetValue
+ 01dd: pop 
+ 01de: ldloc.s 05
+ 01e0: brtrue.s 03
+ 01e2: ldnull 
+ 01e3: br.s 07
+ 01e5: ldloc.s 05
+ 01e7: call System.String::ToLowerInvariant
+ 01ec: ldstr "true"
+ 01f1: call System.String::op_Equality
+ 01f6: stloc.s 07
+ 01f8: ldloc.s 07
+ 01fa: brfalse.s 7E
+ 01fc: nop 
+ 01fd: ldstr "External Component has been uninstalled : %s1"
+ 0202: ldc.i4 7F969800
+ 0207: conv.i8 
+ 0208: ldc.i4 7F969800
+ 020d: conv.i8 
+ 020e: ldc.i4 7F969800
+ 0213: conv.i8 
+ 0214: ldc.i4 7F969800
+ 0219: conv.i8 
+ 021a: ldc.i4 7F969800
+ 021f: conv.i8 
+ 0220: ldarg.2 
+ 0221: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0226: ldnull 
+ 0227: ldnull 
+ 0228: ldnull 
+ 0229: ldnull 
+ 022a: ldc.r8 000000E0CF126341
+ 0233: ldc.r8 000000E0CF126341
+ 023c: ldc.r8 000000E0CF126341
+ 0245: ldc.r8 000000E0CF126341
+ 024e: ldc.r8 000000E0CF126341
+ 0257: ldstr "sm_CbUninstallProgressChanged"
+ 025c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0261: ldc.i4 88040000
+ 0266: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 026b: nop 
+ 026c: ldarg.0 
+ 026d: ldarg.2 
+ 026e: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0273: call UnloadComponent
+ 0278: nop 
+ 0279: nop 
+ 027a: nop 
+ 027b: leave.s 0D
+ 027d: ldloc.s 04
+ 027f: brfalse.s 08
+ 0281: ldloc.s 04
+ 0283: callvirt System.IDisposable::Dispose
+ 0288: nop 
+ 0289: endfinally 
+ 028a: nop 
+ 028b: nop 
+ 028c: leave.s 1D
+ 028e: stloc.s 08
+ 0290: nop 
+ 0291: ldloc.s 08
+ 0293: ldstr "sm_CbUninstallProgressChanged"
+ 0298: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 029d: ldc.i4 90040000
+ 02a2: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 02a7: nop 
+ 02a8: nop 
+ 02a9: leave.s 00
+ 02ab: ret 
+METHOD 060001fb Tizen.TV.Service.CoBA.Core.ComponentManager::sm_CbUpdateProgressChanged
+ 0000: newobj .ctor
+ 0005: stloc.0 
+ 0006: ldloc.0 
+ 0007: ldarg.2 
+ 0008: stfld FieldDefinition:0400046c
+ 000d: nop 
+ 000e: nop 
+ 000f: ldc.i4.0 
+ 0010: stloc.1 
+ 0011: ldloc.0 
+ 0012: ldfld FieldDefinition:0400046c
+ 0017: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 001c: brfalse.s 10
+ 001e: ldloc.0 
+ 001f: ldfld FieldDefinition:0400046c
+ 0024: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 0029: ldc.i4.2 
+ 002a: ceq 
+ 002c: br.s 01
+ 002e: ldc.i4.1 
+ 002f: stloc.2 
+ 0030: ldloc.2 
+ 0031: brfalse 7C020000
+ 0036: nop 
+ 0037: ldloc.0 
+ 0038: ldfld FieldDefinition:0400046c
+ 003d: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0042: ldc.i4 7F969800
+ 0047: conv.i8 
+ 0048: ldc.i4 7F969800
+ 004d: conv.i8 
+ 004e: ldc.i4 7F969800
+ 0053: conv.i8 
+ 0054: ldc.i4 7F969800
+ 0059: conv.i8 
+ 005a: ldc.i4 7F969800
+ 005f: conv.i8 
+ 0060: ldnull 
+ 0061: ldnull 
+ 0062: ldnull 
+ 0063: ldnull 
+ 0064: ldnull 
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldc.r8 000000E0CF126341
+ 0080: ldc.r8 000000E0CF126341
+ 0089: ldc.r8 000000E0CF126341
+ 0092: ldstr "sm_CbUpdateProgressChanged"
+ 0097: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 009c: ldc.i4 9C040000
+ 00a1: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00a6: nop 
+ 00a7: ldloc.0 
+ 00a8: ldfld FieldDefinition:0400046c
+ 00ad: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 00b2: call Tizen.Applications.ApplicationManager::GetInstalledApplication
+ 00b7: stloc.3 
+ 00b8: nop 
+ 00b9: ldloc.3 
+ 00ba: ldnull 
+ 00bb: cgt.un 
+ 00bd: stloc.s 04
+ 00bf: ldloc.s 04
+ 00c1: brfalse DD010000
+ 00c6: nop 
+ 00c7: ldstr ""
+ 00cc: stloc.s 05
+ 00ce: ldloc.3 
+ 00cf: callvirt Tizen.Applications.ApplicationInfo::get_Metadata
+ 00d4: ldsfld FieldDefinition:04000103
+ 00d9: ldloca.s 05
+ 00db: callvirt TypeSpecification:1b000072::TryGetValue
+ 00e0: pop 
+ 00e1: ldstr " metadataValue: %s1, %s2"
+ 00e6: ldc.i4 7F969800
+ 00eb: conv.i8 
+ 00ec: ldc.i4 7F969800
+ 00f1: conv.i8 
+ 00f2: ldc.i4 7F969800
+ 00f7: conv.i8 
+ 00f8: ldc.i4 7F969800
+ 00fd: conv.i8 
+ 00fe: ldc.i4 7F969800
+ 0103: conv.i8 
+ 0104: ldloc.s 05
+ 0106: ldloc.0 
+ 0107: ldfld FieldDefinition:0400046c
+ 010c: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 0111: box Tizen.Applications.PackageEventState
+ 0116: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 011b: ldnull 
+ 011c: ldnull 
+ 011d: ldnull 
+ 011e: ldc.r8 000000E0CF126341
+ 0127: ldc.r8 000000E0CF126341
+ 0130: ldc.r8 000000E0CF126341
+ 0139: ldc.r8 000000E0CF126341
+ 0142: ldc.r8 000000E0CF126341
+ 014b: ldstr "sm_CbUpdateProgressChanged"
+ 0150: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0155: ldc.i4 A3040000
+ 015a: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 015f: nop 
+ 0160: ldloc.s 05
+ 0162: brtrue.s 03
+ 0164: ldnull 
+ 0165: br.s 07
+ 0167: ldloc.s 05
+ 0169: call System.String::ToLowerInvariant
+ 016e: ldstr "noneed"
+ 0173: call System.String::op_Equality
+ 0178: stloc.s 06
+ 017a: ldloc.s 06
+ 017c: brfalse.s 7D
+ 017e: nop 
+ 017f: ldstr "No need to update in realtime : %s1"
+ 0184: ldc.i4 7F969800
+ 0189: conv.i8 
+ 018a: ldc.i4 7F969800
+ 018f: conv.i8 
+ 0190: ldc.i4 7F969800
+ 0195: conv.i8 
+ 0196: ldc.i4 7F969800
+ 019b: conv.i8 
+ 019c: ldc.i4 7F969800
+ 01a1: conv.i8 
+ 01a2: ldloc.0 
+ 01a3: ldfld FieldDefinition:0400046c
+ 01a8: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 01ad: ldnull 
+ 01ae: ldnull 
+ 01af: ldnull 
+ 01b0: ldnull 
+ 01b1: ldc.r8 000000E0CF126341
+ 01ba: ldc.r8 000000E0CF126341
+ 01c3: ldc.r8 000000E0CF126341
+ 01cc: ldc.r8 000000E0CF126341
+ 01d5: ldc.r8 000000E0CF126341
+ 01de: ldstr "sm_CbUpdateProgressChanged"
+ 01e3: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 01e8: ldc.i4 A6040000
+ 01ed: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 01f2: nop 
+ 01f3: ldc.i4.0 
+ 01f4: stloc.1 
+ 01f5: nop 
+ 01f6: br A7000000
+ 01fb: nop 
+ 01fc: ldloc.0 
+ 01fd: ldfld FieldDefinition:0400046c
+ 0202: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 0207: ldstr "com.samsung.tv.coba.newhome"
+ 020c: call System.String::op_Equality
+ 0211: brfalse.s 15
+ 0213: ldloc.3 
+ 0214: callvirt Tizen.Applications.ApplicationInfo::get_Metadata
+ 0219: ldsfld FieldDefinition:04000103
+ 021e: callvirt TypeSpecification:1b000072::ContainsKey
+ 0223: ldc.i4.0 
+ 0224: ceq 
+ 0226: br.s 01
+ 0228: ldc.i4.0 
+ 0229: stloc.s 07
+ 022b: ldloc.s 07
+ 022d: brfalse.s 6E
+ 022f: nop 
+ 0230: ldstr "[newhome] Set to noneed by force. (Do not have UPDATE_IN_REALTIME metadata key)"
+ 0235: ldc.i4 7F969800
+ 023a: conv.i8 
+ 023b: ldc.i4 7F969800
+ 0240: conv.i8 
+ 0241: ldc.i4 7F969800
+ 0246: conv.i8 
+ 0247: ldc.i4 7F969800
+ 024c: conv.i8 
+ 024d: ldc.i4 7F969800
+ 0252: conv.i8 
+ 0253: ldnull 
+ 0254: ldnull 
+ 0255: ldnull 
+ 0256: ldnull 
+ 0257: ldnull 
+ 0258: ldc.r8 000000E0CF126341
+ 0261: ldc.r8 000000E0CF126341
+ 026a: ldc.r8 000000E0CF126341
+ 0273: ldc.r8 000000E0CF126341
+ 027c: ldc.r8 000000E0CF126341
+ 0285: ldstr "sm_CbUpdateProgressChanged"
+ 028a: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 028f: ldc.i4 AD040000
+ 0294: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0299: nop 
+ 029a: nop 
+ 029b: br.s 04
+ 029d: nop 
+ 029e: ldc.i4.1 
+ 029f: stloc.1 
+ 02a0: nop 
+ 02a1: nop 
+ 02a2: nop 
+ 02a3: nop 
+ 02a4: leave.s 0B
+ 02a6: ldloc.3 
+ 02a7: brfalse.s 07
+ 02a9: ldloc.3 
+ 02aa: callvirt System.IDisposable::Dispose
+ 02af: nop 
+ 02b0: endfinally 
+ 02b1: nop 
+ 02b2: ldloc.0 
+ 02b3: ldfld FieldDefinition:0400046c
+ 02b8: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 02bd: ldc.i4.0 
+ 02be: ceq 
+ 02c0: stloc.s 08
+ 02c2: ldloc.s 08
+ 02c4: brfalse.s 60
+ 02c6: nop 
+ 02c7: call TypeSpecification:1b000001::GetInstance
+ 02cc: ldloc.0 
+ 02cd: ldfld FieldDefinition:0400046c
+ 02d2: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 02d7: callvirt Delete
+ 02dc: nop 
+ 02dd: call Tizen.TV.Service.CoBA.Common.PackageManagerAgent::GetInstance
+ 02e2: ldloc.0 
+ 02e3: ldfld FieldDefinition:0400046c
+ 02e8: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 02ed: callvirt Tizen.TV.Service.CoBA.Common.PackageManagerAgent::Remove
+ 02f2: nop 
+ 02f3: ldloc.1 
+ 02f4: stloc.s 09
+ 02f6: ldloc.s 09
+ 02f8: brfalse.s 27
+ 02fa: nop 
+ 02fb: ldarg.0 
+ 02fc: ldfld FieldDefinition:0400011c
+ 0301: ldloc.0 
+ 0302: ldfld FieldDefinition:0400046c
+ 0307: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 030c: callvirt TypeSpecification:1b00002e::Add
+ 0311: nop 
+ 0312: ldarg.0 
+ 0313: ldarg.1 
+ 0314: ldloc.0 
+ 0315: ldfld FieldDefinition:0400046c
+ 031a: call sm_CbUninstallProgressChanged
+ 031f: nop 
+ 0320: nop 
+ 0321: leave A1000000
+ 0326: ldloc.0 
+ 0327: ldfld FieldDefinition:0400046c
+ 032c: callvirt Tizen.Applications.PackageManagerEventArgs::get_State
+ 0331: ldc.i4.2 
+ 0332: ceq 
+ 0334: stloc.s 0A
+ 0336: ldloc.s 0A
+ 0338: brfalse.s 6D
+ 033a: nop 
+ 033b: ldarg.0 
+ 033c: ldfld FieldDefinition:0400011c
+ 0341: ldloc.0 
+ 0342: ldfld FieldDefinition:0400046c
+ 0347: callvirt Tizen.Applications.PackageManagerEventArgs::get_PackageId
+ 034c: callvirt TypeSpecification:1b00002e::Contains
+ 0351: stloc.s 0B
+ 0353: ldloc.s 0B
+ 0355: brfalse.s 2A
+ 0357: nop 
+ 0358: ldarg.0 
+ 0359: ldfld FieldDefinition:0400011c
+ 035e: ldloc.0 
+ 035f: ldftn <sm_CbUpdateProgressChanged>b__0
+ 0365: newobj TypeSpecification:1b00007c::.ctor
+ 036a: callvirt TypeSpecification:1b00002e::RemoveAll
+ 036f: pop 
+ 0370: ldarg.0 
+ 0371: ldarg.1 
+ 0372: ldloc.0 
+ 0373: ldfld FieldDefinition:0400046c
+ 0378: call sm_CbProgressChanged
+ 037d: nop 
+ 037e: nop 
+ 037f: br.s 25
+ 0381: ldloc.1 
+ 0382: stloc.s 0C
+ 0384: ldloc.s 0C
+ 0386: brfalse.s 1E
+ 0388: nop 
+ 0389: ldarg.0 
+ 038a: ldarg.1 
+ 038b: ldloc.0 
+ 038c: ldfld FieldDefinition:0400046c
+ 0391: call sm_CbUninstallProgressChanged
+ 0396: nop 
+ 0397: ldarg.0 
+ 0398: ldarg.1 
+ 0399: ldloc.0 
+ 039a: ldfld FieldDefinition:0400046c
+ 039f: call sm_CbProgressChanged
+ 03a4: nop 
+ 03a5: nop 
+ 03a6: nop 
+ 03a7: nop 
+ 03a8: leave.s 1D
+ 03aa: stloc.s 0D
+ 03ac: nop 
+ 03ad: ldloc.s 0D
+ 03af: ldstr "sm_CbUpdateProgressChanged"
+ 03b4: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 03b9: ldc.i4 D6040000
+ 03be: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 03c3: nop 
+ 03c4: nop 
+ 03c5: leave.s 00
+ 03c7: ret 
+METHOD 060001fc Tizen.TV.Service.CoBA.Core.ComponentManager::.cctor
+ 0000: ldstr "http://developer.samsung.com/tizen/metadata/support-fs-external-component"
+ 0005: stsfld FieldDefinition:04000101
+ 000a: ldstr "http://tizen.org/privilege/internal/default/platform"
+ 000f: stsfld FieldDefinition:04000102
+ 0014: ldstr "http://developer.samsung.com/tizen/metadata/update-in-realtime"
+ 0019: stsfld FieldDefinition:04000103
+ 001e: ldc.i4 E8030000
+ 0023: stsfld FieldDefinition:04000104
+ 0028: newobj System.Object::.ctor
+ 002d: stsfld FieldDefinition:04000117
+ 0032: ret 
+METHOD 060001fd Tizen.TV.Service.CoBA.Core.ComponentManager::<PreStart>b__27_0
+ 0000: nop 
+ 0001: ldstr "wait SESSION_BUS"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldnull 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "PreStart"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0060: ldc.i4.s 60
+ 0062: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0067: nop 
+ 0068: ldc.i4.0 
+ 0069: stloc.0 
+ 006a: br 31010000
+ 006f: nop 
+ 0070: ldc.i4.1 
+ 0071: ldc.i4 10270000
+ 0076: call Tizen.TV.System.SysEvent.SysEvent::WaitDbusReady
+ 007b: stloc.1 
+ 007c: ldloc.1 
+ 007d: ldc.i4.1 
+ 007e: ceq 
+ 0080: stloc.2 
+ 0081: ldloc.2 
+ 0082: brfalse AC000000
+ 0087: nop 
+ 0088: ldstr "PackageEventHandler"
+ 008d: ldstr "PreStart"
+ 0092: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0097: ldc.i4.s 68
+ 0099: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 009e: stloc.3 
+ 009f: nop 
+ 00a0: ldarg.0 
+ 00a1: ldarg.0 
+ 00a2: ldftn sm_CbProgressChanged
+ 00a8: newobj TypeSpecification:1b00007d::.ctor
+ 00ad: stfld FieldDefinition:04000105
+ 00b2: ldarg.0 
+ 00b3: ldarg.0 
+ 00b4: ldftn sm_CbUninstallProgressChanged
+ 00ba: newobj TypeSpecification:1b00007d::.ctor
+ 00bf: stfld FieldDefinition:04000106
+ 00c4: ldarg.0 
+ 00c5: ldarg.0 
+ 00c6: ldftn sm_CbUpdateProgressChanged
+ 00cc: newobj TypeSpecification:1b00007d::.ctor
+ 00d1: stfld FieldDefinition:04000107
+ 00d6: ldarg.0 
+ 00d7: ldfld FieldDefinition:04000105
+ 00dc: call Tizen.Applications.PackageManager::add_InstallProgressChanged
+ 00e1: nop 
+ 00e2: ldloc.3 
+ 00e3: ldc.i4.s 6E
+ 00e5: callvirt Tizen.TV.Service.CoBA.Common.CheckTime::Check
+ 00ea: nop 
+ 00eb: ldarg.0 
+ 00ec: ldfld FieldDefinition:04000107
+ 00f1: call Tizen.Applications.PackageManager::add_UpdateProgressChanged
+ 00f6: nop 
+ 00f7: ldarg.0 
+ 00f8: ldfld FieldDefinition:04000106
+ 00fd: call Tizen.Applications.PackageManager::add_UninstallProgressChanged
+ 0102: nop 
+ 0103: ldarg.0 
+ 0104: ldftn <PreStart>b__27_2
+ 010a: newobj TypeSpecification:1b000028::.ctor
+ 010f: ldnull 
+ 0110: ldc.i4.1 
+ 0111: ldstr "PreStart"
+ 0116: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 011b: ldc.i4.s 72
+ 011d: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 0122: nop 
+ 0123: leave 85000000
+ 0128: ldloc.3 
+ 0129: brfalse.s 07
+ 012b: ldloc.3 
+ 012c: callvirt System.IDisposable::Dispose
+ 0131: nop 
+ 0132: endfinally 
+ 0133: nop 
+ 0134: ldloc.0 
+ 0135: ldc.i4.1 
+ 0136: add 
+ 0137: stloc.0 
+ 0138: ldstr "SESSION_BUS isn\u0027t Ready!!!! -\u003E retry:%d1"
+ 013d: ldloc.0 
+ 013e: conv.i8 
+ 013f: ldc.i4 7F969800
+ 0144: conv.i8 
+ 0145: ldc.i4 7F969800
+ 014a: conv.i8 
+ 014b: ldc.i4 7F969800
+ 0150: conv.i8 
+ 0151: ldc.i4 7F969800
+ 0156: conv.i8 
+ 0157: ldnull 
+ 0158: ldnull 
+ 0159: ldnull 
+ 015a: ldnull 
+ 015b: ldnull 
+ 015c: ldc.r8 000000E0CF126341
+ 0165: ldc.r8 000000E0CF126341
+ 016e: ldc.r8 000000E0CF126341
+ 0177: ldc.r8 000000E0CF126341
+ 0180: ldc.r8 000000E0CF126341
+ 0189: ldstr "PreStart"
+ 018e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 0193: ldc.i4 85000000
+ 0198: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 019d: nop 
+ 019e: nop 
+ 019f: nop 
+ 01a0: ldloc.0 
+ 01a1: ldc.i4.5 
+ 01a2: clt 
+ 01a4: stloc.s 04
+ 01a6: ldloc.s 04
+ 01a8: brtrue C2FEFFFF
+ 01ad: ret 
+METHOD 060001fe Tizen.TV.Service.CoBA.Core.ComponentManager::<PreStart>b__27_2
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:0400010c
+ 0007: ldnull 
+ 0008: cgt.un 
+ 000a: stloc.0 
+ 000b: ldloc.0 
+ 000c: brfalse.s 16
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:0400010c
+ 0015: ldc.i4.1 
+ 0016: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 001b: nop 
+ 001c: ldarg.0 
+ 001d: ldnull 
+ 001e: stfld FieldDefinition:0400010c
+ 0023: nop 
+ 0024: ldarg.0 
+ 0025: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 002a: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::GetLibrary
+ 002f: ldsfld FieldDefinition:04000104
+ 0034: callvirt Tizen.TV.Service.CoBA.BPI.Library.LibraryBase::GetTimer
+ 0039: stfld FieldDefinition:0400010c
+ 003e: ldarg.0 
+ 003f: ldfld FieldDefinition:0400010c
+ 0044: ldarg.0 
+ 0045: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::SetHandler
+ 004a: nop 
+ 004b: ldarg.0 
+ 004c: ldfld FieldDefinition:0400010c
+ 0051: ldstr "PreStart"
+ 0056: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 005b: ldc.i4.s 7C
+ 005d: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Start
+ 0062: nop 
+ 0063: ret 
+METHOD 060001ff Tizen.TV.Service.CoBA.Core.ComponentManager::<PreStart>b__27_1
+ 0000: ldarg.0 
+ 0001: call m_GetInstalledApplication
+ 0006: nop 
+ 0007: ret 
+METHOD 06000200 Tizen.TV.Service.CoBA.Core.ComponentManager::<OnTimer>b__28_0
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call RecheckLoadDll
+ 0007: nop 
+ 0008: ldnull 
+ 0009: stloc.0 
+ 000a: br.s 00
+ 000c: ldloc.0 
+ 000d: ret 
+METHOD 06000201 Tizen.TV.Service.CoBA.Core.ComponentManager::<Start>b__29_0
+ 0000: newobj .ctor
+ 0005: stloc.0 
+ 0006: ldloc.0 
+ 0007: call System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Create
+ 000c: stfld FieldDefinition:0400045d
+ 0011: ldloc.0 
+ 0012: ldarg.0 
+ 0013: stfld FieldDefinition:0400045f
+ 0018: ldloc.0 
+ 0019: ldarg.1 
+ 001a: stfld FieldDefinition:0400045e
+ 001f: ldloc.0 
+ 0020: ldc.i4.m1 
+ 0021: stfld FieldDefinition:0400045c
+ 0026: ldloc.0 
+ 0027: ldflda FieldDefinition:0400045d
+ 002c: ldloca.s 00
+ 002e: call System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Start
+ 0033: ldloc.0 
+ 0034: ldflda FieldDefinition:0400045d
+ 0039: call System.Runtime.CompilerServices.AsyncTaskMethodBuilder::get_Task
+ 003e: ret 
+METHOD 06000202 Tizen.TV.Service.CoBA.Core.ComponentManager::<m_GetInstalledApplication>b__32_0
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000110
+ 0006: call Tizen.Applications.ApplicationManager::GetInstalledApplicationsAsync
+ 000b: ret 
+METHOD 06000203 Tizen.TV.Service.CoBA.Core.ComponentManager::<Module>b__53_0
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call SaveHistory
+ 0007: nop 
+ 0008: ret 
+METHOD 06000204 Tizen.TV.Service.CoBA.Core.ComponentManager::<SaveHistory>b__56_0
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: call CheckOrderChange
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: brfalse 0C010000
+ 000f: nop 
+ 0010: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0015: ldstr "cobaorder"
+ 001a: call System.String::Concat
+ 001f: newobj Tizen.TV.Service.CoBA.Common.FSStreamWriter::.ctor
+ 0024: stloc.1 
+ 0025: nop 
+ 0026: ldloc.1 
+ 0027: ldstr "1"
+ 002c: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 0031: nop 
+ 0032: ldarg.0 
+ 0033: ldfld FieldDefinition:04000118
+ 0038: stloc.2 
+ 0039: ldc.i4.0 
+ 003a: stloc.3 
+ 003b: ldloc.2 
+ 003c: ldloca.s 03
+ 003e: call System.Threading.Monitor::Enter
+ 0043: nop 
+ 0044: nop 
+ 0045: nop 
+ 0046: ldarg.0 
+ 0047: ldfld FieldDefinition:04000118
+ 004c: callvirt TypeSpecification:1b00006c::GetEnumerator
+ 0051: stloc.s 04
+ 0053: br 89000000
+ 0058: ldloca.s 04
+ 005a: call TypeSpecification:1b00006d::get_Current
+ 005f: stloc.s 05
+ 0061: nop 
+ 0062: ldloc.1 
+ 0063: ldloc.s 05
+ 0065: ldfld FieldDefinition:040000f9
+ 006a: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 006f: nop 
+ 0070: ldstr "   --\u003E %s1"
+ 0075: ldc.i4 7F969800
+ 007a: conv.i8 
+ 007b: ldc.i4 7F969800
+ 0080: conv.i8 
+ 0081: ldc.i4 7F969800
+ 0086: conv.i8 
+ 0087: ldc.i4 7F969800
+ 008c: conv.i8 
+ 008d: ldc.i4 7F969800
+ 0092: conv.i8 
+ 0093: ldloc.s 05
+ 0095: ldfld FieldDefinition:040000f9
+ 009a: ldnull 
+ 009b: ldnull 
+ 009c: ldnull 
+ 009d: ldnull 
+ 009e: ldc.r8 000000E0CF126341
+ 00a7: ldc.r8 000000E0CF126341
+ 00b0: ldc.r8 000000E0CF126341
+ 00b9: ldc.r8 000000E0CF126341
+ 00c2: ldc.r8 000000E0CF126341
+ 00cb: ldstr "SaveHistory"
+ 00d0: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 00d5: ldc.i4 2E030000
+ 00da: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00df: nop 
+ 00e0: nop 
+ 00e1: ldloca.s 04
+ 00e3: call TypeSpecification:1b00006d::MoveNext
+ 00e8: brtrue 6BFFFFFF
+ 00ed: leave.s 0F
+ 00ef: ldloca.s 04
+ 00f1: constrained. TypeSpecification:1b00006d
+ 00f7: callvirt System.IDisposable::Dispose
+ 00fc: nop 
+ 00fd: endfinally 
+ 00fe: nop 
+ 00ff: leave.s 0B
+ 0101: ldloc.3 
+ 0102: brfalse.s 07
+ 0104: ldloc.2 
+ 0105: call System.Threading.Monitor::Exit
+ 010a: nop 
+ 010b: endfinally 
+ 010c: nop 
+ 010d: leave.s 0B
+ 010f: ldloc.1 
+ 0110: brfalse.s 07
+ 0112: ldloc.1 
+ 0113: callvirt System.IDisposable::Dispose
+ 0118: nop 
+ 0119: endfinally 
+ 011a: nop 
+ 011b: nop 
+ 011c: leave.s 1D
+ 011e: stloc.s 06
+ 0120: nop 
+ 0121: ldloc.s 06
+ 0123: ldstr "SaveHistory"
+ 0128: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManager.Impl.cs"
+ 012d: ldc.i4 36030000
+ 0132: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 0137: nop 
+ 0138: nop 
+ 0139: leave.s 00
+ 013b: ret 
+METHOD 06000205 Tizen.TV.Service.CoBA.Core.ComponentManagerCache::Data
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: call System.String::IsNullOrEmpty
+ 0007: stloc.0 
+ 0008: ldloc.0 
+ 0009: brfalse.s 6C
+ 000b: nop 
+ 000c: ldstr "classId is null"
+ 0011: ldc.i4 7F969800
+ 0016: conv.i8 
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldnull 
+ 0030: ldnull 
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldstr "Data"
+ 0066: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 006b: ldc.i4.s 1C
+ 006d: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0072: nop 
+ 0073: ldnull 
+ 0074: stloc.1 
+ 0075: br.s 6E
+ 0077: ldarg.0 
+ 0078: ldfld FieldDefinition:0400011f
+ 007d: stloc.2 
+ 007e: ldc.i4.0 
+ 007f: stloc.3 
+ 0080: ldloc.2 
+ 0081: ldloca.s 03
+ 0083: call System.Threading.Monitor::Enter
+ 0088: nop 
+ 0089: nop 
+ 008a: ldarg.0 
+ 008b: ldfld FieldDefinition:0400011f
+ 0090: brfalse.s 24
+ 0092: ldarg.0 
+ 0093: ldfld FieldDefinition:0400011f
+ 0098: ldarg.1 
+ 0099: callvirt TypeSpecification:1b00007e::ContainsKey
+ 009e: brfalse.s 16
+ 00a0: ldarg.0 
+ 00a1: ldfld FieldDefinition:0400011f
+ 00a6: ldarg.1 
+ 00a7: callvirt TypeSpecification:1b00007e::get_Item
+ 00ac: callvirt TypeSpecification:1b00007f::get_Count
+ 00b1: ldc.i4.0 
+ 00b2: cgt 
+ 00b4: br.s 01
+ 00b6: ldc.i4.0 
+ 00b7: stloc.s 04
+ 00b9: ldloc.s 04
+ 00bb: brfalse.s 16
+ 00bd: nop 
+ 00be: ldarg.0 
+ 00bf: ldfld FieldDefinition:0400011f
+ 00c4: ldarg.1 
+ 00c5: callvirt TypeSpecification:1b00007e::get_Item
+ 00ca: ldc.i4.0 
+ 00cb: callvirt TypeSpecification:1b00007f::get_Item
+ 00d0: stloc.1 
+ 00d1: leave.s 12
+ 00d3: nop 
+ 00d4: leave.s 0B
+ 00d6: ldloc.3 
+ 00d7: brfalse.s 07
+ 00d9: ldloc.2 
+ 00da: call System.Threading.Monitor::Exit
+ 00df: nop 
+ 00e0: endfinally 
+ 00e1: ldnull 
+ 00e2: stloc.1 
+ 00e3: br.s 00
+ 00e5: ldloc.1 
+ 00e6: ret 
+METHOD 06000206 Tizen.TV.Service.CoBA.Core.ComponentManagerCache::Load
+ 0000: nop 
+ 0001: ldstr "LOAD"
+ 0006: ldstr "Load"
+ 000b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0010: ldc.i4.s 2B
+ 0012: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 0017: stloc.0 
+ 0018: nop 
+ 0019: ldc.i4.0 
+ 001a: stloc.1 
+ 001b: ldc.i4.0 
+ 001c: stloc.2 
+ 001d: newobj TypeSpecification:1b00007e::.ctor
+ 0022: stloc.3 
+ 0023: nop 
+ 0024: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0029: ldarg.0 
+ 002a: ldfld FieldDefinition:0400011d
+ 002f: call System.String::Concat
+ 0034: newobj Tizen.TV.Service.CoBA.Common.FSStreamReader::.ctor
+ 0039: stloc.s 04
+ 003b: nop 
+ 003c: ldloc.s 04
+ 003e: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0043: stloc.s 05
+ 0045: ldloc.s 05
+ 0047: ldarg.0 
+ 0048: ldfld FieldDefinition:0400011e
+ 004d: call System.String::op_Inequality
+ 0052: stloc.s 06
+ 0054: ldloc.s 06
+ 0056: brfalse A8000000
+ 005b: nop 
+ 005c: ldstr "Cache version not match: %s1 vs %s2"
+ 0061: ldc.i4 7F969800
+ 0066: conv.i8 
+ 0067: ldc.i4 7F969800
+ 006c: conv.i8 
+ 006d: ldc.i4 7F969800
+ 0072: conv.i8 
+ 0073: ldc.i4 7F969800
+ 0078: conv.i8 
+ 0079: ldc.i4 7F969800
+ 007e: conv.i8 
+ 007f: ldloc.s 05
+ 0081: ldarg.0 
+ 0082: ldfld FieldDefinition:0400011e
+ 0087: ldnull 
+ 0088: ldnull 
+ 0089: ldnull 
+ 008a: ldc.r8 000000E0CF126341
+ 0093: ldc.r8 000000E0CF126341
+ 009c: ldc.r8 000000E0CF126341
+ 00a5: ldc.r8 000000E0CF126341
+ 00ae: ldc.r8 000000E0CF126341
+ 00b7: ldstr "Load"
+ 00bc: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 00c1: ldc.i4.s 38
+ 00c3: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00c8: nop 
+ 00c9: ldarg.0 
+ 00ca: ldfld FieldDefinition:0400011f
+ 00cf: stloc.s 07
+ 00d1: ldc.i4.0 
+ 00d2: stloc.s 08
+ 00d4: ldloc.s 07
+ 00d6: ldloca.s 08
+ 00d8: call System.Threading.Monitor::Enter
+ 00dd: nop 
+ 00de: nop 
+ 00df: ldarg.0 
+ 00e0: ldfld FieldDefinition:0400011f
+ 00e5: callvirt TypeSpecification:1b00007e::Clear
+ 00ea: nop 
+ 00eb: nop 
+ 00ec: leave.s 0D
+ 00ee: ldloc.s 08
+ 00f0: brfalse.s 08
+ 00f2: ldloc.s 07
+ 00f4: call System.Threading.Monitor::Exit
+ 00f9: nop 
+ 00fa: endfinally 
+ 00fb: ldc.i4.0 
+ 00fc: stloc.s 09
+ 00fe: leave 28040000
+ 0103: br 3B010000
+ 0108: nop 
+ 0109: ldloc.s 04
+ 010b: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0110: stloc.s 0A
+ 0112: ldloc.3 
+ 0113: ldloc.s 0A
+ 0115: newobj TypeSpecification:1b00007f::.ctor
+ 011a: callvirt TypeSpecification:1b00007e::Add
+ 011f: nop 
+ 0120: ldloc.s 04
+ 0122: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0127: ldc.i4 FF010000
+ 012c: call System.Globalization.CultureInfo::get_InvariantCulture
+ 0131: call System.Int32::Parse
+ 0136: stloc.s 0B
+ 0138: ldc.i4.0 
+ 0139: stloc.s 0C
+ 013b: br F3000000
+ 0140: nop 
+ 0141: newobj .ctor
+ 0146: stloc.s 0D
+ 0148: ldloc.s 0D
+ 014a: ldloc.s 04
+ 014c: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 0151: ldc.i4 FF010000
+ 0156: call System.Globalization.CultureInfo::get_InvariantCulture
+ 015b: call System.Int32::Parse
+ 0160: stfld FieldDefinition:0400047a
+ 0165: ldloc.s 0D
+ 0167: ldloc.s 04
+ 0169: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 016e: stfld FieldDefinition:0400047b
+ 0173: ldloc.s 0D
+ 0175: ldloc.s 04
+ 0177: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 017c: stfld FieldDefinition:0400047c
+ 0181: ldloc.s 0D
+ 0183: ldloc.s 04
+ 0185: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::ReadLine
+ 018a: stfld FieldDefinition:0400047d
+ 018f: ldloc.3 
+ 0190: ldloc.s 0A
+ 0192: callvirt TypeSpecification:1b00007e::get_Item
+ 0197: ldloc.s 0D
+ 0199: callvirt TypeSpecification:1b00007f::Add
+ 019e: nop 
+ 019f: ldloc.s 0A
+ 01a1: ldstr "d/media.category"
+ 01a6: callvirt System.String::Equals
+ 01ab: stloc.s 0E
+ 01ad: ldloc.s 0E
+ 01af: brfalse.s 7B
+ 01b1: nop 
+ 01b2: ldstr "[%s1] path: %s2, ver: %s3]"
+ 01b7: ldc.i4 7F969800
+ 01bc: conv.i8 
+ 01bd: ldc.i4 7F969800
+ 01c2: conv.i8 
+ 01c3: ldc.i4 7F969800
+ 01c8: conv.i8 
+ 01c9: ldc.i4 7F969800
+ 01ce: conv.i8 
+ 01cf: ldc.i4 7F969800
+ 01d4: conv.i8 
+ 01d5: ldloc.s 0D
+ 01d7: ldfld FieldDefinition:0400047b
+ 01dc: ldloc.s 0D
+ 01de: ldfld FieldDefinition:0400047d
+ 01e3: ldloc.s 0D
+ 01e5: ldfld FieldDefinition:0400047c
+ 01ea: ldnull 
+ 01eb: ldnull 
+ 01ec: ldc.r8 000000E0CF126341
+ 01f5: ldc.r8 000000E0CF126341
+ 01fe: ldc.r8 000000E0CF126341
+ 0207: ldc.r8 000000E0CF126341
+ 0210: ldc.r8 000000E0CF126341
+ 0219: ldstr "Load"
+ 021e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0223: ldc.i4.s 53
+ 0225: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 022a: nop 
+ 022b: nop 
+ 022c: nop 
+ 022d: ldloc.s 0C
+ 022f: ldc.i4.1 
+ 0230: add 
+ 0231: stloc.s 0C
+ 0233: ldloc.s 0C
+ 0235: ldloc.s 0B
+ 0237: clt 
+ 0239: stloc.s 0F
+ 023b: ldloc.s 0F
+ 023d: brtrue FEFEFFFF
+ 0242: nop 
+ 0243: ldloc.s 04
+ 0245: callvirt Tizen.TV.Service.CoBA.Common.FSStreamReader::EndOfStream
+ 024a: ldc.i4.0 
+ 024b: ceq 
+ 024d: stloc.s 10
+ 024f: ldloc.s 10
+ 0251: brtrue B2FEFFFF
+ 0256: ldarg.0 
+ 0257: ldfld FieldDefinition:0400011f
+ 025c: stloc.s 11
+ 025e: ldc.i4.0 
+ 025f: stloc.s 12
+ 0261: ldloc.s 11
+ 0263: ldloca.s 12
+ 0265: call System.Threading.Monitor::Enter
+ 026a: nop 
+ 026b: nop 
+ 026c: ldarg.0 
+ 026d: ldloc.3 
+ 026e: newobj TypeSpecification:1b00007e::.ctor
+ 0273: stfld FieldDefinition:0400011f
+ 0278: ldarg.0 
+ 0279: ldfld FieldDefinition:0400011f
+ 027e: callvirt TypeSpecification:1b00007e::get_Count
+ 0283: stloc.1 
+ 0284: nop 
+ 0285: leave.s 0D
+ 0287: ldloc.s 12
+ 0289: brfalse.s 08
+ 028b: ldloc.s 11
+ 028d: call System.Threading.Monitor::Exit
+ 0292: nop 
+ 0293: endfinally 
+ 0294: nop 
+ 0295: leave.s 0D
+ 0297: ldloc.s 04
+ 0299: brfalse.s 08
+ 029b: ldloc.s 04
+ 029d: callvirt System.IDisposable::Dispose
+ 02a2: nop 
+ 02a3: endfinally 
+ 02a4: ldloc.0 
+ 02a5: ldc.i4.s 5E
+ 02a7: callvirt Tizen.TV.Service.CoBA.Common.CheckTime::Check
+ 02ac: nop 
+ 02ad: ldarg.1 
+ 02ae: ldind.ref 
+ 02af: ldfld FieldDefinition:040000fe
+ 02b4: stloc.s 13
+ 02b6: ldc.i4.0 
+ 02b7: stloc.s 14
+ 02b9: ldloc.s 13
+ 02bb: ldloca.s 14
+ 02bd: call System.Threading.Monitor::Enter
+ 02c2: nop 
+ 02c3: nop 
+ 02c4: nop 
+ 02c5: ldloc.3 
+ 02c6: callvirt TypeSpecification:1b00007e::GetEnumerator
+ 02cb: stloc.s 15
+ 02cd: br FE000000
+ 02d2: ldloca.s 15
+ 02d4: call TypeSpecification:1b000080::get_Current
+ 02d9: stloc.s 16
+ 02db: nop 
+ 02dc: ldarg.1 
+ 02dd: ldind.ref 
+ 02de: brfalse.s 18
+ 02e0: ldarg.1 
+ 02e1: ldind.ref 
+ 02e2: ldfld FieldDefinition:040000fe
+ 02e7: ldloca.s 16
+ 02e9: call TypeSpecification:1b000081::get_Key
+ 02ee: callvirt TypeSpecification:1b00006b::ContainsKey
+ 02f3: ldc.i4.0 
+ 02f4: ceq 
+ 02f6: br.s 01
+ 02f8: ldc.i4.0 
+ 02f9: stloc.s 17
+ 02fb: ldloc.s 17
+ 02fd: brfalse CD000000
+ 0302: nop 
+ 0303: nop 
+ 0304: ldloca.s 16
+ 0306: call TypeSpecification:1b000081::get_Value
+ 030b: callvirt TypeSpecification:1b00007f::GetEnumerator
+ 0310: stloc.s 18
+ 0312: br 9A000000
+ 0317: ldloca.s 18
+ 0319: call TypeSpecification:1b000082::get_Current
+ 031e: stloc.s 19
+ 0320: nop 
+ 0321: ldnull 
+ 0322: ldloc.s 19
+ 0324: ldfld FieldDefinition:0400047a
+ 0329: newobj .ctor
+ 032e: stloc.s 1A
+ 0330: ldloc.s 1A
+ 0332: ldloc.s 19
+ 0334: ldfld FieldDefinition:0400047b
+ 0339: stfld FieldDefinition:040000f9
+ 033e: ldloc.s 1A
+ 0340: ldloc.s 19
+ 0342: ldfld FieldDefinition:0400047a
+ 0347: stfld FieldDefinition:040000fd
+ 034c: ldloc.s 1A
+ 034e: ldloc.s 19
+ 0350: ldfld FieldDefinition:0400047c
+ 0355: stfld FieldDefinition:040000fa
+ 035a: ldloc.s 1A
+ 035c: ldloc.s 19
+ 035e: ldfld FieldDefinition:0400047d
+ 0363: stfld FieldDefinition:040000fb
+ 0368: ldarg.1 
+ 0369: ldind.ref 
+ 036a: ldloca.s 16
+ 036c: call TypeSpecification:1b000081::get_Key
+ 0371: ldloc.s 1A
+ 0373: callvirt Add
+ 0378: pop 
+ 0379: ldarg.0 
+ 037a: ldfld FieldDefinition:04000120
+ 037f: ldloc.s 19
+ 0381: ldfld FieldDefinition:0400047b
+ 0386: callvirt TypeSpecification:1b000029::ContainsKey
+ 038b: ldc.i4.0 
+ 038c: ceq 
+ 038e: stloc.s 1B
+ 0390: ldloc.s 1B
+ 0392: brfalse.s 1C
+ 0394: nop 
+ 0395: ldarg.0 
+ 0396: ldfld FieldDefinition:04000120
+ 039b: ldloc.s 19
+ 039d: ldfld FieldDefinition:0400047b
+ 03a2: ldloc.s 19
+ 03a4: ldfld FieldDefinition:0400047c
+ 03a9: callvirt TypeSpecification:1b000029::Add
+ 03ae: nop 
+ 03af: nop 
+ 03b0: nop 
+ 03b1: ldloca.s 18
+ 03b3: call TypeSpecification:1b000082::MoveNext
+ 03b8: brtrue 5AFFFFFF
+ 03bd: leave.s 0F
+ 03bf: ldloca.s 18
+ 03c1: constrained. TypeSpecification:1b000082
+ 03c7: callvirt System.IDisposable::Dispose
+ 03cc: nop 
+ 03cd: endfinally 
+ 03ce: nop 
+ 03cf: nop 
+ 03d0: ldloca.s 15
+ 03d2: call TypeSpecification:1b000080::MoveNext
+ 03d7: brtrue F6FEFFFF
+ 03dc: leave.s 0F
+ 03de: ldloca.s 15
+ 03e0: constrained. TypeSpecification:1b000080
+ 03e6: callvirt System.IDisposable::Dispose
+ 03eb: nop 
+ 03ec: endfinally 
+ 03ed: ldarg.1 
+ 03ee: ldind.ref 
+ 03ef: ldfld FieldDefinition:040000fe
+ 03f4: callvirt TypeSpecification:1b00006b::get_Count
+ 03f9: stloc.2 
+ 03fa: nop 
+ 03fb: leave.s 0D
+ 03fd: ldloc.s 14
+ 03ff: brfalse.s 08
+ 0401: ldloc.s 13
+ 0403: call System.Threading.Monitor::Exit
+ 0408: nop 
+ 0409: endfinally 
+ 040a: ldstr "ComponentManagerCache Loaded: %d1 / %d2"
+ 040f: ldloc.1 
+ 0410: conv.i8 
+ 0411: ldloc.2 
+ 0412: conv.i8 
+ 0413: ldc.i4 7F969800
+ 0418: conv.i8 
+ 0419: ldc.i4 7F969800
+ 041e: conv.i8 
+ 041f: ldc.i4 7F969800
+ 0424: conv.i8 
+ 0425: ldnull 
+ 0426: ldnull 
+ 0427: ldnull 
+ 0428: ldnull 
+ 0429: ldnull 
+ 042a: ldc.r8 000000E0CF126341
+ 0433: ldc.r8 000000E0CF126341
+ 043c: ldc.r8 000000E0CF126341
+ 0445: ldc.r8 000000E0CF126341
+ 044e: ldc.r8 000000E0CF126341
+ 0457: ldstr "Load"
+ 045c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0461: ldc.i4.s 78
+ 0463: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0468: nop 
+ 0469: nop 
+ 046a: leave A9000000
+ 046f: stloc.s 1C
+ 0471: nop 
+ 0472: ldloc.s 1C
+ 0474: callvirt System.Exception::get_Message
+ 0479: ldstr "Load"
+ 047e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0483: ldc.i4.s 7C
+ 0485: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 048a: nop 
+ 048b: ldc.i4.0 
+ 048c: stloc.s 09
+ 048e: leave 98000000
+ 0493: stloc.s 1D
+ 0495: nop 
+ 0496: ldarg.0 
+ 0497: ldfld FieldDefinition:0400011f
+ 049c: stloc.s 1E
+ 049e: ldc.i4.0 
+ 049f: stloc.s 1F
+ 04a1: ldloc.s 1E
+ 04a3: ldloca.s 1F
+ 04a5: call System.Threading.Monitor::Enter
+ 04aa: nop 
+ 04ab: nop 
+ 04ac: ldarg.0 
+ 04ad: ldfld FieldDefinition:0400011f
+ 04b2: callvirt TypeSpecification:1b00007e::Clear
+ 04b7: nop 
+ 04b8: nop 
+ 04b9: leave.s 0D
+ 04bb: ldloc.s 1F
+ 04bd: brfalse.s 08
+ 04bf: ldloc.s 1E
+ 04c1: call System.Threading.Monitor::Exit
+ 04c6: nop 
+ 04c7: endfinally 
+ 04c8: ldarg.1 
+ 04c9: ldind.ref 
+ 04ca: ldfld FieldDefinition:040000fe
+ 04cf: stloc.s 20
+ 04d1: ldc.i4.0 
+ 04d2: stloc.s 21
+ 04d4: ldloc.s 20
+ 04d6: ldloca.s 21
+ 04d8: call System.Threading.Monitor::Enter
+ 04dd: nop 
+ 04de: nop 
+ 04df: ldarg.0 
+ 04e0: ldfld FieldDefinition:04000120
+ 04e5: callvirt TypeSpecification:1b000029::Clear
+ 04ea: nop 
+ 04eb: nop 
+ 04ec: leave.s 0D
+ 04ee: ldloc.s 21
+ 04f0: brfalse.s 08
+ 04f2: ldloc.s 20
+ 04f4: call System.Threading.Monitor::Exit
+ 04f9: nop 
+ 04fa: endfinally 
+ 04fb: ldloc.s 1D
+ 04fd: ldstr "Load"
+ 0502: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0507: ldc.i4 8B000000
+ 050c: ldnull 
+ 050d: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 0512: nop 
+ 0513: ldc.i4.0 
+ 0514: stloc.s 09
+ 0516: leave.s 13
+ 0518: nop 
+ 0519: leave.s 0B
+ 051b: ldloc.0 
+ 051c: brfalse.s 07
+ 051e: ldloc.0 
+ 051f: callvirt System.IDisposable::Dispose
+ 0524: nop 
+ 0525: endfinally 
+ 0526: ldc.i4.1 
+ 0527: stloc.s 09
+ 0529: br.s 00
+ 052b: ldloc.s 09
+ 052d: ret 
+METHOD 06000207 Tizen.TV.Service.CoBA.Core.ComponentManagerCache::Set
+ 0000: nop 
+ 0001: ldstr "Set"
+ 0006: ldstr "Set"
+ 000b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0010: ldc.i4 97000000
+ 0015: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 001a: stloc.0 
+ 001b: nop 
+ 001c: newobj TypeSpecification:1b00007e::.ctor
+ 0021: stloc.1 
+ 0022: ldarg.1 
+ 0023: ldfld FieldDefinition:040000fe
+ 0028: stloc.2 
+ 0029: ldc.i4.0 
+ 002a: stloc.3 
+ 002b: ldloc.2 
+ 002c: ldloca.s 03
+ 002e: call System.Threading.Monitor::Enter
+ 0033: nop 
+ 0034: nop 
+ 0035: nop 
+ 0036: ldarg.1 
+ 0037: ldfld FieldDefinition:040000fe
+ 003c: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 0041: stloc.s 04
+ 0043: br A8000000
+ 0048: ldloca.s 04
+ 004a: call TypeSpecification:1b000077::get_Current
+ 004f: stloc.s 05
+ 0051: nop 
+ 0052: ldloc.1 
+ 0053: ldloca.s 05
+ 0055: call TypeSpecification:1b000078::get_Key
+ 005a: newobj TypeSpecification:1b00007f::.ctor
+ 005f: callvirt TypeSpecification:1b00007e::Add
+ 0064: nop 
+ 0065: nop 
+ 0066: ldloca.s 05
+ 0068: call TypeSpecification:1b000078::get_Value
+ 006d: callvirt TypeSpecification:1b00006c::GetEnumerator
+ 0072: stloc.s 06
+ 0074: br.s 5F
+ 0076: ldloca.s 06
+ 0078: call TypeSpecification:1b00006d::get_Current
+ 007d: stloc.s 07
+ 007f: nop 
+ 0080: newobj .ctor
+ 0085: stloc.s 08
+ 0087: ldloc.s 08
+ 0089: ldloc.s 07
+ 008b: ldfld FieldDefinition:040000fd
+ 0090: stfld FieldDefinition:0400047a
+ 0095: ldloc.s 08
+ 0097: ldloc.s 07
+ 0099: ldfld FieldDefinition:040000f9
+ 009e: stfld FieldDefinition:0400047b
+ 00a3: ldloc.s 08
+ 00a5: ldloc.s 07
+ 00a7: ldfld FieldDefinition:040000fb
+ 00ac: stfld FieldDefinition:0400047d
+ 00b1: ldloc.s 08
+ 00b3: ldloc.s 07
+ 00b5: ldfld FieldDefinition:040000fa
+ 00ba: stfld FieldDefinition:0400047c
+ 00bf: ldloc.1 
+ 00c0: ldloca.s 05
+ 00c2: call TypeSpecification:1b000078::get_Key
+ 00c7: callvirt TypeSpecification:1b00007e::get_Item
+ 00cc: ldloc.s 08
+ 00ce: callvirt TypeSpecification:1b00007f::Add
+ 00d3: nop 
+ 00d4: nop 
+ 00d5: ldloca.s 06
+ 00d7: call TypeSpecification:1b00006d::MoveNext
+ 00dc: brtrue.s 98
+ 00de: leave.s 0F
+ 00e0: ldloca.s 06
+ 00e2: constrained. TypeSpecification:1b00006d
+ 00e8: callvirt System.IDisposable::Dispose
+ 00ed: nop 
+ 00ee: endfinally 
+ 00ef: nop 
+ 00f0: ldloca.s 04
+ 00f2: call TypeSpecification:1b000077::MoveNext
+ 00f7: brtrue 4CFFFFFF
+ 00fc: leave.s 0F
+ 00fe: ldloca.s 04
+ 0100: constrained. TypeSpecification:1b000077
+ 0106: callvirt System.IDisposable::Dispose
+ 010b: nop 
+ 010c: endfinally 
+ 010d: nop 
+ 010e: leave.s 0B
+ 0110: ldloc.3 
+ 0111: brfalse.s 07
+ 0113: ldloc.2 
+ 0114: call System.Threading.Monitor::Exit
+ 0119: nop 
+ 011a: endfinally 
+ 011b: ldarg.0 
+ 011c: ldfld FieldDefinition:0400011f
+ 0121: stloc.s 09
+ 0123: ldc.i4.0 
+ 0124: stloc.s 0A
+ 0126: ldloc.s 09
+ 0128: ldloca.s 0A
+ 012a: call System.Threading.Monitor::Enter
+ 012f: nop 
+ 0130: nop 
+ 0131: ldarg.0 
+ 0132: ldfld FieldDefinition:0400011f
+ 0137: callvirt TypeSpecification:1b00007e::Clear
+ 013c: nop 
+ 013d: ldarg.0 
+ 013e: ldloc.1 
+ 013f: newobj TypeSpecification:1b00007e::.ctor
+ 0144: stfld FieldDefinition:0400011f
+ 0149: nop 
+ 014a: leave.s 0D
+ 014c: ldloc.s 0A
+ 014e: brfalse.s 08
+ 0150: ldloc.s 09
+ 0152: call System.Threading.Monitor::Exit
+ 0157: nop 
+ 0158: endfinally 
+ 0159: ldloc.0 
+ 015a: ldc.i4 B4000000
+ 015f: callvirt Tizen.TV.Service.CoBA.Common.CheckTime::Check
+ 0164: nop 
+ 0165: ldarg.0 
+ 0166: ldfld FieldDefinition:04000122
+ 016b: stloc.s 0B
+ 016d: ldc.i4.0 
+ 016e: stloc.s 0C
+ 0170: ldloc.s 0B
+ 0172: ldloca.s 0C
+ 0174: call System.Threading.Monitor::Enter
+ 0179: nop 
+ 017a: nop 
+ 017b: ldarg.0 
+ 017c: ldfld FieldDefinition:04000121
+ 0181: ldc.i4.0 
+ 0182: ceq 
+ 0184: stloc.s 0D
+ 0186: ldloc.s 0D
+ 0188: brfalse.s 09
+ 018a: nop 
+ 018b: ldarg.0 
+ 018c: ldc.i4.1 
+ 018d: stfld FieldDefinition:04000121
+ 0192: nop 
+ 0193: nop 
+ 0194: leave.s 0D
+ 0196: ldloc.s 0C
+ 0198: brfalse.s 08
+ 019a: ldloc.s 0B
+ 019c: call System.Threading.Monitor::Exit
+ 01a1: nop 
+ 01a2: endfinally 
+ 01a3: nop 
+ 01a4: leave.s 0B
+ 01a6: ldloc.0 
+ 01a7: brfalse.s 07
+ 01a9: ldloc.0 
+ 01aa: callvirt System.IDisposable::Dispose
+ 01af: nop 
+ 01b0: endfinally 
+ 01b1: ret 
+METHOD 06000208 Tizen.TV.Service.CoBA.Core.ComponentManagerCache::Save
+ 0000: nop 
+ 0001: ldstr "SAVE"
+ 0006: ldstr "Save"
+ 000b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0010: ldc.i4 C2000000
+ 0015: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 001a: stloc.0 
+ 001b: nop 
+ 001c: ldnull 
+ 001d: stloc.1 
+ 001e: ldarg.0 
+ 001f: ldfld FieldDefinition:0400011f
+ 0024: stloc.2 
+ 0025: ldc.i4.0 
+ 0026: stloc.3 
+ 0027: ldloc.2 
+ 0028: ldloca.s 03
+ 002a: call System.Threading.Monitor::Enter
+ 002f: nop 
+ 0030: nop 
+ 0031: ldarg.0 
+ 0032: ldfld FieldDefinition:0400011f
+ 0037: newobj TypeSpecification:1b00007e::.ctor
+ 003c: stloc.1 
+ 003d: nop 
+ 003e: leave.s 0B
+ 0040: ldloc.3 
+ 0041: brfalse.s 07
+ 0043: ldloc.2 
+ 0044: call System.Threading.Monitor::Exit
+ 0049: nop 
+ 004a: endfinally 
+ 004b: ldarg.0 
+ 004c: ldfld FieldDefinition:04000122
+ 0051: stloc.s 04
+ 0053: ldc.i4.0 
+ 0054: stloc.s 05
+ 0056: ldloc.s 04
+ 0058: ldloca.s 05
+ 005a: call System.Threading.Monitor::Enter
+ 005f: nop 
+ 0060: nop 
+ 0061: ldarg.0 
+ 0062: ldc.i4.0 
+ 0063: stfld FieldDefinition:04000121
+ 0068: nop 
+ 0069: leave.s 0D
+ 006b: ldloc.s 05
+ 006d: brfalse.s 08
+ 006f: ldloc.s 04
+ 0071: call System.Threading.Monitor::Exit
+ 0076: nop 
+ 0077: endfinally 
+ 0078: nop 
+ 0079: nop 
+ 007a: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 007f: ldarg.0 
+ 0080: ldfld FieldDefinition:0400011d
+ 0085: call System.String::Concat
+ 008a: newobj Tizen.TV.Service.CoBA.Common.FSStreamWriter::.ctor
+ 008f: stloc.s 06
+ 0091: nop 
+ 0092: ldloc.s 06
+ 0094: ldarg.0 
+ 0095: ldfld FieldDefinition:0400011e
+ 009a: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 009f: nop 
+ 00a0: nop 
+ 00a1: ldloc.1 
+ 00a2: callvirt TypeSpecification:1b00007e::GetEnumerator
+ 00a7: stloc.s 07
+ 00a9: br AE000000
+ 00ae: ldloca.s 07
+ 00b0: call TypeSpecification:1b000080::get_Current
+ 00b5: stloc.s 08
+ 00b7: nop 
+ 00b8: ldloc.s 06
+ 00ba: ldloca.s 08
+ 00bc: call TypeSpecification:1b000081::get_Key
+ 00c1: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 00c6: nop 
+ 00c7: ldloc.s 06
+ 00c9: ldloca.s 08
+ 00cb: call TypeSpecification:1b000081::get_Value
+ 00d0: callvirt TypeSpecification:1b00007f::get_Count
+ 00d5: stloc.s 09
+ 00d7: ldloca.s 09
+ 00d9: call System.Int32::ToString
+ 00de: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 00e3: nop 
+ 00e4: nop 
+ 00e5: ldloca.s 08
+ 00e7: call TypeSpecification:1b000081::get_Value
+ 00ec: callvirt TypeSpecification:1b00007f::GetEnumerator
+ 00f1: stloc.s 0A
+ 00f3: br.s 4C
+ 00f5: ldloca.s 0A
+ 00f7: call TypeSpecification:1b000082::get_Current
+ 00fc: stloc.s 0B
+ 00fe: nop 
+ 00ff: ldloc.s 06
+ 0101: ldloc.s 0B
+ 0103: ldflda FieldDefinition:0400047a
+ 0108: call System.Int32::ToString
+ 010d: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 0112: nop 
+ 0113: ldloc.s 06
+ 0115: ldloc.s 0B
+ 0117: ldfld FieldDefinition:0400047b
+ 011c: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 0121: nop 
+ 0122: ldloc.s 06
+ 0124: ldloc.s 0B
+ 0126: ldfld FieldDefinition:0400047c
+ 012b: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 0130: nop 
+ 0131: ldloc.s 06
+ 0133: ldloc.s 0B
+ 0135: ldfld FieldDefinition:0400047d
+ 013a: callvirt Tizen.TV.Service.CoBA.Common.FSStreamWriter::WriteLine
+ 013f: nop 
+ 0140: nop 
+ 0141: ldloca.s 0A
+ 0143: call TypeSpecification:1b000082::MoveNext
+ 0148: brtrue.s AB
+ 014a: leave.s 0F
+ 014c: ldloca.s 0A
+ 014e: constrained. TypeSpecification:1b000082
+ 0154: callvirt System.IDisposable::Dispose
+ 0159: nop 
+ 015a: endfinally 
+ 015b: nop 
+ 015c: ldloca.s 07
+ 015e: call TypeSpecification:1b000080::MoveNext
+ 0163: brtrue 46FFFFFF
+ 0168: leave.s 0F
+ 016a: ldloca.s 07
+ 016c: constrained. TypeSpecification:1b000080
+ 0172: callvirt System.IDisposable::Dispose
+ 0177: nop 
+ 0178: endfinally 
+ 0179: nop 
+ 017a: leave.s 0D
+ 017c: ldloc.s 06
+ 017e: brfalse.s 08
+ 0180: ldloc.s 06
+ 0182: callvirt System.IDisposable::Dispose
+ 0187: nop 
+ 0188: endfinally 
+ 0189: nop 
+ 018a: leave.s 7F
+ 018c: stloc.s 0C
+ 018e: nop 
+ 018f: ldstr "Can\u0027t write the componentCache, %s1%s2 : %s3"
+ 0194: ldc.i4 7F969800
+ 0199: conv.i8 
+ 019a: ldc.i4 7F969800
+ 019f: conv.i8 
+ 01a0: ldc.i4 7F969800
+ 01a5: conv.i8 
+ 01a6: ldc.i4 7F969800
+ 01ab: conv.i8 
+ 01ac: ldc.i4 7F969800
+ 01b1: conv.i8 
+ 01b2: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 01b7: ldarg.0 
+ 01b8: ldfld FieldDefinition:0400011d
+ 01bd: ldloc.s 0C
+ 01bf: callvirt System.Exception::get_Message
+ 01c4: ldnull 
+ 01c5: ldnull 
+ 01c6: ldc.r8 000000E0CF126341
+ 01cf: ldc.r8 000000E0CF126341
+ 01d8: ldc.r8 000000E0CF126341
+ 01e1: ldc.r8 000000E0CF126341
+ 01ea: ldc.r8 000000E0CF126341
+ 01f3: ldstr "Save"
+ 01f8: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 01fd: ldc.i4 E6000000
+ 0202: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0207: nop 
+ 0208: nop 
+ 0209: leave.s 00
+ 020b: nop 
+ 020c: leave.s 0B
+ 020e: ldloc.0 
+ 020f: brfalse.s 07
+ 0211: ldloc.0 
+ 0212: callvirt System.IDisposable::Dispose
+ 0217: nop 
+ 0218: endfinally 
+ 0219: ret 
+METHOD 06000209 Tizen.TV.Service.CoBA.Core.ComponentManagerCache::CheckVersion
+ 0000: nop 
+ 0001: ldnull 
+ 0002: stloc.0 
+ 0003: ldarg.0 
+ 0004: ldfld FieldDefinition:0400011f
+ 0009: stloc.1 
+ 000a: ldc.i4.0 
+ 000b: stloc.2 
+ 000c: ldloc.1 
+ 000d: ldloca.s 02
+ 000f: call System.Threading.Monitor::Enter
+ 0014: nop 
+ 0015: nop 
+ 0016: ldarg.0 
+ 0017: ldfld FieldDefinition:0400011f
+ 001c: newobj TypeSpecification:1b00007e::.ctor
+ 0021: stloc.0 
+ 0022: nop 
+ 0023: leave.s 0B
+ 0025: ldloc.2 
+ 0026: brfalse.s 07
+ 0028: ldloc.1 
+ 0029: call System.Threading.Monitor::Exit
+ 002e: nop 
+ 002f: endfinally 
+ 0030: ldarg.1 
+ 0031: ldfld FieldDefinition:040000fe
+ 0036: stloc.3 
+ 0037: ldc.i4.0 
+ 0038: stloc.s 04
+ 003a: ldloc.3 
+ 003b: ldloca.s 04
+ 003d: call System.Threading.Monitor::Enter
+ 0042: nop 
+ 0043: nop 
+ 0044: nop 
+ 0045: ldarg.1 
+ 0046: ldfld FieldDefinition:040000fe
+ 004b: callvirt TypeSpecification:1b00006b::GetEnumerator
+ 0050: stloc.s 05
+ 0052: br 79020000
+ 0057: ldloca.s 05
+ 0059: call TypeSpecification:1b000077::get_Current
+ 005e: stloc.s 06
+ 0060: nop 
+ 0061: ldloc.0 
+ 0062: ldloca.s 06
+ 0064: call TypeSpecification:1b000078::get_Key
+ 0069: callvirt TypeSpecification:1b00007e::ContainsKey
+ 006e: stloc.s 07
+ 0070: ldloc.s 07
+ 0072: brfalse AC010000
+ 0077: nop 
+ 0078: ldloca.s 06
+ 007a: call TypeSpecification:1b000078::get_Value
+ 007f: ldc.i4.0 
+ 0080: callvirt TypeSpecification:1b00006c::get_Item
+ 0085: ldfld FieldDefinition:040000fa
+ 008a: call System.String::IsNullOrEmpty
+ 008f: brfalse.s 1F
+ 0091: ldloc.0 
+ 0092: ldloca.s 06
+ 0094: call TypeSpecification:1b000078::get_Key
+ 0099: callvirt TypeSpecification:1b00007e::get_Item
+ 009e: ldc.i4.0 
+ 009f: callvirt TypeSpecification:1b00007f::get_Item
+ 00a4: ldfld FieldDefinition:0400047c
+ 00a9: call System.String::IsNullOrEmpty
+ 00ae: br.s 01
+ 00b0: ldc.i4.0 
+ 00b1: stloc.s 08
+ 00b3: ldloc.s 08
+ 00b5: brfalse.s 3C
+ 00b7: nop 
+ 00b8: ldloca.s 06
+ 00ba: call TypeSpecification:1b000078::get_Value
+ 00bf: ldc.i4.0 
+ 00c0: callvirt TypeSpecification:1b00006c::get_Item
+ 00c5: ldfld FieldDefinition:040000fd
+ 00ca: ldloc.0 
+ 00cb: ldloca.s 06
+ 00cd: call TypeSpecification:1b000078::get_Key
+ 00d2: callvirt TypeSpecification:1b00007e::get_Item
+ 00d7: ldc.i4.0 
+ 00d8: callvirt TypeSpecification:1b00007f::get_Item
+ 00dd: ldfld FieldDefinition:0400047a
+ 00e2: ceq 
+ 00e4: stloc.s 09
+ 00e6: ldloc.s 09
+ 00e8: brfalse.s 06
+ 00ea: nop 
+ 00eb: br E0010000
+ 00f0: nop 
+ 00f1: br.s 6A
+ 00f3: ldloca.s 06
+ 00f5: call TypeSpecification:1b000078::get_Value
+ 00fa: ldc.i4.0 
+ 00fb: callvirt TypeSpecification:1b00006c::get_Item
+ 0100: ldfld FieldDefinition:040000fd
+ 0105: ldloc.0 
+ 0106: ldloca.s 06
+ 0108: call TypeSpecification:1b000078::get_Key
+ 010d: callvirt TypeSpecification:1b00007e::get_Item
+ 0112: ldc.i4.0 
+ 0113: callvirt TypeSpecification:1b00007f::get_Item
+ 0118: ldfld FieldDefinition:0400047a
+ 011d: bne.un.s 31
+ 011f: ldloca.s 06
+ 0121: call TypeSpecification:1b000078::get_Value
+ 0126: ldc.i4.0 
+ 0127: callvirt TypeSpecification:1b00006c::get_Item
+ 012c: ldfld FieldDefinition:040000fa
+ 0131: ldloc.0 
+ 0132: ldloca.s 06
+ 0134: call TypeSpecification:1b000078::get_Key
+ 0139: callvirt TypeSpecification:1b00007e::get_Item
+ 013e: ldc.i4.0 
+ 013f: callvirt TypeSpecification:1b00007f::get_Item
+ 0144: ldfld FieldDefinition:0400047c
+ 0149: call System.String::op_Equality
+ 014e: br.s 01
+ 0150: ldc.i4.0 
+ 0151: stloc.s 0A
+ 0153: ldloc.s 0A
+ 0155: brfalse.s 06
+ 0157: nop 
+ 0158: br 73010000
+ 015d: ldstr "VERSION MISMATCH:%s1, New:%d1 (%s2), Cached:%d2 (%s3)"
+ 0162: ldloca.s 06
+ 0164: call TypeSpecification:1b000078::get_Key
+ 0169: stloc.s 0B
+ 016b: ldloca.s 06
+ 016d: call TypeSpecification:1b000078::get_Value
+ 0172: ldc.i4.0 
+ 0173: callvirt TypeSpecification:1b00006c::get_Item
+ 0178: ldfld FieldDefinition:040000fd
+ 017d: conv.i8 
+ 017e: ldloca.s 06
+ 0180: call TypeSpecification:1b000078::get_Value
+ 0185: ldc.i4.0 
+ 0186: callvirt TypeSpecification:1b00006c::get_Item
+ 018b: ldfld FieldDefinition:040000fa
+ 0190: stloc.s 0C
+ 0192: ldloc.0 
+ 0193: ldloca.s 06
+ 0195: call TypeSpecification:1b000078::get_Key
+ 019a: callvirt TypeSpecification:1b00007e::get_Item
+ 019f: ldc.i4.0 
+ 01a0: callvirt TypeSpecification:1b00007f::get_Item
+ 01a5: ldfld FieldDefinition:0400047a
+ 01aa: conv.i8 
+ 01ab: ldc.i4 7F969800
+ 01b0: conv.i8 
+ 01b1: ldc.i4 7F969800
+ 01b6: conv.i8 
+ 01b7: ldc.i4 7F969800
+ 01bc: conv.i8 
+ 01bd: ldloc.s 0B
+ 01bf: ldloc.s 0C
+ 01c1: ldloc.0 
+ 01c2: ldloca.s 06
+ 01c4: call TypeSpecification:1b000078::get_Key
+ 01c9: callvirt TypeSpecification:1b00007e::get_Item
+ 01ce: ldc.i4.0 
+ 01cf: callvirt TypeSpecification:1b00007f::get_Item
+ 01d4: ldfld FieldDefinition:0400047c
+ 01d9: ldnull 
+ 01da: ldnull 
+ 01db: ldc.r8 000000E0CF126341
+ 01e4: ldc.r8 000000E0CF126341
+ 01ed: ldc.r8 000000E0CF126341
+ 01f6: ldc.r8 000000E0CF126341
+ 01ff: ldc.r8 000000E0CF126341
+ 0208: ldstr "CheckVersion"
+ 020d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0212: ldc.i4 05010000
+ 0217: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 021c: nop 
+ 021d: nop 
+ 021e: br A5000000
+ 0223: nop 
+ 0224: ldstr "COMP:%s1/%d1 (%s2, %s3) is not founded in Cache"
+ 0229: ldloca.s 06
+ 022b: call TypeSpecification:1b000078::get_Key
+ 0230: stloc.s 0C
+ 0232: ldloca.s 06
+ 0234: call TypeSpecification:1b000078::get_Value
+ 0239: ldc.i4.0 
+ 023a: callvirt TypeSpecification:1b00006c::get_Item
+ 023f: ldfld FieldDefinition:040000fd
+ 0244: conv.i8 
+ 0245: ldc.i4 7F969800
+ 024a: conv.i8 
+ 024b: ldc.i4 7F969800
+ 0250: conv.i8 
+ 0251: ldc.i4 7F969800
+ 0256: conv.i8 
+ 0257: ldc.i4 7F969800
+ 025c: conv.i8 
+ 025d: ldloc.s 0C
+ 025f: ldloca.s 06
+ 0261: call TypeSpecification:1b000078::get_Value
+ 0266: ldc.i4.0 
+ 0267: callvirt TypeSpecification:1b00006c::get_Item
+ 026c: ldfld FieldDefinition:040000f9
+ 0271: ldloca.s 06
+ 0273: call TypeSpecification:1b000078::get_Value
+ 0278: ldc.i4.0 
+ 0279: callvirt TypeSpecification:1b00006c::get_Item
+ 027e: ldfld FieldDefinition:040000fa
+ 0283: ldnull 
+ 0284: ldnull 
+ 0285: ldc.r8 000000E0CF126341
+ 028e: ldc.r8 000000E0CF126341
+ 0297: ldc.r8 000000E0CF126341
+ 02a0: ldc.r8 000000E0CF126341
+ 02a9: ldc.r8 000000E0CF126341
+ 02b2: ldstr "CheckVersion"
+ 02b7: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 02bc: ldc.i4 09010000
+ 02c1: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 02c6: nop 
+ 02c7: nop 
+ 02c8: ldc.i4.0 
+ 02c9: stloc.s 0D
+ 02cb: leave 9B000000
+ 02d0: ldloca.s 05
+ 02d2: call TypeSpecification:1b000077::MoveNext
+ 02d7: brtrue 7BFDFFFF
+ 02dc: leave.s 0F
+ 02de: ldloca.s 05
+ 02e0: constrained. TypeSpecification:1b000077
+ 02e6: callvirt System.IDisposable::Dispose
+ 02eb: nop 
+ 02ec: endfinally 
+ 02ed: nop 
+ 02ee: leave.s 0C
+ 02f0: ldloc.s 04
+ 02f2: brfalse.s 07
+ 02f4: ldloc.3 
+ 02f5: call System.Threading.Monitor::Exit
+ 02fa: nop 
+ 02fb: endfinally 
+ 02fc: ldstr "VERSION MATCH"
+ 0301: ldc.i4 7F969800
+ 0306: conv.i8 
+ 0307: ldc.i4 7F969800
+ 030c: conv.i8 
+ 030d: ldc.i4 7F969800
+ 0312: conv.i8 
+ 0313: ldc.i4 7F969800
+ 0318: conv.i8 
+ 0319: ldc.i4 7F969800
+ 031e: conv.i8 
+ 031f: ldnull 
+ 0320: ldnull 
+ 0321: ldnull 
+ 0322: ldnull 
+ 0323: ldnull 
+ 0324: ldc.r8 000000E0CF126341
+ 032d: ldc.r8 000000E0CF126341
+ 0336: ldc.r8 000000E0CF126341
+ 033f: ldc.r8 000000E0CF126341
+ 0348: ldc.r8 000000E0CF126341
+ 0351: ldstr "CheckVersion"
+ 0356: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 035b: ldc.i4 0E010000
+ 0360: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0365: nop 
+ 0366: ldc.i4.1 
+ 0367: stloc.s 0D
+ 0369: br.s 00
+ 036b: ldloc.s 0D
+ 036d: ret 
+METHOD 0600020a Tizen.TV.Service.CoBA.Core.ComponentManagerCache::IsEmpty
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:0400011f
+ 0007: callvirt TypeSpecification:1b00007e::get_Count
+ 000c: brfalse.s 03
+ 000e: ldc.i4.0 
+ 000f: br.s 01
+ 0011: ldc.i4.1 
+ 0012: stloc.0 
+ 0013: ldstr "IsEmpty:%s1"
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldc.i4 7F969800
+ 0029: conv.i8 
+ 002a: ldc.i4 7F969800
+ 002f: conv.i8 
+ 0030: ldc.i4 7F969800
+ 0035: conv.i8 
+ 0036: ldloc.0 
+ 0037: brtrue.s 07
+ 0039: ldstr "F"
+ 003e: br.s 05
+ 0040: ldstr "T"
+ 0045: ldnull 
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldc.r8 000000E0CF126341
+ 0064: ldc.r8 000000E0CF126341
+ 006d: ldc.r8 000000E0CF126341
+ 0076: ldstr "IsEmpty"
+ 007b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0080: ldc.i4 15010000
+ 0085: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008a: nop 
+ 008b: ldloc.0 
+ 008c: stloc.1 
+ 008d: br.s 00
+ 008f: ldloc.1 
+ 0090: ret 
+METHOD 0600020b Tizen.TV.Service.CoBA.Core.ComponentManagerCache::GetPackageVersion
+ 0000: nop 
+ 0001: ldstr ""
+ 0006: stloc.0 
+ 0007: ldarg.0 
+ 0008: stloc.1 
+ 0009: ldc.i4.0 
+ 000a: stloc.2 
+ 000b: ldloc.1 
+ 000c: ldloca.s 02
+ 000e: call System.Threading.Monitor::Enter
+ 0013: nop 
+ 0014: nop 
+ 0015: ldarg.0 
+ 0016: ldfld FieldDefinition:04000120
+ 001b: ldarg.1 
+ 001c: ldloca.s 00
+ 001e: callvirt TypeSpecification:1b000029::TryGetValue
+ 0023: stloc.3 
+ 0024: ldstr "[%d1] PackageID:%s1 Version:%s2"
+ 0029: ldloc.3 
+ 002a: brtrue.s 03
+ 002c: ldc.i4.0 
+ 002d: br.s 01
+ 002f: ldc.i4.1 
+ 0030: conv.i8 
+ 0031: ldc.i4 7F969800
+ 0036: conv.i8 
+ 0037: ldc.i4 7F969800
+ 003c: conv.i8 
+ 003d: ldc.i4 7F969800
+ 0042: conv.i8 
+ 0043: ldc.i4 7F969800
+ 0048: conv.i8 
+ 0049: ldarg.1 
+ 004a: ldloc.0 
+ 004b: ldnull 
+ 004c: ldnull 
+ 004d: ldnull 
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldc.r8 000000E0CF126341
+ 0072: ldc.r8 000000E0CF126341
+ 007b: ldstr "GetPackageVersion"
+ 0080: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0085: ldc.i4 1F010000
+ 008a: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008f: nop 
+ 0090: nop 
+ 0091: leave.s 0B
+ 0093: ldloc.2 
+ 0094: brfalse.s 07
+ 0096: ldloc.1 
+ 0097: call System.Threading.Monitor::Exit
+ 009c: nop 
+ 009d: endfinally 
+ 009e: ldloc.0 
+ 009f: stloc.s 04
+ 00a1: br.s 00
+ 00a3: ldloc.s 04
+ 00a5: ret 
+METHOD 0600020c Tizen.TV.Service.CoBA.Core.ComponentManagerCache::GetPackageId
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b00007f::.ctor
+ 0006: stloc.0 
+ 0007: ldc.i4.0 
+ 0008: stloc.1 
+ 0009: ldstr ""
+ 000e: stloc.2 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:0400011f
+ 0015: stloc.3 
+ 0016: ldc.i4.0 
+ 0017: stloc.s 04
+ 0019: ldloc.3 
+ 001a: ldloca.s 04
+ 001c: call System.Threading.Monitor::Enter
+ 0021: nop 
+ 0022: nop 
+ 0023: ldarg.0 
+ 0024: ldfld FieldDefinition:0400011f
+ 0029: dup 
+ 002a: brtrue.s 03
+ 002c: pop 
+ 002d: br.s 09
+ 002f: ldarg.1 
+ 0030: ldloca.s 00
+ 0032: call TypeSpecification:1b00007e::TryGetValue
+ 0037: pop 
+ 0038: nop 
+ 0039: leave.s 0C
+ 003b: ldloc.s 04
+ 003d: brfalse.s 07
+ 003f: ldloc.3 
+ 0040: call System.Threading.Monitor::Exit
+ 0045: nop 
+ 0046: endfinally 
+ 0047: ldloc.0 
+ 0048: brfalse.s 0B
+ 004a: ldloc.0 
+ 004b: callvirt TypeSpecification:1b00007f::get_Count
+ 0050: ldc.i4.0 
+ 0051: ceq 
+ 0053: br.s 01
+ 0055: ldc.i4.1 
+ 0056: stloc.s 05
+ 0058: ldloc.s 05
+ 005a: brfalse.s 73
+ 005c: nop 
+ 005d: ldstr "Can\u0027t find package for [%s1]"
+ 0062: ldc.i4 7F969800
+ 0067: conv.i8 
+ 0068: ldc.i4 7F969800
+ 006d: conv.i8 
+ 006e: ldc.i4 7F969800
+ 0073: conv.i8 
+ 0074: ldc.i4 7F969800
+ 0079: conv.i8 
+ 007a: ldc.i4 7F969800
+ 007f: conv.i8 
+ 0080: ldarg.1 
+ 0081: ldnull 
+ 0082: ldnull 
+ 0083: ldnull 
+ 0084: ldnull 
+ 0085: ldc.r8 000000E0CF126341
+ 008e: ldc.r8 000000E0CF126341
+ 0097: ldc.r8 000000E0CF126341
+ 00a0: ldc.r8 000000E0CF126341
+ 00a9: ldc.r8 000000E0CF126341
+ 00b2: ldstr "GetPackageId"
+ 00b7: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 00bc: ldc.i4 31010000
+ 00c1: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00c6: nop 
+ 00c7: ldnull 
+ 00c8: stloc.s 06
+ 00ca: br C1000000
+ 00cf: nop 
+ 00d0: ldloc.0 
+ 00d1: callvirt TypeSpecification:1b00007f::GetEnumerator
+ 00d6: stloc.s 07
+ 00d8: br.s 2D
+ 00da: ldloca.s 07
+ 00dc: call TypeSpecification:1b000082::get_Current
+ 00e1: stloc.s 08
+ 00e3: nop 
+ 00e4: ldloc.1 
+ 00e5: ldloc.s 08
+ 00e7: ldfld FieldDefinition:0400047a
+ 00ec: clt 
+ 00ee: stloc.s 09
+ 00f0: ldloc.s 09
+ 00f2: brfalse.s 12
+ 00f4: nop 
+ 00f5: ldloc.s 08
+ 00f7: ldfld FieldDefinition:0400047a
+ 00fc: stloc.1 
+ 00fd: ldloc.s 08
+ 00ff: ldfld FieldDefinition:0400047b
+ 0104: stloc.2 
+ 0105: nop 
+ 0106: nop 
+ 0107: ldloca.s 07
+ 0109: call TypeSpecification:1b000082::MoveNext
+ 010e: brtrue.s CA
+ 0110: leave.s 0F
+ 0112: ldloca.s 07
+ 0114: constrained. TypeSpecification:1b000082
+ 011a: callvirt System.IDisposable::Dispose
+ 011f: nop 
+ 0120: endfinally 
+ 0121: ldstr "PackageID:%s1"
+ 0126: ldc.i4 7F969800
+ 012b: conv.i8 
+ 012c: ldc.i4 7F969800
+ 0131: conv.i8 
+ 0132: ldc.i4 7F969800
+ 0137: conv.i8 
+ 0138: ldc.i4 7F969800
+ 013d: conv.i8 
+ 013e: ldc.i4 7F969800
+ 0143: conv.i8 
+ 0144: ldloc.2 
+ 0145: ldnull 
+ 0146: ldnull 
+ 0147: ldnull 
+ 0148: ldnull 
+ 0149: ldc.r8 000000E0CF126341
+ 0152: ldc.r8 000000E0CF126341
+ 015b: ldc.r8 000000E0CF126341
+ 0164: ldc.r8 000000E0CF126341
+ 016d: ldc.r8 000000E0CF126341
+ 0176: ldstr "GetPackageId"
+ 017b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 0180: ldc.i4 3D010000
+ 0185: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 018a: nop 
+ 018b: ldloc.2 
+ 018c: stloc.s 06
+ 018e: br.s 00
+ 0190: ldloc.s 06
+ 0192: ret 
+METHOD 0600020d Tizen.TV.Service.CoBA.Core.ComponentManagerCache::GetDllPath
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b00007f::.ctor
+ 0006: stloc.0 
+ 0007: ldarg.0 
+ 0008: ldfld FieldDefinition:0400011f
+ 000d: stloc.2 
+ 000e: ldc.i4.0 
+ 000f: stloc.3 
+ 0010: ldloc.2 
+ 0011: ldloca.s 03
+ 0013: call System.Threading.Monitor::Enter
+ 0018: nop 
+ 0019: nop 
+ 001a: ldarg.0 
+ 001b: ldfld FieldDefinition:0400011f
+ 0020: dup 
+ 0021: brtrue.s 03
+ 0023: pop 
+ 0024: br.s 09
+ 0026: ldarg.1 
+ 0027: ldloca.s 00
+ 0029: call TypeSpecification:1b00007e::TryGetValue
+ 002e: pop 
+ 002f: nop 
+ 0030: leave.s 0B
+ 0032: ldloc.3 
+ 0033: brfalse.s 07
+ 0035: ldloc.2 
+ 0036: call System.Threading.Monitor::Exit
+ 003b: nop 
+ 003c: endfinally 
+ 003d: ldloc.0 
+ 003e: brfalse.s 0B
+ 0040: ldloc.0 
+ 0041: callvirt TypeSpecification:1b00007f::get_Count
+ 0046: ldc.i4.0 
+ 0047: ceq 
+ 0049: br.s 01
+ 004b: ldc.i4.1 
+ 004c: stloc.s 04
+ 004e: ldloc.s 04
+ 0050: brfalse.s 73
+ 0052: nop 
+ 0053: ldstr "Can\u0027t find package for [%s1]"
+ 0058: ldc.i4 7F969800
+ 005d: conv.i8 
+ 005e: ldc.i4 7F969800
+ 0063: conv.i8 
+ 0064: ldc.i4 7F969800
+ 0069: conv.i8 
+ 006a: ldc.i4 7F969800
+ 006f: conv.i8 
+ 0070: ldc.i4 7F969800
+ 0075: conv.i8 
+ 0076: ldarg.1 
+ 0077: ldnull 
+ 0078: ldnull 
+ 0079: ldnull 
+ 007a: ldnull 
+ 007b: ldc.r8 000000E0CF126341
+ 0084: ldc.r8 000000E0CF126341
+ 008d: ldc.r8 000000E0CF126341
+ 0096: ldc.r8 000000E0CF126341
+ 009f: ldc.r8 000000E0CF126341
+ 00a8: ldstr "GetDllPath"
+ 00ad: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 00b2: ldc.i4 4C010000
+ 00b7: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00bc: nop 
+ 00bd: ldnull 
+ 00be: stloc.s 05
+ 00c0: br CC000000
+ 00c5: ldloc.0 
+ 00c6: ldsfld FieldDefinition:0400047f
+ 00cb: dup 
+ 00cc: brtrue.s 17
+ 00ce: pop 
+ 00cf: ldsfld FieldDefinition:0400047e
+ 00d4: ldftn <GetDllPath>b__15_0
+ 00da: newobj TypeSpecification:1b000083::.ctor
+ 00df: dup 
+ 00e0: stsfld FieldDefinition:0400047f
+ 00e5: callvirt TypeSpecification:1b00007f::ConvertAll
+ 00ea: stloc.1 
+ 00eb: ldloc.1 
+ 00ec: brfalse.s 27
+ 00ee: ldloc.1 
+ 00ef: ldsfld FieldDefinition:04000480
+ 00f4: dup 
+ 00f5: brtrue.s 17
+ 00f7: pop 
+ 00f8: ldsfld FieldDefinition:0400047e
+ 00fd: ldftn <GetDllPath>b__15_1
+ 0103: newobj TypeSpecification:1b000084::.ctor
+ 0108: dup 
+ 0109: stsfld FieldDefinition:04000480
+ 010e: call System.Linq.Enumerable::All
+ 0113: br.s 01
+ 0115: ldc.i4.0 
+ 0116: stloc.s 06
+ 0118: ldloc.s 06
+ 011a: brfalse.s 70
+ 011c: nop 
+ 011d: ldstr "All dll paths are invalid in the package."
+ 0122: ldc.i4 7F969800
+ 0127: conv.i8 
+ 0128: ldc.i4 7F969800
+ 012d: conv.i8 
+ 012e: ldc.i4 7F969800
+ 0133: conv.i8 
+ 0134: ldc.i4 7F969800
+ 0139: conv.i8 
+ 013a: ldc.i4 7F969800
+ 013f: conv.i8 
+ 0140: ldnull 
+ 0141: ldnull 
+ 0142: ldnull 
+ 0143: ldnull 
+ 0144: ldnull 
+ 0145: ldc.r8 000000E0CF126341
+ 014e: ldc.r8 000000E0CF126341
+ 0157: ldc.r8 000000E0CF126341
+ 0160: ldc.r8 000000E0CF126341
+ 0169: ldc.r8 000000E0CF126341
+ 0172: ldstr "GetDllPath"
+ 0177: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAComponent/ComponentManagerCache.cs"
+ 017c: ldc.i4 54010000
+ 0181: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0186: nop 
+ 0187: ldnull 
+ 0188: stloc.s 05
+ 018a: br.s 05
+ 018c: ldloc.1 
+ 018d: stloc.s 05
+ 018f: br.s 00
+ 0191: ldloc.s 05
+ 0193: ret 
+METHOD 0600020e Tizen.TV.Service.CoBA.Core.ComponentManagerCache::.ctor
+ 0000: ldarg.0 
+ 0001: ldstr "components.cache"
+ 0006: stfld FieldDefinition:0400011d
+ 000b: ldarg.0 
+ 000c: ldstr "5"
+ 0011: stfld FieldDefinition:0400011e
+ 0016: ldarg.0 
+ 0017: newobj TypeSpecification:1b00007e::.ctor
+ 001c: stfld FieldDefinition:0400011f
+ 0021: ldarg.0 
+ 0022: newobj TypeSpecification:1b000029::.ctor
+ 0027: stfld FieldDefinition:04000120
+ 002c: ldarg.0 
+ 002d: ldc.i4.0 
+ 002e: stfld FieldDefinition:04000121
+ 0033: ldarg.0 
+ 0034: newobj System.Object::.ctor
+ 0039: stfld FieldDefinition:04000122
+ 003e: ldarg.0 
+ 003f: call System.Object::.ctor
+ 0044: nop 
+ 0045: ret 

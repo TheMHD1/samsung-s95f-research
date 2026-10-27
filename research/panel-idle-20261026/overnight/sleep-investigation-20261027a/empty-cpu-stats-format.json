@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /sys/kernel/debug/tracing/tracing_on)\" = 0\nfor p in /sys/kernel/debug/tracing/per_cpu/cpu*/stats; do echo \"$p\"; cat \"$p\"; done\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "/sys/kernel/debug/tracing/per_cpu/cpu0/stats\nentries: 0\noverrun: 0\ncommit overrun: 0\nbytes: 0\noldest event ts:     0.000000\nnow ts: 95920.350066\ndropped events: 0\nread events: 0\n/sys/kernel/debug/tracing/per_cpu/cpu1/stats\nentries: 0\noverrun: 0\ncommit overrun: 0\nbytes: 0\noldest event ts:     1.209411\nnow ts: 95920.352785\ndropped events: 0\nread events: 0\n/sys/kernel/debug/tracing/per_cpu/cpu2/stats\nentries: 0\noverrun: 0\ncommit overrun: 0\nbytes: 0\noldest event ts:     1.245135\nnow ts: 95920.354721\ndropped events: 0\nread events: 0\n/sys/kernel/debug/tracing/per_cpu/cpu3/stats\nentries: 0\noverrun: 0\ncommit overrun: 0\nbytes: 0\noldest event ts:    47.854113\nnow ts: 95920.356136\ndropped events: 0\nread events: 0\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

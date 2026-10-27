@@ -1,0 +1,52 @@
+{
+  "clarksons_farm_s05e08": {
+    "completed": false,
+    "file_metadata": "4K HDR10+ HEVC Main 10",
+    "metric_omitted": true,
+    "reason": "bounded 25-second low-priority single-thread decode expired before metadata output flushed"
+  },
+  "comparability": {
+    "cross_case_physical_luminance_comparison": false,
+    "reason": "HDR PQ code values are not physical nits and were not tone-mapped or normalized. The SDR YAVG statistics must not be compared with uncollected or raw HDR values."
+  },
+  "method": {
+    "analysis_scale": "160 pixels wide, fast bilinear",
+    "filter": "signalstats",
+    "metric": "8-bit decoded YAVG code value after scaling",
+    "operation": "read-only local decode; no playback session, transcode job, or persistent output",
+    "priority": "nice 19; one decoding thread",
+    "sample_rate_hz": 1,
+    "tool": "existing Jellyfin container ffmpeg",
+    "window_seconds": 60
+  },
+  "observed_utc": "2026-10-27T01:55:24Z",
+  "schema": "ugoos-source-luminance-comparison-v1",
+  "the_americans_s01e01": {
+    "completed": true,
+    "file_metadata": "1080p SDR H.264",
+    "first_ten_yavg": [
+      16,
+      16,
+      16.1517,
+      16.9189,
+      16.919,
+      16,
+      17.2788,
+      17.6172,
+      17.617,
+      16
+    ],
+    "frame_count": 60,
+    "wall_seconds": 14.66,
+    "yavg": {
+      "all_max": 58.1986,
+      "all_mean": 36.4619,
+      "all_min": 16.0,
+      "seconds_0_9_max": 17.6172,
+      "seconds_0_9_mean": 16.6503,
+      "seconds_0_9_min": 16.0,
+      "seconds_10_29_mean": 39.1242,
+      "seconds_30_59_mean": 41.2909
+    }
+  }
+}

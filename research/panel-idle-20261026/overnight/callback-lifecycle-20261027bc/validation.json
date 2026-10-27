@@ -1,0 +1,34 @@
+{
+  "descriptor_checks": {
+    "normal_exit": 0,
+    "optimized_exit": 0,
+    "stdout_byte_identical": true
+  },
+  "reenable_checks": [
+    {
+      "exit": 0,
+      "mode": "normal",
+      "stdout_sha256": "594fd42b71faee502b0a3ce57c0f49c5cfdecbbd455ccff0ca5eaf35ecd81b9f"
+    },
+    {
+      "exit": 0,
+      "mode": "optimized",
+      "stdout_sha256": "594fd42b71faee502b0a3ce57c0f49c5cfdecbbd455ccff0ca5eaf35ecd81b9f"
+    }
+  ],
+  "review_corrections": [
+    "ordinary handoff owner disabled in same fault teardown",
+    "two087c reads are distinct from087e clear",
+    "descriptor8 disable/work gated on bit3",
+    "ordinary edge gives no schedule or postfault dispatch guarantee"
+  ],
+  "root_independent_disassembly": [
+    "96d8 teardown",
+    "132c0 callback",
+    "134ac..13551 handoff gates/actions",
+    "1b16e enable arithmetic",
+    "1e7f0..1e809 callback install and enable",
+    "26a90 vector wrapper"
+  ],
+  "target_operations": 0
+}

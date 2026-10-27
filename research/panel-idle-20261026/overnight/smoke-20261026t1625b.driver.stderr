@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1256, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1252, in main
+    run_capture(args.label, args.seconds, smoke_unobserved=args.smoke_unobserved)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1113, in run_capture
+    manifest = parse_manifest(fetch_collector_transport(label, destination))
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 940, in fetch_collector_transport
+    require(not bodies["stderr"], "collector emitted unexpected stderr")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 81, in require
+    raise ValueError(message)
+ValueError: collector emitted unexpected stderr

@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho SNAPSHOT_BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndate -u +%s\necho PROCESSES\nps -eo pid,comm | awk '$2 ~ /^(AVOC|deviced|dotnet|vlog|trace-cmd)$/ {print}'\necho TRACING\nfor p in /sys/kernel/debug/tracing/tracing_on /sys/kernel/debug/tracing/available_tracers /proc/sys/kernel/kptr_restrict /proc/sys/kernel/perf_event_paranoid; do\nif test -r \"$p\"; then echo \"$p\"; cat \"$p\"; fi\ndone\necho CHECKPOINT_CAPABILITIES\nfor p in /sys/kernel/debug/tracing/kprobe_events /sys/kernel/tracing/kprobe_events /proc/kallsyms /sys/kernel/debug/tracing/uprobe_events /sys/kernel/debug/tracing/instances; do\nif test -e \"$p\"; then stat -c '%F %a %n' \"$p\"; else echo \"ABSENT $p\"; fi\ndone\necho FAULT_LOG_TAIL\ndmesg | awk '/ERR DET Status|GetErrDetStatus|RT Protect|m_set_power_control|QDFTcon_SetQdTconPowerControl/ {a[n%60]=$0;n++} END {s=n>60?n-60:0;for(i=s;i<n;i++)print a[i%60];print \"MATCH_COUNT\",n+0}'\necho SNAPSHOT_END\n",
+  "created": "2026-10-27T03:10:25.804161+00:00",
+  "owner_state": "asleep; left panel off via For You; no live visual observer",
+  "scope": "metadata and existing ring log only"
+}

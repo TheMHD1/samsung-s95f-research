@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "echo ENERGY_KEYS; vconftool get -r db/menu | grep -Ei \"eco|energy|ambient|motion_light|brightness_opt|auto_power|no_signal|nosignal|sleep|off_timer|timer_off|power_saving\"; echo OTHER_POWER_KEYS; vconftool get -r db | grep -Ei \"(brightness_opt|eco_sensor|auto_power_off|auto_power_saving|sleep_timer|no_signal_power|off_timer)\" | head -65; echo DATAFW_PATHS; ls /usr/apps/settings-datafw /opt/usr/apps/settings-datafw; echo SETTINGS_LIBS; ls /usr/share/dotnet.tizen/tvappapi | grep -Ei \"setting|datafw|eco\"; echo SETTINGS_SCHEMA; ls /usr/share | grep -Ei \"setting|datafw|buxton\"",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "ENERGY_KEYS\nOTHER_POWER_KEYS\nDATAFW_PATHS\n/opt/usr/apps/settings-datafw:\n\n/usr/apps/settings-datafw:\nbin\nres\nshared\nSETTINGS_LIBS\nTizen.TV.Service.UtteranceRecommender.dll\nTizen.TV.Service.UtteranceRecommender.ni.dll\nSETTINGS_SCHEMA\nlib-keyboardsettings-tv\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

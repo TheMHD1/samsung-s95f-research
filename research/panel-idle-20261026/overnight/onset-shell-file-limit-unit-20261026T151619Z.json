@@ -1,0 +1,23 @@
+{
+  "probe_scope": "Only the child shell and its grep child receive a one-unit file-size resource limit; no regular file is written and no TV setting changes.",
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\n/bin/sh -c 'ulimit -f 1; grep \"^Max file size\" /proc/self/limits'\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 15:16:20 UTC 2026\nMax file size             1024                 1024                 bytes     \n49389.55 184539.63\nMon Oct 26 15:16:20 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

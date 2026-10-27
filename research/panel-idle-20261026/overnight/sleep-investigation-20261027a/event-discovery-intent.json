@@ -1,0 +1,3 @@
+{
+  "command": "set -eu\necho EVENT_DISCOVERY_BEGIN\ncat /proc/uptime\nfor g in sdpsoc sdp_busmon regmap spi smbus drm power rpm printk ftrace user; do\nfor p in /sys/kernel/debug/tracing/events/$g/*/format; do test -f \"$p\" || continue; echo \"$p\"; done\ndone\necho EVENT_DISCOVERY_END\n"
+}

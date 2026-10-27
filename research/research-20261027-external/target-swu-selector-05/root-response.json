@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ncat /proc/uptime\nvconftool get db/menu/support/softwareupdate/isSubmodelKeyType\nls -l /usr/share/org.tizen.tv.swu/itemsAESPassphraseEncrypted.txt /usr/share/org.tizen.tv.swu/itemsSubModelAESPassphraseEncrypted.txt\nsha256sum /usr/share/org.tizen.tv.swu/itemsAESPassphraseEncrypted.txt /usr/share/org.tizen.tv.swu/itemsSubModelAESPassphraseEncrypted.txt\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "163635.32 608749.49\ndb/menu/support/softwareupdate/isSubmodelKeyType, value = False (Boolean)\n-rw-r--r-- 1 owner root 416 2025-11-17 12:30 /usr/share/org.tizen.tv.swu/itemsAESPassphraseEncrypted.txt\n-rw-r--r-- 1 owner root 416 2025-11-17 12:30 /usr/share/org.tizen.tv.swu/itemsSubModelAESPassphraseEncrypted.txt\nd8af420d63b9cb2643783c56ce7396a5fd4d809e48df0bd321781cfd025e8220  /usr/share/org.tizen.tv.swu/itemsAESPassphraseEncrypted.txt\nbb1ab330400743923bd06c3e8479da13ae61e699e2c39fe21227b176ac096e2f  /usr/share/org.tizen.tv.swu/itemsSubModelAESPassphraseEncrypted.txt\n163635.40 608749.66\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,115 @@
+/bin/sh: line 12: strings: command not found
+/bin/sh: line 14: strings: command not found
+
+Guard exit: 0
+{"uid": 0, "euid": 0, "smack": "User", "system_files_unchanged": true, "staging_cleaned": true}
+DEVELOPER_FILE
+-rw-r--r-- 1 5001 system_share 0 2026-10-11 19:23 /home/researcher/apps_rw/com.samsung.tv.store/data/develop_mode
+UNIT_PATHS
+UnitPath=/etc/systemd/system /run/systemd/system /run/systemd/generator /usr/lib/systemd/system /prd/usr/lib/systemd/system /run/systemd/generator.late
+/dev/root / vdfs ro,posixacl,relatime 0 0
+/dev/mmcblk0p21 /opt vdfs rw,posixacl,noatime,dncs 0 0
+HOME_CONTENT
+/opt/usr/apps/com.samsung.tv.coba.newhome/Com.Samsung.TV.CoBA.NewHome.deps.json
+/opt/usr/apps/com.samsung.tv.coba.newhome/author-signature.xml
+/opt/usr/apps/com.samsung.tv.coba.newhome/bin/._TIZEN_DOTNET_SYSTEM_NET_DISABLEIPV6
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/Com.Samsung.TV.CoBA.NewHome.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/Com.Samsung.TV.CoBA.NewHome.pdb
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompDHCategory.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompDHCategory.pdb
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompHome.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompHome.pdb
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompLiveTV.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/CompLiveTV.pdb
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/HomeCommon.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/HomeCommon.pdb
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/ResourceHome.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/ResourceHome.pdb
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/TextResourceHome.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/TextResourceHome.pdb
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/battery_status_bar_w.json
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/charging_battery_status_bar_w.json
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/home_i_icon_app_sort.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/home_i_icon_app_sort_undo.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/home_i_icon_content_lock.webp
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/home_i_icon_cover_recent_normal.webp
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/home_i_icon_cover_recent_nosignal.webp
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/i_icon_function_gototop.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/movingscreen_indicator_ic_bluetooth.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/movingscreen_quicksetting_basic_wifi_signal_0_pure.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/movingscreen_quicksetting_basic_wifi_signal_1_pure.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/movingscreen_quicksetting_basic_wifi_signal_2_pure.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/movingscreen_quicksetting_basic_wifi_signal_3_pure.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/movingscreen_quicksetting_basic_wifi_signal_4_pure.svg
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/recent_black.png
+/opt/usr/apps/com.samsung.tv.coba.newhome/shared/res/saving_battery_status_bar_w.json
+/opt/usr/apps/com.samsung.tv.coba.newhome/tizen-manifest.xml
+HOME_RUNTIME
+<?xml version="1.0" encoding="utf-8"?>
+<manifest  xmlns="http://tizen.org/ns/packages" api-version="6.0" package="com.samsung.tv.home.media" version="3.5.26050">
+  <profile name="tv" />
+  <service-application appid="com.samsung.tv.home.media"
+  				auto-restart="false"
+					exec="HomeMedia.dll"
+					multiple="false"
+					on-boot="false"
+					taskmanage="true"
+					type="dotnet-inhouse">	  
+    <label>HomeMedia</label>
+    <icon>Business.png</icon>
+    <!-- <metadata key="http://tizen.org/metadata/prefer_dotnet_aot" value="true" />--> <!--!Removed as no longer required by default-->
+    <metadata key="http://samsung.com/tv/metadata/built-in-app" value="true" />
+    <metadata key="http://samsung.com/tv/metadata/mountinstall"  value="false" />
+    <metadata key="http://developer.samsung.com/tizen/metadata/smarthubreset" value="{'value':0,'process_name':'com.samsung.tv.home.media','vconf_key':'memory/eden/smarthub_reset_media','action':'restart'}" />
+    <metadata key="http://samsung.com/tv/metadata/application/watchdog.set" value="disable"/>
+    <metadata key="http://tizen.org/metadata/allowedappid" value="org.tizen.was-appupdate"/>
+    <metadata value="none" key="http://samsung.com/tv/metadata/reset"/>
+    <metadata key="http://samsung.com/tv/metadata/background-update" value="inactive"/>
+  </service-application> 
+    <privileges>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        <privilege>http://tizen.org/privilege/network.get</privilege>
+        <privilege>http://tizen.org/privilege/network.set</privilege>
+        <privilege>http://tizen.org/privilege/recorder</privilege>
+        <privilege>http://tizen.org/privilege/network.profile</privilege>
+        <privilege>http://tizen.org/privilege/telephony</privilege>
+        <privilege>http://tizen.org/privilege/packagemanager.info</privilege>
+        <privilege>http://tizen.org/privilege/packagemanager.admin</privilege>
+        <privilege>http://developer.samsung.com/privilege/was.platform</privilege>
+        <privilege>http://developer.samsung.com/privilege/logging</privilege>
+        <privilege>http://developer.samsung.com/privilege/sso.platform</privilege>
+        <privilege>http://developer.samsung.com/privilege/sso.partner</privilege>
+        <privilege>http://tizen.org/privilege/push</privilege>
+        <privilege>http://tizen.org/privilege/notification</privilege>
+        <privilege>http://tizen.org/privilege/datasharing</privilege>
+        <privilege>http://developer.samsung.com/privilege/iot.control</privilege>
+        <privilege>http://tizen.org/privilege/systemsettings.admin</privilege>
+        <privilege>http://developer.samsung.com/privilege/backup_and_restore</privilege>
+        <privilege>http://tizen.org/privilege/keygrab</privilege>
+        <privilege>http://tizen.org/privilege/bluetooth</privilege>
+        <privilege>http://tizen.org/privilege/bluetooth.admin</privilege>
+        <privilege>http://developer.samsung.com/privilege/was</privilege>
+        <privilege>http://developer.samsung.com/privilege/voicecontrol</privilege>
+        <privilege>http://developer.samsung.com/privilege/microphone</privilege>
+        <privilege>http://tizen.org/privilege/account.read</privilege>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+        <privilege>http://tizen.org/privilege/tethering.admin</privilege>
+        <privilege>http://tizen.org/privilege/mediastorage</privilege>
+        <appdefined-privilege>http://com.samsung.tizen.smartthings-client/appdefined/smartthings-client</appdefined-privilege>
+    </privileges>
+    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920">true</feature>
+    <tv-info api-version="12.12.0">
+      <infolink>T-INFOLINK2025-1008</infolink>
+    </tv-info>
+    <requires>
+      <package id="com.samsung.tv.coba.homeversion" storeid="3202410037302" version="1.3.26050"/>
+    </requires>
+</manifest>
+KEY_PATHS
+DEVELOP_PATHS
+ACTIVE_CORE
+active
+inactive
+inactive
+active
+

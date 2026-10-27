@@ -1,0 +1,6 @@
+{
+  "actions": "kernel/device/driver metadata only; no GPIO request or values/config writes",
+  "command": "set -eu\necho META_START; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime; uname -r\necho PINCTRL_DRIVER\nfor p in /sys/bus/platform/devices/4630000.pinctrl/driver /sys/bus/platform/devices/4630000.pinctrl/driver/module /sys/class/gpio/gpiochip120/device; do echo \"$p\"; readlink -f \"$p\" || true; done\necho PINCTRL_DEVICE_METADATA\nfor n in modalias uevent; do p=/sys/bus/platform/devices/4630000.pinctrl/$n; if test -r \"$p\"; then echo \"$n\"; cat \"$p\"; fi; done\necho RELEVANT_MODULES\nawk '/pinctrl|gpio|sdp/ {print}' /proc/modules\necho PINCTRL_CAPABILITIES\nif test -r /sys/kernel/debug/pinctrl/pinctrl-devices; then cat /sys/kernel/debug/pinctrl/pinctrl-devices; else echo UNREADABLE; fi\necho META_END; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\n",
+  "created_utc": "2026-10-26T22:52:51.908385+00:00",
+  "physical_state": "unobserved; visible-control confirmation pending"
+}

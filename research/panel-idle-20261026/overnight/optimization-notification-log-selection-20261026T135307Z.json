@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho BOUNDED_NOTIFICATION_LOG_SELECTION_BEGIN\nvlogutil -v kerneltime -t 3600 | grep -E -i 'normal_off_sensing_required|force_off_sensing_required|reinforce_off_sensing|show_qd_display|NOTIFICATION_QD|1 min timeout|RequestQdDisplayOffSensing|qd_display_request_off_sensing|Off Sensing is canceled|CheckQdDisplayState' | tail -n 250\necho BOUNDED_NOTIFICATION_LOG_SELECTION_END\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "[44390.772] vlog: Start vlogutil(16013) by 16009\n[44397.190] vlog: Write 278837 logs to STDOUT\n",
+        "stdout": "Mon Oct 26 13:53:01 UTC 2026\n00000000-0000-4000-8000-000000000000\n44390.76 165670.22\nBOUNDED_NOTIFICATION_LOG_SELECTION_BEGIN\nBOUNDED_NOTIFICATION_LOG_SELECTION_END\n44397.23 165686.50\nMon Oct 26 13:53:08 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

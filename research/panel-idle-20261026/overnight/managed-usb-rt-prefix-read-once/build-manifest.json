@@ -1,0 +1,62 @@
+{
+  "acceptance_scope": "Exact USB counts and cleanup only; opaque reply, not known-answer validation.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x47012400\",\"operation\":\"opaque-RT-prefix-memory-IN\",\"headerHex\":\"010100000024014720000000\",\"inputLength\":32,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":26,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "files": {
+    "ManagedUsbRtPrefixReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "0a0a1d56cb2957c40df0bb880c902fe6e18b50cc4ca4ba2559570da74329ddde",
+      "size": 16832
+    },
+    "bin/Release/net6.0/ManagedUsbRtPrefixReadOnce.deps.json": {
+      "sha256": "528b7a8c94d8cb65d021a316e7d6df592622128af330be00d9c7597e543d8a75",
+      "size": 448
+    },
+    "bin/Release/net6.0/ManagedUsbRtPrefixReadOnce.dll": {
+      "sha256": "ff9b62ae434b4267c5a12dd6212516992b73fe3000619eecde1dde124afd7e1c",
+      "size": 29184
+    },
+    "bin/Release/net6.0/ManagedUsbRtPrefixReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x47012400",
+  "fixed_length": 32,
+  "fixed_target": "0x101",
+  "header_hex": "010100000024014720000000",
+  "schema": "usb-fixed-rt-prefix-read-build-v1"
+}

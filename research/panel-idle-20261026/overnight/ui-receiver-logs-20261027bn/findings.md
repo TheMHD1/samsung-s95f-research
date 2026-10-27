@@ -1,0 +1,11 @@
+# Existing UI log snapshot: request windows not retained
+
+The unchanged root adapter rejects this log-read record because remote stderr is nonempty. The logger printed start/count banners and VLOG_SET_PID_FILTER: Invalid argument. The requested PID filter therefore did not apply. The original record remains rejected; no process-filtered or complete-capture claim is accepted. One finite retrospective read ran without -s streaming, exited0 and left no background process or target files. No UI, power, settings, controller or vendor-USB operation occurred.
+
+The output was further filtered by an explicit regex and capped to the last45000bytes; the retained stdout is23644bytes. Neither matching-line absence nor the requested900s duration proves coverage. Independent offline firmware_backup_helper review finds retained embedded timestamps158587.188..158619.118 only. BM Apps-key send was158356.98..158357.00 and earlier BI switch-page send157814.65..157814.67. Thus this retained subset begins230.188s after BM and772.538s after BI. It cannot decide delivery or consumption of either request. No retry was made.
+
+Positive rows only: line3 identifies a then-live csfs.dll process. Lines6–7 show another process reading current_fullscreen_appid=com.samsung.tv.csfs at158587.188; this is later liveness/foreground context, not request receipt. Lines23–27 show an unrelated content-service app-not-found at158602.681..685; lines111–113 show a different multiscreen AppControl at158619.082. Neither event is attributable to our requests. Sensitive/URL fields are not reproduced here.
+
+The first tool availability check exited1 at command -v timeout: that utility is unavailable on the TV, and no log reader was started by that check. Cached help already retained on the host established the logger's finite -t option, so the later read used that documented existing snapshot mode.
+
+The owner last confirms screensaver physically visible. Both normal Apps requests returned without managed exception but did not establish visible Apps navigation. No click is requested to expose the still-cached For You page. A future receiver test would need event-time coverage; this retrospective snapshot supplies none.

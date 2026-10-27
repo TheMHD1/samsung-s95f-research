@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho SSB_METADATA_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor p in /dev/ssb1 /dev/ssbs1; do\n if test -e \"$p\"; then stat -c '%n %F %t:%T %u:%g:%a' \"$p\"; else echo \"ABSENT $p\"; fi\ndone\nfor c in /sys/class/usbmisc/ssb1 /sys/class/usbmisc/ssbs1; do\n if test -d \"$c\"; then\n  echo \"CLASS=$c\"\n  readlink -f \"$c\"\n  d=$(readlink -f \"$c/device\")\n  echo \"DEVICE=$d\"\n  for l in \"$c/device/driver\" \"$c/device/driver/module\"; do\n   if test -L \"$l\"; then echo \"$l\"; readlink -f \"$l\"; else echo \"NO_SYMLINK $l\"; fi\n  done\n  if test -r \"$c/uevent\"; then cat \"$c/uevent\"; fi\n  if test -r \"$c/device/uevent\"; then cat \"$c/device/uevent\"; fi\n  for q in \"$d\" \"$d/..\"; do\n   for name in idVendor idProduct manufacturer product bcdDevice bInterfaceClass bInterfaceSubClass bInterfaceProtocol; do\n    if test -r \"$q/$name\"; then echo \"PROPERTY=$q/$name\"; cat \"$q/$name\"; fi\n   done\n  done\n else\n  echo \"ABSENT_CLASS=$c\"\n fi\ndone\necho SSB_METADATA_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "created_utc": "2026-10-26T23:55:03.775337+00:00",
+  "mode": "sysfs/device metadata only, no device open/USB command",
+  "physical_state": "unobserved"
+}

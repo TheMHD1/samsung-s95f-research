@@ -1,0 +1,3 @@
+{
+  "command": "set -eu\necho FORMATS_BEGIN\ncat /proc/uptime\nfor p in /sys/kernel/debug/tracing/events/sdpsoc/sdp_mem_ioctl/format /sys/kernel/debug/tracing/events/sdpsoc/sdp_mem_dbg/format /sys/kernel/debug/tracing/events/sdpsoc/sdp_hwmem_ioctl/format /sys/kernel/debug/tracing/events/sdpsoc/sdp_hwmem_dbg/format /sys/kernel/debug/tracing/events/user/user/format /sys/kernel/debug/tracing/events/printk/console/format; do\necho \"FORMAT $p\"\ncat \"$p\"\ndone\necho FORMATS_END\n"
+}

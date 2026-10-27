@@ -1,0 +1,20 @@
+Collector start is scheduled near 2026-10-26T16:45:54.724742+00:00 with at least ±1.143s clock/transport uncertainty; this is a countdown, not verified readiness. Enter annotations as: picture visible|black reaction_ms=N clock_ms=N (apps/warning/audio/note also accepted).
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1294, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1290, in main
+    run_capture(args.label, args.seconds, smoke_unobserved=args.smoke_unobserved)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1168, in run_capture
+    trace_report = trace_accounting(data["trace"], fd_report["tids"],
+                                    meta["avoc_identity"][0], collector["pid"],
+                                    meta["trace_start"], meta["trace_end"])
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 585, in trace_accounting
+    require(not (inside(begin) and begin["tgid"] == avoc_pid),
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "unclosed AVOC ioctl enter inside capture window")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 81, in require
+    raise ValueError(message)
+ValueError: unclosed AVOC ioctl enter inside capture window

@@ -1,0 +1,9 @@
+{
+  "command": "set -eu\nprintf '@@ BOOT_START\\n'; cat /proc/sys/kernel/random/boot_id\nprintf '@@ TIME_START\\n'; date -u +%s; cat /proc/uptime\nfor rel in '#address-cells' '#size-cells' ranges soc/#address-cells soc/#size-cells soc/ranges soc/compatible soc/name soc/sdp_frc/reg soc/sdp_frc/reg-names soc/sdp_frc/compatible soc/sdp_frc/status; do\n f=/sys/firmware/devicetree/base/$rel\n printf '@@ PROPERTY %s\\n' \"$rel\"\n if test -f \"$f\"; then\n  n=$(wc -c <\"$f\"); test \"$n\" -le 4096\n  printf 'BYTES %s\\n' \"$n\"; sha256sum \"$f\"; base64 \"$f\"\n elif test -e \"$f\"; then printf 'NOT_REGULAR\\n'; else printf 'ABSENT\\n'; fi\n printf '@@ END_PROPERTY\\n'\ndone\nprintf '@@ BOOT_END\\n'; cat /proc/sys/kernel/random/boot_id\nprintf '@@ TIME_END\\n'; date -u +%s; cat /proc/uptime\n",
+  "command_sha256": "62d9424aa25f929210afe4225ea410840dcdcff09f1fc481a367ca0cf6614c2b",
+  "physical_state": "unobserved",
+  "purpose": "One finite passive fixed-path DT parent/resource metadata capture; no hardware register/control access.",
+  "recorded_utc": "2026-10-26T19:12:34.412922+00:00",
+  "retry": false,
+  "timeout": 25
+}

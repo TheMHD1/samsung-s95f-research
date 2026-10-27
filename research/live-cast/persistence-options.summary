@@ -1,0 +1,134 @@
+# Warning: sdbd.service changed on disk, the version systemd has loaded is outdated.
+# This output shows the current version of the unit's original fragment and drop-in files.
+# If fragments or drop-ins were added or removed, they are not properly reflected in this output.
+# Run 'systemctl daemon-reload' to reload units.
+# Warning: sdbd_tcp.socket changed on disk, the version systemd has loaded is outdated.
+# This output shows the current version of the unit's original fragment and drop-in files.
+# If fragments or drop-ins were added or removed, they are not properly reflected in this output.
+# Run 'systemctl daemon-reload' to reload units.
+
+Guard exit: 0
+{"uid": 0, "euid": 0, "smack": "User", "system_files_unchanged": true, "staging_cleaned": true}
+DEVELOPER_KEYS
+vconftool recursive option not supported in Tizen 3.0
+vconftool recursive option not supported in Tizen 3.0
+SDB_UNIT
+# /usr/lib/systemd/system/sdbd.service
+[Unit]
+Description=sdbd
+After=tmp.mount
+
+[Service]
+User=sdk
+Group=sdk
+SmackProcessLabel=System
+EnvironmentFile=-/run/sdbd-env
+#If necessary, Put Environment variable settings in a file like below
+#ExecStartPre=/bin/bash -c "/bin/echo 'SDB_TRACE=all SDBD_LOG_PATH=/tmp' >> /tmp/.sdbdlog.conf"
+Type=notify
+Capabilities=cap_kill,cap_dac_override,cap_setgid,cap_setuid,cap_sys_admin=i
+SecureBits=keep-caps
+PIDFile=/tmp/.sdbd.pid
+RemainAfterExit=yes
+ExecStart=/usr/sbin/sdbd $SDBD_CMDLINE
+USBFunctionDescriptors=/etc/sdbd/descs
+USBFunctionStrings=/etc/sdbd/strs
+
+# /usr/lib/systemd/system/sdbd.service.d/exec.conf
+[Service]
+ExecStart=
+ExecStart=/usr/bin/boostShell -a -r 5 -t 5000 -p /usr/sbin/sdbd $SDBD_CMDLINE
+
+# /usr/lib/systemd/system/sdbd.service.d/restart-on-fail.conf
+[Service]
+RemainAfterExit=no
+Restart=on-failure
+
+# /usr/lib/systemd/system/sdbd_tcp.socket
+[Unit]
+Description=sdbd: TCP socket
+ConditionPathExists=!/home/researcher/apps_rw/com.samsung.tv.store/data/develop_mode
+
+[Socket]
+ListenStream=26101
+SmackLabelIPIn=*
+SmackLabelIPOut=@
+Service=sdbd.service
+
+[Install]
+WantedBy=sockets.target
+
+# /usr/lib/systemd/system/sdbd_tcp.socket.d/store-develop-mode-release.conf
+[Unit]
+ConditionPathExists=
+ConditionPathExists=/home/researcher/apps_rw/com.samsung.tv.store/data/develop_mode
+SDB_CONFIG_REFERENCES
+db/default//ep0
+db/default//ep1
+db/default//ep2
+db/setting/device_name
+db/setting/lock_type
+db/setting/screen_lock_type
+memory/idle_lock/state
+PROBE_PATH
+/opt/usr/home/owner/apps_rw/com.samsung.tv.ghservice/data/researcher-root-suitability.json
+GH_METADATA
+app_id|app_component|app_exec|app_type|app_onboot|app_disable|app_nodisplay|app_autorestart
+com.samsung.tv.ghservice|svcapp|/opt/usr/apps/com.samsung.tv.ghservice/bin/com.samsung.tv.ghservice.dll|dotnet-inhouse|false|false|true|false
+HOME_STATUS
+db/appfw/home_appid, value = HEPsqFNie0.tvplusstandalone (String)
+db/menu/smart_hub/ontvsetting/auto_start, value = 0 (Int32)
+	 appId (PID)
+	  com.samsung.tv.csfs (457)
+	  org.tizen.tv-viewer (447)
+	  org.tizen.volume-app (437)
+	  org.tizen.litewebappservice (672)
+	  com.samsung.tv.home.sidebar (1113)
+	  com.samsung.tv.home.media (1191)
+	  org.tizen.welcome-mode (1421)
+	  org.tizen.ssoservice (1462)
+	  com.samsung.tv.content-tiles-provider (1629)
+	  com.samsung.tv.contentservicemanager (1630)
+	  com.samsung.tv.aoc-enabler (1813)
+	  comss (1840)
+	  com.samsung.tizen.mcf-agent (1863)
+	  com.samsung.tv.MultiControl-Service (2374)
+	  com.samsung.tv.vd-sc-client-service (2403)
+	  com.samsung.tv.iot-hub-control (2421)
+	  com.samsung.tv.lightweight-node-service (2457)
+	  com.samsung.tizen.hrs-agent.storage (2683)
+	  com.samsung.tizen.smartthings-client (2686)
+	  com.samsung.tizen.samsung-cloud (3022)
+	  com.samsung.tv.passthru-service (3110)
+	  com.samsung.tv.cis-api-service-app (3517)
+	  HEPsqFNie0.tvplusstandalone (3579)
+	  com.samsung.tv.quicklaunch (3617)
+	  com.samsung.tv.preview-updater (3680)
+	  org.tizen.easysetup-daemon (3688)
+	  com.samsung.tizen.smartthings-thing (3773)
+	  com.samsung.tv.mde-framework (3913)
+	  org.tizen.function-osd (3801)
+	  org.tizen.tts-engine-neural (4346)
+	  com.samsung.tv.aov-dashboard (4353)
+	  com.samsung.tv.smartthingsfind-daemon (4377)
+	  org.tizen.ics-service (4385)
+	  com.samsung.tv.waapp-contents-provider (4410)
+	  com.samsung.tv.tap-service-agent (4648)
+	  com.samsung.tv.ai-discovery-service (4649)
+	  com.samsung.tv.tvsensor-iot-service (4685)
+	  dmr_service_app (4710)
+	  com.samsung.tv.aisound-app (4932)
+	  com.samsung.tv.buds-scanner (4956)
+	  com.samsung.tv.vif (5021)
+	  com.samsung.tv.cis (5040)
+	  org.tizen.menu (5168)
+	  org.tizen.browser (5173)
+	  org.tizen.autofilld (5256)
+	  com.samsung.tizen.samsung-pass-agent (5385)
+	  org.tizen.chromium-efl.wrt-service (5831)
+	  com.samsung.tv.airplay-app-2 (6138)
+	  org.tizen.ScreenMirroring-app-tv (6201)
+	  com.samsung.tv.multiscreen (7687)
+	  acm-watcher (9041)
+	  com.samsung.tv.glscreensaver-launcher (15580)
+

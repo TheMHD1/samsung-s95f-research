@@ -1,0 +1,49 @@
+# Exact checked instruction landmarks
+# Module offsets are section-relative; Image offsets are file/image-relative.
+
+## sdp_hdmi.ko
+.text.unlikely+0x000574  aa0003f5  mov x21, x0
+.text.unlikely+0x000584  910042b4  add x20, x21, #0x10
+.text.unlikely+0x001784  aa1403e0  mov x0, x20
+.text.unlikely+0x001798  94000000  bl hdmi_rpm_init
+.text.unlikely+0x0017a4  94000000  bl hdmi_rpm_dev_init
+.text+0x0aa7b4  aa0003e4  mov x4, x0
+.text+0x0aa7b8  aa0103e3  mov x3, x1
+.text+0x0aa7c0  910043e0  add x0, sp, #0x10
+.text+0x0aa7cc  a9020fe4  stp x4, x3, [sp, #0x20]
+.text+0x0aa7d0  f9001be2  str x2, [sp, #0x30]
+.text+0x0aa7d4  94000000  bl sdp_runtime_pm_init_and_get
+.text+0x0aa7f0  94000000  bl sdp_runtime_pm_getdev
+.text+0x0aa7fc  f9000020  str x0, [x1]
+.text+0x005140  aa1303e0  mov x0, x19
+.text+0x005144  97ffff47  bl sdp_hdmi_pm_resume
+.text+0x004f78  d1004261  sub x1, x19, #0x10
+.text+0x004f7c  aa1603e0  mov x0, x22
+.text+0x004f84  94000000  bl sdp_hdmi_resume_fxn
+.text+0x00543c  aa1303e1  mov x1, x19
+.text+0x005440  aa1603e0  mov x0, x22
+.text+0x005444  94000000  bl sdp_hdmi_resume_fxn
+.init.text+0x000010  910fc000  add x0, x0, #0x3f0
+.init.text+0x00001c  94000000  bl __platform_driver_register
+
+## kernel Image
+Image+0x3fbf58  f9400a81  ldr x1, [x20, #0x10]
+Image+0x3fbf5c  f9001261  str x1, [x19, #0x20]
+Image+0x3fbf68  f9400e80  ldr x0, [x20, #0x18]
+Image+0x3fbf6c  f9001660  str x0, [x19, #0x28]
+Image+0x3fbf78  f9401283  ldr x3, [x20, #0x20]
+Image+0x3fbf7c  f9001a63  str x3, [x19, #0x30]
+Image+0x3fbf80  b9003e62  str w2, [x19, #0x3c]
+Image+0x3fbf84  b900467f  str wzr, [x19, #0x44]
+Image+0x3fc104  b9403ec0  ldr w0, [x22, #0x3c]
+Image+0x3fc10c  5400016d  b.le 0x3fc138
+Image+0x3fc138  f94012c1  ldr x1, [x22, #0x20]
+Image+0x3fc140  f9401ac1  ldr x1, [x22, #0x30]
+Image+0x3fc148  52800020  mov w0, #1
+Image+0x3fc14c  b90046c0  str w0, [x22, #0x44]
+Image+0x3fc15c  f94012c0  ldr x0, [x22, #0x20]
+Image+0x3fc160  f9401ac1  ldr x1, [x22, #0x30]
+Image+0x3fc164  d63f0020  blr x1
+Image+0x3fc170  b90046df  str wzr, [x22, #0x44]
+Image+0x3fc384  a94206c0  ldp x0, x1, [x22, #0x20]
+Image+0x3fc388  d63f0020  blr x1

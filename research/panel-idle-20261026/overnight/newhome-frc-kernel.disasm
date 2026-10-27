@@ -1,0 +1,2320 @@
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon_api.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000017ec <fop_frc_ioctl_export+0x454>:
+    17ec:	528cc6e1 	mov	w1, #0x6637                	// #26167
+    17f0:	72b80101 	movk	w1, #0xc008, lsl #16
+    17f4:	6b01007f 	cmp	w3, w1
+    17f8:	54007000 	b.eq	25f8 <fop_frc_ioctl_export+0x1260>  // b.none
+    17fc:	54000b09 	b.ls	195c <fop_frc_ioctl_export+0x5c4>  // b.plast
+    1800:	528cdfe1 	mov	w1, #0x66ff                	// #26367
+    1804:	72b80101 	movk	w1, #0xc008, lsl #16
+    1808:	6b01007f 	cmp	w3, w1
+    180c:	54007d80 	b.eq	27bc <fop_frc_ioctl_export+0x1424>  // b.none
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon_api.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000027bc <fop_frc_ioctl_export+0x1424>:
+    27bc:	a9025bf5 	stp	x21, x22, [sp, #32]
+    27c0:	910343f5 	add	x21, sp, #0xd0
+    27c4:	aa1503e0 	mov	x0, x21
+    27c8:	aa1303e1 	mov	x1, x19
+    27cc:	d2800102 	mov	x2, #0x8                   	// #8
+    27d0:	97fff640 	bl	d0 <_copy_from_user>
+    27d4:	b5000280 	cbnz	x0, 2824 <fop_frc_ioctl_export+0x148c>
+    27d8:	aa1503e0 	mov	x0, x21
+    27dc:	94000000 	bl	a6b8 <FRC_Request>
+			27dc: R_AARCH64_CALL26	FRC_Request
+    27e0:	d5384102 	mrs	x2, sp_el0
+    27e4:	b9402c43 	ldr	w3, [x2, #44]
+    27e8:	93407c14 	sxtw	x20, w0
+    27ec:	f9400441 	ldr	x1, [x2, #8]
+    27f0:	37a800a3 	tbnz	w3, #21, 2804 <fop_frc_ioctl_export+0x146c>
+    27f4:	f9400042 	ldr	x2, [x2]
+    27f8:	aa1303e0 	mov	x0, x19
+    27fc:	7206005f 	tst	w2, #0x4000000
+    2800:	54000060 	b.eq	280c <fop_frc_ioctl_export+0x1474>  // b.none
+    2804:	9340de60 	sbfx	x0, x19, #0, #56
+    2808:	8a000260 	and	x0, x19, x0
+    280c:	b1002000 	adds	x0, x0, #0x8
+    2810:	9a8183e1 	csel	x1, xzr, x1, hi	// hi = pmore
+    2814:	da9f3000 	csinv	x0, x0, xzr, cc	// cc = lo, ul, last
+    2818:	fa01001f 	sbcs	xzr, x0, x1
+    281c:	9a9f87e0 	cset	x0, ls	// ls = plast
+    2820:	b50023c0 	cbnz	x0, 2c98 <fop_frc_ioctl_export+0x1900>
+    2824:	928001b4 	mov	x20, #0xfffffffffffffff2    	// #-14
+    2828:	a9425bf5 	ldp	x21, x22, [sp, #32]
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon_api.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000000a6b8 <FRC_Request>:
+    a6b8:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+    a6bc:	910003fd 	mov	x29, sp
+    a6c0:	a90153f3 	stp	x19, x20, [sp, #16]
+    a6c4:	aa0003f3 	mov	x19, x0
+    a6c8:	b9400000 	ldr	w0, [x0]
+    a6cc:	51000400 	sub	w0, w0, #0x1
+    a6d0:	7100d41f 	cmp	w0, #0x35
+    a6d4:	54000168 	b.hi	a700 <FRC_Request+0x48>  // b.pmore
+    a6d8:	90000001 	adrp	x1, 0 <copy_overflow>
+			a6d8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x634
+    a6dc:	91000021 	add	x1, x1, #0x0
+			a6dc: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x634
+    a6e0:	78605820 	ldrh	w0, [x1, w0, uxtw #1]
+    a6e4:	10000061 	adr	x1, a6f0 <FRC_Request+0x38>
+    a6e8:	8b20a820 	add	x0, x1, w0, sxth #2
+    a6ec:	d61f0000 	br	x0
+    a6f0:	90000000 	adrp	x0, 3a8 <fop_frc_ew_ioctl_export+0x1e8>
+			a6f0: R_AARCH64_ADR_PREL_PG_HI21	tztv_frc_tcon_set_pvcc
+    a6f4:	f9400001 	ldr	x1, [x0]
+			a6f4: R_AARCH64_LDST64_ABS_LO12_NC	tztv_frc_tcon_set_pvcc
+    a6f8:	b50001c1 	cbnz	x1, a730 <FRC_Request+0x78>
+    a6fc:	d503201f 	nop
+    a700:	52800000 	mov	w0, #0x0                   	// #0
+    a704:	a94153f3 	ldp	x19, x20, [sp, #16]
+    a708:	a8c47bfd 	ldp	x29, x30, [sp], #64
+    a70c:	d65f03c0 	ret
+    a710:	90000014 	adrp	x20, 0 <copy_overflow>
+			a710: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    a714:	f9400280 	ldr	x0, [x20]
+			a714: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    a718:	b4ffff40 	cbz	x0, a700 <FRC_Request+0x48>
+    a71c:	f9419801 	ldr	x1, [x0, #816]
+    a720:	b4ffff01 	cbz	x1, a700 <FRC_Request+0x48>
+    a724:	90000000 	adrp	x0, 410 <fop_frc_ew_ioctl_export+0x250>
+			a724: R_AARCH64_ADR_PREL_PG_HI21	frc_tcon_debug_level
+    a728:	b9400000 	ldr	w0, [x0]
+			a728: R_AARCH64_LDST32_ABS_LO12_NC	frc_tcon_debug_level
+    a72c:	35001c00 	cbnz	w0, aaac <FRC_Request+0x3f4>
+    a730:	b9400660 	ldr	w0, [x19, #4]
+    a734:	d63f0020 	blr	x1
+    a738:	a94153f3 	ldp	x19, x20, [sp, #16]
+    a73c:	a8c47bfd 	ldp	x29, x30, [sp], #64
+    a740:	d65f03c0 	ret
+    a744:	90000000 	adrp	x0, 0 <copy_overflow>
+			a744: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    a748:	b9003fff 	str	wzr, [sp, #60]
+    a74c:	f9400000 	ldr	x0, [x0]
+			a74c: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    a750:	b4fffd80 	cbz	x0, a700 <FRC_Request+0x48>
+    a754:	f9412401 	ldr	x1, [x0, #584]
+    a758:	b5000d61 	cbnz	x1, a904 <FRC_Request+0x24c>
+    a75c:	17ffffe9 	b	a700 <FRC_Request+0x48>
+    a760:	90000000 	adrp	x0, 0 <copy_overflow>
+			a760: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    a764:	f9400000 	ldr	x0, [x0]
+			a764: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    a768:	b4fffcc0 	cbz	x0, a700 <FRC_Request+0x48>
+    a76c:	f9413401 	ldr	x1, [x0, #616]
+    a770:	b5fffe01 	cbnz	x1, a730 <FRC_Request+0x78>
+    a774:	17ffffe3 	b	a700 <FRC_Request+0x48>
+    a778:	90000000 	adrp	x0, 0 <copy_overflow>
+			a778: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    a77c:	f9400000 	ldr	x0, [x0]
+			a77c: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    a780:	b4fffc00 	cbz	x0, a700 <FRC_Request+0x48>
+    a784:	f9415401 	ldr	x1, [x0, #680]
+    a788:	b5fffd41 	cbnz	x1, a730 <FRC_Request+0x78>
+    a78c:	17ffffdd 	b	a700 <FRC_Request+0x48>
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon_api.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000007c48 <map_frc_functions>:
+    7c48:	90000001 	adrp	x1, 0 <copy_overflow>
+			7c48: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    7c4c:	f9000020 	str	x0, [x1]
+			7c4c: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    7c50:	d65f03c0 	ret
+    7c54:	d503201f 	nop
+
+0000000000007c58 <map_tcon_functions>:
+    7c58:	90000001 	adrp	x1, 0 <copy_overflow>
+			7c58: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x620
+    7c5c:	f9000020 	str	x0, [x1]
+			7c5c: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x620
+    7c60:	d65f03c0 	ret
+    7c64:	d503201f 	nop
+
+0000000000007c68 <map_extra_functions>:
+    7c68:	90000001 	adrp	x1, 0 <copy_overflow>
+			7c68: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x628
+    7c6c:	f9000020 	str	x0, [x1]
+			7c6c: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x628
+    7c70:	d65f03c0 	ret
+    7c74:	d503201f 	nop
+
+0000000000007c78 <init_frc_tcon_driver>:
+    7c78:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+    7c7c:	90000002 	adrp	x2, 410 <fop_frc_ew_ioctl_export+0x250>
+			7c7c: R_AARCH64_ADR_PREL_PG_HI21	frc_tcon_debug_level
+    7c80:	910003fd 	mov	x29, sp
+    7c84:	b9400042 	ldr	w2, [x2]
+			7c84: R_AARCH64_LDST32_ABS_LO12_NC	frc_tcon_debug_level
+    7c88:	a90153f3 	stp	x19, x20, [sp, #16]
+    7c8c:	a9025bf5 	stp	x21, x22, [sp, #32]
+    7c90:	2a0003f6 	mov	w22, w0
+    7c94:	2a0103f5 	mov	w21, w1
+    7c98:	35000582 	cbnz	w2, 7d48 <init_frc_tcon_driver+0xd0>
+    7c9c:	90000014 	adrp	x20, 0 <copy_overflow>
+			7c9c: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    7ca0:	91000293 	add	x19, x20, #0x0
+			7ca0: R_AARCH64_ADD_ABS_LO12_NC	.bss+0x618
+    7ca4:	f9400662 	ldr	x2, [x19, #8]
+    7ca8:	b4000142 	cbz	x2, 7cd0 <init_frc_tcon_driver+0x58>
+    7cac:	f9400041 	ldr	x1, [x2]
+    7cb0:	b4000081 	cbz	x1, 7cc0 <init_frc_tcon_driver+0x48>
+    7cb4:	f9400280 	ldr	x0, [x20]
+			7cb4: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    7cb8:	d63f0020 	blr	x1
+    7cbc:	f9400662 	ldr	x2, [x19, #8]
+    7cc0:	f9400441 	ldr	x1, [x2, #8]
+    7cc4:	b4000061 	cbz	x1, 7cd0 <init_frc_tcon_driver+0x58>
+    7cc8:	2a1503e0 	mov	w0, w21
+    7ccc:	d63f0020 	blr	x1
+    7cd0:	f9400281 	ldr	x1, [x20]
+			7cd0: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    7cd4:	b40001c1 	cbz	x1, 7d0c <init_frc_tcon_driver+0x94>
+    7cd8:	f9400022 	ldr	x2, [x1]
+    7cdc:	b4000082 	cbz	x2, 7cec <init_frc_tcon_driver+0x74>
+    7ce0:	f9400660 	ldr	x0, [x19, #8]
+    7ce4:	d63f0040 	blr	x2
+    7ce8:	f9400281 	ldr	x1, [x20]
+			7ce8: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    7cec:	f940d022 	ldr	x2, [x1, #416]
+    7cf0:	b4000082 	cbz	x2, 7d00 <init_frc_tcon_driver+0x88>
+    7cf4:	2a1603e0 	mov	w0, w22
+    7cf8:	d63f0040 	blr	x2
+    7cfc:	f9400281 	ldr	x1, [x20]
+			7cfc: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    7d00:	f9400420 	ldr	x0, [x1, #8]
+    7d04:	b4000040 	cbz	x0, 7d0c <init_frc_tcon_driver+0x94>
+    7d08:	d63f0000 	blr	x0
+    7d0c:	f9400a60 	ldr	x0, [x19, #16]
+    7d10:	b4000120 	cbz	x0, 7d34 <init_frc_tcon_driver+0xbc>
+    7d14:	f9400001 	ldr	x1, [x0]
+    7d18:	b4000081 	cbz	x1, 7d28 <init_frc_tcon_driver+0xb0>
+    7d1c:	f9400660 	ldr	x0, [x19, #8]
+    7d20:	d63f0020 	blr	x1
+    7d24:	f9400a60 	ldr	x0, [x19, #16]
+    7d28:	f9400400 	ldr	x0, [x0, #8]
+    7d2c:	b4000040 	cbz	x0, 7d34 <init_frc_tcon_driver+0xbc>
+    7d30:	d63f0000 	blr	x0
+    7d34:	52800000 	mov	w0, #0x0                   	// #0
+    7d38:	a94153f3 	ldp	x19, x20, [sp, #16]
+    7d3c:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    7d40:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    7d44:	d65f03c0 	ret
+    7d48:	90000001 	adrp	x1, 0 <copy_overflow>
+			7d48: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x830
+    7d4c:	91000021 	add	x1, x1, #0x0
+			7d4c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x830
+    7d50:	9100c021 	add	x1, x1, #0x30
+    7d54:	90000000 	adrp	x0, 0 <copy_overflow>
+			7d54: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x9c8
+    7d58:	91000000 	add	x0, x0, #0x0
+			7d58: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x9c8
+    7d5c:	94000000 	bl	0 <printk>
+			7d5c: R_AARCH64_CALL26	printk
+    7d60:	17ffffcf 	b	7c9c <init_frc_tcon_driver+0x24>
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/rosem_frc.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000007bd8 <RosemFrc_SetNewhomeMode>:
+    7bd8:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+    7bdc:	90000002 	adrp	x2, 0 <RosemFrc_IsSupportFRCPattern>
+			7bdc: R_AARCH64_ADR_PREL_PG_HI21	.bss
+    7be0:	910003fd 	mov	x29, sp
+    7be4:	a90153f3 	stp	x19, x20, [sp, #16]
+    7be8:	91000053 	add	x19, x2, #0x0
+			7be8: R_AARCH64_ADD_ABS_LO12_NC	.bss
+    7bec:	b9404661 	ldr	w1, [x19, #68]
+    7bf0:	7100043f 	cmp	w1, #0x1
+    7bf4:	540000e0 	b.eq	7c10 <RosemFrc_SetNewhomeMode+0x38>  // b.none
+    7bf8:	a9025bf5 	stp	x21, x22, [sp, #32]
+    7bfc:	2a0003f5 	mov	w21, w0
+    7c00:	b9406e60 	ldr	w0, [x19, #108]
+    7c04:	7100041f 	cmp	w0, #0x1
+    7c08:	54000101 	b.ne	7c28 <RosemFrc_SetNewhomeMode+0x50>  // b.any
+    7c0c:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    7c10:	b9400040 	ldr	w0, [x2]
+			7c10: R_AARCH64_LDST32_ABS_LO12_NC	.bss
+    7c14:	35000760 	cbnz	w0, 7d00 <RosemFrc_SetNewhomeMode+0x128>
+    7c18:	52800000 	mov	w0, #0x0                   	// #0
+    7c1c:	a94153f3 	ldp	x19, x20, [sp, #16]
+    7c20:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    7c24:	d65f03c0 	ret
+    7c28:	94000000 	bl	12790 <ft_current_pid>
+			7c28: R_AARCH64_CALL26	ft_current_pid
+    7c2c:	2a0003f6 	mov	w22, w0
+    7c30:	94000000 	bl	127a0 <ft_current_comm>
+			7c30: R_AARCH64_CALL26	ft_current_comm
+    7c34:	90000014 	adrp	x20, 0 <RosemFrc_IsSupportFRCPattern>
+			7c34: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+    7c38:	b9418e64 	ldr	w4, [x19, #396]
+    7c3c:	91000294 	add	x20, x20, #0x0
+			7c3c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+    7c40:	b9419666 	ldr	w6, [x19, #404]
+    7c44:	913d6294 	add	x20, x20, #0xf58
+    7c48:	aa0003e3 	mov	x3, x0
+    7c4c:	2a1603e2 	mov	w2, w22
+    7c50:	aa1403e1 	mov	x1, x20
+    7c54:	2a1503e5 	mov	w5, w21
+    7c58:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			7c58: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x3858
+    7c5c:	91000000 	add	x0, x0, #0x0
+			7c5c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x3858
+    7c60:	94000000 	bl	0 <printk>
+			7c60: R_AARCH64_CALL26	printk
+    7c64:	b9418e60 	ldr	w0, [x19, #396]
+    7c68:	6b15001f 	cmp	w0, w21
+    7c6c:	54000061 	b.ne	7c78 <RosemFrc_SetNewhomeMode+0xa0>  // b.any
+    7c70:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    7c74:	17ffffe9 	b	7c18 <RosemFrc_SetNewhomeMode+0x40>
+    7c78:	94000000 	bl	12790 <ft_current_pid>
+			7c78: R_AARCH64_CALL26	ft_current_pid
+    7c7c:	2a0003f6 	mov	w22, w0
+    7c80:	94000000 	bl	127a0 <ft_current_comm>
+			7c80: R_AARCH64_CALL26	ft_current_comm
+    7c84:	aa0003e3 	mov	x3, x0
+    7c88:	b9418e64 	ldr	w4, [x19, #396]
+    7c8c:	2a1603e2 	mov	w2, w22
+    7c90:	b9419666 	ldr	w6, [x19, #404]
+    7c94:	2a1503e5 	mov	w5, w21
+    7c98:	aa1403e1 	mov	x1, x20
+    7c9c:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			7c9c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x38a8
+    7ca0:	91000000 	add	x0, x0, #0x0
+			7ca0: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x38a8
+    7ca4:	94000000 	bl	0 <printk>
+			7ca4: R_AARCH64_CALL26	printk
+    7ca8:	b9018e75 	str	w21, [x19, #396]
+    7cac:	710006bf 	cmp	w21, #0x1
+    7cb0:	54000061 	b.ne	7cbc <RosemFrc_SetNewhomeMode+0xe4>  // b.any
+    7cb4:	b9419660 	ldr	w0, [x19, #404]
+    7cb8:	350000a0 	cbnz	w0, 7ccc <RosemFrc_SetNewhomeMode+0xf4>
+    7cbc:	2a1503e0 	mov	w0, w21
+    7cc0:	97ffeebe 	bl	37b8 <m_rosem_set_newhome_mode>
+    7cc4:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    7cc8:	17ffffd5 	b	7c1c <RosemFrc_SetNewhomeMode+0x44>
+    7ccc:	94000000 	bl	12790 <ft_current_pid>
+			7ccc: R_AARCH64_CALL26	ft_current_pid
+    7cd0:	2a0003f5 	mov	w21, w0
+    7cd4:	94000000 	bl	127a0 <ft_current_comm>
+			7cd4: R_AARCH64_CALL26	ft_current_comm
+    7cd8:	aa0003e3 	mov	x3, x0
+    7cdc:	b9419664 	ldr	w4, [x19, #404]
+    7ce0:	2a1503e2 	mov	w2, w21
+    7ce4:	aa1403e1 	mov	x1, x20
+    7ce8:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			7ce8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x38f0
+    7cec:	91000000 	add	x0, x0, #0x0
+			7cec: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x38f0
+    7cf0:	94000000 	bl	0 <printk>
+			7cf0: R_AARCH64_CALL26	printk
+    7cf4:	52800000 	mov	w0, #0x0                   	// #0
+    7cf8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    7cfc:	17ffffc8 	b	7c1c <RosemFrc_SetNewhomeMode+0x44>
+    7d00:	b9406e62 	ldr	w2, [x19, #108]
+    7d04:	90000003 	adrp	x3, 0 <RosemFrc_IsSupportFRCPattern>
+			7d04: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+    7d08:	91000063 	add	x3, x3, #0x0
+			7d08: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+    7d0c:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			7d0c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x318
+    7d10:	913d6063 	add	x3, x3, #0xf58
+    7d14:	91000000 	add	x0, x0, #0x0
+			7d14: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x318
+    7d18:	94000000 	bl	0 <printk>
+			7d18: R_AARCH64_CALL26	printk
+    7d1c:	17ffffbf 	b	7c18 <RosemFrc_SetNewhomeMode+0x40>
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/rosem_frc.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000037b8 <m_rosem_set_newhome_mode>:
+    37b8:	d10103ff 	sub	sp, sp, #0x40
+    37bc:	a9017bfd 	stp	x29, x30, [sp, #16]
+    37c0:	910043fd 	add	x29, sp, #0x10
+    37c4:	a90253f3 	stp	x19, x20, [sp, #32]
+    37c8:	90000013 	adrp	x19, 0 <RosemFrc_IsSupportFRCPattern>
+			37c8: R_AARCH64_ADR_PREL_PG_HI21	.bss
+    37cc:	91000273 	add	x19, x19, #0x0
+			37cc: R_AARCH64_ADD_ABS_LO12_NC	.bss
+    37d0:	2a0003f4 	mov	w20, w0
+    37d4:	a9035bf5 	stp	x21, x22, [sp, #48]
+    37d8:	94000000 	bl	12790 <ft_current_pid>
+			37d8: R_AARCH64_CALL26	ft_current_pid
+    37dc:	2a0003f6 	mov	w22, w0
+    37e0:	94000000 	bl	127a0 <ft_current_comm>
+			37e0: R_AARCH64_CALL26	ft_current_comm
+    37e4:	294a9664 	ldp	w4, w5, [x19, #84]
+    37e8:	90000015 	adrp	x21, 0 <RosemFrc_IsSupportFRCPattern>
+			37e8: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+    37ec:	b9406667 	ldr	w7, [x19, #100]
+    37f0:	910002b5 	add	x21, x21, #0x0
+			37f0: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+    37f4:	b940ee69 	ldr	w9, [x19, #236]
+    37f8:	2a1603e2 	mov	w2, w22
+    37fc:	b9419668 	ldr	w8, [x19, #404]
+    3800:	911142b6 	add	x22, x21, #0x450
+    3804:	b9434666 	ldr	w6, [x19, #836]
+    3808:	aa0003e3 	mov	x3, x0
+    380c:	b90003e9 	str	w9, [sp]
+    3810:	aa1603e1 	mov	x1, x22
+    3814:	b9000be8 	str	w8, [sp, #8]
+    3818:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			3818: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x1928
+    381c:	91000000 	add	x0, x0, #0x0
+			381c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x1928
+    3820:	94000000 	bl	0 <printk>
+			3820: R_AARCH64_CALL26	printk
+    3824:	7100069f 	cmp	w20, #0x1
+    3828:	54000e61 	b.ne	39f4 <m_rosem_set_newhome_mode+0x23c>  // b.any
+    382c:	b9419674 	ldr	w20, [x19, #404]
+    3830:	35000cd4 	cbnz	w20, 39c8 <m_rosem_set_newhome_mode+0x210>
+    3834:	b940e260 	ldr	w0, [x19, #224]
+    3838:	7100081f 	cmp	w0, #0x2
+    383c:	54000880 	b.eq	394c <m_rosem_set_newhome_mode+0x194>  // b.none
+    3840:	b9406661 	ldr	w1, [x19, #100]
+    3844:	52800000 	mov	w0, #0x0                   	// #0
+    3848:	97fffe04 	bl	3058 <m_rosem_low_input_lag>
+    384c:	2a0003f4 	mov	w20, w0
+    3850:	b941c261 	ldr	w1, [x19, #448]
+    3854:	71000c3f 	cmp	w1, #0x3
+    3858:	54000b20 	b.eq	39bc <m_rosem_set_newhome_mode+0x204>  // b.none
+    385c:	b940ee60 	ldr	w0, [x19, #236]
+    3860:	7940d261 	ldrh	w1, [x19, #104]
+    3864:	51000402 	sub	w2, w0, #0x1
+    3868:	710f985f 	cmp	w2, #0x3e6
+    386c:	54000228 	b.hi	38b0 <m_rosem_set_newhome_mode+0xf8>  // b.pmore
+    3870:	7100c01f 	cmp	w0, #0x30
+    3874:	540002cd 	b.le	38cc <m_rosem_set_newhome_mode+0x114>
+    3878:	7100c81f 	cmp	w0, #0x32
+    387c:	540000cd 	b.le	3894 <m_rosem_set_newhome_mode+0xdc>
+    3880:	7100f01f 	cmp	w0, #0x3c
+    3884:	5400024d 	b.le	38cc <m_rosem_set_newhome_mode+0x114>
+    3888:	5100f400 	sub	w0, w0, #0x3d
+    388c:	71009c1f 	cmp	w0, #0x27
+    3890:	540001ec 	b.gt	38cc <m_rosem_set_newhome_mode+0x114>
+    3894:	52827102 	mov	w2, #0x1388                	// #5000
+    3898:	529e4820 	mov	w0, #0xf241                	// #62017
+    389c:	72be4820 	movk	w0, #0xf241, lsl #16
+    38a0:	b9006662 	str	w2, [x19, #100]
+    38a4:	97fff56b 	bl	e50 <m_rosem_send_cmd>
+    38a8:	2a000294 	orr	w20, w20, w0
+    38ac:	1400000e 	b	38e4 <m_rosem_set_newhome_mode+0x12c>
+    38b0:	b9406660 	ldr	w0, [x19, #100]
+    38b4:	5123f002 	sub	w2, w0, #0x8fc
+    38b8:	7102305f 	cmp	w2, #0x8c
+    38bc:	54000089 	b.ls	38cc <m_rosem_set_newhome_mode+0x114>  // b.plast
+    38c0:	512bc002 	sub	w2, w0, #0xaf0
+    38c4:	7106405f 	cmp	w2, #0x190
+    38c8:	54000608 	b.hi	3988 <m_rosem_set_newhome_mode+0x1d0>  // b.pmore
+    38cc:	5282ee02 	mov	w2, #0x1770                	// #6000
+    38d0:	529e4800 	mov	w0, #0xf240                	// #62016
+    38d4:	72be4800 	movk	w0, #0xf240, lsl #16
+    38d8:	b9006662 	str	w2, [x19, #100]
+    38dc:	97fff55d 	bl	e50 <m_rosem_send_cmd>
+    38e0:	2a000294 	orr	w20, w20, w0
+    38e4:	b900ee7f 	str	wzr, [x19, #236]
+    38e8:	97fffd36 	bl	2dc0 <m_rosem_set_view_angle>
+    38ec:	b941c261 	ldr	w1, [x19, #448]
+    38f0:	2a000294 	orr	w20, w20, w0
+    38f4:	71000c3f 	cmp	w1, #0x3
+    38f8:	54000060 	b.eq	3904 <m_rosem_set_newhome_mode+0x14c>  // b.none
+    38fc:	97fff265 	bl	290 <m_rosem_set_tcon_frame_rate>
+    3900:	2a000294 	orr	w20, w20, w0
+    3904:	94000000 	bl	12790 <ft_current_pid>
+			3904: R_AARCH64_CALL26	ft_current_pid
+    3908:	2a0003f6 	mov	w22, w0
+    390c:	94000000 	bl	127a0 <ft_current_comm>
+			390c: R_AARCH64_CALL26	ft_current_comm
+    3910:	aa0003e3 	mov	x3, x0
+    3914:	b9406664 	ldr	w4, [x19, #100]
+    3918:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			3918: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x1a20
+    391c:	b940ee65 	ldr	w5, [x19, #236]
+    3920:	2a1603e2 	mov	w2, w22
+    3924:	b9419666 	ldr	w6, [x19, #404]
+    3928:	911142a1 	add	x1, x21, #0x450
+    392c:	91000000 	add	x0, x0, #0x0
+			392c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x1a20
+    3930:	94000000 	bl	0 <printk>
+			3930: R_AARCH64_CALL26	printk
+    3934:	2a1403e0 	mov	w0, w20
+    3938:	a9417bfd 	ldp	x29, x30, [sp, #16]
+    393c:	a94253f3 	ldp	x19, x20, [sp, #32]
+    3940:	a9435bf5 	ldp	x21, x22, [sp, #48]
+    3944:	910103ff 	add	sp, sp, #0x40
+    3948:	d65f03c0 	ret
+    394c:	94000000 	bl	12790 <ft_current_pid>
+			394c: R_AARCH64_CALL26	ft_current_pid
+    3950:	2a0003f3 	mov	w19, w0
+    3954:	94000000 	bl	127a0 <ft_current_comm>
+			3954: R_AARCH64_CALL26	ft_current_comm
+    3958:	aa0003e3 	mov	x3, x0
+    395c:	2a1303e2 	mov	w2, w19
+    3960:	aa1603e1 	mov	x1, x22
+    3964:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			3964: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x19d0
+    3968:	91000000 	add	x0, x0, #0x0
+			3968: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x19d0
+    396c:	94000000 	bl	0 <printk>
+			396c: R_AARCH64_CALL26	printk
+    3970:	2a1403e0 	mov	w0, w20
+    3974:	a9417bfd 	ldp	x29, x30, [sp, #16]
+    3978:	a94253f3 	ldp	x19, x20, [sp, #32]
+    397c:	a9435bf5 	ldp	x21, x22, [sp, #48]
+    3980:	910103ff 	add	sp, sp, #0x40
+    3984:	d65f03c0 	ret
+    3988:	12824b64 	mov	w4, #0xffffeda4            	// #-4700
+    398c:	0b040002 	add	w2, w0, w4
+    3990:	7102d05f 	cmp	w2, #0xb4
+    3994:	54fff9c9 	b.ls	38cc <m_rosem_set_newhome_mode+0x114>  // b.plast
+    3998:	1282d4e3 	mov	w3, #0xffffe958            	// #-5800
+    399c:	0b030002 	add	w2, w0, w3
+    39a0:	7109605f 	cmp	w2, #0x258
+    39a4:	54fff949 	b.ls	38cc <m_rosem_set_newhome_mode+0x114>  // b.plast
+    39a8:	1285c2e2 	mov	w2, #0xffffd1e8            	// #-11800
+    39ac:	0b020000 	add	w0, w0, w2
+    39b0:	7106401f 	cmp	w0, #0x190
+    39b4:	54fff8c9 	b.ls	38cc <m_rosem_set_newhome_mode+0x114>  // b.plast
+    39b8:	17ffffb7 	b	3894 <m_rosem_set_newhome_mode+0xdc>
+    39bc:	97fff235 	bl	290 <m_rosem_set_tcon_frame_rate>
+    39c0:	2a000294 	orr	w20, w20, w0
+    39c4:	17ffffa6 	b	385c <m_rosem_set_newhome_mode+0xa4>
+    39c8:	94000000 	bl	12790 <ft_current_pid>
+			39c8: R_AARCH64_CALL26	ft_current_pid
+    39cc:	2a0003f3 	mov	w19, w0
+    39d0:	94000000 	bl	127a0 <ft_current_comm>
+			39d0: R_AARCH64_CALL26	ft_current_comm
+    39d4:	52800014 	mov	w20, #0x0                   	// #0
+    39d8:	aa0003e3 	mov	x3, x0
+    39dc:	2a1303e2 	mov	w2, w19
+    39e0:	aa1603e1 	mov	x1, x22
+    39e4:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			39e4: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x1990
+    39e8:	91000000 	add	x0, x0, #0x0
+			39e8: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x1990
+    39ec:	94000000 	bl	0 <printk>
+			39ec: R_AARCH64_CALL26	printk
+    39f0:	17ffffd1 	b	3934 <m_rosem_set_newhome_mode+0x17c>
+    39f4:	94000000 	bl	12790 <ft_current_pid>
+			39f4: R_AARCH64_CALL26	ft_current_pid
+    39f8:	2a0003f4 	mov	w20, w0
+    39fc:	94000000 	bl	127a0 <ft_current_comm>
+			39fc: R_AARCH64_CALL26	ft_current_comm
+    3a00:	aa0003e3 	mov	x3, x0
+    3a04:	2a1403e2 	mov	w2, w20
+    3a08:	aa1603e1 	mov	x1, x22
+    3a0c:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			3a0c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x1a80
+    3a10:	91000000 	add	x0, x0, #0x0
+			3a10: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x1a80
+    3a14:	94000000 	bl	0 <printk>
+			3a14: R_AARCH64_CALL26	printk
+    3a18:	52800014 	mov	w20, #0x0                   	// #0
+    3a1c:	52800020 	mov	w0, #0x1                   	// #1
+    3a20:	b9019260 	str	w0, [x19, #400]
+    3a24:	17ffffc4 	b	3934 <m_rosem_set_newhome_mode+0x17c>
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/rosem_frc.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000290 <m_rosem_set_tcon_frame_rate>:
+     290:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+     294:	910003fd 	mov	x29, sp
+     298:	a90153f3 	stp	x19, x20, [sp, #16]
+     29c:	90000013 	adrp	x19, 0 <RosemFrc_IsSupportFRCPattern>
+			29c: R_AARCH64_ADR_PREL_PG_HI21	.bss
+     2a0:	91000273 	add	x19, x19, #0x0
+			2a0: R_AARCH64_ADD_ABS_LO12_NC	.bss
+     2a4:	a9025bf5 	stp	x21, x22, [sp, #32]
+     2a8:	b9415e60 	ldr	w0, [x19, #348]
+     2ac:	7100041f 	cmp	w0, #0x1
+     2b0:	540006a0 	b.eq	384 <m_rosem_set_tcon_frame_rate+0xf4>  // b.none
+     2b4:	b940d660 	ldr	w0, [x19, #212]
+     2b8:	7100041f 	cmp	w0, #0x1
+     2bc:	540004c0 	b.eq	354 <m_rosem_set_tcon_frame_rate+0xc4>  // b.none
+     2c0:	b9406674 	ldr	w20, [x19, #100]
+     2c4:	52870801 	mov	w1, #0x3840                	// #14400
+     2c8:	52880e80 	mov	w0, #0x4074                	// #16500
+     2cc:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			2cc: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     2d0:	6b01029f 	cmp	w20, w1
+     2d4:	910002d6 	add	x22, x22, #0x0
+			2d4: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     2d8:	7a401284 	ccmp	w20, w0, #0x4, ne	// ne = any
+     2dc:	54000040 	b.eq	2e4 <m_rosem_set_tcon_frame_rate+0x54>  // b.none
+     2e0:	5285dc14 	mov	w20, #0x2ee0                	// #12000
+     2e4:	b9418e60 	ldr	w0, [x19, #396]
+     2e8:	7100041f 	cmp	w0, #0x1
+     2ec:	540000a1 	b.ne	300 <m_rosem_set_tcon_frame_rate+0x70>  // b.any
+     2f0:	b9419661 	ldr	w1, [x19, #404]
+     2f4:	5285dc00 	mov	w0, #0x2ee0                	// #12000
+     2f8:	7100003f 	cmp	w1, #0x0
+     2fc:	1a801294 	csel	w20, w20, w0, ne	// ne = any
+     300:	b9434260 	ldr	w0, [x19, #832]
+     304:	52800015 	mov	w21, #0x0                   	// #0
+     308:	6b14001f 	cmp	w0, w20
+     30c:	54000541 	b.ne	3b4 <m_rosem_set_tcon_frame_rate+0x124>  // b.any
+     310:	94000000 	bl	12790 <ft_current_pid>
+			310: R_AARCH64_CALL26	ft_current_pid
+     314:	2a0003f4 	mov	w20, w0
+     318:	94000000 	bl	127a0 <ft_current_comm>
+			318: R_AARCH64_CALL26	ft_current_comm
+     31c:	aa0003e3 	mov	x3, x0
+     320:	b9406665 	ldr	w5, [x19, #100]
+     324:	2a1403e2 	mov	w2, w20
+     328:	b940ee66 	ldr	w6, [x19, #236]
+     32c:	910062c1 	add	x1, x22, #0x18
+     330:	b9434264 	ldr	w4, [x19, #832]
+     334:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			334: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x158
+     338:	91000000 	add	x0, x0, #0x0
+			338: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x158
+     33c:	94000000 	bl	0 <printk>
+			33c: R_AARCH64_CALL26	printk
+     340:	2a1503e0 	mov	w0, w21
+     344:	a94153f3 	ldp	x19, x20, [sp, #16]
+     348:	a9425bf5 	ldp	x21, x22, [sp, #32]
+     34c:	a8c47bfd 	ldp	x29, x30, [sp], #64
+     350:	d65f03c0 	ret
+     354:	b940ee60 	ldr	w0, [x19, #236]
+     358:	7100f01f 	cmp	w0, #0x3c
+     35c:	540001c8 	b.hi	394 <m_rosem_set_tcon_frame_rate+0x104>  // b.pmore
+     360:	52800c94 	mov	w20, #0x64                  	// #100
+     364:	1b147c14 	mul	w20, w0, w20
+     368:	b941ca60 	ldr	w0, [x19, #456]
+     36c:	34000060 	cbz	w0, 378 <m_rosem_set_tcon_frame_rate+0xe8>
+     370:	b941c660 	ldr	w0, [x19, #452]
+     374:	350004e0 	cbnz	w0, 410 <m_rosem_set_tcon_frame_rate+0x180>
+     378:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			378: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     37c:	910002d6 	add	x22, x22, #0x0
+			37c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     380:	17ffffd9 	b	2e4 <m_rosem_set_tcon_frame_rate+0x54>
+     384:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			384: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     388:	5282ee14 	mov	w20, #0x1770                	// #6000
+     38c:	910002d6 	add	x22, x22, #0x0
+			38c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     390:	17ffffd5 	b	2e4 <m_rosem_set_tcon_frame_rate+0x54>
+     394:	5101e401 	sub	w1, w0, #0x79
+     398:	71005c3f 	cmp	w1, #0x17
+     39c:	54fffe29 	b.ls	360 <m_rosem_set_tcon_frame_rate+0xd0>  // b.plast
+     3a0:	51024401 	sub	w1, w0, #0x91
+     3a4:	5285dc14 	mov	w20, #0x2ee0                	// #12000
+     3a8:	7100503f 	cmp	w1, #0x14
+     3ac:	54fffde8 	b.hi	368 <m_rosem_set_tcon_frame_rate+0xd8>  // b.pmore
+     3b0:	17ffffec 	b	360 <m_rosem_set_tcon_frame_rate+0xd0>
+     3b4:	a90363f7 	stp	x23, x24, [sp, #48]
+     3b8:	94000000 	bl	12790 <ft_current_pid>
+			3b8: R_AARCH64_CALL26	ft_current_pid
+     3bc:	2a0003f8 	mov	w24, w0
+     3c0:	94000000 	bl	127a0 <ft_current_comm>
+			3c0: R_AARCH64_CALL26	ft_current_comm
+     3c4:	910062d7 	add	x23, x22, #0x18
+     3c8:	b9434264 	ldr	w4, [x19, #832]
+     3cc:	aa0003e3 	mov	x3, x0
+     3d0:	2a1803e2 	mov	w2, w24
+     3d4:	aa1703e1 	mov	x1, x23
+     3d8:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			3d8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0xd0
+     3dc:	91000000 	add	x0, x0, #0x0
+			3dc: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0xd0
+     3e0:	94000000 	bl	0 <printk>
+			3e0: R_AARCH64_CALL26	printk
+     3e4:	f9419e60 	ldr	x0, [x19, #824]
+     3e8:	b40000e0 	cbz	x0, 404 <m_rosem_set_tcon_frame_rate+0x174>
+     3ec:	f9410401 	ldr	x1, [x0, #520]
+     3f0:	b40000a1 	cbz	x1, 404 <m_rosem_set_tcon_frame_rate+0x174>
+     3f4:	2a1403e0 	mov	w0, w20
+     3f8:	d63f0020 	blr	x1
+     3fc:	2a0003f5 	mov	w21, w0
+     400:	350002a0 	cbnz	w0, 454 <m_rosem_set_tcon_frame_rate+0x1c4>
+     404:	b9034274 	str	w20, [x19, #832]
+     408:	a94363f7 	ldp	x23, x24, [sp, #48]
+     40c:	17ffffc1 	b	310 <m_rosem_set_tcon_frame_rate+0x80>
+     410:	b941b674 	ldr	w20, [x19, #436]
+     414:	52800c80 	mov	w0, #0x64                  	// #100
+     418:	90000016 	adrp	x22, 0 <RosemFrc_IsSupportFRCPattern>
+			418: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     41c:	910002d6 	add	x22, x22, #0x0
+			41c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     420:	1b007e94 	mul	w20, w20, w0
+     424:	94000000 	bl	12790 <ft_current_pid>
+			424: R_AARCH64_CALL26	ft_current_pid
+     428:	2a0003f5 	mov	w21, w0
+     42c:	94000000 	bl	127a0 <ft_current_comm>
+			42c: R_AARCH64_CALL26	ft_current_comm
+     430:	b941b664 	ldr	w4, [x19, #436]
+     434:	aa0003e3 	mov	x3, x0
+     438:	2a1503e2 	mov	w2, w21
+     43c:	2a1403e5 	mov	w5, w20
+     440:	910062c1 	add	x1, x22, #0x18
+     444:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			444: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x68
+     448:	91000000 	add	x0, x0, #0x0
+			448: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x68
+     44c:	94000000 	bl	0 <printk>
+			44c: R_AARCH64_CALL26	printk
+     450:	17ffffa5 	b	2e4 <m_rosem_set_tcon_frame_rate+0x54>
+     454:	94000000 	bl	12790 <ft_current_pid>
+			454: R_AARCH64_CALL26	ft_current_pid
+     458:	2a0003f8 	mov	w24, w0
+     45c:	94000000 	bl	127a0 <ft_current_comm>
+			45c: R_AARCH64_CALL26	ft_current_comm
+     460:	aa0003e3 	mov	x3, x0
+     464:	b9406664 	ldr	w4, [x19, #100]
+     468:	2a1803e2 	mov	w2, w24
+     46c:	b9434265 	ldr	w5, [x19, #832]
+     470:	aa1703e1 	mov	x1, x23
+     474:	90000000 	adrp	x0, 0 <RosemFrc_IsSupportFRCPattern>
+			474: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x108
+     478:	91000000 	add	x0, x0, #0x0
+			478: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x108
+     47c:	94000000 	bl	0 <printk>
+			47c: R_AARCH64_CALL26	printk
+     480:	17ffffe1 	b	404 <m_rosem_set_tcon_frame_rate+0x174>
+     484:	d503201f 	nop
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/rosem_frc.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000e50 <m_rosem_send_cmd>:
+     e50:	d10583ff 	sub	sp, sp, #0x160
+     e54:	d2801e02 	mov	x2, #0xf0                  	// #240
+     e58:	a9017bfd 	stp	x29, x30, [sp, #16]
+     e5c:	910043fd 	add	x29, sp, #0x10
+     e60:	a90253f3 	stp	x19, x20, [sp, #32]
+     e64:	12003c33 	and	w19, w1, #0xffff
+     e68:	52800001 	mov	w1, #0x0                   	// #0
+     e6c:	a9035bf5 	stp	x21, x22, [sp, #48]
+     e70:	2a0003f5 	mov	w21, w0
+     e74:	9101c3e0 	add	x0, sp, #0x70
+     e78:	a9067fff 	stp	xzr, xzr, [sp, #96]
+     e7c:	94000000 	bl	0 <memset>
+			e7c: R_AARCH64_CALL26	memset
+     e80:	90000002 	adrp	x2, 0 <RosemFrc_IsSupportFRCPattern>
+			e80: R_AARCH64_ADR_PREL_PG_HI21	.bss
+     e84:	91000040 	add	x0, x2, #0x0
+			e84: R_AARCH64_ADD_ABS_LO12_NC	.bss
+     e88:	b9401401 	ldr	w1, [x0, #20]
+     e8c:	b9419c00 	ldr	w0, [x0, #412]
+     e90:	2a000021 	orr	w1, w1, w0
+     e94:	34000441 	cbz	w1, f1c <m_rosem_send_cmd+0xcc>
+     e98:	90000014 	adrp	x20, 0 <RosemFrc_IsSupportFRCPattern>
+			e98: R_AARCH64_ADR_PREL_PG_HI21	.rodata
+     e9c:	91000294 	add	x20, x20, #0x0
+			e9c: R_AARCH64_ADD_ABS_LO12_NC	.rodata
+     ea0:	91068280 	add	x0, x20, #0x1a0
+     ea4:	a90463f7 	stp	x23, x24, [sp, #64]
+     ea8:	94000000 	bl	120f0 <frc_tcon_lock>
+			ea8: R_AARCH64_CALL26	frc_tcon_lock
+     eac:	90000017 	adrp	x23, 0 <jiffies>
+			eac: R_AARCH64_ADR_PREL_PG_HI21	jiffies
+     eb0:	90000000 	adrp	x0, 0 <tztv_frc_tcon_ext_cmd>
+			eb0: R_AARCH64_ADR_PREL_PG_HI21	tztv_frc_tcon_ext_cmd
+     eb4:	7900b3ff 	strh	wzr, [sp, #88]
+     eb8:	f94002f6 	ldr	x22, [x23]
+			eb8: R_AARCH64_LDST64_ABS_LO12_NC	jiffies
+     ebc:	7900b7f3 	strh	w19, [sp, #90]
+     ec0:	f9400003 	ldr	x3, [x0]
+			ec0: R_AARCH64_LDST64_ABS_LO12_NC	tztv_frc_tcon_ext_cmd
+     ec4:	b9005ff5 	str	w21, [sp, #92]
+     ec8:	b4000403 	cbz	x3, f48 <m_rosem_send_cmd+0xf8>
+     ecc:	910163e1 	add	x1, sp, #0x58
+     ed0:	52800102 	mov	w2, #0x8                   	// #8
+     ed4:	52800020 	mov	w0, #0x1                   	// #1
+     ed8:	d63f0060 	blr	x3
+     edc:	2a0003f3 	mov	w19, w0
+     ee0:	35000360 	cbnz	w0, f4c <m_rosem_send_cmd+0xfc>
+     ee4:	f94002e0 	ldr	x0, [x23]
+			ee4: R_AARCH64_LDST64_ABS_LO12_NC	jiffies
+     ee8:	cb160000 	sub	x0, x0, x22
+     eec:	94000000 	bl	0 <jiffies_to_msecs>
+			eec: R_AARCH64_CALL26	jiffies_to_msecs
+     ef0:	7101901f 	cmp	w0, #0x64
+     ef4:	540004c8 	b.hi	f8c <m_rosem_send_cmd+0x13c>  // b.pmore
+     ef8:	91068280 	add	x0, x20, #0x1a0
+     efc:	94000000 	bl	12110 <frc_tcon_unlock>
+			efc: R_AARCH64_CALL26	frc_tcon_unlock
+     f00:	a94463f7 	ldp	x23, x24, [sp, #64]
+     f04:	2a1303e0 	mov	w0, w19
+     f08:	a9417bfd 	ldp	x29, x30, [sp, #16]
+     f0c:	a94253f3 	ldp	x19, x20, [sp, #32]
+     f10:	a9435bf5 	ldp	x21, x22, [sp, #48]
+     f14:	910583ff 	add	sp, sp, #0x160
+     f18:	d65f03c0 	ret
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/rosem_frc.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .init.text:
+
+0000000000000000 <init_module>:
+   0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   4:	d2807e02 	mov	x2, #0x3f0                 	// #1008
+   8:	52800001 	mov	w1, #0x0                   	// #0
+   c:	910003fd 	mov	x29, sp
+  10:	a90153f3 	stp	x19, x20, [sp, #16]
+  14:	90000014 	adrp	x20, 0 <init_module>
+			14: R_AARCH64_ADR_PREL_PG_HI21	.bss
+  18:	91000294 	add	x20, x20, #0x0
+			18: R_AARCH64_ADD_ABS_LO12_NC	.bss
+  1c:	910e0293 	add	x19, x20, #0x380
+  20:	aa1303e0 	mov	x0, x19
+  24:	94000000 	bl	126b0 <ft_memset>
+			24: R_AARCH64_CALL26	ft_memset
+  28:	90000002 	adrp	x2, 5798 <RosemFrc_CtrlPatternBeforeDDR>
+			28: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_CtrlPatternBeforeDDR
+  2c:	90000006 	adrp	x6, 0 <init_module>
+			2c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_IsSupportFRCPattern
+  30:	91000042 	add	x2, x2, #0x0
+			30: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_CtrlPatternBeforeDDR
+  34:	910000c6 	add	x6, x6, #0x0
+			34: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_IsSupportFRCPattern
+  38:	90000011 	adrp	x17, 868 <RosemFrc_ReadI2CData>
+			38: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_ReadI2CData
+  3c:	91000231 	add	x17, x17, #0x0
+			3c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_ReadI2CData
+  40:	90000003 	adrp	x3, 5378 <RosemFrc_CtrlPatternAfterDDR>
+			40: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_CtrlPatternAfterDDR
+  44:	90000005 	adrp	x5, f4f0 <RosemFrc_DebugBackend>
+			44: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_DebugBackend
+  48:	91000063 	add	x3, x3, #0x0
+			48: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_CtrlPatternAfterDDR
+  4c:	910000a5 	add	x5, x5, #0x0
+			4c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_DebugBackend
+  50:	90000008 	adrp	x8, 3a28 <RosemFrc_GetPictureTestPatternNum>
+			50: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetPictureTestPatternNum
+  54:	91000108 	add	x8, x8, #0x0
+			54: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetPictureTestPatternNum
+  58:	a9080e62 	stp	x2, x3, [x19, #128]
+  5c:	90000002 	adrp	x2, 4d20 <RosemFrc_SetAutoMotionPlus>
+			5c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetAutoMotionPlus
+  60:	91000042 	add	x2, x2, #0x0
+			60: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetAutoMotionPlus
+  64:	a9092266 	stp	x6, x8, [x19, #144]
+  68:	90000006 	adrp	x6, bc60 <RosemFrc_SetFactoryData>
+			68: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetFactoryData
+  6c:	910000c6 	add	x6, x6, #0x0
+			6c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetFactoryData
+  70:	f9007e71 	str	x17, [x19, #248]
+  74:	90000011 	adrp	x17, c948 <RosemFrc_SetGameMode>
+			74: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetGameMode
+  78:	91000231 	add	x17, x17, #0x0
+			78: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetGameMode
+  7c:	90000004 	adrp	x4, 6bf0 <RosemFrc_Initialize>
+			7c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_Initialize
+  80:	90000003 	adrp	x3, 8d0 <RosemFrc_SetBypass>
+			80: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetBypass
+  84:	91000084 	add	x4, x4, #0x0
+			84: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_Initialize
+  88:	91000063 	add	x3, x3, #0x0
+			88: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetBypass
+  8c:	f9001e65 	str	x5, [x19, #56]
+  90:	90000005 	adrp	x5, 53d8 <RosemFrc_SetAgingPattern>
+			90: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetAgingPattern
+  94:	910000a5 	add	x5, x5, #0x0
+			94: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetAgingPattern
+  98:	f9005666 	str	x6, [x19, #168]
+  9c:	90000006 	adrp	x6, 59a0 <RosemFrc_SetFilmMode>
+			9c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetFilmMode
+  a0:	910000c6 	add	x6, x6, #0x0
+			a0: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetFilmMode
+  a4:	a90c0a63 	stp	x3, x2, [x19, #192]
+  a8:	90000002 	adrp	x2, 6298 <RosemFrc_SetFreezeMode>
+			a8: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetFreezeMode
+  ac:	91000042 	add	x2, x2, #0x0
+			ac: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetFreezeMode
+  b0:	f9007271 	str	x17, [x19, #224]
+  b4:	90000011 	adrp	x17, 4628 <RosemFrc_SetInputSize>
+			b4: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetInputSize
+  b8:	91000231 	add	x17, x17, #0x0
+			b8: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetInputSize
+  bc:	90000000 	adrp	x0, 8 <init_module+0x8>
+			bc: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_InitVariable
+  c0:	9000000f 	adrp	x15, 87e0 <RosemFrc_CheckCrcForLvds>
+			c0: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_CheckCrcForLvds
+  c4:	91000000 	add	x0, x0, #0x0
+			c4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_InitVariable
+  c8:	910001ef 	add	x15, x15, #0x0
+			c8: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_CheckCrcForLvds
+  cc:	90000009 	adrp	x9, 6980 <RosemFrc_CheckCrcForTCon>
+			cc: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_CheckCrcForTCon
+  d0:	90000001 	adrp	x1, 8a70 <RosemFrc_EW_SystemTest>
+			d0: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_EW_SystemTest
+  d4:	91000129 	add	x9, x9, #0x0
+			d4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_CheckCrcForTCon
+  d8:	91000021 	add	x1, x1, #0x0
+			d8: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_EW_SystemTest
+  dc:	9000000c 	adrp	x12, 9448 <RosemFrc_GetBackendInfo>
+			dc: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetBackendInfo
+  e0:	9000000d 	adrp	x13, 3bc0 <RosemFrc_GetFlashWPStatus>
+			e0: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetFlashWPStatus
+  e4:	9100018c 	add	x12, x12, #0x0
+			e4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetBackendInfo
+  e8:	910001ad 	add	x13, x13, #0x0
+			e8: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetFlashWPStatus
+  ec:	9000000a 	adrp	x10, 4028 <RosemFrc_GetFrcErr>
+			ec: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetFrcErr
+  f0:	90000007 	adrp	x7, cb0 <RosemFrc_GetMGASupport>
+			f0: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetMGASupport
+  f4:	9100014a 	add	x10, x10, #0x0
+			f4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetFrcErr
+  f8:	910000e7 	add	x7, x7, #0x0
+			f8: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetMGASupport
+  fc:	9000000e 	adrp	x14, bf8 <RosemFrc_GetPanelInfo>
+			fc: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetPanelInfo
+ 100:	90000010 	adrp	x16, 3af0 <RosemFrc_ReadBackendCommand>
+			100: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_ReadBackendCommand
+ 104:	910001ce 	add	x14, x14, #0x0
+			104: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetPanelInfo
+ 108:	91000210 	add	x16, x16, #0x0
+			108: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_ReadBackendCommand
+ 10c:	9000000b 	adrp	x11, d550 <RosemFrc_Resume>
+			10c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_Resume
+ 110:	90000008 	adrp	x8, 3d48 <RosemFrc_SetFactoryModeIn>
+			110: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetFactoryModeIn
+ 114:	9100016b 	add	x11, x11, #0x0
+			114: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_Resume
+ 118:	91000108 	add	x8, x8, #0x0
+			118: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetFactoryModeIn
+ 11c:	90000003 	adrp	x3, 61a0 <RosemFrc_SetFilmSettings>
+			11c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetFilmSettings
+ 120:	91000063 	add	x3, x3, #0x0
+			120: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetFilmSettings
+ 124:	f9000664 	str	x4, [x19, #8]
+ 128:	90000004 	adrp	x4, 5d10 <RosemFrc_SendBackendCommand>
+			128: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SendBackendCommand
+ 12c:	91000084 	add	x4, x4, #0x0
+			12c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SendBackendCommand
+ 130:	f9002671 	str	x17, [x19, #72]
+ 134:	90000011 	adrp	x17, cfc8 <RosemFrc_SetLedMotionPlus>
+			134: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetLedMotionPlus
+ 138:	91000231 	add	x17, x17, #0x0
+			138: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetLedMotionPlus
+ 13c:	f9003e65 	str	x5, [x19, #120]
+ 140:	90000005 	adrp	x5, b108 <RosemFrc_SetAmbientMode>
+			140: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetAmbientMode
+ 144:	910000a5 	add	x5, x5, #0x0
+			144: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetAmbientMode
+ 148:	f9006a71 	str	x17, [x19, #208]
+ 14c:	f9007666 	str	x6, [x19, #232]
+ 150:	90000006 	adrp	x6, d448 <RosemFrc_SetGameLedMotionPlus>
+			150: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetGameLedMotionPlus
+ 154:	910000c6 	add	x6, x6, #0x0
+			154: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetGameLedMotionPlus
+ 158:	f9008664 	str	x4, [x19, #264]
+ 15c:	f9008e70 	str	x16, [x19, #280]
+ 160:	90000004 	adrp	x4, eb10 <RosemFrc_SetLowSupportMode>
+			160: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetLowSupportMode
+ 164:	f9009a6c 	str	x12, [x19, #304]
+ 168:	91000084 	add	x4, x4, #0x0
+			168: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetLowSupportMode
+ 16c:	a915a66f 	stp	x15, x9, [x19, #344]
+ 170:	90000011 	adrp	x17, 81e0 <RosemFrc_SetMute>
+			170: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetMute
+ 174:	91000231 	add	x17, x17, #0x0
+			174: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetMute
+ 178:	f900b66e 	str	x14, [x19, #360]
+ 17c:	90000012 	adrp	x18, 5d0 <RosemFrc_SetOSDWhiteBalance>
+			17c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetOSDWhiteBalance
+ 180:	f900be6d 	str	x13, [x19, #376]
+ 184:	91000252 	add	x18, x18, #0x0
+			184: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetOSDWhiteBalance
+ 188:	f900ca6b 	str	x11, [x19, #400]
+ 18c:	9000000b 	adrp	x11, b280 <RosemFrc_SetResolutionInfo>
+			18c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetResolutionInfo
+ 190:	f900da68 	str	x8, [x19, #432]
+ 194:	9100016b 	add	x11, x11, #0x0
+			194: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetResolutionInfo
+ 198:	f900e26a 	str	x10, [x19, #448]
+ 19c:	9000000c 	adrp	x12, 6600 <RosemFrc_SetMGAInOut>
+			19c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetMGAInOut
+ 1a0:	f900ea67 	str	x7, [x19, #464]
+ 1a4:	9100018c 	add	x12, x12, #0x0
+			1a4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetMGAInOut
+ 1a8:	f900fa66 	str	x6, [x19, #496]
+ 1ac:	90000009 	adrp	x9, e878 <RosemFrc_SetMirrorMode>
+			1ac: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetMirrorMode
+ 1b0:	f9010265 	str	x5, [x19, #512]
+ 1b4:	90000005 	adrp	x5, 8520 <RosemFrc_SetPictureTestPatternNum>
+			1b4: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPictureTestPatternNum
+ 1b8:	f9011663 	str	x3, [x19, #552]
+ 1bc:	910000a5 	add	x5, x5, #0x0
+			1bc: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPictureTestPatternNum
+ 1c0:	f9011a62 	str	x2, [x19, #560]
+ 1c4:	90000002 	adrp	x2, 55e0 <RosemFrc_SetSeamlessMute>
+			1c4: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetSeamlessMute
+ 1c8:	91000042 	add	x2, x2, #0x0
+			1c8: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetSeamlessMute
+ 1cc:	f901ae61 	str	x1, [x19, #856]
+ 1d0:	f901c280 	str	x0, [x20, #896]
+ 1d4:	90000001 	adrp	x1, 5030 <RosemFrc_SetPictureInfo>
+			1d4: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPictureInfo
+ 1d8:	f9010e64 	str	x4, [x19, #536]
+ 1dc:	91000021 	add	x1, x1, #0x0
+			1dc: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPictureInfo
+ 1e0:	a9068a71 	stp	x17, x2, [x19, #104]
+ 1e4:	90000002 	adrp	x2, 93d8 <RosemFrc_UpgradeLDTable>
+			1e4: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_UpgradeLDTable
+ 1e8:	91000042 	add	x2, x2, #0x0
+			1e8: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_UpgradeLDTable
+ 1ec:	f9001262 	str	x2, [x19, #32]
+ 1f0:	90000002 	adrp	x2, b90 <RosemFrc_UpgradeFirmware>
+			1f0: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_UpgradeFirmware
+ 1f4:	91000042 	add	x2, x2, #0x0
+			1f4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_UpgradeFirmware
+ 1f8:	f9000e62 	str	x2, [x19, #24]
+ 1fc:	90000002 	adrp	x2, 618 <RosemFrc_WriteI2CData>
+			1fc: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_WriteI2CData
+ 200:	91000042 	add	x2, x2, #0x0
+			200: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_WriteI2CData
+ 204:	f9007a62 	str	x2, [x19, #240]
+ 208:	90000002 	adrp	x2, 41e0 <RosemFrc_SetVAETest>
+			208: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetVAETest
+ 20c:	91000042 	add	x2, x2, #0x0
+			20c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetVAETest
+ 210:	90000000 	adrp	x0, 4c00 <RosemFrc_SetPIPInfo>
+			210: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPIPInfo
+ 214:	91000000 	add	x0, x0, #0x0
+			214: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPIPInfo
+ 218:	f9013262 	str	x2, [x19, #608]
+ 21c:	910a6262 	add	x2, x19, #0x298
+ 220:	90000003 	adrp	x3, ca48 <RosemFrc_SetPCMode>
+			220: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPCMode
+ 224:	90000004 	adrp	x4, bf70 <RosemFrc_SetSystemInfo>
+			224: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetSystemInfo
+ 228:	91000063 	add	x3, x3, #0x0
+			228: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPCMode
+ 22c:	91000084 	add	x4, x4, #0x0
+			22c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetSystemInfo
+ 230:	f900226b 	str	x11, [x19, #64]
+ 234:	9000000b 	adrp	x11, afb0 <RosemFrc_SetVRRMode>
+			234: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetVRRMode
+ 238:	9100016b 	add	x11, x11, #0x0
+			238: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetVRRMode
+ 23c:	a9058261 	stp	x1, x0, [x19, #88]
+ 240:	90000001 	adrp	x1, 5a80 <RosemFrc_SetWhiteBalance>
+			240: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetWhiteBalance
+ 244:	90000000 	adrp	x0, 5bc8 <RosemFrc_SetWhiteBalanceApp>
+			244: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetWhiteBalanceApp
+ 248:	91000021 	add	x1, x1, #0x0
+			248: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetWhiteBalance
+ 24c:	91000000 	add	x0, x0, #0x0
+			24c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetWhiteBalanceApp
+ 250:	91000129 	add	x9, x9, #0x0
+			250: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetMirrorMode
+ 254:	9000000d 	adrp	x13, df38 <RosemFrc_SetPhotoMode>
+			254: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPhotoMode
+ 258:	90000010 	adrp	x16, 3e08 <RosemFrc_SetPhotoPlay>
+			258: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPhotoPlay
+ 25c:	910001ad 	add	x13, x13, #0x0
+			25c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPhotoMode
+ 260:	91000210 	add	x16, x16, #0x0
+			260: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPhotoPlay
+ 264:	9000000f 	adrp	x15, 560 <RosemFrc_SetPvccFlag>
+			264: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPvccFlag
+ 268:	9000000e 	adrp	x14, 3c90 <RosemFrc_SetSeamlessPlay>
+			268: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetSeamlessPlay
+ 26c:	910001ef 	add	x15, x15, #0x0
+			26c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPvccFlag
+ 270:	910001ce 	add	x14, x14, #0x0
+			270: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetSeamlessPlay
+ 274:	9000000a 	adrp	x10, e1a8 <RosemFrc_SetSmoothMotion>
+			274: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetSmoothMotion
+ 278:	90000007 	adrp	x7, d08 <RosemFrc_SetSuspendFlag>
+			278: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetSuspendFlag
+ 27c:	9100014a 	add	x10, x10, #0x0
+			27c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetSmoothMotion
+ 280:	910000e7 	add	x7, x7, #0x0
+			280: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetSuspendFlag
+ 284:	90000008 	adrp	x8, 60d0 <RosemFrc_SetNetflixPlay>
+			284: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetNetflixPlay
+ 288:	90000006 	adrp	x6, 5f80 <RosemFrc_SetOutDoorSuspend>
+			288: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetOutDoorSuspend
+ 28c:	91000108 	add	x8, x8, #0x0
+			28c: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetNetflixPlay
+ 290:	910000c6 	add	x6, x6, #0x0
+			290: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetOutDoorSuspend
+ 294:	90000011 	adrp	x17, 5dd8 <RosemFrc_Suspend>
+			294: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_Suspend
+ 298:	91000231 	add	x17, x17, #0x0
+			298: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_Suspend
+ 29c:	f9005265 	str	x5, [x19, #160]
+ 2a0:	90000005 	adrp	x5, 2028 <RosemFrc_SetUpdateMute>
+			2a0: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetUpdateMute
+ 2a4:	910000a5 	add	x5, x5, #0x0
+			2a4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetUpdateMute
+ 2a8:	f9005a64 	str	x4, [x19, #176]
+ 2ac:	90000004 	adrp	x4, d70 <RosemFrc_GetFilmSource>
+			2ac: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetFilmSource
+ 2b0:	91000084 	add	x4, x4, #0x0
+			2b0: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetFilmSource
+ 2b4:	f9006e63 	str	x3, [x19, #216]
+ 2b8:	90000003 	adrp	x3, 4090 <RosemFrc_SetFullDimmingTest>
+			2b8: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetFullDimmingTest
+ 2bc:	91000063 	add	x3, x3, #0x0
+			2bc: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetFullDimmingTest
+ 2c0:	a9138261 	stp	x1, x0, [x19, #312]
+ 2c4:	90000001 	adrp	x1, 7fd0 <RosemFrc_SetMonitorDisplayMode>
+			2c4: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetMonitorDisplayMode
+ 2c8:	90000000 	adrp	x0, ecf8 <RosemFrc_SetCloudGameInfo>
+			2c8: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetCloudGameInfo
+ 2cc:	91000021 	add	x1, x1, #0x0
+			2cc: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetMonitorDisplayMode
+ 2d0:	91000000 	add	x0, x0, #0x0
+			2d0: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetCloudGameInfo
+ 2d4:	f900a672 	str	x18, [x19, #328]
+ 2d8:	f900c26f 	str	x15, [x19, #384]
+ 2dc:	9000000f 	adrp	x15, dd8 <RosemFrc_SetLEDOutputResolution>
+			2dc: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetLEDOutputResolution
+ 2e0:	f900c671 	str	x17, [x19, #392]
+ 2e4:	910001ef 	add	x15, x15, #0x0
+			2e4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetLEDOutputResolution
+ 2e8:	f900d66e 	str	x14, [x19, #424]
+ 2ec:	9000000e 	adrp	x14, 66d0 <RosemFrc_GetRgbMeasureConditonInfo>
+			2ec: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetRgbMeasureConditonInfo
+ 2f0:	f900de70 	str	x16, [x19, #440]
+ 2f4:	910001ce 	add	x14, x14, #0x0
+			2f4: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetRgbMeasureConditonInfo
+ 2f8:	f900e66d 	str	x13, [x19, #456]
+ 2fc:	9000000d 	adrp	x13, 2760 <RosemFrc_SetRgbMeasurePostion>
+			2fc: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetRgbMeasurePostion
+ 300:	f900ee6c 	str	x12, [x19, #472]
+ 304:	910001ad 	add	x13, x13, #0x0
+			304: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetRgbMeasurePostion
+ 308:	f900f26b 	str	x11, [x19, #480]
+ 30c:	9000000b 	adrp	x11, 7bd8 <RosemFrc_SetNewhomeMode>
+			30c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetNewhomeMode
+ 310:	9100016b 	add	x11, x11, #0x0
+			310: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetNewhomeMode
+ 314:	f900f66a 	str	x10, [x19, #488]
+ 318:	f900fe69 	str	x9, [x19, #504]
+ 31c:	9000000c 	adrp	x12, 6a10 <RosemFrc_GetRgbMeasureInfo>
+			31c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetRgbMeasureInfo
+ 320:	f9010668 	str	x8, [x19, #520]
+ 324:	9100018c 	add	x12, x12, #0x0
+			324: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetRgbMeasureInfo
+ 328:	f9011267 	str	x7, [x19, #544]
+ 32c:	9000000a 	adrp	x10, ae70 <RosemFrc_SetQmsVrrMode>
+			32c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetQmsVrrMode
+ 330:	f9011e66 	str	x6, [x19, #568]
+ 334:	9100014a 	add	x10, x10, #0x0
+			334: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetQmsVrrMode
+ 338:	f9012265 	str	x5, [x19, #576]
+ 33c:	90000009 	adrp	x9, 63f8 <RosemFrc_SetPostPatternLowLevel>
+			33c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetPostPatternLowLevel
+ 340:	f9012664 	str	x4, [x19, #584]
+ 344:	91000129 	add	x9, x9, #0x0
+			344: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetPostPatternLowLevel
+ 348:	f9012a63 	str	x3, [x19, #592]
+ 34c:	90000008 	adrp	x8, 2bd8 <RosemFrc_GetLdLutCrcCheck>
+			34c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_GetLdLutCrcCheck
+ 350:	f9014261 	str	x1, [x19, #640]
+ 354:	91000108 	add	x8, x8, #0x0
+			354: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_GetLdLutCrcCheck
+ 358:	f9014660 	str	x0, [x19, #648]
+ 35c:	90000007 	adrp	x7, 4290 <RosemFrc_SetContrastValue>
+			35c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetContrastValue
+ 360:	90000006 	adrp	x6, 5460 <RosemFrc_SetTsiWhitePatternOnOff>
+			360: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetTsiWhitePatternOnOff
+ 364:	910000e7 	add	x7, x7, #0x0
+			364: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetContrastValue
+ 368:	910000c6 	add	x6, x6, #0x0
+			368: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetTsiWhitePatternOnOff
+ 36c:	90000005 	adrp	x5, 5520 <RosemFrc_SetTsiYellowPatternOnOff>
+			36c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetTsiYellowPatternOnOff
+ 370:	90000003 	adrp	x3, 4478 <RosemFRC_SetVx1ReservedData>
+			370: R_AARCH64_ADR_PREL_PG_HI21	RosemFRC_SetVx1ReservedData
+ 374:	910000a5 	add	x5, x5, #0x0
+			374: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetTsiYellowPatternOnOff
+ 378:	91000063 	add	x3, x3, #0x0
+			378: R_AARCH64_ADD_ABS_LO12_NC	RosemFRC_SetVx1ReservedData
+ 37c:	90000004 	adrp	x4, 6550 <RosemFrc_SetLDPattern>
+			37c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetLDPattern
+ 380:	90000001 	adrp	x1, 45b8 <RosemFRC_GetLowInputLagStatus>
+			380: R_AARCH64_ADR_PREL_PG_HI21	RosemFRC_GetLowInputLagStatus
+ 384:	91000084 	add	x4, x4, #0x0
+			384: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetLDPattern
+ 388:	91000021 	add	x1, x1, #0x0
+			388: R_AARCH64_ADD_ABS_LO12_NC	RosemFRC_GetLowInputLagStatus
+ 38c:	a900304d 	stp	x13, x12, [x2]
+ 390:	aa1303e0 	mov	x0, x19
+ 394:	a9013c4b 	stp	x11, x15, [x2, #16]
+ 398:	910b026b 	add	x11, x19, #0x2c0
+ 39c:	90000002 	adrp	x2, 8ac8 <RosemFrc_SetVideoControlSignal>
+			39c: R_AARCH64_ADR_PREL_PG_HI21	RosemFrc_SetVideoControlSignal
+ 3a0:	91000042 	add	x2, x2, #0x0
+			3a0: R_AARCH64_ADD_ABS_LO12_NC	RosemFrc_SetVideoControlSignal
+ 3a4:	f9014a6e 	str	x14, [x19, #656]
+ 3a8:	a900256a 	stp	x10, x9, [x11]
+ 3ac:	a9011d68 	stp	x8, x7, [x11, #16]
+ 3b0:	f9017266 	str	x6, [x19, #736]
+ 3b4:	f9017665 	str	x5, [x19, #744]
+ 3b8:	f9017e64 	str	x4, [x19, #760]
+ 3bc:	f9018a63 	str	x3, [x19, #784]
+ 3c0:	f9019a62 	str	x2, [x19, #816]
+ 3c4:	f9019e61 	str	x1, [x19, #824]
+ 3c8:	94000000 	bl	0 <map_frc_functions>
+			3c8: R_AARCH64_CALL26	map_frc_functions
+ 3cc:	90000000 	adrp	x0, 0 <init_module>
+			3cc: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x9e20
+ 3d0:	91000000 	add	x0, x0, #0x0
+			3d0: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x9e20
+ 3d4:	94000000 	bl	0 <printk>
+			3d4: R_AARCH64_CALL26	printk
+ 3d8:	52800000 	mov	w0, #0x0                   	// #0
+ 3dc:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 3e0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 3e4:	d65f03c0 	ret
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .init.text:
+
+0000000000000000 <init_module>:
+   0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   4:	d280eb02 	mov	x2, #0x758                 	// #1880
+   8:	52800001 	mov	w1, #0x0                   	// #0
+   c:	910003fd 	mov	x29, sp
+  10:	a90153f3 	stp	x19, x20, [sp, #16]
+  14:	90000014 	adrp	x20, 0 <init_module>
+			14: R_AARCH64_ADR_PREL_PG_HI21	.bss
+  18:	91000294 	add	x20, x20, #0x0
+			18: R_AARCH64_ADD_ABS_LO12_NC	.bss
+  1c:	9110a293 	add	x19, x20, #0x428
+  20:	aa1303e0 	mov	x0, x19
+  24:	94000000 	bl	16ac8 <ft_memset>
+			24: R_AARCH64_CALL26	ft_memset
+  28:	90000001 	adrp	x1, 3298 <QDFTcon_SetUSITSSCMF>
+			28: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetUSITSSCMF
+  2c:	91000021 	add	x1, x1, #0x0
+			2c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetUSITSSCMF
+  30:	90000000 	adrp	x0, 3398 <QDFTcon_SetUSITSSC>
+			30: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetUSITSSC
+  34:	91000000 	add	x0, x0, #0x0
+			34: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetUSITSSC
+  38:	a90f0660 	stp	x0, x1, [x19, #240]
+  3c:	90000001 	adrp	x1, 2ba0 <QDFTcon_GetCurrentTcon2Temperature>
+			3c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetCurrentTcon2Temperature
+  40:	91000021 	add	x1, x1, #0x0
+			40: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetCurrentTcon2Temperature
+  44:	f9005261 	str	x1, [x19, #160]
+  48:	910d8261 	add	x1, x19, #0x360
+  4c:	90000009 	adrp	x9, 2800 <QDFTcon_Tcon_GetTCONDataVersion>
+			4c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_GetTCONDataVersion
+  50:	90000008 	adrp	x8, 45a8 <QDFTcon_Tcon_GetTCONDataVersion_se>
+			50: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_GetTCONDataVersion_se
+  54:	91000129 	add	x9, x9, #0x0
+			54: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_GetTCONDataVersion
+  58:	91000108 	add	x8, x8, #0x0
+			58: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_GetTCONDataVersion_se
+  5c:	9000000a 	adrp	x10, 47a0 <QDFTcon_Tcon_GetTCONFlashVersion>
+			5c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_GetTCONFlashVersion
+  60:	90000005 	adrp	x5, 26b0 <QDFTcon_Tcon_GetTCONFWVersion>
+			60: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_GetTCONFWVersion
+  64:	9100014a 	add	x10, x10, #0x0
+			64: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_GetTCONFlashVersion
+  68:	910000a5 	add	x5, x5, #0x0
+			68: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_GetTCONFWVersion
+  6c:	90000011 	adrp	x17, 1bc0 <QDFTcon_ResumeStartTime>
+			6c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_ResumeStartTime
+  70:	90000003 	adrp	x3, 33b8 <QDFTcon_SetSpreadSpectrum>
+			70: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetSpreadSpectrum
+  74:	91000231 	add	x17, x17, #0x0
+			74: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_ResumeStartTime
+  78:	91000063 	add	x3, x3, #0x0
+			78: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetSpreadSpectrum
+  7c:	9000000b 	adrp	x11, 32c8 <QDFTcon_SetUSITSSCMR>
+			7c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetUSITSSCMR
+  80:	9100016b 	add	x11, x11, #0x0
+			80: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetUSITSSCMR
+  84:	90000006 	adrp	x6, 42b8 <QDFTcon_Tcon_GetTCONFWVersion_se>
+			84: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_GetTCONFWVersion_se
+  88:	90000007 	adrp	x7, f910 <QDFTcon_Tcon_InitDevice>
+			88: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_InitDevice
+  8c:	910000c6 	add	x6, x6, #0x0
+			8c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_GetTCONFWVersion_se
+  90:	910000e7 	add	x7, x7, #0x0
+			90: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_InitDevice
+  94:	a903266a 	stp	x10, x9, [x19, #48]
+  98:	9000000a 	adrp	x10, 11d78 <QDFTcon_SetElSensing>
+			98: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetElSensing
+  9c:	90000009 	adrp	x9, 2a90 <QDFTcon_GetElSensingStatus>
+			9c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetElSensingStatus
+  a0:	9100014a 	add	x10, x10, #0x0
+			a0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetElSensing
+  a4:	91000129 	add	x9, x9, #0x0
+			a4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetElSensingStatus
+  a8:	a900242a 	stp	x10, x9, [x1]
+  ac:	90000002 	adrp	x2, f98 <QDFTcon_InitVariable>
+			ac: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_InitVariable
+  b0:	9000000d 	adrp	x13, 148 <init_module+0x148>
+			b0: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetSuspendFlag
+  b4:	a9041668 	stp	x8, x5, [x19, #64]
+  b8:	90000008 	adrp	x8, a938 <QDFTcon_GetOffSensingDone>
+			b8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetOffSensingDone
+  bc:	90000005 	adrp	x5, ab00 <QDFTcon_GetElSensingDone>
+			bc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetElSensingDone
+  c0:	91000108 	add	x8, x8, #0x0
+			c0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetOffSensingDone
+  c4:	910000a5 	add	x5, x5, #0x0
+			c4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetElSensingDone
+  c8:	a9011428 	stp	x8, x5, [x1, #16]
+  cc:	90000001 	adrp	x1, 2c10 <QDFTcon_GetCurrentTcon3Temperature>
+			cc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetCurrentTcon3Temperature
+  d0:	91000021 	add	x1, x1, #0x0
+			d0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetCurrentTcon3Temperature
+  d4:	f9007263 	str	x3, [x19, #224]
+  d8:	90000003 	adrp	x3, 2448 <QDFTcon_GetCellInfo>
+			d8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetCellInfo
+  dc:	91000063 	add	x3, x3, #0x0
+			dc: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetCellInfo
+  e0:	a910466b 	stp	x11, x17, [x19, #256]
+  e4:	9000000b 	adrp	x11, 2c80 <QDFTcon_SetFactoryModeIn>
+			e4: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetFactoryModeIn
+  e8:	90000011 	adrp	x17, 11b88 <QDFTcon_t_Tcon_SetPvccFlag>
+			e8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_t_Tcon_SetPvccFlag
+  ec:	9100016b 	add	x11, x11, #0x0
+			ec: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetFactoryModeIn
+  f0:	91000231 	add	x17, x17, #0x0
+			f0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_t_Tcon_SetPvccFlag
+  f4:	91000042 	add	x2, x2, #0x0
+			f4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_InitVariable
+  f8:	910001ad 	add	x13, x13, #0x0
+			f8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetSuspendFlag
+  fc:	90000010 	adrp	x16, 10ee8 <QDFTcon_Resume>
+			fc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Resume
+ 100:	9000000e 	adrp	x14, f498 <QDFTcon_SetFactoryData>
+			100: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetFactoryData
+ 104:	91000210 	add	x16, x16, #0x0
+			104: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Resume
+ 108:	910001ce 	add	x14, x14, #0x0
+			108: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetFactoryData
+ 10c:	9000000f 	adrp	x15, 1c18 <QDFTcon_SetStabilizeTime>
+			10c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetStabilizeTime
+ 110:	90000004 	adrp	x4, dc98 <QDFTcon_SetBacklight>
+			110: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetBacklight
+ 114:	910001ef 	add	x15, x15, #0x0
+			114: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetStabilizeTime
+ 118:	91000084 	add	x4, x4, #0x0
+			118: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetBacklight
+ 11c:	9000000c 	adrp	x12, f410 <QDFTcon_SetNpcLut>
+			11c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetNpcLut
+ 120:	90000000 	adrp	x0, 2b38 <QDFTcon_GetCurrentTemperature>
+			120: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetCurrentTemperature
+ 124:	9100018c 	add	x12, x12, #0x0
+			124: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetNpcLut
+ 128:	91000000 	add	x0, x0, #0x0
+			128: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetCurrentTemperature
+ 12c:	f9000667 	str	x7, [x19, #8]
+ 130:	90000007 	adrp	x7, 13690 <QDFTcon_SetOffSensing>
+			130: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetOffSensing
+ 134:	910000e7 	add	x7, x7, #0x0
+			134: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetOffSensing
+ 138:	f9002a66 	str	x6, [x19, #80]
+ 13c:	90000006 	adrp	x6, e398 <QDFTcon_SetNpcDimLvl2>
+			13c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetNpcDimLvl2
+ 140:	910000c6 	add	x6, x6, #0x0
+			140: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetNpcDimLvl2
+ 144:	f9003a71 	str	x17, [x19, #112]
+ 148:	90000011 	adrp	x17, 12c98 <QDFTcon_UpgradeFlashData>
+			148: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashData
+ 14c:	91000231 	add	x17, x17, #0x0
+			14c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashData
+ 150:	f9005661 	str	x1, [x19, #168]
+ 154:	90000001 	adrp	x1, 10928 <QDFTcon_MonitorTemperatureSensor>
+			154: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_MonitorTemperatureSensor
+ 158:	91000021 	add	x1, x1, #0x0
+			158: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_MonitorTemperatureSensor
+ 15c:	f9008a71 	str	x17, [x19, #272]
+ 160:	f900d663 	str	x3, [x19, #424]
+ 164:	90000003 	adrp	x3, 9040 <QDFTcon_UpgradeFlashData_se>
+			164: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashData_se
+ 168:	91000063 	add	x3, x3, #0x0
+			168: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashData_se
+ 16c:	a91dbe70 	stp	x16, x15, [x19, #472]
+ 170:	90000012 	adrp	x18, 13568 <QDFTcon_UpgradeFlashDataCAD>
+			170: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashDataCAD
+ 174:	f900f66e 	str	x14, [x19, #488]
+ 178:	91000252 	add	x18, x18, #0x0
+			178: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashDataCAD
+ 17c:	f901166b 	str	x11, [x19, #552]
+ 180:	9000000b 	adrp	x11, 408 <init_module+0x408>
+			180: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashFirmware
+ 184:	9100016b 	add	x11, x11, #0x0
+			184: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashFirmware
+ 188:	f9018a6d 	str	x13, [x19, #784]
+ 18c:	f901a264 	str	x4, [x19, #832]
+ 190:	9000000d 	adrp	x13, 8290 <QDFTcon_CheckFfcCableMode>
+			190: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_CheckFfcCableMode
+ 194:	f901a66c 	str	x12, [x19, #840]
+ 198:	910001ad 	add	x13, x13, #0x0
+			198: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_CheckFfcCableMode
+ 19c:	f901aa67 	str	x7, [x19, #848]
+ 1a0:	90000004 	adrp	x4, 9200 <QDFTcon_UpgradeFlashFirmware_se>
+			1a0: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashFirmware_se
+ 1a4:	f901c666 	str	x6, [x19, #904]
+ 1a8:	91000084 	add	x4, x4, #0x0
+			1a8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashFirmware_se
+ 1ac:	f9021682 	str	x2, [x20, #1064]
+ 1b0:	910f8274 	add	x20, x19, #0x3e0
+ 1b4:	f902ea61 	str	x1, [x19, #1488]
+ 1b8:	90000001 	adrp	x1, a5c8 <QDFTcon_GetTconPMICFault>
+			1b8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetTconPMICFault
+ 1bc:	f903a260 	str	x0, [x19, #1856]
+ 1c0:	91000021 	add	x1, x1, #0x0
+			1c0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetTconPMICFault
+ 1c4:	a9124a63 	stp	x3, x18, [x19, #288]
+ 1c8:	9109e263 	add	x3, x19, #0x278
+ 1cc:	9000000c 	adrp	x12, 4e0 <init_module+0x4e0>
+			1cc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetTconStatus
+ 1d0:	f9009e6b 	str	x11, [x19, #312]
+ 1d4:	9000000b 	adrp	x11, 11338 <QDFTcon_SendLowInputCmd>
+			1d4: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SendLowInputCmd
+ 1d8:	9100016b 	add	x11, x11, #0x0
+			1d8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SendLowInputCmd
+ 1dc:	f9017e6b 	str	x11, [x19, #760]
+ 1e0:	910e426b 	add	x11, x19, #0x390
+ 1e4:	9100018c 	add	x12, x12, #0x0
+			1e4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetTconStatus
+ 1e8:	9000000e 	adrp	x14, 5b18 <QDFTcon_CheckVersion>
+			1e8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_CheckVersion
+ 1ec:	9000000f 	adrp	x15, 750 <QDFTcon_GetTconDataStatus>
+			1ec: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetTconDataStatus
+ 1f0:	910001ce 	add	x14, x14, #0x0
+			1f0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_CheckVersion
+ 1f4:	910001ef 	add	x15, x15, #0x0
+			1f4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetTconDataStatus
+ 1f8:	90000007 	adrp	x7, 450 <init_module+0x450>
+			1f8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashFirmwareCAD
+ 1fc:	90000005 	adrp	x5, b730 <QDFTcon_GetMicomStatus>
+			1fc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetMicomStatus
+ 200:	910000e7 	add	x7, x7, #0x0
+			200: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashFirmwareCAD
+ 204:	910000a5 	add	x5, x5, #0x0
+			204: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetMicomStatus
+ 208:	90000000 	adrp	x0, 1670 <QDFTcon_GetEmpId>
+			208: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetEmpId
+ 20c:	90000009 	adrp	x9, 5c0 <init_module+0x5c0>
+			20c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetResolutionInfo
+ 210:	91000000 	add	x0, x0, #0x0
+			210: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetEmpId
+ 214:	91000129 	add	x9, x9, #0x0
+			214: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetResolutionInfo
+ 218:	9000000a 	adrp	x10, 1ab8 <QDFTcon_Tcon_SetPanelInfo>
+			218: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_SetPanelInfo
+ 21c:	90000006 	adrp	x6, 6dd8 <QDFTcon_GetPMICStatus>
+			21c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetPMICStatus
+ 220:	9100014a 	add	x10, x10, #0x0
+			220: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_SetPanelInfo
+ 224:	910000c6 	add	x6, x6, #0x0
+			224: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetPMICStatus
+ 228:	90000011 	adrp	x17, 620 <QDFTcon_t_Tcon_SetPictureInformation>
+			228: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_t_Tcon_SetPictureInformation
+ 22c:	90000002 	adrp	x2, 12fc8 <QDFTcon_DoUpdate>
+			22c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_DoUpdate
+ 230:	91000231 	add	x17, x17, #0x0
+			230: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_t_Tcon_SetPictureInformation
+ 234:	91000042 	add	x2, x2, #0x0
+			234: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_DoUpdate
+ 238:	a900086e 	stp	x14, x2, [x3]
+ 23c:	90000010 	adrp	x16, 698 <QDFTcon_GetPMICResultMode>
+			23c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetPMICResultMode
+ 240:	90000008 	adrp	x8, a340 <QDFTcon_TconMonitorTask>
+			240: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_TconMonitorTask
+ 244:	a903b06d 	stp	x13, x12, [x3, #56]
+ 248:	90000003 	adrp	x3, 8098 <QDFTcon_GetUSITStatus>
+			248: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetUSITStatus
+ 24c:	91000063 	add	x3, x3, #0x0
+			24c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetUSITStatus
+ 250:	a90d066f 	stp	x15, x1, [x19, #208]
+ 254:	90000001 	adrp	x1, d868 <QDFTcon_SetVRRMode>
+			254: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetVRRMode
+ 258:	91000021 	add	x1, x1, #0x0
+			258: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetVRRMode
+ 25c:	91000210 	add	x16, x16, #0x0
+			25c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetPMICResultMode
+ 260:	91000108 	add	x8, x8, #0x0
+			260: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_TconMonitorTask
+ 264:	9000000f 	adrp	x15, 0 <init_module>
+			264: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetUSITVersion
+ 268:	90000012 	adrp	x18, 112c0 <QDFTcon_SetVRRFrameRate>
+			268: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetVRRFrameRate
+ 26c:	910001ef 	add	x15, x15, #0x0
+			26c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetUSITVersion
+ 270:	91000252 	add	x18, x18, #0x0
+			270: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetVRRFrameRate
+ 274:	a907aa71 	stp	x17, x10, [x19, #120]
+ 278:	90000011 	adrp	x17, a1b0 <QDFTcon_GetExtTemp>
+			278: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetExtTemp
+ 27c:	9000000a 	adrp	x10, aeb0 <QDFTcon_GetExtTempPcb>
+			27c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetExtTempPcb
+ 280:	91000231 	add	x17, x17, #0x0
+			280: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetExtTemp
+ 284:	9100014a 	add	x10, x10, #0x0
+			284: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetExtTempPcb
+ 288:	f9004e69 	str	x9, [x19, #152]
+ 28c:	90000009 	adrp	x9, c310 <QDFTcon_SendSrpGain>
+			28c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SendSrpGain
+ 290:	91000129 	add	x9, x9, #0x0
+			290: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SendSrpGain
+ 294:	a900256a 	stp	x10, x9, [x11]
+ 298:	9000000c 	adrp	x12, 7c38 <QDFTcon_EW_PMICHeavyLoadTest>
+			298: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_PMICHeavyLoadTest
+ 29c:	f9005e66 	str	x6, [x19, #184]
+ 2a0:	90000006 	adrp	x6, db20 <QDFTcon_SetBfiEnable>
+			2a0: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetBfiEnable
+ 2a4:	910000c6 	add	x6, x6, #0x0
+			2a4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetBfiEnable
+ 2a8:	a9149e64 	stp	x4, x7, [x19, #328]
+ 2ac:	90000004 	adrp	x4, d120 <QDFTcon_SendOneCommand>
+			2ac: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SendOneCommand
+ 2b0:	90000007 	adrp	x7, a140 <QDFTcon_ReadOneCommand>
+			2b0: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_ReadOneCommand
+ 2b4:	91000084 	add	x4, x4, #0x0
+			2b4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SendOneCommand
+ 2b8:	910000e7 	add	x7, x7, #0x0
+			2b8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_ReadOneCommand
+ 2bc:	a9011d64 	stp	x4, x7, [x11, #16]
+ 2c0:	9100018c 	add	x12, x12, #0x0
+			2c0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_PMICHeavyLoadTest
+ 2c4:	f900de65 	str	x5, [x19, #440]
+ 2c8:	90000005 	adrp	x5, 5608 <QDFTcon_GetErrDetFault>
+			2c8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetErrDetFault
+ 2cc:	910000a5 	add	x5, x5, #0x0
+			2cc: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetErrDetFault
+ 2d0:	f900e663 	str	x3, [x19, #456]
+ 2d4:	90000003 	adrp	x3, 7b0 <QDFTcon_GetVddDetFault>
+			2d4: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetVddDetFault
+ 2d8:	91000063 	add	x3, x3, #0x0
+			2d8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetVddDetFault
+ 2dc:	f9010261 	str	x1, [x19, #512]
+ 2e0:	90000001 	adrp	x1, a000 <QDFTcon_GetErrDetStatus>
+			2e0: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetErrDetStatus
+ 2e4:	91000021 	add	x1, x1, #0x0
+			2e4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetErrDetStatus
+ 2e8:	a9000683 	stp	x3, x1, [x20]
+ 2ec:	90000001 	adrp	x1, 4450 <QDFTcon_Tcon_GetTCONFWVersionFactory>
+			2ec: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_GetTCONFWVersionFactory
+ 2f0:	f9010672 	str	x18, [x19, #520]
+ 2f4:	91000021 	add	x1, x1, #0x0
+			2f4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_GetTCONFWVersionFactory
+ 2f8:	f9010a68 	str	x8, [x19, #528]
+ 2fc:	90000008 	adrp	x8, d088 <QDFTcon_GetPowerLevel>
+			2fc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetPowerLevel
+ 300:	f9011271 	str	x17, [x19, #544]
+ 304:	91000108 	add	x8, x8, #0x0
+			304: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetPowerLevel
+ 308:	f9012e70 	str	x16, [x19, #600]
+ 30c:	90000010 	adrp	x16, 908 <QDFTcon_SendNoneCommand>
+			30c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SendNoneCommand
+ 310:	f901326f 	str	x15, [x19, #608]
+ 314:	91000210 	add	x16, x16, #0x0
+			314: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SendNoneCommand
+ 318:	f9013a60 	str	x0, [x19, #624]
+ 31c:	90000000 	adrp	x0, 978 <QDFTcon_GetHsmStatus>
+			31c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetHsmStatus
+ 320:	91000000 	add	x0, x0, #0x0
+			320: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetHsmStatus
+ 324:	f901da66 	str	x6, [x19, #944]
+ 328:	f901ea65 	str	x5, [x19, #976]
+ 32c:	9000000d 	adrp	x13, 7270 <QDFTcon_EW_USITHeavyTest>
+			32c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_USITHeavyTest
+ 330:	a901c288 	stp	x8, x16, [x20, #24]
+ 334:	910001ad 	add	x13, x13, #0x0
+			334: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_USITHeavyTest
+ 338:	9000000b 	adrp	x11, 7e38 <QDFTcon_EW_EMMCTest>
+			338: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_EMMCTest
+ 33c:	f9020660 	str	x0, [x19, #1032]
+ 340:	911ba260 	add	x0, x19, #0x6e8
+ 344:	9100016b 	add	x11, x11, #0x0
+			344: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_EMMCTest
+ 348:	9000000a 	adrp	x10, 7148 <QDFTcon_EW_VRRSetting>
+			348: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_VRRSetting
+ 34c:	9100014a 	add	x10, x10, #0x0
+			34c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_VRRSetting
+ 350:	911ac27e 	add	x30, x19, #0x6b0
+ 354:	a900340c 	stp	x12, x13, [x0]
+ 358:	90000002 	adrp	x2, 8030 <QDFTcon_t_Tcon_CheckCrcTcon>
+			358: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_t_Tcon_CheckCrcTcon
+ 35c:	91000042 	add	x2, x2, #0x0
+			35c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_t_Tcon_CheckCrcTcon
+ 360:	a901a80b 	stp	x11, x10, [x0, #24]
+ 364:	90000000 	adrp	x0, ce00 <QDFTcon_t_Tcon_SetMute>
+			364: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_t_Tcon_SetMute
+ 368:	91000000 	add	x0, x0, #0x0
+			368: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_t_Tcon_SetMute
+ 36c:	a9058261 	stp	x1, x0, [x19, #88]
+ 370:	90000001 	adrp	x1, d60 <QDFTcon_GetCellAutoDetect>
+			370: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetCellAutoDetect
+ 374:	91000021 	add	x1, x1, #0x0
+			374: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetCellAutoDetect
+ 378:	f9014e61 	str	x1, [x19, #664]
+ 37c:	90000001 	adrp	x1, e00 <QDFTcon_SetRecoveryMode>
+			37c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetRecoveryMode
+ 380:	91000021 	add	x1, x1, #0x0
+			380: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetRecoveryMode
+ 384:	f9015661 	str	x1, [x19, #680]
+ 388:	90000001 	adrp	x1, 3d00 <QDFTcon_SetMuraControl>
+			388: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetMuraControl
+ 38c:	91000021 	add	x1, x1, #0x0
+			38c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetMuraControl
+ 390:	f900c261 	str	x1, [x19, #384]
+ 394:	90000001 	adrp	x1, f038 <QDFTcon_SetPixelShiftMode>
+			394: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetPixelShiftMode
+ 398:	91000021 	add	x1, x1, #0x0
+			398: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetPixelShiftMode
+ 39c:	90000012 	adrp	x18, ca20 <QDFTcon_t_Tcon_SetTestPattern>
+			39c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_t_Tcon_SetTestPattern
+ 3a0:	91000252 	add	x18, x18, #0x0
+			3a0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_t_Tcon_SetTestPattern
+ 3a4:	a9020a72 	stp	x18, x2, [x19, #32]
+ 3a8:	90000002 	adrp	x2, 2de8 <QDFTcon_SetPanelTypeMode>
+			3a8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetPanelTypeMode
+ 3ac:	91000042 	add	x2, x2, #0x0
+			3ac: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetPanelTypeMode
+ 3b0:	f9022661 	str	x1, [x19, #1096]
+ 3b4:	9111e261 	add	x1, x19, #0x478
+ 3b8:	90000011 	adrp	x17, 1c8 <init_module+0x1c8>
+			3b8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetDpBipIndex
+ 3bc:	90000009 	adrp	x9, 13c30 <QDFTcon_Tcon_Debug>
+			3bc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Tcon_Debug
+ 3c0:	91000231 	add	x17, x17, #0x0
+			3c0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetDpBipIndex
+ 3c4:	91000129 	add	x9, x9, #0x0
+			3c4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Tcon_Debug
+ 3c8:	90000008 	adrp	x8, ec00 <QDFTcon_SetQdSsBrightness>
+			3c8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdSsBrightness
+ 3cc:	91000108 	add	x8, x8, #0x0
+			3cc: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdSsBrightness
+ 3d0:	f9015262 	str	x2, [x19, #672]
+ 3d4:	90000002 	adrp	x2, 18 <init_module+0x18>
+			3d4: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetOledPowerLevel
+ 3d8:	91000042 	add	x2, x2, #0x0
+			3d8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetOledPowerLevel
+ 3dc:	9000000e 	adrp	x14, 7930 <QDFTcon_EW_EXTCMDTest>
+			3dc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_EXTCMDTest
+ 3e0:	90000004 	adrp	x4, 7f30 <QDFTcon_EW_DDRTest>
+			3e0: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_DDRTest
+ 3e4:	910001ce 	add	x14, x14, #0x0
+			3e4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_EXTCMDTest
+ 3e8:	91000084 	add	x4, x4, #0x0
+			3e8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_DDRTest
+ 3ec:	90000005 	adrp	x5, 7d38 <QDFTcon_EW_PMICTest>
+			3ec: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_PMICTest
+ 3f0:	9000000f 	adrp	x15, 7a38 <QDFTcon_EW_USITTest>
+			3f0: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_USITTest
+ 3f4:	910000a5 	add	x5, x5, #0x0
+			3f4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_PMICTest
+ 3f8:	910001ef 	add	x15, x15, #0x0
+			3f8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_USITTest
+ 3fc:	90000007 	adrp	x7, 7050 <QDFTcon_EW_SetUsitDvdd>
+			3fc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_SetUsitDvdd
+ 400:	90000006 	adrp	x6, 115e0 <QDFTcon_EW_QdNpcTest>
+			400: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_QdNpcTest
+ 404:	910000e7 	add	x7, x7, #0x0
+			404: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_SetUsitDvdd
+ 408:	910000c6 	add	x6, x6, #0x0
+			408: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_QdNpcTest
+ 40c:	90000003 	adrp	x3, 15d30 <QDFTcon_EW_QdLogoDetectTest>
+			40c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_EW_QdLogoDetectTest
+ 410:	90000012 	adrp	x18, 2988 <QDFTcon_GetQdCellInfo>
+			410: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetQdCellInfo
+ 414:	91000063 	add	x3, x3, #0x0
+			414: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_EW_QdLogoDetectTest
+ 418:	91000252 	add	x18, x18, #0x0
+			418: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetQdCellInfo
+ 41c:	90000010 	adrp	x16, af30 <QDFTcon_GetQdOffSensingAvailable>
+			41c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetQdOffSensingAvailable
+ 420:	91000210 	add	x16, x16, #0x0
+			420: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetQdOffSensingAvailable
+ 424:	a9003fc4 	stp	x4, x15, [x30]
+ 428:	9000000c 	adrp	x12, 2110 <QDFTcon_GetFfcCableStatus>
+			428: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetFfcCableStatus
+ 42c:	90000004 	adrp	x4, 4188 <QDFTcon_GetTconMuraVer>
+			42c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetTconMuraVer
+ 430:	f9000e69 	str	x9, [x19, #24]
+ 434:	90000009 	adrp	x9, c48 <QDFTcon_GetUpdateUsbStatus>
+			434: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetUpdateUsbStatus
+ 438:	91000129 	add	x9, x9, #0x0
+			438: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetUpdateUsbStatus
+ 43c:	a902bbc5 	stp	x5, x14, [x30, #40]
+ 440:	91000084 	add	x4, x4, #0x0
+			440: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetTconMuraVer
+ 444:	f901c271 	str	x17, [x19, #896]
+ 448:	90000011 	adrp	x17, ea8 <QDFTcon_SetCoolingTime>
+			448: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetCoolingTime
+ 44c:	91000231 	add	x17, x17, #0x0
+			44c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetCoolingTime
+ 450:	f901fa68 	str	x8, [x19, #1008]
+ 454:	90000008 	adrp	x8, 11c48 <QDFTcon_SetQdTconPowerControl>
+			454: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdTconPowerControl
+ 458:	91000108 	add	x8, x8, #0x0
+			458: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdTconPowerControl
+ 45c:	f9020a69 	str	x9, [x19, #1040]
+ 460:	90000009 	adrp	x9, 3598 <QDFTcon_SetColorPatternLevel>
+			460: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetColorPatternLevel
+ 464:	f9020e72 	str	x18, [x19, #1048]
+ 468:	91000129 	add	x9, x9, #0x0
+			468: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetColorPatternLevel
+ 46c:	f9021262 	str	x2, [x19, #1056]
+ 470:	90000002 	adrp	x2, 3870 <QDFTcon_SetDotPantternOnOff>
+			470: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetDotPantternOnOff
+ 474:	91000042 	add	x2, x2, #0x0
+			474: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetDotPantternOnOff
+ 478:	f9021a60 	str	x0, [x19, #1072]
+ 47c:	f9022a71 	str	x17, [x19, #1104]
+ 480:	9100018c 	add	x12, x12, #0x0
+			480: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetFfcCableStatus
+ 484:	f9022e68 	str	x8, [x19, #1112]
+ 488:	90000005 	adrp	x5, 5308 <QDFTcon_UpgradeTotalDemura>
+			488: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeTotalDemura
+ 48c:	f9023270 	str	x16, [x19, #1120]
+ 490:	910000a5 	add	x5, x5, #0x0
+			490: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeTotalDemura
+ 494:	f9038a67 	str	x7, [x19, #1808]
+ 498:	90000000 	adrp	x0, e278 <QDFTcon_SetQdTmOnOff>
+			498: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdTmOnOff
+ 49c:	f9038e66 	str	x6, [x19, #1816]
+ 4a0:	91000000 	add	x0, x0, #0x0
+			4a0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdTmOnOff
+ 4a4:	f9039263 	str	x3, [x19, #1824]
+ 4a8:	90000006 	adrp	x6, 498 <init_module+0x498>
+			4a8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashFirmwareOtp
+ 4ac:	a9000829 	stp	x9, x2, [x1]
+ 4b0:	91128262 	add	x2, x19, #0x4a0
+ 4b4:	910000c6 	add	x6, x6, #0x0
+			4b4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashFirmwareOtp
+ 4b8:	90000007 	adrp	x7, 12e68 <QDFTcon_UpgradeFlashDataOtp>
+			4b8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_UpgradeFlashDataOtp
+ 4bc:	90000012 	adrp	x18, e138 <QDFTcon_SetQdTmTemp>
+			4bc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdTmTemp
+ 4c0:	910000e7 	add	x7, x7, #0x0
+			4c0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_UpgradeFlashDataOtp
+ 4c4:	91000252 	add	x18, x18, #0x0
+			4c4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdTmTemp
+ 4c8:	90000003 	adrp	x3, e7e0 <QDFTcon_SetQdSsSensitivity>
+			4c8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdSsSensitivity
+ 4cc:	90000008 	adrp	x8, 3810 <QDFTcon_SetDemuraBypass>
+			4cc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetDemuraBypass
+ 4d0:	91000063 	add	x3, x3, #0x0
+			4d0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdSsSensitivity
+ 4d4:	91000108 	add	x8, x8, #0x0
+			4d4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetDemuraBypass
+ 4d8:	a901c820 	stp	x0, x18, [x1, #24]
+ 4dc:	90000001 	adrp	x1, 38f0 <QDFTcon_SetDotPanttern2OnOff>
+			4dc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetDotPanttern2OnOff
+ 4e0:	91000021 	add	x1, x1, #0x0
+			4e0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetDotPanttern2OnOff
+ 4e4:	9000000f 	adrp	x15, ed80 <QDFTcon_SetQdSsMethod>
+			4e4: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdSsMethod
+ 4e8:	9000000e 	adrp	x14, ea88 <QDFTcon_QdSsWatingTime>
+			4e8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_QdSsWatingTime
+ 4ec:	910001ef 	add	x15, x15, #0x0
+			4ec: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdSsMethod
+ 4f0:	910001ce 	add	x14, x14, #0x0
+			4f0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_QdSsWatingTime
+ 4f4:	9000000d 	adrp	x13, e910 <QDFTcon_SetQdSsSlope>
+			4f4: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdSsSlope
+ 4f8:	9000000b 	adrp	x11, def8 <QDFTcon_SetTmSpeed>
+			4f8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetTmSpeed
+ 4fc:	910001ad 	add	x13, x13, #0x0
+			4fc: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdSsSlope
+ 500:	9100016b 	add	x11, x11, #0x0
+			500: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetTmSpeed
+ 504:	9000000a 	adrp	x10, ddd0 <QDFTcon_SetTmMinLuminance>
+			504: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetTmMinLuminance
+ 508:	90000011 	adrp	x17, 2ce8 <QDFTcon_SetErrorLog>
+			508: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetErrorLog
+ 50c:	9100014a 	add	x10, x10, #0x0
+			50c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetTmMinLuminance
+ 510:	91000231 	add	x17, x17, #0x0
+			510: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetErrorLog
+ 514:	90000010 	adrp	x16, da00 <QDFTcon_SetQdMultiLogoBri>
+			514: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdMultiLogoBri
+ 518:	90000009 	adrp	x9, d6a8 <QDFTcon_SetTmResetOnOff>
+			518: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetTmResetOnOff
+ 51c:	91000210 	add	x16, x16, #0x0
+			51c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdMultiLogoBri
+ 520:	91000129 	add	x9, x9, #0x0
+			520: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetTmResetOnOff
+ 524:	a9004051 	stp	x17, x16, [x2]
+ 528:	aa1303e0 	mov	x0, x19
+ 52c:	a901384f 	stp	x15, x14, [x2, #16]
+ 530:	90000002 	adrp	x2, 13600 <QDFTcon_DoTconCadUpdate>
+			530: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_DoTconCadUpdate
+ 534:	91000042 	add	x2, x2, #0x0
+			534: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_DoTconCadUpdate
+ 538:	f9004a68 	str	x8, [x19, #144]
+ 53c:	90000008 	adrp	x8, d520 <QDFTcon_SetMlogoLvlRatio1>
+			53c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetMlogoLvlRatio1
+ 540:	91000108 	add	x8, x8, #0x0
+			540: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetMlogoLvlRatio1
+ 544:	f9009a67 	str	x7, [x19, #304]
+ 548:	90000007 	adrp	x7, d348 <QDFTcon_SetMlogoLvlRatio2>
+			548: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetMlogoLvlRatio2
+ 54c:	910000e7 	add	x7, x7, #0x0
+			54c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetMlogoLvlRatio2
+ 550:	f900ae66 	str	x6, [x19, #344]
+ 554:	90000006 	adrp	x6, f18 <QDFTcon_SetTsiPatternOnOff>
+			554: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetTsiPatternOnOff
+ 558:	910000c6 	add	x6, x6, #0x0
+			558: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetTsiPatternOnOff
+ 55c:	f900ba65 	str	x5, [x19, #368]
+ 560:	90000005 	adrp	x5, e018 <QDFTcon_SetQdTmBoundary>
+			560: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetQdTmBoundary
+ 564:	910000a5 	add	x5, x5, #0x0
+			564: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetQdTmBoundary
+ 568:	f900ca64 	str	x4, [x19, #400]
+ 56c:	90000004 	adrp	x4, 13e8 <QDFTcon_GetPMICInitInfo>
+			56c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetPMICInitInfo
+ 570:	91000084 	add	x4, x4, #0x0
+			570: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetPMICInitInfo
+ 574:	f902366c 	str	x12, [x19, #1128]
+ 578:	9000000c 	adrp	x12, 8b60 <QDFTcon_GetQdSubOtpVersionCheck>
+			578: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetQdSubOtpVersionCheck
+ 57c:	9100018c 	add	x12, x12, #0x0
+			57c: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetQdSubOtpVersionCheck
+ 580:	f9024661 	str	x1, [x19, #1160]
+ 584:	90000001 	adrp	x1, 9e78 <QDFTcon_GetOledSIndex>
+			584: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetOledSIndex
+ 588:	91000021 	add	x1, x1, #0x0
+			588: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetOledSIndex
+ 58c:	f902d663 	str	x3, [x19, #1448]
+ 590:	91156263 	add	x3, x19, #0x558
+ 594:	f902626d 	str	x13, [x19, #1216]
+ 598:	f9028a6c 	str	x12, [x19, #1296]
+ 59c:	f902a66b 	str	x11, [x19, #1352]
+ 5a0:	a9002069 	stp	x9, x8, [x3]
+ 5a4:	a9011867 	stp	x7, x6, [x3, #16]
+ 5a8:	f902aa6a 	str	x10, [x19, #1360]
+ 5ac:	f902be61 	str	x1, [x19, #1400]
+ 5b0:	f902c261 	str	x1, [x19, #1408]
+ 5b4:	f902ce65 	str	x5, [x19, #1432]
+ 5b8:	f902d264 	str	x4, [x19, #1440]
+ 5bc:	f902da62 	str	x2, [x19, #1456]
+ 5c0:	94000000 	bl	0 <map_tcon_functions>
+			5c0: R_AARCH64_CALL26	map_tcon_functions
+ 5c4:	90000000 	adrp	x0, 0 <init_module>
+			5c4: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0xc510
+ 5c8:	91000000 	add	x0, x0, #0x0
+			5c8: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0xc510
+ 5cc:	94000000 	bl	0 <printk>
+			5cc: R_AARCH64_CALL26	printk
+ 5d0:	52800000 	mov	w0, #0x0                   	// #0
+ 5d4:	a94153f3 	ldp	x19, x20, [sp, #16]
+ 5d8:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 5dc:	d65f03c0 	ret
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000010508 <m_tcon_set_frame_mode>:
+   10508:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+   1050c:	12800002 	mov	w2, #0xffffffff            	// #-1
+   10510:	90000001 	adrp	x1, 0 <QDFTcon_GetUSITVersion>
+			10510: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x140
+   10514:	910003fd 	mov	x29, sp
+   10518:	a90153f3 	stp	x19, x20, [sp, #16]
+   1051c:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+			1051c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1228
+   10520:	91000294 	add	x20, x20, #0x0
+			10520: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1228
+   10524:	b9004fe2 	str	w2, [sp, #76]
+   10528:	2a0003f3 	mov	w19, w0
+   1052c:	b9400020 	ldr	w0, [x1]
+			1052c: R_AARCH64_LDST32_ABS_LO12_NC	.bss+0x140
+   10530:	7956a282 	ldrh	w2, [x20, #2896]
+   10534:	a9025bf5 	stp	x21, x22, [sp, #32]
+   10538:	7100041f 	cmp	w0, #0x1
+   1053c:	a90363f7 	stp	x23, x24, [sp, #48]
+   10540:	780533e2 	sturh	w2, [sp, #83]
+   10544:	f80553ff 	stur	xzr, [sp, #85]
+   10548:	7805d3ff 	sturh	wzr, [sp, #93]
+   1054c:	39017fff 	strb	wzr, [sp, #95]
+   10550:	54000b40 	b.eq	106b8 <m_tcon_set_frame_mode+0x1b0>  // b.none
+   10554:	94000000 	bl	16ba8 <ft_current_pid>
+			10554: R_AARCH64_CALL26	ft_current_pid
+   10558:	2a0003f5 	mov	w21, w0
+   1055c:	94000000 	bl	16bb8 <ft_current_comm>
+			1055c: R_AARCH64_CALL26	ft_current_comm
+   10560:	aa0003e3 	mov	x3, x0
+   10564:	2a1503e2 	mov	w2, w21
+   10568:	912d8281 	add	x1, x20, #0xb60
+   1056c:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			1056c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x7a10
+   10570:	91000000 	add	x0, x0, #0x0
+			10570: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x7a10
+   10574:	94000000 	bl	0 <printk>
+			10574: R_AARCH64_CALL26	printk
+   10578:	52800037 	mov	w23, #0x1                   	// #1
+   1057c:	2a1703e2 	mov	w2, w23
+   10580:	2a1703e1 	mov	w1, w23
+   10584:	d2802c80 	mov	x0, #0x164                 	// #356
+   10588:	f2de6000 	movk	x0, #0xf300, lsl #32
+   1058c:	97ffed85 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+   10590:	2a0003f5 	mov	w21, w0
+   10594:	52800640 	mov	w0, #0x32                  	// #50
+   10598:	94000000 	bl	16b10 <ft_msleep>
+			10598: R_AARCH64_CALL26	ft_msleep
+   1059c:	91014fe1 	add	x1, sp, #0x53
+   105a0:	2a1303e0 	mov	w0, w19
+   105a4:	97ffc3ed 	bl	1558 <m_get_tcon_frame_mode_info>
+   105a8:	912d8298 	add	x24, x20, #0xb60
+   105ac:	94000000 	bl	16ba8 <ft_current_pid>
+			105ac: R_AARCH64_CALL26	ft_current_pid
+   105b0:	2a0003f6 	mov	w22, w0
+   105b4:	94000000 	bl	16bb8 <ft_current_comm>
+			105b4: R_AARCH64_CALL26	ft_current_comm
+   105b8:	aa0003e3 	mov	x3, x0
+   105bc:	2a1603e2 	mov	w2, w22
+   105c0:	91014fe4 	add	x4, sp, #0x53
+   105c4:	2a1303e5 	mov	w5, w19
+   105c8:	aa1803e1 	mov	x1, x24
+   105cc:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			105cc: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x7a78
+   105d0:	91000000 	add	x0, x0, #0x0
+			105d0: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x7a78
+   105d4:	94000000 	bl	0 <printk>
+			105d4: R_AARCH64_CALL26	printk
+   105d8:	910133e1 	add	x1, sp, #0x4c
+   105dc:	d2802c00 	mov	x0, #0x160                 	// #352
+   105e0:	f2de6000 	movk	x0, #0xf300, lsl #32
+   105e4:	97ffe569 	bl	9b88 <m_read_cmd.constprop.0>
+   105e8:	b9404fe1 	ldr	w1, [sp, #76]
+   105ec:	6b13003f 	cmp	w1, w19
+   105f0:	540007c0 	b.eq	106e8 <m_tcon_set_frame_mode+0x1e0>  // b.none
+   105f4:	aa1803e0 	mov	x0, x24
+   105f8:	94000000 	bl	16508 <frc_tcon_lock>
+			105f8: R_AARCH64_CALL26	frc_tcon_lock
+   105fc:	2a1303e1 	mov	w1, w19
+   10600:	d2802c00 	mov	x0, #0x160                 	// #352
+   10604:	52800002 	mov	w2, #0x0                   	// #0
+   10608:	f2de6000 	movk	x0, #0xf300, lsl #32
+   1060c:	97ffed65 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+   10610:	910133e1 	add	x1, sp, #0x4c
+   10614:	2a0003f5 	mov	w21, w0
+   10618:	d2802c00 	mov	x0, #0x160                 	// #352
+   1061c:	f2de6000 	movk	x0, #0xf300, lsl #32
+   10620:	97ffeca0 	bl	b8a0 <m_read_cmd_no_lock.constprop.0>
+   10624:	2a150015 	orr	w21, w0, w21
+   10628:	94000000 	bl	16ba8 <ft_current_pid>
+			10628: R_AARCH64_CALL26	ft_current_pid
+   1062c:	2a0003f6 	mov	w22, w0
+   10630:	94000000 	bl	16bb8 <ft_current_comm>
+			10630: R_AARCH64_CALL26	ft_current_comm
+   10634:	b9404fe5 	ldr	w5, [sp, #76]
+   10638:	aa0003e3 	mov	x3, x0
+   1063c:	2a1603e2 	mov	w2, w22
+   10640:	2a1503e6 	mov	w6, w21
+   10644:	2a1303e4 	mov	w4, w19
+   10648:	aa1803e1 	mov	x1, x24
+   1064c:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			1064c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x56d8
+   10650:	91000000 	add	x0, x0, #0x0
+			10650: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x56d8
+   10654:	94000000 	bl	0 <printk>
+			10654: R_AARCH64_CALL26	printk
+   10658:	b9404fe0 	ldr	w0, [sp, #76]
+   1065c:	6b13001f 	cmp	w0, w19
+   10660:	540007c1 	b.ne	10758 <m_tcon_set_frame_mode+0x250>  // b.any
+   10664:	52803e80 	mov	w0, #0x1f4                 	// #500
+   10668:	912d8293 	add	x19, x20, #0xb60
+   1066c:	94000000 	bl	16b10 <ft_msleep>
+			1066c: R_AARCH64_CALL26	ft_msleep
+   10670:	94000000 	bl	16ba8 <ft_current_pid>
+			10670: R_AARCH64_CALL26	ft_current_pid
+   10674:	2a0003f6 	mov	w22, w0
+   10678:	94000000 	bl	16bb8 <ft_current_comm>
+			10678: R_AARCH64_CALL26	ft_current_comm
+   1067c:	aa0003e3 	mov	x3, x0
+   10680:	2a1603e2 	mov	w2, w22
+   10684:	aa1303e1 	mov	x1, x19
+   10688:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			10688: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x7ab8
+   1068c:	91000000 	add	x0, x0, #0x0
+			1068c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x7ab8
+   10690:	94000000 	bl	0 <printk>
+			10690: R_AARCH64_CALL26	printk
+   10694:	aa1303e0 	mov	x0, x19
+   10698:	94000000 	bl	16528 <frc_tcon_unlock>
+			10698: R_AARCH64_CALL26	frc_tcon_unlock
+   1069c:	350003f7 	cbnz	w23, 10718 <m_tcon_set_frame_mode+0x210>
+   106a0:	2a1503e0 	mov	w0, w21
+   106a4:	a94153f3 	ldp	x19, x20, [sp, #16]
+   106a8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+   106ac:	a94363f7 	ldp	x23, x24, [sp, #48]
+   106b0:	a8c67bfd 	ldp	x29, x30, [sp], #96
+   106b4:	d65f03c0 	ret
+   106b8:	94000000 	bl	16ba8 <ft_current_pid>
+			106b8: R_AARCH64_CALL26	ft_current_pid
+   106bc:	2a0003f6 	mov	w22, w0
+   106c0:	94000000 	bl	16bb8 <ft_current_comm>
+			106c0: R_AARCH64_CALL26	ft_current_comm
+   106c4:	52800017 	mov	w23, #0x0                   	// #0
+   106c8:	aa0003e3 	mov	x3, x0
+   106cc:	2a1603e2 	mov	w2, w22
+   106d0:	912d8281 	add	x1, x20, #0xb60
+   106d4:	52800015 	mov	w21, #0x0                   	// #0
+   106d8:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			106d8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x7a40
+   106dc:	91000000 	add	x0, x0, #0x0
+			106dc: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x7a40
+   106e0:	94000000 	bl	0 <printk>
+			106e0: R_AARCH64_CALL26	printk
+   106e4:	17ffffae 	b	1059c <m_tcon_set_frame_mode+0x94>
+   106e8:	2a0002b5 	orr	w21, w21, w0
+   106ec:	94000000 	bl	16ba8 <ft_current_pid>
+			106ec: R_AARCH64_CALL26	ft_current_pid
+   106f0:	2a0003f3 	mov	w19, w0
+   106f4:	94000000 	bl	16bb8 <ft_current_comm>
+			106f4: R_AARCH64_CALL26	ft_current_comm
+   106f8:	b9404fe4 	ldr	w4, [sp, #76]
+   106fc:	aa0003e3 	mov	x3, x0
+   10700:	2a1303e2 	mov	w2, w19
+   10704:	aa1803e1 	mov	x1, x24
+   10708:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			10708: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x7af8
+   1070c:	91000000 	add	x0, x0, #0x0
+			1070c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x7af8
+   10710:	94000000 	bl	0 <printk>
+			10710: R_AARCH64_CALL26	printk
+   10714:	17ffffe2 	b	1069c <m_tcon_set_frame_mode+0x194>
+   10718:	94000000 	bl	16ba8 <ft_current_pid>
+			10718: R_AARCH64_CALL26	ft_current_pid
+   1071c:	2a0003f3 	mov	w19, w0
+   10720:	94000000 	bl	16bb8 <ft_current_comm>
+			10720: R_AARCH64_CALL26	ft_current_comm
+   10724:	aa0003e3 	mov	x3, x0
+   10728:	2a1303e2 	mov	w2, w19
+   1072c:	912d8281 	add	x1, x20, #0xb60
+   10730:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			10730: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x7b30
+   10734:	91000000 	add	x0, x0, #0x0
+			10734: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x7b30
+   10738:	94000000 	bl	0 <printk>
+			10738: R_AARCH64_CALL26	printk
+   1073c:	d2802c80 	mov	x0, #0x164                 	// #356
+   10740:	2a1703e2 	mov	w2, w23
+   10744:	52800001 	mov	w1, #0x0                   	// #0
+   10748:	f2de6000 	movk	x0, #0xf300, lsl #32
+   1074c:	97ffed15 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+   10750:	2a0002b5 	orr	w21, w21, w0
+   10754:	17ffffd3 	b	106a0 <m_tcon_set_frame_mode+0x198>
+   10758:	94000000 	bl	16ba8 <ft_current_pid>
+			10758: R_AARCH64_CALL26	ft_current_pid
+   1075c:	2a0003f6 	mov	w22, w0
+   10760:	94000000 	bl	16bb8 <ft_current_comm>
+			10760: R_AARCH64_CALL26	ft_current_comm
+   10764:	aa0003e3 	mov	x3, x0
+   10768:	2a1503e5 	mov	w5, w21
+   1076c:	2a1303e4 	mov	w4, w19
+   10770:	2a1603e2 	mov	w2, w22
+   10774:	aa1803e1 	mov	x1, x24
+   10778:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			10778: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5720
+   1077c:	91000000 	add	x0, x0, #0x0
+			1077c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5720
+   10780:	94000000 	bl	0 <printk>
+			10780: R_AARCH64_CALL26	printk
+   10784:	d2802c00 	mov	x0, #0x160                 	// #352
+   10788:	52800002 	mov	w2, #0x0                   	// #0
+   1078c:	2a1303e1 	mov	w1, w19
+   10790:	f2de6000 	movk	x0, #0xf300, lsl #32
+   10794:	97ffed03 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+   10798:	2a0003f6 	mov	w22, w0
+   1079c:	d2802c00 	mov	x0, #0x160                 	// #352
+   107a0:	910133e1 	add	x1, sp, #0x4c
+   107a4:	f2de6000 	movk	x0, #0xf300, lsl #32
+   107a8:	97ffec3e 	bl	b8a0 <m_read_cmd_no_lock.constprop.0>
+   107ac:	2a160000 	orr	w0, w0, w22
+   107b0:	2a0002b5 	orr	w21, w21, w0
+   107b4:	94000000 	bl	16ba8 <ft_current_pid>
+			107b4: R_AARCH64_CALL26	ft_current_pid
+   107b8:	2a0003f6 	mov	w22, w0
+   107bc:	94000000 	bl	16bb8 <ft_current_comm>
+			107bc: R_AARCH64_CALL26	ft_current_comm
+   107c0:	b9404fe5 	ldr	w5, [sp, #76]
+   107c4:	aa0003e3 	mov	x3, x0
+   107c8:	2a1603e2 	mov	w2, w22
+   107cc:	2a1303e4 	mov	w4, w19
+   107d0:	aa1803e1 	mov	x1, x24
+   107d4:	2a1503e6 	mov	w6, w21
+   107d8:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			107d8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5760
+   107dc:	91000000 	add	x0, x0, #0x0
+			107dc: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5760
+   107e0:	94000000 	bl	0 <printk>
+			107e0: R_AARCH64_CALL26	printk
+   107e4:	17ffffa0 	b	10664 <m_tcon_set_frame_mode+0x15c>
+
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000011058 <m_tcon_set_frame_control>:
+   11058:	a9bb7bfd 	stp	x29, x30, [sp, #-80]!
+   1105c:	910003fd 	mov	x29, sp
+   11060:	a90153f3 	stp	x19, x20, [sp, #16]
+   11064:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+			11064: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1228
+   11068:	91000294 	add	x20, x20, #0x0
+			11068: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1228
+   1106c:	f9001bf7 	str	x23, [sp, #48]
+   11070:	2a0003f7 	mov	w23, w0
+   11074:	f80453ff 	stur	xzr, [sp, #69]
+   11078:	7956a281 	ldrh	w1, [x20, #2896]
+   1107c:	780433e1 	sturh	w1, [sp, #67]
+   11080:	7804d3ff 	sturh	wzr, [sp, #77]
+   11084:	39013fff 	strb	wzr, [sp, #79]
+   11088:	37f80da0 	tbnz	w0, #31, 1123c <m_tcon_set_frame_control+0x1e4>
+   1108c:	90000013 	adrp	x19, 0 <QDFTcon_GetUSITVersion>
+			1108c: R_AARCH64_ADR_PREL_PG_HI21	.bss
+   11090:	91000273 	add	x19, x19, #0x0
+			11090: R_AARCH64_ADD_ABS_LO12_NC	.bss
+   11094:	a9025bf5 	stp	x21, x22, [sp, #32]
+   11098:	b9404a61 	ldr	w1, [x19, #72]
+   1109c:	b9413a62 	ldr	w2, [x19, #312]
+   110a0:	121c7820 	and	w0, w1, #0xfffffff7
+   110a4:	71000c1f 	cmp	w0, #0x3
+   110a8:	54000701 	b.ne	11188 <m_tcon_set_frame_control+0x130>  // b.any
+   110ac:	7100045f 	cmp	w2, #0x1
+   110b0:	52800055 	mov	w21, #0x2                   	// #2
+   110b4:	540000a0 	b.eq	110c8 <m_tcon_set_frame_control+0x70>  // b.none
+   110b8:	1282d4e1 	mov	w1, #0xffffe958            	// #-5800
+   110bc:	0b0102e0 	add	w0, w23, w1
+   110c0:	7109601f 	cmp	w0, #0x258
+   110c4:	54000a28 	b.hi	11208 <m_tcon_set_frame_control+0x1b0>  // b.pmore
+   110c8:	94000000 	bl	16ba8 <ft_current_pid>
+			110c8: R_AARCH64_CALL26	ft_current_pid
+   110cc:	2a0003f6 	mov	w22, w0
+   110d0:	94000000 	bl	16bb8 <ft_current_comm>
+			110d0: R_AARCH64_CALL26	ft_current_comm
+   110d4:	91302294 	add	x20, x20, #0xc08
+   110d8:	b9413265 	ldr	w5, [x19, #304]
+   110dc:	aa0003e3 	mov	x3, x0
+   110e0:	b9413a64 	ldr	w4, [x19, #312]
+   110e4:	2a1603e2 	mov	w2, w22
+   110e8:	aa1403e1 	mov	x1, x20
+   110ec:	2a1503e7 	mov	w7, w21
+   110f0:	2a1703e6 	mov	w6, w23
+   110f4:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			110f4: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x8088
+   110f8:	91000000 	add	x0, x0, #0x0
+			110f8: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x8088
+   110fc:	94000000 	bl	0 <printk>
+			110fc: R_AARCH64_CALL26	printk
+   11100:	b9413e60 	ldr	w0, [x19, #316]
+   11104:	6b15001f 	cmp	w0, w21
+   11108:	2a1503e0 	mov	w0, w21
+   1110c:	54000580 	b.eq	111bc <m_tcon_set_frame_control+0x164>  // b.none
+   11110:	b9013e75 	str	w21, [x19, #316]
+   11114:	97fffcfd 	bl	10508 <m_tcon_set_frame_mode>
+   11118:	94000000 	bl	16ba8 <ft_current_pid>
+			11118: R_AARCH64_CALL26	ft_current_pid
+   1111c:	2a0003f5 	mov	w21, w0
+   11120:	94000000 	bl	16bb8 <ft_current_comm>
+			11120: R_AARCH64_CALL26	ft_current_comm
+   11124:	aa0003e3 	mov	x3, x0
+   11128:	2a1503e2 	mov	w2, w21
+   1112c:	aa1403e1 	mov	x1, x20
+   11130:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			11130: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x80f8
+   11134:	91000000 	add	x0, x0, #0x0
+			11134: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x80f8
+   11138:	94000000 	bl	0 <printk>
+			11138: R_AARCH64_CALL26	printk
+   1113c:	b9413260 	ldr	w0, [x19, #304]
+   11140:	97fff1a2 	bl	d7c8 <m_tcon_set_vrr_dia_en>
+   11144:	b9413260 	ldr	w0, [x19, #304]
+   11148:	97fff178 	bl	d728 <m_tcon_set_vrr_control>
+   1114c:	94000000 	bl	16ba8 <ft_current_pid>
+			1114c: R_AARCH64_CALL26	ft_current_pid
+   11150:	2a0003f3 	mov	w19, w0
+   11154:	94000000 	bl	16bb8 <ft_current_comm>
+			11154: R_AARCH64_CALL26	ft_current_comm
+   11158:	aa0003e3 	mov	x3, x0
+   1115c:	2a1303e2 	mov	w2, w19
+   11160:	aa1403e1 	mov	x1, x20
+   11164:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			11164: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x8140
+   11168:	91000000 	add	x0, x0, #0x0
+			11168: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x8140
+   1116c:	94000000 	bl	0 <printk>
+			1116c: R_AARCH64_CALL26	printk
+   11170:	52800000 	mov	w0, #0x0                   	// #0
+   11174:	a94153f3 	ldp	x19, x20, [sp, #16]
+   11178:	a9425bf5 	ldp	x21, x22, [sp, #32]
+   1117c:	f9401bf7 	ldr	x23, [sp, #48]
+   11180:	a8c57bfd 	ldp	x29, x30, [sp], #80
+   11184:	d65f03c0 	ret
+   11188:	7100203f 	cmp	w1, #0x8
+   1118c:	54000760 	b.eq	11278 <m_tcon_set_frame_control+0x220>  // b.none
+   11190:	71001c3f 	cmp	w1, #0x7
+   11194:	54000460 	b.eq	11220 <m_tcon_set_frame_control+0x1c8>  // b.none
+   11198:	b941aa60 	ldr	w0, [x19, #424]
+   1119c:	7100045f 	cmp	w2, #0x1
+   111a0:	52800055 	mov	w21, #0x2                   	// #2
+   111a4:	34000800 	cbz	w0, 112a4 <m_tcon_set_frame_control+0x24c>
+   111a8:	54fff900 	b.eq	110c8 <m_tcon_set_frame_control+0x70>  // b.none
+   111ac:	52880e80 	mov	w0, #0x4074                	// #16500
+   111b0:	6b0002ff 	cmp	w23, w0
+   111b4:	1a9f07f5 	cset	w21, ne	// ne = any
+   111b8:	17ffffc4 	b	110c8 <m_tcon_set_frame_control+0x70>
+   111bc:	91010fe1 	add	x1, sp, #0x43
+   111c0:	97ffc0e6 	bl	1558 <m_get_tcon_frame_mode_info>
+   111c4:	94000000 	bl	16ba8 <ft_current_pid>
+			111c4: R_AARCH64_CALL26	ft_current_pid
+   111c8:	2a0003f3 	mov	w19, w0
+   111cc:	94000000 	bl	16bb8 <ft_current_comm>
+			111cc: R_AARCH64_CALL26	ft_current_comm
+   111d0:	aa0003e3 	mov	x3, x0
+   111d4:	2a1303e2 	mov	w2, w19
+   111d8:	2a1703e5 	mov	w5, w23
+   111dc:	aa1403e1 	mov	x1, x20
+   111e0:	91010fe4 	add	x4, sp, #0x43
+   111e4:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			111e4: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x8170
+   111e8:	91000000 	add	x0, x0, #0x0
+			111e8: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x8170
+   111ec:	94000000 	bl	0 <printk>
+			111ec: R_AARCH64_CALL26	printk
+   111f0:	52800000 	mov	w0, #0x0                   	// #0
+   111f4:	a94153f3 	ldp	x19, x20, [sp, #16]
+   111f8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+   111fc:	f9401bf7 	ldr	x23, [sp, #48]
+   11200:	a8c57bfd 	ldp	x29, x30, [sp], #80
+   11204:	d65f03c0 	ret
+   11208:	52880e80 	mov	w0, #0x4074                	// #16500
+   1120c:	6b0002ff 	cmp	w23, w0
+   11210:	528bb800 	mov	w0, #0x5dc0                	// #24000
+   11214:	7a4012e4 	ccmp	w23, w0, #0x4, ne	// ne = any
+   11218:	1a9f07f5 	cset	w21, ne	// ne = any
+   1121c:	17ffffab 	b	110c8 <m_tcon_set_frame_control+0x70>
+   11220:	7100045f 	cmp	w2, #0x1
+   11224:	52800055 	mov	w21, #0x2                   	// #2
+   11228:	54fff500 	b.eq	110c8 <m_tcon_set_frame_control+0x70>  // b.none
+   1122c:	52870800 	mov	w0, #0x3840                	// #14400
+   11230:	6b0002ff 	cmp	w23, w0
+   11234:	1a9f17f5 	cset	w21, eq	// eq = none
+   11238:	17ffffa4 	b	110c8 <m_tcon_set_frame_control+0x70>
+   1123c:	94000000 	bl	16ba8 <ft_current_pid>
+			1123c: R_AARCH64_CALL26	ft_current_pid
+   11240:	2a0003f3 	mov	w19, w0
+   11244:	94000000 	bl	16bb8 <ft_current_comm>
+			11244: R_AARCH64_CALL26	ft_current_comm
+   11248:	aa0003e3 	mov	x3, x0
+   1124c:	2a1303e2 	mov	w2, w19
+   11250:	2a1703e4 	mov	w4, w23
+   11254:	91302281 	add	x1, x20, #0xc08
+   11258:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			11258: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x8040
+   1125c:	91000000 	add	x0, x0, #0x0
+			1125c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x8040
+   11260:	94000000 	bl	0 <printk>
+			11260: R_AARCH64_CALL26	printk
+   11264:	52800000 	mov	w0, #0x0                   	// #0
+   11268:	a94153f3 	ldp	x19, x20, [sp, #16]
+   1126c:	f9401bf7 	ldr	x23, [sp, #48]
+   11270:	a8c57bfd 	ldp	x29, x30, [sp], #80
+   11274:	d65f03c0 	ret
+   11278:	7100045f 	cmp	w2, #0x1
+   1127c:	52800055 	mov	w21, #0x2                   	// #2
+   11280:	54fff240 	b.eq	110c8 <m_tcon_set_frame_control+0x70>  // b.none
+   11284:	1282d4e0 	mov	w0, #0xffffe958            	// #-5800
+   11288:	0b0002e0 	add	w0, w23, w0
+   1128c:	7109601f 	cmp	w0, #0x258
+   11290:	54fff1c9 	b.ls	110c8 <m_tcon_set_frame_control+0x70>  // b.plast
+   11294:	52888b80 	mov	w0, #0x445c                	// #17500
+   11298:	6b0002ff 	cmp	w23, w0
+   1129c:	1a9f07f5 	cset	w21, ne	// ne = any
+   112a0:	17ffff8a 	b	110c8 <m_tcon_set_frame_control+0x70>
+   112a4:	54fff120 	b.eq	110c8 <m_tcon_set_frame_control+0x70>  // b.none
+   112a8:	52870800 	mov	w0, #0x3840                	// #14400
+   112ac:	6b0002ff 	cmp	w23, w0
+   112b0:	52880e80 	mov	w0, #0x4074                	// #16500
+   112b4:	7a4012e4 	ccmp	w23, w0, #0x4, ne	// ne = any
+   112b8:	1a9f17f5 	cset	w21, eq	// eq = none
+   112bc:	17ffff83 	b	110c8 <m_tcon_set_frame_control+0x70>
+
+00000000000112c0 <QDFTcon_SetVRRFrameRate>:
+   112c0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+   112c4:	910003fd 	mov	x29, sp
+   112c8:	a90153f3 	stp	x19, x20, [sp, #16]
+   112cc:	90000013 	adrp	x19, 0 <QDFTcon_GetUSITVersion>
+			112cc: R_AARCH64_ADR_PREL_PG_HI21	.bss
+   112d0:	91000273 	add	x19, x19, #0x0
+			112d0: R_AARCH64_ADD_ABS_LO12_NC	.bss
+   112d4:	b9413661 	ldr	w1, [x19, #308]
+   112d8:	6b00003f 	cmp	w1, w0
+   112dc:	540000a1 	b.ne	112f0 <QDFTcon_SetVRRFrameRate+0x30>  // b.any
+   112e0:	52800000 	mov	w0, #0x0                   	// #0
+   112e4:	a94153f3 	ldp	x19, x20, [sp, #16]
+   112e8:	a8c27bfd 	ldp	x29, x30, [sp], #32
+   112ec:	d65f03c0 	ret
+   112f0:	b9013660 	str	w0, [x19, #308]
+   112f4:	94000000 	bl	16ba8 <ft_current_pid>
+			112f4: R_AARCH64_CALL26	ft_current_pid
+   112f8:	2a0003f4 	mov	w20, w0
+   112fc:	94000000 	bl	16bb8 <ft_current_comm>
+			112fc: R_AARCH64_CALL26	ft_current_comm
+   11300:	b9413664 	ldr	w4, [x19, #308]
+   11304:	90000001 	adrp	x1, 0 <QDFTcon_GetUSITVersion>
+			11304: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1228
+   11308:	b9413a65 	ldr	w5, [x19, #312]
+   1130c:	91000021 	add	x1, x1, #0x0
+			1130c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1228
+   11310:	aa0003e3 	mov	x3, x0
+   11314:	2a1403e2 	mov	w2, w20
+   11318:	9130a021 	add	x1, x1, #0xc28
+   1131c:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			1131c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x81b8
+   11320:	91000000 	add	x0, x0, #0x0
+			11320: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x81b8
+   11324:	94000000 	bl	0 <printk>
+			11324: R_AARCH64_CALL26	printk
+   11328:	b9413660 	ldr	w0, [x19, #308]
+   1132c:	97ffff4b 	bl	11058 <m_tcon_set_frame_control>
+   11330:	17ffffec 	b	112e0 <QDFTcon_SetVRRFrameRate+0x20>
+   11334:	d503201f 	nop

@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1238, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1234, in main
+    run_capture(args.label, args.seconds, smoke_unobserved=args.smoke_unobserved)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1056, in run_capture
+    collector = launch_collector(label, stage, sync["target_uptime"])
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 877, in launch_collector
+    require(proc.returncode == 0 and item["exit_code"] == 0 and not item["timed_out"],
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "detached collector launch failed; no retry")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 81, in require
+    raise ValueError(message)
+ValueError: detached collector launch failed; no retry

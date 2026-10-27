@@ -1,0 +1,190 @@
+{
+  "dimming_focus": [],
+  "entries": {
+    "retained": 739,
+    "written": 739
+  },
+  "focus": [],
+  "maintenance_focus": [],
+  "markers": [],
+  "observed_event_lines": 739,
+  "orphan_results": [],
+  "parse_errors": [],
+  "qualification": "Only observed host I2C bytes/transport results. No physical state or MCU command acceptance inferred. Filters can omit other addresses; partial transfers are not semantic evidence.",
+  "ring_accounting_complete": true,
+  "semantic_capture_complete": true,
+  "source_sha256": "65d7a55533a9b20b99a43bdf59c77f2efda7159a7f35eea1847df3fabfb296f5",
+  "transfers": [
+    {
+      "bus": 5,
+      "close_reason": "result",
+      "end_time": 8988.809589,
+      "issues": [],
+      "messages": [
+        {
+          "address": 118,
+          "direction": "write",
+          "flags": "0x0",
+          "index": 0,
+          "length": 6,
+          "time": 8988.809234,
+          "write_hex": "f30100000000"
+        },
+        {
+          "address": 118,
+          "direction": "read",
+          "flags": "0x1",
+          "index": 1,
+          "length": 4,
+          "reply_hex": "00008104",
+          "time": 8988.809235
+        }
+      ],
+      "n": 2,
+      "pid": 1013,
+      "qd": {
+        "command_hex": "f30100000000",
+        "name": "command-status-handshake",
+        "operation": "status-handshake",
+        "read_reply_hex": "00008104",
+        "selector_hex": "0x0",
+        "status_meaning": "not-decoded-here"
+      },
+      "qd_semantic_shape_valid": true,
+      "ret": 2,
+      "start_line": 326,
+      "start_time": 8988.809234,
+      "structurally_complete": true,
+      "task": "AVEMonDIM",
+      "transport_outcome": "all-messages-reported-transferred"
+    },
+    {
+      "bus": 5,
+      "close_reason": "result",
+      "end_time": 8988.809908,
+      "issues": [],
+      "messages": [
+        {
+          "address": 118,
+          "direction": "write",
+          "flags": "0x0",
+          "index": 0,
+          "length": 6,
+          "time": 8988.809591,
+          "write_hex": "f30000000174"
+        },
+        {
+          "address": 118,
+          "direction": "write",
+          "flags": "0x4000",
+          "index": 1,
+          "length": 4,
+          "time": 8988.809591,
+          "write_hex": "00000001"
+        }
+      ],
+      "n": 2,
+      "pid": 1013,
+      "qd": {
+        "command_hex": "f30000000174",
+        "name": "power-level-query-prepare",
+        "operation": "write",
+        "selector_hex": "0x174",
+        "write_payload_hex": "00000001",
+        "write_payload_u32_be": 1
+      },
+      "qd_semantic_shape_valid": true,
+      "ret": 2,
+      "start_line": 330,
+      "start_time": 8988.809591,
+      "structurally_complete": true,
+      "task": "AVEMonDIM",
+      "transport_outcome": "all-messages-reported-transferred"
+    },
+    {
+      "bus": 5,
+      "close_reason": "result",
+      "end_time": 8988.81026,
+      "issues": [],
+      "messages": [
+        {
+          "address": 118,
+          "direction": "write",
+          "flags": "0x0",
+          "index": 0,
+          "length": 6,
+          "time": 8988.809909,
+          "write_hex": "f30100000000"
+        },
+        {
+          "address": 118,
+          "direction": "read",
+          "flags": "0x1",
+          "index": 1,
+          "length": 4,
+          "reply_hex": "00006904",
+          "time": 8988.80991
+        }
+      ],
+      "n": 2,
+      "pid": 1013,
+      "qd": {
+        "command_hex": "f30100000000",
+        "name": "command-status-handshake",
+        "operation": "status-handshake",
+        "read_reply_hex": "00006904",
+        "selector_hex": "0x0",
+        "status_meaning": "not-decoded-here"
+      },
+      "qd_semantic_shape_valid": true,
+      "ret": 2,
+      "start_line": 333,
+      "start_time": 8988.809909,
+      "structurally_complete": true,
+      "task": "AVEMonDIM",
+      "transport_outcome": "all-messages-reported-transferred"
+    },
+    {
+      "bus": 5,
+      "close_reason": "result",
+      "end_time": 8988.81061,
+      "issues": [],
+      "messages": [
+        {
+          "address": 118,
+          "direction": "write",
+          "flags": "0x0",
+          "index": 0,
+          "length": 6,
+          "time": 8988.810261,
+          "write_hex": "f3800000000d"
+        },
+        {
+          "address": 118,
+          "direction": "read",
+          "flags": "0x1",
+          "index": 1,
+          "length": 4,
+          "reply_hex": "00000001",
+          "time": 8988.810261
+        }
+      ],
+      "n": 2,
+      "pid": 1013,
+      "qd": {
+        "command_hex": "f3800000000d",
+        "name": "power-level-query-result",
+        "operation": "read",
+        "read_reply_hex": "00000001",
+        "selector_hex": "0xd"
+      },
+      "qd_semantic_shape_valid": true,
+      "ret": 2,
+      "start_line": 337,
+      "start_time": 8988.810261,
+      "structurally_complete": true,
+      "task": "AVEMonDIM",
+      "transport_outcome": "all-messages-reported-transferred"
+    }
+  ]
+}

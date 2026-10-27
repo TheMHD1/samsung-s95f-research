@@ -1,0 +1,632 @@
+
+### tztv_frc_tcon_probe .text.unlikely+0x2e78 size 0x7a4
+00002e78 stp      x29, x30, [sp, #-0x40]!
+00002e7c mov      x29, sp
+00002e80 stp      x19, x20, [sp, #0x10]
+00002e84 adrp     x20, #0x2000 ; RELOC 275 jiffies + 0x0
+00002e88 stp      x21, x22, [sp, #0x20]
+00002e8c adrp     x21, #0x2000 ; RELOC 275 <.bss> + 0x0
+00002e90 add      x19, x21, #0 ; RELOC 277 <.bss> + 0x0
+00002e94 mov      x22, x0
+00002e98 str      x23, [sp, #0x30]
+00002e9c ldr      x0, [x19, #0x388]
+00002ea0 cbnz     x0, #0x2eb8
+00002ea4 ldr      x1, [x20] ; RELOC 286 jiffies + 0x0
+00002ea8 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x9448
+00002eac add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9448
+00002eb0 str      x1, [x19, #0x388]
+00002eb4 bl       #0x2eb4 ; RELOC 283 printk + 0x0
+00002eb8 mov      w1, #1
+00002ebc mov      w2, #-1
+00002ec0 ldr      x23, [x20] ; RELOC 286 jiffies + 0x0
+00002ec4 add      x0, x19, #0x30
+00002ec8 str      x22, [x19, #0x28]
+00002ecc str      w2, [x19, #0x284]
+00002ed0 str      w1, [x19, #0x338]
+00002ed4 bl       #0x2ed4 ; RELOC 283 _tztv_get_chip_type + 0x0
+00002ed8 add      x0, x19, #0x10
+00002edc bl       #0x2edc ; RELOC 283 _tztv_frc_tcon_get_system_platform + 0x0
+00002ee0 add      x0, x19, #0x3bc
+00002ee4 bl       #0x2ee4 ; RELOC 283 _tztv_get_platform_type + 0x0
+00002ee8 sxtw     x22, w23
+00002eec bl       #0x2eec ; RELOC 283 tztv_frc_tcon_kf_interface_init + 0x0
+00002ef0 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00002ef4 sub      x0, x0, w23, sxtw
+00002ef8 bl       #0x2ef8 ; RELOC 283 jiffies_to_msecs + 0x0
+00002efc cmp      w0, #0x64
+00002f00 b.ls     #0x2f20
+00002f04 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00002f08 sub      x0, x0, x22
+00002f0c bl       #0x2f0c ; RELOC 283 jiffies_to_msecs + 0x0
+00002f10 adrp     x2, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x9480
+00002f14 mov      w1, w0
+00002f18 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9480
+00002f1c bl       #0x2f1c ; RELOC 283 printk + 0x0
+00002f20 ldr      x22, [x20] ; RELOC 286 jiffies + 0x0
+00002f24 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x94b0
+00002f28 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x94b0
+00002f2c bl       #0x2f2c ; RELOC 283 printk + 0x0
+00002f30 bl       #0x2f30 ; RELOC 283 get_fn_ad + 0x0
+00002f34 mov      w2, #0
+00002f38 mov      x1, #0
+00002f3c mov      w0, #-1
+00002f40 bl       #0x2f40 ; RELOC 283 _tztv_frc_tcon_pqe_ext_cmd + 0x0
+00002f44 mov      w2, #0
+00002f48 mov      x1, #0
+00002f4c mov      w0, #-1
+00002f50 bl       #0x2f50 ; RELOC 283 _tztv_frc_tcon_ext_cmd + 0x0
+00002f54 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00002f58 sxtw     x23, w22
+00002f5c sub      x0, x0, w22, sxtw
+00002f60 bl       #0x2f60 ; RELOC 283 jiffies_to_msecs + 0x0
+00002f64 cmp      w0, #0x64
+00002f68 b.ls     #0x2f88
+00002f6c ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00002f70 sub      x0, x0, x23
+00002f74 bl       #0x2f74 ; RELOC 283 jiffies_to_msecs + 0x0
+00002f78 adrp     x2, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x94e8
+00002f7c mov      w1, w0
+00002f80 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x94e8
+00002f84 bl       #0x2f84 ; RELOC 283 printk + 0x0
+00002f88 ldr      x23, [x20] ; RELOC 286 jiffies + 0x0
+00002f8c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x9518
+00002f90 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9518
+00002f94 bl       #0x2f94 ; RELOC 283 printk + 0x0
+00002f98 bl       #0x2f98 ; RELOC 283 tztv_gpio_init_tcon_i2c_en + 0x0
+00002f9c bl       #0x2f9c ; RELOC 283 _tztv_frc_tcon_get_pba_line_info + 0x0
+00002fa0 str      w0, [x19, #0x20]
+00002fa4 adrp     x1, #0x2000 ; RELOC 275 tztv_get_panel_type + 0x0
+00002fa8 str      wzr, [x19, #0x34]
+00002fac ldr      x2, [x1] ; RELOC 286 tztv_get_panel_type + 0x0
+00002fb0 cbz      x2, #0x2fd8
+00002fb4 add      x22, x19, #0x208
+00002fb8 mov      w1, #0x14
+00002fbc mov      x0, x22
+00002fc0 blr      x2
+00002fc4 mov      x1, x22
+00002fc8 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x9548
+00002fcc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9548
+00002fd0 bl       #0x2fd0 ; RELOC 283 printk + 0x0
+00002fd4 b        #0x2fe4
+00002fd8 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x9578
+00002fdc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9578
+00002fe0 bl       #0x2fe0 ; RELOC 283 printk + 0x0
+00002fe4 adrp     x0, #0x2000 ; RELOC 275 tztv_get_svc_panel_year + 0x0
+00002fe8 ldr      x1, [x0] ; RELOC 286 tztv_get_svc_panel_year + 0x0
+00002fec cbz      x1, #0x3014
+00002ff0 adrp     x22, #0x2000 ; RELOC 275 <.data> + 0x0
+00002ff4 add      x22, x22, #0 ; RELOC 277 <.data> + 0x0
+00002ff8 add      x0, x22, #0x104
+00002ffc blr      x1
+00003000 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x95a8
+00003004 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x95a8
+00003008 ldr      w1, [x22, #0x104]
+0000300c bl       #0x300c ; RELOC 283 printk + 0x0
+00003010 b        #0x3020
+00003014 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x95d8
+00003018 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x95d8
+0000301c bl       #0x301c ; RELOC 283 printk + 0x0
+00003020 adrp     x0, #0x3000 ; RELOC 275 tztv_get_tcon_device_type + 0x0
+00003024 ldr      x1, [x0] ; RELOC 286 tztv_get_tcon_device_type + 0x0
+00003028 cbz      x1, #0x3048
+0000302c add      x0, x19, #0x3c0
+00003030 blr      x1
+00003034 ldr      w1, [x19, #0x3c0]
+00003038 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9608
+0000303c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9608
+00003040 bl       #0x3040 ; RELOC 283 printk + 0x0
+00003044 b        #0x3054
+00003048 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9638
+0000304c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9638
+00003050 bl       #0x3050 ; RELOC 283 printk + 0x0
+00003054 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003058 sxtw     x22, w23
+0000305c sub      x0, x0, w23, sxtw
+00003060 bl       #0x3060 ; RELOC 283 jiffies_to_msecs + 0x0
+00003064 cmp      w0, #0x64
+00003068 b.ls     #0x3088
+0000306c ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003070 sub      x0, x0, x22
+00003074 bl       #0x3074 ; RELOC 283 jiffies_to_msecs + 0x0
+00003078 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9670
+0000307c mov      w1, w0
+00003080 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9670
+00003084 bl       #0x3084 ; RELOC 283 printk + 0x0
+00003088 ldr      x22, [x20] ; RELOC 286 jiffies + 0x0
+0000308c bl       #0x308c ; RELOC 283 get_board_config + 0x0
+00003090 ldr      w0, [x19, #0x258]
+00003094 cmp      w0, #1
+00003098 b.eq     #0x30ac
+0000309c ldr      w0, [x19, #0x3c8]
+000030a0 cmp      w0, #1
+000030a4 b.eq     #0x30bc
+000030a8 b        #0x30d0
+000030ac bl       #0x30ac ; RELOC 283 tztv_gpio_init_fpga + 0x0
+000030b0 ldr      w0, [x19, #0x258]
+000030b4 cmp      w0, #1
+000030b8 b.ne     #0x309c
+000030bc mov      w1, #1
+000030c0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x96a0
+000030c4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x96a0
+000030c8 str      w1, [x19, #0x340]
+000030cc bl       #0x30cc ; RELOC 283 printk + 0x0
+000030d0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x5be8
+000030d4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x5be8
+000030d8 bl       #0x30d8 ; RELOC 283 printk + 0x0
+000030dc sxtw     x23, w22
+000030e0 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000030e4 sub      x0, x0, w22, sxtw
+000030e8 bl       #0x30e8 ; RELOC 283 jiffies_to_msecs + 0x0
+000030ec cmp      w0, #0x64
+000030f0 b.ls     #0x3110
+000030f4 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000030f8 sub      x0, x0, x23
+000030fc bl       #0x30fc ; RELOC 283 jiffies_to_msecs + 0x0
+00003100 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x96c0
+00003104 mov      w1, w0
+00003108 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x96c0
+0000310c bl       #0x310c ; RELOC 283 printk + 0x0
+00003110 ldr      x22, [x20] ; RELOC 286 jiffies + 0x0
+00003114 mov      x0, x19
+00003118 bl       #0x2440
+0000311c ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003120 sxtw     x23, w22
+00003124 sub      x0, x0, w22, sxtw
+00003128 bl       #0x3128 ; RELOC 283 jiffies_to_msecs + 0x0
+0000312c cmp      w0, #0x64
+00003130 b.ls     #0x3150
+00003134 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003138 sub      x0, x0, x23
+0000313c bl       #0x313c ; RELOC 283 jiffies_to_msecs + 0x0
+00003140 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x96f0
+00003144 mov      w1, w0
+00003148 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x96f0
+0000314c bl       #0x314c ; RELOC 283 printk + 0x0
+00003150 ldr      x22, [x20] ; RELOC 286 jiffies + 0x0
+00003154 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x5c28
+00003158 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x5c28
+0000315c bl       #0x315c ; RELOC 283 printk + 0x0
+00003160 ldr      w0, [x21] ; RELOC 285 <.bss> + 0x0
+00003164 bl       #0x3164 ; RELOC 283 tztv_load_extra_driver + 0x0
+00003168 cmp      w0, #1
+0000316c b.ne     #0x319c
+00003170 ldr      w0, [x19, #0x3a4]
+00003174 cmp      w0, #1
+00003178 b.ne     #0x318c
+0000317c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9720
+00003180 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9720
+00003184 bl       #0x3184 ; RELOC 283 resolve_symbol + 0x0
+00003188 str      x0, [x19, #0x3a8]
+0000318c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9730
+00003190 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9730
+00003194 bl       #0x3194 ; RELOC 283 printk + 0x0
+00003198 b        #0x31a8
+0000319c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9768
+000031a0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9768
+000031a4 bl       #0x31a4 ; RELOC 283 printk + 0x0
+000031a8 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000031ac sxtw     x23, w22
+000031b0 sub      x0, x0, w22, sxtw
+000031b4 bl       #0x31b4 ; RELOC 283 jiffies_to_msecs + 0x0
+000031b8 cmp      w0, #0x64
+000031bc b.ls     #0x31dc
+000031c0 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000031c4 sub      x0, x0, x23
+000031c8 bl       #0x31c8 ; RELOC 283 jiffies_to_msecs + 0x0
+000031cc adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x97a0
+000031d0 mov      w1, w0
+000031d4 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x97a0
+000031d8 bl       #0x31d8 ; RELOC 283 printk + 0x0
+000031dc ldr      x22, [x20] ; RELOC 286 jiffies + 0x0
+000031e0 ldr      x1, [x19, #0x2b0]
+000031e4 cbz      x1, #0x3204
+000031e8 ldr      w0, [x21] ; RELOC 285 <.bss> + 0x0
+000031ec blr      x1
+000031f0 cbz      w0, #0x3204
+000031f4 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x97d8
+000031f8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x97d8
+000031fc bl       #0x31fc ; RELOC 283 printk + 0x0
+00003200 b        #0x3260
+00003204 adrp     x6, #0x3000 ; RELOC 275 tztv_frc_tcon_ext_cmd + 0x0
+00003208 adrp     x4, #0x3000 ; RELOC 275 tztv_frc_tcon_frc_pqe_ext_cmd + 0x0
+0000320c adrp     x1, #0x3000 ; RELOC 275 _tztv_frc_tcon_ext_cmd + 0x0
+00003210 add      x1, x1, #0 ; RELOC 277 _tztv_frc_tcon_ext_cmd + 0x0
+00003214 str      x1, [x6] ; RELOC 286 tztv_frc_tcon_ext_cmd + 0x0
+00003218 adrp     x1, #0x3000 ; RELOC 275 _tztv_frc_tcon_frc_pqe_ext_cmd + 0x0
+0000321c add      x1, x1, #0 ; RELOC 277 _tztv_frc_tcon_frc_pqe_ext_cmd + 0x0
+00003220 adrp     x5, #0x3000 ; RELOC 275 tztv_frc_tcon_pqe_ext_cmd + 0x0
+00003224 str      x1, [x4] ; RELOC 286 tztv_frc_tcon_frc_pqe_ext_cmd + 0x0
+00003228 adrp     x1, #0x3000 ; RELOC 275 _tztv_tcon_ext_cmd + 0x0
+0000322c add      x1, x1, #0 ; RELOC 277 _tztv_tcon_ext_cmd + 0x0
+00003230 adrp     x3, #0x3000 ; RELOC 275 tztv_frc_tcon_wmicro_photo_freeze + 0x0
+00003234 adrp     x2, #0x3000 ; RELOC 275 tztv_tcon_ext_cmd + 0x0
+00003238 adrp     x0, #0x3000 ; RELOC 275 _tztv_frc_tcon_pqe_ext_cmd + 0x0
+0000323c add      x0, x0, #0 ; RELOC 277 _tztv_frc_tcon_pqe_ext_cmd + 0x0
+00003240 str      x0, [x5] ; RELOC 286 tztv_frc_tcon_pqe_ext_cmd + 0x0
+00003244 adrp     x0, #0x3000 ; RELOC 275 _tztv_frc_tcon_wmicro_photo_freeze + 0x0
+00003248 add      x0, x0, #0 ; RELOC 277 _tztv_frc_tcon_wmicro_photo_freeze + 0x0
+0000324c str      x1, [x2] ; RELOC 286 tztv_tcon_ext_cmd + 0x0
+00003250 str      x0, [x3] ; RELOC 286 tztv_frc_tcon_wmicro_photo_freeze + 0x0
+00003254 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9810
+00003258 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9810
+0000325c bl       #0x325c ; RELOC 283 printk + 0x0
+00003260 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003264 sxtw     x21, w22
+00003268 sub      x0, x0, w22, sxtw
+0000326c bl       #0x326c ; RELOC 283 jiffies_to_msecs + 0x0
+00003270 cmp      w0, #0x64
+00003274 b.ls     #0x3294
+00003278 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+0000327c sub      x0, x0, x21
+00003280 bl       #0x3280 ; RELOC 283 jiffies_to_msecs + 0x0
+00003284 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9848
+00003288 mov      w1, w0
+0000328c add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9848
+00003290 bl       #0x3290 ; RELOC 283 printk + 0x0
+00003294 ldr      w0, [x19, #0x3c0]
+00003298 add      x3, x19, #0x200
+0000329c ldr      x21, [x20] ; RELOC 286 jiffies + 0x0
+000032a0 add      x2, x19, #0x34
+000032a4 add      x1, x19, #0x208
+000032a8 bl       #0x32a8 ; RELOC 283 detect_tcon + 0x0
+000032ac ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000032b0 sxtw     x22, w21
+000032b4 sub      x0, x0, w21, sxtw
+000032b8 bl       #0x32b8 ; RELOC 283 jiffies_to_msecs + 0x0
+000032bc cmp      w0, #0x64
+000032c0 b.ls     #0x32e0
+000032c4 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000032c8 sub      x0, x0, x22
+000032cc bl       #0x32cc ; RELOC 283 jiffies_to_msecs + 0x0
+000032d0 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9878
+000032d4 mov      w1, w0
+000032d8 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9878
+000032dc bl       #0x32dc ; RELOC 283 printk + 0x0
+000032e0 ldr      x21, [x20] ; RELOC 286 jiffies + 0x0
+000032e4 ldr      x1, [x19, #0x2e0]
+000032e8 cbz      x1, #0x3308
+000032ec ldr      w0, [x19, #0x34]
+000032f0 blr      x1
+000032f4 cbz      w0, #0x3308
+000032f8 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x98a8
+000032fc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x98a8
+00003300 bl       #0x3300 ; RELOC 283 printk + 0x0
+00003304 b        #0x3324
+00003308 adrp     x1, #0x3000 ; RELOC 275 _tztv_frc_tcon_wmicro_connected + 0x0
+0000330c add      x1, x1, #0 ; RELOC 277 _tztv_frc_tcon_wmicro_connected + 0x0
+00003310 adrp     x2, #0x3000 ; RELOC 275 tztv_frc_tcon_wmicro_connected + 0x0
+00003314 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x98e8
+00003318 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x98e8
+0000331c str      x1, [x2] ; RELOC 286 tztv_frc_tcon_wmicro_connected + 0x0
+00003320 bl       #0x3320 ; RELOC 283 printk + 0x0
+00003324 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003328 sxtw     x22, w21
+0000332c sub      x0, x0, w21, sxtw
+00003330 bl       #0x3330 ; RELOC 283 jiffies_to_msecs + 0x0
+00003334 cmp      w0, #0x64
+00003338 b.ls     #0x3358
+0000333c ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003340 sub      x0, x0, x22
+00003344 bl       #0x3344 ; RELOC 283 jiffies_to_msecs + 0x0
+00003348 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9920
+0000334c mov      w1, w0
+00003350 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9920
+00003354 bl       #0x3354 ; RELOC 283 printk + 0x0
+00003358 ldr      x22, [x20] ; RELOC 286 jiffies + 0x0
+0000335c ldr      w0, [x19, #0x34]
+00003360 sub      w0, w0, #0x4c
+00003364 cmp      w0, #0xc
+00003368 b.hi     #0x34a8
+0000336c mov      x1, #0x13c7
+00003370 lsr      x0, x1, x0
+00003374 tbz      w0, #0, #0x34a8
+00003378 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9950
+0000337c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9950
+00003380 bl       #0x3380 ; RELOC 283 printk + 0x0
+00003384 ldr      x0, [x19, #0x28]
+00003388 mov      w2, #0xdc0
+0000338c mov      x1, #0x68
+00003390 add      x0, x0, #0x10
+00003394 bl       #0x3394 ; RELOC 283 devm_kmalloc + 0x0
+00003398 str      x0, [x19, #0x38]
+0000339c mov      x21, x0
+000033a0 cbnz     x0, #0x33b8
+000033a4 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9970
+000033a8 mov      w21, #-0xc
+000033ac add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9970
+000033b0 bl       #0x33b0 ; RELOC 283 printk + 0x0
+000033b4 b        #0x3604
+000033b8 ldr      x2, [x19, #0x28]
+000033bc adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x60
+000033c0 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x60
+000033c4 add      x0, x2, #0x10
+000033c8 str      x0, [x21]
+000033cc str      x21, [x2, #0x88]
+000033d0 add      x1, x1, #0x2f8
+000033d4 bl       #0x33d4 ; RELOC 283 devm_extcon_dev_allocate + 0x0
+000033d8 str      x0, [x21, #8]
+000033dc ldr      x2, [x19, #0x38]
+000033e0 ldr      x1, [x2, #8]
+000033e4 cmn      x1, #1, lsl #12
+000033e8 b.ls     #0x3404
+000033ec ldr      x0, [x2]
+000033f0 adrp     x1, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x99a8
+000033f4 mov      w21, #-0xc
+000033f8 add      x1, x1, #0 ; RELOC 277 <.rodata.str1.8> + 0x99a8
+000033fc bl       #0x33fc ; RELOC 283 _dev_err + 0x0
+00003400 b        #0x3604
+00003404 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x99d0
+00003408 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x99d0
+0000340c str      x0, [x1]
+00003410 ldr      x0, [x19, #0x28]
+00003414 ldr      x1, [x19, #0x38]
+00003418 add      x0, x0, #0x10
+0000341c ldr      x1, [x1, #8]
+00003420 bl       #0x3420 ; RELOC 283 devm_extcon_dev_register + 0x0
+00003424 mov      w21, w0
+00003428 cbz      w0, #0x3444
+0000342c ldr      x0, [x19, #0x38]
+00003430 adrp     x1, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x99e0
+00003434 add      x1, x1, #0 ; RELOC 277 <.rodata.str1.8> + 0x99e0
+00003438 ldr      x0, [x0]
+0000343c bl       #0x343c ; RELOC 283 _dev_err + 0x0
+00003440 b        #0x3604
+00003444 ldr      x2, [x19, #0x38]
+00003448 mov      x1, #0xfffffffe0
+0000344c adrp     x3, #0x3000 ; RELOC 275 frc_det_thread + 0x0
+00003450 add      x3, x3, #0 ; RELOC 277 frc_det_thread + 0x0
+00003454 add      x4, x2, #0x18
+00003458 add      x0, x2, #0x30
+0000345c str      x1, [x2, #0x10]
+00003460 adrp     x1, #0x3000 ; RELOC 275 delayed_work_timer_fn + 0x0
+00003464 str      x4, [x2, #0x18]
+00003468 add      x1, x1, #0 ; RELOC 277 delayed_work_timer_fn + 0x0
+0000346c stp      x4, x3, [x2, #0x20]
+00003470 mov      x4, #0
+00003474 mov      x3, #0
+00003478 mov      w2, #0x200000
+0000347c bl       #0x347c ; RELOC 283 init_timer_key + 0x0
+00003480 adrp     x0, #0x3000 ; RELOC 275 system_wq + 0x0
+00003484 mov      x3, #0x1f4
+00003488 ldr      x2, [x19, #0x38]
+0000348c ldr      x1, [x0] ; RELOC 286 system_wq + 0x0
+00003490 add      x2, x2, #0x10
+00003494 mov      w0, #4
+00003498 bl       #0x3498 ; RELOC 283 queue_delayed_work_on + 0x0
+0000349c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9a08
+000034a0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9a08
+000034a4 bl       #0x34a4 ; RELOC 283 printk + 0x0
+000034a8 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000034ac sxtw     x21, w22
+000034b0 sub      x0, x0, w22, sxtw
+000034b4 bl       #0x34b4 ; RELOC 283 jiffies_to_msecs + 0x0
+000034b8 cmp      w0, #0x64
+000034bc b.ls     #0x34dc
+000034c0 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000034c4 sub      x0, x0, x21
+000034c8 bl       #0x34c8 ; RELOC 283 jiffies_to_msecs + 0x0
+000034cc adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9a28
+000034d0 mov      w1, w0
+000034d4 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9a28
+000034d8 bl       #0x34d8 ; RELOC 283 printk + 0x0
+000034dc ldr      x21, [x20] ; RELOC 286 jiffies + 0x0
+000034e0 bl       #0x34e0 ; RELOC 283 tztv_frc_tcon_init + 0x0
+000034e4 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000034e8 sxtw     x22, w21
+000034ec sub      x0, x0, w21, sxtw
+000034f0 bl       #0x34f0 ; RELOC 283 jiffies_to_msecs + 0x0
+000034f4 cmp      w0, #0x64
+000034f8 b.ls     #0x3518
+000034fc ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003500 sub      x0, x0, x22
+00003504 bl       #0x3504 ; RELOC 283 jiffies_to_msecs + 0x0
+00003508 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9a60
+0000350c mov      w1, w0
+00003510 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9a60
+00003514 bl       #0x3514 ; RELOC 283 printk + 0x0
+00003518 ldr      x21, [x20] ; RELOC 286 jiffies + 0x0
+0000351c bl       #0x351c ; RELOC 283 create_frc_device + 0x0
+00003520 bl       #0x3520 ; RELOC 283 create_tcon_device + 0x0
+00003524 bl       #0x3524 ; RELOC 283 create_frc_ew_device + 0x0
+00003528 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+0000352c sxtw     x22, w21
+00003530 sub      x0, x0, w21, sxtw
+00003534 bl       #0x3534 ; RELOC 283 jiffies_to_msecs + 0x0
+00003538 cmp      w0, #0x64
+0000353c b.ls     #0x355c
+00003540 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+00003544 sub      x0, x0, x22
+00003548 bl       #0x3548 ; RELOC 283 jiffies_to_msecs + 0x0
+0000354c adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9a98
+00003550 mov      w1, w0
+00003554 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9a98
+00003558 bl       #0x3558 ; RELOC 283 printk + 0x0
+0000355c ldr      x21, [x20] ; RELOC 286 jiffies + 0x0
+00003560 ldr      w0, [x19, #0x30]
+00003564 cmp      w0, #2
+00003568 b.ne     #0x359c
+0000356c ldr      w0, [x19, #0x3b0]
+00003570 cmp      w0, #1
+00003574 b.ne     #0x359c
+00003578 ldr      w0, [x19, #0x10]
+0000357c cmp      w0, #4
+00003580 b.ne     #0x359c
+00003584 ldr      x1, [x19, #0x288]
+00003588 cbz      x1, #0x3594
+0000358c add      x0, x19, #0x3cc
+00003590 blr      x1
+00003594 mov      w0, #1
+00003598 bl       #0x3598 ; RELOC 283 _tztv_gpio_set_am_power_down + 0x0
+0000359c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x6328
+000035a0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x6328
+000035a4 bl       #0x35a4 ; RELOC 283 _tztv_ext_drv_pm_ops_resume + 0x0
+000035a8 sxtw     x22, w21
+000035ac ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000035b0 sub      x0, x0, w21, sxtw
+000035b4 bl       #0x35b4 ; RELOC 283 jiffies_to_msecs + 0x0
+000035b8 cmp      w0, #0x64
+000035bc b.ls     #0x35dc
+000035c0 ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000035c4 sub      x0, x0, x22
+000035c8 bl       #0x35c8 ; RELOC 283 jiffies_to_msecs + 0x0
+000035cc adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9ad0
+000035d0 mov      w1, w0
+000035d4 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9ad0
+000035d8 bl       #0x35d8 ; RELOC 283 printk + 0x0
+000035dc ldr      x0, [x20] ; RELOC 286 jiffies + 0x0
+000035e0 mov      w21, #0
+000035e4 ldr      x1, [x20] ; RELOC 286 jiffies + 0x0
+000035e8 ldr      x0, [x19, #0x388]
+000035ec sub      x0, x1, x0
+000035f0 bl       #0x35f0 ; RELOC 283 jiffies_to_msecs + 0x0
+000035f4 adrp     x2, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x9b00
+000035f8 mov      w1, w0
+000035fc add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x9b00
+00003600 bl       #0x3600 ; RELOC 283 printk + 0x0
+00003604 mov      w0, w21
+00003608 ldp      x19, x20, [sp, #0x10]
+0000360c ldp      x21, x22, [sp, #0x20]
+00003610 ldr      x23, [sp, #0x30]
+00003614 ldp      x29, x30, [sp], #0x40
+00003618 ret      
+
+### _tztv_get_chip_type .text.unlikely+0x8c size 0x34
+0000008c stp      x29, x30, [sp, #-0x10]!
+00000090 mov      x29, sp
+00000094 cbz      x0, #0xa0
+00000098 mov      w1, #0xe
+0000009c str      w1, [x0]
+000000a0 mov      w1, #0xe
+000000a4 adrp     x2, #0 ; RELOC 275 <.rodata.str1.8> + 0xa0
+000000a8 adrp     x0, #0 ; RELOC 275 <.rodata.str1.8> + 0xa8
+000000ac add      x2, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0xa0
+000000b0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xa8
+000000b4 bl       #0xb4 ; RELOC 283 printk + 0x0
+000000b8 ldp      x29, x30, [sp], #0x10
+000000bc ret      
+
+### resolve_symbol .text+0x2a78 size 0x88
+00002a78 stp      x29, x30, [sp, #-0x30]!
+00002a7c mov      x29, sp
+00002a80 stp      x19, x20, [sp, #0x10]
+00002a84 adrp     x20, #0x2000 ; RELOC 275 module_mutex + 0x0
+00002a88 add      x20, x20, #0 ; RELOC 277 module_mutex + 0x0
+00002a8c str      x21, [sp, #0x20]
+00002a90 mov      x21, x0
+00002a94 mov      x0, x20
+00002a98 bl       #0x2a98 ; RELOC 283 mutex_lock + 0x0
+00002a9c mov      w4, #1
+00002aa0 mov      w3, w4
+00002aa4 mov      x2, #0
+00002aa8 mov      x1, #0
+00002aac mov      x0, x21
+00002ab0 bl       #0x2ab0 ; RELOC 283 find_symbol + 0x0
+00002ab4 mov      x19, x0
+00002ab8 mov      x0, x20
+00002abc bl       #0x2abc ; RELOC 283 mutex_unlock + 0x0
+00002ac0 cbz      x19, #0x2ae0
+00002ac4 ldrsw    x0, [x19]
+00002ac8 add      x19, x19, x0
+00002acc mov      x0, x19
+00002ad0 ldp      x19, x20, [sp, #0x10]
+00002ad4 ldr      x21, [sp, #0x20]
+00002ad8 ldp      x29, x30, [sp], #0x30
+00002adc ret      
+00002ae0 mrs      x3, sp_el0
+00002ae4 ldr      w2, [x3, #0x440]
+00002ae8 mov      x1, x21
+00002aec add      x3, x3, #0x5f0
+00002af0 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x20e8
+00002af4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x20e8
+00002af8 bl       #0x2af8 ; RELOC 283 printk + 0x0
+00002afc b        #0x2acc
+
+### _tztv_frc_tcon_ext_cmd .text+0x2d78 size 0x160
+00002d78 stp      x29, x30, [sp, #-0x80]!
+00002d7c adrp     x3, #0x2000 ; RELOC 275 <.rodata> + 0x60
+00002d80 add      x3, x3, #0 ; RELOC 277 <.rodata> + 0x60
+00002d84 mov      x29, sp
+00002d88 add      x5, x3, #0x4b8
+00002d8c stp      x19, x20, [sp, #0x10]
+00002d90 adrp     x19, #0x2000 ; RELOC 275 <.bss> + 0x0
+00002d94 add      x19, x19, #0 ; RELOC 277 <.bss> + 0x0
+00002d98 add      x8, sp, #4
+00002d9c adrp     x4, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x2438
+00002da0 add      x4, x4, #0 ; RELOC 277 <.rodata.str1.8> + 0x2438
+00002da4 stp      x21, x22, [sp, #0x20]
+00002da8 mov      w21, w0
+00002dac ldr      w20, [x19, #0x78]
+00002db0 stp      x23, x24, [sp, #0x30]
+00002db4 mov      x22, x1
+00002db8 mov      w23, w2
+00002dbc ldp      x6, x7, [x5]
+00002dc0 stp      x6, x7, [x8, #0x40]
+00002dc4 ldrb     w5, [x3, #0x4c8]
+00002dc8 strb     w5, [sp, #0x54]
+00002dcc ldp      x6, x7, [x4]
+00002dd0 sturh    wzr, [sp, #0x55]
+00002dd4 ldr      w4, [x4, #0x10]
+00002dd8 ldr      x5, [x3, #0x4d0]
+00002ddc strb     wzr, [sp, #0x57]
+00002de0 ldr      w3, [x3, #0x4d8]
+00002de4 str      x5, [sp, #0x58]
+00002de8 str      w3, [sp, #0x60]
+00002dec stur     xzr, [sp, #0x64]
+00002df0 stp      x6, x7, [x8, #0x68]
+00002df4 str      w4, [sp, #0x7c]
+00002df8 cbz      w20, #0x2e30
+00002dfc ldr      x3, [x19, #0x80]
+00002e00 cbz      x3, #0x2e98
+00002e04 mov      w2, w23
+00002e08 mov      x1, x22
+00002e0c mov      w0, w21
+00002e10 blr      x3
+00002e14 mov      w20, w0
+00002e18 mov      w0, w20
+00002e1c ldp      x19, x20, [sp, #0x10]
+00002e20 ldp      x21, x22, [sp, #0x20]
+00002e24 ldp      x23, x24, [sp, #0x30]
+00002e28 ldp      x29, x30, [sp], #0x80
+00002e2c ret      
+00002e30 ldr      w0, [x19, #0x30]
+00002e34 add      x24, sp, #0x44
+00002e38 sub      w4, w0, #8
+00002e3c sub      w3, w0, #0xb
+00002e40 cmp      w4, #1
+00002e44 ccmp     w3, #1, #0, hi
+00002e48 ccmp     w0, #3, #4, hi
+00002e4c b.ne     #0x2e84
+00002e50 mov      x0, x24
+00002e54 bl       #0x2e54 ; RELOC 283 resolve_symbol + 0x0
+00002e58 str      x0, [x19, #0x80]
+00002e5c mov      x1, x24
+00002e60 mrs      x3, sp_el0
+00002e64 ldr      w2, [x3, #0x440]
+00002e68 add      x3, x3, #0x5f0
+00002e6c cbnz     x0, #0x2eb8
+00002e70 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x2390
+00002e74 mov      w20, #-1
+00002e78 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2390
+00002e7c bl       #0x2e7c ; RELOC 283 printk + 0x0
+00002e80 b        #0x2e18
+00002e84 add      x2, sp, #0x58
+00002e88 add      x1, sp, #0x6c
+00002e8c cmp      w0, #0xa
+00002e90 csel     x24, x2, x1, eq
+00002e94 b        #0x2e50
+00002e98 mrs      x2, sp_el0
+00002e9c ldr      w1, [x2, #0x440]
+00002ea0 mov      w20, #0
+00002ea4 add      x2, x2, #0x5f0
+00002ea8 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x2408
+00002eac add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2408
+00002eb0 bl       #0x2eb0 ; RELOC 283 printk + 0x0
+00002eb4 b        #0x2e18
+00002eb8 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x23c8
+00002ebc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x23c8
+00002ec0 bl       #0x2ec0 ; RELOC 283 printk + 0x0
+00002ec4 mov      w0, #1
+00002ec8 str      w0, [x19, #0x78]
+00002ecc cmn      w21, #1
+00002ed0 b.eq     #0x2e18
+00002ed4 b        #0x2dfc

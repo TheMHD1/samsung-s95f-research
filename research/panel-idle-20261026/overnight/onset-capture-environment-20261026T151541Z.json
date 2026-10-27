@@ -1,0 +1,23 @@
+{
+  "individual_shell_help_exit_not_captured_due_to_head_pipeline": true,
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\nreadlink -f /bin/sh\ncommand -v gzip\n/bin/sh -c 'help ulimit' 2>&1 | head -80\ndf -k /tmp\ngrep -E '^(MemTotal|MemAvailable|SwapTotal|SwapFree):' /proc/meminfo\ncat /sys/devices/system/cpu/online\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 15:15:42 UTC 2026\n/usr/bin/bash\n/usr/bin/gzip\nulimit: ulimit [-SHacdfilmnpqstuvx] [limit]\n    Ulimit provides control over the resources available to processes\n    started by the shell, on systems that allow such control.  If an\n    option is given, it is interpreted as follows:\n    \n        -S\tuse the `soft' resource limit\n        -H\tuse the `hard' resource limit\n        -a\tall current limits are reported\n        -c\tthe maximum size of core files created\n        -d\tthe maximum size of a process's data segment\n        -e\tthe maximum scheduling priority (`nice')\n        -f\tthe maximum size of files written by the shell and its children\n        -i\tthe maximum number of pending signals\n        -l\tthe maximum size a process may lock into memory\n        -m\tthe maximum resident set size\n        -n\tthe maximum number of open file descriptors\n        -p\tthe pipe buffer size\n        -q\tthe maximum number of bytes in POSIX message queues\n        -r\tthe maximum real-time scheduling priority\n        -s\tthe maximum stack size\n        -t\tthe maximum amount of cpu time in seconds\n        -u\tthe maximum number of user processes\n        -v\tthe size of virtual memory\n        -x\tthe maximum number of file locks\n    \n    If LIMIT is given, it is the new value of the specified resource;\n    the special LIMIT values `soft', `hard', and `unlimited' stand for\n    the current soft limit, the current hard limit, and no limit, respectively.\n    Otherwise, the current value of the specified resource is printed.\n    If no option is given, then -f is assumed.  Values are in 1024-byte\n    increments, except for -t, which is in seconds, -p, which is in\n    increments of 512 bytes, and -u, which is an unscaled number of\n    processes.\nFilesystem           1K-blocks      Used Available Use% Mounted on\ntmpfs                   977552      7356    970196   1% /tmp\nMemTotal:        1955108 kB\nMemAvailable:     530668 kB\nSwapTotal:       1270400 kB\nSwapFree:         122896 kB\n0-3\n00000000-0000-4000-8000-000000000000\n49351.95 184396.61\nMon Oct 26 15:15:42 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

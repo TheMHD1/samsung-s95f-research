@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nls -l /proc/kcore /dev/kmem /dev/mem /sys/module/qdf_tcon/sections\ncat /sys/module/qdf_tcon/sections/.bss\ncat /proc/sys/kernel/kptr_restrict\n",
+      "exit_code": 0,
+      "stderr": "ls: cannot access /proc/kcore: No such file or directory\nls: cannot access /dev/kmem: No such file or directory\nls: cannot access /dev/mem: No such file or directory\nls: cannot access /sys/module/qdf_tcon/sections: No such file or directory\ncat: /sys/module/qdf_tcon/sections/.bss: No such file or directory\n",
+      "stdout": "Mon Oct 26 05:58:53 UTC 2026\n00000000-0000-4000-8000-000000000000\n15942.60 59039.56\n1\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

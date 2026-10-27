@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor commfile in /proc/[0-9]*/comm; do\n if test -r \"$commfile\"; then\n  IFS= read -r proc_name < \"$commfile\"\n  case \"$proc_name\" in\n   app-control-ser|tv-viewer)\n    proc_dir=${commfile%/comm}\n    echo \"PROCESS_BEGIN $proc_dir $proc_name\"\n    readlink \"$proc_dir/exe\"\n    cat \"$proc_dir/stat\"\n    echo PROCESS_END\n   ;;\n  esac\n fi\ndone\nvconftool get memory/enterprise/swupgrade/working_status\nstatus_get_exit=$?\necho \"UPGRADE_STATUS_GET_EXIT $status_get_exit\"\ngetconf CLK_TCK\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 13:48:20 UTC 2026\n00000000-0000-4000-8000-000000000000\n44109.06 164605.45\nPROCESS_BEGIN /proc/1519 app-control-ser\n/usr/bin/app-control-service\n1519 (app-control-ser) S 1 1519 1519 0 -1 4194560 4897 0 395 0 469 377 0 0 20 0 7 0 2667 172969984 2845 18446744073709551615 7131136 7288808 4291951248 0 0 0 0 4096 16384 0 0 0 17 2 0 0 6 0 0 7354376 7357068 30138368 4291954221 4291954250 4291954250 4291956699 0\nPROCESS_END\nPROCESS_BEGIN /proc/427 tv-viewer\n/usr/apps/org.tizen.tv-viewer/bin/tv-viewer\n427 (tv-viewer) S 264 427 427 0 -1 4194560 41804 0 8008 0 4494 1829 0 0 20 0 29 0 253 494440448 6171 18446744073709551615 65536 6367328 4294400336 0 0 0 0 4096 92743 0 0 0 17 0 0 0 214 0 0 6511068 7360985 16302080 4294401707 4294402963 4294402963 4294406092 0\nPROCESS_END\nmemory/enterprise/swupgrade/working_status, value = 0 (Int32)\nUPGRADE_STATUS_GET_EXIT 0\n250\n44109.18 164605.75\nMon Oct 26 13:48:20 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

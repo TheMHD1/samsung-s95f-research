@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -euo pipefail\necho '@@ BOOT_START'\nb=$(cat /proc/sys/kernel/random/boot_id); echo \"$b\"; test \"$b\" = 00000000-0000-4000-8000-000000000000\necho '@@ TIME_START'; date -u +%s; cat /proc/uptime\necho '@@ FILTERED_LOG_72717_72723'\n/usr/bin/vlogutil -v kerneltime -s --start-from=72717 --end-to=72723 | awk '/[Mm]ute|[Pp][Vv][Cc][Cc]|QD_TCON_OFF|ERR DET|RT Protect|TCON ERR|Tcon Power|Set Suspend Flag|sensing|Sensing/ {print}'\necho '@@ TIME_END'; date -u +%s; cat /proc/uptime\necho '@@ BOOT_END'; cat /proc/sys/kernel/random/boot_id\necho '@@ COMPLETE_FILTERED_LOG_ONLY'\n",
+      "exit_code": 0,
+      "stderr": "[72782.536] vlog: Start vlogutil(27881) by 27876\n[72784.728] vlog: Write 0 logs to STDOUT\n",
+      "stdout": "@@ BOOT_START\n00000000-0000-4000-8000-000000000000\n@@ TIME_START\n1793051173\n72782.53 272491.46\n@@ FILTERED_LOG_72717_72723\n@@ TIME_END\n1793051175\n72784.77 272497.59\n@@ BOOT_END\n00000000-0000-4000-8000-000000000000\n@@ COMPLETE_FILTERED_LOG_ONLY\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

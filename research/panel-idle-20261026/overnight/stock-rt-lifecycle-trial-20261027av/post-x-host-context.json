@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(cat /sys/bus/usb/devices/7-1/devnum)\" = 46\ntest \"$(cat /sys/bus/usb/devices/7-1/idVendor)\" = 04e8\ntest \"$(cat /sys/bus/usb/devices/7-1/idProduct)\" = 2001\ntest \"$(cat /sys/bus/usb/devices/7-1/bcdDevice)\" = 0250\ntest \"$(cat /sys/bus/usb/devices/7-1/bConfigurationValue)\" = 1\ncat /proc/uptime\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.system.deviced /Org/Tizen/System/DeviceD/Display org.tizen.system.deviced.display.GetPowerState\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.system.deviced /Org/Tizen/System/DeviceD/Display org.tizen.system.deviced.display.GetScreenState\ncat /proc/uptime\necho POST_X_HOST_CONTEXT_COMPLETE\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "136897.93 510177.89\nmethod return time=1793115288.907062 sender=:1.34 -> destination=:1.2549 serial=2458 reply_serial=2\n   string \"lcdon\"\nmethod return time=1793115288.918498 sender=:1.34 -> destination=:1.2550 serial=2459 reply_serial=2\n   int32 1\n136897.96 510177.95\nPOST_X_HOST_CONTEXT_COMPLETE\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

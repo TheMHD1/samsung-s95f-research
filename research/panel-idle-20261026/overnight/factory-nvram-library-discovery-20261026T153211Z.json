@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nreadlink -f /usr/lib/libnvram.so.0\nwc -c /usr/lib/libnvram.so.0\nsha256sum /usr/lib/libnvram.so.0\nfor np in 1085 675; do\n echo \"@@ MAPS $np\"\n readlink /proc/$np/exe\n awk '/libnvram/{print}' /proc/$np/maps\ndone\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Mon Oct 26 15:32:12 UTC 2026\n00000000-0000-4000-8000-000000000000\n50342.01 188125.13\n/usr/lib/libnvram.so.0.1\n6924 /usr/lib/libnvram.so.0\n3f4477b347980727fd1de7ec7709e76a8946a047514d4eeee5e8113f9c80dd95  /usr/lib/libnvram.so.0\n@@ MAPS 1085\n/usr/bin/TIFSDaemon\n43a70000-43a71000 r-xp 00000000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\n43a71000-43a80000 ---p 00001000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\n43a80000-43a81000 r--p 00000000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\n43a81000-43a82000 rw-p 00001000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\nf7300000-f7301000 r-xp 00000000 b3:1b 302                                /prd/usr/lib/libnvram-impl-sec.so.0.1\nf7301000-f7311000 ---p 00001000 b3:1b 302                                /prd/usr/lib/libnvram-impl-sec.so.0.1\nf7311000-f7312000 r--p 00001000 b3:1b 302                                /prd/usr/lib/libnvram-impl-sec.so.0.1\nf7312000-f7313000 rw-p 00002000 b3:1b 302                                /prd/usr/lib/libnvram-impl-sec.so.0.1\n@@ MAPS 675\n/usr/bin/deviced\nf6055000-f6056000 r-xp 00000000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\nf6056000-f6065000 ---p 00001000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\nf6065000-f6066000 r--p 00000000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\nf6066000-f6067000 rw-p 00001000 b3:1a 63020                              /usr/lib/libnvram.so.0.1\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

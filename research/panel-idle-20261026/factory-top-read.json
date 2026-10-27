@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "dbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetChildItem int32:-1 int32:0\ndbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetChildItem int32:-1 int32:1\ndbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetChildItem int32:-1 int32:2\ndbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetChildItem int32:-1 int32:3",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "method return time=1792983409.886673 sender=:1.249 -> destination=:1.753 serial=11 reply_serial=2\n   struct {\n      int32 1\n      int32 16\n      int32 0\n      int32 0\n      int32 0\n      byte 1\n      string \"\"\n      string \"Option\"\n   }\n   struct {\n      int32 1\n   }\nmethod return time=1792983409.895869 sender=:1.249 -> destination=:1.754 serial=12 reply_serial=2\n   struct {\n      int32 2\n      int32 9\n      int32 1\n      int32 0\n      int32 0\n      byte 1\n      string \"\"\n      string \"Control\"\n   }\n   struct {\n      int32 1\n   }\nmethod return time=1792983409.906809 sender=:1.249 -> destination=:1.755 serial=13 reply_serial=2\n   struct {\n      int32 3\n      int32 33\n      int32 2\n      int32 0\n      int32 0\n      byte 1\n      string \"\"\n      string \"Debug\"\n   }\n   struct {\n      int32 1\n   }\nmethod return time=1792983409.917206 sender=:1.249 -> destination=:1.756 serial=14 reply_serial=2\n   struct {\n      int32 4\n      int32 17\n      int32 3\n      int32 1000000097\n      int32 0\n      byte 1\n      string \"\"\n      string \"SVC\"\n   }\n   struct {\n      int32 1\n   }\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "ls -l /sys/kernel/debug/frc\nls -l /sys/module/sdp_runtime_pm /sys/module/sdp_runtime_pm/parameters\nls -l /sys/module/kernel/parameters",
+      "exit_code": 0,
+      "stderr": "ls: cannot access /sys/module/sdp_runtime_pm: No such file or directory\nls: cannot access /sys/module/sdp_runtime_pm/parameters: No such file or directory\n",
+      "stdout": "total 0\ndrwxr-xr-x 2 owner root 0 1969-12-31 19:00 apitest\n-rw-r--r-- 1 owner root 0 1969-12-31 19:00 debuglv\n-rw-r--r-- 1 owner root 0 1969-12-31 19:00 drvinfo\n-rw-r--r-- 1 owner root 0 1969-12-31 19:00 drvstatus\ndrwxr-xr-x 2 owner root 0 1969-12-31 19:00 ewtest\ndrwxr-xr-x 3 owner root 0 1969-12-31 19:00 frctest\n-rw-r--r-- 1 owner root 0 1969-12-31 19:00 inlog\n-rw-r--r-- 1 owner root 0 1969-12-31 19:00 mirror_log_for_read\n-rw-r--r-- 1 owner root 0 1969-12-31 19:00 mirror_log_for_write\ntotal 0\n-r--r--r-- 1 owner root 4096 2026-10-26 00:46 consoleblank\n-rw-r--r-- 1 owner root 4096 2026-10-26 00:46 crash_kexec_post_notifiers\n-rw-r--r-- 1 owner root 4096 2026-10-26 00:46 ignore_rlimit_data\n-rw-r--r-- 1 owner root 4096 2026-10-26 00:46 initcall_debug\n-r-------- 1 owner root 4096 2026-10-26 00:46 irqtime\n-r-------- 1 owner root 4096 2026-10-26 00:46 module_blacklist\n-rw-r--r-- 1 owner root 4096 2026-10-26 00:46 panic\n-rw-r--r-- 1 owner root 4096 2026-10-26 00:46 panic_on_warn\n-rw-r--r-- 1 owner root 4096 2026-10-26 00:46 panic_print\n-rw-r--r-- 1 owner root 4096 2026-10-26 00:46 pause_on_oops\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

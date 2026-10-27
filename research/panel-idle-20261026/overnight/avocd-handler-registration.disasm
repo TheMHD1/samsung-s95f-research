@@ -1,0 +1,25 @@
+0007b782: movw      r3, #0x9400
+0007b786: movt      r3, #0x17
+0007b78a: movw      r4, #0x2dd4
+0007b78e: movt      r4, #0x17
+0007b792: movs      r1, #0
+0007b794: ldr       r0, [r3, #4]
+0007b796: blx       #0x1cb44
+0007b79a: ldr       r1, [r4]
+0007b79c: mov       r6, r0
+0007b79e: cbz       r1, #0x7b7fe
+0007b7a0: movw      fp, #0x680
+0007b7a4: movt      fp, #0x10
+0007b7a8: movw      sl, #0xcba4
+0007b7ac: movt      sl, #0xd
+0007b7b0: movs      r5, #0
+0007b7b2: b         #0x7b7ba
+0007b7b4: ldr       r1, [r4, #8]!
+0007b7b8: cbz       r1, #0x7b7fe
+0007b7ba: strd      r5, r5, [sp]
+0007b7be: mov       r3, r8
+0007b7c0: mov       r0, r6
+0007b7c2: ldr       r2, [r4, #4]
+0007b7c4: blx       #0x1b728
+0007b7c8: cmp       r0, #0
+0007b7ca: bne       #0x7b7b4

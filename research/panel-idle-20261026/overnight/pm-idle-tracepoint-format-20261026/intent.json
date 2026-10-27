@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ GLOBAL_START'\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho '@@ FORMAT rpm/rpm_idle'\ncat /sys/kernel/debug/tracing/events/rpm/rpm_idle/format\necho '@@ END_FORMAT'\necho '@@ GLOBAL_END'\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ GLOBAL_START'\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho '@@ FORMAT rpm/rpm_idle'\ncat /sys/kernel/debug/tracing/events/rpm/rpm_idle/format\necho '@@ END_FORMAT'\necho '@@ GLOBAL_END'\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "e049d4d14f6d2f1715ad7e3c8536f4da2ce36a70a41275bce6242d41d52aa15a",
+  "physical_state": "unobserved",
+  "purpose": "Read one stock event format and global baseline; no trace enable or control.",
+  "retry": false,
+  "started_utc": "2026-10-26T20:13:46.678128+00:00"
+}

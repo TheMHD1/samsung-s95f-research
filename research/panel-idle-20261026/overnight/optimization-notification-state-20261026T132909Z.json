@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor k in db/app-control/need_show_off_sensing db/tv-viewer/reinforce_off_sensing_time memory/tv-viewer/cancel_reinforce_off_sensing_popup db/tv-viewer/force_el_sensing/count; do\n echo \"VCONF_KEY $k\"\n vconftool get \"$k\"\n key_status=$?\n echo \"VCONF_GET_EXIT $key_status\"\ndone\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 13:29:10 UTC 2026\n00000000-0000-4000-8000-000000000000\n42959.15 160276.19\nVCONF_KEY db/app-control/need_show_off_sensing\ndb/app-control/need_show_off_sensing, value = False (Boolean)\nVCONF_GET_EXIT 0\nVCONF_KEY db/tv-viewer/reinforce_off_sensing_time\ndb/tv-viewer/reinforce_off_sensing_time, value = 0 (Int32)\nVCONF_GET_EXIT 0\nVCONF_KEY memory/tv-viewer/cancel_reinforce_off_sensing_popup\nmemory/tv-viewer/cancel_reinforce_off_sensing_popup, value = 0 (Int32)\nVCONF_GET_EXIT 0\nVCONF_KEY db/tv-viewer/force_el_sensing/count\ndb/tv-viewer/force_el_sensing/count, value = 0 (Int32)\nVCONF_GET_EXIT 0\n42959.38 160276.80\nMon Oct 26 13:29:10 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

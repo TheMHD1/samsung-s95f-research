@@ -1,0 +1,122 @@
+{
+  "hardBoundSeconds": 20,
+  "measurement": {
+    "acceptance": "Timestamped last-clean and first-fault; intervention presentation interval lies inside recorder interval; stable tab/focus/full-home; exact transfers and cleanup; otherwise reject causal onset claim",
+    "physical": "Independent fixed-exposure camera/light sensor or timed owner observation; screenshots are compositor evidence only",
+    "software": "Qualified finite passive RT/fault capture plus centrally qualified actual mode/selected-limit/aggregate onset operands. No replacement for rejected BI/AL collector authorized by this design."
+  },
+  "phaseOne": {
+    "baselineQualification": "stabilizing_gray is a candidate name only; no gray scene is yet proved visible/clean over ForYou. If no fixed scene establishes that state, phase one is not feasible with this route.",
+    "holdConstant": [
+      "ForYou selected",
+      "same CSFS full-home state and focus",
+      "same EFL notification window identity and plane settings",
+      "same preallocated rectangle count and geometry",
+      "same source/picture settings and brightness",
+      "same scheduled redraw cadence"
+    ],
+    "trials": [
+      {
+        "id": "S",
+        "role": "sham timed callback control",
+        "schedule": [
+          "stabilizing_gray",
+          "stabilizing_gray",
+          "stabilizing_gray"
+        ]
+      },
+      {
+        "id": "P",
+        "role": "sparse vs dense pixel distribution at fixed tab",
+        "schedule": [
+          "stabilizing_gray",
+          "opaque_sparse",
+          "stabilizing_gray"
+        ]
+      },
+      {
+        "id": "R0",
+        "role": "spatial-pair sham with same preallocated 144 tiles",
+        "schedule": [
+          "checker_equal_histogram",
+          "checker_equal_histogram",
+          "checker_equal_histogram"
+        ]
+      },
+      {
+        "id": "R1",
+        "role": "Same 72 tiles RGB48 and 72 tiles RGB8, rearranged spatially. Declared code histogram is fixed; physical luminance/current is not inferred.",
+        "schedule": [
+          "checker_equal_histogram",
+          "clustered_equal_histogram",
+          "checker_equal_histogram"
+        ]
+      },
+      {
+        "id": "T",
+        "role": "native sparse scene; composition optimization remains a confound",
+        "schedule": [
+          "stabilizing_gray",
+          "transparent_native_ForYou",
+          "stabilizing_gray"
+        ]
+      }
+    ],
+    "vary": "Only RGB/alpha of preallocated Evas objects on EFL main loop"
+  },
+  "phaseTwo": {
+    "condition": "Only after phase-one helper/gray scene is qualified and fixed gray can establish visible clean ForYou",
+    "holdConstant": [
+      "fully opaque overlay pixels",
+      "window identity and plane settings",
+      "redraw cadence"
+    ],
+    "role": "Tests selected-tab-only effect at fixed visible composite; hidden UI workload/global-policy changes must still be measured",
+    "vary": "Apps versus ForYou selected underneath using observed stock keys"
+  },
+  "prohibited": [
+    "build/deploy/execute as part of this offline artifact",
+    "firmware or UI/database modifications",
+    "AVE hardware test pattern",
+    "HWC policy toggle",
+    "protection/threshold/IRQ changes",
+    "automatic restart loop",
+    "unqualified replacement of rejected recorder"
+  ],
+  "prospectiveArtifactsNotCreated": [
+    "ManagedEflContentOnce.cs",
+    ".csproj",
+    "target-efl-export-session-manifest.json",
+    "deterministic-build-manifest.json",
+    "qualified-one-shot-supervisor",
+    "paired-physical-RT-trial-record"
+  ],
+  "prospectiveFunctionsNotImplemented": [
+    "PreflightOnly",
+    "CreateWindowAndGrid",
+    "ApplyFrameOnMainLoop",
+    "OnFrameTimer",
+    "RequestExit",
+    "HideAndExit",
+    "EmitBoundedRecord"
+  ],
+  "purpose": "Distinguish output pixel/composition dependence from Home selected-tab-only policy; does not identify electrical root cause",
+  "recovery": {
+    "duringAcceptedWindow": false,
+    "nextTrialBaseline": "Identical Apps context, qualified overlay stabilizing scene, select ForYou under that scene, then verify same selected tab plus physical visible and fresh clean RT baseline before t0.",
+    "pageConstantAcrossRecovery": false,
+    "policy": "Terminate comparison and retain fault first; Apps-selected one-shot existing stock recovery is a separate operational block. No automatic loop.",
+    "reason": "Demonstrated recovery deliberately selects Apps; ForYou-selected recovery BT failed to establish visible recovery. No same-page recovery claim."
+  },
+  "requiresNewTargetHelper": true,
+  "schemaVersion": 1,
+  "status": "design_only_not_qualified_for_target_execution",
+  "targetModel": "QN77S95FAFXZC",
+  "timingProposal": {
+    "baselineSeconds": 4,
+    "cleanupReserveSeconds": 4,
+    "interventionSeconds": 8,
+    "qualification": "All timing is provisional; actual monotonic timestamps and qualified observer coverage determine acceptance",
+    "restorationSeconds": 4
+  }
+}

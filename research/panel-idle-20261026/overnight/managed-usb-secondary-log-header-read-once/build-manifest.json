@@ -1,0 +1,67 @@
+{
+  "acceptance_scope": "Exact counts and cleanup only; opaque fixed 64-byte snapshot at the candidate direct secondary-log header address. Acceptance does not prove DMA visibility, formatter activity, log validity, fault causality, or running-image identity.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x20200000\",\"operation\":\"opaque-secondary-event-log-header-DMA-IN\",\"headerHex\":\"010100000000202040000000\",\"inputLength\":64,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":26,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "evidence_pins_scope": "Immutable local evidence-report.md and evidence-verifier.py; replaces pre-execution mutable-reference revision.",
+  "evidence_report_sha256": "83d499bd9a44fd602b0211491521774f4fc53c86765fc3bb437386cd7fedcc6f",
+  "evidence_verifier_sha256": "a82bdb61e7ff94e412a9c0304fef61f0819c157bcdca37503243c5fd98eb5ded",
+  "files": {
+    "ManagedUsbRtBlockReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "04d880a065c0a705aa22e35143a81b6a0171791f41ca710d16eec9c588314f86",
+      "size": 16846
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.deps.json": {
+      "sha256": "0594831db607c7c2f313830330313e4464c89a02262ca0f17ac23380cb18b111",
+      "size": 445
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.dll": {
+      "sha256": "b2416eaddeeb056b03c240e97ed07bfdc0953d9c054d31574424ef4d9217ccb6",
+      "size": 28672
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x20200000",
+  "fixed_length": 64,
+  "fixed_target": "0x101",
+  "header_hex": "010100000000202040000000",
+  "schema": "usb-fixed-secondary-log-header-read-build-v1",
+  "source_parent_sha256": "795bc39dd478146d6c947ecb4b0d604f18851d2655b9500182af1baf02e6b8c5",
+  "wrapper_parent_sha256": "b80c5a4553e351b23a842a96c5dc6bdf5275e811543cf19be8f0c53ca6ca43e8"
+}

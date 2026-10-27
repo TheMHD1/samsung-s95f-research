@@ -1,0 +1,4 @@
+{
+  "command": "set -euo pipefail\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\necho LOG_READ_START; cat /proc/uptime\necho FILTERED_DMESG_LAST_32_GPIO_GETTER_ROWS\ndmesg | awk '/QDFTcon_GetErrDetFault|read_err_det_status/ {a[n%32]=$0;n++} END {start=n>32?n-32:0;for(i=start;i<n;i++) print a[i%32];print \"MATCH_COUNT\",n+0}'\necho LOG_READ_END; cat /proc/uptime\necho COMPLETE\n",
+  "helper_pid": 5317
+}

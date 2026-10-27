@@ -1,0 +1,107 @@
+# Selected raw-Image evidence; ARM64 little-endian
+# Image SHA256 77b6070c12a53f2b7ede3b7c503e242759e22dbaef2d12cc91b556416fed455d
+# Addresses are Image file offsets, not live VAs.
+
+LINKED DATA POINTER CONVERSION
+linked base                         0xffffffc010080000
+platform_driver object             0x00adf4f8
+[+0x00] probe pointer              0xffffffc01043f6f8 -> Image 0x003bf6f8
+[+0x08] remove pointer             0xffffffc01043f688 -> Image 0x003bf688
+[+0x28] name pointer               0xffffffc010971fc8 -> Image 0x008f1fc8
+[+0x50] of_match pointer           0xffffffc0108d87e0 -> Image 0x008587e0
+0x008f1fc8 string                  "sdp-pinctrl-v2"
+0x008587e0+0x40                    "samsung,sdp-pinctrl-v2"
+
+PLATFORM DRIVER INIT 0x00a18fcc..0x00a18feb
+00a18fcc  fd7bbfa9  stp  x29,x30,[sp,#-0x10]!
+00a18fd0  010080d2  mov  x1,#0
+00a18fd4  200600f0  adrp x0,#0xadf000
+00a18fd8  fd030091  mov  x29,sp
+00a18fdc  00e01391  add  x0,x0,#0x4f8       ; platform_driver 0xadf4f8
+00a18fe0  eeeee997  bl   0x494b98           ; __platform_driver_register
+00a18fe4  fd7bc1a8  ldp  x29,x30,[sp],#0x10
+00a18fe8  c0035fd6  ret
+
+PROBE/CALLBACK CONSTRUCTION
+# Complete probe range 0x3bf6f8..0x3bfd4f SHA256
+# 273ddc884339fb9c173eba2a53aca72a7b9b779f667d0b7d41d59658d2ba9f05
+# Construction range 0x3bf918..0x3bfb33 SHA256
+# 7d437f458fe8ad4e18756c6b445ff5a744befb12a69ac7105c2ebcb488647949
+
+003bf918  01000090  adrp x1,#0x3bf000
+003bf91c  21c03d91  add  x1,x1,#0xf70       ; 0x3bff70 direction_input
+003bf920  802900d0  adrp x0,#0x8f1000
+003bf924  00003891  add  x0,x0,#0xe00       ; "gpio%d"
+003bf928  e1830aa9  stp  x1,x0,[sp,#0xa8]
+003bf980  000000b0  adrp x0,#0x3c0000
+003bf984  00800391  add  x0,x0,#0xe0        ; 0x3c00e0 get
+003bf988  010000b0  adrp x1,#0x3c0000
+003bf98c  21800091  add  x1,x1,#0x20        ; 0x3c0020 direction_output
+003bf994  00000090  adrp x0,#0x3bf000
+003bf998  00c03b91  add  x0,x0,#0xef0       ; 0x3bfef0 set
+003bf9b4  59230091  add  x25,x26,#8         ; x25 = gpio_chip *
+
+# Zero initialization of gpio_chip callback/state area.
+003bf9c4  3f7f01a9  stp  xzr,xzr,[x25,#0x10]
+003bf9c8  3f7f02a9  stp  xzr,xzr,[x25,#0x20]
+003bf9cc  3f7f03a9  stp  xzr,xzr,[x25,#0x30]
+003bf9d0  3f7f05a9  stp  xzr,xzr,[x25,#0x50]
+003bf9d4  3f7f06a9  stp  xzr,xzr,[x25,#0x60] ; zeros +0x60 and set_config +0x68
+003bf9d8  3f7f07a9  stp  xzr,xzr,[x25,#0x70]
+003bf9dc  3f7f08a9  stp  xzr,xzr,[x25,#0x80]
+003bf9e0  3f7f09a9  stp  xzr,xzr,[x25,#0x90]
+003bf9e4  3f7f0aa9  stp  xzr,xzr,[x25,#0xa0]
+003bf9e8  3f7f0ba9  stp  xzr,xzr,[x25,#0xb0]
+
+# x26 = gpio_chip-8, so these x26-relative stores map to shown chip offsets.
+003bf9f0  e05740f9  ldr  x0,[sp,#0xa8]      ; 0x3bff70
+003bf9f4  402300f9  str  x0,[x26,#0x40]     ; chip+0x38 direction_input
+003bf9f8  e04740f9  ldr  x0,[sp,#0x88]      ; 0x3c0020
+003bf9fc  402700f9  str  x0,[x26,#0x48]     ; chip+0x40 direction_output
+003bfa00  e04340f9  ldr  x0,[sp,#0x80]      ; 0x3c00e0
+003bfa04  402b00f9  str  x0,[x26,#0x50]     ; chip+0x48 get
+003bfa08  e04b40f9  ldr  x0,[sp,#0x90]      ; 0x3bfef0
+003bfa10  403300f9  str  x0,[x26,#0x60]     ; chip+0x58 set
+
+# No store to chip+0x68 occurs before registration. Complete bytes are hash-pinned.
+003bfb20  e00319aa  mov  x0,x25             ; exact gpio_chip pointer
+003bfb24  030080d2  mov  x3,#0
+003bfb28  020080d2  mov  x2,#0
+003bfb2c  010080d2  mov  x1,#0
+003bfb30  82190094  bl   0x3c6138           ; gpiochip_add_data_with_key
+
+DIRECTION INPUT 0x003bff70..0x003c001f
+# Function/body-containing slice 0x3bfef0..0x3c001f SHA256
+# 27baa829433302575e573d3dc3562cc1d05d03af68efeef21ccf37a36e132679
+003bff70  fd7bbda9  stp  x29,x30,[sp,#-0x30]!
+003bff78  04800391  add  x4,x0,#0xe0        ; per-bank direction bitmap
+003bffc0  857861f8  ldr  x5,[x4,x1,lsl#3]
+003bffc4  a300238a  bic  x3,x5,x3
+003bffc8  837821f8  str  x3,[x4,x1,lsl#3]   ; software bitmap write
+003bffcc  557440f9  ldr  x21,[x2,#0xe8]     ; mapped bank register base
+003bffd0  56941094  bl   0x7e5128           ; raw spin lock irqsave
+003bffd8  a00240b9  ldr  w0,[x21]
+003bfff0  73761e53  lsl  w19,w19,#2
+003bfff4  62008052  mov  w2,#3
+003bfff8  5320d31a  lsl  w19,w2,w19
+003bfffc  1300330a  bic  w19,w0,w19         ; clear 2-bit mode field
+003c0000  b30200b9  str  w19,[x21]          ; MMIO/register write
+003c0008  64911094  bl   0x7e4598           ; unlock irqrestore
+003c000c  00008052  mov  w0,#0
+003c001c  c0035fd6  ret
+
+GET 0x003c00e0..0x003c0123
+003c00e0  3f000071  cmp  w1,#0
+003c00f0  007440f9  ldr  x0,[x0,#0xe8]
+003c00fc  00100091  add  x0,x0,#4
+003c0104  000040b9  ldr  w0,[x0]
+003c0118  0024c11a  lsr  w0,w0,w1
+003c011c  00000012  and  w0,w0,#1
+003c0120  c0035fd6  ret
+
+INTERPRETATION BOUNDARY
+- gpio_chip.set_config+0x68 is NULL at registration.
+- PIN_CONFIG_PERSIST_STATE is not delivered to this vendor driver.
+- gpiod_set_transitory(false) still changes Linux descriptor flags.
+- cdev input setup still invokes direction_input and its register writes.
+- Paired Image/binding metadata are not a live-text hash or pin-value sample.

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "uname -a\ncat /proc/version\nls /sys/module | grep -Ei 'sdp|tcon|pqe|display|drm|frc'\nfind /sys/module -maxdepth 3 -type f -path '*/parameters/*' | grep -Ei 'tcon|panel|display|pqe|frc|saver' | head -n 100\nfind /sys/kernel/debug -maxdepth 2 -iname '*tcon*' -o -iname '*panel*' -o -iname '*display*' -o -iname '*pqe*' -o -iname '*frc*' 2>/dev/null | head -n 100\nawk '{print $3}' /proc/kallsyms | grep -Ei 'QDFTcon.*(Error|Fault|Power|Monitor|SsBright|OffSens)|display.*lock|tcon.*(errdet|recovery)' | head -n 100\n",
+      "exit_code": 0,
+      "stderr": "awk: cmd. line:1: fatal: cannot open file `/proc/kallsyms' for reading (No such file or directory)\n",
+      "stdout": "Linux localhost 5.4.261 #1 SMP PREEMPT Wed Jul 1 16:51:36 UTC 2026 aarch64 GNU/Linux\nLinux version 5.4.261 (abuild@A2001DPG) (gcc version 9.2.0 (GCC)) #1 SMP PREEMPT Wed Jul 1 16:51:36 UTC 2026\ndrm\ndrm_kms_helper\niotcontrol\nqdf_tcon\nrosem_frc\nsdp_alsa\nsdp_chdec\nsdp_codec\nsdp_drm\nsdp_dvb\nsdp_extin\nsdp_frc\nsdp_hdmi\nsdp_misc\nsdp_npu\nsdp_npu_sched\nsdp_ocl\nsdp_ocl_jp\nsdp_pqe_dp\nsdp_pqe_frc\nsdp_socite\nsdp_spidev\nsdp_sys\nsdp_tcon\nsdp_tsd\nsdp_vdsp\ntztv_frc_tcon\ntztv_frc_tcon_api\n/sys/kernel/debug/sdp_dbgclk/frc\n/sys/kernel/debug/alsa/sync_test_display_path\n/sys/kernel/debug/pqe\n/sys/kernel/debug/pqe/pqe_ctrl\n/sys/kernel/debug/frc\n/sys/kernel/debug/frc/frctest\n/sys/kernel/debug/ADDF/test_tcon_rast\n/sys/kernel/debug/ADDF/test_frc_rast\n/sys/kernel/debug/ADDF/sdp_display_onecmd\n/sys/kernel/debug/ADDF/sdp_display_ex_proc\n/sys/kernel/debug/ADDF/atypical_display\n/sys/kernel/debug/ADDF/display_coordinator\n/sys/kernel/debug/disp_coord/send_trigger_ctrl_from_frc\n/sys/kernel/debug/disp_coord/display_output_coordinator\n/sys/kernel/debug/tcon\n/sys/kernel/debug/tcon/tcon_micom_log\n/sys/kernel/debug/tcon/tcon_dbg_clk\n/sys/kernel/debug/tcon/tcon_misc\n/sys/kernel/debug/tcon/tcon_update\n/sys/kernel/debug/sdp_busenv/frc.pc\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

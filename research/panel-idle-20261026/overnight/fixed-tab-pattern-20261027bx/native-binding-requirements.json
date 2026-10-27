@@ -1,0 +1,73 @@
+{
+  "architecture": "ARM32 little endian",
+  "arm32_layouts": {
+    "itimerspec_bytes": 16,
+    "sigev_notify_offset": 8,
+    "sigev_signo_offset": 4,
+    "sigevent_bytes": 64,
+    "statx_bytes": 256,
+    "statx_mode_offset": 28,
+    "statx_uid_offset": 20,
+    "timer_t_bytes": 4,
+    "timespec_bytes": 8
+  },
+  "efl_exports": [
+    "elm_init",
+    "elm_win_add",
+    "elm_win_alpha_set",
+    "elm_win_borderless_set",
+    "elm_win_prop_focus_skip_set",
+    "elm_win_layer_set",
+    "elm_win_input_rect_set",
+    "elm_win_aux_hint_add",
+    "efl_util_set_notification_window_level",
+    "evas_object_evas_get",
+    "evas_object_rectangle_add",
+    "evas_object_color_set",
+    "evas_object_move",
+    "evas_object_resize",
+    "evas_object_pass_events_set",
+    "evas_object_show",
+    "evas_object_hide",
+    "ecore_timer_add",
+    "ecore_main_loop_begin",
+    "ecore_main_loop_quit",
+    "ecore_main_loop_thread_safe_call_async"
+  ],
+  "kernel_deadline": {
+    "cancelled_before_exit": false,
+    "clock": "CLOCK_MONOTONIC=1",
+    "notification": "SIGEV_SIGNAL=0",
+    "seconds": 30,
+    "signal": "SIGKILL=9",
+    "startup_covered": false
+  },
+  "missing_target_qualification": [
+    "relevant installed-library hashes and exports",
+    "ARM32 libc/librt timing/sigevent/statx call ABI",
+    "unique CSFS cmdline/session environment and socket mode/ownership",
+    "notification focus/plane/geometry and alpha behavior",
+    "observed normal and forced process-death Wayland cleanup",
+    "physical visible/clean ForYou under baseline gray",
+    "accepted paired RT/onset recorder coverage"
+  ],
+  "native_modules": [
+    "libc.so.6",
+    "libcapi-ui-efl-util.so.0",
+    "libecore.so.1",
+    "libelementary.so.1",
+    "libevas.so.1",
+    "librt.so.1"
+  ],
+  "pointer_bytes": 4,
+  "runtime_target_pin_from_existing_helpers": "e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310",
+  "schema": "fixed-tab-pattern-bindings-v1",
+  "support_exports": [
+    "clock_gettime",
+    "geteuid",
+    "statx",
+    "timer_create",
+    "timer_settime"
+  ],
+  "target_validated": false
+}

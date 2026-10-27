@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\ncat /proc/uptime\nls -l /sys/kernel/debug/hdmi/lock /sys/kernel/debug/hdmi/crc /sys/kernel/debug/hdmi/tx_en_sts\nhead -c 4000 /sys/kernel/debug/hdmi/lock\nhead -c 4000 /sys/kernel/debug/hdmi/crc\nhead -c 4000 /sys/kernel/debug/hdmi/tx_en_sts",
+      "exit_code": 0,
+      "stderr": "head: error reading `/sys/kernel/debug/hdmi/crc': Invalid argument\n",
+      "stdout": "Mon Oct 26 04:23:35 UTC 2026\n10224.16 37547.88\n-r--r--r-- 1 owner root 0 1969-12-31 19:00 /sys/kernel/debug/hdmi/crc\n-r--r--r-- 1 owner root 0 1969-12-31 19:00 /sys/kernel/debug/hdmi/lock\n-r--r--r-- 1 owner root 0 1969-12-31 19:00 /sys/kernel/debug/hdmi/tx_en_sts\n0\n0\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

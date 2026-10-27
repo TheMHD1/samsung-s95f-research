@@ -1,0 +1,106 @@
+# Bounded offline excerpts for owner-wake screen-saver brightness analysis
+# Input: binaries/libave.so.0.1 SHA256
+# a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777
+# Addresses are ELF VMAs; Thumb function entry symbols carry bit zero separately.
+
+# QDDimming::t_vSyncCallBack, base class, 0x17b35c..0x17b6bc
+# The initial callback gates precede all per-vsync dispatch.
+17b35c ldr r2,[r0,#4]
+17b35e ldrb.w r3,[r2,#0x39]
+17b362 cmp r3,#0
+17b364 beq 17b420
+17b366 ldrb.w r3,[r2,#0x5c]
+17b36a cmp r3,#0
+17b36c beq 17b420
+17b36e ldr.w r3,[r2,#0x1b4]
+17b372 cmp r3,#1
+17b374 beq 17b420
+...
+# Dispatch to screen saver is selected by original inner+0x18c bit 15.
+17b572 ldr r2,[r4,#4]
+17b574 ldr.w r3,[r2,#0x18c]
+17b578 lsls r0,r3,#0x10
+17b57a bpl.w 17b3b8
+17b57e mov r0,r4
+17b580 blx 8d59c              # PLT GOT 0x5a506c: QDDimming::m_SetScreenSaver()
+
+# QDDimming::m_SetScreenSaver, 0x17b204..0x17b2a8
+17b21a ldr r3,[r0,#4]
+17b21c ldr.w r2,[r3,#0x450]
+17b220 cbz r2,17b254          # returns zero; no backend call
+17b222 ldrb.w r2,[r3,#0x15a]
+17b226 ldr.w r4,[r3,#0x284]
+17b22a ldr.w r1,[r3,#0x2b8]
+17b232 cbz r2,17b26c
+17b234 movs r2,#1
+17b236 ldr r0,[r0,#0x10]       # nullable backend pointer
+17b238 ldr.w r1,[r3,#0x124]
+17b23c ldr.w r3,[r3,#0x520]    # stored policy argument
+17b240 strd r2,r1,[sp,#8]
+17b244 str r3,[sp,#0x10]       # BackendQdScreenSaver_t + 0x10
+17b246 cbz r0,17b254
+17b248 ldr r3,[r0]
+17b24c ldr.w r3,[r3,#0x200]
+17b250 blx r3
+
+# Active-base vtable relation (relocation table):
+# RoseMQD vtable address point = 0x5a152c.  +0x200 entry = 0x5a172c.
+# .rel.dyn 0x5a172c R_ARM_ABS32 -> 0x1885b1
+# DimmingBackendInterface::t_SetScreenSaver(BackendQdScreenSaver_t*) (stub).
+# MNT address point = 0x5a1784. +0x200 entry = 0x5a1984.
+# .rel.dyn 0x5a1984 R_ARM_ABS32 -> 0x1cb2d9
+# DimmingBackendRoseMQDMNT::t_SetScreenSaver(...).
+
+# RoseMQDMNT::t_SetScreenSaver, 0x1cb2d8..0x1cb564: request+0x10 controls
+# the selected logical brightness; the cache is updated regardless of API return.
+1cb2fa ldr r3,[r5,#0x10]
+1cb2fc it ne
+1cb2fe movne r4,#0x6b          # nonzero preloaded factory setting -> logical 107
+1cb302 cmp r3,#0
+1cb304 it eq
+1cb306 moveq r4,#0             # request +0x10 zero -> logical zero
+1cb34c ldr.w r3,[r8,#0x158]
+1cb350 cmp r3,r4
+1cb352 beq 1cb38a
+1cb354 mov r0,r4
+1cb356 blx 8f18c               # PLT GOT 0x5a59bc: ave_tcon_api_set_qd_ss_brightness
+1cb382 str.w r4,[r8,#0x158]    # result is not tested before cache write
+
+# RoseMQD::t_SetLogoDetection, 0x1c6b50..0x1c72dc: a separate concrete
+# base-backend caller of the same API.  It calls FRC read and derives r12/sl.
+1c6c5e add.w r1,r7,#0x10
+1c6c62 movw r0,#0x3750
+1c6c66 movt r0,#4
+1c6c6a blx 8fdec               # PLT GOT 0x5a5ddc: ave_frc_read_i2c(uint,uint*)
+1c6c6e ldr r2,[r7,#0x10]
+1c6c70 bics r3,r2,#2
+1c6c74 beq.w 1c6ff2
+1c6c82 ldr.w r6,[pc,#0x568]
+1c6c86 cmp r2,#1
+1c6c88 it hi
+1c6c8a movhi r2,#0
+1c6c8c it ls
+1c6c8e movls r2,#1
+1c6c92 mov sl,r2
+...
+1c6e40 ldr r3,[r6,#0x4c]
+1c6e42 cmp r3,sl
+1c6e44 beq 1c6e7e
+1c6e74 mov r0,sl
+1c6e76 blx 8f18c               # same brightness API
+1c6e7a str.w sl,[r6,#0x4c]     # cached desired logical value
+
+# QDFTcon_SetQdSsBrightness, qdf_tcon.ko .text+0xec00:
+ec14 cbz w0,ec94               # input 0 -> w22=0
+ec18 cmp w0,#1
+ec1c b.eq ecc4                 # input 1 -> w22=m_fac_ss_brightness
+ec20 sub w0,w0,#0x65
+ec28 cmp w0,#6
+ec2c b.hi ecd4                 # other input forwarded as input-100
+eca0 ldr w0,[x19,#208]         # m_ss_brightness
+eca8 cmp w0,w22
+ecac b.eq ec48                 # equal desired value: no lower transfer
+ecb0 mov w0,w22
+ecb4 bl eb60                   # m_set_ss_brightness(w22)
+ecb8 mov w21,w0
+ecbc str w22,[x19,#208]        # cache write despite lower result

@@ -1,0 +1,116 @@
+cc -std=c11 -Wall -Wextra -Werror -Wpedantic -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer test_host.c -o host-test
+./host-test
+frame0=000000000d0d010110111111a00100000000000030333333080000000000000000000000010000000000000001000000010200000000000000000000
+frame1=000000000d0e020010111111c00f00000000000020222222c00f00000000000000000000000000000000000000000000000000000000000000000000
+frame2=000000000e02000020222222000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+PASS: 3 golden frames; 8 failure stages; 2 size-mutation successes; 3 count overflows; 2 input rejections; canaries and cleanup
+python3 offline_validate.py
+{
+  "prefix_bytes": 65494,
+  "envelope_bytes": 4056,
+  "ciphertext_bytes": 4032,
+  "salt_bytes": 8,
+  "salt_value_omitted": true,
+  "ciphertext_crc32": "efed4e54",
+  "plaintext_validated": false,
+  "malformed_cases_rejected": [
+    "truncated_prefix",
+    "oversized_prefix",
+    "magic",
+    "section_id",
+    "section_size",
+    "section_offset",
+    "header_count",
+    "header_offset",
+    "header_size",
+    "label_length",
+    "label",
+    "wrapper_word",
+    "wrapper_crc",
+    "marker",
+    "salt",
+    "ciphertext"
+  ],
+  "elf_hashes_verified": {
+    "target-file-acquisition-02/libteec.so": "926840c9e7b26c59d8cb9d4ab5ae274e62b11efdbf14831b0a4d81d3de720f70",
+    "target-file-acquisition-02/libteec_trustware.so": "0574261e6291fb3f28bf8a254c0610c9177e132a6afd0bc7418826173555db81",
+    "target-file-acquisition-03/SWUCoreTV": "b8de9e31bf6e74cf9a1f3cfd2598658d978a4edd88b36d1c2f10129ccc8a2697",
+    "target-file-acquisition-03/libSWUProductionConfig.so": "c6af8346f4643f2cf50e996682611ece7ad6ff8999274570023561d1a97879f0",
+    "target-file-acquisition-04/libteec_trustware_common.so": "353104729c40d6f1eff4f07b96f8a14466dd98efddb21a9cb7d14752351dd139"
+  },
+  "golden_frames_synthetic_addresses": [
+    {
+      "command": 0,
+      "bytes": 60,
+      "hex": "000000000d0d010110111111a00100000000000030333333080000000000000000000000010000000000000001000000010200000000000000000000"
+    },
+    {
+      "command": 1,
+      "bytes": 60,
+      "hex": "000000000d0e020010111111c00f00000000000020222222c00f00000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "command": 2,
+      "bytes": 60,
+      "hex": "000000000e02000020222222000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "target_library_loaded": false,
+  "target_calls": 0,
+  "prototype_execution_qualified": false
+}
+python3 -O offline_validate.py
+{
+  "prefix_bytes": 65494,
+  "envelope_bytes": 4056,
+  "ciphertext_bytes": 4032,
+  "salt_bytes": 8,
+  "salt_value_omitted": true,
+  "ciphertext_crc32": "efed4e54",
+  "plaintext_validated": false,
+  "malformed_cases_rejected": [
+    "truncated_prefix",
+    "oversized_prefix",
+    "magic",
+    "section_id",
+    "section_size",
+    "section_offset",
+    "header_count",
+    "header_offset",
+    "header_size",
+    "label_length",
+    "label",
+    "wrapper_word",
+    "wrapper_crc",
+    "marker",
+    "salt",
+    "ciphertext"
+  ],
+  "elf_hashes_verified": {
+    "target-file-acquisition-02/libteec.so": "926840c9e7b26c59d8cb9d4ab5ae274e62b11efdbf14831b0a4d81d3de720f70",
+    "target-file-acquisition-02/libteec_trustware.so": "0574261e6291fb3f28bf8a254c0610c9177e132a6afd0bc7418826173555db81",
+    "target-file-acquisition-03/SWUCoreTV": "b8de9e31bf6e74cf9a1f3cfd2598658d978a4edd88b36d1c2f10129ccc8a2697",
+    "target-file-acquisition-03/libSWUProductionConfig.so": "c6af8346f4643f2cf50e996682611ece7ad6ff8999274570023561d1a97879f0",
+    "target-file-acquisition-04/libteec_trustware_common.so": "353104729c40d6f1eff4f07b96f8a14466dd98efddb21a9cb7d14752351dd139"
+  },
+  "golden_frames_synthetic_addresses": [
+    {
+      "command": 0,
+      "bytes": 60,
+      "hex": "000000000d0d010110111111a00100000000000030333333080000000000000000000000010000000000000001000000010200000000000000000000"
+    },
+    {
+      "command": 1,
+      "bytes": 60,
+      "hex": "000000000d0e020010111111c00f00000000000020222222c00f00000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "command": 2,
+      "bytes": 60,
+      "hex": "000000000e02000020222222000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "target_library_loaded": false,
+  "target_calls": 0,
+  "prototype_execution_qualified": false
+}

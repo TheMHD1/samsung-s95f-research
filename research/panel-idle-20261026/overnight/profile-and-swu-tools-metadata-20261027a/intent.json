@@ -1,0 +1,5 @@
+{
+  "command": "set -eu\necho METADATA_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor t in gzip base64 dd; do\n if command -v \"$t\"; then :; else echo TOOL_ABSENT=$t; fi\ndone\np=/factory_peq/tcon_data/QD/F_RSM1_BN9659934B_COMMON.bin\ntest -f \"$p\"; test ! -L \"$p\"\nwc -c < \"$p\"\nsha256sum \"$p\"\nif command -v gzip >/dev/null 2>&1; then\n echo GZIP_SIZE\n gzip -n -c \"$p\" | wc -c\nfi\nsha256sum \"$p\"\nfor p in /usr/lib/libteec.so /usr/share/org.tizen.tv.swu/itemsAESPassphraseEncrypted.txt; do\n if test -e \"$p\"; then\n  ls -ld \"$p\"\n  readlink -f \"$p\"\n  wc -c < \"$p\"\n  sha256sum \"$p\"\n else echo ABSENT=$p; fi\ndone\necho METADATA_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "mode": "ordinary file/tool metadata only; compression to discarded pipe; no device/TA open",
+  "physical_state": "unobserved"
+}

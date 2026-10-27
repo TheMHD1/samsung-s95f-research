@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "cat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetItem int32:60802\nvlogutil -v kerneltime -t 50 2>&1 | grep -Ei \"Fac_ss|ss_brightness|ERR DET|Fault Occurred|turn off TCON|turn on TCON|panel_set_dpms|OffSensing|off.sensing\" | tail -n 60",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n5088.95 18714.67\nmethod return time=1792983479.930162 sender=:1.249 -> destination=:1.803 serial=60 reply_serial=2\n   struct {\n      int32 60802\n      int32 0\n      int32 5\n      int32 5\n      int32 5\n      byte 1\n      string \"7\"\n      string \"Screen Saver Brightness\"\n   }\n   struct {\n      int32 1\n   }\n         deviced:  5070.004 I/BXT_LIB (P  675, T  675): vconf.c: vconf_set_int_async(2895) > [0]-(db/sysman/off_sensing_time:1154)-(17)us\n         deviced:  5070.004 I/DEVICED (P  675, T  675): OledDeviceTimer.cpp: _timerCb(31) > (OffSensing:739) update time : (1154)\n buxton2d_worker:  5070.005 D/BXT_CACHE(P  267, T  267): cache.c: cache_get(367) > [BASE cache] get (db/sysman/off_sensing_time)/size(32)\n buxton2d_worker:  5070.005 D/BXT_CACHE(P  267, T  267): cache.c: cache_get(367) > [BASE cache] get (db/sysman/off_sensing_time)/size(32)\n buxton2d_worker:  5070.005 D/BXT_CACHE(P  267, T  267): cache.c: cache_get(367) > [NORMAL cache] get (db/sysman/off_sensing_time)/size(32)\n buxton2d_worker:  5070.005 I/BXT     (P  267, T  267): direct.c: set_shm_val(561) > shm cache set (db/sysman/off_sensing_time:1154)\n buxton2d_worker:  5070.005 I/BXT     (P  267, T  267): daemon.c: proc_set(389) > (000000fd) key(db/sysman/off_sensing_time:1108:82)\n    async_worker:  5070.038 D/BXT     (P  267, T  332): sqlite.c: set_value(319) > Set '/var/lib/buxton2/system.db' Key 'db/sysman/off_sensing_time'\n    async_worker:  5070.038 I/BXT     (P  267, T  332): async_worker.c: _set_value_sync(81) > set_value done (db/sysman/off_sensing_time)\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

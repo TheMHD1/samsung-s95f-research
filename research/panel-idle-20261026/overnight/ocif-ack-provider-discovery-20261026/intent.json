@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\nn=0\nhits=0\nfor f in /lib/modules/5.4.261/kernel/*.ko /lib/modules/5.4.261/kernel/soc/*.ko; do\n  [ -f \"$f\" ] || continue\n  n=$((n+1))\n  [ \"$n\" -le 256 ] || exit 65\n  matched=0\n  for symbol in SDP_OCL_I2C_AckPolling suspend_hdmi_resume; do\n    if LC_ALL=C grep -q -F \"$symbol\" \"$f\"; then\n      hits=$((hits+1))\n      [ \"$hits\" -le 64 ] || exit 66\n      echo \"@@ MATCH $symbol $f\"\n      matched=1\n    fi\n  done\n  if [ \"$matched\" = 1 ]; then\n    echo \"@@ MODULE $f\"\n    wc -c < \"$f\"\n    sha256sum \"$f\"\n  fi\ndone\necho \"@@ SCANNED $n\"\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\nn=0\nhits=0\nfor f in /lib/modules/5.4.261/kernel/*.ko /lib/modules/5.4.261/kernel/soc/*.ko; do\n  [ -f \"$f\" ] || continue\n  n=$((n+1))\n  [ \"$n\" -le 256 ] || exit 65\n  matched=0\n  for symbol in SDP_OCL_I2C_AckPolling suspend_hdmi_resume; do\n    if LC_ALL=C grep -q -F \"$symbol\" \"$f\"; then\n      hits=$((hits+1))\n      [ \"$hits\" -le 64 ] || exit 66\n      echo \"@@ MATCH $symbol $f\"\n      matched=1\n    fi\n  done\n  if [ \"$matched\" = 1 ]; then\n    echo \"@@ MODULE $f\"\n    wc -c < \"$f\"\n    sha256sum \"$f\"\n  fi\ndone\necho \"@@ SCANNED $n\"\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "89efdf02248f7f5c72a7f3b6328347a1d72ec15e2b88a6ac50ea886cb8759b32",
+  "physical_state": "unobserved",
+  "purpose": "Bounded substring discovery in two fixed module directories only. Matches are not exports or invocation evidence. No module load/call or hardware getter.",
+  "retry": false,
+  "started_utc": "2026-10-26T20:16:46.263056+00:00"
+}

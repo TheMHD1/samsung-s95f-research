@@ -1,0 +1,67 @@
+{
+  "acceptance_scope": "Exact transfer counts, fixed extent, hashes, finite timing and cleanup only; controller eMMC-leaf status is ignored by firmware, so freshness and running-image identity remain unproved.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"target\":\"0x203\",\"address\":\"0x0\",\"totalLength\":5242880,\"chunkLength\":8192,\"chunks\":640,\"deadlineMs\":15000,\"headerHex\":\"030200000000000000005000\",\"operation\":\"bounded-read-only-emmc-backup\",\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":45,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "deadline_ms": 15000,
+  "files": {
+    "ManagedUsbEmmcBackupBounded.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "54138b80050a69d41990239158b89b803d46973c91836224a2875f75110abf2d",
+      "size": 25694
+    },
+    "bin/Release/net6.0/ManagedUsbEmmcBackupBounded.deps.json": {
+      "sha256": "b3dcb9ca591b604cc58863b90fb97fc39c58c0ff81df266953176eba230c0f96",
+      "size": 451
+    },
+    "bin/Release/net6.0/ManagedUsbEmmcBackupBounded.dll": {
+      "sha256": "c20df09ed99b1318fd62e2bc959964c7c4bdee9704da546a010b3836019e04dc",
+      "size": 41984
+    },
+    "bin/Release/net6.0/ManagedUsbEmmcBackupBounded.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x0",
+  "fixed_chunk_count": 640,
+  "fixed_chunk_length": 8192,
+  "fixed_target": "0x203",
+  "fixed_total_length": 5242880,
+  "header_hex": "030200000000000000005000",
+  "per_bulk_timeout_ms": 2000,
+  "schema": "usb-fixed-emmc-backup-bounded-build-v1",
+  "source_parent_sha256": "b4e400c973fc5c6c7737a0c6e21fe291c9320d57403e86968d0c6c5180293e49"
+}

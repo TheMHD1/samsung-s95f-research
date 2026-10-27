@@ -1,0 +1,36 @@
+set -eu
+umask 077
+test "$(uname -r)" = 5.4.261
+test -f /lib/modules/5.4.261/kernel/soc/sdp_tcon.ko
+test ! -L /lib/modules/5.4.261/kernel/soc/sdp_tcon.ko
+test "$(sha256sum /lib/modules/5.4.261/kernel/soc/sdp_tcon.ko | cut -d ' ' -f1)" = 9b7c1cb8e2bb8d11e5465a41fa402e71bd8d15a5dabd6b3d76de98a7a42549ee
+test -f /sys/kernel/debug/tcon/tcon_micom_log
+test ! -L /sys/kernel/debug/tcon/tcon_micom_log
+test ! -e /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86
+test ! -L /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86
+mkdir -m 700 /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86
+echo PRIVATE_CREATED
+echo "CAPTURE_BOOT=$(cat /proc/sys/kernel/random/boot_id)"
+echo "CAPTURE_START_UTC=$(date -u +%s)"
+echo "CAPTURE_START_UPTIME=$(cut -d ' ' -f1 /proc/uptime)"
+stat -c 'SOURCE=%n %F %u:%g:%a' /sys/kernel/debug/tcon/tcon_micom_log
+dd if=/sys/kernel/debug/tcon/tcon_micom_log of=/tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86/log.bin bs=4096 count=16 2>/tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86/dd.stderr
+test -d /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86
+test ! -L /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86
+test "$(stat -c '%u:%g:%a' /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86)" = 0:0:700
+for p in /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86/log.bin /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86/dd.stderr; do
+ test -f "$p"
+ test ! -L "$p"
+ test "$(stat -c '%u:%g:%a' "$p")" = 0:0:600
+done
+n=$(wc -c < /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86/log.bin)
+test "$n" -le 65536
+echo "CAPTURE_BYTES=$n"
+echo "CAPTURE_SHA256=$(sha256sum /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86/log.bin | cut -d ' ' -f1)"
+echo DD_STDERR_BEGIN
+cat /tmp/researcher-micomlog-990d2dd2d1c0462b9619ee81ddf3cc86/dd.stderr
+echo DD_STDERR_END
+echo "CAPTURE_END_UTC=$(date -u +%s)"
+echo "CAPTURE_END_UPTIME=$(cut -d ' ' -f1 /proc/uptime)"
+echo "CAPTURE_END_BOOT=$(cat /proc/sys/kernel/random/boot_id)"
+echo CAPTURE_COMPLETE

@@ -1,0 +1,613 @@
+
+### m_rosem_get_rgb_measure_conditon .text+0x22d8 size 0x1c8
+000022d8 sub      sp, sp, #0x70
+000022dc adrp     x1, #0x2000 ; RELOC 275 <.bss> + 0x0
+000022e0 mov      w2, #1
+000022e4 stp      x29, x30, [sp, #0x20]
+000022e8 add      x29, sp, #0x20
+000022ec stp      x21, x22, [sp, #0x40]
+000022f0 add      x21, x1, #0 ; RELOC 277 <.bss> + 0x0
+000022f4 stp      x19, x20, [sp, #0x30]
+000022f8 mov      x20, x0
+000022fc str      w2, [sp, #0x54]
+00002300 ldr      w2, [x21, #0x198]
+00002304 cmp      w2, #1
+00002308 b.eq     #0x2394
+0000230c ldr      w19, [x21, #0x14]
+00002310 ldr      w0, [x21, #0x19c]
+00002314 orr      w19, w19, w0
+00002318 cbz      w19, #0x23ec
+0000231c adrp     x0, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002320 add      x22, x0, #0 ; RELOC 277 <.rodata> + 0x0
+00002324 add      x0, x22, #0x300
+00002328 bl       #0x2328 ; RELOC 283 frc_tcon_lock + 0x0
+0000232c adrp     x0, #0x2000 ; RELOC 275 tztv_frc_tcon_ext_cmd + 0x0
+00002330 mov      w19, #-1
+00002334 ldr      x3, [x0] ; RELOC 286 tztv_frc_tcon_ext_cmd + 0x0
+00002338 cbz      x3, #0x236c
+0000233c add      x1, sp, #0x54
+00002340 mov      w2, #0x1c
+00002344 mov      w0, #0x400
+00002348 blr      x3
+0000234c mov      w19, w0
+00002350 cbnz     w0, #0x236c
+00002354 ldr      x0, [sp, #0x58]
+00002358 str      x0, [x20]
+0000235c ldr      x0, [sp, #0x60]
+00002360 str      x0, [x20, #8]
+00002364 ldr      x0, [sp, #0x68]
+00002368 str      x0, [x20, #0x10]
+0000236c ldr      w0, [x21, #0x188]
+00002370 cbnz     w0, #0x2460
+00002374 add      x0, x22, #0x300
+00002378 bl       #0x2378 ; RELOC 283 frc_tcon_unlock + 0x0
+0000237c mov      w0, w19
+00002380 ldp      x29, x30, [sp, #0x20]
+00002384 ldp      x19, x20, [sp, #0x30]
+00002388 ldp      x21, x22, [sp, #0x40]
+0000238c add      sp, sp, #0x70
+00002390 ret      
+00002394 add      x19, x21, #0x320
+00002398 ldr      w0, [x21, #0x320]
+0000239c str      w0, [x20]
+000023a0 ldr      w0, [x21, #0x188]
+000023a4 ldr      w1, [x19, #4]
+000023a8 str      w1, [x20, #4]
+000023ac ldr      w1, [x19, #8]
+000023b0 str      w1, [x20, #8]
+000023b4 ldr      w1, [x19, #0xc]
+000023b8 str      w1, [x20, #0xc]
+000023bc ldr      w1, [x19, #0x10]
+000023c0 str      w1, [x20, #0x10]
+000023c4 ldr      w1, [x19, #0x14]
+000023c8 str      w1, [x20, #0x14]
+000023cc cbnz     w0, #0x2410
+000023d0 mov      w19, #0
+000023d4 mov      w0, w19
+000023d8 ldp      x29, x30, [sp, #0x20]
+000023dc ldp      x19, x20, [sp, #0x30]
+000023e0 ldp      x21, x22, [sp, #0x40]
+000023e4 add      sp, sp, #0x70
+000023e8 ret      
+000023ec ldr      w0, [x1] ; RELOC 285 <.bss> + 0x0
+000023f0 cbz      w0, #0x23d0
+000023f4 adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+000023f8 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+000023fc add      x1, x1, #0x300
+00002400 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1048
+00002404 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1048
+00002408 bl       #0x2408 ; RELOC 283 printk + 0x0
+0000240c b        #0x237c
+00002410 bl       #0x2410 ; RELOC 283 ft_current_pid + 0x0
+00002414 mov      w20, w0
+00002418 bl       #0x2418 ; RELOC 283 ft_current_comm + 0x0
+0000241c mov      x3, x0
+00002420 ldp      w5, w6, [x19, #4]
+00002424 adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002428 ldp      w7, w9, [x19, #0xc]
+0000242c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00002430 ldr      w8, [x19, #0x14]
+00002434 mov      w2, w20
+00002438 ldr      w4, [x21, #0x320]
+0000243c add      x1, x1, #0x300
+00002440 str      w9, [sp]
+00002444 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0xfd8
+00002448 str      w8, [sp, #8]
+0000244c mov      w19, #0
+00002450 str      wzr, [sp, #0x10]
+00002454 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xfd8
+00002458 bl       #0x2458 ; RELOC 283 printk + 0x0
+0000245c b        #0x237c
+00002460 bl       #0x2460 ; RELOC 283 ft_current_pid + 0x0
+00002464 mov      w20, w0
+00002468 bl       #0x2468 ; RELOC 283 ft_current_comm + 0x0
+0000246c str      w19, [sp, #0x10]
+00002470 ldp      w9, w8, [sp, #0x68]
+00002474 str      w9, [sp]
+00002478 ldp      w4, w5, [sp, #0x58]
+0000247c str      w8, [sp, #8]
+00002480 ldp      w6, w7, [sp, #0x60]
+00002484 mov      x3, x0
+00002488 mov      w2, w20
+0000248c add      x1, x22, #0x300
+00002490 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1088
+00002494 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1088
+00002498 bl       #0x2498 ; RELOC 283 printk + 0x0
+0000249c b        #0x2374
+
+### init_module .init.text+0x0 size 0x3e8
+00000000 stp      x29, x30, [sp, #-0x20]!
+00000004 mov      x2, #0x3f0
+00000008 mov      w1, #0
+0000000c mov      x29, sp
+00000010 stp      x19, x20, [sp, #0x10]
+00000014 adrp     x20, #0 ; RELOC 275 <.bss> + 0x0
+00000018 add      x20, x20, #0 ; RELOC 277 <.bss> + 0x0
+0000001c add      x19, x20, #0x380
+00000020 mov      x0, x19
+00000024 bl       #0x24 ; RELOC 283 ft_memset + 0x0
+00000028 adrp     x2, #0 ; RELOC 275 RosemFrc_CtrlPatternBeforeDDR + 0x0
+0000002c adrp     x6, #0 ; RELOC 275 RosemFrc_IsSupportFRCPattern + 0x0
+00000030 add      x2, x2, #0 ; RELOC 277 RosemFrc_CtrlPatternBeforeDDR + 0x0
+00000034 add      x6, x6, #0 ; RELOC 277 RosemFrc_IsSupportFRCPattern + 0x0
+00000038 adrp     x17, #0 ; RELOC 275 RosemFrc_ReadI2CData + 0x0
+0000003c add      x17, x17, #0 ; RELOC 277 RosemFrc_ReadI2CData + 0x0
+00000040 adrp     x3, #0 ; RELOC 275 RosemFrc_CtrlPatternAfterDDR + 0x0
+00000044 adrp     x5, #0 ; RELOC 275 RosemFrc_DebugBackend + 0x0
+00000048 add      x3, x3, #0 ; RELOC 277 RosemFrc_CtrlPatternAfterDDR + 0x0
+0000004c add      x5, x5, #0 ; RELOC 277 RosemFrc_DebugBackend + 0x0
+00000050 adrp     x8, #0 ; RELOC 275 RosemFrc_GetPictureTestPatternNum + 0x0
+00000054 add      x8, x8, #0 ; RELOC 277 RosemFrc_GetPictureTestPatternNum + 0x0
+00000058 stp      x2, x3, [x19, #0x80]
+0000005c adrp     x2, #0 ; RELOC 275 RosemFrc_SetAutoMotionPlus + 0x0
+00000060 add      x2, x2, #0 ; RELOC 277 RosemFrc_SetAutoMotionPlus + 0x0
+00000064 stp      x6, x8, [x19, #0x90]
+00000068 adrp     x6, #0 ; RELOC 275 RosemFrc_SetFactoryData + 0x0
+0000006c add      x6, x6, #0 ; RELOC 277 RosemFrc_SetFactoryData + 0x0
+00000070 str      x17, [x19, #0xf8]
+00000074 adrp     x17, #0 ; RELOC 275 RosemFrc_SetGameMode + 0x0
+00000078 add      x17, x17, #0 ; RELOC 277 RosemFrc_SetGameMode + 0x0
+0000007c adrp     x4, #0 ; RELOC 275 RosemFrc_Initialize + 0x0
+00000080 adrp     x3, #0 ; RELOC 275 RosemFrc_SetBypass + 0x0
+00000084 add      x4, x4, #0 ; RELOC 277 RosemFrc_Initialize + 0x0
+00000088 add      x3, x3, #0 ; RELOC 277 RosemFrc_SetBypass + 0x0
+0000008c str      x5, [x19, #0x38]
+00000090 adrp     x5, #0 ; RELOC 275 RosemFrc_SetAgingPattern + 0x0
+00000094 add      x5, x5, #0 ; RELOC 277 RosemFrc_SetAgingPattern + 0x0
+00000098 str      x6, [x19, #0xa8]
+0000009c adrp     x6, #0 ; RELOC 275 RosemFrc_SetFilmMode + 0x0
+000000a0 add      x6, x6, #0 ; RELOC 277 RosemFrc_SetFilmMode + 0x0
+000000a4 stp      x3, x2, [x19, #0xc0]
+000000a8 adrp     x2, #0 ; RELOC 275 RosemFrc_SetFreezeMode + 0x0
+000000ac add      x2, x2, #0 ; RELOC 277 RosemFrc_SetFreezeMode + 0x0
+000000b0 str      x17, [x19, #0xe0]
+000000b4 adrp     x17, #0 ; RELOC 275 RosemFrc_SetInputSize + 0x0
+000000b8 add      x17, x17, #0 ; RELOC 277 RosemFrc_SetInputSize + 0x0
+000000bc adrp     x0, #0 ; RELOC 275 RosemFrc_InitVariable + 0x0
+000000c0 adrp     x15, #0 ; RELOC 275 RosemFrc_CheckCrcForLvds + 0x0
+000000c4 add      x0, x0, #0 ; RELOC 277 RosemFrc_InitVariable + 0x0
+000000c8 add      x15, x15, #0 ; RELOC 277 RosemFrc_CheckCrcForLvds + 0x0
+000000cc adrp     x9, #0 ; RELOC 275 RosemFrc_CheckCrcForTCon + 0x0
+000000d0 adrp     x1, #0 ; RELOC 275 RosemFrc_EW_SystemTest + 0x0
+000000d4 add      x9, x9, #0 ; RELOC 277 RosemFrc_CheckCrcForTCon + 0x0
+000000d8 add      x1, x1, #0 ; RELOC 277 RosemFrc_EW_SystemTest + 0x0
+000000dc adrp     x12, #0 ; RELOC 275 RosemFrc_GetBackendInfo + 0x0
+000000e0 adrp     x13, #0 ; RELOC 275 RosemFrc_GetFlashWPStatus + 0x0
+000000e4 add      x12, x12, #0 ; RELOC 277 RosemFrc_GetBackendInfo + 0x0
+000000e8 add      x13, x13, #0 ; RELOC 277 RosemFrc_GetFlashWPStatus + 0x0
+000000ec adrp     x10, #0 ; RELOC 275 RosemFrc_GetFrcErr + 0x0
+000000f0 adrp     x7, #0 ; RELOC 275 RosemFrc_GetMGASupport + 0x0
+000000f4 add      x10, x10, #0 ; RELOC 277 RosemFrc_GetFrcErr + 0x0
+000000f8 add      x7, x7, #0 ; RELOC 277 RosemFrc_GetMGASupport + 0x0
+000000fc adrp     x14, #0 ; RELOC 275 RosemFrc_GetPanelInfo + 0x0
+00000100 adrp     x16, #0 ; RELOC 275 RosemFrc_ReadBackendCommand + 0x0
+00000104 add      x14, x14, #0 ; RELOC 277 RosemFrc_GetPanelInfo + 0x0
+00000108 add      x16, x16, #0 ; RELOC 277 RosemFrc_ReadBackendCommand + 0x0
+0000010c adrp     x11, #0 ; RELOC 275 RosemFrc_Resume + 0x0
+00000110 adrp     x8, #0 ; RELOC 275 RosemFrc_SetFactoryModeIn + 0x0
+00000114 add      x11, x11, #0 ; RELOC 277 RosemFrc_Resume + 0x0
+00000118 add      x8, x8, #0 ; RELOC 277 RosemFrc_SetFactoryModeIn + 0x0
+0000011c adrp     x3, #0 ; RELOC 275 RosemFrc_SetFilmSettings + 0x0
+00000120 add      x3, x3, #0 ; RELOC 277 RosemFrc_SetFilmSettings + 0x0
+00000124 str      x4, [x19, #8]
+00000128 adrp     x4, #0 ; RELOC 275 RosemFrc_SendBackendCommand + 0x0
+0000012c add      x4, x4, #0 ; RELOC 277 RosemFrc_SendBackendCommand + 0x0
+00000130 str      x17, [x19, #0x48]
+00000134 adrp     x17, #0 ; RELOC 275 RosemFrc_SetLedMotionPlus + 0x0
+00000138 add      x17, x17, #0 ; RELOC 277 RosemFrc_SetLedMotionPlus + 0x0
+0000013c str      x5, [x19, #0x78]
+00000140 adrp     x5, #0 ; RELOC 275 RosemFrc_SetAmbientMode + 0x0
+00000144 add      x5, x5, #0 ; RELOC 277 RosemFrc_SetAmbientMode + 0x0
+00000148 str      x17, [x19, #0xd0]
+0000014c str      x6, [x19, #0xe8]
+00000150 adrp     x6, #0 ; RELOC 275 RosemFrc_SetGameLedMotionPlus + 0x0
+00000154 add      x6, x6, #0 ; RELOC 277 RosemFrc_SetGameLedMotionPlus + 0x0
+00000158 str      x4, [x19, #0x108]
+0000015c str      x16, [x19, #0x118]
+00000160 adrp     x4, #0 ; RELOC 275 RosemFrc_SetLowSupportMode + 0x0
+00000164 str      x12, [x19, #0x130]
+00000168 add      x4, x4, #0 ; RELOC 277 RosemFrc_SetLowSupportMode + 0x0
+0000016c stp      x15, x9, [x19, #0x158]
+00000170 adrp     x17, #0 ; RELOC 275 RosemFrc_SetMute + 0x0
+00000174 add      x17, x17, #0 ; RELOC 277 RosemFrc_SetMute + 0x0
+00000178 str      x14, [x19, #0x168]
+0000017c adrp     x18, #0 ; RELOC 275 RosemFrc_SetOSDWhiteBalance + 0x0
+00000180 str      x13, [x19, #0x178]
+00000184 add      x18, x18, #0 ; RELOC 277 RosemFrc_SetOSDWhiteBalance + 0x0
+00000188 str      x11, [x19, #0x190]
+0000018c adrp     x11, #0 ; RELOC 275 RosemFrc_SetResolutionInfo + 0x0
+00000190 str      x8, [x19, #0x1b0]
+00000194 add      x11, x11, #0 ; RELOC 277 RosemFrc_SetResolutionInfo + 0x0
+00000198 str      x10, [x19, #0x1c0]
+0000019c adrp     x12, #0 ; RELOC 275 RosemFrc_SetMGAInOut + 0x0
+000001a0 str      x7, [x19, #0x1d0]
+000001a4 add      x12, x12, #0 ; RELOC 277 RosemFrc_SetMGAInOut + 0x0
+000001a8 str      x6, [x19, #0x1f0]
+000001ac adrp     x9, #0 ; RELOC 275 RosemFrc_SetMirrorMode + 0x0
+000001b0 str      x5, [x19, #0x200]
+000001b4 adrp     x5, #0 ; RELOC 275 RosemFrc_SetPictureTestPatternNum + 0x0
+000001b8 str      x3, [x19, #0x228]
+000001bc add      x5, x5, #0 ; RELOC 277 RosemFrc_SetPictureTestPatternNum + 0x0
+000001c0 str      x2, [x19, #0x230]
+000001c4 adrp     x2, #0 ; RELOC 275 RosemFrc_SetSeamlessMute + 0x0
+000001c8 add      x2, x2, #0 ; RELOC 277 RosemFrc_SetSeamlessMute + 0x0
+000001cc str      x1, [x19, #0x358]
+000001d0 str      x0, [x20, #0x380]
+000001d4 adrp     x1, #0 ; RELOC 275 RosemFrc_SetPictureInfo + 0x0
+000001d8 str      x4, [x19, #0x218]
+000001dc add      x1, x1, #0 ; RELOC 277 RosemFrc_SetPictureInfo + 0x0
+000001e0 stp      x17, x2, [x19, #0x68]
+000001e4 adrp     x2, #0 ; RELOC 275 RosemFrc_UpgradeLDTable + 0x0
+000001e8 add      x2, x2, #0 ; RELOC 277 RosemFrc_UpgradeLDTable + 0x0
+000001ec str      x2, [x19, #0x20]
+000001f0 adrp     x2, #0 ; RELOC 275 RosemFrc_UpgradeFirmware + 0x0
+000001f4 add      x2, x2, #0 ; RELOC 277 RosemFrc_UpgradeFirmware + 0x0
+000001f8 str      x2, [x19, #0x18]
+000001fc adrp     x2, #0 ; RELOC 275 RosemFrc_WriteI2CData + 0x0
+00000200 add      x2, x2, #0 ; RELOC 277 RosemFrc_WriteI2CData + 0x0
+00000204 str      x2, [x19, #0xf0]
+00000208 adrp     x2, #0 ; RELOC 275 RosemFrc_SetVAETest + 0x0
+0000020c add      x2, x2, #0 ; RELOC 277 RosemFrc_SetVAETest + 0x0
+00000210 adrp     x0, #0 ; RELOC 275 RosemFrc_SetPIPInfo + 0x0
+00000214 add      x0, x0, #0 ; RELOC 277 RosemFrc_SetPIPInfo + 0x0
+00000218 str      x2, [x19, #0x260]
+0000021c add      x2, x19, #0x298
+00000220 adrp     x3, #0 ; RELOC 275 RosemFrc_SetPCMode + 0x0
+00000224 adrp     x4, #0 ; RELOC 275 RosemFrc_SetSystemInfo + 0x0
+00000228 add      x3, x3, #0 ; RELOC 277 RosemFrc_SetPCMode + 0x0
+0000022c add      x4, x4, #0 ; RELOC 277 RosemFrc_SetSystemInfo + 0x0
+00000230 str      x11, [x19, #0x40]
+00000234 adrp     x11, #0 ; RELOC 275 RosemFrc_SetVRRMode + 0x0
+00000238 add      x11, x11, #0 ; RELOC 277 RosemFrc_SetVRRMode + 0x0
+0000023c stp      x1, x0, [x19, #0x58]
+00000240 adrp     x1, #0 ; RELOC 275 RosemFrc_SetWhiteBalance + 0x0
+00000244 adrp     x0, #0 ; RELOC 275 RosemFrc_SetWhiteBalanceApp + 0x0
+00000248 add      x1, x1, #0 ; RELOC 277 RosemFrc_SetWhiteBalance + 0x0
+0000024c add      x0, x0, #0 ; RELOC 277 RosemFrc_SetWhiteBalanceApp + 0x0
+00000250 add      x9, x9, #0 ; RELOC 277 RosemFrc_SetMirrorMode + 0x0
+00000254 adrp     x13, #0 ; RELOC 275 RosemFrc_SetPhotoMode + 0x0
+00000258 adrp     x16, #0 ; RELOC 275 RosemFrc_SetPhotoPlay + 0x0
+0000025c add      x13, x13, #0 ; RELOC 277 RosemFrc_SetPhotoMode + 0x0
+00000260 add      x16, x16, #0 ; RELOC 277 RosemFrc_SetPhotoPlay + 0x0
+00000264 adrp     x15, #0 ; RELOC 275 RosemFrc_SetPvccFlag + 0x0
+00000268 adrp     x14, #0 ; RELOC 275 RosemFrc_SetSeamlessPlay + 0x0
+0000026c add      x15, x15, #0 ; RELOC 277 RosemFrc_SetPvccFlag + 0x0
+00000270 add      x14, x14, #0 ; RELOC 277 RosemFrc_SetSeamlessPlay + 0x0
+00000274 adrp     x10, #0 ; RELOC 275 RosemFrc_SetSmoothMotion + 0x0
+00000278 adrp     x7, #0 ; RELOC 275 RosemFrc_SetSuspendFlag + 0x0
+0000027c add      x10, x10, #0 ; RELOC 277 RosemFrc_SetSmoothMotion + 0x0
+00000280 add      x7, x7, #0 ; RELOC 277 RosemFrc_SetSuspendFlag + 0x0
+00000284 adrp     x8, #0 ; RELOC 275 RosemFrc_SetNetflixPlay + 0x0
+00000288 adrp     x6, #0 ; RELOC 275 RosemFrc_SetOutDoorSuspend + 0x0
+0000028c add      x8, x8, #0 ; RELOC 277 RosemFrc_SetNetflixPlay + 0x0
+00000290 add      x6, x6, #0 ; RELOC 277 RosemFrc_SetOutDoorSuspend + 0x0
+00000294 adrp     x17, #0 ; RELOC 275 RosemFrc_Suspend + 0x0
+00000298 add      x17, x17, #0 ; RELOC 277 RosemFrc_Suspend + 0x0
+0000029c str      x5, [x19, #0xa0]
+000002a0 adrp     x5, #0 ; RELOC 275 RosemFrc_SetUpdateMute + 0x0
+000002a4 add      x5, x5, #0 ; RELOC 277 RosemFrc_SetUpdateMute + 0x0
+000002a8 str      x4, [x19, #0xb0]
+000002ac adrp     x4, #0 ; RELOC 275 RosemFrc_GetFilmSource + 0x0
+000002b0 add      x4, x4, #0 ; RELOC 277 RosemFrc_GetFilmSource + 0x0
+000002b4 str      x3, [x19, #0xd8]
+000002b8 adrp     x3, #0 ; RELOC 275 RosemFrc_SetFullDimmingTest + 0x0
+000002bc add      x3, x3, #0 ; RELOC 277 RosemFrc_SetFullDimmingTest + 0x0
+000002c0 stp      x1, x0, [x19, #0x138]
+000002c4 adrp     x1, #0 ; RELOC 275 RosemFrc_SetMonitorDisplayMode + 0x0
+000002c8 adrp     x0, #0 ; RELOC 275 RosemFrc_SetCloudGameInfo + 0x0
+000002cc add      x1, x1, #0 ; RELOC 277 RosemFrc_SetMonitorDisplayMode + 0x0
+000002d0 add      x0, x0, #0 ; RELOC 277 RosemFrc_SetCloudGameInfo + 0x0
+000002d4 str      x18, [x19, #0x148]
+000002d8 str      x15, [x19, #0x180]
+000002dc adrp     x15, #0 ; RELOC 275 RosemFrc_SetLEDOutputResolution + 0x0
+000002e0 str      x17, [x19, #0x188]
+000002e4 add      x15, x15, #0 ; RELOC 277 RosemFrc_SetLEDOutputResolution + 0x0
+000002e8 str      x14, [x19, #0x1a8]
+000002ec adrp     x14, #0 ; RELOC 275 RosemFrc_GetRgbMeasureConditonInfo + 0x0
+000002f0 str      x16, [x19, #0x1b8]
+000002f4 add      x14, x14, #0 ; RELOC 277 RosemFrc_GetRgbMeasureConditonInfo + 0x0
+000002f8 str      x13, [x19, #0x1c8]
+000002fc adrp     x13, #0 ; RELOC 275 RosemFrc_SetRgbMeasurePostion + 0x0
+00000300 str      x12, [x19, #0x1d8]
+00000304 add      x13, x13, #0 ; RELOC 277 RosemFrc_SetRgbMeasurePostion + 0x0
+00000308 str      x11, [x19, #0x1e0]
+0000030c adrp     x11, #0 ; RELOC 275 RosemFrc_SetNewhomeMode + 0x0
+00000310 add      x11, x11, #0 ; RELOC 277 RosemFrc_SetNewhomeMode + 0x0
+00000314 str      x10, [x19, #0x1e8]
+00000318 str      x9, [x19, #0x1f8]
+0000031c adrp     x12, #0 ; RELOC 275 RosemFrc_GetRgbMeasureInfo + 0x0
+00000320 str      x8, [x19, #0x208]
+00000324 add      x12, x12, #0 ; RELOC 277 RosemFrc_GetRgbMeasureInfo + 0x0
+00000328 str      x7, [x19, #0x220]
+0000032c adrp     x10, #0 ; RELOC 275 RosemFrc_SetQmsVrrMode + 0x0
+00000330 str      x6, [x19, #0x238]
+00000334 add      x10, x10, #0 ; RELOC 277 RosemFrc_SetQmsVrrMode + 0x0
+00000338 str      x5, [x19, #0x240]
+0000033c adrp     x9, #0 ; RELOC 275 RosemFrc_SetPostPatternLowLevel + 0x0
+00000340 str      x4, [x19, #0x248]
+00000344 add      x9, x9, #0 ; RELOC 277 RosemFrc_SetPostPatternLowLevel + 0x0
+00000348 str      x3, [x19, #0x250]
+0000034c adrp     x8, #0 ; RELOC 275 RosemFrc_GetLdLutCrcCheck + 0x0
+00000350 str      x1, [x19, #0x280]
+00000354 add      x8, x8, #0 ; RELOC 277 RosemFrc_GetLdLutCrcCheck + 0x0
+00000358 str      x0, [x19, #0x288]
+0000035c adrp     x7, #0 ; RELOC 275 RosemFrc_SetContrastValue + 0x0
+00000360 adrp     x6, #0 ; RELOC 275 RosemFrc_SetTsiWhitePatternOnOff + 0x0
+00000364 add      x7, x7, #0 ; RELOC 277 RosemFrc_SetContrastValue + 0x0
+00000368 add      x6, x6, #0 ; RELOC 277 RosemFrc_SetTsiWhitePatternOnOff + 0x0
+0000036c adrp     x5, #0 ; RELOC 275 RosemFrc_SetTsiYellowPatternOnOff + 0x0
+00000370 adrp     x3, #0 ; RELOC 275 RosemFRC_SetVx1ReservedData + 0x0
+00000374 add      x5, x5, #0 ; RELOC 277 RosemFrc_SetTsiYellowPatternOnOff + 0x0
+00000378 add      x3, x3, #0 ; RELOC 277 RosemFRC_SetVx1ReservedData + 0x0
+0000037c adrp     x4, #0 ; RELOC 275 RosemFrc_SetLDPattern + 0x0
+00000380 adrp     x1, #0 ; RELOC 275 RosemFRC_GetLowInputLagStatus + 0x0
+00000384 add      x4, x4, #0 ; RELOC 277 RosemFrc_SetLDPattern + 0x0
+00000388 add      x1, x1, #0 ; RELOC 277 RosemFRC_GetLowInputLagStatus + 0x0
+0000038c stp      x13, x12, [x2]
+00000390 mov      x0, x19
+00000394 stp      x11, x15, [x2, #0x10]
+00000398 add      x11, x19, #0x2c0
+0000039c adrp     x2, #0 ; RELOC 275 RosemFrc_SetVideoControlSignal + 0x0
+000003a0 add      x2, x2, #0 ; RELOC 277 RosemFrc_SetVideoControlSignal + 0x0
+000003a4 str      x14, [x19, #0x290]
+000003a8 stp      x10, x9, [x11]
+000003ac stp      x8, x7, [x11, #0x10]
+000003b0 str      x6, [x19, #0x2e0]
+000003b4 str      x5, [x19, #0x2e8]
+000003b8 str      x4, [x19, #0x2f8]
+000003bc str      x3, [x19, #0x310]
+000003c0 str      x2, [x19, #0x330]
+000003c4 str      x1, [x19, #0x338]
+000003c8 bl       #0x3c8 ; RELOC 283 map_frc_functions + 0x0
+000003cc adrp     x0, #0 ; RELOC 275 <.rodata.str1.8> + 0x9e20
+000003d0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9e20
+000003d4 bl       #0x3d4 ; RELOC 283 printk + 0x0
+000003d8 mov      w0, #0
+000003dc ldp      x19, x20, [sp, #0x10]
+000003e0 ldp      x29, x30, [sp], #0x20
+000003e4 ret      
+
+### RosemFrc_GetRgbMeasureConditonInfo .text+0x66d0 size 0xa0
+000066d0 adrp     x4, #0x6000 ; RELOC 275 <.bss> + 0x0
+000066d4 add      x3, x4, #0 ; RELOC 277 <.bss> + 0x0
+000066d8 stp      x29, x30, [sp, #-0x20]!
+000066dc mov      x29, sp
+000066e0 ldr      w1, [x3, #0x44]
+000066e4 cmp      w1, #1
+000066e8 b.eq     #0x6708
+000066ec ldr      w5, [x3, #0x6c]
+000066f0 cmp      w5, #1
+000066f4 b.eq     #0x6708
+000066f8 cbz      x0, #0x6734
+000066fc bl       #0x22d8
+00006700 ldp      x29, x30, [sp], #0x20
+00006704 ret      
+00006708 ldr      w0, [x4] ; RELOC 285 <.bss> + 0x0
+0000670c cbz      w0, #0x6700
+00006710 ldr      w2, [x3, #0x6c]
+00006714 adrp     x3, #0x6000 ; RELOC 275 <.rodata> + 0x0
+00006718 add      x3, x3, #0 ; RELOC 277 <.rodata> + 0x0
+0000671c adrp     x0, #0x6000 ; RELOC 275 <.rodata.str1.8> + 0x318
+00006720 add      x3, x3, #0xa10
+00006724 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x318
+00006728 bl       #0x6728 ; RELOC 283 printk + 0x0
+0000672c mov      w0, #0
+00006730 b        #0x6700
+00006734 str      x19, [sp, #0x10]
+00006738 bl       #0x6738 ; RELOC 283 ft_current_pid + 0x0
+0000673c mov      w19, w0
+00006740 bl       #0x6740 ; RELOC 283 ft_current_comm + 0x0
+00006744 adrp     x1, #0x6000 ; RELOC 275 <.rodata> + 0x0
+00006748 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+0000674c mov      w2, w19
+00006750 mov      x3, x0
+00006754 add      x1, x1, #0xa10
+00006758 adrp     x0, #0x6000 ; RELOC 275 <.rodata.str1.8> + 0x23c8
+0000675c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x23c8
+00006760 bl       #0x6760 ; RELOC 283 printk + 0x0
+00006764 mov      w0, #0
+00006768 ldr      x19, [sp, #0x10]
+0000676c b        #0x6700
+
+### RosemFrc_SetRgbMeasurePostion .text+0x2760 size 0x13c
+00002760 stp      x29, x30, [sp, #-0x50]!
+00002764 adrp     x5, #0x2000 ; RELOC 275 <.bss> + 0x0
+00002768 mov      x29, sp
+0000276c stp      x19, x20, [sp, #0x10]
+00002770 add      x19, x5, #0 ; RELOC 277 <.bss> + 0x0
+00002774 ldr      w4, [sp, #0x38]
+00002778 str      x0, [sp, #0x30]
+0000277c ldr      w0, [x19, #0x44]
+00002780 bfxil    w4, w1, #0, #0x20
+00002784 cmp      w0, #1
+00002788 b.eq     #0x2814
+0000278c ldr      w1, [x19, #0x6c]
+00002790 cmp      w1, #1
+00002794 b.eq     #0x2814
+00002798 ldp      w2, w3, [sp, #0x30]
+0000279c mov      w0, #2
+000027a0 ldr      w1, [x19, #0x19c]
+000027a4 stp      w0, w2, [sp, #0x40]
+000027a8 ldr      w0, [x19, #0x14]
+000027ac stp      w3, w4, [sp, #0x48]
+000027b0 orr      w0, w0, w1
+000027b4 cbz      w0, #0x2844
+000027b8 str      x21, [sp, #0x20]
+000027bc adrp     x21, #0x2000 ; RELOC 275 <.rodata> + 0x0
+000027c0 add      x21, x21, #0 ; RELOC 277 <.rodata> + 0x0
+000027c4 mov      w20, #-1
+000027c8 add      x0, x21, #0x3a8
+000027cc bl       #0x27cc ; RELOC 283 frc_tcon_lock + 0x0
+000027d0 adrp     x0, #0x2000 ; RELOC 275 tztv_frc_tcon_ext_cmd + 0x0
+000027d4 ldr      x3, [x0] ; RELOC 286 tztv_frc_tcon_ext_cmd + 0x0
+000027d8 cbz      x3, #0x27f0
+000027dc add      x1, sp, #0x40
+000027e0 mov      w2, #0x10
+000027e4 mov      w0, #0x400
+000027e8 blr      x3
+000027ec mov      w20, w0
+000027f0 ldr      w0, [x19, #0x188]
+000027f4 cbnz     w0, #0x286c
+000027f8 add      x0, x21, #0x3a8
+000027fc bl       #0x27fc ; RELOC 283 frc_tcon_unlock + 0x0
+00002800 ldr      x21, [sp, #0x20]
+00002804 mov      w0, w20
+00002808 ldp      x19, x20, [sp, #0x10]
+0000280c ldp      x29, x30, [sp], #0x50
+00002810 ret      
+00002814 ldr      w20, [x5] ; RELOC 285 <.bss> + 0x0
+00002818 cbz      w20, #0x2804
+0000281c ldr      w2, [x19, #0x6c]
+00002820 adrp     x3, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002824 add      x3, x3, #0 ; RELOC 277 <.rodata> + 0x0
+00002828 mov      w1, w0
+0000282c add      x3, x3, #0x388
+00002830 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x318
+00002834 mov      w20, #0
+00002838 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x318
+0000283c bl       #0x283c ; RELOC 283 printk + 0x0
+00002840 b        #0x2804
+00002844 ldr      w20, [x5] ; RELOC 285 <.bss> + 0x0
+00002848 cbz      w20, #0x2804
+0000284c adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002850 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00002854 add      x1, x1, #0x3a8
+00002858 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1190
+0000285c mov      w20, #0
+00002860 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1190
+00002864 bl       #0x2864 ; RELOC 283 printk + 0x0
+00002868 b        #0x2804
+0000286c bl       #0x286c ; RELOC 283 ft_current_pid + 0x0
+00002870 mov      w19, w0
+00002874 bl       #0x2874 ; RELOC 283 ft_current_comm + 0x0
+00002878 ldr      w6, [sp, #0x4c]
+0000287c ldp      w4, w5, [sp, #0x44]
+00002880 mov      x3, x0
+00002884 mov      w2, w19
+00002888 add      x1, x21, #0x3a8
+0000288c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x11d8
+00002890 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x11d8
+00002894 bl       #0x2894 ; RELOC 283 printk + 0x0
+00002898 b        #0x27f8
+
+### RosemFrc_GetRgbMeasureInfo .text+0x6a10 size 0x1e0
+00006a10 sub      sp, sp, #0x70
+00006a14 adrp     x3, #0x6000 ; RELOC 275 <.bss> + 0x0
+00006a18 stp      x29, x30, [sp, #0x10]
+00006a1c add      x29, sp, #0x10
+00006a20 stp      x21, x22, [sp, #0x30]
+00006a24 add      x22, x3, #0 ; RELOC 277 <.bss> + 0x0
+00006a28 stp      x19, x20, [sp, #0x20]
+00006a2c ldr      w1, [x22, #0x44]
+00006a30 cmp      w1, #1
+00006a34 b.eq     #0x6b08
+00006a38 mov      x19, x0
+00006a3c ldr      w0, [x22, #0x6c]
+00006a40 cmp      w0, #1
+00006a44 b.eq     #0x6b08
+00006a48 cbz      x19, #0x6bb0
+00006a4c ldr      w2, [x19]
+00006a50 mov      w0, #3
+00006a54 ldr      w1, [x22, #0x15c]
+00006a58 stur     xzr, [x19, #4]
+00006a5c str      wzr, [x19, #0xc]
+00006a60 stp      w0, w2, [sp, #0x5c]
+00006a64 mov      w0, #1
+00006a68 cmp      w1, w0
+00006a6c b.eq     #0x6a88
+00006a70 ldr      w1, [x22, #0xd4]
+00006a74 cmp      w1, w0
+00006a78 b.eq     #0x6a88
+00006a7c ldr      w0, [x22, #0x18c]
+00006a80 cmp      w0, #1
+00006a84 cset     w0, eq
+00006a88 ldr      w1, [x22, #0x19c]
+00006a8c str      w0, [x19, #0x10]
+00006a90 ldr      w0, [x22, #0x14]
+00006a94 orr      w0, w0, w1
+00006a98 cbz      w0, #0x6b34
+00006a9c adrp     x21, #0x6000 ; RELOC 275 <.rodata> + 0x0
+00006aa0 add      x21, x21, #0 ; RELOC 277 <.rodata> + 0x0
+00006aa4 add      x0, x21, #0xa88
+00006aa8 bl       #0x6aa8 ; RELOC 283 frc_tcon_lock + 0x0
+00006aac adrp     x0, #0x6000 ; RELOC 275 tztv_frc_tcon_ext_cmd + 0x0
+00006ab0 ldr      x3, [x0] ; RELOC 286 tztv_frc_tcon_ext_cmd + 0x0
+00006ab4 cbz      x3, #0x6b5c
+00006ab8 add      x1, sp, #0x5c
+00006abc mov      w2, #0x14
+00006ac0 mov      w0, #0x400
+00006ac4 blr      x3
+00006ac8 ldr      w1, [x22, #0x188]
+00006acc mov      w20, w0
+00006ad0 cbnz     w1, #0x6b6c
+00006ad4 cbnz     w20, #0x6ae8
+00006ad8 ldr      x0, [sp, #0x60]
+00006adc str      x0, [x19]
+00006ae0 ldr      x0, [sp, #0x68]
+00006ae4 str      x0, [x19, #8]
+00006ae8 add      x0, x21, #0xa88
+00006aec bl       #0x6aec ; RELOC 283 frc_tcon_unlock + 0x0
+00006af0 mov      w0, w20
+00006af4 ldp      x29, x30, [sp, #0x10]
+00006af8 ldp      x19, x20, [sp, #0x20]
+00006afc ldp      x21, x22, [sp, #0x30]
+00006b00 add      sp, sp, #0x70
+00006b04 ret      
+00006b08 ldr      w20, [x3] ; RELOC 285 <.bss> + 0x0
+00006b0c cbz      w20, #0x6af0
+00006b10 ldr      w2, [x22, #0x6c]
+00006b14 adrp     x3, #0x6000 ; RELOC 275 <.rodata> + 0x0
+00006b18 add      x3, x3, #0 ; RELOC 277 <.rodata> + 0x0
+00006b1c adrp     x0, #0x6000 ; RELOC 275 <.rodata.str1.8> + 0x318
+00006b20 add      x3, x3, #0xa68
+00006b24 mov      w20, #0
+00006b28 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x318
+00006b2c bl       #0x6b2c ; RELOC 283 printk + 0x0
+00006b30 b        #0x6af0
+00006b34 ldr      w20, [x3] ; RELOC 285 <.bss> + 0x0
+00006b38 cbz      w20, #0x6af0
+00006b3c adrp     x1, #0x6000 ; RELOC 275 <.rodata> + 0x0
+00006b40 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00006b44 add      x1, x1, #0xa88
+00006b48 adrp     x0, #0x6000 ; RELOC 275 <.rodata.str1.8> + 0x2c38
+00006b4c mov      w20, #0
+00006b50 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2c38
+00006b54 bl       #0x6b54 ; RELOC 283 printk + 0x0
+00006b58 b        #0x6af0
+00006b5c ldr      w0, [x22, #0x188]
+00006b60 cbnz     w0, #0x6be4
+00006b64 mov      w20, #-1
+00006b68 b        #0x6ae8
+00006b6c str      x23, [sp, #0x40]
+00006b70 bl       #0x6b70 ; RELOC 283 ft_current_pid + 0x0
+00006b74 mov      w23, w0
+00006b78 bl       #0x6b78 ; RELOC 283 ft_current_comm + 0x0
+00006b7c str      w20, [sp, #8]
+00006b80 ldp      w4, w5, [sp, #0x60]
+00006b84 mov      w2, w23
+00006b88 ldp      w6, w7, [sp, #0x68]
+00006b8c mov      x3, x0
+00006b90 ldr      w1, [x22, #0x15c]
+00006b94 adrp     x0, #0x6000 ; RELOC 275 <.rodata.str1.8> + 0x2c78
+00006b98 str      w1, [sp]
+00006b9c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2c78
+00006ba0 add      x1, x21, #0xa88
+00006ba4 bl       #0x6ba4 ; RELOC 283 printk + 0x0
+00006ba8 ldr      x23, [sp, #0x40]
+00006bac b        #0x6ad4
+00006bb0 bl       #0x6bb0 ; RELOC 283 ft_current_pid + 0x0
+00006bb4 mov      w19, w0
+00006bb8 bl       #0x6bb8 ; RELOC 283 ft_current_comm + 0x0
+00006bbc mov      w20, #0
+00006bc0 adrp     x1, #0x6000 ; RELOC 275 <.rodata> + 0x0
+00006bc4 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00006bc8 mov      x3, x0
+00006bcc mov      w2, w19
+00006bd0 add      x1, x1, #0xa68
+00006bd4 adrp     x0, #0x6000 ; RELOC 275 <.rodata.str1.8> + 0x23c8
+00006bd8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x23c8
+00006bdc bl       #0x6bdc ; RELOC 283 printk + 0x0
+00006be0 b        #0x6af0
+00006be4 mov      w20, #-1
+00006be8 str      x23, [sp, #0x40]
+00006bec b        #0x6b70

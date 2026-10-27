@@ -1,0 +1,113 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Shared object file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x48380774
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          9812 (bytes into file)
+  Flags:                             0x5000200, Version5 EABI, soft-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         6
+  Size of section headers:           40 (bytes)
+  Number of section headers:         27
+  Section header string table index: 26
+
+Dynamic section at offset 0x1ef8 contains 31 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libdl.so.2]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+ 0x0000000e (SONAME)                     Library soname: [libteec.so]
+ 0x0000000c (INIT)                       0x4838070c
+ 0x0000000d (FINI)                       0x48380e08
+ 0x00000019 (INIT_ARRAY)                 0x48391eec
+ 0x0000001b (INIT_ARRAYSZ)               8 (bytes)
+ 0x0000001a (FINI_ARRAY)                 0x48391ef4
+ 0x0000001c (FINI_ARRAYSZ)               4 (bytes)
+ 0x6ffffef5 (GNU_HASH)                   0x48380118
+ 0x00000005 (STRTAB)                     0x48380394
+ 0x00000006 (SYMTAB)                     0x483801d4
+ 0x0000000a (STRSZ)                      553 (bytes)
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000003 (PLTGOT)                     0x48392000
+ 0x00000002 (PLTRELSZ)                   48 (bytes)
+ 0x00000014 (PLTREL)                     REL
+ 0x00000017 (JMPREL)                     0x483806dc
+ 0x00000011 (REL)                        0x48380694
+ 0x00000012 (RELSZ)                      72 (bytes)
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6ffffffc (VERDEF)                     0x483805f8
+ 0x6ffffffd (VERDEFNUM)                  3
+ 0x6ffffffb (FLAGS_1)                    Flags: NODELETE
+ 0x6ffffffe (VERNEED)                    0x48380654
+ 0x6fffffff (VERNEEDNUM)                 2
+ 0x6ffffff0 (VERSYM)                     0x483805be
+ 0x6ffffffa (RELCOUNT)                   4
+ 0x6ffffdf8 (CHECKSUM)                   0xcddf0910
+ 0x6ffffdf5 (GNU_PRELINKED)              2026-07-14T11:42:37
+ 0x00000000 (NULL)                       0x0
+
+Symbol table '.dynsym' contains 28 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 4838070c     0 SECTION LOCAL  DEFAULT   10 .init
+     2: 48392038     0 SECTION LOCAL  DEFAULT   20 .data
+     3: 00000000     0 FUNC    WEAK   DEFAULT  UND __cxa_finalize@GLIBC_2.4 (4)
+     4: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTable
+     5: 00000000     0 FUNC    GLOBAL DEFAULT  UND dlerror@GLIBC_2.4 (5)
+     6: 00000000     0 OBJECT  GLOBAL DEFAULT  UND stderr@GLIBC_2.4 (4)
+     7: 00000000     0 FUNC    GLOBAL DEFAULT  UND dlopen@GLIBC_2.4 (5)
+     8: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     9: 00000000     0 FUNC    GLOBAL DEFAULT  UND __fprintf_chk@GLIBC_2.4 (4)
+    10: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    11: 00000000     0 FUNC    GLOBAL DEFAULT  UND dlsym@GLIBC_2.4 (5)
+    12: 48380de1    24 FUNC    GLOBAL DEFAULT   12 TEECX_RegisterFileDescriptorCallback@@TRUSTWARE3.0
+    13: 48380d79    16 FUNC    GLOBAL DEFAULT   12 TEEC_CloseSession@@TRUSTWARE3.0
+    14: 48380d51    16 FUNC    GLOBAL DEFAULT   12 TEEC_ReleaseSharedMemory@@TRUSTWARE3.0
+    15: 48380dd1    16 FUNC    GLOBAL DEFAULT   12 TEECX_RegisterThreadedCallback@@TRUSTWARE3.0
+    16: 48380d89    24 FUNC    GLOBAL DEFAULT   12 TEEC_InvokeCommand@@TRUSTWARE3.0
+    17: 48380d41    16 FUNC    GLOBAL DEFAULT   12 TEEC_AllocateSharedMemory@@TRUSTWARE3.0
+    18: 48380db1    16 FUNC    GLOBAL DEFAULT   12 TEECX_RegisterCallback@@TRUSTWARE3.0
+    19: 48380d61    24 FUNC    GLOBAL DEFAULT   12 TEEC_OpenSession@@TRUSTWARE3.0
+    20: 00000000     0 OBJECT  GLOBAL DEFAULT  ABS TRUSTWAREPrivate3.2
+    21: 48380da1    16 FUNC    GLOBAL DEFAULT   12 TEEC_RequestCancellation@@TRUSTWARE3.0
+    22: 48380d21    16 FUNC    GLOBAL DEFAULT   12 TEEC_FinalizeContext@@TRUSTWARE3.0
+    23: 48380dc1    16 FUNC    GLOBAL DEFAULT   12 TEECX_UnregisterCallback@@TRUSTWARE3.0
+    24: 48380d31    16 FUNC    GLOBAL DEFAULT   12 TEEC_RegisterSharedMemory@@TRUSTWARE3.0
+    25: 48380df9    16 FUNC    GLOBAL DEFAULT   12 TEECX_DispatchFileDescriptorEvents@@TRUSTWARE3.0
+    26: 48380d11    16 FUNC    GLOBAL DEFAULT   12 TEEC_InitializeContext@@TRUSTWARE3.0
+    27: 00000000     0 OBJECT  GLOBAL DEFAULT  ABS TRUSTWARE3.0
+
+Version symbols section '.gnu.version' contains 28 entries:
+ Addr: 0x00000000483805be  Offset: 0x000005be  Link: 3 (.dynsym)
+  000:   0 (*local*)       0 (*local*)       0 (*local*)       4 (GLIBC_2.4)  
+  004:   0 (*local*)       5 (GLIBC_2.4)     4 (GLIBC_2.4)     5 (GLIBC_2.4)  
+  008:   0 (*local*)       4 (GLIBC_2.4)     0 (*local*)       5 (GLIBC_2.4)  
+  00c:   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)
+  010:   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)
+  014:   3 (TRUSTWAREPrivate3.2)         2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)
+  018:   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)   2 (TRUSTWARE3.0)
+
+Version definition section '.gnu.version_d' contains 3 entries:
+ Addr: 0x00000000483805f8  Offset: 0x000005f8  Link: 4 (.dynstr)
+  000000: Rev: 1  Flags: BASE  Index: 1  Cnt: 1  Name: libteec.so
+  0x001c: Rev: 1  Flags: none  Index: 2  Cnt: 1  Name: TRUSTWARE3.0
+  0x0038: Rev: 1  Flags: none  Index: 3  Cnt: 2  Name: TRUSTWAREPrivate3.2
+  0x0054: Parent 1: TRUSTWARE3.0
+
+Version needs section '.gnu.version_r' contains 2 entries:
+ Addr: 0x0000000048380654  Offset: 0x00000654  Link: 4 (.dynstr)
+  000000: Version: 1  File: libdl.so.2  Cnt: 1
+  0x0010:   Name: GLIBC_2.4  Flags: none  Version: 5
+  0x0020: Version: 1  File: libc.so.6  Cnt: 1
+  0x0030:   Name: GLIBC_2.4  Flags: none  Version: 4
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)	    Build ID: 80169c30fb9cc031d073eb88350ada39a0dfba67

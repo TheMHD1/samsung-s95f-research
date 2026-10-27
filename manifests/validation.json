@@ -1,0 +1,18 @@
+{
+  "schema": "s95f-public-validation-v1",
+  "publication_unittests": {
+    "passed": 6,
+    "scope": "token/identity redaction, technical vconf-key preservation, Python-safe aliases, annotated-versus-whole disassembly disposition, JSON secret/key handling, raw-envelope staging removal, opaque credential omissions and original/public hash separation"
+  },
+  "retained_python_syntax": {
+    "findings": 0,
+    "scope": "All exported Python files parsed with ast.parse; no target execution"
+  },
+  "swu_host_mock": {
+    "passed": true,
+    "compiler": "C11, -Wall -Wextra -Werror -Wpedantic, AddressSanitizer and UndefinedBehaviorSanitizer",
+    "cases": "3 golden frames; 8 failure stages; 2 output-size-mutation successes; 3 count overflows; 2 input rejections; canaries and cleanup",
+    "target_calls": 0
+  },
+  "limitations": "Historical private-fixture tests and live tools were not executed by publication checks. Post-cutoff target preflight refusal and ARM flag defect are documented separately; no TEE acceptance or permanent blackout fix is claimed."
+}

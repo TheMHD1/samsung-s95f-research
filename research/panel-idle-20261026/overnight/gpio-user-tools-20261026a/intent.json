@@ -1,0 +1,5 @@
+{
+  "actions": "only tool/library pathname metadata; no GPIO tools executed",
+  "command": "set -eu\necho TOOL_CHECK_START; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\nfor n in gpiodetect gpioinfo gpioget gpiomon; do echo \"$n\"; command -v \"$n\" || true; done\necho LIBRARY_METADATA\nfor p in /usr/lib/libgpiod.so* /lib/libgpiod.so* /usr/bin/gpio* /bin/gpio*; do test -e \"$p\" || continue; stat -c '%n %s %u:%g:%a' \"$p\"; done\necho TOOL_CHECK_END; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\n",
+  "created_utc": "2026-10-26T23:02:20.164716+00:00"
+}

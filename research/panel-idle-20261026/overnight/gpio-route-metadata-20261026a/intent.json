@@ -1,0 +1,6 @@
+{
+  "actions": "device/sysfs metadata and existing GPIO value only; no export/request/direction/output writes",
+  "command": "set -eu\necho META_START; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\necho CHARACTER_DEVICES\nfor p in /dev/gpiochip*; do test -e \"$p\" || continue; stat -c '%n %t:%T %u:%g:%a' \"$p\"; done\necho SYSFS_CHIP120\nfor n in label base ngpio; do p=/sys/class/gpio/gpiochip120/$n; if test -r \"$p\"; then echo \"$n\"; cat \"$p\"; fi; done\necho EXPORTED_GPIO125\nfor n in direction active_low value; do p=/sys/class/gpio/gpio125/$n; if test -r \"$p\"; then echo \"$n\"; cat \"$p\"; else echo \"ABSENT_$n\"; fi; done\necho DEBUGFS_GPIO\nif test -r /sys/kernel/debug/gpio; then awk '/gpiochip/ || /gpio-125[^0-9]/ {if(++n<=100)print} END {print \"SELECTED\",n+0}' /sys/kernel/debug/gpio; else echo GPIO_DEBUGFS_UNREADABLE; fi\necho META_END; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\n",
+  "created_utc": "2026-10-26T22:47:56.407774+00:00",
+  "physical_state": "unobserved; owner visible comparison pending"
+}

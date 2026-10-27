@@ -1,0 +1,34 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ndate -u\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\ntest \"$(sha256sum /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.9/libcoreclr.so | cut -d \" \" -f1)\" = 5e5b5f160204058284d7fcced47fc57e65111e8203b53be5104350a63efd46ff\ntest \"$(sha256sum /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.9/System.Private.CoreLib.dll | cut -d \" \" -f1)\" = 5cfe69fbb72ba75a78b1b993c46a0d7983b2674d0affcee161ecdf4b08fb17f8\ncat /proc/uptime\necho STOCK_IDENTITY_MATCH\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Mon Oct 26 14:22:29 UTC 2026\n46158.71 172337.10\nSTOCK_IDENTITY_MATCH\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nmkdir -m 700 /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021\necho PRIVATE_CREATED\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "PRIVATE_CREATED\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest \"$(sha256sum /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/ArmKernelProbe.deps.json | cut -d \" \" -f1)\" = f01f42a4bc242c0a7ce886b15028521468ad97b8e95876611f3a18b4466be1b2\ntest \"$(sha256sum /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/ArmKernelProbe.dll | cut -d \" \" -f1)\" = cfb092769bb849cafc49b32fc04f93421a7d182a16112bb1e7b2d00285ea11c3\ntest \"$(sha256sum /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/ArmKernelProbe.runtimeconfig.json | cut -d \" \" -f1)\" = aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3\ndate -u\ncat /proc/uptime\nTMPDIR=/tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021 DOTNET_CLI_HOME=/tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021 DOTNET_EnableDiagnostics=0 DOTNET_CLI_TELEMETRY_OPTOUT=1 /usr/bin/dotnet --clr-path /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.9 --globalizationinvariant /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/ArmKernelProbe.dll > /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/stdout 2> /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/stderr &\nprobe_pid=$!\n( sleep 10\n  kill -TERM \"$probe_pid\" 2>/dev/null || true\n  sleep 2\n  kill -KILL \"$probe_pid\" 2>/dev/null || true\n) &\nwatchdog_pid=$!\nprobe_status=0\nwait \"$probe_pid\" || probe_status=$?\nkill \"$watchdog_pid\" 2>/dev/null || true\nwait \"$watchdog_pid\" 2>/dev/null || true\necho \"PROBE_EXIT=$probe_status\"\necho MANAGED_STDOUT_BEGIN\ncat /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/stdout\necho MANAGED_STDOUT_END\necho MANAGED_STDERR_BEGIN\ncat /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/stderr\necho MANAGED_STDERR_END\ncat /proc/uptime\ndate -u\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Mon Oct 26 14:22:30 UTC 2026\n46159.49 172339.91\nPROBE_EXIT=0\nMANAGED_STDOUT_BEGIN\nQDKABI_MANAGED_ARM_V1\nARCH=Arm\nPTR_BYTES=4\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nCapEff:\t0000003fffffffff\nNoNewPrivs:\t0\nSeccomp:\t0\nPID_LIBC=19071\nPID_SYSCALL=19071\nBPF_RETURN=-1\nBPF_ERRNO=38\nPERF_RETURN=-1\nPERF_ERRNO=38\nPROBE_COMPLETE\nMANAGED_STDOUT_END\nMANAGED_STDERR_BEGIN\nMANAGED_STDERR_END\n46159.80 172340.94\nMon Oct 26 14:22:30 UTC 2026\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nrm -f /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/ArmKernelProbe.deps.json /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/ArmKernelProbe.dll /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/ArmKernelProbe.runtimeconfig.json /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/stdout /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021/stderr\nrmdir /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021\ntest ! -e /tmp/researcher-managed-abi-e667e939917f4bab911832c7471c3021\necho PRIVATE_REMOVED\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "PRIVATE_REMOVED\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho MAIN_ASSEMBLY_REFERENCE_SCAN\nn=0\nfor f in /usr/apps/*/bin/*.dll /opt/usr/apps/*/bin/*.dll; do\n if test -f \"$f\"; then\n  n=$((n+1))\n  grep -a -l -E -i 'OffSensing|ELSensing|ScreenRestoration|ScreenOptimization|SCREEN_OPTIM|OPTIMAZTION|PIXEL_REFRESH|panelcare|panel.care' \"$f\"\n fi\ndone\necho \"SCANNED_MAIN_ASSEMBLIES=$n\"\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 13:14:39 UTC 2026\n00000000-0000-4000-8000-000000000000\n42088.30 157059.63\nMAIN_ASSEMBLY_REFERENCE_SCAN\n/usr/apps/org.tizen.menu/bin/org.tizen.menu.dll\n/opt/usr/apps/com.samsung.SelfDiagnosis/bin/SelfDiagnosisTextResources.dll\nSCANNED_MAIN_ASSEMBLIES=326\nMon Oct 26 13:14:46 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

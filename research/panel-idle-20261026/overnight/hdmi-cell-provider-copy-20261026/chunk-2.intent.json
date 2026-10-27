@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ HASH_START'\nsha256sum /lib/modules/5.4.261/kernel/tztv-battery.ko\necho '@@ DATA'\ndd if=/lib/modules/5.4.261/kernel/tztv-battery.ko bs=32768 skip=2 count=1 2>/dev/null | base64\necho '@@ HASH_END'\nsha256sum /lib/modules/5.4.261/kernel/tztv-battery.ko\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "48d6bb63e6472bd0030aedd959814dcb50a988c560355bad4693a96e8ac3a87c",
+  "purpose": "Passive read-only fixed-module copy; no load, getter, control or trace; no retry; physical panel unobserved.",
+  "started_utc": "2026-10-26T19:25:48.874873+00:00"
+}

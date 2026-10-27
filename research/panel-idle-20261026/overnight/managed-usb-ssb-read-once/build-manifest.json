@@ -1,0 +1,68 @@
+{
+  "execution": "local build and fake-I/O only; no TV staging or USB open",
+  "files": {
+    "ManagedUsbSsbReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "8d493cf98631573e0f29edb8b2b174f325309ff7a79e6dd49464882da07976e9",
+      "size": 13872
+    },
+    "README.md": {
+      "sha256": "f2ff1f3a5b6e68f869524c8f0f4c6ed51278e9ea30843dc83555ecad251f4829",
+      "size": 2515
+    },
+    "bin/Release/net6.0/ManagedUsbSsbReadOnce.deps.json": {
+      "sha256": "269b1926cc28379caf81185785cbf0939d3285923770b0114f9244da446986bc",
+      "size": 433
+    },
+    "bin/Release/net6.0/ManagedUsbSsbReadOnce.dll": {
+      "sha256": "81ac8fb59c64b8351e6fc1e3befcb0af057d5d36b25b0a08b6c246c30d9b0352",
+      "size": 26112
+    },
+    "bin/Release/net6.0/ManagedUsbSsbReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "generated_utc": "2026-10-27T04:56:27.670368+00:00",
+  "local_checks": [
+    {
+      "arguments": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"headerHex\":\"030200000000000000200000\",\"inputLength\":8192,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "arguments": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":22,\"targetOperations\":0}\n"
+    },
+    {
+      "arguments": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "arguments": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "protocol_capacity_review_complete": false,
+  "schema": "usb-ssb-fixed-read-build-v1",
+  "sdk": "6.0.428",
+  "target": "portable net6.0 IL; --execute requires ARM32 little endian",
+  "target_executed": false,
+  "target_staged": false
+}

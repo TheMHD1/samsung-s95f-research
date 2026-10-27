@@ -1,0 +1,936 @@
+METHOD 06000358 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0000: nop 
+ 0001: ldsfld FieldDefinition:040001a6
+ 0006: stloc.0 
+ 0007: br.s 00
+ 0009: ldloc.0 
+ 000a: ret 
+METHOD 06000359 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:040001a7
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:040001a8
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:040001a9
+ 0015: ldarg.0 
+ 0016: ldnull 
+ 0017: stfld FieldDefinition:040001aa
+ 001c: ldarg.0 
+ 001d: call System.Object::.ctor
+ 0022: nop 
+ 0023: nop 
+ 0024: call PrivilegeChecker
+ 0029: nop 
+ 002a: ldarg.0 
+ 002b: ldarg.0 
+ 002c: newobj .ctor
+ 0031: stfld FieldDefinition:040001a7
+ 0036: ldarg.0 
+ 0037: newobj .ctor
+ 003c: stfld FieldDefinition:040001a8
+ 0041: ldarg.0 
+ 0042: newobj .ctor
+ 0047: stfld FieldDefinition:040001a9
+ 004c: ldarg.0 
+ 004d: newobj .ctor
+ 0052: stfld FieldDefinition:040001aa
+ 0057: ret 
+METHOD 0600035a Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigBool
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: sub 
+ 0010: switch 0400000002000000120000003200000022000000
+ 0025: br.s 30
+ 0027: ldarg.0 
+ 0028: ldfld FieldDefinition:040001a7
+ 002d: ldarg.1 
+ 002e: ldarg.2 
+ 002f: callvirt GetConfigBool
+ 0034: stloc.3 
+ 0035: br.s 27
+ 0037: ldarg.0 
+ 0038: ldfld FieldDefinition:040001a9
+ 003d: ldarg.1 
+ 003e: ldarg.2 
+ 003f: callvirt GetConfigBool
+ 0044: stloc.3 
+ 0045: br.s 17
+ 0047: ldarg.0 
+ 0048: ldfld FieldDefinition:040001aa
+ 004d: ldarg.1 
+ 004e: ldarg.2 
+ 004f: callvirt GetConfigBool
+ 0054: stloc.3 
+ 0055: br.s 07
+ 0057: ldarg.2 
+ 0058: ldc.i4.0 
+ 0059: stind.i1 
+ 005a: ldc.i4.0 
+ 005b: stloc.3 
+ 005c: br.s 00
+ 005e: ldloc.3 
+ 005f: ret 
+METHOD 0600035b Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigBool
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt SetConfigBool
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 0600035c Tizen.TV.Service.CoBA.Common.FSConfigAdapter::RegisterConfigBoolChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt RegisterConfigBoolChanged
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 0600035d Tizen.TV.Service.CoBA.Common.FSConfigAdapter::UnregisterConfigBoolChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt UnregisterConfigBoolChanged
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 0600035e Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: sub 
+ 0010: switch 0400000002000000120000002200000032000000
+ 0025: br.s 40
+ 0027: ldarg.0 
+ 0028: ldfld FieldDefinition:040001a7
+ 002d: ldarg.1 
+ 002e: ldarg.2 
+ 002f: callvirt GetConfigInt
+ 0034: stloc.3 
+ 0035: br.s 37
+ 0037: ldarg.0 
+ 0038: ldfld FieldDefinition:040001a9
+ 003d: ldarg.1 
+ 003e: ldarg.2 
+ 003f: callvirt GetConfigInt
+ 0044: stloc.3 
+ 0045: br.s 27
+ 0047: ldarg.0 
+ 0048: ldfld FieldDefinition:040001a8
+ 004d: ldarg.1 
+ 004e: ldarg.2 
+ 004f: callvirt GetConfigInt
+ 0054: stloc.3 
+ 0055: br.s 17
+ 0057: ldarg.0 
+ 0058: ldfld FieldDefinition:040001aa
+ 005d: ldarg.1 
+ 005e: ldarg.2 
+ 005f: callvirt GetConfigInt
+ 0064: stloc.3 
+ 0065: br.s 07
+ 0067: ldarg.2 
+ 0068: ldc.i4.0 
+ 0069: stind.i4 
+ 006a: ldc.i4.0 
+ 006b: stloc.3 
+ 006c: br.s 00
+ 006e: ldloc.3 
+ 006f: ret 
+METHOD 0600035f Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigInt
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt SetConfigInt
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 06000360 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::RegisterConfigIntChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt RegisterConfigIntChanged
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 06000361 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::UnregisterConfigIntChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt UnregisterConfigIntChanged
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 06000362 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: sub 
+ 0010: switch 0400000002000000120000003200000022000000
+ 0025: br.s 30
+ 0027: ldarg.0 
+ 0028: ldfld FieldDefinition:040001a7
+ 002d: ldarg.1 
+ 002e: ldarg.2 
+ 002f: callvirt GetConfigStr
+ 0034: stloc.3 
+ 0035: br.s 2B
+ 0037: ldarg.0 
+ 0038: ldfld FieldDefinition:040001a9
+ 003d: ldarg.1 
+ 003e: ldarg.2 
+ 003f: callvirt GetConfigStr
+ 0044: stloc.3 
+ 0045: br.s 1B
+ 0047: ldarg.0 
+ 0048: ldfld FieldDefinition:040001aa
+ 004d: ldarg.1 
+ 004e: ldarg.2 
+ 004f: callvirt GetConfigStr
+ 0054: stloc.3 
+ 0055: br.s 0B
+ 0057: ldarg.2 
+ 0058: ldstr ""
+ 005d: stind.ref 
+ 005e: ldc.i4.0 
+ 005f: stloc.3 
+ 0060: br.s 00
+ 0062: ldloc.3 
+ 0063: ret 
+METHOD 06000363 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigStr
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt SetConfigStr
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 06000364 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::RegisterConfigStrChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt RegisterConfigStrChanged
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 06000365 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::UnregisterConfigStrChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call GetConfigType
+ 0008: stloc.0 
+ 0009: ldloc.0 
+ 000a: stloc.2 
+ 000b: ldloc.2 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: ldc.i4.1 
+ 000f: beq.s 02
+ 0011: br.s 10
+ 0013: ldarg.0 
+ 0014: ldfld FieldDefinition:040001a7
+ 0019: ldarg.1 
+ 001a: ldarg.2 
+ 001b: callvirt UnregisterConfigStrChanged
+ 0020: stloc.3 
+ 0021: br.s 04
+ 0023: ldc.i4.0 
+ 0024: stloc.3 
+ 0025: br.s 00
+ 0027: ldloc.3 
+ 0028: ret 
+METHOD 06000366 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigType
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.0 
+ 0003: ble.s 0A
+ 0005: ldarg.1 
+ 0006: ldc.i4 D0070000
+ 000b: clt 
+ 000d: br.s 01
+ 000f: ldc.i4.0 
+ 0010: stloc.0 
+ 0011: ldloc.0 
+ 0012: brfalse.s 05
+ 0014: nop 
+ 0015: ldc.i4.1 
+ 0016: stloc.1 
+ 0017: br.s 54
+ 0019: ldarg.1 
+ 001a: ldc.i4 D1070000
+ 001f: ble.s 0A
+ 0021: ldarg.1 
+ 0022: ldc.i4 88130000
+ 0027: clt 
+ 0029: br.s 01
+ 002b: ldc.i4.0 
+ 002c: stloc.2 
+ 002d: ldloc.2 
+ 002e: brfalse.s 1B
+ 0030: nop 
+ 0031: ldarg.0 
+ 0032: ldfld FieldDefinition:040001aa
+ 0037: ldarg.1 
+ 0038: callvirt IsFMSKey
+ 003d: stloc.3 
+ 003e: ldloc.3 
+ 003f: brfalse.s 05
+ 0041: nop 
+ 0042: ldc.i4.4 
+ 0043: stloc.1 
+ 0044: br.s 27
+ 0046: nop 
+ 0047: ldc.i4.2 
+ 0048: stloc.1 
+ 0049: br.s 22
+ 004b: ldarg.1 
+ 004c: ldc.i4 89130000
+ 0051: ble.s 0A
+ 0053: ldarg.1 
+ 0054: ldc.i4 401F0000
+ 0059: clt 
+ 005b: br.s 01
+ 005d: ldc.i4.0 
+ 005e: stloc.s 04
+ 0060: ldloc.s 04
+ 0062: brfalse.s 05
+ 0064: nop 
+ 0065: ldc.i4.4 
+ 0066: stloc.1 
+ 0067: br.s 04
+ 0069: ldc.i4.0 
+ 006a: stloc.1 
+ 006b: br.s 00
+ 006d: ldloc.1 
+ 006e: ret 
+METHOD 06000367 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigType
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.0 
+ 0003: ble.s 0A
+ 0005: ldarg.1 
+ 0006: ldc.i4 D0070000
+ 000b: clt 
+ 000d: br.s 01
+ 000f: ldc.i4.0 
+ 0010: stloc.0 
+ 0011: ldloc.0 
+ 0012: brfalse.s 05
+ 0014: nop 
+ 0015: ldc.i4.1 
+ 0016: stloc.1 
+ 0017: br.s 72
+ 0019: ldarg.1 
+ 001a: ldc.i4 D1070000
+ 001f: ble.s 0A
+ 0021: ldarg.1 
+ 0022: ldc.i4 A00F0000
+ 0027: clt 
+ 0029: br.s 01
+ 002b: ldc.i4.0 
+ 002c: stloc.2 
+ 002d: ldloc.2 
+ 002e: brfalse.s 1B
+ 0030: nop 
+ 0031: ldarg.0 
+ 0032: ldfld FieldDefinition:040001aa
+ 0037: ldarg.1 
+ 0038: callvirt IsFMSKey
+ 003d: stloc.3 
+ 003e: ldloc.3 
+ 003f: brfalse.s 05
+ 0041: nop 
+ 0042: ldc.i4.4 
+ 0043: stloc.1 
+ 0044: br.s 45
+ 0046: nop 
+ 0047: ldc.i4.2 
+ 0048: stloc.1 
+ 0049: br.s 40
+ 004b: ldarg.1 
+ 004c: ldc.i4 A10F0000
+ 0051: ble.s 0A
+ 0053: ldarg.1 
+ 0054: ldc.i4 A30F0000
+ 0059: clt 
+ 005b: br.s 01
+ 005d: ldc.i4.0 
+ 005e: stloc.s 04
+ 0060: ldloc.s 04
+ 0062: brfalse.s 05
+ 0064: nop 
+ 0065: ldc.i4.3 
+ 0066: stloc.1 
+ 0067: br.s 22
+ 0069: ldarg.1 
+ 006a: ldc.i4 89130000
+ 006f: ble.s 0A
+ 0071: ldarg.1 
+ 0072: ldc.i4 581B0000
+ 0077: clt 
+ 0079: br.s 01
+ 007b: ldc.i4.0 
+ 007c: stloc.s 05
+ 007e: ldloc.s 05
+ 0080: brfalse.s 05
+ 0082: nop 
+ 0083: ldc.i4.4 
+ 0084: stloc.1 
+ 0085: br.s 04
+ 0087: ldc.i4.0 
+ 0088: stloc.1 
+ 0089: br.s 00
+ 008b: ldloc.1 
+ 008c: ret 
+METHOD 06000368 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigType
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.0 
+ 0003: ble.s 0A
+ 0005: ldarg.1 
+ 0006: ldc.i4 D0070000
+ 000b: clt 
+ 000d: br.s 01
+ 000f: ldc.i4.0 
+ 0010: stloc.0 
+ 0011: ldloc.0 
+ 0012: brfalse.s 05
+ 0014: nop 
+ 0015: ldc.i4.1 
+ 0016: stloc.1 
+ 0017: br.s 54
+ 0019: ldarg.1 
+ 001a: ldc.i4 D1070000
+ 001f: ble.s 0A
+ 0021: ldarg.1 
+ 0022: ldc.i4 A00F0000
+ 0027: clt 
+ 0029: br.s 01
+ 002b: ldc.i4.0 
+ 002c: stloc.2 
+ 002d: ldloc.2 
+ 002e: brfalse.s 1B
+ 0030: nop 
+ 0031: ldarg.0 
+ 0032: ldfld FieldDefinition:040001aa
+ 0037: ldarg.1 
+ 0038: callvirt IsFMSKey
+ 003d: stloc.3 
+ 003e: ldloc.3 
+ 003f: brfalse.s 05
+ 0041: nop 
+ 0042: ldc.i4.4 
+ 0043: stloc.1 
+ 0044: br.s 27
+ 0046: nop 
+ 0047: ldc.i4.2 
+ 0048: stloc.1 
+ 0049: br.s 22
+ 004b: ldarg.1 
+ 004c: ldc.i4 A10F0000
+ 0051: ble.s 0A
+ 0053: ldarg.1 
+ 0054: ldc.i4 70170000
+ 0059: clt 
+ 005b: br.s 01
+ 005d: ldc.i4.0 
+ 005e: stloc.s 04
+ 0060: ldloc.s 04
+ 0062: brfalse.s 05
+ 0064: nop 
+ 0065: ldc.i4.4 
+ 0066: stloc.1 
+ 0067: br.s 04
+ 0069: ldc.i4.0 
+ 006a: stloc.1 
+ 006b: br.s 00
+ 006d: ldloc.1 
+ 006e: ret 
+METHOD 06000369 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigBool
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt GetConfigBool
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 0600036a Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigBool
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt SetConfigBool
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 0600036b Tizen.TV.Service.CoBA.Common.FSConfigAdapter::RegisterConfigBoolChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt RegisterConfigBoolChanged
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 0600036c Tizen.TV.Service.CoBA.Common.FSConfigAdapter::UnregisterConfigBoolChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt UnregisterConfigBoolChanged
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 0600036d Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt GetConfigInt
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 0600036e Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigInt
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt SetConfigInt
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 0600036f Tizen.TV.Service.CoBA.Common.FSConfigAdapter::RegisterConfigIntChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt RegisterConfigIntChanged
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 06000370 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::UnregisterConfigIntChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt UnregisterConfigIntChanged
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 06000371 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt GetConfigStr
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 06000372 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigStr
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt SetConfigStr
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 06000373 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::RegisterConfigStrChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt RegisterConfigStrChanged
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 06000374 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::UnregisterConfigStrChanged
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldloc.0 
+ 0006: ldloca.s 01
+ 0008: call System.Threading.Monitor::Enter
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:040001a7
+ 0015: ldarg.1 
+ 0016: ldarg.2 
+ 0017: callvirt UnregisterConfigStrChanged
+ 001c: stloc.2 
+ 001d: leave.s 0B
+ 001f: ldloc.1 
+ 0020: brfalse.s 07
+ 0022: ldloc.0 
+ 0023: call System.Threading.Monitor::Exit
+ 0028: nop 
+ 0029: endfinally 
+ 002a: ldloc.2 
+ 002b: ret 
+METHOD 06000375 Tizen.TV.Service.CoBA.Common.FSConfigAdapter::.cctor
+ 0000: newobj .ctor
+ 0005: stsfld FieldDefinition:040001a6
+ 000a: ret 

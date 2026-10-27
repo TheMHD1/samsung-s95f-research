@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "printf \"start\\n\"\ngrep -n BUILD_ID /etc/tizen-release\ngrep -qx \"BUILD_ID=T-RSMFAKUC-0090-REL-202607141953\" /etc/tizen-release\nprintf \"guard_rc=%s\\n\" \"$?\"\nls -ld /sys/kernel/debug/tracing/instances\nmkdir /sys/kernel/debug/tracing/instances/researcher-black-20261026\nprintf \"mkdir_rc=%s\\n\" \"$?\"\nrmdir /sys/kernel/debug/tracing/instances/researcher-black-20261026",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "start\n4:BUILD_ID=T-RSMFAKUC-0090-REL-202607141953\nguard_rc=0\ndrwxr-x--- 2 owner root 0 2026-10-26 00:01 /sys/kernel/debug/tracing/instances\nmkdir_rc=0\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

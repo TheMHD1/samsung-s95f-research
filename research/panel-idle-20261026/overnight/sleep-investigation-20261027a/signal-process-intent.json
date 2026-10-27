@@ -1,0 +1,4 @@
+{
+  "command": "set -eu\necho PROCESS_CHECK_BEGIN\ncat /proc/uptime\nfor pid in 29567 4886; do\nif test -d /proc/$pid; then\necho \"PID $pid\"\ncat /proc/$pid/status | awk '/^Name:|^State:|^Pid:|^PPid:|^Uid:|^Threads:/ {print}'\nreadlink /proc/$pid/exe\ncat /proc/$pid/stat\nelse echo \"ABSENT $pid\"; fi\ndone\necho PROCESS_CHECK_END\n",
+  "reason": "identify existing SIG11 log task, no crash inference"
+}

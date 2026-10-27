@@ -1,0 +1,2430 @@
+
+### __devio_write .text+0x1e680 size 0xc
+0001e680 dmb      oshst
+0001e684 str      w1, [x0]
+0001e688 ret      
+
+### __dummy_read .text.unlikely+0x7d4 size 0x28
+000007d4 stp      x29, x30, [sp, #-0x10]!
+000007d8 adrp     x2, #0 ; RELOC 275 <.rodata.str1.8> + 0xc648
+000007dc mov      x1, x0
+000007e0 mov      x29, sp
+000007e4 add      x0, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0xc648
+000007e8 mov      w2, #-1
+000007ec bl       #0x7ec ; RELOC 283 printk + 0x0
+000007f0 mov      w0, #0
+000007f4 ldp      x29, x30, [sp], #0x10
+000007f8 ret      
+
+### __dummy_write .text.unlikely+0x82c size 0x1c
+0000082c stp      x29, x30, [sp, #-0x10]!
+00000830 mov      w2, w1
+00000834 mov      w1, #-1
+00000838 mov      x29, sp
+0000083c bl       #0x7fc
+00000840 ldp      x29, x30, [sp], #0x10
+00000844 ret      
+
+### __devio_read .text+0x1e6d8 size 0x18
+0001e6d8 ldr      w0, [x0]
+0001e6dc dmb      oshld
+0001e6e0 mov      w1, w0
+0001e6e4 eor      x1, x1, x1
+0001e6e8 cbnz     x1, #0x1e6e8
+0001e6ec ret      
+
+### get_display_device_frc .text+0x22608 size 0xc
+00022608 adrp     x0, #0x22000 ; RELOC 275 <.bss> + 0x8cda8
+0002260c ldr      x0, [x0] ; RELOC 286 <.bss> + 0x8cda8
+00022610 ret      
+
+### display_output_do_process .text+0x22d08 size 0xc0
+00022d08 stp      x29, x30, [sp, #-0x40]!
+00022d0c mov      x29, sp
+00022d10 stp      x21, x22, [sp, #0x20]
+00022d14 adrp     x21, #0x22000 ; RELOC 275 <.bss> + 0x8cd08
+00022d18 add      x21, x21, #0 ; RELOC 277 <.bss> + 0x8cd08
+00022d1c stp      x19, x20, [sp, #0x10]
+00022d20 mov      w20, w0
+00022d24 mov      x22, x1
+00022d28 ldrb     w0, [x21, #0x10]
+00022d2c str      x23, [sp, #0x30]
+00022d30 mov      w23, w2
+00022d34 cbz      w0, #0x22dc0
+00022d38 adrp     x19, #0x22000 ; RELOC 275 <.data> + 0x2a488
+00022d3c add      x19, x19, #0 ; RELOC 277 <.data> + 0x2a488
+00022d40 mov      x0, x19
+00022d44 bl       #0x22d44 ; RELOC 283 mutex_lock + 0x0
+00022d48 cmp      w20, #1
+00022d4c b.eq     #0x22d94
+00022d50 ldr      x0, [x21, #0x70]
+00022d54 blr      x0
+00022d58 mov      x3, x0
+00022d5c mov      w2, w23
+00022d60 mov      x1, x22
+00022d64 mov      w0, w20
+00022d68 ldr      x3, [x3, #0x30]
+00022d6c blr      x3
+00022d70 mov      w20, w0
+00022d74 mov      x0, x19
+00022d78 bl       #0x22d78 ; RELOC 283 mutex_unlock + 0x0
+00022d7c mov      w0, w20
+00022d80 ldp      x19, x20, [sp, #0x10]
+00022d84 ldp      x21, x22, [sp, #0x20]
+00022d88 ldr      x23, [sp, #0x30]
+00022d8c ldp      x29, x30, [sp], #0x40
+00022d90 ret      
+00022d94 mov      x0, x22
+00022d98 bl       #0x228c8
+00022d9c mov      w20, w0
+00022da0 mov      x0, x19
+00022da4 bl       #0x22da4 ; RELOC 283 mutex_unlock + 0x0
+00022da8 mov      w0, w20
+00022dac ldp      x19, x20, [sp, #0x10]
+00022db0 ldp      x21, x22, [sp, #0x20]
+00022db4 ldr      x23, [sp, #0x30]
+00022db8 ldp      x29, x30, [sp], #0x40
+00022dbc ret      
+00022dc0 bl       #0x22dc0 ; RELOC 283 <.text.unlikely> + 0x1564
+00022dc4 b        #0x22d38
+
+### get_instance_of_display_output_coordinator.part.0 .text.unlikely+0x1564 size 0x3c
+00001564 stp      x29, x30, [sp, #-0x10]!
+00001568 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0xea38
+0000156c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xea38
+00001570 mov      x29, sp
+00001574 bl       #0x1574 ; RELOC 283 printk + 0x0
+00001578 bl       #0x1578 ; RELOC 283 display_output_coordinator_Init + 0x0
+0000157c adrp     x1, #0x1000 ; RELOC 275 <.bss> + 0x8cd08
+00001580 add      x1, x1, #0 ; RELOC 277 <.bss> + 0x8cd08
+00001584 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0xea70
+00001588 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xea70
+0000158c ldrb     w2, [x1, #0x10]
+00001590 ldr      x1, [x1, #8]
+00001594 bl       #0x1594 ; RELOC 283 printk + 0x0
+00001598 ldp      x29, x30, [sp], #0x10
+0000159c ret      
+
+### dd_frc_send_trig_bypass .text+0x25ac0 size 0xe0
+00025ac0 stp      x29, x30, [sp, #-0x30]!
+00025ac4 mov      x29, sp
+00025ac8 stp      x19, x20, [sp, #0x10]
+00025acc mov      w19, w0
+00025ad0 mov      x20, x1
+00025ad4 str      x21, [sp, #0x20]
+00025ad8 mov      w21, w2
+00025adc bl       #0x25adc ; RELOC 283 get_atypical_display + 0x0
+00025ae0 cmp      w19, #0x600
+00025ae4 b.eq     #0x25b10
+00025ae8 cmp      w19, #0x601
+00025aec b.eq     #0x25b3c
+00025af0 mov      w2, w21
+00025af4 mov      x1, x20
+00025af8 mov      w0, w19
+00025afc bl       #0x25afc ; RELOC 283 sdp_frc_ex_proc + 0x0
+00025b00 ldp      x19, x20, [sp, #0x10]
+00025b04 ldr      x21, [sp, #0x20]
+00025b08 ldp      x29, x30, [sp], #0x30
+00025b0c ret      
+00025b10 cbz      x0, #0x25b84
+00025b14 ldr      w1, [x20]
+00025b18 ldr      x2, [x0, #0x10]
+00025b1c cbnz     w1, #0x25b64
+00025b20 ldr      x0, [x2, #0x10]
+00025b24 blr      x0
+00025b28 and      w0, w0, #0xff
+00025b2c ldp      x19, x20, [sp, #0x10]
+00025b30 ldr      x21, [sp, #0x20]
+00025b34 ldp      x29, x30, [sp], #0x30
+00025b38 ret      
+00025b3c cbz      x0, #0x25b84
+00025b40 ldr      x1, [x0, #0x10]
+00025b44 ldr      w0, [x20]
+00025b48 ldr      x1, [x1, #0x20]
+00025b4c blr      x1
+00025b50 and      w0, w0, #0xff
+00025b54 ldp      x19, x20, [sp, #0x10]
+00025b58 ldr      x21, [sp, #0x20]
+00025b5c ldp      x29, x30, [sp], #0x30
+00025b60 ret      
+00025b64 ldp      w0, w1, [x20, #4]
+00025b68 ldr      x2, [x2, #0x18]
+00025b6c blr      x2
+00025b70 and      w0, w0, #0xff
+00025b74 ldp      x19, x20, [sp, #0x10]
+00025b78 ldr      x21, [sp, #0x20]
+00025b7c ldp      x29, x30, [sp], #0x30
+00025b80 ret      
+00025b84 adrp     x1, #0x25000 ; RELOC 275 <.rodata> + 0x10850
+00025b88 adrp     x0, #0x25000 ; RELOC 275 <.rodata.str1.8> + 0x10280
+00025b8c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x10850
+00025b90 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x10280
+00025b94 bl       #0x25b94 ; RELOC 283 printk + 0x0
+00025b98 mov      w0, #-0xe
+00025b9c b        #0x25b00
+
+### sdp_display_ex_proc .text+0x1efc8 size 0x14
+0001efc8 stp      x29, x30, [sp, #-0x10]!
+0001efcc mov      x29, sp
+0001efd0 bl       #0x1efd0 ; RELOC 283 dispay_coordinator_ex_proc + 0x0
+0001efd4 ldp      x29, x30, [sp], #0x10
+0001efd8 ret      
+
+### ft_read .text+0x1e7a0 size 0x20
+0001e7a0 stp      x29, x30, [sp, #-0x10]!
+0001e7a4 adrp     x1, #0x1e000 ; RELOC 275 <.data> + 0x21650
+0001e7a8 mov      x29, sp
+0001e7ac ldr      x1, [x1] ; RELOC 286 <.data> + 0x21650
+0001e7b0 ldr      x1, [x1, #0x18]
+0001e7b4 blr      x1
+0001e7b8 ldp      x29, x30, [sp], #0x10
+0001e7bc ret      
+
+### sdp_frc_dev_cust_get_pixel_measure .text+0xa0b0 size 0x3d0
+0000a0b0 stp      x29, x30, [sp, #-0x60]!
+0000a0b4 mov      x7, #0x2190
+0000a0b8 mov      x6, #0x2194
+0000a0bc mov      x5, #0x2198
+0000a0c0 mov      x4, #0x21b4
+0000a0c4 mov      x3, #0x21ac
+0000a0c8 mov      x2, #0x21b0
+0000a0cc movk     x7, #2, lsl #16
+0000a0d0 movk     x6, #2, lsl #16
+0000a0d4 movk     x5, #2, lsl #16
+0000a0d8 movk     x4, #2, lsl #16
+0000a0dc movk     x3, #2, lsl #16
+0000a0e0 movk     x2, #2, lsl #16
+0000a0e4 mov      x29, sp
+0000a0e8 movk     x7, #0x21a0, lsl #32
+0000a0ec movk     x6, #0x21a4, lsl #32
+0000a0f0 movk     x5, #0x21a8, lsl #32
+0000a0f4 movk     x4, #0x21f0, lsl #32
+0000a0f8 movk     x3, #0x21e8, lsl #32
+0000a0fc movk     x2, #0x21ec, lsl #32
+0000a100 movk     x7, #2, lsl #48
+0000a104 movk     x6, #2, lsl #48
+0000a108 movk     x5, #2, lsl #48
+0000a10c movk     x4, #2, lsl #48
+0000a110 movk     x3, #2, lsl #48
+0000a114 movk     x2, #2, lsl #48
+0000a118 stp      x7, x6, [sp, #0x30]
+0000a11c stp      x5, x4, [sp, #0x40]
+0000a120 stp      x3, x2, [sp, #0x50]
+0000a124 cbz      x1, #0xa3d0
+0000a128 stp      x19, x20, [sp, #0x10]
+0000a12c mov      x19, x1
+0000a130 mov      x20, x0
+0000a134 ldr      w1, [x1]
+0000a138 cmp      w1, #2
+0000a13c b.eq     #0xa270
+0000a140 cmp      w1, #3
+0000a144 b.eq     #0xa1e0
+0000a148 cmp      w1, #1
+0000a14c b.eq     #0xa17c
+0000a150 bl       #0xa150 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a154 cbnz     w0, #0xa40c
+0000a158 bl       #0xa158 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a15c cmn      w0, #1
+0000a160 b.eq     #0xa16c
+0000a164 bl       #0xa164 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a168 cbnz     w0, #0xa354
+0000a16c ldp      x19, x20, [sp, #0x10]
+0000a170 mov      w0, #-0x16
+0000a174 ldp      x29, x30, [sp], #0x60
+0000a178 ret      
+0000a17c stp      x21, x22, [sp, #0x20]
+0000a180 adrp     x2, #0xa000 ; RELOC 275 <.data> + 0x6a8
+0000a184 add      x21, x2, #0 ; RELOC 277 <.data> + 0x6a8
+0000a188 ldr      w1, [x0, #0x1a0]
+0000a18c ldr      w0, [x0, #0x2c0]
+0000a190 cmp      w1, #5
+0000a194 b.eq     #0xa344
+0000a198 cmp      w0, #0x3c
+0000a19c b.eq     #0xa334
+0000a1a0 bl       #0xa1a0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a1a4 cbnz     w0, #0xa448
+0000a1a8 bl       #0xa1a8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a1ac cmn      w0, #1
+0000a1b0 b.ne     #0xa300
+0000a1b4 add      x2, x21, #0x8e0
+0000a1b8 add      x19, x19, #4
+0000a1bc ldr      x1, [x21, #0x8f0]
+0000a1c0 mov      w0, #0
+0000a1c4 ldp      x4, x5, [x2]
+0000a1c8 stp      x4, x5, [x19]
+0000a1cc str      x1, [x19, #0x10]
+0000a1d0 ldp      x19, x20, [sp, #0x10]
+0000a1d4 ldp      x21, x22, [sp, #0x20]
+0000a1d8 ldp      x29, x30, [sp], #0x60
+0000a1dc ret      
+0000a1e0 stp      x21, x22, [sp, #0x20]
+0000a1e4 mov      w1, #0x2188
+0000a1e8 movk     w1, #2, lsl #16
+0000a1ec ldr      w21, [x19, #4]
+0000a1f0 bl       #0xa1f0 ; RELOC 283 wrap_read + 0x0
+0000a1f4 mov      w22, w0
+0000a1f8 cmp      w21, #1
+0000a1fc b.hi     #0xa37c
+0000a200 sxtw     x21, w21
+0000a204 add      x1, sp, #0x48
+0000a208 mov      x0, x20
+0000a20c ldr      w1, [x1, x21, lsl #2]
+0000a210 bl       #0xa210 ; RELOC 283 wrap_read + 0x0
+0000a214 add      x1, sp, #0x50
+0000a218 str      w0, [x19, #8]
+0000a21c mov      x0, x20
+0000a220 ldr      w1, [x1, x21, lsl #2]
+0000a224 bl       #0xa224 ; RELOC 283 wrap_read + 0x0
+0000a228 add      x1, sp, #0x58
+0000a22c str      w0, [x19, #0xc]
+0000a230 mov      x0, x20
+0000a234 ldr      w1, [x1, x21, lsl #2]
+0000a238 bl       #0xa238 ; RELOC 283 wrap_read + 0x0
+0000a23c mov      w1, w0
+0000a240 str      w1, [x19, #0x10]
+0000a244 mov      w0, #0
+0000a248 cbnz     w22, #0xa324
+0000a24c ldr      x2, [x19, #8]
+0000a250 and      w1, w1, #0x3ff
+0000a254 str      w1, [x19, #0x10]
+0000a258 and      x1, x2, #0x3ff000003ff
+0000a25c str      x1, [x19, #8]
+0000a260 ldp      x19, x20, [sp, #0x10]
+0000a264 ldp      x21, x22, [sp, #0x20]
+0000a268 ldp      x29, x30, [sp], #0x60
+0000a26c ret      
+0000a270 stp      x21, x22, [sp, #0x20]
+0000a274 ldp      w2, w21, [x19, #4]
+0000a278 ldr      w22, [x19, #0xc]
+0000a27c cmp      w2, #1
+0000a280 b.hi     #0xa37c
+0000a284 tbnz     w21, #0x1f, #0xa38c
+0000a288 adrp     x1, #0xa000 ; RELOC 275 <.data> + 0x6a8
+0000a28c add      x1, x1, #0 ; RELOC 277 <.data> + 0x6a8
+0000a290 cmp      w22, #0
+0000a294 add      x1, x1, #0x8e0
+0000a298 ldr      w3, [x1, #0x10]
+0000a29c ccmp     w3, w21, #0, ge
+0000a2a0 b.lo     #0xa38c
+0000a2a4 ldr      w1, [x1, #0x14]
+0000a2a8 cmp      w1, w22
+0000a2ac b.lo     #0xa38c
+0000a2b0 sxtw     x19, w2
+0000a2b4 add      x1, sp, #0x30
+0000a2b8 mov      w2, #4
+0000a2bc ldr      w1, [x1, x19, lsl #2]
+0000a2c0 bl       #0xa2c0 ; RELOC 283 wrap_write + 0x0
+0000a2c4 add      x1, sp, #0x38
+0000a2c8 mov      w2, w21
+0000a2cc mov      x0, x20
+0000a2d0 ldr      w1, [x1, x19, lsl #2]
+0000a2d4 bl       #0xa2d4 ; RELOC 283 wrap_write + 0x0
+0000a2d8 add      x1, sp, #0x40
+0000a2dc mov      w2, w22
+0000a2e0 mov      x0, x20
+0000a2e4 ldr      w1, [x1, x19, lsl #2]
+0000a2e8 bl       #0xa2e8 ; RELOC 283 wrap_write + 0x0
+0000a2ec mov      w0, #0
+0000a2f0 ldp      x19, x20, [sp, #0x10]
+0000a2f4 ldp      x21, x22, [sp, #0x20]
+0000a2f8 ldp      x29, x30, [sp], #0x60
+0000a2fc ret      
+0000a300 bl       #0xa300 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a304 cbz      w0, #0xa1b4
+0000a308 ldr      w3, [x21, #0x8ec]
+0000a30c adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4038
+0000a310 ldr      w1, [x21, #0x8f0]
+0000a314 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4038
+0000a318 ldr      w2, [x21, #0x8f4]
+0000a31c bl       #0xa31c ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a320 b        #0xa1b4
+0000a324 ldp      x19, x20, [sp, #0x10]
+0000a328 ldp      x21, x22, [sp, #0x20]
+0000a32c ldp      x29, x30, [sp], #0x60
+0000a330 ret      
+0000a334 ldr      w0, [x21, #0x8ec]
+0000a338 lsl      w0, w0, #1
+0000a33c str      w0, [x21, #0x8ec]
+0000a340 b        #0xa1a0
+0000a344 mov      x1, #0x780
+0000a348 movk     x1, #0x438, lsl #32
+0000a34c str      x1, [x21, #0x8f0]
+0000a350 b        #0xa198
+0000a354 ldr      w2, [x19]
+0000a358 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a35c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a360 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x40e0
+0000a364 add      x1, x1, #0x908
+0000a368 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x40e0
+0000a36c bl       #0xa36c ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a370 mov      w0, #-0x16
+0000a374 ldp      x19, x20, [sp, #0x10]
+0000a378 b        #0xa1d8
+0000a37c mov      w0, #-0x16
+0000a380 ldp      x19, x20, [sp, #0x10]
+0000a384 ldp      x21, x22, [sp, #0x20]
+0000a388 b        #0xa174
+0000a38c bl       #0xa38c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a390 cbnz     w0, #0xa464
+0000a394 bl       #0xa394 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a398 cmn      w0, #1
+0000a39c b.eq     #0xa37c
+0000a3a0 bl       #0xa3a0 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a3a4 cbz      w0, #0xa37c
+0000a3a8 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a3ac add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a3b0 add      x1, x1, #0x908
+0000a3b4 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x40a0
+0000a3b8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x40a0
+0000a3bc bl       #0xa3bc ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a3c0 mov      w0, #-0x16
+0000a3c4 ldp      x19, x20, [sp, #0x10]
+0000a3c8 ldp      x21, x22, [sp, #0x20]
+0000a3cc b        #0xa1d8
+0000a3d0 bl       #0xa3d0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a3d4 cbnz     w0, #0xa42c
+0000a3d8 bl       #0xa3d8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a3dc cmn      w0, #1
+0000a3e0 b.eq     #0xa170
+0000a3e4 bl       #0xa3e4 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a3e8 cbz      w0, #0xa170
+0000a3ec adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a3f0 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a3f4 add      x1, x1, #0x908
+0000a3f8 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x3fd8
+0000a3fc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x3fd8
+0000a400 bl       #0xa400 ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a404 mov      w0, #-0x16
+0000a408 b        #0xa174
+0000a40c ldr      w2, [x19]
+0000a410 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a414 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a418 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x40b8
+0000a41c add      x1, x1, #0x908
+0000a420 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x40b8
+0000a424 bl       #0xa424 ; RELOC 283 printk + 0x0
+0000a428 b        #0xa158
+0000a42c adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a430 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a434 add      x1, x1, #0x908
+0000a438 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x3fb8
+0000a43c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x3fb8
+0000a440 bl       #0xa440 ; RELOC 283 printk + 0x0
+0000a444 b        #0xa3d8
+0000a448 ldr      w3, [x21, #0x8ec]
+0000a44c adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x3ff0
+0000a450 ldr      w1, [x21, #0x8f0]
+0000a454 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x3ff0
+0000a458 ldr      w2, [x21, #0x8f4]
+0000a45c bl       #0xa45c ; RELOC 283 printk + 0x0
+0000a460 b        #0xa1a8
+0000a464 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a468 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a46c add      x1, x1, #0x908
+0000a470 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4080
+0000a474 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4080
+0000a478 bl       #0xa478 ; RELOC 283 printk + 0x0
+0000a47c b        #0xa394
+
+### wrap_write .text+0xcdb0 size 0x24
+0000cdb0 stp      x29, x30, [sp, #-0x10]!
+0000cdb4 mov      w3, w1
+0000cdb8 mov      w1, w2
+0000cdbc mov      x29, sp
+0000cdc0 ldr      x0, [x0, #0x138]
+0000cdc4 add      x0, x0, w3, uxtw
+0000cdc8 bl       #0xcdc8 ; RELOC 283 ft_write + 0x0
+0000cdcc ldp      x29, x30, [sp], #0x10
+0000cdd0 ret      
+
+### sdp_frc_set_position .text+0xa5b0 size 0x580
+0000a5b0 stp      x29, x30, [sp, #-0x70]!
+0000a5b4 mov      x29, sp
+0000a5b8 stp      x19, x20, [sp, #0x10]
+0000a5bc mov      x19, x0
+0000a5c0 stp      x21, x22, [sp, #0x20]
+0000a5c4 bl       #0xa5c4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a5c8 cbnz     w0, #0xaabc
+0000a5cc bl       #0xa5cc ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a5d0 cmn      w0, #1
+0000a5d4 b.ne     #0xa914
+0000a5d8 bl       #0xa5d8 ; RELOC 283 get_ident_info + 0x0
+0000a5dc ldr      x0, [x0, #0x48]
+0000a5e0 blr      x0
+0000a5e4 tst      w0, #0xff
+0000a5e8 b.ne     #0xa600
+0000a5ec bl       #0xa5ec ; RELOC 283 get_ident_info + 0x0
+0000a5f0 ldr      x0, [x0, #0x80]
+0000a5f4 blr      x0
+0000a5f8 tst      w0, #0xff
+0000a5fc b.eq     #0xa950
+0000a600 stp      x23, x24, [sp, #0x30]
+0000a604 stp      x25, x26, [sp, #0x40]
+0000a608 stp      x27, x28, [sp, #0x50]
+0000a60c bl       #0xa60c ; RELOC 283 get_elem_ins + 0x0
+0000a610 ldrh     w1, [x0, #0xd8]
+0000a614 mov      x22, x0
+0000a618 cmp      w1, #0x811
+0000a61c b.eq     #0xa7c4
+0000a620 b.ls     #0xa7ac
+0000a624 mov      w0, #0x1011
+0000a628 cmp      w1, w0
+0000a62c mov      w21, #3
+0000a630 csel     w21, wzr, w21, ne
+0000a634 bl       #0xa634 ; RELOC 283 get_ident_info + 0x0
+0000a638 mov      x1, x0
+0000a63c adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x41d8
+0000a640 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x41d8
+0000a644 ldr      x1, [x1, #0x50]
+0000a648 blr      x1
+0000a64c tst      w0, #0xff
+0000a650 b.eq     #0xa7f8
+0000a654 mov      w2, w21
+0000a658 ubfiz    x1, x21, #3, #2
+0000a65c sub      x1, x1, x2
+0000a660 adrp     x0, #0xa000 ; RELOC 275 <.data> + 0x6a8
+0000a664 add      x0, x0, #0 ; RELOC 277 <.data> + 0x6a8
+0000a668 adrp     x20, #0xa000 ; RELOC 275 <.bss> + 0x38928
+0000a66c add      x0, x0, #0x900
+0000a670 add      x20, x20, #0 ; RELOC 277 <.bss> + 0x38928
+0000a674 add      x1, x0, x1, lsl #3
+0000a678 ldp      x2, x3, [x1]
+0000a67c stp      x2, x3, [x20, #0x20]
+0000a680 ldp      x2, x3, [x1, #0x10]
+0000a684 stp      x2, x3, [x20, #0x30]
+0000a688 ldp      x2, x3, [x1, #0x20]
+0000a68c stp      x2, x3, [x20, #0x40]
+0000a690 ldr      x1, [x1, #0x30]
+0000a694 str      x1, [x20, #0x50]
+0000a698 bl       #0xa698 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a69c cbnz     w0, #0xab00
+0000a6a0 bl       #0xa6a0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a6a4 cmn      w0, #1
+0000a6a8 b.ne     #0xa8dc
+0000a6ac ldr      x1, [x20, #0x20]
+0000a6b0 str      x1, [sp, #0x60]
+0000a6b4 ldr      w1, [x20, #0x28]
+0000a6b8 ldp      w23, w24, [x20, #0x2c]
+0000a6bc str      w1, [sp, #0x6c]
+0000a6c0 ldp      w21, w22, [x20, #0x34]
+0000a6c4 ldp      w25, w26, [x20, #0x44]
+0000a6c8 ldp      w27, w28, [x20, #0x4c]
+0000a6cc bl       #0xa6cc ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a6d0 cbnz     w0, #0xaacc
+0000a6d4 bl       #0xa6d4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a6d8 cmn      w0, #1
+0000a6dc b.ne     #0xa8a0
+0000a6e0 mov      w1, #0xa4e8
+0000a6e4 mov      w2, w24
+0000a6e8 mov      x0, x19
+0000a6ec movk     w1, #1, lsl #16
+0000a6f0 bl       #0xa6f0 ; RELOC 283 wrap_write + 0x0
+0000a6f4 mov      w1, #0xa4ec
+0000a6f8 mov      w2, w23
+0000a6fc mov      x0, x19
+0000a700 movk     w1, #1, lsl #16
+0000a704 bl       #0xa704 ; RELOC 283 wrap_write + 0x0
+0000a708 mov      w1, #0x5810
+0000a70c mov      w2, w22
+0000a710 mov      x0, x19
+0000a714 movk     w1, #2, lsl #16
+0000a718 bl       #0xa718 ; RELOC 283 wrap_write + 0x0
+0000a71c mov      w1, #0x580c
+0000a720 mov      x0, x19
+0000a724 movk     w1, #2, lsl #16
+0000a728 mov      w2, w21
+0000a72c bl       #0xa72c ; RELOC 283 wrap_write + 0x0
+0000a730 ldr      w0, [x20, #0x58]
+0000a734 add      x1, x20, #0x58
+0000a738 cmp      w0, #1
+0000a73c b.eq     #0xa92c
+0000a740 mov      w1, #0xc1a4
+0000a744 mov      w2, w26
+0000a748 mov      x0, x19
+0000a74c movk     w1, #2, lsl #16
+0000a750 bl       #0xa750 ; RELOC 283 wrap_write + 0x0
+0000a754 mov      w1, #0xc1a8
+0000a758 mov      w2, w25
+0000a75c mov      x0, x19
+0000a760 movk     w1, #2, lsl #16
+0000a764 bl       #0xa764 ; RELOC 283 wrap_write + 0x0
+0000a768 mov      w1, #0x2450
+0000a76c mov      w2, w28
+0000a770 mov      x0, x19
+0000a774 movk     w1, #2, lsl #16
+0000a778 bl       #0xa778 ; RELOC 283 wrap_write + 0x0
+0000a77c mov      w1, #0x2454
+0000a780 mov      w2, w27
+0000a784 mov      x0, x19
+0000a788 movk     w1, #2, lsl #16
+0000a78c bl       #0xa78c ; RELOC 283 wrap_write + 0x0
+0000a790 ldp      x23, x24, [sp, #0x30]
+0000a794 ldp      x25, x26, [sp, #0x40]
+0000a798 ldp      x27, x28, [sp, #0x50]
+0000a79c ldp      x19, x20, [sp, #0x10]
+0000a7a0 ldp      x21, x22, [sp, #0x20]
+0000a7a4 ldp      x29, x30, [sp], #0x70
+0000a7a8 ret      
+0000a7ac cmp      w1, #0x211
+0000a7b0 b.eq     #0xa7c4
+0000a7b4 and      w1, w1, #0xfffffeff
+0000a7b8 mov      w21, #0
+0000a7bc cmp      w1, #0x11
+0000a7c0 b.ne     #0xa634
+0000a7c4 ldrb     w0, [x22, #0xda]
+0000a7c8 and      w0, w0, #0xf
+0000a7cc cmp      w0, #4
+0000a7d0 cset     w21, hi
+0000a7d4 add      w21, w21, #1
+0000a7d8 bl       #0xa7d8 ; RELOC 283 get_ident_info + 0x0
+0000a7dc mov      x1, x0
+0000a7e0 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x41d8
+0000a7e4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x41d8
+0000a7e8 ldr      x1, [x1, #0x50]
+0000a7ec blr      x1
+0000a7f0 tst      w0, #0xff
+0000a7f4 b.ne     #0xa654
+0000a7f8 bl       #0xa7f8 ; RELOC 283 get_ident_info + 0x0
+0000a7fc mov      x1, x0
+0000a800 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x41e8
+0000a804 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x41e8
+0000a808 ldr      x1, [x1, #0x50]
+0000a80c blr      x1
+0000a810 tst      w0, #0xff
+0000a814 b.ne     #0xa654
+0000a818 bl       #0xa818 ; RELOC 283 get_ident_info + 0x0
+0000a81c mov      x1, x0
+0000a820 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4200
+0000a824 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4200
+0000a828 ldr      x1, [x1, #0x50]
+0000a82c blr      x1
+0000a830 tst      w0, #0xff
+0000a834 b.ne     #0xa654
+0000a838 bl       #0xa838 ; RELOC 283 get_ident_info + 0x0
+0000a83c mov      x1, x0
+0000a840 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4218
+0000a844 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4218
+0000a848 ldr      x1, [x1, #0x50]
+0000a84c blr      x1
+0000a850 tst      w0, #0xff
+0000a854 b.eq     #0xa9e8
+0000a858 mov      w2, w21
+0000a85c ubfiz    x0, x21, #3, #2
+0000a860 sub      x0, x0, x2
+0000a864 adrp     x1, #0xa000 ; RELOC 275 <.data> + 0x6a8
+0000a868 add      x1, x1, #0 ; RELOC 277 <.data> + 0x6a8
+0000a86c adrp     x20, #0xa000 ; RELOC 275 <.bss> + 0x38928
+0000a870 add      x1, x1, #0x9e0
+0000a874 add      x20, x20, #0 ; RELOC 277 <.bss> + 0x38928
+0000a878 add      x0, x1, x0, lsl #3
+0000a87c ldp      x2, x3, [x0]
+0000a880 stp      x2, x3, [x20, #0x20]
+0000a884 ldp      x2, x3, [x0, #0x10]
+0000a888 stp      x2, x3, [x20, #0x30]
+0000a88c ldp      x2, x3, [x0, #0x20]
+0000a890 stp      x2, x3, [x20, #0x40]
+0000a894 ldr      x0, [x0, #0x30]
+0000a898 str      x0, [x20, #0x50]
+0000a89c b        #0xa698
+0000a8a0 bl       #0xa8a0 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a8a4 cbz      w0, #0xa6e0
+0000a8a8 ldr      w3, [sp, #0x6c]
+0000a8ac adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a8b0 ldr      x2, [sp, #0x60]
+0000a8b4 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a8b8 add      x1, x1, #0x948
+0000a8bc mov      w7, w26
+0000a8c0 mov      w6, w25
+0000a8c4 mov      w5, w22
+0000a8c8 mov      w4, w21
+0000a8cc adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4338
+0000a8d0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4338
+0000a8d4 bl       #0xa8d4 ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a8d8 b        #0xa6e0
+0000a8dc bl       #0xa8dc ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a8e0 cbz      w0, #0xa6ac
+0000a8e4 ldrh     w3, [x22, #0xd8]
+0000a8e8 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a8ec ldr      w2, [x22, #0xd8]
+0000a8f0 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a8f4 ldrb     w4, [x22, #0xda]
+0000a8f8 mov      w5, w21
+0000a8fc add      x1, x1, #0x930
+0000a900 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x42c8
+0000a904 and      w4, w4, #0xf
+0000a908 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x42c8
+0000a90c bl       #0xa90c ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a910 b        #0xa6ac
+0000a914 bl       #0xa914 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a918 cbz      w0, #0xa5d8
+0000a91c adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x41b8
+0000a920 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x41b8
+0000a924 bl       #0xa924 ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a928 b        #0xa5d8
+0000a92c mov      x0, x19
+0000a930 bl       #0xa930 ; RELOC 283 sdp_frc_dev_set_post_black_pixel_shift + 0x0
+0000a934 ldp      x19, x20, [sp, #0x10]
+0000a938 ldp      x21, x22, [sp, #0x20]
+0000a93c ldp      x23, x24, [sp, #0x30]
+0000a940 ldp      x25, x26, [sp, #0x40]
+0000a944 ldp      x27, x28, [sp, #0x50]
+0000a948 ldp      x29, x30, [sp], #0x70
+0000a94c ret      
+0000a950 bl       #0xa950 ; RELOC 283 get_elem_ins + 0x0
+0000a954 ldrh     w3, [x0, #0xd8]
+0000a958 mov      w2, #0x20
+0000a95c mov      w21, #0x1f
+0000a960 ands     w3, w3, #0x10
+0000a964 mov      w4, #0x28
+0000a968 csel     w21, w21, w2, ne
+0000a96c cmp      w3, #0
+0000a970 mov      w1, #0x5810
+0000a974 mov      w2, w21
+0000a978 movk     w1, #2, lsl #16
+0000a97c mov      x22, x0
+0000a980 mov      w20, #0x26
+0000a984 mov      x0, x19
+0000a988 csel     w20, w20, w4, ne
+0000a98c bl       #0xa98c ; RELOC 283 wrap_write + 0x0
+0000a990 mov      w2, w20
+0000a994 mov      x0, x19
+0000a998 mov      w1, #0x580c
+0000a99c movk     w1, #2, lsl #16
+0000a9a0 bl       #0xa9a0 ; RELOC 283 wrap_write + 0x0
+0000a9a4 bl       #0xa9a4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a9a8 cbnz     w0, #0xaa94
+0000a9ac bl       #0xa9ac ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000a9b0 cmn      w0, #1
+0000a9b4 b.eq     #0xa79c
+0000a9b8 bl       #0xa9b8 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000a9bc cbz      w0, #0xa79c
+0000a9c0 ldrh     w2, [x22, #0xd8]
+0000a9c4 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000a9c8 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000a9cc mov      w4, w21
+0000a9d0 mov      w3, w20
+0000a9d4 add      x1, x1, #0x958
+0000a9d8 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x43a0
+0000a9dc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x43a0
+0000a9e0 bl       #0xa9e0 ; RELOC 283 sdp_frc_log_internal + 0x0
+0000a9e4 b        #0xa79c
+0000a9e8 bl       #0xa9e8 ; RELOC 283 get_ident_info + 0x0
+0000a9ec mov      x1, x0
+0000a9f0 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4228
+0000a9f4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4228
+0000a9f8 ldr      x1, [x1, #0x50]
+0000a9fc blr      x1
+0000aa00 tst      w0, #0xff
+0000aa04 b.ne     #0xa858
+0000aa08 bl       #0xaa08 ; RELOC 283 get_ident_info + 0x0
+0000aa0c mov      x1, x0
+0000aa10 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4240
+0000aa14 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4240
+0000aa18 ldr      x1, [x1, #0x50]
+0000aa1c blr      x1
+0000aa20 tst      w0, #0xff
+0000aa24 b.ne     #0xa858
+0000aa28 bl       #0xaa28 ; RELOC 283 get_ident_info + 0x0
+0000aa2c mov      x1, x0
+0000aa30 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4258
+0000aa34 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4258
+0000aa38 ldr      x1, [x1, #0x50]
+0000aa3c blr      x1
+0000aa40 tst      w0, #0xff
+0000aa44 b.ne     #0xa858
+0000aa48 bl       #0xaa48 ; RELOC 283 get_ident_info + 0x0
+0000aa4c mov      x1, x0
+0000aa50 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4270
+0000aa54 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4270
+0000aa58 ldr      x1, [x1, #0x50]
+0000aa5c blr      x1
+0000aa60 tst      w0, #0xff
+0000aa64 adrp     x0, #0xa000 ; RELOC 275 <.data> + 0x6a8
+0000aa68 add      x0, x0, #0 ; RELOC 277 <.data> + 0x6a8
+0000aa6c b.eq     #0xaa8c
+0000aa70 add      x1, x0, #0xac0
+0000aa74 mov      w0, w21
+0000aa78 mov      x2, #0x38
+0000aa7c adrp     x20, #0xa000 ; RELOC 275 <.bss> + 0x38928
+0000aa80 add      x20, x20, #0 ; RELOC 277 <.bss> + 0x38928
+0000aa84 madd     x0, x0, x2, x1
+0000aa88 b        #0xa87c
+0000aa8c add      x1, x0, #0xba0
+0000aa90 b        #0xaa74
+0000aa94 ldrh     w2, [x22, #0xd8]
+0000aa98 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000aa9c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000aaa0 mov      w4, w21
+0000aaa4 add      x1, x1, #0x958
+0000aaa8 mov      w3, w20
+0000aaac adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4370
+0000aab0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4370
+0000aab4 bl       #0xaab4 ; RELOC 283 printk + 0x0
+0000aab8 b        #0xa9ac
+0000aabc adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4198
+0000aac0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4198
+0000aac4 bl       #0xaac4 ; RELOC 283 printk + 0x0
+0000aac8 b        #0xa5cc
+0000aacc ldr      w3, [sp, #0x6c]
+0000aad0 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000aad4 ldr      x2, [sp, #0x60]
+0000aad8 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000aadc add      x1, x1, #0x948
+0000aae0 mov      w7, w26
+0000aae4 mov      w6, w25
+0000aae8 mov      w5, w22
+0000aaec mov      w4, w21
+0000aaf0 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4300
+0000aaf4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4300
+0000aaf8 bl       #0xaaf8 ; RELOC 283 printk + 0x0
+0000aafc b        #0xa6d4
+0000ab00 ldrh     w3, [x22, #0xd8]
+0000ab04 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0xd70
+0000ab08 ldr      w2, [x22, #0xd8]
+0000ab0c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xd70
+0000ab10 ldrb     w4, [x22, #0xda]
+0000ab14 add      x1, x1, #0x930
+0000ab18 mov      w5, w21
+0000ab1c adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x4290
+0000ab20 and      w4, w4, #0xf
+0000ab24 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x4290
+0000ab28 bl       #0xab28 ; RELOC 283 printk + 0x0
+0000ab2c b        #0xa6a0
+
+### disp_coord_set .text+0x21fe0 size 0x80
+00021fe0 stp      x29, x30, [sp, #-0x20]!
+00021fe4 cmp      w1, #2
+00021fe8 mov      x29, sp
+00021fec str      x19, [sp, #0x10]
+00021ff0 mov      x19, x0
+00021ff4 b.ne     #0x22010
+00021ff8 bl       #0x21ff8 ; RELOC 283 get_instance_of_cloud_gm_dev_coordinator + 0x0
+00021ffc str      x0, [x19]
+00022000 cbnz     x0, #0x22024
+00022004 ldr      x19, [sp, #0x10]
+00022008 ldp      x29, x30, [sp], #0x20
+0002200c ret      
+00022010 cmp      w1, #4
+00022014 b.ne     #0x22044
+00022018 bl       #0x22018 ; RELOC 283 get_instance_of_display_output_coordinator + 0x0
+0002201c str      x0, [x19]
+00022020 b        #0x22000
+00022024 ldr      x2, [x0, #8]
+00022028 adrp     x1, #0x22000 ; RELOC 275 <.rodata> + 0xf9a0
+0002202c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0xf9a0
+00022030 adrp     x0, #0x22000 ; RELOC 275 <.rodata.str1.8> + 0xe4c8
+00022034 add      x1, x1, #0x110
+00022038 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xe4c8
+0002203c bl       #0x2203c ; RELOC 283 printk + 0x0
+00022040 b        #0x22004
+00022044 adrp     x0, #0x22000 ; RELOC 275 <.rodata.str1.8> + 0xe4a8
+00022048 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xe4a8
+0002204c bl       #0x2204c ; RELOC 283 printk + 0x0
+00022050 adrp     x0, #0x22000 ; RELOC 275 <.bss> + 0x8cc10
+00022054 str      xzr, [x0] ; RELOC 286 <.bss> + 0x8cc10
+00022058 ldr      x0, [x19]
+0002205c b        #0x22000
+
+### display_output_coordinator_Init .text+0x22818 size 0xb0
+00022818 stp      x29, x30, [sp, #-0x20]!
+0002281c adrp     x8, #0x22000 ; RELOC 275 <.rodata.str1.8> + 0xea18
+00022820 adrp     x4, #0x22000 ; RELOC 275 <.text> + 0x225e8
+00022824 mov      x29, sp
+00022828 add      x8, x8, #0 ; RELOC 277 <.rodata.str1.8> + 0xea18
+0002282c add      x4, x4, #0 ; RELOC 277 <.text> + 0x225e8
+00022830 adrp     x5, #0x22000 ; RELOC 275 get_cur_display_mode_integer + 0x0
+00022834 adrp     x7, #0x22000 ; RELOC 275 <.text> + 0x22dc8
+00022838 add      x5, x5, #0 ; RELOC 277 get_cur_display_mode_integer + 0x0
+0002283c add      x7, x7, #0 ; RELOC 277 <.text> + 0x22dc8
+00022840 adrp     x6, #0x22000 ; RELOC 275 <.text> + 0x22d08
+00022844 adrp     x3, #0x22000 ; RELOC 275 <.text> + 0x225f8
+00022848 add      x6, x6, #0 ; RELOC 277 <.text> + 0x22d08
+0002284c add      x3, x3, #0 ; RELOC 277 <.text> + 0x225f8
+00022850 adrp     x2, #0x22000 ; RELOC 275 <.text> + 0x22608
+00022854 adrp     x1, #0x22000 ; RELOC 275 <.text> + 0x22618
+00022858 add      x2, x2, #0 ; RELOC 277 <.text> + 0x22608
+0002285c add      x1, x1, #0 ; RELOC 277 <.text> + 0x22618
+00022860 adrp     x0, #0x22000 ; RELOC 275 <.text> + 0x22628
+00022864 add      x0, x0, #0 ; RELOC 277 <.text> + 0x22628
+00022868 str      x19, [sp, #0x10]
+0002286c adrp     x19, #0x22000 ; RELOC 275 <.bss> + 0x8cd08
+00022870 add      x19, x19, #0 ; RELOC 277 <.bss> + 0x8cd08
+00022874 str      x8, [x19, #8]
+00022878 stp      x7, x6, [x19, #0x40]
+0002287c stp      x5, x4, [x19, #0x50]
+00022880 stp      x3, x2, [x19, #0x68]
+00022884 stp      x1, x0, [x19, #0x78]
+00022888 bl       #0x22888 ; RELOC 283 get_instance_of_abstract_display_device_dp + 0x0
+0002288c str      x0, [x19, #0x98]
+00022890 bl       #0x22890 ; RELOC 283 get_instance_of_abstract_display_device_frc + 0x0
+00022894 str      x0, [x19, #0xa0]
+00022898 bl       #0x22898 ; RELOC 283 get_instance_of_abstract_display_device_gfx + 0x0
+0002289c str      x0, [x19, #0xa8]
+000228a0 bl       #0x228a0 ; RELOC 283 get_instance_of_abstract_display_device_tcon + 0x0
+000228a4 mov      x1, x0
+000228a8 mov      w2, #1
+000228ac mov      x0, x19
+000228b0 strb     w2, [x19, #0x10]
+000228b4 str      x1, [x19, #0xb0]
+000228b8 bl       #0x228b8 ; RELOC 283 display_coordinator_clk_init + 0x0
+000228bc ldr      x19, [sp, #0x10]
+000228c0 ldp      x29, x30, [sp], #0x20
+000228c4 ret      
+
+### ft_write .text+0x1e780 size 0x20
+0001e780 stp      x29, x30, [sp, #-0x10]!
+0001e784 adrp     x2, #0x1e000 ; RELOC 275 <.data> + 0x21650
+0001e788 mov      x29, sp
+0001e78c ldr      x2, [x2] ; RELOC 286 <.data> + 0x21650
+0001e790 ldr      x2, [x2, #8]
+0001e794 blr      x2
+0001e798 ldp      x29, x30, [sp], #0x10
+0001e79c ret      
+
+### display_coordinator_Init .text.unlikely+0x1408 size 0x68
+00001408 stp      x29, x30, [sp, #-0x20]!
+0000140c adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0xe4f0
+00001410 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xe4f0
+00001414 mov      x29, sp
+00001418 stp      x19, x20, [sp, #0x10]
+0000141c adrp     x19, #0x1000 ; RELOC 275 <.rodata> + 0xf9a0
+00001420 add      x19, x19, #0 ; RELOC 277 <.rodata> + 0xf9a0
+00001424 add      x19, x19, #0x120
+00001428 adrp     x20, #0x1000 ; RELOC 275 <.bss> + 0x8cc10
+0000142c mov      x1, x19
+00001430 add      x20, x20, #0 ; RELOC 277 <.bss> + 0x8cc10
+00001434 bl       #0x1434 ; RELOC 283 printk + 0x0
+00001438 mov      x0, x20
+0000143c mov      w1, #4
+00001440 bl       #0x1440 ; RELOC 283 disp_coord_set + 0x0
+00001444 add      x0, x20, #8
+00001448 mov      w1, #2
+0000144c bl       #0x144c ; RELOC 283 disp_coord_set + 0x0
+00001450 bl       #0x1450 ; RELOC 283 disp_coord_debugfs_init + 0x0
+00001454 mov      x1, x19
+00001458 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0xe530
+0000145c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0xe530
+00001460 bl       #0x1460 ; RELOC 283 printk + 0x0
+00001464 ldp      x19, x20, [sp, #0x10]
+00001468 ldp      x29, x30, [sp], #0x20
+0000146c ret      
+
+### sdp_frc_ex_proc .text+0x2258 size 0x1230
+00002258 stp      x29, x30, [sp, #-0x70]!
+0000225c mov      x29, sp
+00002260 stp      x19, x20, [sp, #0x10]
+00002264 adrp     x19, #0x2000 ; RELOC 275 <.bss> + 0x0
+00002268 add      x19, x19, #0 ; RELOC 277 <.bss> + 0x0
+0000226c stp      x21, x22, [sp, #0x20]
+00002270 mov      w22, w0
+00002274 stp      x23, x24, [sp, #0x30]
+00002278 mov      x23, x1
+0000227c mov      w24, w2
+00002280 str      x25, [sp, #0x40]
+00002284 ldr      x21, [x19, #0x478]
+00002288 ldr      x0, [x21, #0x318]
+0000228c cbz      x0, #0x229c
+00002290 mov      w25, #0
+00002294 blr      x0
+00002298 cbnz     w0, #0x2344
+0000229c and      w20, w22, #0xffff
+000022a0 cbz      x21, #0x2f1c
+000022a4 ldr      w0, [x21, #0x35c]
+000022a8 cbz      w0, #0x2478
+000022ac ldr      x0, [x21, #0x318]
+000022b0 cbz      x0, #0x22b8
+000022b4 blr      x0
+000022b8 ldrb     w0, [x21, #0x358]
+000022bc tbz      w0, #0, #0x2de4
+000022c0 ldr      w0, [x21, #0x350]
+000022c4 cbz      w0, #0x24ac
+000022c8 ands     w22, w22, #0xffe0
+000022cc b.eq     #0x2434
+000022d0 cbz      x23, #0x2f98
+000022d4 ldr      w0, [x19, #0x480]
+000022d8 cbz      w0, #0x2360
+000022dc sub      w1, w0, #1
+000022e0 add      x2, x19, #0x48c
+000022e4 add      x0, x19, #0x488
+000022e8 add      x1, x2, w1, uxtw #2
+000022ec b        #0x22f8
+000022f0 cmp      x0, x1
+000022f4 b.eq     #0x2360
+000022f8 ldr      w2, [x0]
+000022fc add      x0, x0, #4
+00002300 cmp      w20, w2
+00002304 b.ne     #0x22f0
+00002308 bl       #0x2308 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000230c cmp      w0, #1
+00002310 b.hi     #0x3234
+00002314 bl       #0x2314 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002318 add      w0, w0, #1
+0000231c cmp      w0, #1
+00002320 b.hi     #0x2fcc
+00002324 bl       #0x2324 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002328 cbnz     w0, #0x3124
+0000232c bl       #0x232c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002330 cmn      w0, #1
+00002334 b.eq     #0x2340
+00002338 bl       #0x2338 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000233c cbnz     w0, #0x2a24
+00002340 mov      w25, #-0x16
+00002344 mov      w0, w25
+00002348 ldp      x19, x20, [sp, #0x10]
+0000234c ldp      x21, x22, [sp, #0x20]
+00002350 ldp      x23, x24, [sp, #0x30]
+00002354 ldr      x25, [sp, #0x40]
+00002358 ldp      x29, x30, [sp], #0x70
+0000235c ret      
+00002360 add      x19, x21, #0x3b8
+00002364 mov      x0, x19
+00002368 bl       #0x2368 ; RELOC 283 mutex_is_locked + 0x0
+0000236c tst      w0, #0xff
+00002370 b.ne     #0x27e8
+00002374 mov      x0, x19
+00002378 bl       #0x2378 ; RELOC 283 mutex_lock + 0x0
+0000237c bl       #0x237c ; RELOC 283 sdp_frc_rpm_get_status + 0x0
+00002380 cmp      w0, #1
+00002384 b.eq     #0x2fe8
+00002388 ldr      w0, [x21, #0x378]
+0000238c cmp      w0, #1
+00002390 b.eq     #0x2888
+00002394 cmp      w20, #0x91
+00002398 b.ne     #0x2550
+0000239c bl       #0x239c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000023a0 cmp      w0, #1
+000023a4 b.hi     #0x3164
+000023a8 bl       #0x23a8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000023ac add      w0, w0, #1
+000023b0 cmp      w0, #1
+000023b4 b.hi     #0x2b78
+000023b8 ldr      w20, [x23]
+000023bc bl       #0x23bc ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000023c0 cbnz     w0, #0x3324
+000023c4 bl       #0x23c4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000023c8 cmn      w0, #1
+000023cc b.eq     #0x23d8
+000023d0 bl       #0x23d0 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+000023d4 cbnz     w0, #0x2ea0
+000023d8 cmp      w20, #1
+000023dc mov      w2, #0xc002
+000023e0 mov      w1, #0xc002
+000023e4 mov      x0, x21
+000023e8 movk     w1, #1, lsl #16
+000023ec mov      w25, #0
+000023f0 csel     w1, w2, w1, eq
+000023f4 bl       #0x23f4 ; RELOC 283 sdp_frc_manage_pm + 0x0
+000023f8 bl       #0x23f8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000023fc cmp      w0, #1
+00002400 b.hi     #0x327c
+00002404 bl       #0x2404 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002408 add      w0, w0, #1
+0000240c cmp      w0, #1
+00002410 b.ls     #0x2754
+00002414 bl       #0x2414 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002418 cbz      w0, #0x2754
+0000241c mrs      x0, sp_el0
+00002420 ldr      w1, [x0, #0x440]
+00002424 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x2020
+00002428 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2020
+0000242c bl       #0x242c ; RELOC 283 sdp_frc_log_internal + 0x0
+00002430 b        #0x2754
+00002434 ldr      w0, [x21, #0x36c]
+00002438 lsr      x0, x0, x20
+0000243c tbz      w0, #0, #0x22d0
+00002440 bl       #0x2440 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002444 cbnz     w0, #0x32b0
+00002448 bl       #0x2448 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000244c cmn      w0, #1
+00002450 b.eq     #0x2324
+00002454 bl       #0x2454 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002458 cbz      w0, #0x2324
+0000245c mrs      x0, sp_el0
+00002460 ldr      w1, [x0, #0x440]
+00002464 mov      w2, w20
+00002468 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x17d8
+0000246c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x17d8
+00002470 bl       #0x2470 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002474 b        #0x2324
+00002478 bl       #0x2478 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000247c cbnz     w0, #0x3208
+00002480 bl       #0x2480 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002484 cmn      w0, #1
+00002488 b.eq     #0x22ac
+0000248c bl       #0x248c ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002490 cbz      w0, #0x22ac
+00002494 mrs      x0, sp_el0
+00002498 ldr      w1, [x0, #0x440]
+0000249c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1608
+000024a0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1608
+000024a4 bl       #0x24a4 ; RELOC 283 sdp_frc_log_internal + 0x0
+000024a8 b        #0x22ac
+000024ac bl       #0x24ac ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000024b0 cbnz     w0, #0x30c0
+000024b4 bl       #0x24b4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000024b8 cmn      w0, #1
+000024bc b.ne     #0x2844
+000024c0 add      x0, x21, #0x330
+000024c4 bl       #0x24c4 ; RELOC 283 wait_for_completion + 0x0
+000024c8 bl       #0x24c8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000024cc cbnz     w0, #0x310c
+000024d0 bl       #0x24d0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000024d4 cmn      w0, #1
+000024d8 b.eq     #0x22c8
+000024dc bl       #0x24dc ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+000024e0 cbz      w0, #0x22c8
+000024e4 mrs      x0, sp_el0
+000024e8 ldr      w1, [x0, #0x440]
+000024ec adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1720
+000024f0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1720
+000024f4 bl       #0x24f4 ; RELOC 283 sdp_frc_log_internal + 0x0
+000024f8 b        #0x22c8
+000024fc ldr      w0, [x23, #4]
+00002500 lsr      w0, w0, #0x18
+00002504 cmp      w0, #0xf3
+00002508 b.ne     #0x2ccc
+0000250c bl       #0x250c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002510 cmp      w0, #3
+00002514 b.hi     #0x3464
+00002518 bl       #0x2518 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000251c add      w0, w0, #1
+00002520 cmp      w0, #3
+00002524 b.ls     #0x2550
+00002528 bl       #0x2528 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000252c cbz      w0, #0x2550
+00002530 ldr      w2, [x23, #4]
+00002534 adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002538 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+0000253c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1a38
+00002540 add      x1, x1, #0x88
+00002544 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1a38
+00002548 lsr      w2, w2, #0x10
+0000254c bl       #0x254c ; RELOC 283 sdp_frc_log_internal + 0x0
+00002550 bl       #0x2550 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002554 cmp      w0, #3
+00002558 b.hi     #0x30d8
+0000255c bl       #0x255c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002560 add      w0, w0, #1
+00002564 cmp      w0, #3
+00002568 b.hi     #0x2864
+0000256c ldr      w0, [x21, #0x368]
+00002570 cbnz     w0, #0x29dc
+00002574 cmp      w20, #0x300
+00002578 b.eq     #0x2e88
+0000257c b.ls     #0x25b4
+00002580 cmp      w20, #0x900
+00002584 b.eq     #0x2bb0
+00002588 b.ls     #0x262c
+0000258c cmp      w20, #0xf00
+00002590 b.eq     #0x2bf4
+00002594 b.ls     #0x27bc
+00002598 cmp      w20, #1, lsl #12
+0000259c b.ne     #0x26ac
+000025a0 mov      w1, w24
+000025a4 mov      x0, x23
+000025a8 bl       #0x25a8 ; RELOC 283 vx1_send_additional_data + 0x0
+000025ac mov      w25, w0
+000025b0 b        #0x2738
+000025b4 cbnz     w22, #0x2654
+000025b8 cmp      w20, #8
+000025bc b.hi     #0x268c
+000025c0 cmp      w20, #2
+000025c4 b.eq     #0x291c
+000025c8 cmp      w20, #3
+000025cc b.ne     #0x272c
+000025d0 ldr      x0, [x23]
+000025d4 cbz      x0, #0x2aa0
+000025d8 bl       #0x25d8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000025dc cbnz     w0, #0x33b0
+000025e0 bl       #0x25e0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000025e4 cmn      w0, #1
+000025e8 b.eq     #0x25f4
+000025ec bl       #0x25ec ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+000025f0 cbnz     w0, #0x2ed4
+000025f4 ldr      x0, [x23, #8]
+000025f8 cbz      x0, #0x2d30
+000025fc bl       #0x25fc ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002600 cbnz     w0, #0x31d0
+00002604 bl       #0x2604 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002608 cmn      w0, #1
+0000260c b.eq     #0x27e0
+00002610 bl       #0x2610 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002614 cbz      w0, #0x27e0
+00002618 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1d70
+0000261c mov      w25, #0
+00002620 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1d70
+00002624 bl       #0x2624 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002628 b        #0x2738
+0000262c cmp      w20, #0x601
+00002630 b.eq     #0x2b9c
+00002634 b.ls     #0x2798
+00002638 cmp      w20, #0x700
+0000263c b.ne     #0x26ac
+00002640 mov      x1, x23
+00002644 mov      x0, x21
+00002648 bl       #0x2648 ; RELOC 283 sdp_frc_dev_set_frc_boundary_dimension + 0x0
+0000264c mov      w25, w0
+00002650 b        #0x2738
+00002654 cmp      w20, #0x100
+00002658 b.eq     #0x29b4
+0000265c b.ls     #0x26d0
+00002660 cmp      w20, #0x200
+00002664 b.ne     #0x26ac
+00002668 bl       #0x2668 ; RELOC 283 get_ident_info + 0x0
+0000266c ldr      x0, [x0, #0x28]
+00002670 blr      x0
+00002674 tst      w0, #0xff
+00002678 b.eq     #0x2a74
+0000267c mov      w0, #3
+00002680 mov      w25, #0
+00002684 str      w0, [x23]
+00002688 b        #0x2738
+0000268c mov      x0, #1
+00002690 mov      x1, #0x200
+00002694 movk     x1, #0x8036, lsl #16
+00002698 lsl      x0, x0, x20
+0000269c tst      x0, x1
+000026a0 b.ne     #0x2700
+000026a4 tbnz     w0, #0x13, #0x2c64
+000026a8 tbnz     w0, #0x10, #0x2c78
+000026ac bl       #0x26ac ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000026b0 cbnz     w0, #0x33c0
+000026b4 bl       #0x26b4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000026b8 cmn      w0, #1
+000026bc b.eq     #0x26c8
+000026c0 bl       #0x26c0 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+000026c4 cbnz     w0, #0x2b34
+000026c8 mov      w25, #-0x16
+000026cc b        #0x29fc
+000026d0 cmp      w20, #0xa0
+000026d4 b.ne     #0x26e8
+000026d8 ldrh     w0, [x23]
+000026dc cbz      w0, #0x2ab8
+000026e0 mov      w25, #-0x16
+000026e4 b        #0x2738
+000026e8 b.hi     #0x26ac
+000026ec cmp      w20, #0x92
+000026f0 b.eq     #0x2700
+000026f4 b.hi     #0x26ac
+000026f8 cmp      w20, #0x90
+000026fc b.ne     #0x2720
+00002700 mov      w2, w24
+00002704 mov      x1, x23
+00002708 mov      w0, w20
+0000270c bl       #0x270c ; RELOC 283 tcon_mediation_proc + 0x0
+00002710 cmp      w20, #0x91
+00002714 mov      w25, w0
+00002718 b.eq     #0x23f8
+0000271c b        #0x2738
+00002720 cmp      w20, #0x91
+00002724 b.ne     #0x26ac
+00002728 b        #0x23b8
+0000272c cmp      w20, #1
+00002730 mov      w25, #-0x16
+00002734 b.ne     #0x26ac
+00002738 bl       #0x2738 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000273c cmp      w0, #3
+00002740 b.hi     #0x30f4
+00002744 bl       #0x2744 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002748 add      w0, w0, #1
+0000274c cmp      w0, #3
+00002750 b.hi     #0x2414
+00002754 mov      x0, x19
+00002758 bl       #0x2758 ; RELOC 283 mutex_unlock + 0x0
+0000275c tbz      w25, #0x1f, #0x2344
+00002760 bl       #0x2760 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002764 cbnz     w0, #0x3260
+00002768 bl       #0x2768 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000276c cmn      w0, #1
+00002770 b.eq     #0x2344
+00002774 bl       #0x2774 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002778 cbz      w0, #0x2344
+0000277c mrs      x0, sp_el0
+00002780 ldr      w1, [x0, #0x440]
+00002784 mov      w2, w25
+00002788 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x2050
+0000278c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2050
+00002790 bl       #0x2790 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002794 b        #0x2344
+00002798 cmp      w20, #0x400
+0000279c b.eq     #0x28e8
+000027a0 cmp      w20, #0x600
+000027a4 b.ne     #0x26ac
+000027a8 mov      x1, x23
+000027ac mov      x0, x21
+000027b0 bl       #0x27b0 ; RELOC 283 sdp_frc_dev_set_pixel_shift + 0x0
+000027b4 mov      w25, w0
+000027b8 b        #0x2738
+000027bc cmp      w20, #0x901
+000027c0 b.eq     #0x28fc
+000027c4 cmp      w20, #0xa00
+000027c8 b.ne     #0x26ac
+000027cc bl       #0x27cc ; RELOC 283 get_ident_info + 0x0
+000027d0 ldr      x0, [x0, #0x18]
+000027d4 blr      x0
+000027d8 tst      w0, #0xff
+000027dc b.ne     #0x2b18
+000027e0 mov      w25, #0
+000027e4 b        #0x2738
+000027e8 bl       #0x27e8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000027ec cbnz     w0, #0x33dc
+000027f0 bl       #0x27f0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000027f4 cmn      w0, #1
+000027f8 b.eq     #0x2804
+000027fc bl       #0x27fc ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002800 cbnz     w0, #0x2a50
+00002804 bl       #0x2804 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002808 cbnz     w0, #0x3440
+0000280c bl       #0x280c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002810 cmn      w0, #1
+00002814 b.eq     #0x2374
+00002818 bl       #0x2818 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+0000281c cbz      w0, #0x2374
+00002820 adrp     x2, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002824 add      x2, x2, #0 ; RELOC 277 <.rodata> + 0x0
+00002828 mrs      x0, sp_el0
+0000282c ldr      w1, [x0, #0x440]
+00002830 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1968
+00002834 ldr      w2, [x2, #0x80]
+00002838 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1968
+0000283c bl       #0x283c ; RELOC 283 sdp_frc_log_internal + 0x0
+00002840 b        #0x2374
+00002844 bl       #0x2844 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002848 cbz      w0, #0x24c0
+0000284c mrs      x0, sp_el0
+00002850 ldr      w1, [x0, #0x440]
+00002854 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x16c0
+00002858 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x16c0
+0000285c bl       #0x285c ; RELOC 283 sdp_frc_log_internal + 0x0
+00002860 b        #0x24c0
+00002864 bl       #0x2864 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002868 cbz      w0, #0x256c
+0000286c mrs      x0, sp_el0
+00002870 ldr      w1, [x0, #0x440]
+00002874 mov      w2, w20
+00002878 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1bb0
+0000287c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1bb0
+00002880 bl       #0x2880 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002884 b        #0x256c
+00002888 ldr      w0, [x21, #0x354]
+0000288c cmp      w0, #0xe2
+00002890 b.ne     #0x2ccc
+00002894 cmp      w20, #1
+00002898 b.eq     #0x24fc
+0000289c cmp      w20, #0x11
+000028a0 b.ne     #0x2ccc
+000028a4 bl       #0x28a4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000028a8 cmp      w0, #3
+000028ac b.hi     #0x3340
+000028b0 bl       #0x28b0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000028b4 add      w0, w0, #1
+000028b8 cmp      w0, #3
+000028bc b.ls     #0x2550
+000028c0 bl       #0x28c0 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+000028c4 cbz      w0, #0x2550
+000028c8 adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+000028cc add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+000028d0 add      x1, x1, #0x88
+000028d4 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1aa8
+000028d8 mov      w2, #0x11
+000028dc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1aa8
+000028e0 bl       #0x28e0 ; RELOC 283 sdp_frc_log_internal + 0x0
+000028e4 b        #0x2550
+000028e8 mov      x1, x23
+000028ec mov      x0, x21
+000028f0 bl       #0x28f0 ; RELOC 283 sdp_frc_dev_cust_get_pixel_measure + 0x0
+000028f4 mov      w25, w0
+000028f8 b        #0x2738
+000028fc ldr      w1, [x23]
+00002900 mov      x0, x21
+00002904 bl       #0x2904 ; RELOC 283 sdp_frc_proc_set_bypass_and_noreturn + 0x0
+00002908 mov      w25, w0
+0000290c tbnz     w0, #0x1f, #0x2738
+00002910 mov      w0, #1
+00002914 str      w0, [x21, #0x378]
+00002918 b        #0x2738
+0000291c ldr      w0, [x23]
+00002920 cmp      w24, #0x10
+00002924 str      w0, [sp, #0x58]
+00002928 ldr      w0, [x23, #0xc]
+0000292c str      w0, [sp, #0x64]
+00002930 ldr      w0, [x23, #8]
+00002934 str      w0, [sp, #0x60]
+00002938 ldr      w0, [x23, #4]
+0000293c str      w0, [sp, #0x5c]
+00002940 b.ne     #0x2d74
+00002944 ldr      w0, [sp, #0x58]
+00002948 cbnz     w0, #0x2e88
+0000294c ldr      w0, [sp, #0x64]
+00002950 cmp      w0, #1
+00002954 b.eq     #0x2ebc
+00002958 add      x22, x21, #0x430
+0000295c mov      x0, x22
+00002960 bl       #0x2960 ; RELOC 283 _raw_spin_lock_irqsave + 0x0
+00002964 add      x1, sp, #0x58
+00002968 mov      x20, x0
+0000296c mov      x0, x21
+00002970 bl       #0x2970 ; RELOC 283 sdp_frc_proc_reg_access + 0x0
+00002974 mov      x1, x20
+00002978 mov      w25, w0
+0000297c mov      x0, x22
+00002980 bl       #0x2980 ; RELOC 283 _raw_spin_unlock_irqrestore + 0x0
+00002984 tbnz     w25, #0x1f, #0x2f5c
+00002988 ldr      w0, [sp, #0x64]
+0000298c cmp      w0, #1
+00002990 b.eq     #0x3074
+00002994 ldr      w0, [sp, #0x64]
+00002998 cbnz     w0, #0x2738
+0000299c ldr      w0, [sp, #0x5c]
+000029a0 str      w0, [x23, #4]
+000029a4 ldr      w0, [sp, #0x60]
+000029a8 ldr      w1, [sp, #0x5c]
+000029ac bl       #0x29ac ; RELOC 283 sdp_frc_ext_access_mirror_log_for_read + 0x0
+000029b0 b        #0x2738
+000029b4 ldr      w1, [x23]
+000029b8 cmp      w1, #1
+000029bc b.eq     #0x2d64
+000029c0 cmp      w1, #2
+000029c4 b.ne     #0x27e0
+000029c8 mov      x0, x21
+000029cc mov      w1, #0
+000029d0 mov      w25, #0
+000029d4 bl       #0x29d4 ; RELOC 283 sdp_frc_video_mute + 0x0
+000029d8 b        #0x2738
+000029dc bl       #0x29dc ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000029e0 cbnz     w0, #0x3400
+000029e4 bl       #0x29e4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+000029e8 cmn      w0, #1
+000029ec b.eq     #0x29f8
+000029f0 bl       #0x29f0 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+000029f4 cbnz     w0, #0x2a84
+000029f8 mov      w25, #-0x10
+000029fc bl       #0x29fc ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002a00 cmp      w0, #1
+00002a04 b.hi     #0x3294
+00002a08 bl       #0x2a08 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002a0c add      w0, w0, #1
+00002a10 cmp      w0, #1
+00002a14 b.hi     #0x2b54
+00002a18 mov      x0, x19
+00002a1c bl       #0x2a1c ; RELOC 283 mutex_unlock + 0x0
+00002a20 b        #0x2760
+00002a24 mrs      x0, sp_el0
+00002a28 ldr      w2, [x0, #0x440]
+00002a2c adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002a30 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00002a34 mov      w3, w20
+00002a38 add      x1, x1, #0x70
+00002a3c mov      w25, #-0x16
+00002a40 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1788
+00002a44 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1788
+00002a48 bl       #0x2a48 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002a4c b        #0x2344
+00002a50 mrs      x0, sp_el0
+00002a54 ldr      w1, [x0, #0x440]
+00002a58 mov      w4, w24
+00002a5c mov      x3, x23
+00002a60 mov      w2, w20
+00002a64 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x18e8
+00002a68 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x18e8
+00002a6c bl       #0x2a6c ; RELOC 283 sdp_frc_log_internal + 0x0
+00002a70 b        #0x2804
+00002a74 mov      w0, #2
+00002a78 mov      w25, #0
+00002a7c str      w0, [x23]
+00002a80 b        #0x2738
+00002a84 mrs      x0, sp_el0
+00002a88 ldr      w1, [x0, #0x440]
+00002a8c mov      w25, #-0x10
+00002a90 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1c00
+00002a94 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1c00
+00002a98 bl       #0x2a98 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002a9c b        #0x29fc
+00002aa0 ldr      x0, [x21, #0x168]
+00002aa4 cbnz     x0, #0x25d8
+00002aa8 ldr      x0, [x21, #0x138]
+00002aac str      x0, [x21, #0x168]
+00002ab0 str      x0, [x23]
+00002ab4 b        #0x25f4
+00002ab8 ldr      w0, [x21, #0x38c]
+00002abc strh     w0, [x23, #2]
+00002ac0 ldr      w0, [x21, #0x38c]
+00002ac4 str      w0, [x23]
+00002ac8 bl       #0x2ac8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002acc cbnz     w0, #0x3418
+00002ad0 bl       #0x2ad0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002ad4 cmn      w0, #1
+00002ad8 b.eq     #0x2ae4
+00002adc bl       #0x2adc ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002ae0 cbnz     w0, #0x3098
+00002ae4 bl       #0x2ae4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002ae8 cbnz     w0, #0x342c
+00002aec bl       #0x2aec ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002af0 cmn      w0, #1
+00002af4 b.eq     #0x27e0
+00002af8 bl       #0x2af8 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002afc cbz      w0, #0x27e0
+00002b00 ldr      w1, [x23]
+00002b04 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1cd0
+00002b08 mov      w25, #0
+00002b0c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1cd0
+00002b10 bl       #0x2b10 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002b14 b        #0x2738
+00002b18 ldr      w2, [x23]
+00002b1c mov      w1, #0x4008
+00002b20 mov      x0, x21
+00002b24 movk     w1, #3, lsl #16
+00002b28 mov      w25, #0
+00002b2c bl       #0x2b2c ; RELOC 283 wrap_write + 0x0
+00002b30 b        #0x2738
+00002b34 mrs      x0, sp_el0
+00002b38 ldr      w1, [x0, #0x440]
+00002b3c mov      w2, w20
+00002b40 mov      w25, #-0x16
+00002b44 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1fd0
+00002b48 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1fd0
+00002b4c bl       #0x2b4c ; RELOC 283 sdp_frc_log_internal + 0x0
+00002b50 b        #0x29fc
+00002b54 bl       #0x2b54 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002b58 cbz      w0, #0x2a18
+00002b5c mrs      x0, sp_el0
+00002b60 ldr      w1, [x0, #0x440]
+00002b64 mov      w2, w25
+00002b68 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x2050
+00002b6c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2050
+00002b70 bl       #0x2b70 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002b74 b        #0x2a18
+00002b78 bl       #0x2b78 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002b7c cbz      w0, #0x23b8
+00002b80 mrs      x0, sp_el0
+00002b84 ldr      w1, [x0, #0x440]
+00002b88 mov      w2, #0x91
+00002b8c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1b68
+00002b90 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1b68
+00002b94 bl       #0x2b94 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002b98 b        #0x23b8
+00002b9c mov      x1, x23
+00002ba0 mov      x0, x21
+00002ba4 bl       #0x2ba4 ; RELOC 283 sdp_frc_dev_set_pixel_shift_type + 0x0
+00002ba8 mov      w25, w0
+00002bac b        #0x2738
+00002bb0 cmp      x23, #2
+00002bb4 b.ne     #0x27e0
+00002bb8 mov      w0, #0x99
+00002bbc str      w0, [x21, #0x2c4]
+00002bc0 bl       #0x2bc0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002bc4 cbnz     w0, #0x3360
+00002bc8 bl       #0x2bc8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002bcc cmn      w0, #1
+00002bd0 b.eq     #0x27e0
+00002bd4 bl       #0x2bd4 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002bd8 cbz      w0, #0x27e0
+00002bdc adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1c60
+00002be0 mov      x1, #2
+00002be4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1c60
+00002be8 mov      w25, #0
+00002bec bl       #0x2bec ; RELOC 283 sdp_frc_log_internal + 0x0
+00002bf0 b        #0x2738
+00002bf4 ldr      w1, [x23, #4]
+00002bf8 cbz      w1, #0x2dac
+00002bfc cmp      w1, #1
+00002c00 b.eq     #0x2ee4
+00002c04 ldrsw    x0, [x23]
+00002c08 add      x2, x0, x0, lsl #1
+00002c0c add      x2, x21, x2, lsl #2
+00002c10 ldr      w2, [x2, #0xf4]
+00002c14 cmp      w2, #1
+00002c18 b.eq     #0x3020
+00002c1c add      x0, x0, x0, lsl #1
+00002c20 add      x0, x21, x0, lsl #2
+00002c24 str      w1, [x0, #0xf4]
+00002c28 ldr      w0, [x21, #0xf4]
+00002c2c ldr      w2, [x21, #0x100]
+00002c30 ldr      w1, [x21, #0x10c]
+00002c34 orr      w0, w0, w2
+00002c38 ldr      w25, [x21, #0xec]
+00002c3c orr      w0, w0, w1
+00002c40 cbnz     w0, #0x2d4c
+00002c44 cmp      w25, #1
+00002c48 b.ne     #0x27e0
+00002c4c mov      x0, x21
+00002c50 mov      w1, #0
+00002c54 mov      w25, #0
+00002c58 bl       #0x2c58 ; RELOC 283 sdp_frc_pretest_irq_ctrl + 0x0
+00002c5c str      wzr, [x21, #0xec]
+00002c60 b        #0x2738
+00002c64 mov      x1, x23
+00002c68 mov      x0, x21
+00002c6c bl       #0x2c6c ; RELOC 283 sdp_frc_MGA_set + 0x0
+00002c70 mov      w25, w0
+00002c74 b        #0x2738
+00002c78 mov      x1, x23
+00002c7c mov      x0, x21
+00002c80 bl       #0x2c80 ; RELOC 283 sdp_frc_proc_ewcmd + 0x0
+00002c84 mov      w25, w0
+00002c88 mov      x1, x23
+00002c8c mov      w2, w24
+00002c90 mov      w0, #0x10
+00002c94 bl       #0x2c94 ; RELOC 283 tcon_mediation_proc + 0x0
+00002c98 lsr      w1, w25, #0x1f
+00002c9c lsr      w0, w0, #0x1f
+00002ca0 cmp      w1, #0
+00002ca4 ccmp     w0, #0, #0, eq
+00002ca8 b.eq     #0x27e0
+00002cac cmp      w1, #0
+00002cb0 ccmp     w0, #0, #4, ne
+00002cb4 b.ne     #0x26e0
+00002cb8 cmp      w25, #0
+00002cbc ccmp     w0, #0, #4, ge
+00002cc0 b.ne     #0x2738
+00002cc4 mov      w25, #0
+00002cc8 b        #0x2738
+00002ccc bl       #0x2ccc ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002cd0 cmp      w0, #3
+00002cd4 b.hi     #0x31b4
+00002cd8 bl       #0x2cd8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002cdc add      w0, w0, #1
+00002ce0 cmp      w0, #3
+00002ce4 b.hi     #0x2e64
+00002ce8 bl       #0x2ce8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002cec cbnz     w0, #0x31e0
+00002cf0 bl       #0x2cf0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002cf4 cmn      w0, #1
+00002cf8 b.eq     #0x26c8
+00002cfc bl       #0x2cfc ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002d00 cbz      w0, #0x26c8
+00002d04 mrs      x0, sp_el0
+00002d08 ldr      w2, [x0, #0x440]
+00002d0c adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002d10 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00002d14 mov      w3, w20
+00002d18 add      x1, x1, #0x70
+00002d1c mov      w25, #-0x16
+00002d20 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1788
+00002d24 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1788
+00002d28 bl       #0x2d28 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002d2c b        #0x29fc
+00002d30 ldr      x0, [x21, #0x170]
+00002d34 cbnz     x0, #0x25fc
+00002d38 ldr      x0, [x21, #0x140]
+00002d3c str      x0, [x21, #0x170]
+00002d40 mov      w25, #0
+00002d44 str      x0, [x23, #8]
+00002d48 b        #0x2738
+00002d4c cbnz     w25, #0x27e0
+00002d50 mov      w1, #1
+00002d54 str      w1, [x21, #0xec]
+00002d58 mov      x0, x21
+00002d5c bl       #0x2d5c ; RELOC 283 sdp_frc_pretest_irq_ctrl + 0x0
+00002d60 b        #0x2738
+00002d64 mov      x0, x21
+00002d68 mov      w25, #0
+00002d6c bl       #0x2d6c ; RELOC 283 sdp_frc_video_mute + 0x0
+00002d70 b        #0x2738
+00002d74 bl       #0x2d74 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002d78 cbnz     w0, #0x314c
+00002d7c bl       #0x2d7c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002d80 cmn      w0, #1
+00002d84 b.eq     #0x26c8
+00002d88 bl       #0x2d88 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002d8c cbz      w0, #0x26c8
+00002d90 mrs      x0, sp_el0
+00002d94 ldr      w1, [x0, #0x440]
+00002d98 mov      w25, #-0x16
+00002d9c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1dd8
+00002da0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1dd8
+00002da4 bl       #0x2da4 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002da8 b        #0x29fc
+00002dac bl       #0x2dac ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002db0 cbnz     w0, #0x3220
+00002db4 bl       #0x2db4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002db8 cmn      w0, #1
+00002dbc b.eq     #0x2dc8
+00002dc0 bl       #0x2dc0 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002dc4 cbnz     w0, #0x3084
+00002dc8 ldrsw    x0, [x23]
+00002dcc ldr      w1, [x23, #4]
+00002dd0 add      x2, x0, x0, lsl #1
+00002dd4 add      x2, x21, x2, lsl #2
+00002dd8 ldr      w2, [x2, #0xf8]
+00002ddc str      w2, [x23, #8]
+00002de0 b        #0x2c1c
+00002de4 bl       #0x2de4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002de8 cbnz     w0, #0x319c
+00002dec bl       #0x2dec ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002df0 cmn      w0, #1
+00002df4 b.eq     #0x2e00
+00002df8 bl       #0x2df8 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002dfc cbnz     w0, #0x2e48
+00002e00 mov      w25, #-0x10
+00002e04 bl       #0x2e04 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002e08 cbnz     w0, #0x32fc
+00002e0c bl       #0x2e0c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002e10 cmn      w0, #1
+00002e14 b.eq     #0x2344
+00002e18 bl       #0x2e18 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002e1c cbz      w0, #0x2344
+00002e20 mrs      x0, sp_el0
+00002e24 ldr      w2, [x0, #0x440]
+00002e28 adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002e2c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00002e30 mov      w3, w20
+00002e34 add      x1, x1, #0x70
+00002e38 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1788
+00002e3c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1788
+00002e40 bl       #0x2e40 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002e44 b        #0x2344
+00002e48 mrs      x0, sp_el0
+00002e4c ldr      w1, [x0, #0x440]
+00002e50 mov      w25, #-0x10
+00002e54 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1668
+00002e58 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1668
+00002e5c bl       #0x2e5c ; RELOC 283 sdp_frc_log_internal + 0x0
+00002e60 b        #0x2e04
+00002e64 bl       #0x2e64 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002e68 cbz      w0, #0x2ce8
+00002e6c adrp     x1, #0x2000 ; RELOC 275 <.rodata> + 0x0
+00002e70 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00002e74 add      x1, x1, #0x88
+00002e78 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1b10
+00002e7c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1b10
+00002e80 bl       #0x2e80 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002e84 b        #0x2ce8
+00002e88 mov      w2, w24
+00002e8c mov      x1, x23
+00002e90 mov      w0, w20
+00002e94 bl       #0x2e94 ; RELOC 283 tcon_mediation_proc + 0x0
+00002e98 mov      w25, w0
+00002e9c b        #0x2738
+00002ea0 mrs      x0, sp_el0
+00002ea4 ldr      w1, [x0, #0x440]
+00002ea8 mov      w2, w20
+00002eac adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1ea0
+00002eb0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1ea0
+00002eb4 bl       #0x2eb4 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002eb8 b        #0x23d8
+00002ebc ldr      w0, [sp, #0x60]
+00002ec0 bl       #0x2ec0 ; RELOC 283 sdp_frc_acl_IS_ACCESSIBLE + 0x0
+00002ec4 tst      w0, #0xff
+00002ec8 b.ne     #0x2958
+00002ecc mov      w25, #-0x16
+00002ed0 b        #0x29fc
+00002ed4 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1d18
+00002ed8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1d18
+00002edc bl       #0x2edc ; RELOC 283 sdp_frc_log_internal + 0x0
+00002ee0 b        #0x25f4
+00002ee4 bl       #0x2ee4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002ee8 cbnz     w0, #0x32cc
+00002eec bl       #0x2eec ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002ef0 cmn      w0, #1
+00002ef4 b.eq     #0x2f00
+00002ef8 bl       #0x2ef8 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002efc cbnz     w0, #0x30ac
+00002f00 ldrsw    x0, [x23]
+00002f04 add      x0, x0, x0, lsl #1
+00002f08 add      x0, x21, x0, lsl #2
+00002f0c str      wzr, [x0, #0xf8]
+00002f10 ldrsw    x0, [x23]
+00002f14 ldr      w1, [x23, #4]
+00002f18 b        #0x2c1c
+00002f1c bl       #0x2f1c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002f20 cbnz     w0, #0x3374
+00002f24 bl       #0x2f24 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002f28 cmn      w0, #1
+00002f2c b.eq     #0x2f38
+00002f30 bl       #0x2f30 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002f34 cbnz     w0, #0x2f40
+00002f38 mov      w25, #-0x13
+00002f3c b        #0x2e04
+00002f40 mrs      x0, sp_el0
+00002f44 ldr      w1, [x0, #0x440]
+00002f48 mov      w25, #-0x13
+00002f4c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x15b8
+00002f50 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x15b8
+00002f54 bl       #0x2f54 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002f58 b        #0x2e04
+00002f5c bl       #0x2f5c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002f60 cbnz     w0, #0x32e0
+00002f64 bl       #0x2f64 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002f68 cmn      w0, #1
+00002f6c b.eq     #0x26e0
+00002f70 bl       #0x2f70 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002f74 cbz      w0, #0x26e0
+00002f78 mrs      x0, sp_el0
+00002f7c ldr      w2, [sp, #0x64]
+00002f80 mov      w25, #-0x16
+00002f84 ldr      w1, [x0, #0x440]
+00002f88 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1e48
+00002f8c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1e48
+00002f90 bl       #0x2f90 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002f94 b        #0x2738
+00002f98 bl       #0x2f98 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002f9c cbnz     w0, #0x3248
+00002fa0 bl       #0x2fa0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002fa4 cmn      w0, #1
+00002fa8 b.eq     #0x2324
+00002fac bl       #0x2fac ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002fb0 cbz      w0, #0x2324
+00002fb4 mrs      x0, sp_el0
+00002fb8 ldr      w1, [x0, #0x440]
+00002fbc adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1820
+00002fc0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1820
+00002fc4 bl       #0x2fc4 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002fc8 b        #0x2324
+00002fcc bl       #0x2fcc ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00002fd0 cbz      w0, #0x2324
+00002fd4 mov      w1, w20
+00002fd8 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1868
+00002fdc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1868
+00002fe0 bl       #0x2fe0 ; RELOC 283 sdp_frc_log_internal + 0x0
+00002fe4 b        #0x2324
+00002fe8 bl       #0x2fe8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002fec cbnz     w0, #0x3180
+00002ff0 bl       #0x2ff0 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00002ff4 cmn      w0, #1
+00002ff8 b.eq     #0x2ce8
+00002ffc bl       #0x2ffc ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00003000 cbz      w0, #0x2ce8
+00003004 adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+00003008 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+0000300c add      x1, x1, #0x88
+00003010 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x19c8
+00003014 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x19c8
+00003018 bl       #0x3018 ; RELOC 283 sdp_frc_log_internal + 0x0
+0000301c b        #0x2ce8
+00003020 mov      x1, #0xc
+00003024 madd     x0, x0, x1, x21
+00003028 ldr      w0, [x0, #0xf8]
+0000302c str      w0, [x23, #8]
+00003030 bl       #0x3030 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00003034 cbnz     w0, #0x338c
+00003038 bl       #0x3038 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+0000303c cmn      w0, #1
+00003040 b.eq     #0x27e0
+00003044 bl       #0x3044 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00003048 cbz      w0, #0x27e0
+0000304c ldr      w1, [x23]
+00003050 mov      x3, #0xc
+00003054 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1f78
+00003058 mov      w25, #0
+0000305c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1f78
+00003060 sxtw     x2, w1
+00003064 madd     x21, x2, x3, x21
+00003068 ldr      w2, [x21, #0xf8]
+0000306c bl       #0x306c ; RELOC 283 sdp_frc_log_internal + 0x0
+00003070 b        #0x2738
+00003074 ldr      w0, [sp, #0x60]
+00003078 ldr      w1, [sp, #0x5c]
+0000307c bl       #0x307c ; RELOC 283 sdp_frc_ext_access_mirror_log_for_write + 0x0
+00003080 b        #0x2738
+00003084 ldr      w1, [x23]
+00003088 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1ef0
+0000308c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1ef0
+00003090 bl       #0x3090 ; RELOC 283 sdp_frc_log_internal + 0x0
+00003094 b        #0x2dc8
+00003098 ldr      w1, [x21, #0x38c]
+0000309c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1ca0
+000030a0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1ca0
+000030a4 bl       #0x30a4 ; RELOC 283 sdp_frc_log_internal + 0x0
+000030a8 b        #0x2ae4
+000030ac ldr      w1, [x23]
+000030b0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1f30
+000030b4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1f30
+000030b8 bl       #0x30b8 ; RELOC 283 sdp_frc_log_internal + 0x0
+000030bc b        #0x2f00
+000030c0 mrs      x0, sp_el0
+000030c4 ldr      w1, [x0, #0x440]
+000030c8 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1698
+000030cc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1698
+000030d0 bl       #0x30d0 ; RELOC 283 printk + 0x0
+000030d4 b        #0x24b4
+000030d8 mrs      x0, sp_el0
+000030dc ldr      w1, [x0, #0x440]
+000030e0 mov      w2, w20
+000030e4 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1b88
+000030e8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1b88
+000030ec bl       #0x30ec ; RELOC 283 printk + 0x0
+000030f0 b        #0x255c
+000030f4 mrs      x0, sp_el0
+000030f8 ldr      w1, [x0, #0x440]
+000030fc adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x2000
+00003100 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2000
+00003104 bl       #0x3104 ; RELOC 283 printk + 0x0
+00003108 b        #0x2744
+0000310c mrs      x0, sp_el0
+00003110 ldr      w1, [x0, #0x440]
+00003114 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x16e0
+00003118 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x16e0
+0000311c bl       #0x311c ; RELOC 283 printk + 0x0
+00003120 b        #0x24d0
+00003124 mrs      x0, sp_el0
+00003128 ldr      w2, [x0, #0x440]
+0000312c adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+00003130 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00003134 mov      w3, w20
+00003138 add      x1, x1, #0x70
+0000313c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1760
+00003140 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1760
+00003144 bl       #0x3144 ; RELOC 283 printk + 0x0
+00003148 b        #0x232c
+0000314c mrs      x0, sp_el0
+00003150 ldr      w1, [x0, #0x440]
+00003154 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1d98
+00003158 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1d98
+0000315c bl       #0x315c ; RELOC 283 printk + 0x0
+00003160 b        #0x2d7c
+00003164 mrs      x0, sp_el0
+00003168 ldr      w1, [x0, #0x440]
+0000316c mov      w2, w20
+00003170 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1b40
+00003174 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1b40
+00003178 bl       #0x3178 ; RELOC 283 printk + 0x0
+0000317c b        #0x23a8
+00003180 adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+00003184 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00003188 add      x1, x1, #0x88
+0000318c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1990
+00003190 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1990
+00003194 bl       #0x3194 ; RELOC 283 printk + 0x0
+00003198 b        #0x2ff0
+0000319c mrs      x0, sp_el0
+000031a0 ldr      w1, [x0, #0x440]
+000031a4 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1630
+000031a8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1630
+000031ac bl       #0x31ac ; RELOC 283 printk + 0x0
+000031b0 b        #0x2dec
+000031b4 adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+000031b8 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+000031bc add      x1, x1, #0x88
+000031c0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1ae0
+000031c4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1ae0
+000031c8 bl       #0x31c8 ; RELOC 283 printk + 0x0
+000031cc b        #0x2cd8
+000031d0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1d40
+000031d4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1d40
+000031d8 bl       #0x31d8 ; RELOC 283 printk + 0x0
+000031dc b        #0x2604
+000031e0 mrs      x0, sp_el0
+000031e4 ldr      w2, [x0, #0x440]
+000031e8 adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+000031ec add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+000031f0 mov      w3, w20
+000031f4 add      x1, x1, #0x70
+000031f8 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1760
+000031fc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1760
+00003200 bl       #0x3200 ; RELOC 283 printk + 0x0
+00003204 b        #0x2cf0
+00003208 mrs      x0, sp_el0
+0000320c ldr      w1, [x0, #0x440]
+00003210 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x15e0
+00003214 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x15e0
+00003218 bl       #0x3218 ; RELOC 283 printk + 0x0
+0000321c b        #0x2480
+00003220 ldr      w1, [x23]
+00003224 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1ed0
+00003228 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1ed0
+0000322c bl       #0x322c ; RELOC 283 printk + 0x0
+00003230 b        #0x2db4
+00003234 mov      w1, w20
+00003238 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1840
+0000323c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1840
+00003240 bl       #0x3240 ; RELOC 283 printk + 0x0
+00003244 b        #0x2314
+00003248 mrs      x0, sp_el0
+0000324c ldr      w1, [x0, #0x440]
+00003250 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1800
+00003254 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1800
+00003258 bl       #0x3258 ; RELOC 283 printk + 0x0
+0000325c b        #0x2fa0
+00003260 mrs      x0, sp_el0
+00003264 ldr      w1, [x0, #0x440]
+00003268 mov      w2, w25
+0000326c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x2038
+00003270 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2038
+00003274 bl       #0x3274 ; RELOC 283 printk + 0x0
+00003278 b        #0x2768
+0000327c mrs      x0, sp_el0
+00003280 ldr      w1, [x0, #0x440]
+00003284 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x2000
+00003288 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2000
+0000328c bl       #0x328c ; RELOC 283 printk + 0x0
+00003290 b        #0x2404
+00003294 mrs      x0, sp_el0
+00003298 ldr      w1, [x0, #0x440]
+0000329c mov      w2, w25
+000032a0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x2038
+000032a4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x2038
+000032a8 bl       #0x32a8 ; RELOC 283 printk + 0x0
+000032ac b        #0x2a08
+000032b0 mrs      x0, sp_el0
+000032b4 ldr      w1, [x0, #0x440]
+000032b8 mov      w2, w20
+000032bc adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x17b0
+000032c0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x17b0
+000032c4 bl       #0x32c4 ; RELOC 283 printk + 0x0
+000032c8 b        #0x2448
+000032cc ldr      w1, [x23]
+000032d0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1f10
+000032d4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1f10
+000032d8 bl       #0x32d8 ; RELOC 283 printk + 0x0
+000032dc b        #0x2eec
+000032e0 mrs      x0, sp_el0
+000032e4 ldr      w2, [sp, #0x64]
+000032e8 ldr      w1, [x0, #0x440]
+000032ec adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1e18
+000032f0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1e18
+000032f4 bl       #0x32f4 ; RELOC 283 printk + 0x0
+000032f8 b        #0x2f64
+000032fc mrs      x0, sp_el0
+00003300 ldr      w2, [x0, #0x440]
+00003304 adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+00003308 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+0000330c mov      w3, w20
+00003310 add      x1, x1, #0x70
+00003314 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1760
+00003318 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1760
+0000331c bl       #0x331c ; RELOC 283 printk + 0x0
+00003320 b        #0x2e0c
+00003324 mrs      x0, sp_el0
+00003328 ldr      w1, [x0, #0x440]
+0000332c mov      w2, w20
+00003330 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1e70
+00003334 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1e70
+00003338 bl       #0x3338 ; RELOC 283 printk + 0x0
+0000333c b        #0x23c4
+00003340 adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+00003344 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00003348 add      x1, x1, #0x88
+0000334c mov      w2, w20
+00003350 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1a70
+00003354 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1a70
+00003358 bl       #0x3358 ; RELOC 283 printk + 0x0
+0000335c b        #0x28b0
+00003360 mov      x1, x23
+00003364 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1c30
+00003368 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1c30
+0000336c bl       #0x336c ; RELOC 283 printk + 0x0
+00003370 b        #0x2bc8
+00003374 mrs      x0, sp_el0
+00003378 ldr      w1, [x0, #0x440]
+0000337c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1588
+00003380 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1588
+00003384 bl       #0x3384 ; RELOC 283 printk + 0x0
+00003388 b        #0x2f24
+0000338c ldr      w1, [x23]
+00003390 mov      x3, #0xc
+00003394 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1f50
+00003398 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1f50
+0000339c sxtw     x2, w1
+000033a0 madd     x2, x2, x3, x21
+000033a4 ldr      w2, [x2, #0xf8]
+000033a8 bl       #0x33a8 ; RELOC 283 printk + 0x0
+000033ac b        #0x3038
+000033b0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1ce8
+000033b4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1ce8
+000033b8 bl       #0x33b8 ; RELOC 283 printk + 0x0
+000033bc b        #0x25e0
+000033c0 mrs      x0, sp_el0
+000033c4 ldr      w1, [x0, #0x440]
+000033c8 mov      w2, w20
+000033cc adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1fa0
+000033d0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1fa0
+000033d4 bl       #0x33d4 ; RELOC 283 printk + 0x0
+000033d8 b        #0x26b4
+000033dc mrs      x0, sp_el0
+000033e0 ldr      w1, [x0, #0x440]
+000033e4 mov      w4, w24
+000033e8 mov      x3, x23
+000033ec mov      w2, w20
+000033f0 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1890
+000033f4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1890
+000033f8 bl       #0x33f8 ; RELOC 283 printk + 0x0
+000033fc b        #0x27f0
+00003400 mrs      x0, sp_el0
+00003404 ldr      w1, [x0, #0x440]
+00003408 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1bd0
+0000340c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1bd0
+00003410 bl       #0x3410 ; RELOC 283 printk + 0x0
+00003414 b        #0x29e4
+00003418 ldr      w1, [x21, #0x38c]
+0000341c adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1c88
+00003420 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1c88
+00003424 bl       #0x3424 ; RELOC 283 printk + 0x0
+00003428 b        #0x2ad0
+0000342c ldr      w1, [x23]
+00003430 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1cb8
+00003434 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1cb8
+00003438 bl       #0x3438 ; RELOC 283 printk + 0x0
+0000343c b        #0x2aec
+00003440 adrp     x2, #0x3000 ; RELOC 275 <.rodata> + 0x0
+00003444 add      x2, x2, #0 ; RELOC 277 <.rodata> + 0x0
+00003448 mrs      x0, sp_el0
+0000344c ldr      w1, [x0, #0x440]
+00003450 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1940
+00003454 ldr      w2, [x2, #0x80]
+00003458 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1940
+0000345c bl       #0x345c ; RELOC 283 printk + 0x0
+00003460 b        #0x280c
+00003464 ldr      w2, [x23, #4]
+00003468 adrp     x1, #0x3000 ; RELOC 275 <.rodata> + 0x0
+0000346c add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x0
+00003470 adrp     x0, #0x3000 ; RELOC 275 <.rodata.str1.8> + 0x1a00
+00003474 add      x1, x1, #0x88
+00003478 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1a00
+0000347c lsr      w2, w2, #0x10
+00003480 bl       #0x3480 ; RELOC 283 printk + 0x0
+00003484 b        #0x2518
+
+### devio_access_disable .text+0x1e710 size 0x14
+0001e710 adrp     x1, #0x1e000 ; RELOC 275 <.data> + 0x21650
+0001e714 add      x0, x1, #0 ; RELOC 277 <.data> + 0x21650
+0001e718 add      x0, x0, #8
+0001e71c str      x0, [x1] ; RELOC 286 <.data> + 0x21650
+0001e720 ret      
+
+### sdp_frc_resource_init .text+0x1c30 size 0x41c
+00001c30 stp      x29, x30, [sp, #-0x70]!
+00001c34 mov      x29, sp
+00001c38 stp      x21, x22, [sp, #0x20]
+00001c3c mov      x22, x0
+00001c40 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1050
+00001c44 stp      x19, x20, [sp, #0x10]
+00001c48 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1050
+00001c4c stp      x23, x24, [sp, #0x30]
+00001c50 mov      x24, x1
+00001c54 stp      xzr, xzr, [x22, #0x168]
+00001c58 bl       #0x1c58 ; RELOC 283 of_machine_is_compatible + 0x0
+00001c5c str      w0, [x22, #0x188]
+00001c60 bl       #0x1c60 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001c64 cbnz     w0, #0x2018
+00001c68 bl       #0x1c68 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001c6c cmn      w0, #1
+00001c70 b.ne     #0x1eac
+00001c74 adrp     x1, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1080
+00001c78 mov      x0, #0
+00001c7c add      x1, x1, #0 ; RELOC 277 <.rodata.str1.8> + 0x1080
+00001c80 bl       #0x1c80 ; RELOC 283 of_find_node_by_name + 0x0
+00001c84 mov      x23, x0
+00001c88 cbz      x0, #0x1f1c
+00001c8c bl       #0x1c8c ; RELOC 283 sdp_frc_get_mmap_info + 0x0
+00001c90 mov      x19, x0
+00001c94 bl       #0x1c94 ; RELOC 283 sdp_frc_get_mmap_tab_size + 0x0
+00001c98 cbz      w0, #0x1dd8
+00001c9c sub      w21, w0, #1
+00001ca0 add      x0, x19, #0x30
+00001ca4 mov      w1, #0x28
+00001ca8 stp      x25, x26, [sp, #0x40]
+00001cac adrp     x25, #0x1000 ; RELOC 275 <.rodata> + 0x0
+00001cb0 add      x25, x25, #0 ; RELOC 277 <.rodata> + 0x0
+00001cb4 umaddl   x21, w21, w1, x0
+00001cb8 adrp     x26, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1190
+00001cbc add      x19, x19, #8
+00001cc0 add      x0, x26, #0 ; RELOC 277 <.rodata.str1.8> + 0x1190
+00001cc4 add      x25, x25, #0x48
+00001cc8 stp      x27, x28, [sp, #0x50]
+00001ccc str      x0, [sp, #0x68]
+00001cd0 b        #0x1d58
+00001cd4 ldp      w20, w0, [x19]
+00001cd8 ldr      x26, [x22]
+00001cdc orr      x20, x0, x20, lsl #32
+00001ce0 ldr      w27, [x19, #8]
+00001ce4 lsr      x0, x20, #0xc
+00001ce8 ldr      x28, [x26, #0x230]
+00001cec bl       #0x1cec ; RELOC 283 pfn_valid + 0x0
+00001cf0 cbnz     w0, #0x1ee4
+00001cf4 cbnz     x28, #0x1ef0
+00001cf8 mov      x0, x26
+00001cfc mov      x2, x27
+00001d00 mov      x1, x20
+00001d04 mov      x4, #0
+00001d08 mov      w3, #0
+00001d0c bl       #0x1d0c ; RELOC 283 dma_direct_map_resource + 0x0
+00001d10 stp      x0, x27, [x19, #0x10]
+00001d14 bl       #0x1d14 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001d18 cbnz     w0, #0x202c
+00001d1c bl       #0x1d1c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001d20 cmn      w0, #1
+00001d24 b.eq     #0x1d30
+00001d28 bl       #0x1d28 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00001d2c cbnz     w0, #0x1ec8
+00001d30 bl       #0x1d30 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001d34 cbnz     w0, #0x1fb0
+00001d38 bl       #0x1d38 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001d3c cmn      w0, #1
+00001d40 b.eq     #0x1d4c
+00001d44 bl       #0x1d44 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00001d48 cbnz     w0, #0x1dac
+00001d4c add      x19, x19, #0x28
+00001d50 cmp      x19, x21
+00001d54 b.eq     #0x1dd0
+00001d58 ldur     x1, [x19, #-8]
+00001d5c mov      x2, x19
+00001d60 mov      x0, x23
+00001d64 mov      x4, #0
+00001d68 mov      x3, #3
+00001d6c bl       #0x1d6c ; RELOC 283 of_property_read_variable_u32_array + 0x0
+00001d70 mov      w20, w0
+00001d74 tbz      w0, #0x1f, #0x1cd4
+00001d78 bl       #0x1d78 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001d7c cbnz     w0, #0x1fcc
+00001d80 bl       #0x1d80 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001d84 cmn      w0, #1
+00001d88 b.eq     #0x1d30
+00001d8c bl       #0x1d8c ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00001d90 cbz      w0, #0x1d30
+00001d94 ldur     x1, [x19, #-8]
+00001d98 mov      w2, w20
+00001d9c adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1120
+00001da0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1120
+00001da4 bl       #0x1da4 ; RELOC 283 sdp_frc_log_internal + 0x0
+00001da8 b        #0x1d30
+00001dac ldr      w4, [x19, #8]
+00001db0 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x11f0
+00001db4 ldp      w2, w3, [x19]
+00001db8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x11f0
+00001dbc ldur     x1, [x19, #-8]
+00001dc0 add      x19, x19, #0x28
+00001dc4 bl       #0x1dc4 ; RELOC 283 sdp_frc_log_internal + 0x0
+00001dc8 cmp      x19, x21
+00001dcc b.ne     #0x1d58
+00001dd0 ldp      x25, x26, [sp, #0x40]
+00001dd4 ldp      x27, x28, [sp, #0x50]
+00001dd8 bl       #0x1dd8 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001ddc cmp      w0, #1
+00001de0 b.hi     #0x2008
+00001de4 bl       #0x1de4 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001de8 add      w0, w0, #1
+00001dec cmp      w0, #1
+00001df0 b.hi     #0x1e94
+00001df4 bl       #0x1df4 ; RELOC 283 sdp_frc_get_mmap_info + 0x0
+00001df8 str      x0, [x22, #0x178]
+00001dfc adrp     x2, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1260
+00001e00 mov      x0, x24
+00001e04 add      x2, x2, #0 ; RELOC 277 <.rodata.str1.8> + 0x1260
+00001e08 mov      w1, #0x200
+00001e0c add      x24, x24, #0x10
+00001e10 bl       #0x1e10 ; RELOC 283 platform_get_resource_byname + 0x0
+00001e14 mov      x19, x0
+00001e18 cbz      x0, #0x1fe4
+00001e1c mov      x1, x0
+00001e20 ldr      x0, [x0]
+00001e24 str      w0, [x22, #0x160]
+00001e28 mov      x0, x24
+00001e2c bl       #0x1e2c ; RELOC 283 devm_ioremap_resource + 0x0
+00001e30 str      x0, [x22, #0x138]
+00001e34 cmn      x0, #1, lsl #12
+00001e38 b.hi     #0x1f64
+00001e3c bl       #0x1e3c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001e40 cbnz     w0, #0x1f94
+00001e44 bl       #0x1e44 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001e48 cmn      w0, #1
+00001e4c b.ne     #0x1e70
+00001e50 mov      w19, #0
+00001e54 str      xzr, [x22, #0x140]
+00001e58 mov      w0, w19
+00001e5c ldp      x19, x20, [sp, #0x10]
+00001e60 ldp      x21, x22, [sp, #0x20]
+00001e64 ldp      x23, x24, [sp, #0x30]
+00001e68 ldp      x29, x30, [sp], #0x70
+00001e6c ret      
+00001e70 bl       #0x1e70 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00001e74 cbz      w0, #0x1e50
+00001e78 ldr      w3, [x22, #0x160]
+00001e7c adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x12f8
+00001e80 ldr      x2, [x19]
+00001e84 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x12f8
+00001e88 ldr      x1, [x22, #0x138]
+00001e8c bl       #0x1e8c ; RELOC 283 sdp_frc_log_internal + 0x0
+00001e90 b        #0x1e50
+00001e94 bl       #0x1e94 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00001e98 cbz      w0, #0x1df4
+00001e9c adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1238
+00001ea0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1238
+00001ea4 bl       #0x1ea4 ; RELOC 283 sdp_frc_log_internal + 0x0
+00001ea8 b        #0x1df4
+00001eac bl       #0x1eac ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00001eb0 cbz      w0, #0x1c74
+00001eb4 ldr      w1, [x22, #0x188]
+00001eb8 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1070
+00001ebc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1070
+00001ec0 bl       #0x1ec0 ; RELOC 283 sdp_frc_log_internal + 0x0
+00001ec4 b        #0x1c74
+00001ec8 ldp      x4, x5, [x19, #0x10]
+00001ecc mov      x3, x20
+00001ed0 ldur     x2, [x19, #-8]
+00001ed4 mov      x1, x25
+00001ed8 ldr      x0, [sp, #0x68]
+00001edc bl       #0x1edc ; RELOC 283 sdp_frc_log_internal + 0x0
+00001ee0 b        #0x1d30
+00001ee4 brk      #0x800
+00001ee8 mov      x0, #-1
+00001eec b        #0x1d10
+00001ef0 ldr      x5, [x28, #0x40]
+00001ef4 cbz      x5, #0x1f14
+00001ef8 mov      x0, x26
+00001efc mov      x2, x27
+00001f00 mov      x1, x20
+00001f04 mov      x4, #0
+00001f08 mov      w3, #0
+00001f0c blr      x5
+00001f10 b        #0x1d10
+00001f14 mov      x0, #-1
+00001f18 b        #0x1d10
+00001f1c bl       #0x1f1c ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001f20 cbnz     w0, #0x1f54
+00001f24 bl       #0x1f24 ; RELOC 283 sdp_frc_dbg_get_lv + 0x0
+00001f28 cmn      w0, #1
+00001f2c b.eq     #0x1f38
+00001f30 bl       #0x1f30 ; RELOC 283 sdp_frc_dbg_get_dbg_int + 0x0
+00001f34 cbnz     w0, #0x1f40
+00001f38 mov      w19, #-0x13
+00001f3c b        #0x1e58
+00001f40 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x10c0
+00001f44 mov      w19, #-0x13
+00001f48 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x10c0
+00001f4c bl       #0x1f4c ; RELOC 283 sdp_frc_log_internal + 0x0
+00001f50 b        #0x1e58
+00001f54 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1090
+00001f58 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1090
+00001f5c bl       #0x1f5c ; RELOC 283 printk + 0x0
+00001f60 b        #0x1f24
+00001f64 adrp     x2, #0x1000 ; RELOC 275 <.rodata> + 0x0
+00001f68 add      x2, x2, #0 ; RELOC 277 <.rodata> + 0x0
+00001f6c mov      x0, x24
+00001f70 add      x2, x2, #0x48
+00001f74 adrp     x1, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1298
+00001f78 add      x1, x1, #0 ; RELOC 277 <.rodata.str1.8> + 0x1298
+00001f7c bl       #0x1f7c ; RELOC 283 _dev_err + 0x0
+00001f80 ldr      x1, [x22, #0x138]
+00001f84 mov      x0, x24
+00001f88 mov      w19, w1
+00001f8c bl       #0x1f8c ; RELOC 283 devm_iounmap + 0x0
+00001f90 b        #0x1e58
+00001f94 ldr      w3, [x22, #0x160]
+00001f98 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x12c8
+00001f9c ldr      x2, [x19]
+00001fa0 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x12c8
+00001fa4 ldr      x1, [x22, #0x138]
+00001fa8 bl       #0x1fa8 ; RELOC 283 printk + 0x0
+00001fac b        #0x1e44
+00001fb0 ldp      w2, w3, [x19]
+00001fb4 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x11d0
+00001fb8 ldr      w4, [x19, #8]
+00001fbc add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x11d0
+00001fc0 ldur     x1, [x19, #-8]
+00001fc4 bl       #0x1fc4 ; RELOC 283 printk + 0x0
+00001fc8 b        #0x1d38
+00001fcc ldur     x1, [x19, #-8]
+00001fd0 mov      w2, w20
+00001fd4 adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x10f0
+00001fd8 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x10f0
+00001fdc bl       #0x1fdc ; RELOC 283 printk + 0x0
+00001fe0 b        #0x1d80
+00001fe4 adrp     x2, #0x1000 ; RELOC 275 <.rodata> + 0x0
+00001fe8 add      x2, x2, #0 ; RELOC 277 <.rodata> + 0x0
+00001fec mov      x0, x24
+00001ff0 add      x2, x2, #0x48
+00001ff4 adrp     x1, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x1268
+00001ff8 mov      w19, #-0xc
+00001ffc add      x1, x1, #0 ; RELOC 277 <.rodata.str1.8> + 0x1268
+00002000 bl       #0x2000 ; RELOC 283 _dev_err + 0x0
+00002004 b        #0x1e58
+00002008 adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1210
+0000200c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1210
+00002010 bl       #0x2010 ; RELOC 283 printk + 0x0
+00002014 b        #0x1de4
+00002018 ldr      w1, [x22, #0x188]
+0000201c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1060
+00002020 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1060
+00002024 bl       #0x2024 ; RELOC 283 printk + 0x0
+00002028 b        #0x1c68
+0000202c ldp      x4, x5, [x19, #0x10]
+00002030 mov      x3, x20
+00002034 ldur     x2, [x19, #-8]
+00002038 mov      x1, x25
+0000203c adrp     x0, #0x2000 ; RELOC 275 <.rodata.str1.8> + 0x1150
+00002040 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x1150
+00002044 bl       #0x2044 ; RELOC 283 printk + 0x0
+00002048 b        #0x1d1c
+
+### devio_access_enable .text+0x1e728 size 0x14
+0001e728 adrp     x1, #0x1e000 ; RELOC 275 <.data> + 0x21650
+0001e72c add      x0, x1, #0 ; RELOC 277 <.data> + 0x21650
+0001e730 add      x0, x0, #0x28
+0001e734 str      x0, [x1] ; RELOC 286 <.data> + 0x21650
+0001e738 ret      
+
+### get_instance_of_abstract_display_device_frc .text+0x25c00 size 0x30
+00025c00 adrp     x0, #0x25000 ; RELOC 275 <.bss> + 0x8cf88
+00025c04 add      x0, x0, #0 ; RELOC 277 <.bss> + 0x8cf88
+00025c08 ldrb     w1, [x0, #0x10]
+00025c0c cbz      w1, #0x25c14
+00025c10 ret      
+00025c14 stp      x29, x30, [sp, #-0x10]!
+00025c18 mov      x29, sp
+00025c1c bl       #0x25c1c ; RELOC 283 display_device_frc_Init + 0x0
+00025c20 adrp     x0, #0x25000 ; RELOC 275 <.bss> + 0x8cf88
+00025c24 add      x0, x0, #0 ; RELOC 277 <.bss> + 0x8cf88
+00025c28 ldp      x29, x30, [sp], #0x10
+00025c2c ret      
+
+### get_instance_of_display_output_coordinator .text+0x22ea8 size 0x30
+00022ea8 adrp     x0, #0x22000 ; RELOC 275 <.bss> + 0x8cd08
+00022eac add      x0, x0, #0 ; RELOC 277 <.bss> + 0x8cd08
+00022eb0 ldrb     w1, [x0, #0x10]
+00022eb4 cbz      w1, #0x22ebc
+00022eb8 ret      
+00022ebc stp      x29, x30, [sp, #-0x10]!
+00022ec0 mov      x29, sp
+00022ec4 bl       #0x22ec4 ; RELOC 283 <.text.unlikely> + 0x1564
+00022ec8 adrp     x0, #0x22000 ; RELOC 275 <.bss> + 0x8cd08
+00022ecc add      x0, x0, #0 ; RELOC 277 <.bss> + 0x8cd08
+00022ed0 ldp      x29, x30, [sp], #0x10
+00022ed4 ret      
+
+### display_device_frc_Init .text.unlikely+0x1c28 size 0x68
+00001c28 stp      x29, x30, [sp, #-0x10]!
+00001c2c adrp     x2, #0x1000 ; RELOC 275 <.bss> + 0x8cf88
+00001c30 add      x2, x2, #0 ; RELOC 277 <.bss> + 0x8cf88
+00001c34 mov      x29, sp
+00001c38 adrp     x3, #0x1000 ; RELOC 275 <.text.unlikely> + 0x1c90
+00001c3c add      x3, x3, #0 ; RELOC 277 <.text.unlikely> + 0x1c90
+00001c40 adrp     x6, #0x1000 ; RELOC 275 <.text.unlikely> + 0x1bc4
+00001c44 adrp     x5, #0x1000 ; RELOC 275 <.text> + 0x25ba0
+00001c48 add      x6, x6, #0 ; RELOC 277 <.text.unlikely> + 0x1bc4
+00001c4c add      x5, x5, #0 ; RELOC 277 <.text> + 0x25ba0
+00001c50 adrp     x4, #0x1000 ; RELOC 275 <.text> + 0x25ac0
+00001c54 add      x4, x4, #0 ; RELOC 277 <.text> + 0x25ac0
+00001c58 mov      w7, #1
+00001c5c adrp     x1, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x10350
+00001c60 add      x1, x1, #0 ; RELOC 277 <.rodata.str1.8> + 0x10350
+00001c64 str      x1, [x2, #8]
+00001c68 strb     w7, [x2, #0x10]
+00001c6c adrp     x0, #0x1000 ; RELOC 275 <.rodata.str1.8> + 0x10360
+00001c70 stp      x6, x5, [x2, #0x20]
+00001c74 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x10360
+00001c78 str      x4, [x2, #0x30]
+00001c7c str      x3, [x2, #0x48]
+00001c80 strb     wzr, [x2, #0x50]
+00001c84 bl       #0x1c84 ; RELOC 283 printk + 0x0
+00001c88 ldp      x29, x30, [sp], #0x10
+00001c8c ret      
+
+### dispay_coordinator_ex_proc .text+0x22060 size 0x20
+00022060 stp      x29, x30, [sp, #-0x10]!
+00022064 adrp     x3, #0x22000 ; RELOC 275 <.bss> + 0x8cc10
+00022068 mov      x29, sp
+0002206c ldr      x3, [x3] ; RELOC 286 <.bss> + 0x8cc10
+00022070 ldr      x3, [x3, #0x48]
+00022074 blr      x3
+00022078 ldp      x29, x30, [sp], #0x10
+0002207c ret      
+
+### wrap_read .text+0xce48 size 0x1c
+0000ce48 stp      x29, x30, [sp, #-0x10]!
+0000ce4c mov      x29, sp
+0000ce50 ldr      x0, [x0, #0x138]
+0000ce54 add      x0, x0, w1, uxtw
+0000ce58 bl       #0xce58 ; RELOC 283 ft_read + 0x0
+0000ce5c ldp      x29, x30, [sp], #0x10
+0000ce60 ret      

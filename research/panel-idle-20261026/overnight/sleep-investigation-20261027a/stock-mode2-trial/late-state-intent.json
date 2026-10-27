@@ -1,0 +1,4 @@
+{
+  "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\necho LATE_STATE_BEGIN\ncat /proc/uptime\necho GLOBAL_TRACE=$(cat /sys/kernel/debug/tracing/tracing_on)\ndmesg | awk '/QDFTcon_GetErrDetStatus/ {a[n%8]=$0;n++} END {s=n>8?n-8:0;for(i=s;i<n;i++)print a[i%8];print \"MATCH_COUNT\",n+0}'\nfor p in /sys/kernel/debug/tracing/instances/researcher-hdmi-onset-sleep-mode2-20261027a /tmp/researcher-observed-hdmi-onset-20261027/sleep-mode2-20261027a /tmp/researcher-observed-hdmi-onset-stage-20261027/sleep-mode2-20261027a; do\ntest ! -e \"$p\"; test ! -L \"$p\"; echo \"ABSENT $p\"\ndone\necho LATE_STATE_END\n",
+  "purpose": "non-clearing log and cleanup check only"
+}

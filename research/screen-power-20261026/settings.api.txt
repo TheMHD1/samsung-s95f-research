@@ -1,0 +1,108 @@
+TYPE NotPublic .<Module> : 
+TYPE AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit .Interop : System.Object
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.Settings.SettingsBlockedMenuListType : System.Enum
+ FIELD 04000001 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000002 Public, Static, Literal, HasDefault Tizen.TV.Service.Settings.SettingsBlockedMenuListType BLOCKED_MENU_ITEM_DISABLE
+ FIELD 04000003 Public, Static, Literal, HasDefault Tizen.TV.Service.Settings.SettingsBlockedMenuListType BLOCKED_MENU_ITEM_ENABLE
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.Settings.SettingsBlockedMenuListEventArgs : System.EventArgs
+ FIELD 04000004 Private Tizen.TV.Service.Settings.SettingsBlockedMenuListType <Status>k__BackingField
+ FIELD 04000005 Private String[] <MenuIDList>k__BackingField
+ METHOD 06000001 PrivateScope, Public, HideBySig, SpecialName Tizen.TV.Service.Settings.SettingsBlockedMenuListType get_Status()
+ METHOD 06000002 PrivateScope, Assembly, HideBySig, SpecialName Void set_Status(Tizen.TV.Service.Settings.SettingsBlockedMenuListType)
+ METHOD 06000003 PrivateScope, Public, HideBySig, SpecialName String[] get_MenuIDList()
+ METHOD 06000004 PrivateScope, Assembly, HideBySig, SpecialName Void set_MenuIDList(String[])
+ METHOD 06000005 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.Settings.OnCompleteGetItemVisibleAsync : System.MulticastDelegate
+ METHOD 06000006 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 06000007 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Boolean,String)
+ METHOD 06000008 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Boolean,String,System.AsyncCallback,Object)
+ METHOD 06000009 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.Settings.OnCompleteGetItemPathEnableAsync : System.MulticastDelegate
+ METHOD 0600000a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 0600000b PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Boolean,String)
+ METHOD 0600000c PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Boolean,String,System.AsyncCallback,Object)
+ METHOD 0600000d PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE BeforeFieldInit Tizen.TV.Service.Settings.SettingsPrivilegeCheckUtil : System.Object
+ FIELD 04000006 Private, Static, Literal, HasDefault String logTag
+ FIELD 04000007 Private String smackLabel
+ FIELD 04000008 Private String uid
+ FIELD 04000009 Private String clientSession
+ FIELD 0400000a Private String privilege
+ FIELD 0400000b Private, Static Tizen.TV.Service.Settings.SettingsPrivilegeCheckUtil privUtil
+ METHOD 0600000e PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600000f PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 06000010 PrivateScope, Public, HideBySig Boolean IsAllowed()
+ METHOD 06000011 PrivateScope, Public, Static, HideBySig Boolean IsAllowedStatic()
+ METHOD 06000012 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.Settings.Settings : System.Object
+ FIELD 0400000c Private, Static, Literal, HasDefault String logTag
+ FIELD 0400000d Private, Static Tizen.TV.Service.Settings.OnCompleteGetItemVisibleAsync RefOnCompleteGetItemVisibleAsyncCallback
+ FIELD 0400000e Private, Static Tizen.TV.Service.Settings.OnCompleteGetItemPathEnableAsync RefOnCompleteGetItemPathEnableAsyncCallback
+ METHOD 06000013 PrivateScope, Public, Static, HideBySig Void DisableItem(String,String)
+ METHOD 06000014 PrivateScope, Public, Static, HideBySig Void EnableItem(String,String)
+ METHOD 06000015 PrivateScope, Public, Static, HideBySig Void DisableItemsByList(String[],Int32,String)
+ METHOD 06000016 PrivateScope, Public, Static, HideBySig Void RemoveDisabledItemsByAppname(String)
+ METHOD 06000017 PrivateScope, Public, Static, HideBySig Void GetDisabledItemsList(System.Collections.Generic.List`1<String>&)
+ METHOD 06000018 PrivateScope, Public, Static, HideBySig Boolean IsItemEnabled(String)
+ METHOD 06000019 PrivateScope, Public, Static, HideBySig Boolean GetItemEnable(String,Boolean&)
+ METHOD 0600001a PrivateScope, Public, Static, HideBySig Boolean GetItemPathEnable(String,Boolean&)
+ METHOD 0600001b PrivateScope, Public, Static, HideBySig Boolean GetItemVisible(String,Boolean&)
+ METHOD 0600001c PrivateScope, Public, Static, HideBySig Boolean GetItemPathVisible(String,Boolean&)
+ METHOD 0600001d PrivateScope, Public, Static, HideBySig Boolean FlagServiceReady()
+ METHOD 0600001e PrivateScope, Public, Static, HideBySig Void GetItemVisibleAsync(String,Tizen.TV.Service.Settings.OnCompleteGetItemVisibleAsync)
+ METHOD 0600001f PrivateScope, Public, Static, HideBySig Void GetItemPathEnableAsync(String,Tizen.TV.Service.Settings.OnCompleteGetItemPathEnableAsync)
+ METHOD 06000020 PrivateScope, Public, Static, HideBySig Boolean GetItemDataList(String,System.Collections.Generic.List`1<String>&)
+ METHOD 06000021 PrivateScope, Public, Static, HideBySig Boolean GetItemDataListEnable(String,String,Boolean&)
+ METHOD 06000022 PrivateScope, Public, Static, HideBySig Boolean GetItemDataListVisible(String,String,Boolean&)
+ METHOD 06000023 PrivateScope, Public, Static, HideBySig Boolean SetItemValue(String,String)
+ METHOD 06000024 PrivateScope, Public, Static, HideBySig Boolean GetItemValue(String,String&,String&)
+ METHOD 06000025 PrivateScope, Public, Static, HideBySig Boolean GetItemPath(String,System.Collections.Generic.Dictionary`2<String,String>&)
+ METHOD 06000026 PrivateScope, Public, Static, HideBySig Boolean GetFirstVisibleSubItemByParentId(String,String&)
+ METHOD 06000027 PrivateScope, Public, Static, HideBySig Boolean GetItemMinMaxStepValue(String,Double&,Double&,Double&)
+ METHOD 06000028 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.Settings.BlockedMenuListChangedCallback : System.MulticastDelegate
+ METHOD 06000029 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 0600002a PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Int32,String)
+ METHOD 0600002b PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Int32,String,System.AsyncCallback,Object)
+ METHOD 0600002c PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.Settings.SettingsBlockedMenuEventHandler : System.Object
+ FIELD 0400000f Private, Static, Literal, HasDefault String logTag
+ FIELD 04000010 Private Tizen.TV.Service.Settings.BlockedMenuListChangedCallback BlockedMenuListChangedEventListener
+ FIELD 04000011 Private System.EventHandler`1<Tizen.TV.Service.Settings.SettingsBlockedMenuListEventArgs> BlockedMenuListChangedHandlers
+ FIELD 04000012 Private String[] menuList
+ METHOD 0600002d PrivateScope, Private, HideBySig, SpecialName Void add_BlockedMenuListChangedHandlers(System.EventHandler`1<Tizen.TV.Service.Settings.SettingsBlockedMenuListEventArgs>)
+ METHOD 0600002e PrivateScope, Private, HideBySig, SpecialName Void remove_BlockedMenuListChangedHandlers(System.EventHandler`1<Tizen.TV.Service.Settings.SettingsBlockedMenuListEventArgs>)
+ METHOD 0600002f PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(String[])
+ METHOD 06000030 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 06000031 PrivateScope, Public, HideBySig, SpecialName Void add_BlockedMenuListChanged(System.EventHandler`1<Tizen.TV.Service.Settings.SettingsBlockedMenuListEventArgs>)
+ METHOD 06000032 PrivateScope, Public, HideBySig, SpecialName Void remove_BlockedMenuListChanged(System.EventHandler`1<Tizen.TV.Service.Settings.SettingsBlockedMenuListEventArgs>)
+ METHOD 06000033 PrivateScope, Private, HideBySig Void StartBlockedMenuListChangedOnEventListener()
+ METHOD 06000034 PrivateScope, Private, HideBySig Void StopBlockedMenuListChangedOnEventListener()
+ METHOD 06000035 PrivateScope, Private, HideBySig String[] GetMenuIDList(String)
+ METHOD 06000036 PrivateScope, Private, HideBySig Void <StartBlockedMenuListChangedOnEventListener>b__11_0(Int32,String)
+TYPE AutoLayout, AnsiClass, Class, NestedAssembly, Abstract, Sealed, BeforeFieldInit .Libraries : System.Object
+ FIELD 04000013 Public, Static, Literal, HasDefault String SettingsAPI
+TYPE AutoLayout, AnsiClass, Class, NestedAssembly, Abstract, Sealed, BeforeFieldInit .SettingsAPI : System.Object
+ METHOD 06000037 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Int32 CSharpSubscribeBlockedMenuListCallback(String[],Int32,Tizen.TV.Service.Settings.BlockedMenuListChangedCallback,IntPtr)
+ METHOD 06000038 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Int32 CSharpUnsubscribeBlockedMenuListCallback(Tizen.TV.Service.Settings.BlockedMenuListChangedCallback)
+ METHOD 06000039 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemVisibleAsync(String,Tizen.TV.Service.Settings.OnCompleteGetItemVisibleAsync,IntPtr)
+ METHOD 0600003a PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemPathEnableAsync(String,Tizen.TV.Service.Settings.OnCompleteGetItemPathEnableAsync,IntPtr)
+ METHOD 0600003b PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemDataList(String,System.Text.StringBuilder)
+ METHOD 0600003c PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemDataListEnable(String,String,Boolean&)
+ METHOD 0600003d PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemDataListVisible(String,String,Boolean&)
+ METHOD 0600003e PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpSetItemValue(String,String)
+ METHOD 0600003f PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemValue(String,String&,String&)
+ METHOD 06000040 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Void CSharpDisableItem(String,String)
+ METHOD 06000041 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Void CSharpEnableItem(String,String)
+ METHOD 06000042 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Void CSharpDisableItemsByList(String[],Int32,String)
+ METHOD 06000043 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Void CSharpRemoveDisabledItemsByAppname(String)
+ METHOD 06000044 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Void CSharpGetDisabledItemsList(System.Text.StringBuilder)
+ METHOD 06000045 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpIsItemEnabled(String)
+ METHOD 06000046 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemEnable(String,Boolean&)
+ METHOD 06000047 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemPathEnable(String,Boolean&)
+ METHOD 06000048 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemVisible(String,Boolean&)
+ METHOD 06000049 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemPathVisible(String,Boolean&)
+ METHOD 0600004a PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpFlagServiceReady()
+ METHOD 0600004b PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemPath(String,System.Text.StringBuilder)
+ METHOD 0600004c PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetFirstVisibleSubItemByParentId(String,System.Text.StringBuilder)
+ METHOD 0600004d PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean CSharpGetItemMinMaxStepValue(String,Double&,Double&,Double&)

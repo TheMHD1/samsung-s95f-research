@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\nprintf '@@ BOOT_START\\n'\ncat /proc/sys/kernel/random/boot_id\nprintf '@@ TIME_START\\n'\ndate -u +%s\ncat /proc/uptime\nprintf '@@ HASH_START\\n'\nsha256sum /lib/modules/5.4.261/kernel/soc/sdp_sys.ko\nprintf '@@ DATA\\n'\ndd if=/lib/modules/5.4.261/kernel/soc/sdp_sys.ko bs=32768 skip=0 count=1 2>/dev/null | base64\nprintf '@@ HASH_END\\n'\nsha256sum /lib/modules/5.4.261/kernel/soc/sdp_sys.ko\nprintf '@@ BOOT_END\\n'\ncat /proc/sys/kernel/random/boot_id\nprintf '@@ TIME_END\\n'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "06d32b1510fab522405aa861f16c0ae19da57360efdf2cb1e8f5536908614397",
+  "purpose": "Passive fixed-file copy only; no module load, getter, MMIO, trace or display control; physically unobserved.",
+  "started_utc": "2026-10-26T19:22:35.857477+00:00"
+}

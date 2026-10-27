@@ -1,0 +1,70 @@
+{
+  "acceptance_scope": "Exact one-OUT and one-IN counts plus cleanup only; opaque fixed 3072-byte snapshot at the candidate direct main-event-log buffer. Acceptance does not prove DMA visibility, log validity, formatter activity, fault causality, or running-image identity.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x20205000\",\"operation\":\"opaque-main-event-log-DMA-IN\",\"headerHex\":\"0101000000502020000C0000\",\"inputLength\":3072,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":26,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "evidence_input_sha256": "f5237ffb62bb0c6ef4fdad553d234ec71e50095754a259e6abb9861caf92ca58",
+  "expected_packets_if_full": 6,
+  "files": {
+    "ManagedUsbRtBlockReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "6bb6d6313beeea6ef464ce09e3d4c3a98e39d3d53ed78f53d19ccd7074e02c4f",
+      "size": 16946
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.deps.json": {
+      "sha256": "0594831db607c7c2f313830330313e4464c89a02262ca0f17ac23380cb18b111",
+      "size": 445
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.dll": {
+      "sha256": "1b239c2e2790bc402c85bd4d647ca9410288edc816960f8fa75b9e6815d6bfc4",
+      "size": 28672
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x20205000",
+  "fixed_length": 3072,
+  "fixed_target": "0x101",
+  "header_hex": "0101000000502020000c0000",
+  "in_transfers": 1,
+  "out_transfers": 1,
+  "retries": 0,
+  "schema": "usb-fixed-main-event-log-read-build-v1",
+  "source_parent_sha256": "795bc39dd478146d6c947ecb4b0d604f18851d2655b9500182af1baf02e6b8c5",
+  "usb_max_packet": 512,
+  "wrapper_parent_sha256": "b80c5a4553e351b23a842a96c5dc6bdf5275e811543cf19be8f0c53ca6ca43e8"
+}

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "find /sys/firmware/devicetree/base/soc -maxdepth 1 -type d | grep -Ei \"pinctrl|gpio\"\nfind /lib/modules/5.4.261/kernel -name \"*hdmi*ko\"\nls -l /sys/firmware/devicetree/base/soc/micom-gpio",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "/sys/firmware/devicetree/base/soc/pinctrl\n/sys/firmware/devicetree/base/soc/micom-gpio\n/lib/modules/5.4.261/kernel/soc/sdp_hdmi.ko\n/lib/modules/5.4.261/kernel/soc/sdp_whdmi.ko\n/lib/modules/5.4.261/kernel/tztv_hdmi_switch.ko\n/lib/modules/5.4.261/kernel/tztv_hdmi_switch_api.ko\ntotal 0\n-r--r--r-- 1 owner root 26 2026-10-26 00:20 compatible\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc0\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc1\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc10\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc11\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc12\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc13\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc14\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc2\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc3\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc4\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc5\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc6\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc7\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc8\ndrwxr-xr-x 2 owner root  0 2026-10-26 00:20 gpio_mc9\n-r--r--r-- 1 owner root  4 2026-10-26 00:20 index-base\n-r--r--r-- 1 owner root  4 2026-10-26 00:20 model-sel\n-r--r--r-- 1 owner root 11 2026-10-26 00:20 name\n-r--r--r-- 1 owner root  4 2026-10-26 00:20 nr-banks\n-r--r--r-- 1 owner root  8 2026-10-26 00:20 reg\n-r--r--r-- 1 owner root  4 2026-10-26 00:20 start-offset\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

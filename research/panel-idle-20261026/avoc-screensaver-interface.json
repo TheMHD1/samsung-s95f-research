@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "dbus-send --system --print-reply --reply-timeout=3000 --dest=org.tizen.tv.avoc /org/tizen/tv/avoc org.freedesktop.DBus.Introspectable.Introspect | grep -i -A 14 -B 2 'tcon.*screen'",
+      "exit_code": 1,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

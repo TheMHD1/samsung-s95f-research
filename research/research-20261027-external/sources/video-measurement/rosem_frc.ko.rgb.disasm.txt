@@ -1,0 +1,361 @@
+
+m_rosem_get_rgb_measure_conditon .text+0x22d8, bytes=456
+000022d8  ffc301d1     sub      sp, sp, #0x70
+000022dc  01000090     adrp     x1, #0x2000 ;  + 0x0 (type 275)
+000022e0  22008052     mov      w2, #1
+000022e4  fd7b02a9     stp      x29, x30, [sp, #0x20]
+000022e8  fd830091     add      x29, sp, #0x20
+000022ec  f55b04a9     stp      x21, x22, [sp, #0x40]
+000022f0  35000091     add      x21, x1, #0 ;  + 0x0 (type 277)
+000022f4  f35303a9     stp      x19, x20, [sp, #0x30]
+000022f8  f40300aa     mov      x20, x0
+000022fc  e25700b9     str      w2, [sp, #0x54]
+00002300  a29a41b9     ldr      w2, [x21, #0x198]
+00002304  5f040071     cmp      w2, #1
+00002308  60040054     b.eq     #0x2394
+0000230c  b31640b9     ldr      w19, [x21, #0x14]
+00002310  a09e41b9     ldr      w0, [x21, #0x19c]
+00002314  7302002a     orr      w19, w19, w0
+00002318  b3060034     cbz      w19, #0x23ec
+0000231c  00000090     adrp     x0, #0x2000 ;  + 0x0 (type 275)
+00002320  16000091     add      x22, x0, #0 ;  + 0x0 (type 277)
+00002324  c0020c91     add      x0, x22, #0x300
+00002328  00000094     bl       #0x2328 ; frc_tcon_lock + 0x0 (type 283)
+0000232c  00000090     adrp     x0, #0x2000 ; tztv_frc_tcon_ext_cmd + 0x0 (type 275)
+00002330  13008012     mov      w19, #-1
+00002334  030040f9     ldr      x3, [x0] ; tztv_frc_tcon_ext_cmd + 0x0 (type 286)
+00002338  a30100b4     cbz      x3, #0x236c
+0000233c  e1530191     add      x1, sp, #0x54
+00002340  82038052     mov      w2, #0x1c
+00002344  00808052     mov      w0, #0x400
+00002348  60003fd6     blr      x3
+0000234c  f303002a     mov      w19, w0
+00002350  e0000035     cbnz     w0, #0x236c
+00002354  e02f40f9     ldr      x0, [sp, #0x58]
+00002358  800200f9     str      x0, [x20]
+0000235c  e03340f9     ldr      x0, [sp, #0x60]
+00002360  800600f9     str      x0, [x20, #8]
+00002364  e03740f9     ldr      x0, [sp, #0x68]
+00002368  800a00f9     str      x0, [x20, #0x10]
+0000236c  a08a41b9     ldr      w0, [x21, #0x188]
+00002370  80070035     cbnz     w0, #0x2460
+00002374  c0020c91     add      x0, x22, #0x300
+00002378  00000094     bl       #0x2378 ; frc_tcon_unlock + 0x0 (type 283)
+0000237c  e003132a     mov      w0, w19
+00002380  fd7b42a9     ldp      x29, x30, [sp, #0x20]
+00002384  f35343a9     ldp      x19, x20, [sp, #0x30]
+00002388  f55b44a9     ldp      x21, x22, [sp, #0x40]
+0000238c  ffc30191     add      sp, sp, #0x70
+00002390  c0035fd6     ret      
+00002394  b3820c91     add      x19, x21, #0x320
+00002398  a02243b9     ldr      w0, [x21, #0x320]
+0000239c  800200b9     str      w0, [x20]
+000023a0  a08a41b9     ldr      w0, [x21, #0x188]
+000023a4  610640b9     ldr      w1, [x19, #4]
+000023a8  810600b9     str      w1, [x20, #4]
+000023ac  610a40b9     ldr      w1, [x19, #8]
+000023b0  810a00b9     str      w1, [x20, #8]
+000023b4  610e40b9     ldr      w1, [x19, #0xc]
+000023b8  810e00b9     str      w1, [x20, #0xc]
+000023bc  611240b9     ldr      w1, [x19, #0x10]
+000023c0  811200b9     str      w1, [x20, #0x10]
+000023c4  611640b9     ldr      w1, [x19, #0x14]
+000023c8  811600b9     str      w1, [x20, #0x14]
+000023cc  20020035     cbnz     w0, #0x2410
+000023d0  13008052     mov      w19, #0
+000023d4  e003132a     mov      w0, w19
+000023d8  fd7b42a9     ldp      x29, x30, [sp, #0x20]
+000023dc  f35343a9     ldp      x19, x20, [sp, #0x30]
+000023e0  f55b44a9     ldp      x21, x22, [sp, #0x40]
+000023e4  ffc30191     add      sp, sp, #0x70
+000023e8  c0035fd6     ret      
+000023ec  200040b9     ldr      w0, [x1] ;  + 0x0 (type 285)
+000023f0  00ffff34     cbz      w0, #0x23d0
+000023f4  01000090     adrp     x1, #0x2000 ;  + 0x0 (type 275)
+000023f8  21000091     add      x1, x1, #0 ;  + 0x0 (type 277)
+000023fc  21000c91     add      x1, x1, #0x300
+00002400  00000090     adrp     x0, #0x2000 ;  + 0x1048 (type 275)
+00002404  00000091     add      x0, x0, #0 ;  + 0x1048 (type 277)
+00002408  00000094     bl       #0x2408 ; printk + 0x0 (type 283)
+0000240c  dcffff17     b        #0x237c
+00002410  00000094     bl       #0x2410 ; ft_current_pid + 0x0 (type 283)
+00002414  f403002a     mov      w20, w0
+00002418  00000094     bl       #0x2418 ; ft_current_comm + 0x0 (type 283)
+0000241c  e30300aa     mov      x3, x0
+00002420  659a4029     ldp      w5, w6, [x19, #4]
+00002424  01000090     adrp     x1, #0x2000 ;  + 0x0 (type 275)
+00002428  67a64129     ldp      w7, w9, [x19, #0xc]
+0000242c  21000091     add      x1, x1, #0 ;  + 0x0 (type 277)
+00002430  681640b9     ldr      w8, [x19, #0x14]
+00002434  e203142a     mov      w2, w20
+00002438  a42243b9     ldr      w4, [x21, #0x320]
+0000243c  21000c91     add      x1, x1, #0x300
+00002440  e90300b9     str      w9, [sp]
+00002444  00000090     adrp     x0, #0x2000 ;  + 0xfd8 (type 275)
+00002448  e80b00b9     str      w8, [sp, #8]
+0000244c  13008052     mov      w19, #0
+00002450  ff1300b9     str      wzr, [sp, #0x10]
+00002454  00000091     add      x0, x0, #0 ;  + 0xfd8 (type 277)
+00002458  00000094     bl       #0x2458 ; printk + 0x0 (type 283)
+0000245c  c8ffff17     b        #0x237c
+00002460  00000094     bl       #0x2460 ; ft_current_pid + 0x0 (type 283)
+00002464  f403002a     mov      w20, w0
+00002468  00000094     bl       #0x2468 ; ft_current_comm + 0x0 (type 283)
+0000246c  f31300b9     str      w19, [sp, #0x10]
+00002470  e9234d29     ldp      w9, w8, [sp, #0x68]
+00002474  e90300b9     str      w9, [sp]
+00002478  e4174b29     ldp      w4, w5, [sp, #0x58]
+0000247c  e80b00b9     str      w8, [sp, #8]
+00002480  e61f4c29     ldp      w6, w7, [sp, #0x60]
+00002484  e30300aa     mov      x3, x0
+00002488  e203142a     mov      w2, w20
+0000248c  c1020c91     add      x1, x22, #0x300
+00002490  00000090     adrp     x0, #0x2000 ;  + 0x1088 (type 275)
+00002494  00000091     add      x0, x0, #0 ;  + 0x1088 (type 277)
+00002498  00000094     bl       #0x2498 ; printk + 0x0 (type 283)
+0000249c  b6ffff17     b        #0x2374
+
+RosemFrc_GetRgbMeasureConditonInfo .text+0x66d0, bytes=160
+000066d0  04000090     adrp     x4, #0x6000 ;  + 0x0 (type 275)
+000066d4  83000091     add      x3, x4, #0 ;  + 0x0 (type 277)
+000066d8  fd7bbea9     stp      x29, x30, [sp, #-0x20]!
+000066dc  fd030091     mov      x29, sp
+000066e0  614440b9     ldr      w1, [x3, #0x44]
+000066e4  3f040071     cmp      w1, #1
+000066e8  00010054     b.eq     #0x6708
+000066ec  656c40b9     ldr      w5, [x3, #0x6c]
+000066f0  bf040071     cmp      w5, #1
+000066f4  a0000054     b.eq     #0x6708
+000066f8  e00100b4     cbz      x0, #0x6734
+000066fc  f7eeff97     bl       #0x22d8
+00006700  fd7bc2a8     ldp      x29, x30, [sp], #0x20
+00006704  c0035fd6     ret      
+00006708  800040b9     ldr      w0, [x4] ;  + 0x0 (type 285)
+0000670c  a0ffff34     cbz      w0, #0x6700
+00006710  626c40b9     ldr      w2, [x3, #0x6c]
+00006714  03000090     adrp     x3, #0x6000 ;  + 0x0 (type 275)
+00006718  63000091     add      x3, x3, #0 ;  + 0x0 (type 277)
+0000671c  00000090     adrp     x0, #0x6000 ;  + 0x318 (type 275)
+00006720  63402891     add      x3, x3, #0xa10
+00006724  00000091     add      x0, x0, #0 ;  + 0x318 (type 277)
+00006728  00000094     bl       #0x6728 ; printk + 0x0 (type 283)
+0000672c  00008052     mov      w0, #0
+00006730  f4ffff17     b        #0x6700
+00006734  f30b00f9     str      x19, [sp, #0x10]
+00006738  00000094     bl       #0x6738 ; ft_current_pid + 0x0 (type 283)
+0000673c  f303002a     mov      w19, w0
+00006740  00000094     bl       #0x6740 ; ft_current_comm + 0x0 (type 283)
+00006744  01000090     adrp     x1, #0x6000 ;  + 0x0 (type 275)
+00006748  21000091     add      x1, x1, #0 ;  + 0x0 (type 277)
+0000674c  e203132a     mov      w2, w19
+00006750  e30300aa     mov      x3, x0
+00006754  21402891     add      x1, x1, #0xa10
+00006758  00000090     adrp     x0, #0x6000 ;  + 0x23c8 (type 275)
+0000675c  00000091     add      x0, x0, #0 ;  + 0x23c8 (type 277)
+00006760  00000094     bl       #0x6760 ; printk + 0x0 (type 283)
+00006764  00008052     mov      w0, #0
+00006768  f30b40f9     ldr      x19, [sp, #0x10]
+0000676c  e5ffff17     b        #0x6700
+
+RosemFrc_SetRgbMeasurePostion .text+0x2760, bytes=316
+00002760  fd7bbba9     stp      x29, x30, [sp, #-0x50]!
+00002764  05000090     adrp     x5, #0x2000 ;  + 0x0 (type 275)
+00002768  fd030091     mov      x29, sp
+0000276c  f35301a9     stp      x19, x20, [sp, #0x10]
+00002770  b3000091     add      x19, x5, #0 ;  + 0x0 (type 277)
+00002774  e43b40b9     ldr      w4, [sp, #0x38]
+00002778  e01b00f9     str      x0, [sp, #0x30]
+0000277c  604640b9     ldr      w0, [x19, #0x44]
+00002780  247c0033     bfxil    w4, w1, #0, #0x20
+00002784  1f040071     cmp      w0, #1
+00002788  60040054     b.eq     #0x2814
+0000278c  616e40b9     ldr      w1, [x19, #0x6c]
+00002790  3f040071     cmp      w1, #1
+00002794  00040054     b.eq     #0x2814
+00002798  e20f4629     ldp      w2, w3, [sp, #0x30]
+0000279c  40008052     mov      w0, #2
+000027a0  619e41b9     ldr      w1, [x19, #0x19c]
+000027a4  e00b0829     stp      w0, w2, [sp, #0x40]
+000027a8  601640b9     ldr      w0, [x19, #0x14]
+000027ac  e3130929     stp      w3, w4, [sp, #0x48]
+000027b0  0000012a     orr      w0, w0, w1
+000027b4  80040034     cbz      w0, #0x2844
+000027b8  f51300f9     str      x21, [sp, #0x20]
+000027bc  15000090     adrp     x21, #0x2000 ;  + 0x0 (type 275)
+000027c0  b5020091     add      x21, x21, #0 ;  + 0x0 (type 277)
+000027c4  14008012     mov      w20, #-1
+000027c8  a0a20e91     add      x0, x21, #0x3a8
+000027cc  00000094     bl       #0x27cc ; frc_tcon_lock + 0x0 (type 283)
+000027d0  00000090     adrp     x0, #0x2000 ; tztv_frc_tcon_ext_cmd + 0x0 (type 275)
+000027d4  030040f9     ldr      x3, [x0] ; tztv_frc_tcon_ext_cmd + 0x0 (type 286)
+000027d8  c30000b4     cbz      x3, #0x27f0
+000027dc  e1030191     add      x1, sp, #0x40
+000027e0  02028052     mov      w2, #0x10
+000027e4  00808052     mov      w0, #0x400
+000027e8  60003fd6     blr      x3
+000027ec  f403002a     mov      w20, w0
+000027f0  608a41b9     ldr      w0, [x19, #0x188]
+000027f4  c0030035     cbnz     w0, #0x286c
+000027f8  a0a20e91     add      x0, x21, #0x3a8
+000027fc  00000094     bl       #0x27fc ; frc_tcon_unlock + 0x0 (type 283)
+00002800  f51340f9     ldr      x21, [sp, #0x20]
+00002804  e003142a     mov      w0, w20
+00002808  f35341a9     ldp      x19, x20, [sp, #0x10]
+0000280c  fd7bc5a8     ldp      x29, x30, [sp], #0x50
+00002810  c0035fd6     ret      
+00002814  b40040b9     ldr      w20, [x5] ;  + 0x0 (type 285)
+00002818  74ffff34     cbz      w20, #0x2804
+0000281c  626e40b9     ldr      w2, [x19, #0x6c]
+00002820  03000090     adrp     x3, #0x2000 ;  + 0x0 (type 275)
+00002824  63000091     add      x3, x3, #0 ;  + 0x0 (type 277)
+00002828  e103002a     mov      w1, w0
+0000282c  63200e91     add      x3, x3, #0x388
+00002830  00000090     adrp     x0, #0x2000 ;  + 0x318 (type 275)
+00002834  14008052     mov      w20, #0
+00002838  00000091     add      x0, x0, #0 ;  + 0x318 (type 277)
+0000283c  00000094     bl       #0x283c ; printk + 0x0 (type 283)
+00002840  f1ffff17     b        #0x2804
+00002844  b40040b9     ldr      w20, [x5] ;  + 0x0 (type 285)
+00002848  f4fdff34     cbz      w20, #0x2804
+0000284c  01000090     adrp     x1, #0x2000 ;  + 0x0 (type 275)
+00002850  21000091     add      x1, x1, #0 ;  + 0x0 (type 277)
+00002854  21a00e91     add      x1, x1, #0x3a8
+00002858  00000090     adrp     x0, #0x2000 ;  + 0x1190 (type 275)
+0000285c  14008052     mov      w20, #0
+00002860  00000091     add      x0, x0, #0 ;  + 0x1190 (type 277)
+00002864  00000094     bl       #0x2864 ; printk + 0x0 (type 283)
+00002868  e7ffff17     b        #0x2804
+0000286c  00000094     bl       #0x286c ; ft_current_pid + 0x0 (type 283)
+00002870  f303002a     mov      w19, w0
+00002874  00000094     bl       #0x2874 ; ft_current_comm + 0x0 (type 283)
+00002878  e64f40b9     ldr      w6, [sp, #0x4c]
+0000287c  e4974829     ldp      w4, w5, [sp, #0x44]
+00002880  e30300aa     mov      x3, x0
+00002884  e203132a     mov      w2, w19
+00002888  a1a20e91     add      x1, x21, #0x3a8
+0000288c  00000090     adrp     x0, #0x2000 ;  + 0x11d8 (type 275)
+00002890  00000091     add      x0, x0, #0 ;  + 0x11d8 (type 277)
+00002894  00000094     bl       #0x2894 ; printk + 0x0 (type 283)
+00002898  d8ffff17     b        #0x27f8
+
+RosemFrc_GetRgbMeasureInfo .text+0x6a10, bytes=480
+00006a10  ffc301d1     sub      sp, sp, #0x70
+00006a14  03000090     adrp     x3, #0x6000 ;  + 0x0 (type 275)
+00006a18  fd7b01a9     stp      x29, x30, [sp, #0x10]
+00006a1c  fd430091     add      x29, sp, #0x10
+00006a20  f55b03a9     stp      x21, x22, [sp, #0x30]
+00006a24  76000091     add      x22, x3, #0 ;  + 0x0 (type 277)
+00006a28  f35302a9     stp      x19, x20, [sp, #0x20]
+00006a2c  c14640b9     ldr      w1, [x22, #0x44]
+00006a30  3f040071     cmp      w1, #1
+00006a34  a0060054     b.eq     #0x6b08
+00006a38  f30300aa     mov      x19, x0
+00006a3c  c06e40b9     ldr      w0, [x22, #0x6c]
+00006a40  1f040071     cmp      w0, #1
+00006a44  20060054     b.eq     #0x6b08
+00006a48  530b00b4     cbz      x19, #0x6bb0
+00006a4c  620240b9     ldr      w2, [x19]
+00006a50  60008052     mov      w0, #3
+00006a54  c15e41b9     ldr      w1, [x22, #0x15c]
+00006a58  7f4200f8     stur     xzr, [x19, #4]
+00006a5c  7f0e00b9     str      wzr, [x19, #0xc]
+00006a60  e08b0b29     stp      w0, w2, [sp, #0x5c]
+00006a64  20008052     mov      w0, #1
+00006a68  3f00006b     cmp      w1, w0
+00006a6c  e0000054     b.eq     #0x6a88
+00006a70  c1d640b9     ldr      w1, [x22, #0xd4]
+00006a74  3f00006b     cmp      w1, w0
+00006a78  80000054     b.eq     #0x6a88
+00006a7c  c08e41b9     ldr      w0, [x22, #0x18c]
+00006a80  1f040071     cmp      w0, #1
+00006a84  e0179f1a     cset     w0, eq
+00006a88  c19e41b9     ldr      w1, [x22, #0x19c]
+00006a8c  601200b9     str      w0, [x19, #0x10]
+00006a90  c01640b9     ldr      w0, [x22, #0x14]
+00006a94  0000012a     orr      w0, w0, w1
+00006a98  e0040034     cbz      w0, #0x6b34
+00006a9c  15000090     adrp     x21, #0x6000 ;  + 0x0 (type 275)
+00006aa0  b5020091     add      x21, x21, #0 ;  + 0x0 (type 277)
+00006aa4  a0222a91     add      x0, x21, #0xa88
+00006aa8  00000094     bl       #0x6aa8 ; frc_tcon_lock + 0x0 (type 283)
+00006aac  00000090     adrp     x0, #0x6000 ; tztv_frc_tcon_ext_cmd + 0x0 (type 275)
+00006ab0  030040f9     ldr      x3, [x0] ; tztv_frc_tcon_ext_cmd + 0x0 (type 286)
+00006ab4  430500b4     cbz      x3, #0x6b5c
+00006ab8  e1730191     add      x1, sp, #0x5c
+00006abc  82028052     mov      w2, #0x14
+00006ac0  00808052     mov      w0, #0x400
+00006ac4  60003fd6     blr      x3
+00006ac8  c18a41b9     ldr      w1, [x22, #0x188]
+00006acc  f403002a     mov      w20, w0
+00006ad0  e1040035     cbnz     w1, #0x6b6c
+00006ad4  b4000035     cbnz     w20, #0x6ae8
+00006ad8  e03340f9     ldr      x0, [sp, #0x60]
+00006adc  600200f9     str      x0, [x19]
+00006ae0  e03740f9     ldr      x0, [sp, #0x68]
+00006ae4  600600f9     str      x0, [x19, #8]
+00006ae8  a0222a91     add      x0, x21, #0xa88
+00006aec  00000094     bl       #0x6aec ; frc_tcon_unlock + 0x0 (type 283)
+00006af0  e003142a     mov      w0, w20
+00006af4  fd7b41a9     ldp      x29, x30, [sp, #0x10]
+00006af8  f35342a9     ldp      x19, x20, [sp, #0x20]
+00006afc  f55b43a9     ldp      x21, x22, [sp, #0x30]
+00006b00  ffc30191     add      sp, sp, #0x70
+00006b04  c0035fd6     ret      
+00006b08  740040b9     ldr      w20, [x3] ;  + 0x0 (type 285)
+00006b0c  34ffff34     cbz      w20, #0x6af0
+00006b10  c26e40b9     ldr      w2, [x22, #0x6c]
+00006b14  03000090     adrp     x3, #0x6000 ;  + 0x0 (type 275)
+00006b18  63000091     add      x3, x3, #0 ;  + 0x0 (type 277)
+00006b1c  00000090     adrp     x0, #0x6000 ;  + 0x318 (type 275)
+00006b20  63a02991     add      x3, x3, #0xa68
+00006b24  14008052     mov      w20, #0
+00006b28  00000091     add      x0, x0, #0 ;  + 0x318 (type 277)
+00006b2c  00000094     bl       #0x6b2c ; printk + 0x0 (type 283)
+00006b30  f0ffff17     b        #0x6af0
+00006b34  740040b9     ldr      w20, [x3] ;  + 0x0 (type 285)
+00006b38  d4fdff34     cbz      w20, #0x6af0
+00006b3c  01000090     adrp     x1, #0x6000 ;  + 0x0 (type 275)
+00006b40  21000091     add      x1, x1, #0 ;  + 0x0 (type 277)
+00006b44  21202a91     add      x1, x1, #0xa88
+00006b48  00000090     adrp     x0, #0x6000 ;  + 0x2c38 (type 275)
+00006b4c  14008052     mov      w20, #0
+00006b50  00000091     add      x0, x0, #0 ;  + 0x2c38 (type 277)
+00006b54  00000094     bl       #0x6b54 ; printk + 0x0 (type 283)
+00006b58  e6ffff17     b        #0x6af0
+00006b5c  c08a41b9     ldr      w0, [x22, #0x188]
+00006b60  20040035     cbnz     w0, #0x6be4
+00006b64  14008012     mov      w20, #-1
+00006b68  e0ffff17     b        #0x6ae8
+00006b6c  f72300f9     str      x23, [sp, #0x40]
+00006b70  00000094     bl       #0x6b70 ; ft_current_pid + 0x0 (type 283)
+00006b74  f703002a     mov      w23, w0
+00006b78  00000094     bl       #0x6b78 ; ft_current_comm + 0x0 (type 283)
+00006b7c  f40b00b9     str      w20, [sp, #8]
+00006b80  e4174c29     ldp      w4, w5, [sp, #0x60]
+00006b84  e203172a     mov      w2, w23
+00006b88  e61f4d29     ldp      w6, w7, [sp, #0x68]
+00006b8c  e30300aa     mov      x3, x0
+00006b90  c15e41b9     ldr      w1, [x22, #0x15c]
+00006b94  00000090     adrp     x0, #0x6000 ;  + 0x2c78 (type 275)
+00006b98  e10300b9     str      w1, [sp]
+00006b9c  00000091     add      x0, x0, #0 ;  + 0x2c78 (type 277)
+00006ba0  a1222a91     add      x1, x21, #0xa88
+00006ba4  00000094     bl       #0x6ba4 ; printk + 0x0 (type 283)
+00006ba8  f72340f9     ldr      x23, [sp, #0x40]
+00006bac  caffff17     b        #0x6ad4
+00006bb0  00000094     bl       #0x6bb0 ; ft_current_pid + 0x0 (type 283)
+00006bb4  f303002a     mov      w19, w0
+00006bb8  00000094     bl       #0x6bb8 ; ft_current_comm + 0x0 (type 283)
+00006bbc  14008052     mov      w20, #0
+00006bc0  01000090     adrp     x1, #0x6000 ;  + 0x0 (type 275)
+00006bc4  21000091     add      x1, x1, #0 ;  + 0x0 (type 277)
+00006bc8  e30300aa     mov      x3, x0
+00006bcc  e203132a     mov      w2, w19
+00006bd0  21a02991     add      x1, x1, #0xa68
+00006bd4  00000090     adrp     x0, #0x6000 ;  + 0x23c8 (type 275)
+00006bd8  00000091     add      x0, x0, #0 ;  + 0x23c8 (type 277)
+00006bdc  00000094     bl       #0x6bdc ; printk + 0x0 (type 283)
+00006be0  c4ffff17     b        #0x6af0
+00006be4  14008012     mov      w20, #-1
+00006be8  f72300f9     str      x23, [sp, #0x40]
+00006bec  e1ffff17     b        #0x6b70

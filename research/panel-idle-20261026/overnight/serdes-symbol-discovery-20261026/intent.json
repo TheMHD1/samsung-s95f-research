@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\nn=0\nfor f in /lib/modules/5.4.261/kernel/*.ko /lib/modules/5.4.261/kernel/soc/*.ko; do\n  [ -f \"$f\" ] || continue\n  n=$((n+1))\n  [ \"$n\" -le 256 ] || exit 65\n  matched=0\n  for symbol in tztv_system_serdes_lock_check sdp_ocif_lock_get sdp_serdes_lock tztv_sys_is_oc_support; do\n    if LC_ALL=C grep -q \"$symbol\" \"$f\"; then\n      echo \"@@ MATCH $symbol $f\"\n      matched=1\n    fi\n  done\n  if [ \"$matched\" = 1 ]; then\n    echo \"@@ MODULE $f\"\n    wc -c < \"$f\"\n    sha256sum \"$f\"\n  fi\ndone\necho \"@@ SCANNED $n\"\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "9dda897fd593165b6fea03d2ed8cf74c47f536eda16ca705dc0188af11ca2915",
+  "purpose": "Finite passive search for four SerDes callback/caller names over two fixed module directories, <=256 files, no call/control/load/trace. Physical panel unobserved.",
+  "started_utc": "2026-10-26T19:37:43.498282+00:00"
+}

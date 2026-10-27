@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ndate -u\ncat /proc/uptime\nvconftool get memory/enterprise/swupgrade/working_status\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.system.deviced /Org/Tizen/System/DeviceD/Display org.tizen.system.deviced.display.BurnInProtectionInProgress\nfor f in idVendor idProduct bcdDevice product busnum devnum bConfigurationValue; do printf '%s=' \"$f\"; cat /sys/bus/usb/devices/7-1/$f; done\nfor n in 0 1 2; do test ! -L /sys/bus/usb/devices/7-1:1.$n/driver; done\necho USB_INTERFACES_UNBOUND\nbus=$(cat /sys/bus/usb/devices/7-1/busnum)\nnum=$(cat /sys/bus/usb/devices/7-1/devnum)\nnode=$(printf '/dev/bus/usb/%03d/%03d' \"$bus\" \"$num\")\ncount=0\nfor fd in /proc/[0-9]*/fd/*; do link=$(readlink \"$fd\" 2>/dev/null) || continue; if test \"$link\" = \"$node\"; then echo \"USB_FD_HOLDER=$fd\"; count=$((count+1)); fi; done\nprintf 'USB_FD_HOLDERS=%s\n' \"$count\"\ncat /proc/uptime\ncat /proc/sys/kernel/random/boot_id\necho PUBLIC_HOST_PREFLIGHT_COMPLETE\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Tue Oct 27 15:20:41 UTC 2026\n136050.56 507162.88\nmemory/enterprise/swupgrade/working_status, value = 0 (Int32)\nmethod return time=1793114441.591880 sender=:1.34 -> destination=:1.2536 serial=2449 reply_serial=2\n   int32 0\nidVendor=04e8\nidProduct=2001\nbcdDevice=0250\nproduct=STL1 CDC and Bulk\nbusnum=7\ndevnum=45\nbConfigurationValue=1\nUSB_INTERFACES_UNBOUND\nUSB_FD_HOLDERS=0\n136076.79 507229.38\n00000000-0000-4000-8000-000000000000\nPUBLIC_HOST_PREFLIGHT_COMPLETE\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

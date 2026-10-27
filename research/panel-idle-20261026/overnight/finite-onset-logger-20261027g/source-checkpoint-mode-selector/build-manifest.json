@@ -1,0 +1,108 @@
+{
+  "boot_id": "[private-identity-or-secret-omitted]",
+  "build": {
+    "configuration": "Release",
+    "derivation_stdout_sha256": "4787165cb1c270e044df5320f4f1a4043cbbd633615ef92654f3811561fe0cbc",
+    "dotnet_path": "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+    "dotnet_sha256": "6206ebc1d4b6fb5d73311bc7571c654451550e446daf39fe7cfd3cd84bd6da36",
+    "framework": "net6.0",
+    "nuget_sources": []
+  },
+  "files": {
+    "ManagedUsbRtBlockReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "NuGet.Config": {
+      "sha256": "5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575",
+      "size": 125
+    },
+    "Program.cs": {
+      "sha256": "6770c29a29cd0751448f2c9ba6da8dbfdd00d01765914df13df2d87bab7d9e63",
+      "size": 22253
+    },
+    "README.md": {
+      "sha256": "492d443d2d44ca6f1e37f77eb11c61c7e33f349dfee13aa8a38471f6b1d6d8d1",
+      "size": 3976
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.deps.json": {
+      "sha256": "0594831db607c7c2f313830330313e4464c89a02262ca0f17ac23380cb18b111",
+      "size": 445
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.dll": {
+      "sha256": "7fa038ade1036df274fd33785ba287db0042b986846b9b6326ab5a9a8e2100c3",
+      "size": 35840
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    },
+    "build-derivative.py": {
+      "sha256": "45da7c20409e230b54787c833f46872e884dde4bcafece416f5e0df326115e9f",
+      "size": 24603
+    },
+    "build-offline.py": {
+      "sha256": "b925468925f3f435ab6c8610eec47804fcf2c47e4d691babc722306b4de7b094",
+      "size": 5283
+    },
+    "root-with-margin.py": {
+      "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a",
+      "size": 3388
+    },
+    "run-once.py": {
+      "sha256": "67a485873f318323f89d337cdecd8a83c0c3238f5bfb8ac9b861b253e1f954ad",
+      "size": 18668
+    },
+    "test-wrapper.py": {
+      "sha256": "62acb222f5b0fe46eec4856e5d2855e567ef2bfd55f6bfe5a5b187b161493e5c",
+      "size": 5897
+    }
+  },
+  "interpretation": {
+    "alternate_window": "raw-candidate-only",
+    "expected_root": "0x20010000",
+    "mode_aa_offset": 10,
+    "mode_ac_offset": 12,
+    "root_mismatch_preserves_raw": true,
+    "root_offset": 64
+  },
+  "offline_only": true,
+  "parent": {
+    "directory": "managed-usb-rt-fault-context-read",
+    "program_sha256": "f7418df841af9b616c198958b5b725dd7fc2434c92f5b360b65989c9da66b6a0",
+    "wrapper_sha256": "93af800b0e4103a03d268680cb13b6ea6ed3c2d4ceeead79625f75b10b584c1a"
+  },
+  "protocol": {
+    "bulk_steps": 4,
+    "requests": [
+      {
+        "address": "0x470004a0",
+        "header_hex": "01010000a004004744000000",
+        "length": 68
+      },
+      {
+        "address": "0x47000bc0",
+        "header_hex": "01010000c00b004710000000",
+        "length": 16
+      }
+    ],
+    "retries": 0,
+    "target": "0x101",
+    "timeout_ms_per_bulk": 2000,
+    "writes": 0
+  },
+  "root_adapter": {
+    "host_timeout_seconds": 75,
+    "remote_timeout_seconds": 45,
+    "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a"
+  },
+  "schema": "managed-usb-rt-mode-read-build-v1",
+  "target_executions": 0,
+  "tests": {
+    "host_abi_refusal": true,
+    "native_fake_ops": 35,
+    "unknown_cli_refusal": true,
+    "wrapper_normal": 22,
+    "wrapper_optimized": 22
+  }
+}

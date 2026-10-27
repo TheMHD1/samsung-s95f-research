@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest ! -e /sys/kernel/debug/tracing/instances/researcher-avemon-syscall-e5283bd06bc04479983072c7b94d97f5\ntest \"$(cat /sys/kernel/debug/tracing/tracing_on)\" = 0\necho CHECKPOINT_QUIESCENT\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "CHECKPOINT_QUIESCENT\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

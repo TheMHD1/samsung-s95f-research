@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncommand -v vconftool\nvconftool --help\n",
+        "exit_code": 1,
+        "stderr": "vconftool: unrecognized option '--help'\n",
+        "stdout": "Mon Oct 26 13:28:53 UTC 2026\n/usr/bin/vconftool\n\n Usage:\n   vconftool set [set-options] <key name> <value>\n   vconftool get [get-options] <key name>\n   vconftool unset <key name>\n\n set-options:\n   -t, --type=int|bool|double|string   Type of key\n   -u, --uid=UID                       User ID (for compatibility, ignored)\n   -g, --gid=GID                       Gourp ID (for compatibility, ignored)\n   -i, --install                       Install memory type key\n   -s, --smack=LABEL                   Set a SMACK label\n   -f, --force                         Overwrite by force\n\n   ex)\n     vconftool set -t string db/testapp/key1 \"This is test\"\n     vconftool set -t int -i memory/testapp/status -1\n\n get-options:\n   -r, --recursive                     Retrieve all keys having the given prefix\n\n   ex)\n     vconftool get db/testapp/key1\n     vconftool get -r db/testapp\n\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 1,
+  "wrapper_stderr": ""
+}

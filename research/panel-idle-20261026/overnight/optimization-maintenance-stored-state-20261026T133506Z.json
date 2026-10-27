@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor k in db/sysman/off_sensing_result db/sysman/el_sensing_result db/sysman/off_sensing_time db/sysman/el_sensing_time db/sysman/off_sensing_count; do\n echo \"VCONF_KEY $k\"\n vconftool get \"$k\"\n key_status=$?\n echo \"VCONF_GET_EXIT $key_status\"\ndone\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 13:35:07 UTC 2026\n00000000-0000-4000-8000-000000000000\n43316.46 161619.40\nVCONF_KEY db/sysman/off_sensing_result\ndb/sysman/off_sensing_result, value = 0 (Int32)\nVCONF_GET_EXIT 0\nVCONF_KEY db/sysman/el_sensing_result\ndb/sysman/el_sensing_result, value = 4 (Int32)\nVCONF_GET_EXIT 0\nVCONF_KEY db/sysman/off_sensing_time\ndb/sysman/off_sensing_time, value = 1789 (Int32)\nVCONF_GET_EXIT 0\nVCONF_KEY db/sysman/el_sensing_time\ndb/sysman/el_sensing_time, value = 5752 (Int32)\nVCONF_GET_EXIT 0\nVCONF_KEY db/sysman/off_sensing_count\ndb/sysman/off_sensing_count, value = 6 (Int32)\nVCONF_GET_EXIT 0\n43316.75 161620.11\nMon Oct 26 13:35:07 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

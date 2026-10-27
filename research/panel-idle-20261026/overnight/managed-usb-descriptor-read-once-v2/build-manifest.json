@@ -1,0 +1,62 @@
+{
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x20261200\",\"operation\":\"known-descriptor-memory-IN\",\"headerHex\":\"010100000012262012000000\",\"inputLength\":18,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":27,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "files": {
+    "ManagedUsbDescriptorReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "f6246911156ea9b1a83bc2ee5934f5f0921c943b4b90de2994c111027b828fa4",
+      "size": 17167
+    },
+    "bin/Release/net6.0/ManagedUsbDescriptorReadOnce.deps.json": {
+      "sha256": "5147fb90c2300466c8254354beffb6be053a1d47a77e69e8f689590f96b235ec",
+      "size": 454
+    },
+    "bin/Release/net6.0/ManagedUsbDescriptorReadOnce.dll": {
+      "sha256": "ad47002a0ffd832ef73f1619c8e3a72a8b82cefdb6792995a14cce700eb0edd1",
+      "size": 29184
+    },
+    "bin/Release/net6.0/ManagedUsbDescriptorReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x20261200",
+  "fixed_length": 18,
+  "fixed_target": "0x101",
+  "header_hex": "010100000012262012000000",
+  "revision_note": "Bounded cached sysfs descriptor streaming; first revision failed before USB open.",
+  "schema": "usb-known-descriptor-read-build-v1"
+}

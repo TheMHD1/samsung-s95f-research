@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\ncat /proc/uptime\ndlogutil -d -v time -p 675 -t 1600 2>&1\nvconftool get -r db/menu/system/auto_protection_time 2>&1\nvconftool get -r memory/idle 2>&1\nvconftool get -r memory/display 2>&1\nstrings /usr/bin/deviced | grep -Ei 'tcon|off.sensing|elvdd|screen.saver|power.control|idle|sensing' | head -n 220\nls -l /usr/bin/deviced /usr/lib/libdeviced* /usr/lib/libcapi-screensaver* /usr/share/dotnet.tizen/framework/Tizen.TV.System.Screen.dll\n",
+      "exit_code": 0,
+      "stderr": "/bin/sh: line 6: strings: command not found\n",
+      "stdout": "Mon Oct 26 02:07:36 UTC 2026\n2065.13 7499.26\nStart dlogutil(11548) by 11545\nVersion: T-RSMFAKUC-0090-1301.0\nBuild: TIZEN-TRUNK2025-RoseM-HOTFIX-RELEASE_20260714.1 (release)\nDlog Config: plog(0) vlog(1) enable_apps(0) enable_public(1) vlog_size(32)\nCommand: dlogutil -d -v time -p  -t 1600 \n\nargc 8, optind 8, Kb 16, rotate 4\nExit successfully\n/dev/log_main: cyclic ring buffer is 2048Kb. Max read entry log payload size is 1Kb\nvconftool recursive option not supported in Tizen 3.0\nvconftool recursive option not supported in Tizen 3.0\nvconftool recursive option not supported in Tizen 3.0\n-rwxr-xr-x 1 owner root 1507798 2026-07-01 14:02 /usr/bin/deviced\n-rwxr-xr-x 1 owner root   14180 2026-07-14 07:42 /usr/lib/libcapi-screensaver_managed.so\n-rwxr-xr-x 1 owner root   15424 2026-07-14 07:42 /usr/lib/libcapi-screensaver.so\nlrwxrwxrwx 1 owner root      28 2026-07-14 06:57 /usr/lib/libdeviced.so.0.1.0 -> /usr/lib/libdeviced.so.1.0.3\nlrwxrwxrwx 1 owner root      19 2026-07-01 14:02 /usr/lib/libdeviced.so.1 -> libdeviced.so.1.0.3\n-rwxr-xr-x 1 owner root  401132 2026-07-14 07:42 /usr/lib/libdeviced.so.1.0.3\n-rw-r--r-- 1 owner root   30208 2026-07-01 15:32 /usr/share/dotnet.tizen/framework/Tizen.TV.System.Screen.dll\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

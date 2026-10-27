@@ -1,0 +1,1580 @@
+TYPE NotPublic .<Module> : 
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppSyncManager : System.Object
+ FIELD 04000001 Private, Static Tizen.TV.DownloadableApplications.AppManager wasAppManager
+ FIELD 04000002 Private, Static System.Collections.Generic.Dictionary`2<String,String> AppSyncDict
+ FIELD 04000003 Private, Static Boolean bInit
+ METHOD 06000001 PrivateScope, Public, Static, HideBySig Void Init()
+ METHOD 06000002 PrivateScope, Private, Static, HideBySig Void SyncResultCB(Object,.SyncResultEventArgs)
+ METHOD 06000003 PrivateScope, Private, Static, HideBySig Void SyncListCB(Object,.MgrListEventArgs)
+ METHOD 06000004 PrivateScope, Public, Static, HideBySig Boolean ValidateAppidInAppSyncList(String)
+ METHOD 06000005 PrivateScope, Private, Static, HideBySig Void ListenAppsyncChanged()
+ METHOD 06000006 PrivateScope, Private, Static, HideBySig Void OnAppSyncCallback(IntPtr,IntPtr)
+ METHOD 06000007 PrivateScope, Public, Static, HideBySig Int32 GetWASAppSyncState()
+ METHOD 06000008 PrivateScope, Public, Static, HideBySig Void StartSync()
+ METHOD 06000009 PrivateScope, Public, Static, HideBySig .AppSyncStatus GetAppSyncState()
+ METHOD 0600000a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600000b PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.InstallingAppManager : System.Object
+ FIELD 04000004 Private, Static Tizen.TV.Service.AppsCommon.InstallingAppManager instance
+ FIELD 04000005 Private System.Collections.Generic.Dictionary`2<String,.AppInstallStatus> installingAppDict
+ FIELD 04000006 Private System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.TileData> installingAppDataDict
+ FIELD 04000007 Private .ATAppInstallStatusChangedDelegate OnAppInstallStatusChangedEvent
+ METHOD 0600000c PrivateScope, Public, HideBySig, SpecialName Void add_OnAppInstallStatusChangedEvent(.ATAppInstallStatusChangedDelegate)
+ METHOD 0600000d PrivateScope, Public, HideBySig, SpecialName Void remove_OnAppInstallStatusChangedEvent(.ATAppInstallStatusChangedDelegate)
+ METHOD 0600000e PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.InstallingAppManager get_Instance()
+ METHOD 0600000f PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.TileData> get_InstallingAppDataDict()
+ METHOD 06000010 PrivateScope, Public, HideBySig Void Init()
+ METHOD 06000011 PrivateScope, Public, HideBySig Void AddInstallingApp(String)
+ METHOD 06000012 PrivateScope, Public, HideBySig Void AddInstallingDataApp(String,Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 06000013 PrivateScope, Public, HideBySig Void RemoveInstallingApp(String)
+ METHOD 06000014 PrivateScope, Public, HideBySig Boolean IsAppInstalling(String)
+ METHOD 06000015 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000016 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.InstallManager : System.Object
+ FIELD 04000008 Private, Static Tizen.TV.Service.AppsCommon.InstallManager instance
+ FIELD 04000009 Public Boolean bUSBChanged
+ FIELD 0400000a Public Tizen.TV.Multimedia.ContentService.StorageEvent USBEventType
+ FIELD 0400000b Private System.EventHandler`1<Object> appTileEventHandlers
+ FIELD 0400000c Private System.Collections.Generic.List`1<String> UpdateAllAppList
+ FIELD 0400000d Private System.Timers.Timer UpdateAllTimer
+ FIELD 0400000e Private Boolean bInited
+ METHOD 06000017 PrivateScope, Private, HideBySig, SpecialName Void add_appTileEventHandlers(System.EventHandler`1<Object>)
+ METHOD 06000018 PrivateScope, Private, HideBySig, SpecialName Void remove_appTileEventHandlers(System.EventHandler`1<Object>)
+ METHOD 06000019 PrivateScope, Public, HideBySig, SpecialName Void add_AppStatusNotifyEvent(System.EventHandler`1<Object>)
+ METHOD 0600001a PrivateScope, Public, HideBySig, SpecialName Void remove_AppStatusNotifyEvent(System.EventHandler`1<Object>)
+ METHOD 0600001b PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.InstallManager get_Instance()
+ METHOD 0600001c PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600001d PrivateScope, Public, HideBySig Void Init()
+ METHOD 0600001e PrivateScope, Private, HideBySig Void OnUSBAppChange(IntPtr,IntPtr)
+ METHOD 0600001f PrivateScope, Private, HideBySig Void OnRemoveDownloadedApp(Object)
+ METHOD 06000020 PrivateScope, Private, HideBySig Void OnUnInstallApp(IntPtr,IntPtr)
+ METHOD 06000021 PrivateScope, Private, HideBySig Void OnInstalledApp(IntPtr,IntPtr)
+ METHOD 06000022 PrivateScope, Public, HideBySig Void UpdateAllApp()
+ METHOD 06000023 PrivateScope, Public, HideBySig Boolean CheackHasAppNeedToUpdate()
+ METHOD 06000024 PrivateScope, Private, HideBySig Void OnAppChangeFromAppstore(IntPtr,IntPtr)
+ METHOD 06000025 PrivateScope, Public, HideBySig Void ClearAppIconCache()
+ METHOD 06000026 PrivateScope, Public, HideBySig LitJson.JsonData GetAppIcon()
+ METHOD 06000027 PrivateScope, Public, HideBySig Void InstallApp(String,String,Boolean,Boolean,String,String,Boolean)
+ METHOD 06000028 PrivateScope, Public, HideBySig Void UpdateApp(String)
+ METHOD 06000029 PrivateScope, Private, HideBySig Void SaveInstalledAppIcon(String,String,String,Boolean)
+ METHOD 0600002a PrivateScope, Public, HideBySig Void UninstallApp(String)
+ METHOD 0600002b PrivateScope, Public, HideBySig Void CancelInstallApp(String)
+ METHOD 0600002c PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 0600002d PrivateScope, Private, HideBySig Object <OnUSBAppChange>b__17_0(Object)
+ METHOD 0600002e PrivateScope, Private, HideBySig Object <UpdateAllApp>b__21_0(Object)
+ METHOD 0600002f PrivateScope, Private, HideBySig Object <OnAppChangeFromAppstore>b__23_0(Object)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppInstallStatus : System.Object
+ FIELD 0400000f Public, Static, Literal, HasDefault String AppInstalled
+ FIELD 04000010 Public, Static, Literal, HasDefault String AppRemoved
+ FIELD 04000011 Public, Static, Literal, HasDefault String AppStartInstall
+ FIELD 04000012 Public, Static, Literal, HasDefault String AppStartMultiInstall
+ FIELD 04000013 Public, Static, Literal, HasDefault String LockApp
+ FIELD 04000014 Public, Static, Literal, HasDefault String UpdateApp
+ FIELD 04000015 Public, Static, Literal, HasDefault String AppInstalling
+ FIELD 04000016 Public, Static, Literal, HasDefault String AppReinstall
+ FIELD 04000017 Public, Static, Literal, HasDefault String AppNone
+ METHOD 06000030 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.ProcessType : System.Object
+ FIELD 04000018 Public, Static, Literal, HasDefault String BusinessProcess
+ FIELD 04000019 Public, Static, Literal, HasDefault String PresentationProcess
+ METHOD 06000031 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.LockAppManager : System.Object
+ FIELD 0400001a Private String processType
+ FIELD 0400001b Private, Static Tizen.TV.Service.AppsCommon.LockAppManager instance
+ METHOD 06000032 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.LockAppManager get_Instance()
+ METHOD 06000033 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000034 PrivateScope, Public, HideBySig Void Init(String)
+ METHOD 06000035 PrivateScope, Private, HideBySig Void OnParentalLockChanged(IntPtr,IntPtr)
+ METHOD 06000036 PrivateScope, Private, HideBySig Void OnAppStatusChanged(IntPtr,IntPtr)
+ METHOD 06000037 PrivateScope, Public, HideBySig Void SetAppLockStatus(String,Boolean)
+ METHOD 06000038 PrivateScope, Public, HideBySig Void CheckAndUpdateLockIconTTS(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 06000039 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.WASEventMonitor : System.Object
+ FIELD 0400001c Private, Static Tizen.TV.Service.AppsCommon.WASEventMonitor instance
+ FIELD 0400001d Private System.Collections.Generic.Dictionary`2<String,String> MonitoredAppDic
+ METHOD 0600003a PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.WASEventMonitor get_Instance()
+ METHOD 0600003b PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600003c PrivateScope, Public, HideBySig Void Init()
+ METHOD 0600003d PrivateScope, Public, HideBySig Void MonitorAppEvent(String)
+ METHOD 0600003e PrivateScope, Public, HideBySig Void StartInstallEvent(String)
+ METHOD 0600003f PrivateScope, Public, HideBySig Void RegisterWasEventNotify(String,.CallBackEventType,Int32,.ErrorCodeEnum,IntPtr)
+ METHOD 06000040 PrivateScope, Public, HideBySig Void CheckAndStartWASUpdateEvent(String)
+ METHOD 06000041 PrivateScope, Private, HideBySig Void DisplayInstallFailedPopup(String,String)
+ METHOD 06000042 PrivateScope, Private, HideBySig Void DisplayToastWhileDeleted()
+ METHOD 06000043 PrivateScope, Private, HideBySig Void DisplayToastWhileDeleteFailed()
+ METHOD 06000044 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.WasWrapper : System.Object
+ FIELD 0400001e Public, Static Boolean IsSkipTVSyncCheck
+ FIELD 0400001f Private, Static Tizen.TV.DownloadableApplications.AppDB wasAppDB
+ FIELD 04000020 Private, Static Tizen.TV.DownloadableApplications.AppLaunch wasAppLaunch
+ FIELD 04000021 Private, Static Tizen.TV.DownloadableApplications.AppManager wasAppManager
+ FIELD 04000022 Private, Static Int64 PRESERVED_SIZE
+ FIELD 04000023 Public, Static String EManualId
+ FIELD 04000024 Public, Static String VACAppID
+ METHOD 06000045 PrivateScope, Public, Static, HideBySig Void Init()
+ METHOD 06000046 PrivateScope, Public, Static, HideBySig Void GetEmanualId()
+ METHOD 06000047 PrivateScope, Public, Static, HideBySig Int32 GetAppCount(Tizen.TV.DownloadableApplications.APPFeature,Tizen.TV.DownloadableApplications.APPViewMode)
+ METHOD 06000048 PrivateScope, Public, Static, HideBySig LitJson.JsonData GetAppInfo(String)
+ METHOD 06000049 PrivateScope, Public, Static, HideBySig LitJson.JsonData GetAppList(Tizen.TV.DownloadableApplications.APPFeature,Tizen.TV.DownloadableApplications.APPViewMode)
+ METHOD 0600004a PrivateScope, Public, Static, HideBySig LitJson.JsonData GetPackageInfo(String)
+ METHOD 0600004b PrivateScope, Public, Static, HideBySig LitJson.JsonData GetAppListWithBetaTestApp()
+ METHOD 0600004c PrivateScope, Public, Static, HideBySig Void GetPackageNameFromWas()
+ METHOD 0600004d PrivateScope, Private, Static, HideBySig LitJson.JsonData HandleAppListData(LitJson.JsonData,LitJson.JsonData,Boolean)
+ METHOD 0600004e PrivateScope, Private, Static, HideBySig Void AddBetaTestAppInfo(String,String,Boolean,String,String)
+ METHOD 0600004f PrivateScope, Public, Static, HideBySig LitJson.JsonData GetAppListJson(Boolean)
+ METHOD 06000050 PrivateScope, Public, Static, HideBySig Void UninstallApp(String,Boolean,.InstallEventHandler)
+ METHOD 06000051 PrivateScope, Public, Static, HideBySig Void UninstallApp(Tizen.TV.DownloadableApplications.InstallControl,.InstallEventHandler)
+ METHOD 06000052 PrivateScope, Public, Static, HideBySig LitJson.JsonData GetRecentlyUsedAppList(Int32)
+ METHOD 06000053 PrivateScope, Public, Static, HideBySig LitJson.JsonData GetDebugInfo()
+ METHOD 06000054 PrivateScope, Public, Static, HideBySig String GetInfolinkVer()
+ METHOD 06000055 PrivateScope, Public, Static, HideBySig String GetAppIdByRuntitle(String)
+ METHOD 06000056 PrivateScope, Public, Static, HideBySig Tizen.TV.DownloadableApplications.WASDBSyncState GetTVSyncState()
+ METHOD 06000057 PrivateScope, Public, Static, HideBySig Boolean GetLockStatus(String)
+ METHOD 06000058 PrivateScope, Public, Static, HideBySig String GetAppLimitedAge(String)
+ METHOD 06000059 PrivateScope, Public, Static, HideBySig Boolean IsInstalledApp(String)
+ METHOD 0600005a PrivateScope, Public, Static, HideBySig LitJson.JsonData GetInstallingApps()
+ METHOD 0600005b PrivateScope, Public, Static, HideBySig Void MonitorWebAppInstallStatus(Tizen.TV.DownloadableApplications.InstallControl,.InstallEventHandler)
+ METHOD 0600005c PrivateScope, Public, Static, HideBySig Void UnmonitorWebAppInstallStatus(Tizen.TV.DownloadableApplications.InstallControl)
+ METHOD 0600005d PrivateScope, Public, Static, HideBySig Boolean IsNormalAppExist(String)
+ METHOD 0600005e PrivateScope, Public, Static, HideBySig Boolean IsWASMethodExist(String)
+ METHOD 0600005f PrivateScope, Public, Static, HideBySig Void LaunchAppWithAUL(String)
+ METHOD 06000060 PrivateScope, Public, Static, HideBySig Void InstallApp(Tizen.TV.DownloadableApplications.InstallControl,.InstallEventHandler)
+ METHOD 06000061 PrivateScope, Public, Static, HideBySig Void InstallApp(Tizen.Applications.AppControl,.InstallEventHandler)
+ METHOD 06000062 PrivateScope, Public, Static, HideBySig Void UpdateApp(Tizen.TV.DownloadableApplications.InstallControl,.InstallEventHandler)
+ METHOD 06000063 PrivateScope, Public, Static, HideBySig Void SetAppLock(String,Int32)
+ METHOD 06000064 PrivateScope, Public, Static, HideBySig Void CancelInstallApp(Tizen.TV.DownloadableApplications.InstallControl,.InstallEventHandler)
+ METHOD 06000065 PrivateScope, Public, Static, HideBySig Void SetAppChange()
+ METHOD 06000066 PrivateScope, Private, Static, HideBySig Void PrintfWholeStr(String,String)
+ METHOD 06000067 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000068 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsCommonDefine : System.Object
+ FIELD 04000025 Public, Static, InitOnly String AppsVersion
+ FIELD 04000026 Public, Static, Literal, HasDefault String AppsPackageName
+ FIELD 04000027 Public, Static, Literal, HasDefault String PKG_NAME_APPSTAB_BP
+ FIELD 04000028 Public, Static, Literal, HasDefault String PKG_NAME_SYSPOPUP
+ FIELD 04000029 Public, Static, Literal, HasDefault String PKG_NAME_SAFCOMMONPLUGIN
+ FIELD 0400002a Public, Static, Literal, HasDefault String PKG_NAME_SYSTEM_MENU
+ FIELD 0400002b Public, Static, Literal, HasDefault String PKG_NAME_PromotionApp
+ FIELD 0400002c Public, Static, Literal, HasDefault String APP_ID_PromotionApp
+ FIELD 0400002d Public, Static, InitOnly String RESOLUTION
+ FIELD 0400002e Public, Static String NetFlix_ID
+ FIELD 0400002f Public, Static, InitOnly Int32 TimeOfRefreshAppsTab
+ FIELD 04000030 Public, Static, InitOnly Int32 TimeOfRetryGetMainData
+ FIELD 04000031 Public, Static, InitOnly String DB_COMSS_DUID
+ FIELD 04000032 Public, Static, InitOnly String DB_COMSS_MODELID
+ FIELD 04000033 Public, Static, InitOnly String DB_COMSS_COUNTRYCODE
+ FIELD 04000034 Public, Static, InitOnly String DB_MENU_WIDGET_LANGUAGE
+ FIELD 04000035 Public, Static, InitOnly String DB_SMARTHUB_TEARMS_AGREE
+ FIELD 04000036 Public, Static, InitOnly String DB_COMSS_ATOKEN
+ FIELD 04000037 Public, Static, InitOnly String DB_COMSS_ATOKENEXPTIME
+ FIELD 04000038 Public, Static, InitOnly String DB_EDEN_LAUNCHER_LIST
+ FIELD 04000039 Public, Static, InitOnly String DB_EDEN_CATEGORY_LIST
+ FIELD 0400003a Public, Static, InitOnly String DB_GAME_HOME_LAUNCHER_LIST
+ FIELD 0400003b Public, Static, InitOnly String DB_WORKSPACE_LAUNCHER_LIST
+ FIELD 0400003c Public, Static, InitOnly String DB_AMBIENT_LAUNCHER_LIST
+ FIELD 0400003d Public, Static, InitOnly String DB_LifePlus_LAUNCHER_LIST
+ FIELD 0400003e Public, Static, InitOnly String DB_APPSTORE_BR_LOCK
+ FIELD 0400003f Public, Static, InitOnly String DB_MENU_SYSTEM_ACCESSIBILITY_HIGHCONTRAST
+ FIELD 04000040 Public, Static, InitOnly String DB_MENU_SYSTEM_ACCESSIBILITY_FOCUSZOOM
+ FIELD 04000041 Public, Static, InitOnly String DB_WAS_BTGID
+ FIELD 04000042 Public, Static, InitOnly String DB_SETTING_PARENTAL_LOCK
+ FIELD 04000043 Public, Static, InitOnly String DB_ADDTOHOME_TYPE
+ FIELD 04000044 Public, Static, InitOnly String DB_AGE_LOCK
+ FIELD 04000045 Public, Static, InitOnly String DB_SMARTHUB_RESET
+ FIELD 04000046 Public, Static, InitOnly String DB_SSO_LOGIN_STATUS
+ FIELD 04000047 Public, Static, InitOnly String DB_MENU_SMARTHUB_APP_AUTO_UPDATE
+ FIELD 04000048 Public, Static, InitOnly String DB_SETTING_ACCESSIBILITY_TTS
+ FIELD 04000049 Public, Static, InitOnly String DB_HOME_CATEGORYINFO
+ FIELD 0400004a Public, Static, InitOnly String DB_COMSS_CISBLOCK
+ FIELD 0400004b Public, Static, InitOnly String MEMORY_WAS_APP_SYNC
+ FIELD 0400004c Public, Static, InitOnly String MEMORY_WAS_APP_CHANGE
+ FIELD 0400004d Public, Static, InitOnly String MEMORY_WAS_APP_INSTALL
+ FIELD 0400004e Public, Static, InitOnly String MEMORY_WAS_APP_UNINSTALL
+ FIELD 0400004f Public, Static, InitOnly String MEMORY_DATA_SERVICE_READY
+ FIELD 04000050 Public, Static, InitOnly String VCONF_FIRSTSCREEN_STATE
+ FIELD 04000051 Public, Static, InitOnly String VCONF_EDEN_SHOW_STATUS
+ FIELD 04000052 Public, Static, InitOnly String VCONF_EDEN_CURRENT_PAGE
+ FIELD 04000053 Public, Static, InitOnly String VCONF_EDEN_CURRENT_TAB
+ FIELD 04000054 Public, Static, InitOnly String DB_APPSTORE_APP_CACHE
+ FIELD 04000055 Public, Static, InitOnly String VCONF_APPSTORE_APP_ICON
+ FIELD 04000056 Public, Static, InitOnly String DB_APPSTORE_IS_APPSTAB_SUPPORT
+ FIELD 04000057 Public, Static, Literal, HasDefault String FMSKeyInfoStart
+ FIELD 04000058 Public, Static, Literal, HasDefault String FMSKeyInfoPanelResolutionWidth
+ FIELD 04000059 Public, Static, Literal, HasDefault String FMSKeyInfoPanelResolutionHeight
+ FIELD 0400005a Public, Static, Literal, HasDefault String FMSKeyInfoB2bOptionSupport
+ FIELD 0400005b Public, Static, Literal, HasDefault String FMSKeyInfoGraphicsMaxResolutionWidth
+ FIELD 0400005c Public, Static, Literal, HasDefault String FMSKeyInfoGraphicsMaxResolutionHeight
+ FIELD 0400005d Public, Static, Literal, HasDefault String FMSKeyInfoProductAppsAutoUpgrade
+ FIELD 0400005e Public, Static, Literal, HasDefault String IsProjectorFeatureSupport
+ FIELD 0400005f Public, Static, Literal, HasDefault String FMS_KEY_HOTEL_TV
+ FIELD 04000060 Public, Static, Literal, HasDefault String FMS_KEY_UIFW_ROUND_CORNER
+ FIELD 04000061 Public, Static, Literal, HasDefault String EVENT_MAIN_DATA_READY
+ FIELD 04000062 Public, Static, Literal, HasDefault String EVENT_RECOMMENDED_DATA_READY
+ FIELD 04000063 Public, Static, Literal, HasDefault String EVENT_EDITOR_CHOICE_DATA_READY
+ FIELD 04000064 Public, Static, Literal, HasDefault String EVENT_BEST_APPS_DATA_READY
+ FIELD 04000065 Public, Static, Literal, HasDefault String EVENT_RECOMMENDATION_ROW_DATA_READY
+ FIELD 04000066 Public, Static, Literal, HasDefault String EVENT_COPYRIGHT_DATA_READY
+ FIELD 04000067 Public, Static, Literal, HasDefault String EVENT_PARSE_MAIN_CATEGORY_DATA_COMPLETE
+ FIELD 04000068 Public, Static, Literal, HasDefault String EVENT_PARSE_RECOMMEND_DATA_COMPLETE
+ FIELD 04000069 Public, Static, Literal, HasDefault String EVENT_PARSE_EDITORCHOICE_DATA_COMPLETE
+ FIELD 0400006a Public, Static, Literal, HasDefault String EVENT_PARSE_RECOMMENDATION_ROW_DATA_COMPLETE
+ FIELD 0400006b Public, Static, Literal, HasDefault String EVENT_PARSE_COPYRIGHT_DATA_COMPLETE
+ FIELD 0400006c Public, Static, Literal, HasDefault String EVENT_DEACTIVE_HIDE_POPUP
+ FIELD 0400006d Public, Static, Literal, HasDefault String EVENT_RETRY_REQUEST_MAIN_DATA
+ FIELD 0400006e Public, Static, Literal, HasDefault String EVENT_ON_APPS_TAB_FOCUSED
+ FIELD 0400006f Public, Static, Literal, HasDefault String EVENT_MAINTAIN_BASIC_APPS_LIST
+ FIELD 04000070 Public, Static, Literal, HasDefault String EVENT_SAVE_EDITOR_CHOICE_DATA_TO_CACHE
+ FIELD 04000071 Public, Static, Literal, HasDefault String EVENT_SAVE_RECOMMENDATION_ROW_DATA_TO_CACHE
+ FIELD 04000072 Public, Static, Literal, HasDefault String EVENT_UPDATE_DOWNLOADED_ROW_DIRECTLY
+ FIELD 04000073 Public, Static, Literal, HasDefault String EVENT_UPDATE_START
+ FIELD 04000074 Public, Static, Literal, HasDefault String EVENT_APP_LIST_SYNC
+ FIELD 04000075 Public, Static, Literal, HasDefault String EVENT_APP_SYNC_COMPLETED
+ FIELD 04000076 Public, Static, Literal, HasDefault String EVENT_APP_SYNC_FAILED
+ FIELD 04000077 Public, Static, Literal, HasDefault String EVENT_REMOVE_APP_FROM_DOWNLOADED
+ FIELD 04000078 Public, Static, InitOnly String SCREENSHOT_W
+ FIELD 04000079 Public, Static, InitOnly String SCREENSHOT_H
+ FIELD 0400007a Public, Static, InitOnly String APPICON_W
+ FIELD 0400007b Public, Static, InitOnly String APPICON_H
+ FIELD 0400007c Public, Static, InitOnly String PROMOTED_ICON_W
+ FIELD 0400007d Public, Static, InitOnly String PROMOTED_ICON_H
+ FIELD 0400007e Public, Static, InitOnly String FONT_TYPE_400
+ FIELD 0400007f Public, Static, InitOnly String FONT_TYPE_500
+ FIELD 04000080 Public, Static, InitOnly String FONT_TYPE_600
+ FIELD 04000081 Public, Static, InitOnly String FONT_TYPE_700
+ FIELD 04000082 Public, Static, InitOnly String TEXT_COLOR_CHIP_BASIC_1100
+ FIELD 04000083 Public, Static, InitOnly String TEXT_COLOR_CHIP_BASIC_180
+ FIELD 04000084 Public, Static, InitOnly String TEXT_COLOR_CHIP_BASIC_2100
+ FIELD 04000085 Public, Static, InitOnly String TEXT_COLOR_CHIP_BACKGROUND_200
+ FIELD 04000086 Public, Static, InitOnly String TEXT_COLOR_PRESET_INFO_1100
+ FIELD 04000087 Public, Static, InitOnly String TEXT_COLOR_PRESET_INFO_190
+ FIELD 04000088 Public, Static, InitOnly String TEXT_COLOR_PRESET_PLANE_200
+ FIELD 04000089 Public, Static, InitOnly String TEXT_COLOR_PRESET_PLANE_220
+ FIELD 0400008a Public, Static, InitOnly String TEXT_COLOR_PRESET_PLANE_230
+ FIELD 0400008b Public, Static, InitOnly String TEXT_COLOR_PRESET_PLANE_110
+ FIELD 0400008c Public, Static, InitOnly String TEXT_COLOR_CHIP_POINT_290
+ FIELD 0400008d Public, Static, InitOnly String BACKGROUND_COLOR_PRESET_270
+ FIELD 0400008e Public, Static, InitOnly String BACKGROUND_COLOR_CHIP_BG_14100
+ FIELD 0400008f Public, Static, InitOnly Int32 FONT_SIZE_12
+ FIELD 04000090 Public, Static, InitOnly Int32 FONT_SIZE_16
+ FIELD 04000091 Public, Static, InitOnly Int32 FONT_SIZE_20
+ FIELD 04000092 Public, Static, InitOnly Int32 FONT_SIZE_24
+ FIELD 04000093 Public, Static, InitOnly Int32 FONT_SIZE_28
+ FIELD 04000094 Public, Static, InitOnly Int32 FONT_SIZE_32
+ FIELD 04000095 Public, Static, InitOnly Int32 APP_RECOMMEND_CATEGORY_LIST_H
+ FIELD 04000096 Public, Static, InitOnly Int32 APP_APPS_CONTENT_CATEGORY_LIST_H
+ FIELD 04000097 Public, Static, InitOnly Int32 APP_DOWNLOADED_CATEGORY_LIST_H
+ FIELD 04000098 Public, Static, InitOnly Int32 APP_GROUP_CONTENT_CATEGORY_LIST_H
+ FIELD 04000099 Public, Static, InitOnly Int32 APP_GENRE_CATEGORY_LIST_H
+ FIELD 0400009a Public, Static, InitOnly Int32 APP_SETTING_CATEGORY_LIST_H
+ FIELD 0400009b Public, Static, InitOnly Int32 APP_BENRFITFORYOU_CATEGORY_LIST_H
+ FIELD 0400009c Public, Static, InitOnly Int32 APPS_RECOMMENDED_LIST_GROUP_GAP
+ FIELD 0400009d Public, Static, InitOnly Int32 APPS_DOWNLOAD_LIST_ITEM_GAP
+ FIELD 0400009e Public, Static, InitOnly Int32 APPS_APP_LIST_ITEM_GAP
+ FIELD 0400009f Public, Static, InitOnly Int32 APPS_GENRE_LIST_ITEM_GAP
+ FIELD 040000a0 Public, Static, InitOnly Int32 APPS_GROUP_CONTENT_LIST_ITEM_GAP
+ FIELD 040000a1 Public, Static, InitOnly Int32 APPS_BENRFITFORYOU_LIST_ITEM_GAP
+ FIELD 040000a2 Public, Static, InitOnly Int32 APPS_SETTING_OPTION_ITEM_GAP
+ FIELD 040000a3 Public, Static, InitOnly Int32 APPS_APP_LIST_MAININFO_ITEM_GAP
+ FIELD 040000a4 Public, Static, InitOnly Int32 APPS_APP_LIST_MAININFO_TEXT_W
+ FIELD 040000a5 Public, Static, InitOnly Int32 APPS_APP_LIST_MAININFO_LEFT_PADING
+ FIELD 040000a6 Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_WIDTH
+ FIELD 040000a7 Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_HEIGHT
+ FIELD 040000a8 Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_PORTRIAIT_WIDTH
+ FIELD 040000a9 Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_PADDING_LEFT
+ FIELD 040000aa Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_PADDING_TOP
+ FIELD 040000ab Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_PADDING_BOTTOM
+ FIELD 040000ac Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_ITEM_GAP
+ FIELD 040000ad Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_TITLE_W
+ FIELD 040000ae Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_TITLE_PORTRIAIT_W
+ FIELD 040000af Public, Static, InitOnly Int32 APPS_PREVIEW_GUIDE_TITLE_H
+ FIELD 040000b0 Public, Static, InitOnly Int32 APPS_PREVIEW_BUTTON_WIDTH
+ FIELD 040000b1 Public, Static, InitOnly Int32 APPS_PREVIEW_BUTTON_HEIGHT
+ FIELD 040000b2 Public, Static, InitOnly Single APPS_FOCUSED_SCALE_120
+ FIELD 040000b3 Public, Static, InitOnly Single APPS_FOCUSED_SCALE_110
+ FIELD 040000b4 Public, Static, InitOnly Single APPS_FOCUSED_SCALE_138
+ FIELD 040000b5 Public, Static, InitOnly Single APPS_SELECTED_SCALE_122
+ FIELD 040000b6 Public, Static, InitOnly Single APPS_FOCUSED_SCALE_100
+ FIELD 040000b7 Public, Static, InitOnly Single APPS_FOCUSED_SCALE_105
+ FIELD 040000b8 Public, Static, InitOnly Int32 APPS_CONTENT_CATEGORY_TILE_W
+ FIELD 040000b9 Public, Static, InitOnly Int32 APPS_CONTENT_CATEGORY_TILE_H
+ FIELD 040000ba Public, Static, InitOnly Int32 GENRE_CATEGORY_TILE_W
+ FIELD 040000bb Public, Static, InitOnly Int32 GENRE_CATEGORY_TILE_H
+ FIELD 040000bc Public, Static, InitOnly Int32 GENRE_CATEGORY_IMAGE_W
+ FIELD 040000bd Public, Static, InitOnly Int32 GENRE_CATEGORY_IMAGE_H
+ FIELD 040000be Public, Static, InitOnly Int32 GENRE_CATEGORY_TEXT_W
+ FIELD 040000bf Public, Static, InitOnly Int32 GENRE_CATEGORY_TEXT_H
+ FIELD 040000c0 Public, Static, InitOnly Int32 GROUP_CATEGORY_TILE_W
+ FIELD 040000c1 Public, Static, InitOnly Int32 GROUP_CATEGORY_TILE_H
+ FIELD 040000c2 Public, Static, InitOnly Int32 GROUP_TEXTBGLAYOUT_W
+ FIELD 040000c3 Public, Static, InitOnly Int32 GROUP_TEXTBGLAYOUT_H
+ FIELD 040000c4 Public, Static, InitOnly Int32 GROUP_CATEGORY_TEXTLAYOUT_PADDING_LEFT
+ FIELD 040000c5 Public, Static, InitOnly Int32 GROUP_CATEGORY_TEXTLAYOUT_PADDING_TOP
+ FIELD 040000c6 Public, Static, InitOnly Int32 GROUP_CATEGORY_MAINTEXT_W
+ FIELD 040000c7 Public, Static, InitOnly Int32 GROUP_CATEGORY_MAINTEXT_RTL_W
+ FIELD 040000c8 Public, Static, InitOnly Int32 GROUP_CATEGORY_MAINTEXT_H
+ FIELD 040000c9 Public, Static, InitOnly Int32 GROUP_CATEGORY_SUBTEXT_W
+ FIELD 040000ca Public, Static, InitOnly Int32 GROUP_CATEGORY_SUBTEXT_RTL_W
+ FIELD 040000cb Public, Static, InitOnly Int32 GROUP_CATEGORY_SUBTEXT_H
+ FIELD 040000cc Public, Static, InitOnly Int32 BenefitForYou_CATEGORY_TILE_W
+ FIELD 040000cd Public, Static, InitOnly Int32 BenefitForYou_CATEGORY_TILE_H
+ FIELD 040000ce Public, Static, InitOnly Int32 BenefitForYou_CATEGORY_Thumbnail_W
+ FIELD 040000cf Public, Static, InitOnly Int32 BenefitForYou_CATEGORY_Thumbnail_H
+ FIELD 040000d0 Public, Static, InitOnly Int32 SETTING_CATEGORY_TILE_W
+ FIELD 040000d1 Public, Static, InitOnly Int32 SETTING_CATEGORY_TILE_H
+ FIELD 040000d2 Public, Static, InitOnly Int32 SETTING_CATEGORY_ICON_W
+ FIELD 040000d3 Public, Static, InitOnly Int32 SETTING_CATEGORY_ICON_H
+ FIELD 040000d4 Public, Static, InitOnly Int32 SETTING_UNLOCK_ICON_W
+ FIELD 040000d5 Public, Static, InitOnly Int32 SETTING_UNLOCK_ICON_H
+ FIELD 040000d6 Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_TILE_W
+ FIELD 040000d7 Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_TILE_H
+ FIELD 040000d8 Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_INFO_W
+ FIELD 040000d9 Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_INFOTRAY_W
+ FIELD 040000da Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_INFOTRAY_H
+ FIELD 040000db Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_PROGRESSCIRCLE_W
+ FIELD 040000dc Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_PROGRESSCIRCLE_H
+ FIELD 040000dd Public, Static, InitOnly Int32 DOWNLOAD_CATEGORY_INFOTRAY_ICON_W
+ FIELD 040000de Public, Static, InitOnly Int32 POPUP_TOAST_SINGLELINE_H
+ FIELD 040000df Public, Static, InitOnly Int32 POPUP_TOAST_MULTILINE_H
+ FIELD 040000e0 Public, Static, InitOnly Int32 POPUP_TOAST_W
+ FIELD 040000e1 Public, Static, InitOnly Int32 PROGRESS_CIRCLE_W
+ FIELD 040000e2 Public, Static, InitOnly Int32 LONG_TEXT_TTS_OFFSET
+ FIELD 040000e3 Public, Static, Literal, HasDefault String EVENT_INSTALL_SUCCESS
+ FIELD 040000e4 Public, Static, Literal, HasDefault String EVENT_UNINSTALL_SUCCESS
+ FIELD 040000e5 Public, Static, Literal, HasDefault String CLASSID_APPSTAB
+ FIELD 040000e6 Public, Static, Literal, HasDefault String CLASSID_CONTENT_CATEGORY
+ FIELD 040000e7 Public, Static, Literal, HasDefault String CLASSID_CONTENT_LAYER
+ FIELD 040000e8 Public, Static, Literal, HasDefault String CLASSID_CONTENT_TILE
+ FIELD 040000e9 Public, Static, Literal, HasDefault String CLASSID_LAUNCHER_EDIT_TILE
+ FIELD 040000ea Public, Static, Literal, HasDefault String CategoryID_Content
+ FIELD 040000eb Public, Static, Literal, HasDefault String DownloadCategoryInstanceId
+ FIELD 040000ec Public, Static, Literal, HasDefault String EditorChioceCategoryInstanceId
+ FIELD 040000ed Public, Static, Literal, HasDefault String BenefitForYouCategoryInstanceId
+ FIELD 040000ee Public, Static, Literal, HasDefault String RecommendedCategoryInstanceId
+ FIELD 040000ef Public, Static, Literal, HasDefault String BenefitForYouSectionInstanceId
+ FIELD 040000f0 Public, Static, Literal, HasDefault String RecommendedSectionInstanceId
+ FIELD 040000f1 Public, Static, Literal, HasDefault String POPUP_TYPE_SMALL_BOTTOM
+ FIELD 040000f2 Public, Static, Literal, HasDefault String AppDefaultThumbnail
+ FIELD 040000f3 Public, Static, Literal, HasDefault String FileName_AppLauncher_WasAppIcon
+ FIELD 040000f4 Public, Static, Literal, HasDefault String FileName_AppLauncher_WasAppIcon_8K
+ FIELD 040000f5 Public, Static, Literal, HasDefault String CLASSID_TERRABOTTOM
+ FIELD 040000f6 Public, Static, Literal, HasDefault String CLASSID_MEDIACATEGORY
+ FIELD 040000f7 Public, Static, Literal, HasDefault String CLASSID_LIVETVBANNER
+ FIELD 040000f8 Public, Static, Literal, HasDefault String COMMAND_MESSAGEBOX
+ FIELD 040000f9 Public, Static, Literal, HasDefault String KEY_BUTTON_CLICKED
+ FIELD 040000fa Public, Static, Literal, HasDefault String EVENT_PIN_ACCEPTED
+ FIELD 040000fb Public, Static, Literal, HasDefault String ATDOWNLOADED_CATEGORY_SETCTION_INSTANCEID
+ FIELD 040000fc Public, Static, Literal, HasDefault String ATGENRE_CATEGORY_SETCTION_INSTANCEID
+ FIELD 040000fd Public, Static, Literal, HasDefault String APPSTAB_APPS_SETTING
+ FIELD 040000fe Public, Static, Literal, HasDefault String APPSTAB_APPS_UPDATE_ALL
+ FIELD 040000ff Public, Static, Literal, HasDefault String APPSTAB_APPS_AUTO_UPDATE
+ FIELD 04000100 Public, Static, Literal, HasDefault String APPSTAB_APPS_APP_LOCK
+ FIELD 04000101 Public, Static, Literal, HasDefault String APPSTAB_APPS_COPYRIGHT
+ FIELD 04000102 Public, Static, Literal, HasDefault String APPSTAB_APPS_EU_DSA
+ FIELD 04000103 Public, Static, InitOnly System.Text.Json.JsonSerializerOptions SerializerOption
+ FIELD 04000104 Public, Static, InitOnly System.Text.Json.JsonSerializerOptions SerializerOption_Indented
+ METHOD 06000069 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsCommonFunction : System.Object
+ FIELD 04000105 Private, Static Tizen.TV.Service.AppsCommon.AppsCommonFunction instance
+ FIELD 04000106 Private String <Language>k__BackingField
+ FIELD 04000107 Private, Static System.Text.StringBuilder wholeMsg
+ FIELD 04000108 Private, Static Tizen.TV.FLUX.Component.RootLayout popupRootLayout
+ FIELD 04000109 Private, Static String savedMenuLanguage
+ FIELD 0400010a Private Tizen.TV.System.Boost.Boost boost
+ FIELD 0400010b Private Boolean bDownloadOptionPressed
+ METHOD 0600006a PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.AppsCommonFunction get_Instance()
+ METHOD 0600006b PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600006c PrivateScope, Public, HideBySig, SpecialName String get_Language()
+ METHOD 0600006d PrivateScope, Public, HideBySig, SpecialName Void set_Language(String)
+ METHOD 0600006e PrivateScope, Public, HideBySig String GetLanguage()
+ METHOD 0600006f PrivateScope, Public, HideBySig String GetLanguageCode()
+ METHOD 06000070 PrivateScope, Public, Static, HideBySig Void UpdateWholeMsg(String)
+ METHOD 06000071 PrivateScope, Public, Static, HideBySig System.Text.StringBuilder GetWholeMsg()
+ METHOD 06000072 PrivateScope, Public, Static, HideBySig Void ClearWholeMsg()
+ METHOD 06000073 PrivateScope, Public, HideBySig Void PrintfWholeStr(String,String)
+ METHOD 06000074 PrivateScope, Public, HideBySig Boolean CheckNetflixVisible()
+ METHOD 06000075 PrivateScope, Public, HideBySig Boolean IsB2BSupport()
+ METHOD 06000076 PrivateScope, Public, Static, HideBySig Boolean IsLFDModel()
+ METHOD 06000077 PrivateScope, Public, HideBySig Boolean IsNetflixVisible()
+ METHOD 06000078 PrivateScope, Public, Static, HideBySig Boolean IsProjectorFeatureSupport()
+ METHOD 06000079 PrivateScope, Public, HideBySig String GetDownloadAppThumbnail(LitJson.JsonData)
+ METHOD 0600007a PrivateScope, Public, HideBySig String GetDownloadAppIconWhileInstallFromServer(String)
+ METHOD 0600007b PrivateScope, Public, HideBySig String GetPanelResolution()
+ METHOD 0600007c PrivateScope, Public, HideBySig String GetGraphicsUIType()
+ METHOD 0600007d PrivateScope, Public, HideBySig Void CreateServiceReadyFile()
+ METHOD 0600007e PrivateScope, Public, HideBySig String GetReplacedThumbnailUrl(.ThumbnailType,String)
+ METHOD 0600007f PrivateScope, Private, HideBySig Boolean IsLicenseTVResolution()
+ METHOD 06000080 PrivateScope, Private, HideBySig Boolean IsRoseSFProduct()
+ METHOD 06000081 PrivateScope, Public, HideBySig Boolean IsRetailMode()
+ METHOD 06000082 PrivateScope, Public, HideBySig Boolean IsSystemRetailMode()
+ METHOD 06000083 PrivateScope, Public, HideBySig Boolean IsSupportEnforceRuninRetailMode(String)
+ METHOD 06000084 PrivateScope, Public, HideBySig Boolean IsSDKEmulator()
+ METHOD 06000085 PrivateScope, Public, HideBySig Boolean IsAppsTabResumeState()
+ METHOD 06000086 PrivateScope, Public, Static, HideBySig Boolean IsAutoUpgradeSupport()
+ METHOD 06000087 PrivateScope, Public, Static, HideBySig Boolean IsSupportUpdateNotification()
+ METHOD 06000088 PrivateScope, Public, Static, HideBySig String GetCurrentWeek()
+ METHOD 06000089 PrivateScope, Public, Static, HideBySig Void CreatePopupRootLaylout(Tizen.TV.FLUX.Component.Layout)
+ METHOD 0600008a PrivateScope, Public, Static, HideBySig Int32 GetTextWidth(String,Int32,Int32)
+ METHOD 0600008b PrivateScope, Public, Static, HideBySig Int32 GetTextHeightForWidth(String,Int32,Int32)
+ METHOD 0600008c PrivateScope, Public, Static, HideBySig Boolean IsKpiServiceReady()
+ METHOD 0600008d PrivateScope, Public, HideBySig Boolean IsDisclaimerAgreeDefault()
+ METHOD 0600008e PrivateScope, Public, Static, HideBySig Void GetStackInfo()
+ METHOD 0600008f PrivateScope, Public, Static, HideBySig Void SetCurrentLanguage()
+ METHOD 06000090 PrivateScope, Public, Static, HideBySig Boolean IsLanguageChanged()
+ METHOD 06000091 PrivateScope, Public, Static, HideBySig Void CheckAppsTabCacheExist()
+ METHOD 06000092 PrivateScope, Public, Static, HideBySig Boolean IsFlipProduct()
+ METHOD 06000093 PrivateScope, Public, Static, HideBySig String GetWasCategory(String)
+ METHOD 06000094 PrivateScope, Public, Static, HideBySig Boolean IsAvailableAddToHome(String,Boolean&,Boolean&)
+ METHOD 06000095 PrivateScope, Private, Static, HideBySig Boolean IsCategoryExist(String,String)
+ METHOD 06000096 PrivateScope, Public, Static, HideBySig Boolean FindAppInHome(String,String)
+ METHOD 06000097 PrivateScope, Public, Static, HideBySig Boolean CheckAppRemovable(String)
+ METHOD 06000098 PrivateScope, Public, Static, HideBySig Boolean CheckOptionAvailable(Int32,String)
+ METHOD 06000099 PrivateScope, Public, Static, HideBySig Void AddToHome(String,String,String)
+ METHOD 0600009a PrivateScope, Public, HideBySig String GetTargetCategory(String,String,Boolean)
+ METHOD 0600009b PrivateScope, Public, HideBySig String GetAgeLockText()
+ METHOD 0600009c PrivateScope, Public, HideBySig String GetConvertedLockText(String)
+ METHOD 0600009d PrivateScope, Public, HideBySig String GetAutoUpdateStateText()
+ METHOD 0600009e PrivateScope, Public, Static, HideBySig Int32 GetTtsMaxLength()
+ METHOD 0600009f PrivateScope, Public, Static, HideBySig String CheckWholeMsgByte(System.Text.StringBuilder,Int32)
+ METHOD 060000a0 PrivateScope, Public, HideBySig String GetDateWithSIDType(String)
+ METHOD 060000a1 PrivateScope, Public, HideBySig Int32 GetAgeLockTextIndexInVconf()
+ METHOD 060000a2 PrivateScope, Public, Static, HideBySig Void ComponentDispose(!!0&)
+ METHOD 060000a3 PrivateScope, Public, Static, HideBySig Boolean IsMousePointingSupport()
+ METHOD 060000a4 PrivateScope, Public, Static, HideBySig Boolean IsTouchSupport()
+ METHOD 060000a5 PrivateScope, Public, HideBySig Void SpeedUpPerformance(String)
+ METHOD 060000a6 PrivateScope, Public, HideBySig Void SetDownloadOptionPressedState(Boolean)
+ METHOD 060000a7 PrivateScope, Public, HideBySig Boolean GetDownloadOptionPressedState()
+ METHOD 060000a8 PrivateScope, Public, Static, HideBySig String GetCommonConfigurationInfo(String)
+ METHOD 060000a9 PrivateScope, Public, Static, HideBySig Boolean ShowCISBlockMessage(Boolean)
+ METHOD 060000aa PrivateScope, Public, Static, HideBySig Boolean IsOSUFirmware()
+ METHOD 060000ab PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsCommonLogger : System.Object
+ FIELD 0400010c Private, Static String TAG
+ FIELD 0400010d Private, Static Boolean bUseAppsTAG
+ METHOD 060000ac PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060000ad PrivateScope, Public, Static, HideBySig Void Info(String,String,String,Int32)
+ METHOD 060000ae PrivateScope, Public, Static, HideBySig Void Debug(String,String,String,Int32)
+ METHOD 060000af PrivateScope, Public, Static, HideBySig Void Error(String,String,String,Int32)
+ METHOD 060000b0 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsDeviceInfo : System.Object
+ FIELD 0400010e Private, Static Tizen.TV.Service.AppsCommon.AppsDeviceInfo instance
+ FIELD 0400010f Private .AppsDeviceInfoDelegate OnChangedEvent
+ FIELD 04000110 Public Boolean IsDeviceInit
+ FIELD 04000111 Private String processType
+ FIELD 04000112 Private String addToHomeType
+ FIELD 04000113 Private Boolean bTTSOn
+ FIELD 04000114 Private String <Modelid>k__BackingField
+ FIELD 04000115 Private String <Countrycode>k__BackingField
+ FIELD 04000116 Private String <Language>k__BackingField
+ FIELD 04000117 Private String <Resolution>k__BackingField
+ FIELD 04000118 Private String <Firmcode>k__BackingField
+ FIELD 04000119 Private Boolean highContrast
+ FIELD 0400011a Private Boolean enlarge
+ FIELD 0400011b Private Boolean <IsReversed>k__BackingField
+ FIELD 0400011c Private Boolean <bLiteMode>k__BackingField
+ FIELD 0400011d Private Boolean <IsHotelMode>k__BackingField
+ FIELD 0400011e Private Boolean <IsRemovableByCountry>k__BackingField
+ FIELD 0400011f Private Boolean <bParentalLock>k__BackingField
+ FIELD 04000120 Private String <IsEnforceLogin>k__BackingField
+ FIELD 04000121 Private String <IsUpdateNotification>k__BackingField
+ FIELD 04000122 Private String <IsAgeLock>k__BackingField
+ FIELD 04000123 Public String[] AgeLockTextArray
+ FIELD 04000124 Private Boolean bAgeLockTextInit
+ FIELD 04000125 Private Boolean <bAppsTabCacheExist>k__BackingField
+ FIELD 04000126 Private System.Timers.Timer timer
+ FIELD 04000127 Private Boolean bInited
+ METHOD 060000b1 PrivateScope, Public, HideBySig, SpecialName Void add_OnChangedEvent(.AppsDeviceInfoDelegate)
+ METHOD 060000b2 PrivateScope, Public, HideBySig, SpecialName Void remove_OnChangedEvent(.AppsDeviceInfoDelegate)
+ METHOD 060000b3 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060000b4 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.AppsDeviceInfo get_Instance()
+ METHOD 060000b5 PrivateScope, Public, HideBySig, SpecialName String get_Modelid()
+ METHOD 060000b6 PrivateScope, Public, HideBySig, SpecialName Void set_Modelid(String)
+ METHOD 060000b7 PrivateScope, Public, HideBySig, SpecialName String get_Countrycode()
+ METHOD 060000b8 PrivateScope, Public, HideBySig, SpecialName Void set_Countrycode(String)
+ METHOD 060000b9 PrivateScope, Public, HideBySig, SpecialName String get_Language()
+ METHOD 060000ba PrivateScope, Public, HideBySig, SpecialName Void set_Language(String)
+ METHOD 060000bb PrivateScope, Public, HideBySig, SpecialName String get_Resolution()
+ METHOD 060000bc PrivateScope, Public, HideBySig, SpecialName Void set_Resolution(String)
+ METHOD 060000bd PrivateScope, Public, HideBySig, SpecialName String get_Firmcode()
+ METHOD 060000be PrivateScope, Public, HideBySig, SpecialName Void set_Firmcode(String)
+ METHOD 060000bf PrivateScope, Public, HideBySig, SpecialName Boolean get_IsReversed()
+ METHOD 060000c0 PrivateScope, Public, HideBySig, SpecialName Void set_IsReversed(Boolean)
+ METHOD 060000c1 PrivateScope, Public, HideBySig, SpecialName Boolean get_bLiteMode()
+ METHOD 060000c2 PrivateScope, Public, HideBySig, SpecialName Void set_bLiteMode(Boolean)
+ METHOD 060000c3 PrivateScope, Public, HideBySig, SpecialName Boolean get_IsHotelMode()
+ METHOD 060000c4 PrivateScope, Public, HideBySig, SpecialName Void set_IsHotelMode(Boolean)
+ METHOD 060000c5 PrivateScope, Public, HideBySig, SpecialName Boolean get_IsRemovableByCountry()
+ METHOD 060000c6 PrivateScope, Public, HideBySig, SpecialName Void set_IsRemovableByCountry(Boolean)
+ METHOD 060000c7 PrivateScope, Public, HideBySig, SpecialName Boolean get_bParentalLock()
+ METHOD 060000c8 PrivateScope, Public, HideBySig, SpecialName Void set_bParentalLock(Boolean)
+ METHOD 060000c9 PrivateScope, Public, HideBySig, SpecialName String get_IsEnforceLogin()
+ METHOD 060000ca PrivateScope, Public, HideBySig, SpecialName Void set_IsEnforceLogin(String)
+ METHOD 060000cb PrivateScope, Public, HideBySig, SpecialName String get_IsUpdateNotification()
+ METHOD 060000cc PrivateScope, Public, HideBySig, SpecialName Void set_IsUpdateNotification(String)
+ METHOD 060000cd PrivateScope, Public, HideBySig, SpecialName String get_IsAgeLock()
+ METHOD 060000ce PrivateScope, Public, HideBySig, SpecialName Void set_IsAgeLock(String)
+ METHOD 060000cf PrivateScope, Public, HideBySig, SpecialName Boolean get_bAppsTabCacheExist()
+ METHOD 060000d0 PrivateScope, Public, HideBySig, SpecialName Void set_bAppsTabCacheExist(Boolean)
+ METHOD 060000d1 PrivateScope, Public, HideBySig, SpecialName String get_AddToHomePkgName()
+ METHOD 060000d2 PrivateScope, Public, HideBySig, SpecialName Boolean get_HighContrast()
+ METHOD 060000d3 PrivateScope, Public, HideBySig, SpecialName Boolean get_Enlarge()
+ METHOD 060000d4 PrivateScope, Public, HideBySig, SpecialName Boolean get_TTSOn()
+ METHOD 060000d5 PrivateScope, Public, HideBySig Void Init(String)
+ METHOD 060000d6 PrivateScope, Public, HideBySig Void InitDeviceInfo()
+ METHOD 060000d7 PrivateScope, Private, HideBySig Void InstallEventHandler(Object,Tizen.Applications.PackageManagerEventArgs)
+ METHOD 060000d8 PrivateScope, Private, HideBySig Void UpdateEventHandler(Object,Tizen.Applications.PackageManagerEventArgs)
+ METHOD 060000d9 PrivateScope, Public, HideBySig Boolean IsAgeLockSupport()
+ METHOD 060000da PrivateScope, Public, HideBySig Boolean IsBrazilCountry()
+ METHOD 060000db PrivateScope, Public, HideBySig Void GetCommonConfigurationInfoFromComSSAPI()
+ METHOD 060000dc PrivateScope, Private, HideBySig Void SetAgeLockText(String)
+ METHOD 060000dd PrivateScope, Private, HideBySig Void OnLanguageChange(IntPtr,IntPtr)
+ METHOD 060000de PrivateScope, Private, HideBySig Void OnCountryCodeChange(IntPtr,IntPtr)
+ METHOD 060000df PrivateScope, Public, HideBySig Void OnAtokenChange(IntPtr,IntPtr)
+ METHOD 060000e0 PrivateScope, Private, HideBySig Void OnTTSChange(IntPtr,IntPtr)
+ METHOD 060000e1 PrivateScope, Private, HideBySig Void CheckRefreshAppsTabData()
+ METHOD 060000e2 PrivateScope, Private, HideBySig Void CreateTimer()
+ METHOD 060000e3 PrivateScope, Private, HideBySig Void StopTimer()
+ METHOD 060000e4 PrivateScope, Private, HideBySig Void TimerTick(Object,System.EventArgs)
+ METHOD 060000e5 PrivateScope, Public, HideBySig Boolean GetNetworkStatus()
+ METHOD 060000e6 PrivateScope, Private, HideBySig Void OnHighConstrastChange(IntPtr,IntPtr)
+ METHOD 060000e7 PrivateScope, Private, HideBySig Void OnEnlargeChange(IntPtr,IntPtr)
+ METHOD 060000e8 PrivateScope, Private, HideBySig Boolean IsOSDReversed()
+ METHOD 060000e9 PrivateScope, Private, HideBySig Boolean IsLiteMode()
+ METHOD 060000ea PrivateScope, Public, HideBySig Boolean IsRoundCornerSupport()
+ METHOD 060000eb PrivateScope, Public, Static, HideBySig Boolean CheckParentalLock()
+ METHOD 060000ec PrivateScope, Private, HideBySig Void OnParentalLockStateChanged(IntPtr,IntPtr)
+ METHOD 060000ed PrivateScope, Public, HideBySig Boolean GetRemovableByCountry()
+ METHOD 060000ee PrivateScope, Private, HideBySig Void AddNetworkChangedCB()
+ METHOD 060000ef PrivateScope, Public, HideBySig Void RemoveNetworkChangedCB()
+ METHOD 060000f0 PrivateScope, Private, HideBySig Void OnNetworkChangedCallback(Object,System.EventArgs)
+ METHOD 060000f1 PrivateScope, Private, HideBySig Void CheckBRSettingOnOldVersion()
+ METHOD 060000f2 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060000f3 PrivateScope, Private, HideBySig Object <AddNetworkChangedCB>b__107_0(Object)
+TYPE AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsJsonNode : System.Object
+ METHOD 060000f4 PrivateScope, Public, Static, HideBySig String ToFullString(System.Text.Json.Nodes.JsonNode)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsHomeDataManager : System.Object
+ FIELD 04000128 Private, Static Tizen.TV.Service.AppsCommon.AppsHomeDataManager instance
+ FIELD 04000129 Private .AppsCommonDelegate OnHomeDataReadyEvent
+ FIELD 0400012a Public Boolean isRreshEvery2Hours
+ FIELD 0400012b Private System.Timers.Timer timer
+ METHOD 060000f5 PrivateScope, Public, HideBySig, SpecialName Void add_OnHomeDataReadyEvent(.AppsCommonDelegate)
+ METHOD 060000f6 PrivateScope, Public, HideBySig, SpecialName Void remove_OnHomeDataReadyEvent(.AppsCommonDelegate)
+ METHOD 060000f7 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.AppsHomeDataManager get_Instance()
+ METHOD 060000f8 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060000f9 PrivateScope, Public, HideBySig Void FetchAppsHomeData()
+ METHOD 060000fa PrivateScope, Private, HideBySig Void UpdateDownloadedRowDirectly(Object)
+ METHOD 060000fb PrivateScope, Private, HideBySig Void OnRequestMainDataComplete(Object)
+ METHOD 060000fc PrivateScope, Private, HideBySig Void OnRequestRecommendDataComplete(Object)
+ METHOD 060000fd PrivateScope, Private, HideBySig Void OnRequestEditorChoiceDataComplete(Object)
+ METHOD 060000fe PrivateScope, Private, HideBySig Void OnRequestPopularThisWeekDataComplete(Object)
+ METHOD 060000ff PrivateScope, Private, HideBySig Void OnRequestCopyrightDataComplete(Object)
+ METHOD 06000100 PrivateScope, Private, HideBySig Void OnHomeDataReady(Object)
+ METHOD 06000101 PrivateScope, Private, HideBySig Void RetryGetMainData(Object)
+ METHOD 06000102 PrivateScope, Private, HideBySig Void ParseHomeLocalCache()
+ METHOD 06000103 PrivateScope, Private, HideBySig Void CreateTimer()
+ METHOD 06000104 PrivateScope, Private, HideBySig Void StopTimer()
+ METHOD 06000105 PrivateScope, Private, HideBySig Void TimerTick(Object,System.EventArgs)
+ METHOD 06000106 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.ATEdenLauncherListAppManager : System.Object
+ FIELD 0400012c Private, Static Tizen.TV.Service.AppsCommon.ATEdenLauncherListAppManager instance
+ FIELD 0400012d Private, Static System.Collections.Generic.Dictionary`2<String,String> ATEdenLauncherListAppDict
+ FIELD 0400012e Private Boolean bInited
+ FIELD 0400012f Private, Static System.Collections.Generic.Dictionary`2<String,String> curHomeAppDict
+ FIELD 04000130 Private .ATEdenLauncherListAppChangedDelegate OnEdenLauncherListAppChangedEvent
+ METHOD 06000107 PrivateScope, Public, HideBySig, SpecialName Void add_OnEdenLauncherListAppChangedEvent(.ATEdenLauncherListAppChangedDelegate)
+ METHOD 06000108 PrivateScope, Public, HideBySig, SpecialName Void remove_OnEdenLauncherListAppChangedEvent(.ATEdenLauncherListAppChangedDelegate)
+ METHOD 06000109 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.ATEdenLauncherListAppManager get_Instance()
+ METHOD 0600010a PrivateScope, Public, HideBySig Void Init()
+ METHOD 0600010b PrivateScope, Private, HideBySig Void OnEdenLauncherListChange(IntPtr,IntPtr)
+ METHOD 0600010c PrivateScope, Public, HideBySig System.Collections.Generic.List`1<String> GetChangedAppInHome()
+ METHOD 0600010d PrivateScope, Private, HideBySig Void UpdateSavedATEdenLauncherListDic(System.Collections.Generic.List`1<String>)
+ METHOD 0600010e PrivateScope, Private, HideBySig Void GetHomeCategoryList()
+ METHOD 0600010f PrivateScope, Private, HideBySig Void GetAppListForCategory(String)
+ METHOD 06000110 PrivateScope, Private, HideBySig Void AddCategoryAppToDic(String)
+ METHOD 06000111 PrivateScope, Private, HideBySig Void AddToDictionary(System.Collections.Generic.Dictionary`2<String,String>,String)
+ METHOD 06000112 PrivateScope, Private, HideBySig Void RemoveFromDictionary(System.Collections.Generic.Dictionary`2<String,String>,String)
+ METHOD 06000113 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000114 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.BetaTestDataManager : System.Object
+ FIELD 04000131 Private, Static Tizen.TV.Service.AppsCommon.BetaTestDataManager instance
+ FIELD 04000132 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.BetaTestAppInfo> betaAppDictionary
+ FIELD 04000133 Public String BetaTermsInformation
+ FIELD 04000134 Public String tempActivateCode
+ FIELD 04000135 Public System.Collections.Generic.Dictionary`2<String,String> BuiltInAppDictionary
+ METHOD 06000115 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.BetaTestDataManager get_Instance()
+ METHOD 06000116 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000117 PrivateScope, Private, HideBySig Void OnWasAppChanged(IntPtr,IntPtr)
+ METHOD 06000118 PrivateScope, Public, HideBySig Void RemoveBetaTestApp(String)
+ METHOD 06000119 PrivateScope, Public, HideBySig Boolean IsBetaVersionInstalled(String)
+ METHOD 0600011a PrivateScope, Public, HideBySig Boolean IsBetaTestApp(String)
+ METHOD 0600011b PrivateScope, Public, HideBySig Boolean IsBuiltInApp(String)
+ METHOD 0600011c PrivateScope, Public, HideBySig String GetNativeAppPackageName(String)
+ METHOD 0600011d PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.BetaTestAppInfo : System.Object
+ FIELD 04000136 Public String appid
+ FIELD 04000137 Public String betaTargetGroupTag
+ FIELD 04000138 Public String betaAppGuide
+ FIELD 04000139 Public String builtinApp
+ FIELD 0400013a Public String packageName
+ FIELD 0400013b Public String activationcode
+ FIELD 0400013c Public Boolean NormalAppSupported
+ FIELD 0400013d Public String NormalAppVersion
+ FIELD 0400013e Public String BetaAppVersion
+ FIELD 0400013f Public Boolean IsBetaVersionInstalled
+ METHOD 0600011e PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.HomeCategoryInfo : System.Object
+ FIELD 04000140 Private String <CategoryKey>k__BackingField
+ FIELD 04000141 Private String <CategoryName>k__BackingField
+ FIELD 04000142 Private String <ProcessName>k__BackingField
+ FIELD 04000143 Private String <MenuSID>k__BackingField
+ FIELD 04000144 Private String <LauncherVconf>k__BackingField
+ FIELD 04000145 Private String <TranslatedStr>k__BackingField
+ METHOD 0600011f PrivateScope, Public, HideBySig, SpecialName String get_CategoryKey()
+ METHOD 06000120 PrivateScope, Public, HideBySig, SpecialName Void set_CategoryKey(String)
+ METHOD 06000121 PrivateScope, Public, HideBySig, SpecialName String get_CategoryName()
+ METHOD 06000122 PrivateScope, Public, HideBySig, SpecialName Void set_CategoryName(String)
+ METHOD 06000123 PrivateScope, Public, HideBySig, SpecialName String get_ProcessName()
+ METHOD 06000124 PrivateScope, Public, HideBySig, SpecialName Void set_ProcessName(String)
+ METHOD 06000125 PrivateScope, Public, HideBySig, SpecialName String get_MenuSID()
+ METHOD 06000126 PrivateScope, Public, HideBySig, SpecialName Void set_MenuSID(String)
+ METHOD 06000127 PrivateScope, Public, HideBySig, SpecialName String get_LauncherVconf()
+ METHOD 06000128 PrivateScope, Public, HideBySig, SpecialName Void set_LauncherVconf(String)
+ METHOD 06000129 PrivateScope, Public, HideBySig, SpecialName String get_TranslatedStr()
+ METHOD 0600012a PrivateScope, Public, HideBySig, SpecialName Void set_TranslatedStr(String)
+ METHOD 0600012b PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.ATHomeCategoryManager : System.Object
+ FIELD 04000146 Private, Static Tizen.TV.Service.AppsCommon.ATHomeCategoryManager instance
+ FIELD 04000147 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.HomeCategoryInfo> HomeCategoryDic
+ FIELD 04000148 Private System.Collections.Generic.Dictionary`2<String,String> SupportedCateDic
+ METHOD 0600012c PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.ATHomeCategoryManager get_Instance()
+ METHOD 0600012d PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600012e PrivateScope, Public, HideBySig Void Init()
+ METHOD 0600012f PrivateScope, Public, HideBySig Boolean IsHomeCategoryVconfExist()
+ METHOD 06000130 PrivateScope, Private, HideBySig String GetHomeCategoryInfo()
+ METHOD 06000131 PrivateScope, Private, HideBySig Boolean IsCategorySupportedOnCurrentModel(String)
+ METHOD 06000132 PrivateScope, Private, HideBySig Void GetSupportedCategoryInCurrentModel()
+ METHOD 06000133 PrivateScope, Public, HideBySig Boolean IsCategoryExistOnHomeCatVconf(String)
+ METHOD 06000134 PrivateScope, Public, HideBySig Tizen.TV.Service.AppsCommon.HomeCategoryInfo GetCategoryInfo(String)
+ METHOD 06000135 PrivateScope, Private, HideBySig String GetOSDId(String)
+ METHOD 06000136 PrivateScope, Private, HideBySig String GetTranslatedText(String)
+ METHOD 06000137 PrivateScope, Public, HideBySig String GetTargetCategory(String,String)
+ METHOD 06000138 PrivateScope, Public, HideBySig Boolean IsAvailableAddToCategory(String,String)
+ METHOD 06000139 PrivateScope, Public, HideBySig Void AddAppToHomeCategory(String,String)
+ METHOD 0600013a PrivateScope, Assembly, Static, HideBySig Void LaunchSwitchPage(String,Boolean)
+ METHOD 0600013b PrivateScope, Assembly, Static, HideBySig Void LaunchHome(System.Collections.Generic.Dictionary`2<String,String>)
+ METHOD 0600013c PrivateScope, Assembly, Static, HideBySig Void LaunchMedia(System.Collections.Generic.Dictionary`2<String,String>)
+ METHOD 0600013d PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.MainCategoryManager : System.Object
+ FIELD 04000149 Private, Static Tizen.TV.Service.AppsCommon.MainCategoryManager instance
+ METHOD 0600013e PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.MainCategoryManager get_Instance()
+ METHOD 0600013f PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000140 PrivateScope, Public, HideBySig Void GetMainCategoryData()
+ METHOD 06000141 PrivateScope, Private, HideBySig Boolean IsAtokenExpired()
+ METHOD 06000142 PrivateScope, Private, HideBySig Void OnMainDataReady(Object)
+ METHOD 06000143 PrivateScope, Private, HideBySig Int32 ParseMainData(LitJson.JsonData)
+ METHOD 06000144 PrivateScope, Private, HideBySig System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> CreateSectionData(String,LitJson.JsonData,Int32)
+ METHOD 06000145 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.BenefitForYouDataManager : System.Object
+ FIELD 0400014a Private, Static Tizen.TV.Service.AppsCommon.BenefitForYouDataManager instance
+ FIELD 0400014b Public Tizen.TV.Service.AppsCommon.AppsCategoryData benefitForYouCategroy
+ FIELD 0400014c Public LitJson.JsonData promotionServerData
+ FIELD 0400014d Private .AppsBenefitForYouDelegate OnPromotionDataChangedEvent
+ FIELD 0400014e Private, Static String PROMOTION_PATH
+ FIELD 0400014f Private System.Collections.Generic.Dictionary`2<String,Boolean> promFileDataDic
+ FIELD 04000150 Private System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> promotionServerDataList
+ FIELD 04000151 Private System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> promotionValidDataList
+ METHOD 06000146 PrivateScope, Public, HideBySig, SpecialName Void add_OnPromotionDataChangedEvent(.AppsBenefitForYouDelegate)
+ METHOD 06000147 PrivateScope, Public, HideBySig, SpecialName Void remove_OnPromotionDataChangedEvent(.AppsBenefitForYouDelegate)
+ METHOD 06000148 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.BenefitForYouDataManager get_Instance()
+ METHOD 06000149 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600014a PrivateScope, Public, HideBySig Void PreparePromotionData()
+ METHOD 0600014b PrivateScope, Public, HideBySig Void GetPromotionListFromServer(LitJson.JsonData)
+ METHOD 0600014c PrivateScope, Private, HideBySig Void AddPromotionToBenefitList()
+ METHOD 0600014d PrivateScope, Private, HideBySig Boolean IsOOBETimeInvalid(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 0600014e PrivateScope, Public, HideBySig Boolean IsPromotionValid(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 0600014f PrivateScope, Public, HideBySig Boolean isExpired(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 06000150 PrivateScope, Public, HideBySig Boolean isUsed(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 06000151 PrivateScope, Private, HideBySig String GetLastcachePromId()
+ METHOD 06000152 PrivateScope, Private, HideBySig System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> GetNextPromotionCollection()
+ METHOD 06000153 PrivateScope, Private, HideBySig Tizen.TV.Service.AppsCommon.TileData GetNextPromotion(String)
+ METHOD 06000154 PrivateScope, Public, HideBySig Void UpdateBenefitForYouList()
+ METHOD 06000155 PrivateScope, Private, HideBySig Void GetPromFileData()
+ METHOD 06000156 PrivateScope, Private, HideBySig String GetTimePeriodText(LitJson.JsonData)
+ METHOD 06000157 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.EditorChoiceDataManager : System.Object
+ FIELD 04000152 Private, Static Tizen.TV.Service.AppsCommon.EditorChoiceDataManager instance
+ FIELD 04000153 Private Int32 editorchoicePageIndex
+ FIELD 04000154 Public Tizen.TV.Service.AppsCommon.AppsCategoryData editorChoiceCategroy
+ FIELD 04000155 Private System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> editorChoiceValidDataList
+ FIELD 04000156 Private System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> serverEditorChoiceData
+ METHOD 06000158 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.EditorChoiceDataManager get_Instance()
+ METHOD 06000159 PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> get_EditorChoiceDataList()
+ METHOD 0600015a PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600015b PrivateScope, Public, HideBySig Void PrepareEditorChoiceData()
+ METHOD 0600015c PrivateScope, Private, HideBySig Void OnEditorChoiceDataReady(Object)
+ METHOD 0600015d PrivateScope, Private, HideBySig Void SaveEditorChoiceData(Object)
+ METHOD 0600015e PrivateScope, Public, HideBySig Void RequestEditorChoiceData()
+ METHOD 0600015f PrivateScope, Public, HideBySig Void UpdateEditorChoiceData()
+ METHOD 06000160 PrivateScope, Private, HideBySig Boolean IsDuplicated(String)
+ METHOD 06000161 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 06000162 PrivateScope, Private, HideBySig Void <SaveEditorChoiceData>b__13_0()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.PopularThisWeekDataManager : System.Object
+ FIELD 04000157 Private, Static Tizen.TV.Service.AppsCommon.PopularThisWeekDataManager instance
+ FIELD 04000158 Public Tizen.TV.Service.AppsCommon.AppsCategoryData PopularThisWeekCategory
+ FIELD 04000159 Private System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.CategoryPriority> categoryDictionary
+ FIELD 0400015a Private System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.CategoryPriority> CategoryPriorityList
+ FIELD 0400015b Private System.Collections.Generic.Dictionary`2<String,System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData>> ServerDataDictionary
+ FIELD 0400015c Private Tizen.TV.DownloadableApplications.AppDB wasAppDB
+ METHOD 06000163 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.PopularThisWeekDataManager get_Instance()
+ METHOD 06000164 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000165 PrivateScope, Public, HideBySig Void PreparePopularThisWeekData()
+ METHOD 06000166 PrivateScope, Private, HideBySig Void OnRecommendationRowDataReady(Object)
+ METHOD 06000167 PrivateScope, Private, HideBySig Void SaveRecommendationRowData(Object)
+ METHOD 06000168 PrivateScope, Private, HideBySig Void CheckWeekValidity()
+ METHOD 06000169 PrivateScope, Private, HideBySig Boolean IsWeekChanged()
+ METHOD 0600016a PrivateScope, Public, HideBySig Void ReadPopularThisWeekCacheData()
+ METHOD 0600016b PrivateScope, Private, HideBySig Boolean IsDuplicated(String)
+ METHOD 0600016c PrivateScope, Private, HideBySig Void ReadCacheAgainForRenderList()
+ METHOD 0600016d PrivateScope, Private, HideBySig String GetCategoryInfoFromWAS(String)
+ METHOD 0600016e PrivateScope, Public, HideBySig Void CalculateCategoryPriority()
+ METHOD 0600016f PrivateScope, Private, HideBySig Void GetCategoryPriorityFromCache()
+ METHOD 06000170 PrivateScope, Private, HideBySig Void SetCategoryPriorityToCache()
+ METHOD 06000171 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.CategoryPriority : System.Object
+ FIELD 0400015d Public UInt32 useCount
+ FIELD 0400015e Public Int32 appCount
+ FIELD 0400015f Public String categoryTitle
+ METHOD 06000172 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.RecommendedListManager : System.Object
+ FIELD 04000160 Private, Static Tizen.TV.Service.AppsCommon.RecommendedListManager instance
+ FIELD 04000161 Public Tizen.TV.Service.AppsCommon.AppsCategoryData recommendedCategory
+ FIELD 04000162 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.PreviewAppVisible> recommendedAppList
+ FIELD 04000163 Public System.Collections.Generic.Dictionary`2<String,String> edenLauncherList
+ FIELD 04000164 Public Boolean bEdenLauncherListChanged
+ FIELD 04000165 Public LitJson.JsonData SavedRecommendedServerData
+ FIELD 04000166 Private .AppsRecommendedDelegate OnRecommendedDataChangedEvent
+ FIELD 04000167 Private System.Timers.Timer timer
+ METHOD 06000173 PrivateScope, Public, HideBySig, SpecialName Void add_OnRecommendedDataChangedEvent(.AppsRecommendedDelegate)
+ METHOD 06000174 PrivateScope, Public, HideBySig, SpecialName Void remove_OnRecommendedDataChangedEvent(.AppsRecommendedDelegate)
+ METHOD 06000175 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.RecommendedListManager get_Instance()
+ METHOD 06000176 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000177 PrivateScope, Public, HideBySig Void GetRecommendedProvidebySamsungData()
+ METHOD 06000178 PrivateScope, Private, HideBySig Void OnRecommendedDataReady(Object)
+ METHOD 06000179 PrivateScope, Private, HideBySig Void PreHandleRecommendedData(Object)
+ METHOD 0600017a PrivateScope, Public, HideBySig Void SetRecommendedData(LitJson.JsonData)
+ METHOD 0600017b PrivateScope, Private, HideBySig Void AddAppToRecommendedList(String,Int32)
+ METHOD 0600017c PrivateScope, Private, HideBySig Void OnEdenLauncherListChange(IntPtr,IntPtr)
+ METHOD 0600017d PrivateScope, Private, HideBySig Void CreateTimer()
+ METHOD 0600017e PrivateScope, Private, HideBySig Void StopTimer()
+ METHOD 0600017f PrivateScope, Private, HideBySig Void TimerTick(Object,System.EventArgs)
+ METHOD 06000180 PrivateScope, Private, HideBySig Void OnAppSyncCompleted(Object)
+ METHOD 06000181 PrivateScope, Public, HideBySig Void CheckEdenLauncherVariation(Object)
+ METHOD 06000182 PrivateScope, Private, HideBySig Void UpdateRecommendedList()
+ METHOD 06000183 PrivateScope, Private, HideBySig Void GetEdenLauncherListData()
+ METHOD 06000184 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.BasicAppsCollection : System.Object
+ FIELD 04000168 Private, Static Tizen.TV.Service.AppsCommon.BasicAppsCollection instance
+ FIELD 04000169 Public, Static System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.PreviewAppVisible> basicAppList
+ FIELD 0400016a Public String BasicAppsTitle
+ FIELD 0400016b Public LitJson.JsonData SavedBasicAppsServerData
+ METHOD 06000185 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.BasicAppsCollection get_Instance()
+ METHOD 06000186 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000187 PrivateScope, Public, HideBySig Void SetBasicAppsData(LitJson.JsonData)
+ METHOD 06000188 PrivateScope, Private, HideBySig Void AddAppToBasicAppsList(String,Int32)
+ METHOD 06000189 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.PreviewAppVisible : System.Object
+ FIELD 0400016c Public Boolean bVisibleInEdenLauncher
+ FIELD 0400016d Public Boolean bVisibleInRecommendedList
+ FIELD 0400016e Public Boolean bVisibleInBasicAppList
+ FIELD 0400016f Public String appId
+ FIELD 04000170 Public String title
+ FIELD 04000171 Public String icon
+ FIELD 04000172 Public String limitedAge
+ METHOD 0600018a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.SettingsDataManager : System.Object
+ FIELD 04000173 Private, Static Tizen.TV.Service.AppsCommon.SettingsDataManager instance
+ FIELD 04000174 Private String copyRightText
+ METHOD 0600018b PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.SettingsDataManager get_Instance()
+ METHOD 0600018c PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600018d PrivateScope, Public, HideBySig Void PrepareCopyrightData()
+ METHOD 0600018e PrivateScope, Private, HideBySig Void OnCopyrightDataReady(Object)
+ METHOD 0600018f PrivateScope, Public, HideBySig Boolean GetUpdateAllStatus()
+ METHOD 06000190 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.WASAppListManager : System.Object
+ FIELD 04000175 Private, Static Tizen.TV.Service.AppsCommon.WASAppListManager instance
+ FIELD 04000176 Public Tizen.TV.Service.AppsCommon.AppsCategoryData downloadedCategory
+ FIELD 04000177 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.TileData> DownloadTileDataDictionary
+ FIELD 04000178 Private .AppsDownloadedDelegate OnDownloadedListChangedEvent
+ FIELD 04000179 Public Boolean IsGettingWASAppList
+ METHOD 06000191 PrivateScope, Public, HideBySig, SpecialName Void add_OnDownloadedListChangedEvent(.AppsDownloadedDelegate)
+ METHOD 06000192 PrivateScope, Public, HideBySig, SpecialName Void remove_OnDownloadedListChangedEvent(.AppsDownloadedDelegate)
+ METHOD 06000193 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.WASAppListManager get_Instance()
+ METHOD 06000194 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000195 PrivateScope, Public, HideBySig Void CheckLocalAppsCache()
+ METHOD 06000196 PrivateScope, Public, HideBySig Void GetWASAppListInOrder()
+ METHOD 06000197 PrivateScope, Private, HideBySig Void GetAppListFromCache()
+ METHOD 06000198 PrivateScope, Private, HideBySig Void GetAppListFromWAS()
+ METHOD 06000199 PrivateScope, Private, HideBySig Void GetAppListFromInstallingApp()
+ METHOD 0600019a PrivateScope, Private, HideBySig Boolean IsDuplicated(String)
+ METHOD 0600019b PrivateScope, Private, HideBySig Void SortDownloadedListData()
+ METHOD 0600019c PrivateScope, Public, HideBySig Void ReorderData0AfterMove(Int32,Int32)
+ METHOD 0600019d PrivateScope, Public, HideBySig Void RemoveAppFromCache(String)
+ METHOD 0600019e PrivateScope, Private, HideBySig Void OnAppSyncCompleted(Object)
+ METHOD 0600019f PrivateScope, Public, HideBySig Void NeedUpdateDownloadedList()
+ METHOD 060001a0 PrivateScope, Private, HideBySig Void UpdateDownloadedListAfterSync()
+ METHOD 060001a1 PrivateScope, Public, HideBySig Void UpdateDownloadList()
+ METHOD 060001a2 PrivateScope, Public, HideBySig Tizen.TV.Service.AppsCommon.TileData GetNewTileData(LitJson.JsonData)
+ METHOD 060001a3 PrivateScope, Public, HideBySig Void AddInsatallApp(Tizen.TV.Service.AppsCommon.TileData,String)
+ METHOD 060001a4 PrivateScope, Private, HideBySig Void ResetAppPositionAfterInstallApp()
+ METHOD 060001a5 PrivateScope, Public, HideBySig Void InsatallMultiApp(System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData>)
+ METHOD 060001a6 PrivateScope, Public, HideBySig Void RemoveInsatalledApp(String)
+ METHOD 060001a7 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppTileDataManager : System.Object
+ FIELD 0400017a Private, Static Tizen.TV.Service.AppsCommon.AppTileDataManager instance
+ FIELD 0400017b Private .AppsAppDataDelegate OnAppDataChangedEvent
+ FIELD 0400017c Private System.Collections.Generic.Dictionary`2<String,System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.TileData>> AppsAllTileDic
+ METHOD 060001a8 PrivateScope, Public, HideBySig, SpecialName Void add_OnAppDataChangedEvent(.AppsAppDataDelegate)
+ METHOD 060001a9 PrivateScope, Public, HideBySig, SpecialName Void remove_OnAppDataChangedEvent(.AppsAppDataDelegate)
+ METHOD 060001aa PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.AppTileDataManager get_Instance()
+ METHOD 060001ab PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060001ac PrivateScope, Public, HideBySig Void Init()
+ METHOD 060001ad PrivateScope, Public, HideBySig Void AddTile(String,String,Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 060001ae PrivateScope, Public, HideBySig Void RemoveTile(String,String)
+ METHOD 060001af PrivateScope, Public, HideBySig Boolean IsTileExist(String,String)
+ METHOD 060001b0 PrivateScope, Public, HideBySig Boolean IsAppContentTileExist(String)
+ METHOD 060001b1 PrivateScope, Public, HideBySig Int32 GetAppsAllTileCount()
+ METHOD 060001b2 PrivateScope, Public, HideBySig Void UpdateTileSubtitle(String,String,String)
+ METHOD 060001b3 PrivateScope, Public, HideBySig Void UpdateTileProperty(String,.PropertyType,String,Boolean,Int32)
+ METHOD 060001b4 PrivateScope, Public, HideBySig Void UpdatePropertyForInstalledApp(String)
+ METHOD 060001b5 PrivateScope, Public, HideBySig Void UpdatePropertyForParentalLock()
+ METHOD 060001b6 PrivateScope, Public, HideBySig Void UpdatePropertyForAgeLimit()
+ METHOD 060001b7 PrivateScope, Public, HideBySig Void NotifyTileDataChanged(String)
+ METHOD 060001b8 PrivateScope, Public, HideBySig Boolean GetUpdatePropertyForApp(String)
+ METHOD 060001b9 PrivateScope, Public, HideBySig Void ClearAllTileData()
+ METHOD 060001ba PrivateScope, Public, HideBySig Void SaveAppTileDataToCache()
+ METHOD 060001bb PrivateScope, Public, HideBySig Void ReadAppTileDataFromCache()
+ METHOD 060001bc PrivateScope, Public, HideBySig Void UpdateAllStateByDownloadedRowData()
+ METHOD 060001bd PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060001be PrivateScope, Private, HideBySig Object <SaveAppTileDataToCache>b__23_0(Object)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.ExcludedAppManager : System.Object
+ FIELD 0400017d Private, Static Tizen.TV.Service.AppsCommon.ExcludedAppManager instance
+ FIELD 0400017e Private Tizen.TV.DownloadableApplications.AppDB wasAppDB
+ FIELD 0400017f Private System.Collections.Generic.Dictionary`2<String,Boolean> InstalledAppsDictionary
+ FIELD 04000180 Public Int32 EditorChoiceAvailableAppCount
+ FIELD 04000181 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.AppVisible> EditorChoiceAllDataDictionary
+ FIELD 04000182 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.AppVisible> EditorChoiceDisplayDataDictionary
+ FIELD 04000183 Public Int32 BestAppsAvailableAppCount
+ FIELD 04000184 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.AppVisible> BestAppsAllDataDictionary
+ FIELD 04000185 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.AppVisible> RecommendationRowAllDataDictionary
+ METHOD 060001bf PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.ExcludedAppManager get_Instance()
+ METHOD 060001c0 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060001c1 PrivateScope, Public, HideBySig Void CheckEditorChoiceAppVisible(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 060001c2 PrivateScope, Public, HideBySig Void CheckBestAppsAppVisible(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 060001c3 PrivateScope, Public, HideBySig Void CheckRecommendationRowAppVisible(Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 060001c4 PrivateScope, Public, HideBySig Void UpdateInstalledApp(Object)
+ METHOD 060001c5 PrivateScope, Public, HideBySig Void UpdateRemovedApp(Object)
+ METHOD 060001c6 PrivateScope, Public, HideBySig Void GetAllAppList()
+ METHOD 060001c7 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.AppsCommon.AppVisible : System.Enum
+ FIELD 04000186 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000187 Public, Static, Literal, HasDefault Tizen.TV.Service.AppsCommon.AppVisible AppHide
+ FIELD 04000188 Public, Static, Literal, HasDefault Tizen.TV.Service.AppsCommon.AppVisible AppShown
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsTabKPILogger : System.Object
+ FIELD 04000189 Private, Static System.Collections.Generic.Dictionary`2<String,String> eventItems_Tab
+ FIELD 0400018a Private, Static LitJson.JsonData pageKPIInfo_Tab
+ FIELD 0400018b Public, Static String prePageName
+ FIELD 0400018c Public, Static String curPageName
+ FIELD 0400018d Private, Static, Literal, HasDefault String serviceName
+ FIELD 0400018e Public, Static, InitOnly String Page_NAME_APPS
+ FIELD 0400018f Public, Static System.Collections.Generic.Dictionary`2<String,Int32> kpiListIndexInfo
+ FIELD 04000190 Public, Static System.Collections.Generic.Dictionary`2<String,String> kpiListTitleInfo
+ FIELD 04000191 Public, Static System.Collections.Generic.Dictionary`2<String,Boolean> isNeedRowImpressionKPI
+ FIELD 04000192 Public, Static String lastRowTitle
+ FIELD 04000193 Public, Static String lastRowIndex
+ FIELD 04000194 Public, Static String lastAppposition
+ FIELD 04000195 Public, Static String appid
+ FIELD 04000196 Public, Static String rowTitle
+ FIELD 04000197 Public, Static String appposition
+ FIELD 04000198 Private, Static Boolean bInited
+ FIELD 04000199 Private, Static Tizen.TV.Service.AppsCommon.AppsTabKPILogger instance
+ METHOD 060001c8 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.AppsTabKPILogger get_Instance()
+ METHOD 060001c9 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060001ca PrivateScope, Private, HideBySig Void InitEventList()
+ METHOD 060001cb PrivateScope, Private, HideBySig Void Init()
+ METHOD 060001cc PrivateScope, Public, HideBySig Void AddEventLog(String,System.Text.Json.Nodes.JsonObject)
+ METHOD 060001cd PrivateScope, Public, HideBySig Void EnterThePage(String,LitJson.JsonData)
+ METHOD 060001ce PrivateScope, Public, HideBySig Void EnterPage(String,LitJson.JsonData)
+ METHOD 060001cf PrivateScope, Public, HideBySig Void EnterPageTemp()
+ METHOD 060001d0 PrivateScope, Public, HideBySig Void LeavePage(String)
+ METHOD 060001d1 PrivateScope, Public, HideBySig Void LeavePageTemp()
+ METHOD 060001d2 PrivateScope, Public, HideBySig String GetRowPosition(String)
+ METHOD 060001d3 PrivateScope, Public, HideBySig Int32 GetRowIndex(String)
+ METHOD 060001d4 PrivateScope, Public, HideBySig Void Dispose()
+ METHOD 060001d5 PrivateScope, Private, HideBySig String BuildDes(System.Text.Json.Nodes.JsonObject)
+ METHOD 060001d6 PrivateScope, Public, Static, HideBySig Int32 GetCopyrightClickCnt()
+ METHOD 060001d7 PrivateScope, Public, Static, HideBySig Int32 GetUpdateAllClickCnt()
+ METHOD 060001d8 PrivateScope, Public, Static, HideBySig Void SetPageOptionD(String,LitJson.JsonData)
+ METHOD 060001d9 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060001da PrivateScope, Private, HideBySig Object <Init>b__21_0(Object)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsCategoryData : System.Object
+ FIELD 0400019a Private String <categoryId>k__BackingField
+ FIELD 0400019b Private String <categoryType>k__BackingField
+ FIELD 0400019c Private String <categoryIndex>k__BackingField
+ FIELD 0400019d Private Int32 <sectionCount>k__BackingField
+ FIELD 0400019e Private String <sectionTitle0>k__BackingField
+ FIELD 0400019f Private String <sectionTitle1>k__BackingField
+ FIELD 040001a0 Private System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> <sectionData0>k__BackingField
+ FIELD 040001a1 Private System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> <sectionData1>k__BackingField
+ METHOD 060001db PrivateScope, Public, HideBySig, SpecialName String get_categoryId()
+ METHOD 060001dc PrivateScope, Public, HideBySig, SpecialName Void set_categoryId(String)
+ METHOD 060001dd PrivateScope, Public, HideBySig, SpecialName String get_categoryType()
+ METHOD 060001de PrivateScope, Public, HideBySig, SpecialName Void set_categoryType(String)
+ METHOD 060001df PrivateScope, Public, HideBySig, SpecialName String get_categoryIndex()
+ METHOD 060001e0 PrivateScope, Public, HideBySig, SpecialName Void set_categoryIndex(String)
+ METHOD 060001e1 PrivateScope, Public, HideBySig, SpecialName Int32 get_sectionCount()
+ METHOD 060001e2 PrivateScope, Public, HideBySig, SpecialName Void set_sectionCount(Int32)
+ METHOD 060001e3 PrivateScope, Public, HideBySig, SpecialName String get_sectionTitle0()
+ METHOD 060001e4 PrivateScope, Public, HideBySig, SpecialName Void set_sectionTitle0(String)
+ METHOD 060001e5 PrivateScope, Public, HideBySig, SpecialName String get_sectionTitle1()
+ METHOD 060001e6 PrivateScope, Public, HideBySig, SpecialName Void set_sectionTitle1(String)
+ METHOD 060001e7 PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> get_sectionData0()
+ METHOD 060001e8 PrivateScope, Public, HideBySig, SpecialName Void set_sectionData0(System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData>)
+ METHOD 060001e9 PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData> get_sectionData1()
+ METHOD 060001ea PrivateScope, Public, HideBySig, SpecialName Void set_sectionData1(System.Collections.Generic.List`1<Tizen.TV.Service.AppsCommon.TileData>)
+ METHOD 060001eb PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsHomeData : System.Object
+ FIELD 040001a2 Private, Static Tizen.TV.Service.AppsCommon.AppsHomeData instance
+ FIELD 040001a3 Public System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon.AppsCategoryData> AppsData
+ METHOD 060001ec PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.AppsHomeData get_Instance()
+ METHOD 060001ed PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060001ee PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.ATBaseModel : System.Object
+ FIELD 040001a4 Private String <InstanceID>k__BackingField
+ FIELD 040001a5 Private String <ClassID>k__BackingField
+ METHOD 060001ef PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName String get_InstanceID()
+ METHOD 060001f0 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, SpecialName Void set_InstanceID(String)
+ METHOD 060001f1 PrivateScope, Public, HideBySig, SpecialName String get_ClassID()
+ METHOD 060001f2 PrivateScope, Public, HideBySig, SpecialName Void set_ClassID(String)
+ METHOD 060001f3 PrivateScope, Public, HideBySig, SpecialName String get_ComponentID()
+ METHOD 060001f4 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask String getUIJson()
+ METHOD 060001f5 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.TileData : Tizen.TV.Service.AppsCommon.ATBaseModel
+ FIELD 040001a6 Private String <type>k__BackingField
+ FIELD 040001a7 Private String <title>k__BackingField
+ FIELD 040001a8 Private String <subtitle>k__BackingField
+ FIELD 040001a9 Private String <subtitle2>k__BackingField
+ FIELD 040001aa Private String <description>k__BackingField
+ FIELD 040001ab Private String <focused_icon>k__BackingField
+ FIELD 040001ac Private String <limitedAge>k__BackingField
+ FIELD 040001ad Private String <action_type>k__BackingField
+ FIELD 040001ae Private String <extra_app_id>k__BackingField
+ FIELD 040001af Private .DetailData <content_detail>k__BackingField
+ FIELD 040001b0 Private .ExtensionData <extension>k__BackingField
+ FIELD 040001b1 Private Boolean <is_need_show_progress>k__BackingField
+ FIELD 040001b2 Private Int32 <install_progress>k__BackingField
+ FIELD 040001b3 Private Boolean <is_installed>k__BackingField
+ FIELD 040001b4 Private Boolean <is_lock>k__BackingField
+ FIELD 040001b5 Private Boolean <is_agelock>k__BackingField
+ FIELD 040001b6 Private Boolean <parental_lock>k__BackingField
+ FIELD 040001b7 Private Boolean <is_need_update>k__BackingField
+ FIELD 040001b8 Private Boolean <is_usb_installed>k__BackingField
+ FIELD 040001b9 Private Boolean <is_multi_screen2>k__BackingField
+ FIELD 040001ba Private Boolean <is_removable>k__BackingField
+ FIELD 040001bb Private Boolean <is_hidden>k__BackingField
+ FIELD 040001bc Private Boolean <is_reinstall>k__BackingField
+ FIELD 040001bd Private Int32 <app_featured>k__BackingField
+ FIELD 040001be Private String <app_size>k__BackingField
+ FIELD 040001bf Private Boolean <AdminApp>k__BackingField
+ FIELD 040001c0 Private Int32 <sort_index>k__BackingField
+ FIELD 040001c1 Private String <app_widget_category>k__BackingField
+ FIELD 040001c2 Private String <promId>k__BackingField
+ FIELD 040001c3 Private String <thumbnail>k__BackingField
+ FIELD 040001c4 Private String <bigImage>k__BackingField
+ FIELD 040001c5 Private String <endDate>k__BackingField
+ FIELD 040001c6 Private String <startDate>k__BackingField
+ FIELD 040001c7 Private String <promDate>k__BackingField
+ FIELD 040001c8 Private String <targetStartDate>k__BackingField
+ FIELD 040001c9 Private String <targetEndDate>k__BackingField
+ FIELD 040001ca Private String <event_type>k__BackingField
+ FIELD 040001cb Private String instanceid
+ METHOD 060001f6 PrivateScope, Public, HideBySig, SpecialName String get_type()
+ METHOD 060001f7 PrivateScope, Public, HideBySig, SpecialName Void set_type(String)
+ METHOD 060001f8 PrivateScope, Public, HideBySig, SpecialName String get_title()
+ METHOD 060001f9 PrivateScope, Public, HideBySig, SpecialName Void set_title(String)
+ METHOD 060001fa PrivateScope, Public, HideBySig, SpecialName String get_subtitle()
+ METHOD 060001fb PrivateScope, Public, HideBySig, SpecialName Void set_subtitle(String)
+ METHOD 060001fc PrivateScope, Public, HideBySig, SpecialName String get_subtitle2()
+ METHOD 060001fd PrivateScope, Public, HideBySig, SpecialName Void set_subtitle2(String)
+ METHOD 060001fe PrivateScope, Public, HideBySig, SpecialName String get_description()
+ METHOD 060001ff PrivateScope, Public, HideBySig, SpecialName Void set_description(String)
+ METHOD 06000200 PrivateScope, Public, HideBySig, SpecialName String get_focused_icon()
+ METHOD 06000201 PrivateScope, Public, HideBySig, SpecialName Void set_focused_icon(String)
+ METHOD 06000202 PrivateScope, Public, HideBySig, SpecialName String get_limitedAge()
+ METHOD 06000203 PrivateScope, Public, HideBySig, SpecialName Void set_limitedAge(String)
+ METHOD 06000204 PrivateScope, Public, HideBySig, SpecialName String get_action_type()
+ METHOD 06000205 PrivateScope, Public, HideBySig, SpecialName Void set_action_type(String)
+ METHOD 06000206 PrivateScope, Public, HideBySig, SpecialName String get_extra_app_id()
+ METHOD 06000207 PrivateScope, Public, HideBySig, SpecialName Void set_extra_app_id(String)
+ METHOD 06000208 PrivateScope, Public, HideBySig, SpecialName .DetailData get_content_detail()
+ METHOD 06000209 PrivateScope, Public, HideBySig, SpecialName Void set_content_detail(.DetailData)
+ METHOD 0600020a PrivateScope, Public, HideBySig, SpecialName .ExtensionData get_extension()
+ METHOD 0600020b PrivateScope, Public, HideBySig, SpecialName Void set_extension(.ExtensionData)
+ METHOD 0600020c PrivateScope, Public, HideBySig, SpecialName Boolean get_is_need_show_progress()
+ METHOD 0600020d PrivateScope, Public, HideBySig, SpecialName Void set_is_need_show_progress(Boolean)
+ METHOD 0600020e PrivateScope, Public, HideBySig, SpecialName Int32 get_install_progress()
+ METHOD 0600020f PrivateScope, Public, HideBySig, SpecialName Void set_install_progress(Int32)
+ METHOD 06000210 PrivateScope, Public, HideBySig, SpecialName Boolean get_is_installed()
+ METHOD 06000211 PrivateScope, Public, HideBySig, SpecialName Void set_is_installed(Boolean)
+ METHOD 06000212 PrivateScope, Public, HideBySig, SpecialName Boolean get_is_lock()
+ METHOD 06000213 PrivateScope, Public, HideBySig, SpecialName Void set_is_lock(Boolean)
+ METHOD 06000214 PrivateScope, Public, HideBySig, SpecialName Boolean get_is_agelock()
+ METHOD 06000215 PrivateScope, Public, HideBySig, SpecialName Void set_is_agelock(Boolean)
+ METHOD 06000216 PrivateScope, Public, HideBySig, SpecialName Boolean get_parental_lock()
+ METHOD 06000217 PrivateScope, Public, HideBySig, SpecialName Void set_parental_lock(Boolean)
+ METHOD 06000218 PrivateScope, Public, HideBySig, SpecialName Boolean get_is_need_update()
+ METHOD 06000219 PrivateScope, Public, HideBySig, SpecialName Void set_is_need_update(Boolean)
+ METHOD 0600021a PrivateScope, Public, HideBySig, SpecialName Boolean get_is_usb_installed()
+ METHOD 0600021b PrivateScope, Public, HideBySig, SpecialName Void set_is_usb_installed(Boolean)
+ METHOD 0600021c PrivateScope, Public, HideBySig, SpecialName Boolean get_is_multi_screen2()
+ METHOD 0600021d PrivateScope, Public, HideBySig, SpecialName Void set_is_multi_screen2(Boolean)
+ METHOD 0600021e PrivateScope, Public, HideBySig, SpecialName Boolean get_is_removable()
+ METHOD 0600021f PrivateScope, Public, HideBySig, SpecialName Void set_is_removable(Boolean)
+ METHOD 06000220 PrivateScope, Public, HideBySig, SpecialName Boolean get_is_hidden()
+ METHOD 06000221 PrivateScope, Public, HideBySig, SpecialName Void set_is_hidden(Boolean)
+ METHOD 06000222 PrivateScope, Public, HideBySig, SpecialName Boolean get_is_reinstall()
+ METHOD 06000223 PrivateScope, Public, HideBySig, SpecialName Void set_is_reinstall(Boolean)
+ METHOD 06000224 PrivateScope, Public, HideBySig, SpecialName Int32 get_app_featured()
+ METHOD 06000225 PrivateScope, Public, HideBySig, SpecialName Void set_app_featured(Int32)
+ METHOD 06000226 PrivateScope, Public, HideBySig, SpecialName String get_app_size()
+ METHOD 06000227 PrivateScope, Public, HideBySig, SpecialName Void set_app_size(String)
+ METHOD 06000228 PrivateScope, Public, HideBySig, SpecialName Boolean get_AdminApp()
+ METHOD 06000229 PrivateScope, Public, HideBySig, SpecialName Void set_AdminApp(Boolean)
+ METHOD 0600022a PrivateScope, Public, HideBySig, SpecialName Int32 get_sort_index()
+ METHOD 0600022b PrivateScope, Public, HideBySig, SpecialName Void set_sort_index(Int32)
+ METHOD 0600022c PrivateScope, Public, HideBySig, SpecialName String get_app_widget_category()
+ METHOD 0600022d PrivateScope, Public, HideBySig, SpecialName Void set_app_widget_category(String)
+ METHOD 0600022e PrivateScope, Public, HideBySig, SpecialName String get_promId()
+ METHOD 0600022f PrivateScope, Public, HideBySig, SpecialName Void set_promId(String)
+ METHOD 06000230 PrivateScope, Public, HideBySig, SpecialName String get_thumbnail()
+ METHOD 06000231 PrivateScope, Public, HideBySig, SpecialName Void set_thumbnail(String)
+ METHOD 06000232 PrivateScope, Public, HideBySig, SpecialName String get_bigImage()
+ METHOD 06000233 PrivateScope, Public, HideBySig, SpecialName Void set_bigImage(String)
+ METHOD 06000234 PrivateScope, Public, HideBySig, SpecialName String get_endDate()
+ METHOD 06000235 PrivateScope, Public, HideBySig, SpecialName Void set_endDate(String)
+ METHOD 06000236 PrivateScope, Public, HideBySig, SpecialName String get_startDate()
+ METHOD 06000237 PrivateScope, Public, HideBySig, SpecialName Void set_startDate(String)
+ METHOD 06000238 PrivateScope, Public, HideBySig, SpecialName String get_promDate()
+ METHOD 06000239 PrivateScope, Public, HideBySig, SpecialName Void set_promDate(String)
+ METHOD 0600023a PrivateScope, Public, HideBySig, SpecialName String get_targetStartDate()
+ METHOD 0600023b PrivateScope, Public, HideBySig, SpecialName Void set_targetStartDate(String)
+ METHOD 0600023c PrivateScope, Public, HideBySig, SpecialName String get_targetEndDate()
+ METHOD 0600023d PrivateScope, Public, HideBySig, SpecialName Void set_targetEndDate(String)
+ METHOD 0600023e PrivateScope, Public, HideBySig, SpecialName String get_event_type()
+ METHOD 0600023f PrivateScope, Public, HideBySig, SpecialName Void set_event_type(String)
+ METHOD 06000240 PrivateScope, Public, Virtual, HideBySig String getUIJson()
+ METHOD 06000241 PrivateScope, Public, Virtual, HideBySig, SpecialName String get_InstanceID()
+ METHOD 06000242 PrivateScope, Public, Virtual, HideBySig, SpecialName Void set_InstanceID(String)
+ METHOD 06000243 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsLaunchUtil : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.AppsCommon.AppsLaunchUtil>
+ FIELD 040001cc Private, InitOnly Int32 MAX_TRY_NUM
+ METHOD 06000244 PrivateScope, Public, HideBySig Boolean LaunchApp(Tizen.Applications.AppControl,Tizen.Applications.AppControlReplyCallback)
+ METHOD 06000245 PrivateScope, Public, HideBySig Void LaunchApp(String,System.Collections.Generic.Dictionary`2<String,String>,Tizen.Applications.AppControlReplyCallback)
+ METHOD 06000246 PrivateScope, Private, HideBySig Void ReplyCallback(Tizen.Applications.AppControl,Tizen.Applications.AppControl,Tizen.Applications.AppControlReplyResult)
+ METHOD 06000247 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsServiceManager : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.AppsCommon.AppsServiceManager>
+ FIELD 040001cd Private, InitOnly Int32 RETRY_MAX_NUM
+ FIELD 040001ce Private, InitOnly Int32 RETRY_SLEEP_TIME_MSEC
+ METHOD 06000248 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000249 PrivateScope, Public, HideBySig Void InvokeService(String,System.Collections.Generic.Dictionary`2<String,String>,.ReplyCallback,Boolean)
+ METHOD 0600024a PrivateScope, Public, HideBySig Boolean IsViewPluginReady(String)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsTabLocalStorage : System.Object
+ FIELD 040001cf Private, Static Tizen.TV.Service.AppsCommon.AppsTabLocalStorage instance
+ FIELD 040001d0 Private, Static System.Collections.Generic.Dictionary`2<String,System.Collections.Generic.Dictionary`2<String,String>> fileMemCacheMap
+ FIELD 040001d1 Private System.Collections.Generic.Dictionary`2<String,String> memoryCache
+ FIELD 040001d2 Private System.Collections.Generic.Dictionary`2<String,String> memoryCache_23
+ FIELD 040001d3 Private, Static String FILE_PATH
+ FIELD 040001d4 Private, Static String FILE_PATH_23
+ FIELD 040001d5 Public, Static String IMAGE_PATH
+ FIELD 040001d6 Private String validEnd
+ FIELD 040001d7 Private String validEnd_SAFEND
+ FIELD 040001d8 Private, Static Boolean isInit
+ METHOD 0600024b PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.AppsTabLocalStorage get_Instance()
+ METHOD 0600024c PrivateScope, Public, HideBySig Void Init()
+ METHOD 0600024d PrivateScope, Private, HideBySig Void WriteCache(String,System.Collections.Generic.Dictionary`2<String,String>,String)
+ METHOD 0600024e PrivateScope, Private, HideBySig Void ReadCache(String,Boolean,String,System.Collections.Generic.Dictionary`2<String,String>&)
+ METHOD 0600024f PrivateScope, Public, HideBySig Void SetItem(String,String)
+ METHOD 06000250 PrivateScope, Public, HideBySig Object GetItem(String)
+ METHOD 06000251 PrivateScope, Public, HideBySig Void RemoveItem(String)
+ METHOD 06000252 PrivateScope, Public, HideBySig String GetMyAppsCacheData()
+ METHOD 06000253 PrivateScope, Public, HideBySig Void ClearLocalAppsCache()
+ METHOD 06000254 PrivateScope, Public, HideBySig Void Clear()
+ METHOD 06000255 PrivateScope, Private, HideBySig Boolean isValidString(String,String)
+ METHOD 06000256 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000257 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.ATThreadManager : Tizen.TV.Service.CoBA.Common.Singleton`1<Tizen.TV.Service.AppsCommon.ATThreadManager>
+ FIELD 040001d9 Private System.Nullable`1<Int32> mainThreadID
+ METHOD 06000258 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000259 PrivateScope, Public, HideBySig Void SendTaskToWorkerThread(Tizen.TV.Service.CoBA.Common.WorkerTask,Object)
+ METHOD 0600025a PrivateScope, Public, HideBySig Void SendTaskToMainThread(.FunctionCallback`1<!!0>,!!0,Boolean,.Priority,Boolean)
+ METHOD 0600025b PrivateScope, Private, HideBySig Boolean CheckMainThread()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.BrazilLockManager : System.Object
+ FIELD 040001da Private, Static Tizen.TV.Service.AppsCommon.BrazilLockManager instance
+ METHOD 0600025c PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.BrazilLockManager get_Instance()
+ METHOD 0600025d PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600025e PrivateScope, Public, HideBySig Void Init()
+ METHOD 0600025f PrivateScope, Private, HideBySig Void OnAgeLockChanged(IntPtr,IntPtr)
+ METHOD 06000260 PrivateScope, Public, HideBySig Boolean IsAgeLockSupport()
+ METHOD 06000261 PrivateScope, Public, HideBySig Boolean IsBrazilCountry()
+ METHOD 06000262 PrivateScope, Public, HideBySig Boolean IsNeedShowPopup()
+ METHOD 06000263 PrivateScope, Public, HideBySig Boolean IsNeedShowLockImage(String)
+ METHOD 06000264 PrivateScope, Public, HideBySig Boolean IsNeedAgeLock(String)
+ METHOD 06000265 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.AppsCommon._EventHandler : System.MulticastDelegate
+ METHOD 06000266 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 06000267 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Object)
+ METHOD 06000268 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Object,System.AsyncCallback,Object)
+ METHOD 06000269 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit Tizen.TV.Service.AppsCommon.EventMediator : System.Object
+ FIELD 040001db Private, Static Char separator
+ FIELD 040001dc Private, Static Boolean isScopeInCurNamespace
+ FIELD 040001dd Private, Static System.Collections.Generic.Dictionary`2<String,Tizen.TV.Service.AppsCommon._EventHandler> eventTable
+ METHOD 0600026a PrivateScope, Public, Static, HideBySig Void SetEventScopeInCurNS(Boolean)
+ METHOD 0600026b PrivateScope, Public, Static, HideBySig Void On(String,Tizen.TV.Service.AppsCommon._EventHandler)
+ METHOD 0600026c PrivateScope, Public, Static, HideBySig Void Remove(String,Tizen.TV.Service.AppsCommon._EventHandler)
+ METHOD 0600026d PrivateScope, Public, Static, HideBySig Void Trigger(String,Object)
+ METHOD 0600026e PrivateScope, Private, Static, HideBySig String getEventCallerNamespace(Int32)
+ METHOD 0600026f PrivateScope, Private, Static, HideBySig String concatEventName(String)
+ METHOD 06000270 PrivateScope, Private, Static, HideBySig String[] splitEventName(String)
+ METHOD 06000271 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.SSOWrapper : System.Object
+ METHOD 06000272 PrivateScope, Public, Static, HideBySig Void Init()
+ METHOD 06000273 PrivateScope, Public, Static, HideBySig Int32 GetSSOLoginState()
+ METHOD 06000274 PrivateScope, Public, Static, HideBySig Boolean IsLogin()
+ METHOD 06000275 PrivateScope, Public, Static, HideBySig Boolean CheckEnforceLogin()
+ METHOD 06000276 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.StorageWrapper : System.Object
+ FIELD 040001de Private, Static Tizen.TV.Service.AppsCommon.StorageWrapper instance
+ FIELD 040001df Private Tizen.TV.Multimedia.ContentService.StoragesNotificationCB storageUSBCallback
+ FIELD 040001e0 Private Int32 usbDeviceCount
+ FIELD 040001e1 Private System.Timers.Timer usbTimer
+ FIELD 040001e2 Public Boolean bInit
+ METHOD 06000277 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.StorageWrapper get_Instance()
+ METHOD 06000278 PrivateScope, Private, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000279 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 0600027a PrivateScope, Public, HideBySig Void Init()
+ METHOD 0600027b PrivateScope, Private, HideBySig Void AddListener()
+ METHOD 0600027c PrivateScope, Private, HideBySig Void UsbEventCB(IntPtr,Tizen.TV.Multimedia.ContentService.StorageEvent,Tizen.TV.Multimedia.ContentService.StorageHandle&)
+ METHOD 0600027d PrivateScope, Public, HideBySig Void UnSetUSBEvent()
+ METHOD 0600027e PrivateScope, Public, HideBySig Void SetUSBEvent(Tizen.TV.Multimedia.ContentService.StoragesNotificationCB)
+ METHOD 0600027f PrivateScope, Private, HideBySig Void CreateTimer()
+ METHOD 06000280 PrivateScope, Private, HideBySig Void StopTimer()
+ METHOD 06000281 PrivateScope, Private, HideBySig Void TimerTick(Object,System.EventArgs)
+ METHOD 06000282 PrivateScope, Private, HideBySig Int32 GetStoragesCount()
+ METHOD 06000283 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 06000284 PrivateScope, Private, HideBySig Void <Init>b__9_0(.Object)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.VconfWrapper : System.Object
+ METHOD 06000285 PrivateScope, Public, Static, HideBySig Boolean GetBool(String)
+ METHOD 06000286 PrivateScope, Public, Static, HideBySig Double GetDouble(String)
+ METHOD 06000287 PrivateScope, Public, Static, HideBySig Int32 GetInt(String)
+ METHOD 06000288 PrivateScope, Public, Static, HideBySig String GetString(String,Boolean)
+ METHOD 06000289 PrivateScope, Public, Static, HideBySig Void SetInt(String,Int32)
+ METHOD 0600028a PrivateScope, Public, Static, HideBySig Void SetString(String,String)
+ METHOD 0600028b PrivateScope, Public, Static, HideBySig Void SetBool(String,Boolean)
+ METHOD 0600028c PrivateScope, Public, Static, HideBySig Void SetDouble(String,Double)
+ METHOD 0600028d PrivateScope, Public, Static, HideBySig Void NotifyKeyChanged(String,.VconfCallBack,Object)
+ METHOD 0600028e PrivateScope, Public, Static, HideBySig Void IgnoreKeyChanged(String,.VconfCallBack)
+ METHOD 0600028f PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.NetworkUtilPluginWrapper : System.Object
+ FIELD 040001e3 Private, Static Tizen.TV.Service.AppsCommon.NetworkUtilPluginWrapper instance
+ FIELD 040001e4 Private Tizen.TV.Service.SAFSdk.UIPlugIn netErrorPopupPlugIn
+ FIELD 040001e5 Private Tizen.TV.Service.SAFSdk.IUtilityPlugInBase networkUtilPlugin
+ FIELD 040001e6 Private Boolean bInit
+ METHOD 06000290 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000291 PrivateScope, Public, Static, HideBySig, SpecialName Tizen.TV.Service.AppsCommon.NetworkUtilPluginWrapper get_Instance()
+ METHOD 06000292 PrivateScope, Private, HideBySig Void Init()
+ METHOD 06000293 PrivateScope, Public, HideBySig Void CheckNetworkAsync(String,Object[])
+ METHOD 06000294 PrivateScope, Public, HideBySig Boolean GetNetworkStatus()
+ METHOD 06000295 PrivateScope, Public, HideBySig Boolean CheckNetWork(Boolean)
+ METHOD 06000296 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsLanguageResources : System.Object
+ FIELD 040001e7 Private, Static System.Type storeResourceType
+ FIELD 040001e8 Private, Static System.Reflection.MethodInfo methodGetStringValueFromSID
+ METHOD 06000297 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000298 PrivateScope, Private, Static, HideBySig Void LoadResourceAssemblies(String)
+ METHOD 06000299 PrivateScope, Public, Static, HideBySig Void UpdateCulture()
+ METHOD 0600029a PrivateScope, Public, Static, HideBySig String GetText(String)
+ METHOD 0600029b PrivateScope, Private, Static, HideBySig String TizenToDotnetLocale(String)
+ METHOD 0600029c PrivateScope, Public, Static, HideBySig Void LoadAppsLanguageResource()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsResourceManager : System.Object
+ METHOD 0600029d PrivateScope, Public, Static, HideBySig String GetImagePath()
+ METHOD 0600029e PrivateScope, Public, Static, HideBySig String GetImagePath(String)
+ METHOD 0600029f PrivateScope, Public, Static, HideBySig String GetCommonImagePath(String)
+ METHOD 060002a0 PrivateScope, Public, Static, HideBySig String GetCommonResourcePath(String)
+ METHOD 060002a1 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.AppsCommon.AppsCommonServerAPI : System.Object
+ FIELD 040001e9 Private, Static Tizen.TV.Service.AppsCommon.AppsCommonServerAPI instance
+ FIELD 040001ea Private String mainRestID
+ FIELD 040001eb Private String recommendedID
+ FIELD 040001ec Private String editorChoiceID
+ FIELD 040001ed Private String bestappsID
+ FIELD 040001ee Private String recommendationRowID
+ FIELD 040001ef Private String copyrightID
+ FIELD 040001f0 Public String EtagValue
+ FIELD 040001f1 Private String serverRspRestID
+ FIELD 040001f2 Private String serverRspErrorCode
+ FIELD 040001f3 Private .HttpHeaderParm httpParm
+ FIELD 040001f4 Private, Static String safCommonPluginBasePath
+ METHOD 060002a2 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002a3 PrivateScope, Public, HideBySig Void SetHttpParm()
+ METHOD 060002a4 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.AppsCommon.AppsCommonServerAPI GetInstance()
+ METHOD 060002a5 PrivateScope, Public, HideBySig Void GetMainData()
+ METHOD 060002a6 PrivateScope, Public, HideBySig Void GetRecommendedData()
+ METHOD 060002a7 PrivateScope, Public, HideBySig String GetEditorChoiceData(String,Int32,Int32)
+ METHOD 060002a8 PrivateScope, Public, HideBySig String GetBestAppsData(String,Int32,Int32)
+ METHOD 060002a9 PrivateScope, Public, HideBySig String GetRecommendationRowData()
+ METHOD 060002aa PrivateScope, Public, HideBySig Void GetCopyRightData()
+ METHOD 060002ab PrivateScope, Public, HideBySig Void CancelRequest(.ViewType)
+ METHOD 060002ac PrivateScope, Private, HideBySig String SendRequest(String,String,String)
+ METHOD 060002ad PrivateScope, Public, HideBySig String GetSAFCommonPluginPath()
+ METHOD 060002ae PrivateScope, Private, HideBySig String CombineHeaderParm()
+ METHOD 060002af PrivateScope, Private, HideBySig Void RestReceive(Object,Object)
+ METHOD 060002b0 PrivateScope, Private, HideBySig Void NetworkPluginCallback(System.Text.Json.Nodes.JsonObject,Object)
+ METHOD 060002b1 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE Sealed .<PrivateImplementationDetails> : System.Object
+ METHOD 060002b2 PrivateScope, Assembly, Static, HideBySig UInt32 ComputeStringHash(String)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, Serializable, BeforeFieldInit .<>c : System.Object
+ FIELD 040001f5 Public, Static, InitOnly .<>c <>9
+ FIELD 040001f6 Public, Static Tizen.TV.Service.CoBA.Common.WorkerTask <>9__4_0
+ FIELD 040001f7 Public, Static Tizen.TV.Service.CoBA.Common.WorkerTask <>9__10_0
+ METHOD 060002b3 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060002b4 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002b5 PrivateScope, Assembly, HideBySig Object <SyncResultCB>b__4_0(Object)
+ METHOD 060002b6 PrivateScope, Assembly, HideBySig Object <StartSync>b__10_0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .ATAppInstallStatusChangedDelegate : System.MulticastDelegate
+ METHOD 060002b7 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002b8 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Object)
+ METHOD 060002b9 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Object,System.AsyncCallback,Object)
+ METHOD 060002ba PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppInstallStatus : System.Enum
+ FIELD 040001f8 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 040001f9 Public, Static, Literal, HasDefault .AppInstallStatus Status_None
+ FIELD 040001fa Public, Static, Literal, HasDefault .AppInstallStatus Status_Installing
+ FIELD 040001fb Public, Static, Literal, HasDefault .AppInstallStatus Status_ReInstalling
+ FIELD 040001fc Public, Static, Literal, HasDefault .AppInstallStatus Status_Installed
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsUSBDelegate : System.MulticastDelegate
+ METHOD 060002bb PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002bc PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke()
+ METHOD 060002bd PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(System.AsyncCallback,Object)
+ METHOD 060002be PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, Serializable, BeforeFieldInit .<>c : System.Object
+ FIELD 040001fd Public, Static, InitOnly .<>c <>9
+ FIELD 040001fe Public, Static Tizen.TV.Service.CoBA.Common.WorkerTask <>9__19_0
+ FIELD 040001ff Public, Static Tizen.TV.Service.CoBA.Common.WorkerTask <>9__20_0
+ METHOD 060002bf PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060002c0 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002c1 PrivateScope, Assembly, HideBySig Object <OnUnInstallApp>b__19_0(Object)
+ METHOD 060002c2 PrivateScope, Assembly, HideBySig Object <OnInstalledApp>b__20_0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass18_0 : System.Object
+ FIELD 04000200 Public Object obj
+ METHOD 060002c3 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002c4 PrivateScope, Assembly, HideBySig Object <OnRemoveDownloadedApp>b__0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass26_0 : System.Object
+ FIELD 04000201 Public String appID
+ FIELD 04000202 Public String path
+ FIELD 04000203 Public String iconUrl
+ FIELD 04000204 Public Boolean bReinstall
+ FIELD 04000205 Public Tizen.TV.Service.AppsCommon.InstallManager <>4__this
+ FIELD 04000206 Public String title
+ METHOD 060002c5 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002c6 PrivateScope, Assembly, HideBySig Object <InstallApp>b__0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass27_0 : System.Object
+ FIELD 04000207 Public String appID
+ METHOD 060002c7 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002c8 PrivateScope, Assembly, HideBySig Object <UpdateApp>b__0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass29_0 : System.Object
+ FIELD 04000208 Public String appID
+ METHOD 060002c9 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002ca PrivateScope, Assembly, HideBySig Object <UninstallApp>b__0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass30_0 : System.Object
+ FIELD 04000209 Public String appID
+ METHOD 060002cb PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002cc PrivateScope, Assembly, HideBySig Object <CancelInstallApp>b__0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, Serializable, BeforeFieldInit .<>c : System.Object
+ FIELD 0400020a Public, Static, InitOnly .<>c <>9
+ FIELD 0400020b Public, Static Tizen.TV.Service.CoBA.Common.WorkerTask <>9__6_0
+ METHOD 060002cd PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060002ce PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002cf PrivateScope, Assembly, HideBySig Object <OnParentalLockChanged>b__6_0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass8_0 : System.Object
+ FIELD 0400020c Public String storeId
+ FIELD 0400020d Public .CallBackEventType type
+ FIELD 0400020e Public Int32 progress
+ FIELD 0400020f Public .ErrorCodeEnum errorcode
+ FIELD 04000210 Public Tizen.TV.Service.AppsCommon.WASEventMonitor <>4__this
+ METHOD 060002d0 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002d1 PrivateScope, Assembly, HideBySig Object <RegisterWasEventNotify>b__0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .ATSubMenu : System.Enum
+ FIELD 04000211 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000212 Public, Static, Literal, HasDefault .ATSubMenu None
+ FIELD 04000213 Public, Static, Literal, HasDefault .ATSubMenu Move
+ FIELD 04000214 Public, Static, Literal, HasDefault .ATSubMenu Delete
+ FIELD 04000215 Public, Static, Literal, HasDefault .ATSubMenu AddToHome
+ FIELD 04000216 Public, Static, Literal, HasDefault .ATSubMenu Reinstall
+ FIELD 04000217 Public, Static, Literal, HasDefault .ATSubMenu Lock
+ FIELD 04000218 Public, Static, Literal, HasDefault .ATSubMenu ViewDetail
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .LongpressMenuItems : System.Enum
+ FIELD 04000219 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 0400021a Public, Static, Literal, HasDefault .LongpressMenuItems AddToHome
+ FIELD 0400021b Public, Static, Literal, HasDefault .LongpressMenuItems Delete
+ FIELD 0400021c Public, Static, Literal, HasDefault .LongpressMenuItems Lock
+ FIELD 0400021d Public, Static, Literal, HasDefault .LongpressMenuItems Move
+ FIELD 0400021e Public, Static, Literal, HasDefault .LongpressMenuItems Reinstall
+ FIELD 0400021f Public, Static, Literal, HasDefault .LongpressMenuItems ViewDetail
+ FIELD 04000220 Public, Static, Literal, HasDefault .LongpressMenuItems MAX
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .ATToastType : System.Enum
+ FIELD 04000221 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000222 Public, Static, Literal, HasDefault .ATToastType eDefault
+ FIELD 04000223 Public, Static, Literal, HasDefault .ATToastType eStartUpdate
+ FIELD 04000224 Public, Static, Literal, HasDefault .ATToastType eUpdating
+ FIELD 04000225 Public, Static, Literal, HasDefault .ATToastType eUpdateFailed
+ FIELD 04000226 Public, Static, Literal, HasDefault .ATToastType eUpdateComplete
+ FIELD 04000227 Public, Static, Literal, HasDefault .ATToastType eDimUpdateAll
+ FIELD 04000228 Public, Static, Literal, HasDefault .ATToastType eDeleteSuccessfully
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .ViewType : System.Enum
+ FIELD 04000229 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 0400022a Public, Static, Literal, HasDefault .ViewType eMainView
+ FIELD 0400022b Public, Static, Literal, HasDefault .ViewType eDetailView
+ FIELD 0400022c Public, Static, Literal, HasDefault .ViewType eGroupView
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit .AppsTileType : System.Object
+ FIELD 0400022d Public, Static, Literal, HasDefault String VPATAppContentTile
+ FIELD 0400022e Public, Static, Literal, HasDefault String VPATDownloadaedAppTile
+ FIELD 0400022f Public, Static, Literal, HasDefault String VPATGroupContentTile
+ FIELD 04000230 Public, Static, Literal, HasDefault String VPATGenreContentTile
+ FIELD 04000231 Public, Static, Literal, HasDefault String VPATSettingOptionTile
+ FIELD 04000232 Public, Static, Literal, HasDefault String VPATPreviewGuide
+ FIELD 04000233 Public, Static, Literal, HasDefault String VPATPromotionTile
+ METHOD 060002d2 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit .CategoryIdType : System.Object
+ FIELD 04000234 Public, Static, Literal, HasDefault String Recommended
+ FIELD 04000235 Public, Static, Literal, HasDefault String Downloaded
+ FIELD 04000236 Public, Static, Literal, HasDefault String PopularThisWeek
+ FIELD 04000237 Public, Static, Literal, HasDefault String EditorsChoice
+ FIELD 04000238 Public, Static, Literal, HasDefault String GroupContent
+ FIELD 04000239 Public, Static, Literal, HasDefault String GenreContent
+ FIELD 0400023a Public, Static, Literal, HasDefault String SettingOption
+ FIELD 0400023b Public, Static, Literal, HasDefault String ProvidedBySamsung
+ FIELD 0400023c Public, Static, Literal, HasDefault String BESTAPPS
+ FIELD 0400023d Public, Static, Literal, HasDefault String ATLiveTVBanner
+ FIELD 0400023e Public, Static, Literal, HasDefault String BenefitForYou
+ METHOD 060002d3 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit .EventType : System.Object
+ FIELD 0400023f Public, Static, Literal, HasDefault String InstallSuccess
+ METHOD 060002d4 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .MsgBoxType : System.Enum
+ FIELD 04000240 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000241 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeNone
+ FIELD 04000242 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeMemoryFullConnectUsbInstall
+ FIELD 04000243 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeDldBeforeRate
+ FIELD 04000244 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeAppsyncError
+ FIELD 04000245 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeNetworkError
+ FIELD 04000246 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeInstallFail
+ FIELD 04000247 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeRequireNetwork
+ FIELD 04000248 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeInvalidCoupon
+ FIELD 04000249 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeRateing
+ FIELD 0400024a Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypePin
+ FIELD 0400024b Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeLatestVersionsOfAllApps
+ FIELD 0400024c Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeServerErrorGuide
+ FIELD 0400024d Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeDeleteMyApps
+ FIELD 0400024e Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeFailDownload
+ FIELD 0400024f Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeCanntDownloadtousb
+ FIELD 04000250 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeSmarthubInfo
+ FIELD 04000251 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeNetwork
+ FIELD 04000252 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeOptionMenu
+ FIELD 04000253 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeContextMenu
+ FIELD 04000254 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeDevelop
+ FIELD 04000255 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeFailToUninstall
+ FIELD 04000256 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeNotSupportMls
+ FIELD 04000257 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeUsbNotConnect
+ FIELD 04000258 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeSmarthubInfoView
+ FIELD 04000259 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeNoAppDelete
+ FIELD 0400025a Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeDim
+ FIELD 0400025b Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeAppCanNotDelete
+ FIELD 0400025c Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeFailAddToHome
+ FIELD 0400025d Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeDldBeforeAddHome
+ FIELD 0400025e Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeAlreadyAddAppHomeScreen
+ FIELD 0400025f Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeRechedMaxximumItemAllowed
+ FIELD 04000260 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeInsufficientToUpdate
+ FIELD 04000261 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeInsufficientToDownload
+ FIELD 04000262 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeInsufficientToDownloadInternal
+ FIELD 04000263 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeLaunchHelper
+ FIELD 04000264 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeExpiredApp
+ FIELD 04000265 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeNeedSignInSso
+ FIELD 04000266 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeSetHeaderFail
+ FIELD 04000267 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypePressReturnButton
+ FIELD 04000268 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeConnectSeverError
+ FIELD 04000269 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeStoreVersion
+ FIELD 0400026a Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeFunctionNotSupport
+ FIELD 0400026b Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeNetworkErrorPopupHTV
+ FIELD 0400026c Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeServerErrorNetwork
+ FIELD 0400026d Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeAppNotSupport
+ FIELD 0400026e Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeGroupEmpty
+ FIELD 0400026f Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeEUUserCount
+ FIELD 04000270 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeBetaTestError
+ FIELD 04000271 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeIsNeedUpdate
+ FIELD 04000272 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeTermsAgreement
+ FIELD 04000273 Public, Static, Literal, HasDefault .MsgBoxType eMsgBoxTypeMax
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .ThumbnailType : System.Enum
+ FIELD 04000274 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000275 Public, Static, Literal, HasDefault .ThumbnailType eThumbnailNone
+ FIELD 04000276 Public, Static, Literal, HasDefault .ThumbnailType eRecommendedIcon
+ FIELD 04000277 Public, Static, Literal, HasDefault .ThumbnailType ePopularThisWeekIcon
+ FIELD 04000278 Public, Static, Literal, HasDefault .ThumbnailType eDownloadedIcon
+ FIELD 04000279 Public, Static, Literal, HasDefault .ThumbnailType eSettingIcon
+ FIELD 0400027a Public, Static, Literal, HasDefault .ThumbnailType eDetailBigIcon
+ FIELD 0400027b Public, Static, Literal, HasDefault .ThumbnailType eDetailRelatedAppIcon
+ FIELD 0400027c Public, Static, Literal, HasDefault .ThumbnailType eAppContentIcon
+ FIELD 0400027d Public, Static, Literal, HasDefault .ThumbnailType eAppContentThumbnail
+ FIELD 0400027e Public, Static, Literal, HasDefault .ThumbnailType eDetailScreenShotThumbnail
+ FIELD 0400027f Public, Static, Literal, HasDefault .ThumbnailType ePromotedIcon
+ FIELD 04000280 Public, Static, Literal, HasDefault .ThumbnailType eThumbnailTypeMax
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppStatus : System.Enum
+ FIELD 04000281 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000282 Public, Static, Literal, HasDefault .AppStatus None
+ FIELD 04000283 Public, Static, Literal, HasDefault .AppStatus AppInstalling
+ FIELD 04000284 Public, Static, Literal, HasDefault .AppStatus AppInstalled
+ FIELD 04000285 Public, Static, Literal, HasDefault .AppStatus AppRemoved
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsDeviceInfoDelegate : System.MulticastDelegate
+ METHOD 060002d5 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002d6 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke()
+ METHOD 060002d7 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(System.AsyncCallback,Object)
+ METHOD 060002d8 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsCommonDelegate : System.MulticastDelegate
+ METHOD 060002d9 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002da PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke()
+ METHOD 060002db PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(System.AsyncCallback,Object)
+ METHOD 060002dc PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .ATEdenLauncherListAppChangedDelegate : System.MulticastDelegate
+ METHOD 060002dd PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002de PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Object)
+ METHOD 060002df PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Object,System.AsyncCallback,Object)
+ METHOD 060002e0 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsBenefitForYouDelegate : System.MulticastDelegate
+ METHOD 060002e1 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002e2 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke()
+ METHOD 060002e3 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(System.AsyncCallback,Object)
+ METHOD 060002e4 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsEditorChoiceDelegate : System.MulticastDelegate
+ METHOD 060002e5 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002e6 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke()
+ METHOD 060002e7 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(System.AsyncCallback,Object)
+ METHOD 060002e8 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, Serializable, BeforeFieldInit .<>c : System.Object
+ FIELD 04000286 Public, Static, InitOnly .<>c <>9
+ FIELD 04000287 Public, Static System.Comparison`1<Tizen.TV.Service.AppsCommon.CategoryPriority> <>9__18_0
+ METHOD 060002e9 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 060002ea PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002eb PrivateScope, Assembly, HideBySig Int32 <CalculateCategoryPriority>b__18_0(Tizen.TV.Service.AppsCommon.CategoryPriority,Tizen.TV.Service.AppsCommon.CategoryPriority)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsRecommendedDelegate : System.MulticastDelegate
+ METHOD 060002ec PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002ed PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke()
+ METHOD 060002ee PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(System.AsyncCallback,Object)
+ METHOD 060002ef PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsDownloadedDelegate : System.MulticastDelegate
+ METHOD 060002f0 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002f1 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke()
+ METHOD 060002f2 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(System.AsyncCallback,Object)
+ METHOD 060002f3 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .ATAppPropertyChangedDelegate : System.MulticastDelegate
+ METHOD 060002f4 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002f5 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Object)
+ METHOD 060002f6 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Object,System.AsyncCallback,Object)
+ METHOD 060002f7 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .AppsAppDataDelegate : System.MulticastDelegate
+ METHOD 060002f8 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 060002f9 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(String,Tizen.TV.Service.AppsCommon.TileData)
+ METHOD 060002fa PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(String,Tizen.TV.Service.AppsCommon.TileData,System.AsyncCallback,Object)
+ METHOD 060002fb PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, Sealed .PropertyType : System.Enum
+ FIELD 04000288 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000289 Public, Static, Literal, HasDefault .PropertyType app_widget_category
+ FIELD 0400028a Public, Static, Literal, HasDefault .PropertyType install_progress
+ FIELD 0400028b Public, Static, Literal, HasDefault .PropertyType is_need_show_progress
+ FIELD 0400028c Public, Static, Literal, HasDefault .PropertyType is_installed
+ FIELD 0400028d Public, Static, Literal, HasDefault .PropertyType is_lock
+ FIELD 0400028e Public, Static, Literal, HasDefault .PropertyType is_need_update
+ FIELD 0400028f Public, Static, Literal, HasDefault .PropertyType is_usb_installed
+ FIELD 04000290 Public, Static, Literal, HasDefault .PropertyType is_multi_screen2
+ FIELD 04000291 Public, Static, Literal, HasDefault .PropertyType is_hidden
+ FIELD 04000292 Public, Static, Literal, HasDefault .PropertyType is_reinstall
+ FIELD 04000293 Public, Static, Literal, HasDefault .PropertyType limitedAge
+ FIELD 04000294 Public, Static, Literal, HasDefault .PropertyType is_agelock
+ FIELD 04000295 Public, Static, Literal, HasDefault .PropertyType parental_lock
+ FIELD 04000296 Public, Static, Literal, HasDefault .PropertyType event_type
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass22_0 : System.Object
+ FIELD 04000297 Public String eventName
+ FIELD 04000298 Public System.Text.Json.Nodes.JsonObject optionD
+ FIELD 04000299 Public Tizen.TV.Service.AppsCommon.AppsTabKPILogger <>4__this
+ METHOD 060002fc PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 060002fd PrivateScope, Assembly, HideBySig Object <AddEventLog>b__0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit .DetailData : System.Object
+ FIELD 0400029a Private String <content_title>k__BackingField
+ FIELD 0400029b Private String <content_position>k__BackingField
+ FIELD 0400029c Private String <row_title>k__BackingField
+ FIELD 0400029d Private String <row_position>k__BackingField
+ METHOD 060002fe PrivateScope, Public, HideBySig, SpecialName String get_content_title()
+ METHOD 060002ff PrivateScope, Public, HideBySig, SpecialName Void set_content_title(String)
+ METHOD 06000300 PrivateScope, Public, HideBySig, SpecialName String get_content_position()
+ METHOD 06000301 PrivateScope, Public, HideBySig, SpecialName Void set_content_position(String)
+ METHOD 06000302 PrivateScope, Public, HideBySig, SpecialName String get_row_title()
+ METHOD 06000303 PrivateScope, Public, HideBySig, SpecialName Void set_row_title(String)
+ METHOD 06000304 PrivateScope, Public, HideBySig, SpecialName String get_row_position()
+ METHOD 06000305 PrivateScope, Public, HideBySig, SpecialName Void set_row_position(String)
+ METHOD 06000306 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, NestedPublic, BeforeFieldInit .ExtensionData : System.Object
+ FIELD 0400029e Private String <appicon>k__BackingField
+ METHOD 06000307 PrivateScope, Public, HideBySig, SpecialName String get_appicon()
+ METHOD 06000308 PrivateScope, Public, HideBySig, SpecialName Void set_appicon(String)
+ METHOD 06000309 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, BeforeFieldInit .<>c__DisplayClass3_0 : System.Object
+ FIELD 0400029f Public String command
+ FIELD 040002a0 Public Boolean useMainthread
+ FIELD 040002a1 Public System.Collections.Generic.Dictionary`2<String,String> param
+ FIELD 040002a2 Public .ReplyCallback replyCB
+ FIELD 040002a3 Public Tizen.TV.Service.AppsCommon.AppsServiceManager <>4__this
+ FIELD 040002a4 Public .FunctionCallback`1<.Object> <>9__1
+ METHOD 0600030a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600030b PrivateScope, Assembly, HideBySig Object <InvokeService>b__0(Object)
+ METHOD 0600030c PrivateScope, Assembly, HideBySig Void <InvokeService>b__1(.Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, Serializable, BeforeFieldInit .<>c : System.Object
+ FIELD 040002a5 Public, Static, InitOnly .<>c <>9
+ FIELD 040002a6 Public, Static Tizen.TV.Service.CoBA.Common.WorkerTask <>9__5_0
+ METHOD 0600030d PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 0600030e PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600030f PrivateScope, Assembly, HideBySig Object <OnAgeLockChanged>b__5_0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed, Serializable, BeforeFieldInit .<>c : System.Object
+ FIELD 040002a7 Public, Static, InitOnly .<>c <>9
+ FIELD 040002a8 Public, Static Tizen.TV.Service.CoBA.Common.WorkerTask <>9__12_0
+ METHOD 06000310 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 06000311 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000312 PrivateScope, Assembly, HideBySig Object <UnSetUSBEvent>b__12_0(Object)
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, SequentialLayout, Sealed, BeforeFieldInit .HttpHeaderParm : System.ValueType
+ FIELD 040002a9 Private String <Modelid>k__BackingField
+ FIELD 040002aa Private String <Countrycode>k__BackingField
+ FIELD 040002ab Private String <Lang>k__BackingField
+ FIELD 040002ac Private String <VDLangCode>k__BackingField
+ FIELD 040002ad Private String <Resolution>k__BackingField
+ FIELD 040002ae Private String <Firmcode>k__BackingField
+ FIELD 040002af Private String <Duid>k__BackingField
+ METHOD 06000313 PrivateScope, Public, HideBySig, SpecialName String get_Modelid()
+ METHOD 06000314 PrivateScope, Public, HideBySig, SpecialName Void set_Modelid(String)
+ METHOD 06000315 PrivateScope, Public, HideBySig, SpecialName String get_Countrycode()
+ METHOD 06000316 PrivateScope, Public, HideBySig, SpecialName Void set_Countrycode(String)
+ METHOD 06000317 PrivateScope, Public, HideBySig, SpecialName String get_Lang()
+ METHOD 06000318 PrivateScope, Public, HideBySig, SpecialName Void set_Lang(String)
+ METHOD 06000319 PrivateScope, Public, HideBySig, SpecialName String get_VDLangCode()
+ METHOD 0600031a PrivateScope, Public, HideBySig, SpecialName Void set_VDLangCode(String)
+ METHOD 0600031b PrivateScope, Public, HideBySig, SpecialName String get_Resolution()
+ METHOD 0600031c PrivateScope, Public, HideBySig, SpecialName Void set_Resolution(String)
+ METHOD 0600031d PrivateScope, Public, HideBySig, SpecialName String get_Firmcode()
+ METHOD 0600031e PrivateScope, Public, HideBySig, SpecialName Void set_Firmcode(String)
+ METHOD 0600031f PrivateScope, Public, HideBySig, SpecialName String get_Duid()
+ METHOD 06000320 PrivateScope, Public, HideBySig, SpecialName Void set_Duid(String)

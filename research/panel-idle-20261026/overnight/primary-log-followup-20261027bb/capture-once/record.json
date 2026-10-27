@@ -1,0 +1,48 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\numask 077\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nmkdir /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc\necho STAGE_CREATED\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_CREATED\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.dll.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.deps.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.runtimeconfig.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n/usr/bin/dotnet /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.dll --self-test\necho ACTIVE_READ_BEGIN\nrc=0\n/usr/bin/dotnet /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.dll --execute || rc=$?\necho HELPER_EXIT=$rc\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n141177.35 525944.69\n{\"selfTestsPassed\":26,\"targetOperations\":0}\n[GC_INFO] GC_Start #1: Gen(0), Time(141177539 ms), Reason(0)\n[GC_INFO] GC_End #1: Gen(0), Time(141177540 ms)\nACTIVE_READ_BEGIN\n{\"Stage\":\"complete\",\"Steps\":[{\"Phase\":\"open\",\"Value\":25,\"Errno\":0,\"Error\":null},{\"Phase\":\"claim\",\"Value\":0,\"Errno\":0,\"Error\":null},{\"Phase\":\"out\",\"Value\":12,\"Errno\":0,\"Error\":null},{\"Phase\":\"in\",\"Value\":3072,\"Errno\":0,\"Error\":null},{\"Phase\":\"release\",\"Value\":0,\"Errno\":0,\"Error\":null},{\"Phase\":\"close\",\"Value\":0,\"Errno\":0,\"Error\":null}],\"Opened\":true,\"Claimed\":true,\"Released\":true,\"Closed\":true,\"Accepted\":true,\"OutCount\":12,\"InCount\":3072,\"DataBase64\":\"[encoded-payload-omitted]\",\"DataSha256\":\"e0ae7ea8a5cdbef12a1cd3637ecfb78d01bc1dacf64e122fa4855c10064fb0b4\"}\n[GC_INFO] GC_Start #1: Gen(0), Time(141177719 ms), Reason(0)\n[GC_INFO] GC_End #1: Gen(0), Time(141177720 ms)\nHELPER_EXIT=0\n141177.84 525946.04\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest ! -L /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc\nif test -d /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc; then\nrm -f /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.dll /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.dll.b64 /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.deps.json /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.deps.json.b64 /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.runtimeconfig.json /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc/ManagedUsbRtBlockReadOnce.runtimeconfig.json.b64\nrmdir /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc\nfi\ntest ! -e /tmp/researcher-usb-rtblock-e3fb660421124293a4a1fa6b22872bdc\necho STAGE_ABSENT\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_ABSENT\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

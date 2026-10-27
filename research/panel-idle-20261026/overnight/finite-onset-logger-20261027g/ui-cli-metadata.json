@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ncommand -v setsid\napp_launcher --help 2>&1 | head -n 70\nvconftool get memory/eden/current_tab\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n111227.39 415338.69\n/usr/bin/setsid\nUsage:\n  app_launcher [OPTION?]\n\nHelp Options:\n  -h, --help                            Show help options\n  --help-all                            Show all help options\n  --help-option                         Additional options\n\nApplication Options:\n  -l, --list                            Show installed application list\n  -S, --status                          Show the running application information\n  -s, --start=APPLICATION ID            Execute the application\n  -k, --kill=APPLICATION ID             Kill the running application\n  -t, --terminate=APPLICATION ID        Terminte the running application\n  -r, --is-running=APPLICATION ID       Check whether the application is running or Not\n  -f, --fast-start=APPLICATION ID       [Deprecated] Execute the application quickly\n  -e, --direct-start=APPLICATION ID     Execute the application without the loader\n\nmemory/eden/current_tab, value = d/apps.tab (String)\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

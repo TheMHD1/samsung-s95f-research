@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ncat /proc/uptime\nvconftool get memory/eden/current_tab\nvconftool get memory/enterprise/swupgrade/working_status\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.system.deviced /Org/Tizen/System/DeviceD/Display org.tizen.system.deviced.display.GetPowerState\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.system.deviced /Org/Tizen/System/DeviceD/Display org.tizen.system.deviced.display.GetScreenState\ndbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.system.deviced /Org/Tizen/System/DeviceD/Display org.tizen.system.deviced.display.BurnInProtectionInProgress\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "160682.13 597816.34\nmemory/eden/current_tab, value = d/apps.tab (String)\nmemory/enterprise/swupgrade/working_status, value = 0 (Int32)\nmethod return time=1793139073.207239 sender=:1.34 -> destination=:1.2789 serial=2636 reply_serial=2\n   string \"lcdon\"\nmethod return time=1793139073.215906 sender=:1.34 -> destination=:1.2790 serial=2637 reply_serial=2\n   int32 1\nmethod return time=1793139073.224523 sender=:1.34 -> destination=:1.2791 serial=2638 reply_serial=2\n   int32 0\n160682.26 597816.64\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

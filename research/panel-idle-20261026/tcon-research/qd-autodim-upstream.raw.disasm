@@ -1,0 +1,69 @@
+Inputs (SHA-256)
+  libave.so.0.1        a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777
+  libvideoenhance.so.0 3ce4e4741bad4883d7f097b7939e7b1f8853a354329b17398da496bf624228c9
+
+Curated bounded excerpt (even address; ELF symbol address is odd). The
+reproducer asserts only the listed forwarding/vtable/provider opcode and
+literal invariants; loader/integration narrative is documented from manual
+bounded inspection, not asserted by this raw excerpt.
+
+QDDimming::SetAutoDim(int), 0x172a34 .. 0x172aaa
+  00172a3a  ldrb r0, [r0, #0x18]
+  00172a3e  cbz r0, #0x172a7e
+  00172a40  ldr r0, [r2, #4]
+  00172a42  mov r3, r1
+  00172a4e  str.w r3, [r0, #0x2a8]
+  00172a60  movs r0, #0
+  00172a76  movs r0, #0
+  00172a7e  ... not-initialized logging path ...
+  00172aa4  movs r0, #0
+
+ave_dimming::SetAutoDim(int), 0x150f78 .. 0x151076
+  00150f84  ldrb r0, [r0, #8]
+  00150f96  cmp r0, #0
+  00150f98  beq #0x151048
+  00150fa6  mov r1, r5
+  00150faa  ldr r0, [r3]
+  00150fac  ldr r3, [r0]
+  00150fae  ldr.w r3, [r3, #0x124]
+  00150fb2  blx r3
+
+ave_dimming::SetHomeUI(int), 0x151710 .. 0x15180e
+  0015171c  ldrb r0, [r0, #8]
+  0015172e  cmp r0, #0
+  00151730  beq #0x1517e0
+  0015173e  mov r1, r5
+  00151742  ldr r0, [r3]
+  00151744  ldr r3, [r0]
+  00151746  ldr.w r3, [r3, #0x140]
+  0015174a  blx r3
+
+impl_set_auto_dim_OnOff, 0x2a2af8 .. 0x2a2b48
+  002a2afa  mov r4, r0
+  002a2b04  ldr r0, [r5]
+  002a2b08  mov r1, r4
+  002a2b0a  blx #0x90fe0   ; VideoEnhancerImpl::set_auto_dim_OnOff
+
+VideoEnhancerImpl::set_auto_dim_OnOff, 0x29e50c .. 0x29e524
+  0029e50e  mov r0, r1
+  0029e512  blx #0x8aa58   ; ave_api_set_auto_dim_OnOff PLT
+
+ppi_ve_set_auto_dim_OnOff executable instructions, 0x46f44a1c .. 0x46f44aa8
+  46f44a1e  mov r4, r0
+  46f44a3a  ldr.w r0, [r3, #0x98]
+  46f44a46  mov r0, r4
+  46f44a4a  ldr.w r3, [r3, #0x98]
+  46f44a54  bx r3
+
+Relocation / provider evidence
+  vtable(ave_dimming)+8+0x134 = 0x59ea70 -> ave_dimming::SetAutoDim
+  vtable(QDDimming)+8+0x124  = 0x59f40c -> QDDimming::SetAutoDim
+  vtable(QDDimming)+8+0x140  = 0x59f428 -> DimmingInterface::SetHomeUI
+  provider register dataflow:
+    2a08c6 ldr.w r1, [pc,#0xc74]  -> literal 2a153c = 0x2ffc
+    2a08de ldr   r1, [r3,r1]      -> GOT 5a6ffc = impl_set_auto_dim_OnOff
+    2a08e0 str.w r1, [r0,#0x98]   -> provider table +0x98
+
+No instructions after named function bounds are interpreted above: they may be
+literal pools/data.  Static disassembly cannot establish runtime backend-table
+contents, the active dimming instance, or which caller supplied the input.

@@ -1,0 +1,204 @@
+{
+  "checks": {
+    "dependency_closure": {
+      "managed_nonframework_refs": {
+        "Tizen.Applications.Common.dll": [
+          "Tizen",
+          "Tizen.Log"
+        ],
+        "Tizen.Log.dll": [],
+        "Tizen.dll": [
+          "Tizen.Log"
+        ]
+      },
+      "native_module_refs": {
+        "Tizen.Applications.Common.dll": [
+          "libapp-core-ui-cpp.so.1",
+          "libbase-utils-i18n.so.0",
+          "libbundle.so.0",
+          "libc.so.6",
+          "libcapi-appfw-app-common.so.0",
+          "libcapi-appfw-app-control.so.0",
+          "libcapi-appfw-app-manager.so.0",
+          "libcapi-appfw-application.so.0",
+          "libglib-2.0.so.0",
+          "libiniparser.so.1",
+          "librpc-port.so.1",
+          "librua.so.0"
+        ],
+        "Tizen.Log.dll": [
+          "libdlog.so.0"
+        ],
+        "Tizen.dll": [
+          "libcapi-base-common.so.0",
+          "libdlog.so.0",
+          "libvconf.so.0"
+        ]
+      }
+    },
+    "dry": {
+      "argv": [
+        "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+        "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/bin/Release/net6.0/ManagedUiTabLaunch.dll"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"schema\":\"managed-ui-tab-launch-dry-v1\",\"dry_run\":true,\"target_operations\":0,\"application_id\":\"com.samsung.tv.csfs\",\"extra_key\":\"switch_page\",\"fixed_modes\":{\"--apps\":\"d/apps.tab\",\"--for-you\":\"d/ug.tab@ForYou\"},\"operation_set\":false,\"no_raise_window_set\":false,\"retries\":0,\"physical_picture_observed\":false,\"execution_confirmed\":false}\n"
+    },
+    "host_abi_refusal": {
+      "argv": [
+        "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+        "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/bin/Release/net6.0/ManagedUiTabLaunch.dll",
+        "--apps"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "{\"schema\":\"managed-ui-tab-launch-v1\",\"mode\":\"apps\",\"request\":{\"application_id\":\"com.samsung.tv.csfs\",\"extra_key\":\"switch_page\",\"extra_value\":\"d/apps.tab\",\"operation_set\":false,\"no_raise_window_set\":false},\"expected_boot_id\":\"00000000-0000-4000-8000-000000000000\",\"boot_id_before\":\"00000000-0000-4000-8000-000000000000\",\"boot_id_after\":\"00000000-0000-4000-8000-000000000000\",\"boot_matched_before\":false,\"boot_matched_after\":false,\"uptime_before\":\"122578.85 804802.85\",\"uptime_after\":\"122578.85 804802.85\",\"architecture\":\"X64\",\"pointer_bytes\":8,\"little_endian\":true,\"abi_accepted\":false,\"request_constructed\":false,\"send_attempted\":false,\"send_returned\":false,\"handle_disposed\":false,\"exception\":{\"phase\":\"preflight\",\"type\":\"AbiRefusal\",\"message\":\"Expected little-endian ARM32 process\"},\"target_operations\":0,\"physical_picture_observed\":false,\"execution_confirmed\":false}\n"
+    },
+    "invalid_cli": {
+      "argv": [
+        "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+        "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/bin/Release/net6.0/ManagedUiTabLaunch.dll",
+        "--invalid"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    },
+    "wrapper_dry": {
+      "argv": [
+        "python3",
+        "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/run-once.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dry_run\":true,\"target_operations\":0,\"phases\":[\"prepare\",\"send\",\"cleanup\"],\"destinations\":{\"apps\":[\"--apps\",\"d/apps.tab\"],\"for-you\":[\"--for-you\",\"d/ug.tab@ForYou\"]},\"automatic_retry\":false,\"automatic_cleanup\":false}\n"
+    },
+    "wrapper_fake_root": {
+      "argv": [
+        "python3",
+        "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/test-wrapper.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"schema\":\"managed-ui-tab-prepare-result-v1\",\"prepared\":\"/tmp/ui-tab-wrapper-test-p8lrrqax/prepare/prepared.json\",\"remote_stage\":\"/tmp/researcher-ui-tab-704cd1f7480e49c293e37f4879e212d0\",\"cleanup_required\":true,\"target_operations\":0}\n{\"schema\":\"managed-ui-tab-action-result-v1\",\"mode\":\"apps\",\"page\":\"d/apps.tab\",\"send_attempted\":true,\"send_returned\":true,\"exception\":null,\"target_operations\":1,\"physical_picture_observed\":false,\"execution_confirmed\":false,\"cleanup_required\":true}\n{\"schema\":\"managed-ui-tab-action-result-v1\",\"mode\":\"for-you\",\"page\":\"d/ug.tab@ForYou\",\"send_attempted\":true,\"send_returned\":true,\"exception\":null,\"target_operations\":1,\"physical_picture_observed\":false,\"execution_confirmed\":false,\"cleanup_required\":true}\n{\"schema\":\"managed-ui-tab-cleanup-result-v1\",\"stage_absent\":true,\"target_operations\":0}\n{\"fakeRootTestsPassed\":8,\"prepareUiInvocations\":0,\"sendRootCalls\":{\"apps\":1,\"for-you\":1},\"cleanupManagedInvocations\":0,\"targetOperations\":0}\n"
+    }
+  },
+  "claims": {
+    "execution_confirmed": false,
+    "physical_picture_observed": false
+  },
+  "expected_boot_id": "00000000-0000-4000-8000-000000000000",
+  "files": {
+    "ManagedUiTabLaunch.csproj": {
+      "sha256": "e592a5b0da2b1daf5a23ef8b0f4cd044d086d386987fa6c5e81b0d80279fb988",
+      "size": 1117
+    },
+    "Program.cs": {
+      "sha256": "43aa6067d1012c318d84b4204a6708da0df8a77bfb8a1f3d45f538090faf32c0",
+      "size": 7034
+    },
+    "bin/Release/net6.0/ManagedUiTabLaunch.deps.json": {
+      "sha256": "05e098fa4f00555c7518f67c63f9d4bd5bba47a4f7cb91ae42b96f632b95accc",
+      "size": 1501
+    },
+    "bin/Release/net6.0/ManagedUiTabLaunch.dll": {
+      "sha256": "90a63e61f8925ed91897c3586fd2e972eb770ee3ba30583108977b431841c509",
+      "size": 25088
+    },
+    "bin/Release/net6.0/ManagedUiTabLaunch.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    },
+    "bin/Release/net6.0/Tizen.Applications.Common.dll": {
+      "sha256": "f9d17e5e10632d4001a5381331661104302cc95d12f61567cc61c6cb74ea737c",
+      "size": 118784
+    },
+    "bin/Release/net6.0/Tizen.Log.dll": {
+      "sha256": "a2b27f2033177328d0d609f8fab47f3c45bc20a0a30b5f29992b142b02fdf66b",
+      "size": 10240
+    },
+    "bin/Release/net6.0/Tizen.dll": {
+      "sha256": "a4f743fd522517584641eb86afe2403ce4134e6e40768da9998242cb095ca93e",
+      "size": 13824
+    },
+    "root-with-margin.py": {
+      "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a",
+      "size": 3388
+    },
+    "run-once.py": {
+      "sha256": "985b97762e1379cc062b4b222873588566ad81f8e07043c46ac1a9f3fadc2b97",
+      "size": 16243
+    }
+  },
+  "fixed_request": {
+    "application_id": "com.samsung.tv.csfs",
+    "extra_key": "switch_page",
+    "modes": {
+      "apps": "d/apps.tab",
+      "for-you": "d/ug.tab@ForYou"
+    },
+    "no_raise_window_set": false,
+    "operation_set": false,
+    "retries": 0,
+    "send_calls_per_invocation": 1
+  },
+  "framework_inputs": {
+    "Tizen.Applications.Common.dll": "f9d17e5e10632d4001a5381331661104302cc95d12f61567cc61c6cb74ea737c",
+    "Tizen.Log.dll": "a2b27f2033177328d0d609f8fab47f3c45bc20a0a30b5f29992b142b02fdf66b",
+    "Tizen.dll": "a4f743fd522517584641eb86afe2403ce4134e6e40768da9998242cb095ca93e"
+  },
+  "managed_dependency_closure": {
+    "native_references_are_target_stock_not_staged": true,
+    "nonframework_references_closed_by_staged_files": true,
+    "report": "managed-dependency-closure.json",
+    "sha256": "1802df63a8c7269f9dd58e825d0786d51b297607608531a8d2fce5d4e25ba8e7"
+  },
+  "network_dependencies": 0,
+  "offline_files": {
+    "README.md": {
+      "sha256": "a787ea2b0118e419f4840ba4fe73339c29abdb08898468b11aa11066e9d6d1a3",
+      "size": 1197
+    },
+    "build.py": {
+      "sha256": "ca2e64ccd011a9b81bb2b3ef1bb8575da041389b0c000972c9b10e5dc1cd9f54",
+      "size": 10118
+    },
+    "inspection/AssemblyRefs.csproj": {
+      "sha256": "3860e63b1689947e456d9ed6f4c5ef66882ccffaf5424f963695db7cdfdd1ab6",
+      "size": 396
+    },
+    "inspection/Program.cs": {
+      "sha256": "95f2d4249a6568d60258b1d6856a86a547a74fa86d68fc5d2bcee58bc9533dc9",
+      "size": 2633
+    },
+    "managed-dependency-closure.json": {
+      "sha256": "1802df63a8c7269f9dd58e825d0786d51b297607608531a8d2fce5d4e25ba8e7",
+      "size": 3652
+    },
+    "test-wrapper.py": {
+      "sha256": "e43269de44e1d63ccd9b205035748cef5af5728ab0cf3d8c3fa41616d718df2e",
+      "size": 5167
+    }
+  },
+  "phases": {
+    "cleanup": "explicit-after-all-actions",
+    "prepare": "private-stage-only-no-AppControl",
+    "send": "one-fixed-managed-invocation-no-retry"
+  },
+  "reproducible_build": true,
+  "root_adapter": {
+    "host_timeout_seconds": 75,
+    "max_response_bytes": 65536,
+    "remote_timeout_seconds": 45,
+    "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a"
+  },
+  "schema": "managed-ui-tab-launch-build-v1",
+  "target_operations_during_build": 0,
+  "target_runtime": {
+    "architecture": "Arm",
+    "dotnet_sha256": "e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310",
+    "little_endian": true,
+    "pointer_bytes": 4
+  }
+}

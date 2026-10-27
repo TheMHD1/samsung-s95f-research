@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho DIRECT_NON_DLL_REFERENCE_SCAN\nn=0\nfor f in /usr/apps/*/bin/* /opt/usr/apps/*/bin/*; do\n case \"$f\" in *.dll|*.pdb|*.json|*.xml) continue;; esac\n if test -f \"$f\"; then\n  n=$((n+1))\n  grep -a -l -E -i 'off.?sensing|el.?sensing|Screen.?Restor|Screen.?Optimi|SCREEN_OPTIM|OPTIMAZTION|PIXEL_REFRESH|pixel refresh|clearer screen|oled.?care|panelcare|panel_care' \"$f\"\n fi\ndone\necho \"SCANNED_DIRECT_NON_DLL_FILES=$n\"\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 13:15:33 UTC 2026\n00000000-0000-4000-8000-000000000000\n42142.78 157258.15\nDIRECT_NON_DLL_REFERENCE_SCAN\n/usr/apps/org.tizen.tv-viewer/bin/tv-viewer\nSCANNED_DIRECT_NON_DLL_FILES=666\nMon Oct 26 13:15:57 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

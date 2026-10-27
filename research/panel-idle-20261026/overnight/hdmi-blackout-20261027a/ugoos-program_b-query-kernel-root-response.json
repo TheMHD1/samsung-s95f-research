@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndmesg | awk '\n/^\\[/ { t=$0; sub(/^\\[[ ]*/, \"\", t); sub(/\\].*$/, \"\", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }\nEND {printf \"RING_FIRST=%.6f RING_LAST=%.6f MATCHING_ROWS=%d\\n\",first,last,n}'\n",
+      "exit_code": 1,
+      "stderr": "awk: cmd. line:1: /^\\\\[/ { t=$0; sub(/^\\\\[[ ]*/, \"\", t); sub(/\\\\].*$/, \"\", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }\nawk: cmd. line:1:                                  ^ syntax error\nawk: cmd. line:1: each rule must have a pattern or an action part\nawk: cmd. line:1: /^\\\\[/ { t=$0; sub(/^\\\\[[ ]*/, \"\", t); sub(/\\\\].*$/, \"\", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }\nawk: cmd. line:1:                                                                     ^ syntax error\nawk: cmd. line:1: /^\\\\[/ { t=$0; sub(/^\\\\[[ ]*/, \"\", t); sub(/\\\\].*$/, \"\", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }\nawk: cmd. line:1:                                                                                                           ^ syntax error\nawk: cmd. line:1: /^\\\\[/ { t=$0; sub(/^\\\\[[ ]*/, \"\", t); sub(/\\\\].*$/, \"\", t); t=t+0; if (!have) {first=t; have=1}; last=t; if(t>=90683 && t<=90694 && ($0 ~ /23379|QDFTcon_GetErrDetStatus/)) {if(n<80)print; n++} }\nawk: cmd. line:1:                                                                                                                                                                                                   ^ syntax error\ndmesg: write error\n",
+      "stdout": "00000000-0000-4000-8000-000000000000\n90773.68 339774.76\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nstat -c '%u %g %a %F' /tmp/researcher-usb-onset-5e113630055b4e81a0e0b94e5fd52ad6\nfind /tmp/researcher-usb-onset-5e113630055b4e81a0e0b94e5fd52ad6 -mindepth 1 -maxdepth 1 -printf '%f %s\\n'\nsha256sum /tmp/researcher-usb-onset-5e113630055b4e81a0e0b94e5fd52ad6/*\ncat /sys/bus/usb/devices/7-1/devnum\ncat /sys/bus/usb/devices/7-1/power/runtime_status\nif test -L /sys/bus/usb/devices/7-1:1.2/driver; then readlink /sys/bus/usb/devices/7-1:1.2/driver; else echo VENDOR_INTERFACE_UNBOUND; fi\nif command -v fuser; then\nn=$(cat /sys/bus/usb/devices/7-1/devnum)\nnode=$(printf '/dev/bus/usb/007/%03d' \"$n\")\nif fuser \"$node\" 2>&1; then echo FUSER_PRESENT; else echo FUSER_NO_HOLDER_OR_ERROR; fi\nelse echo FUSER_UNAVAILABLE; fi\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n114228.71 426388.20\n0 0 700 directory\nsupervisor.sh 1105\\nManagedUsbSecondaryLoggerOnset.runtimeconfig.json 242\\nManagedUsbSecondaryLoggerOnset.deps.json 460\\nManagedUsbSecondaryLoggerOnset.dll 71680\\nd905733139977c0436bfd4ac520a13c29498c406961c0d9e39717dbac7b4b320  /tmp/researcher-usb-onset-5e113630055b4e81a0e0b94e5fd52ad6/ManagedUsbSecondaryLoggerOnset.deps.json\n4870eed095247b8f5c86a58044e10e8c3682248b4c0465c49e5d4642cb8e54e9  /tmp/researcher-usb-onset-5e113630055b4e81a0e0b94e5fd52ad6/ManagedUsbSecondaryLoggerOnset.dll\naeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3  /tmp/researcher-usb-onset-5e113630055b4e81a0e0b94e5fd52ad6/ManagedUsbSecondaryLoggerOnset.runtimeconfig.json\n2118a377f8a28ed0b11ae9c9bbccd7f8ffa49a519850001ea905e70c05e724bb  /tmp/researcher-usb-onset-5e113630055b4e81a0e0b94e5fd52ad6/supervisor.sh\n45\nactive\nVENDOR_INTERFACE_UNBOUND\n/usr/bin/fuser\nFUSER_NO_HOLDER_OR_ERROR\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

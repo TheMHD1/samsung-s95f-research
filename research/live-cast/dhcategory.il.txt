@@ -1,0 +1,6659 @@
+METHOD 06000001 Tizen.Tv.App.CoBA.Components.Factory::get_BASE_PATH
+ 0000: nop 
+ 0001: ldsfld FieldDefinition:04000008
+ 0006: ldnull 
+ 0007: ceq 
+ 0009: stloc.0 
+ 000a: ldloc.0 
+ 000b: brfalse 85000000
+ 0010: nop 
+ 0011: call Tizen.TV.Service.CoBA.Common.PackageManagerAgent::GetInstance
+ 0016: ldsfld FieldDefinition:04000001
+ 001b: callvirt Tizen.TV.Service.CoBA.Common.PackageManagerAgent::Path
+ 0020: stsfld FieldDefinition:04000008
+ 0025: ldstr "[%s1] Base Path : [%s2]"
+ 002a: ldc.i4 7F969800
+ 002f: conv.i8 
+ 0030: ldc.i4 7F969800
+ 0035: conv.i8 
+ 0036: ldc.i4 7F969800
+ 003b: conv.i8 
+ 003c: ldc.i4 7F969800
+ 0041: conv.i8 
+ 0042: ldc.i4 7F969800
+ 0047: conv.i8 
+ 0048: ldsfld FieldDefinition:04000001
+ 004d: ldsfld FieldDefinition:04000008
+ 0052: ldnull 
+ 0053: ldnull 
+ 0054: ldnull 
+ 0055: ldc.r8 000000E0CF126341
+ 005e: ldc.r8 000000E0CF126341
+ 0067: ldc.r8 000000E0CF126341
+ 0070: ldc.r8 000000E0CF126341
+ 0079: ldc.r8 000000E0CF126341
+ 0082: ldstr "BASE_PATH"
+ 0087: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 008c: ldc.i4.s 1F
+ 008e: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0093: nop 
+ 0094: nop 
+ 0095: ldsfld FieldDefinition:04000008
+ 009a: stloc.1 
+ 009b: br.s 00
+ 009d: ldloc.1 
+ 009e: ret 
+METHOD 06000002 Tizen.Tv.App.CoBA.Components.Factory::GetComponents
+ 0000: nop 
+ 0001: ldstr "DHCategory GetComponents"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldnull 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "GetComponents"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 0060: ldc.i4.s 28
+ 0062: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0067: nop 
+ 0068: ldarg.1 
+ 0069: ldind.ref 
+ 006a: ldsfld FieldDefinition:04000010
+ 006f: ldnull 
+ 0070: ldftn Alloc
+ 0076: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 007b: ldc.i4.s 65
+ 007d: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 0082: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 0087: pop 
+ 0088: ldarg.1 
+ 0089: ldind.ref 
+ 008a: ldsfld FieldDefinition:04000019
+ 008f: ldnull 
+ 0090: ldftn Alloc
+ 0096: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 009b: ldc.i4.s 65
+ 009d: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 00a2: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 00a7: pop 
+ 00a8: ldarg.1 
+ 00a9: ldind.ref 
+ 00aa: ldsfld FieldDefinition:04000030
+ 00af: ldnull 
+ 00b0: ldftn Alloc
+ 00b6: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 00bb: ldc.i4.s 65
+ 00bd: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 00c2: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 00c7: pop 
+ 00c8: ldarg.1 
+ 00c9: ldind.ref 
+ 00ca: ldsfld FieldDefinition:04000018
+ 00cf: ldnull 
+ 00d0: ldftn Alloc
+ 00d6: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 00db: ldc.i4.2 
+ 00dc: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 00e1: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 00e6: pop 
+ 00e7: ldarg.1 
+ 00e8: ldind.ref 
+ 00e9: ldsfld FieldDefinition:0400000c
+ 00ee: ldnull 
+ 00ef: ldftn Alloc
+ 00f5: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 00fa: ldc.i4.1 
+ 00fb: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 0100: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 0105: pop 
+ 0106: ldstr "TerraBottom GetComponents"
+ 010b: ldc.i4 7F969800
+ 0110: conv.i8 
+ 0111: ldc.i4 7F969800
+ 0116: conv.i8 
+ 0117: ldc.i4 7F969800
+ 011c: conv.i8 
+ 011d: ldc.i4 7F969800
+ 0122: conv.i8 
+ 0123: ldc.i4 7F969800
+ 0128: conv.i8 
+ 0129: ldnull 
+ 012a: ldnull 
+ 012b: ldnull 
+ 012c: ldnull 
+ 012d: ldnull 
+ 012e: ldc.r8 000000E0CF126341
+ 0137: ldc.r8 000000E0CF126341
+ 0140: ldc.r8 000000E0CF126341
+ 0149: ldc.r8 000000E0CF126341
+ 0152: ldc.r8 000000E0CF126341
+ 015b: ldstr "GetComponents"
+ 0160: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 0165: ldc.i4.s 2F
+ 0167: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 016c: nop 
+ 016d: ldarg.1 
+ 016e: ldind.ref 
+ 016f: ldsfld FieldDefinition:0400000b
+ 0174: ldnull 
+ 0175: ldftn Alloc
+ 017b: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 0180: ldc.i4.s 65
+ 0182: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 0187: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 018c: pop 
+ 018d: ldarg.1 
+ 018e: ldind.ref 
+ 018f: ldstr "s/terra.bottom.layer"
+ 0194: ldnull 
+ 0195: ldftn Alloc
+ 019b: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 01a0: ldc.i4.s 65
+ 01a2: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 01a7: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 01ac: pop 
+ 01ad: ldarg.1 
+ 01ae: ldind.ref 
+ 01af: ldstr "s/terra.bottom.item"
+ 01b4: ldnull 
+ 01b5: ldftn Alloc
+ 01bb: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 01c0: ldc.i4.s 65
+ 01c2: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 01c7: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 01cc: pop 
+ 01cd: ldarg.0 
+ 01ce: call LoadResources
+ 01d3: nop 
+ 01d4: ldc.i4.1 
+ 01d5: stloc.0 
+ 01d6: br.s 00
+ 01d8: ldloc.0 
+ 01d9: ret 
+METHOD 06000003 Tizen.Tv.App.CoBA.Components.Factory::LoadResources
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000007
+ 0007: stloc.0 
+ 0008: ldloc.0 
+ 0009: brfalse.s 6D
+ 000b: nop 
+ 000c: ldstr "Already loaded"
+ 0011: ldc.i4 7F969800
+ 0016: conv.i8 
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldnull 
+ 0030: ldnull 
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldstr "LoadResources"
+ 0066: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 006b: ldc.i4.s 3C
+ 006d: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0072: nop 
+ 0073: br ED020000
+ 0078: nop 
+ 0079: nop 
+ 007a: ldstr "LoadResources"
+ 007f: ldc.i4 7F969800
+ 0084: conv.i8 
+ 0085: ldc.i4 7F969800
+ 008a: conv.i8 
+ 008b: ldc.i4 7F969800
+ 0090: conv.i8 
+ 0091: ldc.i4 7F969800
+ 0096: conv.i8 
+ 0097: ldc.i4 7F969800
+ 009c: conv.i8 
+ 009d: ldnull 
+ 009e: ldnull 
+ 009f: ldnull 
+ 00a0: ldnull 
+ 00a1: ldnull 
+ 00a2: ldc.r8 000000E0CF126341
+ 00ab: ldc.r8 000000E0CF126341
+ 00b4: ldc.r8 000000E0CF126341
+ 00bd: ldc.r8 000000E0CF126341
+ 00c6: ldc.r8 000000E0CF126341
+ 00cf: ldstr "LoadResources"
+ 00d4: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 00d9: ldc.i4.s 42
+ 00db: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00e0: nop 
+ 00e1: ldsfld FieldDefinition:04000002
+ 00e6: stloc.1 
+ 00e7: ldstr "Load dll path : %s1"
+ 00ec: ldc.i4 7F969800
+ 00f1: conv.i8 
+ 00f2: ldc.i4 7F969800
+ 00f7: conv.i8 
+ 00f8: ldc.i4 7F969800
+ 00fd: conv.i8 
+ 00fe: ldc.i4 7F969800
+ 0103: conv.i8 
+ 0104: ldc.i4 7F969800
+ 0109: conv.i8 
+ 010a: ldloc.1 
+ 010b: ldsfld FieldDefinition:04000003
+ 0110: call System.String::Concat
+ 0115: ldnull 
+ 0116: ldnull 
+ 0117: ldnull 
+ 0118: ldnull 
+ 0119: ldc.r8 000000E0CF126341
+ 0122: ldc.r8 000000E0CF126341
+ 012b: ldc.r8 000000E0CF126341
+ 0134: ldc.r8 000000E0CF126341
+ 013d: ldc.r8 000000E0CF126341
+ 0146: ldstr "LoadResources"
+ 014b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 0150: ldc.i4.s 48
+ 0152: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0157: nop 
+ 0158: call System.Runtime.Loader.AssemblyLoadContext::get_Default
+ 015d: ldloc.1 
+ 015e: ldsfld FieldDefinition:04000003
+ 0163: call System.String::Concat
+ 0168: callvirt System.Runtime.Loader.AssemblyLoadContext::LoadFromAssemblyPath
+ 016d: pop 
+ 016e: ldstr "Load dll path : %s1"
+ 0173: ldc.i4 7F969800
+ 0178: conv.i8 
+ 0179: ldc.i4 7F969800
+ 017e: conv.i8 
+ 017f: ldc.i4 7F969800
+ 0184: conv.i8 
+ 0185: ldc.i4 7F969800
+ 018a: conv.i8 
+ 018b: ldc.i4 7F969800
+ 0190: conv.i8 
+ 0191: ldloc.1 
+ 0192: ldsfld FieldDefinition:04000004
+ 0197: call System.String::Concat
+ 019c: ldnull 
+ 019d: ldnull 
+ 019e: ldnull 
+ 019f: ldnull 
+ 01a0: ldc.r8 000000E0CF126341
+ 01a9: ldc.r8 000000E0CF126341
+ 01b2: ldc.r8 000000E0CF126341
+ 01bb: ldc.r8 000000E0CF126341
+ 01c4: ldc.r8 000000E0CF126341
+ 01cd: ldstr "LoadResources"
+ 01d2: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 01d7: ldc.i4.s 4C
+ 01d9: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 01de: nop 
+ 01df: call System.Runtime.Loader.AssemblyLoadContext::get_Default
+ 01e4: ldloc.1 
+ 01e5: ldsfld FieldDefinition:04000004
+ 01ea: call System.String::Concat
+ 01ef: callvirt System.Runtime.Loader.AssemblyLoadContext::LoadFromAssemblyPath
+ 01f4: pop 
+ 01f5: ldstr "Load dll path : %s1"
+ 01fa: ldc.i4 7F969800
+ 01ff: conv.i8 
+ 0200: ldc.i4 7F969800
+ 0205: conv.i8 
+ 0206: ldc.i4 7F969800
+ 020b: conv.i8 
+ 020c: ldc.i4 7F969800
+ 0211: conv.i8 
+ 0212: ldc.i4 7F969800
+ 0217: conv.i8 
+ 0218: ldloc.1 
+ 0219: ldsfld FieldDefinition:04000005
+ 021e: call System.String::Concat
+ 0223: ldnull 
+ 0224: ldnull 
+ 0225: ldnull 
+ 0226: ldnull 
+ 0227: ldc.r8 000000E0CF126341
+ 0230: ldc.r8 000000E0CF126341
+ 0239: ldc.r8 000000E0CF126341
+ 0242: ldc.r8 000000E0CF126341
+ 024b: ldc.r8 000000E0CF126341
+ 0254: ldstr "LoadResources"
+ 0259: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 025e: ldc.i4.s 50
+ 0260: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0265: nop 
+ 0266: call System.Runtime.Loader.AssemblyLoadContext::get_Default
+ 026b: ldloc.1 
+ 026c: ldsfld FieldDefinition:04000005
+ 0271: call System.String::Concat
+ 0276: callvirt System.Runtime.Loader.AssemblyLoadContext::LoadFromAssemblyPath
+ 027b: pop 
+ 027c: ldarg.0 
+ 027d: ldc.i4.1 
+ 027e: stfld FieldDefinition:04000007
+ 0283: ldstr "resource load done"
+ 0288: ldc.i4 7F969800
+ 028d: conv.i8 
+ 028e: ldc.i4 7F969800
+ 0293: conv.i8 
+ 0294: ldc.i4 7F969800
+ 0299: conv.i8 
+ 029a: ldc.i4 7F969800
+ 029f: conv.i8 
+ 02a0: ldc.i4 7F969800
+ 02a5: conv.i8 
+ 02a6: ldnull 
+ 02a7: ldnull 
+ 02a8: ldnull 
+ 02a9: ldnull 
+ 02aa: ldnull 
+ 02ab: ldc.r8 000000E0CF126341
+ 02b4: ldc.r8 000000E0CF126341
+ 02bd: ldc.r8 000000E0CF126341
+ 02c6: ldc.r8 000000E0CF126341
+ 02cf: ldc.r8 000000E0CF126341
+ 02d8: ldstr "LoadResources"
+ 02dd: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 02e2: ldc.i4.s 54
+ 02e4: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 02e9: nop 
+ 02ea: ldarg.0 
+ 02eb: call LoadResource
+ 02f0: nop 
+ 02f1: nop 
+ 02f2: leave.s 71
+ 02f4: stloc.2 
+ 02f5: nop 
+ 02f6: ldstr "Exception: %s1"
+ 02fb: ldc.i4 7F969800
+ 0300: conv.i8 
+ 0301: ldc.i4 7F969800
+ 0306: conv.i8 
+ 0307: ldc.i4 7F969800
+ 030c: conv.i8 
+ 030d: ldc.i4 7F969800
+ 0312: conv.i8 
+ 0313: ldc.i4 7F969800
+ 0318: conv.i8 
+ 0319: ldloc.2 
+ 031a: callvirt System.Exception::get_Message
+ 031f: ldnull 
+ 0320: ldnull 
+ 0321: ldnull 
+ 0322: ldnull 
+ 0323: ldc.r8 000000E0CF126341
+ 032c: ldc.r8 000000E0CF126341
+ 0335: ldc.r8 000000E0CF126341
+ 033e: ldc.r8 000000E0CF126341
+ 0347: ldc.r8 000000E0CF126341
+ 0350: ldstr "LoadResources"
+ 0355: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 035a: ldc.i4.s 5A
+ 035c: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0361: nop 
+ 0362: nop 
+ 0363: leave.s 00
+ 0365: ret 
+METHOD 06000004 Tizen.Tv.App.CoBA.Components.Factory::LoadResource
+ 0000: nop 
+ 0001: nop 
+ 0002: call Tizen.Tv.App.CoBA.Components.Home.ResourceDHCategory::Prepare
+ 0007: nop 
+ 0008: nop 
+ 0009: leave.s 71
+ 000b: stloc.0 
+ 000c: nop 
+ 000d: ldstr "Exception: %s1"
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldc.i4 7F969800
+ 0029: conv.i8 
+ 002a: ldc.i4 7F969800
+ 002f: conv.i8 
+ 0030: ldloc.0 
+ 0031: callvirt System.Exception::get_Message
+ 0036: ldnull 
+ 0037: ldnull 
+ 0038: ldnull 
+ 0039: ldnull 
+ 003a: ldc.r8 000000E0CF126341
+ 0043: ldc.r8 000000E0CF126341
+ 004c: ldc.r8 000000E0CF126341
+ 0055: ldc.r8 000000E0CF126341
+ 005e: ldc.r8 000000E0CF126341
+ 0067: ldstr "LoadResource"
+ 006c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/Factory.cs"
+ 0071: ldc.i4.s 66
+ 0073: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0078: nop 
+ 0079: nop 
+ 007a: leave.s 00
+ 007c: ret 
+METHOD 06000005 Tizen.Tv.App.CoBA.Components.Factory::.ctor
+ 0000: ldarg.0 
+ 0001: ldc.i4.0 
+ 0002: stfld FieldDefinition:04000007
+ 0007: ldarg.0 
+ 0008: call System.Object::.ctor
+ 000d: nop 
+ 000e: ret 
+METHOD 06000006 Tizen.Tv.App.CoBA.Components.Factory::.cctor
+ 0000: ldstr "com.samsung.tv.coba.newhome"
+ 0005: stsfld FieldDefinition:04000001
+ 000a: call get_BASE_PATH
+ 000f: ldstr "/shared/res/"
+ 0014: call System.String::Concat
+ 0019: stsfld FieldDefinition:04000002
+ 001e: ldstr "HomeCommon.dll"
+ 0023: stsfld FieldDefinition:04000003
+ 0028: ldstr "ResourceHome.dll"
+ 002d: stsfld FieldDefinition:04000004
+ 0032: ldstr "TextResourceHome.dll"
+ 0037: stsfld FieldDefinition:04000005
+ 003c: ldstr "TextResourceHome.resources.dll"
+ 0041: stsfld FieldDefinition:04000006
+ 0046: ldnull 
+ 0047: stsfld FieldDefinition:04000008
+ 004c: ret 
+METHOD 06000007 Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottomItem::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldstr "s/terra.bottom.item"
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldc.i4.1 
+ 0011: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0016: dup 
+ 0017: ldc.i4.0 
+ 0018: ldarg.0 
+ 0019: newobj .ctor
+ 001e: stelem.ref 
+ 001f: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0024: nop 
+ 0025: ldarg.0 
+ 0026: ldarg.0 
+ 0027: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 002c: ldc.i4.0 
+ 002d: ldelem.ref 
+ 002e: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0033: nop 
+ 0034: ret 
+METHOD 06000008 Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottomItem::OnSelected
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call Tizen.TV.Service.CoBA.Core.Component::OnSelected
+ 0008: nop 
+ 0009: ldstr "Select:: %s1 bottom"
+ 000e: ldc.i4 7F969800
+ 0013: conv.i8 
+ 0014: ldc.i4 7F969800
+ 0019: conv.i8 
+ 001a: ldc.i4 7F969800
+ 001f: conv.i8 
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldc.i4 7F969800
+ 002b: conv.i8 
+ 002c: ldarg.0 
+ 002d: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldnull 
+ 0035: ldnull 
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldc.r8 000000E0CF126341
+ 0063: ldstr "OnSelected"
+ 0068: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompTerraBottom/BottomItems/CompTerraBottomItem.cs"
+ 006d: ldc.i4.s 21
+ 006f: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0074: nop 
+ 0075: ret 
+METHOD 06000009 Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottomItem::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600000a Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomItemElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldnull 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 0600000b Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomItemElement::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: leave.s 08
+ 0004: ldarg.0 
+ 0005: call System.Object::Finalize
+ 000a: nop 
+ 000b: endfinally 
+ 000c: ret 
+METHOD 0600000c Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomItemElement::Update
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0007: isinst Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottomItem
+ 000c: stloc.0 
+ 000d: ldloc.0 
+ 000e: ldnull 
+ 000f: ceq 
+ 0011: stloc.s 04
+ 0013: ldloc.s 04
+ 0015: brfalse.s 6D
+ 0017: nop 
+ 0018: ldstr "Parent is null"
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldc.i4 7F969800
+ 0034: conv.i8 
+ 0035: ldc.i4 7F969800
+ 003a: conv.i8 
+ 003b: ldnull 
+ 003c: ldnull 
+ 003d: ldnull 
+ 003e: ldnull 
+ 003f: ldnull 
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldc.r8 000000E0CF126341
+ 0064: ldc.r8 000000E0CF126341
+ 006d: ldstr "Update"
+ 0072: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompTerraBottom/BottomItems/TerraBottomItemElement.cs"
+ 0077: ldc.i4.s 1B
+ 0079: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 007e: nop 
+ 007f: br 85000000
+ 0084: newobj TypeSpecification:1b000001::.ctor
+ 0089: dup 
+ 008a: ldstr "type"
+ 008f: ldstr "ButtonPreview"
+ 0094: callvirt TypeSpecification:1b000001::Add
+ 0099: nop 
+ 009a: stloc.1 
+ 009b: ldstr ""
+ 00a0: stloc.2 
+ 00a1: ldloc.0 
+ 00a2: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 00a7: ldstr "UP"
+ 00ac: call System.String::op_Equality
+ 00b1: stloc.s 05
+ 00b3: ldloc.s 05
+ 00b5: brfalse.s 24
+ 00b7: nop 
+ 00b8: ldloc.1 
+ 00b9: ldstr "focused_icon"
+ 00be: ldsfld Tizen.Tv.App.CoBA.Components.Home.Globals::SHARED_LIB_PATH
+ 00c3: ldstr "i_icon_function_gototop.svg"
+ 00c8: call System.String::Concat
+ 00cd: callvirt TypeSpecification:1b000001::Add
+ 00d2: nop 
+ 00d3: ldc.i4.0 
+ 00d4: call Tizen.Tv.App.CoBA.Components.Home.ResourceDHCategory::Text
+ 00d9: stloc.2 
+ 00da: nop 
+ 00db: newobj TypeSpecification:1b000001::.ctor
+ 00e0: dup 
+ 00e1: ldstr "btn_text"
+ 00e6: ldloc.2 
+ 00e7: callvirt TypeSpecification:1b000001::Add
+ 00ec: nop 
+ 00ed: stloc.3 
+ 00ee: ldloc.1 
+ 00ef: ldstr "extension"
+ 00f4: ldloc.3 
+ 00f5: callvirt TypeSpecification:1b000001::Add
+ 00fa: nop 
+ 00fb: ldarg.0 
+ 00fc: ldloc.1 
+ 00fd: ldnull 
+ 00fe: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 0103: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0108: nop 
+ 0109: ret 
+METHOD 0600000d Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottomLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldstr "s/terra.bottom.layer"
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldc.i4.1 
+ 0011: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0016: dup 
+ 0017: ldc.i4.0 
+ 0018: ldarg.0 
+ 0019: newobj .ctor
+ 001e: stelem.ref 
+ 001f: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0024: nop 
+ 0025: ldarg.0 
+ 0026: ldarg.0 
+ 0027: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 002c: ldc.i4.0 
+ 002d: ldelem.ref 
+ 002e: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0033: nop 
+ 0034: ldarg.0 
+ 0035: ldarg.0 
+ 0036: newobj .ctor
+ 003b: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 0040: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0045: ret 
+METHOD 0600000e Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottomLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600000f Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomLayerCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 06000010 Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomLayerCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000002::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "s/terra.bottom.item"
+ 000d: ldstr "UP"
+ 0012: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 0017: callvirt TypeSpecification:1b000002::Add
+ 001c: nop 
+ 001d: ldarg.1 
+ 001e: ldloc.0 
+ 001f: callvirt TypeSpecification:1b000002::ToArray
+ 0024: stind.ref 
+ 0025: ldc.i4.1 
+ 0026: stloc.1 
+ 0027: br.s 00
+ 0029: ldloc.1 
+ 002a: ret 
+METHOD 06000011 Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldnull 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 06000012 Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomLayerElement::Update
+ 0000: nop 
+ 0001: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "type"
+ 000d: ldstr "ButtonPreviewLayer"
+ 0012: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0017: pop 
+ 0018: ldarg.0 
+ 0019: ldloc.0 
+ 001a: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 001f: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0024: nop 
+ 0025: ldloc.0 
+ 0026: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 002b: nop 
+ 002c: ret 
+METHOD 06000013 Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomUtil::LaunchSettingApp
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000003::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "menuitem"
+ 000d: ldarg.0 
+ 000e: callvirt TypeSpecification:1b000003::Add
+ 0013: nop 
+ 0014: ldstr "org.tizen.menu"
+ 0019: ldloc.0 
+ 001a: ldc.i4.0 
+ 001b: call Tizen.TV.Service.CoBA.Core.Util.AppLauncher::LaunchApp
+ 0020: nop 
+ 0021: ret 
+METHOD 06000014 Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomUtil::GetChannelLockMenuItemId
+ 0000: nop 
+ 0001: ldstr ""
+ 0006: stloc.0 
+ 0007: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 000c: ldc.i4 A20F0000
+ 0011: ldloca.s 01
+ 0013: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 0018: pop 
+ 0019: ldloc.1 
+ 001a: stloc.2 
+ 001b: ldstr "country: %d1, systemInfoCountry: %s1"
+ 0020: ldloc.1 
+ 0021: conv.i8 
+ 0022: ldc.i4 7F969800
+ 0027: conv.i8 
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldloc.2 
+ 003b: box Tizen.TV.System.Config.SystemInfoCountryE
+ 0040: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0045: ldnull 
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldc.r8 000000E0CF126341
+ 0064: ldc.r8 000000E0CF126341
+ 006d: ldc.r8 000000E0CF126341
+ 0076: ldstr "GetChannelLockMenuItemId"
+ 007b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompTerraBottom/Common/TerraBottomUtil.cs"
+ 0080: ldc.i4.s 1A
+ 0082: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0087: nop 
+ 0088: ldloc.2 
+ 0089: brfalse.s 07
+ 008b: ldloc.2 
+ 008c: ldc.i4.s 57
+ 008e: ceq 
+ 0090: br.s 01
+ 0092: ldc.i4.1 
+ 0093: stloc.3 
+ 0094: ldloc.3 
+ 0095: brfalse.s 0A
+ 0097: nop 
+ 0098: ldstr "program-rating-lock-atsc"
+ 009d: stloc.0 
+ 009e: nop 
+ 009f: br.s 1C
+ 00a1: ldloc.2 
+ 00a2: ldc.i4.2 
+ 00a3: ceq 
+ 00a5: stloc.s 04
+ 00a7: ldloc.s 04
+ 00a9: brfalse.s 0A
+ 00ab: nop 
+ 00ac: ldstr "channel-lock"
+ 00b1: stloc.0 
+ 00b2: nop 
+ 00b3: br.s 08
+ 00b5: nop 
+ 00b6: ldstr "program-rating-lock-dvb"
+ 00bb: stloc.0 
+ 00bc: nop 
+ 00bd: ldloc.0 
+ 00be: stloc.s 05
+ 00c0: br.s 00
+ 00c2: ldloc.s 05
+ 00c4: ret 
+METHOD 06000015 Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomUtil::CheckMenuItemEnable
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.0 
+ 0003: stind.i1 
+ 0004: nop 
+ 0005: call Tizen.TV.Service.Settings.Settings::FlagServiceReady
+ 000a: ldc.i4.0 
+ 000b: ceq 
+ 000d: stloc.0 
+ 000e: ldloc.0 
+ 000f: brfalse.s 6F
+ 0011: nop 
+ 0012: ldstr "Settings is not ready...!"
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldc.i4 7F969800
+ 0034: conv.i8 
+ 0035: ldnull 
+ 0036: ldnull 
+ 0037: ldnull 
+ 0038: ldnull 
+ 0039: ldnull 
+ 003a: ldc.r8 000000E0CF126341
+ 0043: ldc.r8 000000E0CF126341
+ 004c: ldc.r8 000000E0CF126341
+ 0055: ldc.r8 000000E0CF126341
+ 005e: ldc.r8 000000E0CF126341
+ 0067: ldstr "CheckMenuItemEnable"
+ 006c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompTerraBottom/Common/TerraBottomUtil.cs"
+ 0071: ldc.i4.s 35
+ 0073: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0078: nop 
+ 0079: ldc.i4.0 
+ 007a: stloc.1 
+ 007b: leave D1000000
+ 0080: ldstr "GetItemPathEnable:"
+ 0085: ldarg.0 
+ 0086: call System.String::Concat
+ 008b: ldstr "CheckMenuItemEnable"
+ 0090: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompTerraBottom/Common/TerraBottomUtil.cs"
+ 0095: ldc.i4.s 39
+ 0097: newobj Tizen.TV.Service.CoBA.Common.CheckDeadlock::.ctor
+ 009c: stloc.2 
+ 009d: nop 
+ 009e: ldarg.0 
+ 009f: ldloca.s 03
+ 00a1: call Tizen.TV.Service.Settings.Settings::GetItemPathEnable
+ 00a6: pop 
+ 00a7: ldarg.1 
+ 00a8: ldloc.3 
+ 00a9: stind.i1 
+ 00aa: nop 
+ 00ab: leave.s 0B
+ 00ad: ldloc.2 
+ 00ae: brfalse.s 07
+ 00b0: ldloc.2 
+ 00b1: callvirt System.IDisposable::Dispose
+ 00b6: nop 
+ 00b7: endfinally 
+ 00b8: ldstr "[%s1] GetItemPathEnable: %s2"
+ 00bd: ldc.i4 7F969800
+ 00c2: conv.i8 
+ 00c3: ldc.i4 7F969800
+ 00c8: conv.i8 
+ 00c9: ldc.i4 7F969800
+ 00ce: conv.i8 
+ 00cf: ldc.i4 7F969800
+ 00d4: conv.i8 
+ 00d5: ldc.i4 7F969800
+ 00da: conv.i8 
+ 00db: ldarg.0 
+ 00dc: ldarg.1 
+ 00dd: ldind.u1 
+ 00de: brtrue.s 07
+ 00e0: ldstr "F"
+ 00e5: br.s 05
+ 00e7: ldstr "T"
+ 00ec: ldnull 
+ 00ed: ldnull 
+ 00ee: ldnull 
+ 00ef: ldc.r8 000000E0CF126341
+ 00f8: ldc.r8 000000E0CF126341
+ 0101: ldc.r8 000000E0CF126341
+ 010a: ldc.r8 000000E0CF126341
+ 0113: ldc.r8 000000E0CF126341
+ 011c: ldstr "CheckMenuItemEnable"
+ 0121: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompTerraBottom/Common/TerraBottomUtil.cs"
+ 0126: ldc.i4.s 3F
+ 0128: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 012d: nop 
+ 012e: nop 
+ 012f: leave.s 1C
+ 0131: stloc.s 04
+ 0133: nop 
+ 0134: ldloc.s 04
+ 0136: ldstr "CheckMenuItemEnable"
+ 013b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompTerraBottom/Common/TerraBottomUtil.cs"
+ 0140: ldc.i4.s 43
+ 0142: ldnull 
+ 0143: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 0148: nop 
+ 0149: ldc.i4.0 
+ 014a: stloc.1 
+ 014b: leave.s 04
+ 014d: ldc.i4.1 
+ 014e: stloc.1 
+ 014f: br.s 00
+ 0151: ldloc.1 
+ 0152: ret 
+METHOD 06000016 Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomUtil::IsMultiviewRunning
+ 0000: nop 
+ 0001: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0006: ldc.i4.s 45
+ 0008: ldloca.s 00
+ 000a: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 000f: pop 
+ 0010: ldloc.0 
+ 0011: call System.String::IsNullOrEmpty
+ 0016: ldc.i4.0 
+ 0017: ceq 
+ 0019: stloc.1 
+ 001a: ldloc.1 
+ 001b: brfalse.s 3F
+ 001d: nop 
+ 001e: newobj Tizen.TV.Service.CoBA.Common.JsonMap::.ctor
+ 0023: stloc.2 
+ 0024: nop 
+ 0025: ldloc.2 
+ 0026: ldloc.0 
+ 0027: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::Parse
+ 002c: pop 
+ 002d: ldloc.2 
+ 002e: ldloc.2 
+ 002f: ldstr "mode"
+ 0034: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 0039: ldstr "on"
+ 003e: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::CheckValueStr
+ 0043: stloc.3 
+ 0044: ldloc.3 
+ 0045: brfalse.s 06
+ 0047: nop 
+ 0048: ldc.i4.1 
+ 0049: stloc.s 04
+ 004b: leave.s 14
+ 004d: nop 
+ 004e: leave.s 0B
+ 0050: ldloc.2 
+ 0051: brfalse.s 07
+ 0053: ldloc.2 
+ 0054: callvirt System.IDisposable::Dispose
+ 0059: nop 
+ 005a: endfinally 
+ 005b: nop 
+ 005c: ldc.i4.0 
+ 005d: stloc.s 04
+ 005f: br.s 00
+ 0061: ldloc.s 04
+ 0063: ret 
+METHOD 06000017 Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottom::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:0400000b
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldc.i4.1 
+ 0011: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0016: dup 
+ 0017: ldc.i4.0 
+ 0018: ldarg.0 
+ 0019: newobj .ctor
+ 001e: stelem.ref 
+ 001f: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0024: nop 
+ 0025: ldarg.0 
+ 0026: ldarg.0 
+ 0027: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 002c: ldc.i4.0 
+ 002d: ldelem.ref 
+ 002e: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0033: nop 
+ 0034: ldarg.0 
+ 0035: ldarg.0 
+ 0036: newobj .ctor
+ 003b: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 0040: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0045: ret 
+METHOD 06000018 Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottom::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 06000019 Tizen.Tv.App.CoBA.Components.TerraBottom.CompTerraBottom::.cctor
+ 0000: ldstr "s/terra.bottom"
+ 0005: stsfld FieldDefinition:0400000b
+ 000a: ret 
+METHOD 0600001a Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ret 
+METHOD 0600001b Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomCache::GetItems
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.1 
+ 0003: newarr System.String
+ 0008: dup 
+ 0009: ldc.i4.0 
+ 000a: ldstr "s/terra.bottom.layer"
+ 000f: stelem.ref 
+ 0010: stind.ref 
+ 0011: ldc.i4.1 
+ 0012: stloc.0 
+ 0013: br.s 00
+ 0015: ldloc.0 
+ 0016: ret 
+METHOD 0600001c Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldnull 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 0600001d Tizen.Tv.App.CoBA.Components.TerraBottom.TerraBottomElement::Update
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000001::.ctor
+ 0006: dup 
+ 0007: ldstr "type"
+ 000c: ldstr "TerraBottom"
+ 0011: callvirt TypeSpecification:1b000001::Add
+ 0016: nop 
+ 0017: stloc.0 
+ 0018: newobj TypeSpecification:1b000001::.ctor
+ 001d: dup 
+ 001e: ldstr "layer_type"
+ 0023: ldstr "bottomlist"
+ 0028: callvirt TypeSpecification:1b000001::Add
+ 002d: nop 
+ 002e: dup 
+ 002f: ldstr "layer_style"
+ 0034: ldstr "bottomlist01"
+ 0039: callvirt TypeSpecification:1b000001::Add
+ 003e: nop 
+ 003f: stloc.1 
+ 0040: ldloc.0 
+ 0041: ldstr "extension"
+ 0046: ldloc.1 
+ 0047: callvirt TypeSpecification:1b000001::Add
+ 004c: nop 
+ 004d: ldarg.0 
+ 004e: ldloc.0 
+ 004f: ldnull 
+ 0050: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 0055: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 005a: nop 
+ 005b: ret 
+METHOD 0600001e Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabs::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0006: stfld FieldDefinition:0400000d
+ 000b: ldarg.0 
+ 000c: ldarg.1 
+ 000d: ldsfld FieldDefinition:0400000c
+ 0012: ldarg.2 
+ 0013: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 0018: nop 
+ 0019: nop 
+ 001a: ldarg.2 
+ 001b: ldc.i4 7F969800
+ 0020: conv.i8 
+ 0021: ldc.i4 7F969800
+ 0026: conv.i8 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldc.i4 7F969800
+ 0032: conv.i8 
+ 0033: ldc.i4 7F969800
+ 0038: conv.i8 
+ 0039: ldnull 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldnull 
+ 003d: ldnull 
+ 003e: ldc.r8 000000E0CF126341
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldc.r8 000000E0CF126341
+ 006b: ldstr ".ctor"
+ 0070: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompBubbleTabs.cs"
+ 0075: ldc.i4.s 12
+ 0077: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 007c: nop 
+ 007d: ret 
+METHOD 0600001f Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabs::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0008: ldc.i4 7F969800
+ 000d: conv.i8 
+ 000e: ldc.i4 7F969800
+ 0013: conv.i8 
+ 0014: ldc.i4 7F969800
+ 0019: conv.i8 
+ 001a: ldc.i4 7F969800
+ 001f: conv.i8 
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldc.r8 000000E0CF126341
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldstr "Finalize"
+ 005d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompBubbleTabs.cs"
+ 0062: ldc.i4.s 16
+ 0064: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0069: nop 
+ 006a: leave.s 08
+ 006c: ldarg.0 
+ 006d: call System.Object::Finalize
+ 0072: nop 
+ 0073: endfinally 
+ 0074: ret 
+METHOD 06000020 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabs::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 06000021 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabs::Run
+ 0000: nop 
+ 0001: ldstr "BUBBLE TabRow :: %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "Run"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompBubbleTabs.cs"
+ 0065: ldc.i4.s 20
+ 0067: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 006c: nop 
+ 006d: ldarg.0 
+ 006e: ldfld FieldDefinition:0400000d
+ 0073: ldarg.0 
+ 0074: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0079: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::DataWithPreloading
+ 007e: stloc.0 
+ 007f: ldarg.0 
+ 0080: ldc.i4.1 
+ 0081: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0086: dup 
+ 0087: ldc.i4.0 
+ 0088: ldarg.0 
+ 0089: ldloc.0 
+ 008a: newobj .ctor
+ 008f: stelem.ref 
+ 0090: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0095: nop 
+ 0096: ldarg.0 
+ 0097: ldarg.0 
+ 0098: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 009d: ldc.i4.0 
+ 009e: ldelem.ref 
+ 009f: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 00a4: nop 
+ 00a5: ldarg.0 
+ 00a6: ldarg.0 
+ 00a7: ldarg.0 
+ 00a8: ldarg.0 
+ 00a9: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 00ae: newobj .ctor
+ 00b3: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 00b8: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 00bd: nop 
+ 00be: ldarg.0 
+ 00bf: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 00c4: ldloc.0 
+ 00c5: callvirt Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 00ca: nop 
+ 00cb: nop 
+ 00cc: leave.s 19
+ 00ce: stloc.1 
+ 00cf: nop 
+ 00d0: ldloc.1 
+ 00d1: ldstr "Run"
+ 00d6: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompBubbleTabs.cs"
+ 00db: ldc.i4.s 32
+ 00dd: ldnull 
+ 00de: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 00e3: nop 
+ 00e4: nop 
+ 00e5: leave.s 00
+ 00e7: ldarg.0 
+ 00e8: ldarg.1 
+ 00e9: call Tizen.TV.Service.CoBA.Core.Component::Run
+ 00ee: nop 
+ 00ef: ret 
+METHOD 06000022 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabs::.cctor
+ 0000: ldstr "d/dhcategory.tab"
+ 0005: stsfld FieldDefinition:0400000c
+ 000a: ret 
+METHOD 06000023 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabsElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 06000024 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabsElement::Update
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0007: ldarg.0 
+ 0008: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 000d: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0012: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 0017: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 001c: nop 
+ 001d: ldstr "UIJson: %s1"
+ 0022: ldc.i4 7F969800
+ 0027: conv.i8 
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldarg.0 
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldstr "Update"
+ 007c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompBubbleTabs.cs"
+ 0081: ldc.i4.s 42
+ 0083: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0088: nop 
+ 0089: ret 
+METHOD 06000025 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabsCache::get_InstanceID
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400000e
+ 0006: ret 
+METHOD 06000026 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabsCache::set_InstanceID
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400000e
+ 0007: ret 
+METHOD 06000027 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabsCache::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:0400000f
+ 0007: ldarg.0 
+ 0008: ldarg.1 
+ 0009: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 000e: nop 
+ 000f: nop 
+ 0010: ldarg.0 
+ 0011: ldarg.2 
+ 0012: call set_InstanceID
+ 0017: nop 
+ 0018: ldarg.0 
+ 0019: ldarg.1 
+ 001a: stfld FieldDefinition:0400000f
+ 001f: ret 
+METHOD 06000028 Tizen.Tv.App.CoBA.Components.Home.CompBubbleTabsCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000002::.ctor
+ 0006: stloc.0 
+ 0007: ldarg.1 
+ 0008: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 000d: ldarg.0 
+ 000e: call get_InstanceID
+ 0013: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Childs
+ 0018: stind.ref 
+ 0019: ldarg.1 
+ 001a: ldind.ref 
+ 001b: ldlen 
+ 001c: conv.i4 
+ 001d: stloc.1 
+ 001e: ldstr "Count : %d1"
+ 0023: ldloc.1 
+ 0024: conv.i8 
+ 0025: ldc.i4 7F969800
+ 002a: conv.i8 
+ 002b: ldc.i4 7F969800
+ 0030: conv.i8 
+ 0031: ldc.i4 7F969800
+ 0036: conv.i8 
+ 0037: ldc.i4 7F969800
+ 003c: conv.i8 
+ 003d: ldnull 
+ 003e: ldnull 
+ 003f: ldnull 
+ 0040: ldnull 
+ 0041: ldnull 
+ 0042: ldc.r8 000000E0CF126341
+ 004b: ldc.r8 000000E0CF126341
+ 0054: ldc.r8 000000E0CF126341
+ 005d: ldc.r8 000000E0CF126341
+ 0066: ldc.r8 000000E0CF126341
+ 006f: ldstr "GetItems"
+ 0074: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompBubbleTabs.cs"
+ 0079: ldc.i4.s 58
+ 007b: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0080: nop 
+ 0081: ldc.i4.0 
+ 0082: stloc.2 
+ 0083: br 95000000
+ 0088: nop 
+ 0089: ldsfld FieldDefinition:04000019
+ 008e: ldarg.1 
+ 008f: ldind.ref 
+ 0090: ldloc.2 
+ 0091: ldelem.ref 
+ 0092: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 0097: stloc.3 
+ 0098: ldloc.3 
+ 0099: call System.String::IsNullOrEmpty
+ 009e: ldc.i4.0 
+ 009f: ceq 
+ 00a1: stloc.s 04
+ 00a3: ldloc.s 04
+ 00a5: brfalse.s 71
+ 00a7: nop 
+ 00a8: ldloc.0 
+ 00a9: ldloc.3 
+ 00aa: callvirt TypeSpecification:1b000002::Add
+ 00af: nop 
+ 00b0: ldstr "item: %s1"
+ 00b5: ldc.i4 7F969800
+ 00ba: conv.i8 
+ 00bb: ldc.i4 7F969800
+ 00c0: conv.i8 
+ 00c1: ldc.i4 7F969800
+ 00c6: conv.i8 
+ 00c7: ldc.i4 7F969800
+ 00cc: conv.i8 
+ 00cd: ldc.i4 7F969800
+ 00d2: conv.i8 
+ 00d3: ldloc.3 
+ 00d4: ldnull 
+ 00d5: ldnull 
+ 00d6: ldnull 
+ 00d7: ldnull 
+ 00d8: ldc.r8 000000E0CF126341
+ 00e1: ldc.r8 000000E0CF126341
+ 00ea: ldc.r8 000000E0CF126341
+ 00f3: ldc.r8 000000E0CF126341
+ 00fc: ldc.r8 000000E0CF126341
+ 0105: ldstr "GetItems"
+ 010a: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompBubbleTabs.cs"
+ 010f: ldc.i4.s 61
+ 0111: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0116: nop 
+ 0117: nop 
+ 0118: nop 
+ 0119: ldloc.2 
+ 011a: ldc.i4.1 
+ 011b: add 
+ 011c: stloc.2 
+ 011d: ldloc.2 
+ 011e: ldloc.1 
+ 011f: clt 
+ 0121: stloc.s 05
+ 0123: ldloc.s 05
+ 0125: brtrue 5EFFFFFF
+ 012a: ldarg.1 
+ 012b: ldloc.0 
+ 012c: callvirt TypeSpecification:1b000002::ToArray
+ 0131: stind.ref 
+ 0132: ldc.i4.1 
+ 0133: stloc.s 06
+ 0135: br.s 00
+ 0137: ldloc.s 06
+ 0139: ret 
+METHOD 06000029 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::.ctor
+ 0000: ldarg.0 
+ 0001: newobj Tizen.TV.Service.CoBA.Core.PreviewManager::.ctor
+ 0006: stfld FieldDefinition:04000011
+ 000b: ldarg.0 
+ 000c: ldc.i4.0 
+ 000d: stfld FieldDefinition:04000012
+ 0012: ldarg.0 
+ 0013: ldc.i4.0 
+ 0014: stfld FieldDefinition:04000013
+ 0019: ldarg.0 
+ 001a: ldc.i4.0 
+ 001b: stfld FieldDefinition:04000014
+ 0020: ldarg.0 
+ 0021: ldarg.1 
+ 0022: ldsfld FieldDefinition:04000010
+ 0027: ldarg.2 
+ 0028: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 002d: nop 
+ 002e: nop 
+ 002f: ldstr "CompDHCategory : %s1"
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldc.i4 7F969800
+ 0045: conv.i8 
+ 0046: ldc.i4 7F969800
+ 004b: conv.i8 
+ 004c: ldc.i4 7F969800
+ 0051: conv.i8 
+ 0052: ldarg.0 
+ 0053: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0058: ldnull 
+ 0059: ldnull 
+ 005a: ldnull 
+ 005b: ldnull 
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldc.r8 000000E0CF126341
+ 0080: ldc.r8 000000E0CF126341
+ 0089: ldstr ".ctor"
+ 008e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0093: ldc.i4.s 18
+ 0095: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 009a: nop 
+ 009b: ret 
+METHOD 0600002a Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600002b Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::Run
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: ldfld FieldDefinition:04000011
+ 0008: ldarg.0 
+ 0009: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 000e: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::DataWithPreloading
+ 0013: stloc.0 
+ 0014: ldarg.0 
+ 0015: ldc.i4.1 
+ 0016: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 001b: dup 
+ 001c: ldc.i4.0 
+ 001d: ldarg.0 
+ 001e: ldloc.0 
+ 001f: newobj .ctor
+ 0024: stelem.ref 
+ 0025: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 002a: nop 
+ 002b: ldarg.0 
+ 002c: ldarg.0 
+ 002d: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 0032: ldc.i4.0 
+ 0033: ldelem.ref 
+ 0034: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0039: nop 
+ 003a: ldarg.0 
+ 003b: ldarg.0 
+ 003c: ldarg.0 
+ 003d: ldarg.0 
+ 003e: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0043: newobj .ctor
+ 0048: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 004d: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0052: ldarg.0 
+ 0053: ldfld FieldDefinition:04000011
+ 0058: ldarg.0 
+ 0059: ldarg.0 
+ 005a: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 005f: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::RegisterContentStatusListener
+ 0064: nop 
+ 0065: ldarg.0 
+ 0066: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 006b: ldloc.0 
+ 006c: callvirt Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0071: nop 
+ 0072: ldarg.0 
+ 0073: ldarg.0 
+ 0074: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 0079: callvirt Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 007e: call SetForceUpdateFlag
+ 0083: nop 
+ 0084: ldarg.0 
+ 0085: ldarg.0 
+ 0086: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 008b: callvirt Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 0090: call SetDynamicRowFlag
+ 0095: nop 
+ 0096: ldarg.0 
+ 0097: ldarg.0 
+ 0098: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 009d: callvirt Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 00a2: call ParseSyncCount
+ 00a7: starg.s 01
+ 00a9: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 00ae: ldarg.0 
+ 00af: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::RegisterEvent
+ 00b4: nop 
+ 00b5: nop 
+ 00b6: leave.s 19
+ 00b8: stloc.1 
+ 00b9: nop 
+ 00ba: ldloc.1 
+ 00bb: ldstr "Run"
+ 00c0: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 00c5: ldc.i4.s 32
+ 00c7: ldnull 
+ 00c8: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 00cd: nop 
+ 00ce: nop 
+ 00cf: leave.s 00
+ 00d1: ldstr "Run : %s1 / %d1"
+ 00d6: ldarg.0 
+ 00d7: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 00dc: stloc.2 
+ 00dd: ldarg.1 
+ 00de: conv.i8 
+ 00df: ldc.i4 7F969800
+ 00e4: conv.i8 
+ 00e5: ldc.i4 7F969800
+ 00ea: conv.i8 
+ 00eb: ldc.i4 7F969800
+ 00f0: conv.i8 
+ 00f1: ldc.i4 7F969800
+ 00f6: conv.i8 
+ 00f7: ldloc.2 
+ 00f8: ldnull 
+ 00f9: ldnull 
+ 00fa: ldnull 
+ 00fb: ldnull 
+ 00fc: ldc.r8 000000E0CF126341
+ 0105: ldc.r8 000000E0CF126341
+ 010e: ldc.r8 000000E0CF126341
+ 0117: ldc.r8 000000E0CF126341
+ 0120: ldc.r8 000000E0CF126341
+ 0129: ldstr "Run"
+ 012e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0133: ldc.i4.s 35
+ 0135: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 013a: nop 
+ 013b: ldarg.0 
+ 013c: ldarg.1 
+ 013d: call Tizen.TV.Service.CoBA.Core.Component::Run
+ 0142: nop 
+ 0143: ret 
+METHOD 0600002c Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::OnExit
+ 0000: nop 
+ 0001: ldstr "OnExit:%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "OnExit"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0065: ldc.i4.s 3B
+ 0067: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006c: nop 
+ 006d: ldarg.0 
+ 006e: call Tizen.TV.Service.CoBA.Core.Component::OnExit
+ 0073: nop 
+ 0074: ldarg.0 
+ 0075: ldc.i4.0 
+ 0076: stfld FieldDefinition:04000012
+ 007b: ldarg.0 
+ 007c: ldnull 
+ 007d: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0082: nop 
+ 0083: ldarg.0 
+ 0084: ldnull 
+ 0085: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 008a: nop 
+ 008b: ldarg.0 
+ 008c: ldnull 
+ 008d: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0092: ldarg.0 
+ 0093: ldfld FieldDefinition:04000011
+ 0098: ldarg.0 
+ 0099: ldarg.0 
+ 009a: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 009f: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::UnregisterContentStatusListener
+ 00a4: nop 
+ 00a5: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 00aa: ldarg.0 
+ 00ab: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::UnregisterEvent
+ 00b0: nop 
+ 00b1: ret 
+METHOD 0600002d Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::OnUpdate
+ 0000: nop 
+ 0001: ldstr "OnUpdate %s1 vs %s2"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.1 
+ 0025: ldarg.0 
+ 0026: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "OnUpdate"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0065: ldc.i4.s 47
+ 0067: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006c: nop 
+ 006d: ldarg.1 
+ 006e: ldarg.0 
+ 006f: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0074: call System.String::op_Inequality
+ 0079: stloc.0 
+ 007a: ldloc.0 
+ 007b: brfalse.s 03
+ 007d: nop 
+ 007e: br.s 07
+ 0080: ldarg.0 
+ 0081: call UpdateChild
+ 0086: nop 
+ 0087: ret 
+METHOD 0600002e Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::VoiceName
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 0007: castclass Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryElement
+ 000c: dup 
+ 000d: brtrue.s 04
+ 000f: pop 
+ 0010: ldnull 
+ 0011: br.s 05
+ 0013: call CategoryTitle
+ 0018: stloc.0 
+ 0019: br.s 00
+ 001b: ldloc.0 
+ 001c: ret 
+METHOD 0600002f Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::WantToFocus
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 0007: castclass Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryElement
+ 000c: dup 
+ 000d: brtrue.s 04
+ 000f: pop 
+ 0010: ldc.i4.m1 
+ 0011: br.s 05
+ 0013: call Priority
+ 0018: stloc.0 
+ 0019: ldloc.0 
+ 001a: ldc.i4.0 
+ 001b: clt 
+ 001d: stloc.1 
+ 001e: ldloc.1 
+ 001f: brfalse.s 08
+ 0021: nop 
+ 0022: ldarg.1 
+ 0023: ldc.i4.0 
+ 0024: stind.i4 
+ 0025: ldc.i4.0 
+ 0026: stloc.2 
+ 0027: br.s 07
+ 0029: ldarg.1 
+ 002a: ldloc.0 
+ 002b: stind.i4 
+ 002c: ldc.i4.1 
+ 002d: stloc.2 
+ 002e: br.s 00
+ 0030: ldloc.2 
+ 0031: ret 
+METHOD 06000030 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::OnBPIEvent
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: stloc.1 
+ 0003: ldloc.1 
+ 0004: stloc.0 
+ 0005: ldloc.0 
+ 0006: ldc.i4.7 
+ 0007: beq.s 05
+ 0009: br A5000000
+ 000e: ldarg.0 
+ 000f: ldfld FieldDefinition:04000012
+ 0014: stloc.2 
+ 0015: ldloc.2 
+ 0016: brfalse 96000000
+ 001b: nop 
+ 001c: ldarg.0 
+ 001d: ldc.i4.0 
+ 001e: stfld FieldDefinition:04000012
+ 0023: ldstr "[%s1] Delayed update"
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldc.i4 7F969800
+ 0045: conv.i8 
+ 0046: ldarg.0 
+ 0047: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 004c: ldnull 
+ 004d: ldnull 
+ 004e: ldnull 
+ 004f: ldnull 
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldc.r8 000000E0CF126341
+ 006b: ldc.r8 000000E0CF126341
+ 0074: ldc.r8 000000E0CF126341
+ 007d: ldstr "OnBPIEvent"
+ 0082: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0087: ldc.i4.s 6B
+ 0089: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008e: nop 
+ 008f: ldarg.0 
+ 0090: ldftn <OnBPIEvent>b__12_0
+ 0096: newobj TypeSpecification:1b000004::.ctor
+ 009b: ldnull 
+ 009c: ldc.i4.0 
+ 009d: ldc.i4.1 
+ 009e: ldstr "OnBPIEvent"
+ 00a3: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 00a8: ldc.i4.s 6C
+ 00aa: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 00af: nop 
+ 00b0: nop 
+ 00b1: br.s 02
+ 00b3: br.s 00
+ 00b5: ret 
+METHOD 06000031 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::SetForceUpdateFlag
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: call System.String::IsNullOrEmpty
+ 0007: stloc.0 
+ 0008: ldloc.0 
+ 0009: brfalse.s 0A
+ 000b: nop 
+ 000c: ldarg.0 
+ 000d: ldc.i4.0 
+ 000e: stfld FieldDefinition:04000013
+ 0013: br.s 48
+ 0015: newobj Tizen.TV.Service.CoBA.Common.JsonMap::.ctor
+ 001a: stloc.1 
+ 001b: nop 
+ 001c: ldloc.1 
+ 001d: ldarg.1 
+ 001e: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::Parse
+ 0023: pop 
+ 0024: ldloc.1 
+ 0025: ldstr "extension.force_update"
+ 002a: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 002f: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 0034: stloc.2 
+ 0035: ldarg.0 
+ 0036: ldloc.1 
+ 0037: ldloc.2 
+ 0038: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 003d: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueBool
+ 0042: stloc.3 
+ 0043: ldloca.s 03
+ 0045: call TypeSpecification:1b000005::GetValueOrDefault
+ 004a: stfld FieldDefinition:04000013
+ 004f: nop 
+ 0050: leave.s 0B
+ 0052: ldloc.1 
+ 0053: brfalse.s 07
+ 0055: ldloc.1 
+ 0056: callvirt System.IDisposable::Dispose
+ 005b: nop 
+ 005c: endfinally 
+ 005d: ret 
+METHOD 06000032 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::SetDynamicRowFlag
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: call System.String::IsNullOrEmpty
+ 0007: stloc.0 
+ 0008: ldloc.0 
+ 0009: brfalse.s 0D
+ 000b: nop 
+ 000c: ldarg.0 
+ 000d: ldc.i4.0 
+ 000e: stfld FieldDefinition:04000014
+ 0013: br D7000000
+ 0018: newobj Tizen.TV.Service.CoBA.Common.JsonMap::.ctor
+ 001d: stloc.1 
+ 001e: nop 
+ 001f: ldloc.1 
+ 0020: ldarg.1 
+ 0021: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::Parse
+ 0026: pop 
+ 0027: ldloc.1 
+ 0028: ldstr "extension.layer_type"
+ 002d: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 0032: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 0037: stloc.2 
+ 0038: ldarg.0 
+ 0039: ldstr "dynamicbubblelist"
+ 003e: ldloc.1 
+ 003f: ldloc.2 
+ 0040: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 0045: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 004a: call System.String::Equals
+ 004f: stfld FieldDefinition:04000014
+ 0054: ldstr "BUBBLE (%s1) :: %s2... isDynamicRow [%s3]"
+ 0059: ldc.i4 7F969800
+ 005e: conv.i8 
+ 005f: ldc.i4 7F969800
+ 0064: conv.i8 
+ 0065: ldc.i4 7F969800
+ 006a: conv.i8 
+ 006b: ldc.i4 7F969800
+ 0070: conv.i8 
+ 0071: ldc.i4 7F969800
+ 0076: conv.i8 
+ 0077: ldarg.0 
+ 0078: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 007d: ldloc.1 
+ 007e: ldloc.2 
+ 007f: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 0084: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 0089: ldarg.0 
+ 008a: ldfld FieldDefinition:04000014
+ 008f: brtrue.s 07
+ 0091: ldstr "F"
+ 0096: br.s 05
+ 0098: ldstr "T"
+ 009d: ldnull 
+ 009e: ldnull 
+ 009f: ldc.r8 000000E0CF126341
+ 00a8: ldc.r8 000000E0CF126341
+ 00b1: ldc.r8 000000E0CF126341
+ 00ba: ldc.r8 000000E0CF126341
+ 00c3: ldc.r8 000000E0CF126341
+ 00cc: ldstr "SetDynamicRowFlag"
+ 00d1: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 00d6: ldc.i4 9E000000
+ 00db: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00e0: nop 
+ 00e1: nop 
+ 00e2: leave.s 0B
+ 00e4: ldloc.1 
+ 00e5: brfalse.s 07
+ 00e7: ldloc.1 
+ 00e8: callvirt System.IDisposable::Dispose
+ 00ed: nop 
+ 00ee: endfinally 
+ 00ef: ret 
+METHOD 06000033 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::ParseSyncCount
+ 0000: nop 
+ 0001: ldc.i4.0 
+ 0002: stloc.0 
+ 0003: ldarg.1 
+ 0004: call System.String::IsNullOrEmpty
+ 0009: ldc.i4.0 
+ 000a: ceq 
+ 000c: stloc.1 
+ 000d: ldloc.1 
+ 000e: brfalse B5000000
+ 0013: nop 
+ 0014: newobj Tizen.TV.Service.CoBA.Common.JsonMap::.ctor
+ 0019: stloc.2 
+ 001a: nop 
+ 001b: ldloc.2 
+ 001c: ldarg.1 
+ 001d: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::Parse
+ 0022: pop 
+ 0023: ldloc.2 
+ 0024: ldstr "extension.sync_count"
+ 0029: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 002e: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 0033: stloc.3 
+ 0034: ldloc.2 
+ 0035: ldloc.3 
+ 0036: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 003b: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueInt
+ 0040: stloc.s 04
+ 0042: ldloca.s 04
+ 0044: call TypeSpecification:1b000006::GetValueOrDefault
+ 0049: stloc.0 
+ 004a: ldstr "[%s1] syncCount: %d1"
+ 004f: ldarg.0 
+ 0050: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0055: stloc.s 05
+ 0057: ldloc.0 
+ 0058: conv.i8 
+ 0059: ldc.i4 7F969800
+ 005e: conv.i8 
+ 005f: ldc.i4 7F969800
+ 0064: conv.i8 
+ 0065: ldc.i4 7F969800
+ 006a: conv.i8 
+ 006b: ldc.i4 7F969800
+ 0070: conv.i8 
+ 0071: ldloc.s 05
+ 0073: ldnull 
+ 0074: ldnull 
+ 0075: ldnull 
+ 0076: ldnull 
+ 0077: ldc.r8 000000E0CF126341
+ 0080: ldc.r8 000000E0CF126341
+ 0089: ldc.r8 000000E0CF126341
+ 0092: ldc.r8 000000E0CF126341
+ 009b: ldc.r8 000000E0CF126341
+ 00a4: ldstr "ParseSyncCount"
+ 00a9: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 00ae: ldc.i4 AC000000
+ 00b3: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00b8: nop 
+ 00b9: nop 
+ 00ba: leave.s 0B
+ 00bc: ldloc.2 
+ 00bd: brfalse.s 07
+ 00bf: ldloc.2 
+ 00c0: callvirt System.IDisposable::Dispose
+ 00c5: nop 
+ 00c6: endfinally 
+ 00c7: nop 
+ 00c8: ldloc.0 
+ 00c9: stloc.s 06
+ 00cb: br.s 00
+ 00cd: ldloc.s 06
+ 00cf: ret 
+METHOD 06000034 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::NeedToDelayUpdate
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000013
+ 0007: stloc.0 
+ 0008: ldloc.0 
+ 0009: brfalse.s 0F
+ 000b: nop 
+ 000c: ldarg.0 
+ 000d: ldc.i4.0 
+ 000e: stfld FieldDefinition:04000012
+ 0013: ldc.i4.0 
+ 0014: stloc.1 
+ 0015: br 16010000
+ 001a: ldarg.0 
+ 001b: ldfld FieldDefinition:04000012
+ 0020: stloc.2 
+ 0021: ldloc.2 
+ 0022: brfalse.s 77
+ 0024: nop 
+ 0025: ldstr "[%s1] will update child tiles on hide. Already set flag."
+ 002a: ldc.i4 7F969800
+ 002f: conv.i8 
+ 0030: ldc.i4 7F969800
+ 0035: conv.i8 
+ 0036: ldc.i4 7F969800
+ 003b: conv.i8 
+ 003c: ldc.i4 7F969800
+ 0041: conv.i8 
+ 0042: ldc.i4 7F969800
+ 0047: conv.i8 
+ 0048: ldarg.0 
+ 0049: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 004e: ldnull 
+ 004f: ldnull 
+ 0050: ldnull 
+ 0051: ldnull 
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldc.r8 000000E0CF126341
+ 0064: ldc.r8 000000E0CF126341
+ 006d: ldc.r8 000000E0CF126341
+ 0076: ldc.r8 000000E0CF126341
+ 007f: ldstr "NeedToDelayUpdate"
+ 0084: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0089: ldc.i4 BD000000
+ 008e: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0093: nop 
+ 0094: ldc.i4.1 
+ 0095: stloc.1 
+ 0096: br 95000000
+ 009b: ldarg.0 
+ 009c: call IsShowStatus
+ 00a1: brfalse.s 09
+ 00a3: ldarg.0 
+ 00a4: ldarg.0 
+ 00a5: call HasVisibleChildren
+ 00aa: br.s 01
+ 00ac: ldc.i4.0 
+ 00ad: stloc.3 
+ 00ae: ldloc.3 
+ 00af: brfalse.s 7B
+ 00b1: nop 
+ 00b2: ldstr "[%s1] has visible children and home is show status. Delay reload child"
+ 00b7: ldc.i4 7F969800
+ 00bc: conv.i8 
+ 00bd: ldc.i4 7F969800
+ 00c2: conv.i8 
+ 00c3: ldc.i4 7F969800
+ 00c8: conv.i8 
+ 00c9: ldc.i4 7F969800
+ 00ce: conv.i8 
+ 00cf: ldc.i4 7F969800
+ 00d4: conv.i8 
+ 00d5: ldarg.0 
+ 00d6: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 00db: ldnull 
+ 00dc: ldnull 
+ 00dd: ldnull 
+ 00de: ldnull 
+ 00df: ldc.r8 000000E0CF126341
+ 00e8: ldc.r8 000000E0CF126341
+ 00f1: ldc.r8 000000E0CF126341
+ 00fa: ldc.r8 000000E0CF126341
+ 0103: ldc.r8 000000E0CF126341
+ 010c: ldstr "NeedToDelayUpdate"
+ 0111: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0116: ldc.i4 C3000000
+ 011b: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0120: nop 
+ 0121: ldarg.0 
+ 0122: ldc.i4.1 
+ 0123: stfld FieldDefinition:04000012
+ 0128: ldc.i4.1 
+ 0129: stloc.1 
+ 012a: br.s 04
+ 012c: ldc.i4.0 
+ 012d: stloc.1 
+ 012e: br.s 00
+ 0130: ldloc.1 
+ 0131: ret 
+METHOD 06000035 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::IsShowStatus
+ 0000: nop 
+ 0001: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0006: ldc.i4.1 
+ 0007: ldloca.s 00
+ 0009: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 000e: pop 
+ 000f: ldloc.0 
+ 0010: ldc.i4.1 
+ 0011: ceq 
+ 0013: stloc.1 
+ 0014: ldloc.1 
+ 0015: brfalse.s 6F
+ 0017: nop 
+ 0018: ldstr "show status"
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldc.i4 7F969800
+ 0034: conv.i8 
+ 0035: ldc.i4 7F969800
+ 003a: conv.i8 
+ 003b: ldnull 
+ 003c: ldnull 
+ 003d: ldnull 
+ 003e: ldnull 
+ 003f: ldnull 
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldc.r8 000000E0CF126341
+ 0064: ldc.r8 000000E0CF126341
+ 006d: ldstr "IsShowStatus"
+ 0072: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0077: ldc.i4 D0000000
+ 007c: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0081: nop 
+ 0082: ldc.i4.1 
+ 0083: stloc.2 
+ 0084: br.s 6E
+ 0086: ldstr "hide status"
+ 008b: ldc.i4 7F969800
+ 0090: conv.i8 
+ 0091: ldc.i4 7F969800
+ 0096: conv.i8 
+ 0097: ldc.i4 7F969800
+ 009c: conv.i8 
+ 009d: ldc.i4 7F969800
+ 00a2: conv.i8 
+ 00a3: ldc.i4 7F969800
+ 00a8: conv.i8 
+ 00a9: ldnull 
+ 00aa: ldnull 
+ 00ab: ldnull 
+ 00ac: ldnull 
+ 00ad: ldnull 
+ 00ae: ldc.r8 000000E0CF126341
+ 00b7: ldc.r8 000000E0CF126341
+ 00c0: ldc.r8 000000E0CF126341
+ 00c9: ldc.r8 000000E0CF126341
+ 00d2: ldc.r8 000000E0CF126341
+ 00db: ldstr "IsShowStatus"
+ 00e0: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 00e5: ldc.i4 D4000000
+ 00ea: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00ef: nop 
+ 00f0: ldc.i4.0 
+ 00f1: stloc.2 
+ 00f2: br.s 00
+ 00f4: ldloc.2 
+ 00f5: ret 
+METHOD 06000036 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::HasVisibleChildren
+ 0000: nop 
+ 0001: ldstr "Check child of %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.1 
+ 0025: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "HasVisibleChildren"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0065: ldc.i4 DA000000
+ 006a: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006f: nop 
+ 0070: ldarg.1 
+ 0071: ldfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0076: ldnull 
+ 0077: ceq 
+ 0079: stloc.1 
+ 007a: ldloc.1 
+ 007b: brfalse.s 77
+ 007d: nop 
+ 007e: ldstr "   [Found leaf node] %s1"
+ 0083: ldc.i4 7F969800
+ 0088: conv.i8 
+ 0089: ldc.i4 7F969800
+ 008e: conv.i8 
+ 008f: ldc.i4 7F969800
+ 0094: conv.i8 
+ 0095: ldc.i4 7F969800
+ 009a: conv.i8 
+ 009b: ldc.i4 7F969800
+ 00a0: conv.i8 
+ 00a1: ldarg.1 
+ 00a2: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 00a7: ldnull 
+ 00a8: ldnull 
+ 00a9: ldnull 
+ 00aa: ldnull 
+ 00ab: ldc.r8 000000E0CF126341
+ 00b4: ldc.r8 000000E0CF126341
+ 00bd: ldc.r8 000000E0CF126341
+ 00c6: ldc.r8 000000E0CF126341
+ 00cf: ldc.r8 000000E0CF126341
+ 00d8: ldstr "HasVisibleChildren"
+ 00dd: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 00e2: ldc.i4 DE000000
+ 00e7: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00ec: nop 
+ 00ed: ldc.i4.1 
+ 00ee: stloc.2 
+ 00ef: br DB000000
+ 00f4: ldarg.1 
+ 00f5: ldfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 00fa: ldfld Tizen.TV.Service.CoBA.Core.ComponentControl::listComponent
+ 00ff: call System.Linq.Enumerable::ToList
+ 0104: stloc.0 
+ 0105: nop 
+ 0106: ldloc.0 
+ 0107: callvirt TypeSpecification:1b000007::GetEnumerator
+ 010c: stloc.3 
+ 010d: br 9C000000
+ 0112: ldloca.s 03
+ 0114: call TypeSpecification:1b000008::get_Current
+ 0119: stloc.s 04
+ 011b: nop 
+ 011c: ldstr " ...%s1"
+ 0121: ldc.i4 7F969800
+ 0126: conv.i8 
+ 0127: ldc.i4 7F969800
+ 012c: conv.i8 
+ 012d: ldc.i4 7F969800
+ 0132: conv.i8 
+ 0133: ldc.i4 7F969800
+ 0138: conv.i8 
+ 0139: ldc.i4 7F969800
+ 013e: conv.i8 
+ 013f: ldloc.s 04
+ 0141: brtrue.s 03
+ 0143: ldnull 
+ 0144: br.s 07
+ 0146: ldloc.s 04
+ 0148: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 014d: ldnull 
+ 014e: ldnull 
+ 014f: ldnull 
+ 0150: ldnull 
+ 0151: ldc.r8 000000E0CF126341
+ 015a: ldc.r8 000000E0CF126341
+ 0163: ldc.r8 000000E0CF126341
+ 016c: ldc.r8 000000E0CF126341
+ 0175: ldc.r8 000000E0CF126341
+ 017e: ldstr "HasVisibleChildren"
+ 0183: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0188: ldc.i4 E5000000
+ 018d: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0192: nop 
+ 0193: ldloc.s 04
+ 0195: brfalse.s 0A
+ 0197: ldarg.0 
+ 0198: ldloc.s 04
+ 019a: call HasVisibleChildren
+ 019f: br.s 01
+ 01a1: ldc.i4.0 
+ 01a2: stloc.s 05
+ 01a4: ldloc.s 05
+ 01a6: brfalse.s 05
+ 01a8: nop 
+ 01a9: ldc.i4.1 
+ 01aa: stloc.2 
+ 01ab: leave.s 22
+ 01ad: nop 
+ 01ae: ldloca.s 03
+ 01b0: call TypeSpecification:1b000008::MoveNext
+ 01b5: brtrue 58FFFFFF
+ 01ba: leave.s 0F
+ 01bc: ldloca.s 03
+ 01be: constrained. TypeSpecification:1b000008
+ 01c4: callvirt System.IDisposable::Dispose
+ 01c9: nop 
+ 01ca: endfinally 
+ 01cb: ldc.i4.0 
+ 01cc: stloc.2 
+ 01cd: br.s 00
+ 01cf: ldloc.2 
+ 01d0: ret 
+METHOD 06000037 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::UpdateChild
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldftn <UpdateChild>b__19_0
+ 0008: newobj TypeSpecification:1b000004::.ctor
+ 000d: ldnull 
+ 000e: ldc.i4.0 
+ 000f: ldc.i4.1 
+ 0010: ldstr "UpdateChild"
+ 0015: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 001a: ldc.i4 F1000000
+ 001f: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 0024: nop 
+ 0025: ret 
+METHOD 06000038 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::.cctor
+ 0000: ldstr "d/dhcategory"
+ 0005: stsfld FieldDefinition:04000010
+ 000a: ret 
+METHOD 06000039 Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::<OnBPIEvent>b__12_0
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call IsShowStatus
+ 0007: stloc.0 
+ 0008: ldloc.0 
+ 0009: brfalse.s 32
+ 000b: nop 
+ 000c: ldstr "["
+ 0011: ldarg.0 
+ 0012: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0017: ldstr "] FirstScreenState is 1(show). Do not reload child"
+ 001c: call System.String::Concat
+ 0021: ldstr "OnBPIEvent"
+ 0026: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 002b: ldc.i4.s 70
+ 002d: call Tizen.TV.Service.CoBA.Common.FSLogger::Debug
+ 0032: nop 
+ 0033: ldarg.0 
+ 0034: ldc.i4.1 
+ 0035: stfld FieldDefinition:04000012
+ 003a: nop 
+ 003b: br.s 10
+ 003d: nop 
+ 003e: ldarg.0 
+ 003f: call Tizen.TV.Service.CoBA.Core.Component::ReloadChild
+ 0044: nop 
+ 0045: ldarg.0 
+ 0046: call Tizen.TV.Service.CoBA.Core.Component::UpdateAll
+ 004b: nop 
+ 004c: nop 
+ 004d: ret 
+METHOD 0600003a Tizen.Tv.App.CoBA.Components.Home.CompDHCategory::<UpdateChild>b__19_0
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.Component::ReloadChild
+ 0007: nop 
+ 0008: ldarg.0 
+ 0009: call Tizen.TV.Service.CoBA.Core.Component::UpdateAll
+ 000e: nop 
+ 000f: ret 
+METHOD 0600003b Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 0600003c Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryElement::Update
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0007: ldarg.0 
+ 0008: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 000d: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0012: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 0017: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 001c: nop 
+ 001d: ldstr "Data:%s1"
+ 0022: ldc.i4 7F969800
+ 0027: conv.i8 
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldarg.0 
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldstr "Update"
+ 007c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0081: ldc.i4 0D010000
+ 0086: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008b: nop 
+ 008c: ldarg.0 
+ 008d: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0092: isinst Tizen.Tv.App.CoBA.Components.Home.CompDHCategory
+ 0097: dup 
+ 0098: brtrue.s 03
+ 009a: pop 
+ 009b: br.s 0C
+ 009d: ldarg.0 
+ 009e: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 00a3: call SetForceUpdateFlag
+ 00a8: nop 
+ 00a9: ldarg.0 
+ 00aa: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 00af: isinst Tizen.Tv.App.CoBA.Components.Home.CompDHCategory
+ 00b4: dup 
+ 00b5: brtrue.s 03
+ 00b7: pop 
+ 00b8: br.s 0C
+ 00ba: ldarg.0 
+ 00bb: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 00c0: call SetDynamicRowFlag
+ 00c5: nop 
+ 00c6: ldarg.0 
+ 00c7: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 00cc: call System.String::IsNullOrEmpty
+ 00d1: ldc.i4.0 
+ 00d2: ceq 
+ 00d4: stloc.0 
+ 00d5: ldloc.0 
+ 00d6: brfalse.s 19
+ 00d8: nop 
+ 00d9: ldarg.0 
+ 00da: ldarg.0 
+ 00db: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 00e0: ldnull 
+ 00e1: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 00e6: stfld FieldDefinition:04000015
+ 00eb: nop 
+ 00ec: br 4E020000
+ 00f1: nop 
+ 00f2: ldstr "[%s1] Preview Data is null. (Data: %s2)"
+ 00f7: ldc.i4 7F969800
+ 00fc: conv.i8 
+ 00fd: ldc.i4 7F969800
+ 0102: conv.i8 
+ 0103: ldc.i4 7F969800
+ 0108: conv.i8 
+ 0109: ldc.i4 7F969800
+ 010e: conv.i8 
+ 010f: ldc.i4 7F969800
+ 0114: conv.i8 
+ 0115: ldarg.0 
+ 0116: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 011b: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0120: ldarg.0 
+ 0121: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 0126: ldnull 
+ 0127: ldnull 
+ 0128: ldnull 
+ 0129: ldc.r8 000000E0CF126341
+ 0132: ldc.r8 000000E0CF126341
+ 013b: ldc.r8 000000E0CF126341
+ 0144: ldc.r8 000000E0CF126341
+ 014d: ldc.r8 000000E0CF126341
+ 0156: ldstr "Update"
+ 015b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0160: ldc.i4 17010000
+ 0165: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 016a: nop 
+ 016b: ldarg.0 
+ 016c: newobj .ctor
+ 0171: stfld FieldDefinition:04000015
+ 0176: ldarg.0 
+ 0177: ldfld FieldDefinition:04000015
+ 017c: ldstr ""
+ 0181: callvirt set_title
+ 0186: nop 
+ 0187: ldarg.0 
+ 0188: ldarg.0 
+ 0189: ldfld FieldDefinition:04000015
+ 018e: ldnull 
+ 018f: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 0194: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0199: nop 
+ 019a: ldarg.0 
+ 019b: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 01a0: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 01a5: ldstr "TerraCategory_FirstTab_FirstRow"
+ 01aa: call System.String::Equals
+ 01af: stloc.1 
+ 01b0: ldloc.1 
+ 01b1: brfalse.s 58
+ 01b3: nop 
+ 01b4: newobj TypeSpecification:1b000001::.ctor
+ 01b9: stloc.2 
+ 01ba: ldarg.0 
+ 01bb: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 01c0: ldnull 
+ 01c1: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 01c6: stloc.2 
+ 01c7: newobj TypeSpecification:1b000001::.ctor
+ 01cc: dup 
+ 01cd: ldstr "layer_type"
+ 01d2: ldstr "list"
+ 01d7: callvirt TypeSpecification:1b000001::Add
+ 01dc: nop 
+ 01dd: dup 
+ 01de: ldstr "layer_style"
+ 01e3: ldstr "onnowtop"
+ 01e8: callvirt TypeSpecification:1b000001::Add
+ 01ed: nop 
+ 01ee: stloc.3 
+ 01ef: ldloc.2 
+ 01f0: ldstr "extension"
+ 01f5: ldloc.3 
+ 01f6: callvirt TypeSpecification:1b000001::Add
+ 01fb: nop 
+ 01fc: ldarg.0 
+ 01fd: ldloc.2 
+ 01fe: ldnull 
+ 01ff: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 0204: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0209: nop 
+ 020a: nop 
+ 020b: ldarg.0 
+ 020c: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0211: isinst Tizen.Tv.App.CoBA.Components.Home.CompDHCategory
+ 0216: dup 
+ 0217: brtrue.s 04
+ 0219: pop 
+ 021a: ldc.i4.0 
+ 021b: br.s 05
+ 021d: ldfld FieldDefinition:04000014
+ 0222: stloc.s 04
+ 0224: ldloc.s 04
+ 0226: brfalse 13010000
+ 022b: nop 
+ 022c: ldstr "BUBBLE (%s1) :: Dynamic Row [type : dynamicbubblelist]"
+ 0231: ldc.i4 7F969800
+ 0236: conv.i8 
+ 0237: ldc.i4 7F969800
+ 023c: conv.i8 
+ 023d: ldc.i4 7F969800
+ 0242: conv.i8 
+ 0243: ldc.i4 7F969800
+ 0248: conv.i8 
+ 0249: ldc.i4 7F969800
+ 024e: conv.i8 
+ 024f: ldarg.0 
+ 0250: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0255: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 025a: ldnull 
+ 025b: ldnull 
+ 025c: ldnull 
+ 025d: ldnull 
+ 025e: ldc.r8 000000E0CF126341
+ 0267: ldc.r8 000000E0CF126341
+ 0270: ldc.r8 000000E0CF126341
+ 0279: ldc.r8 000000E0CF126341
+ 0282: ldc.r8 000000E0CF126341
+ 028b: ldstr "Update"
+ 0290: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0295: ldc.i4 2E010000
+ 029a: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 029f: nop 
+ 02a0: ldarg.0 
+ 02a1: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 02a6: ldloca.s 07
+ 02a8: initobj TypeSpecification:1b000009
+ 02ae: ldloc.s 07
+ 02b0: ldloca.s 08
+ 02b2: initobj System.Text.Json.JsonDocumentOptions
+ 02b8: ldloc.s 08
+ 02ba: call System.Text.Json.Nodes.JsonNode::Parse
+ 02bf: stloc.s 05
+ 02c1: ldloc.s 05
+ 02c3: ldstr "extension"
+ 02c8: callvirt System.Text.Json.Nodes.JsonNode::get_Item
+ 02cd: stloc.s 06
+ 02cf: ldloc.s 06
+ 02d1: ldnull 
+ 02d2: ceq 
+ 02d4: stloc.s 09
+ 02d6: ldloc.s 09
+ 02d8: brfalse.s 24
+ 02da: nop 
+ 02db: ldstr "extension should not be null"
+ 02e0: newobj System.Exception::.ctor
+ 02e5: ldstr "Update"
+ 02ea: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 02ef: ldc.i4 35010000
+ 02f4: ldnull 
+ 02f5: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 02fa: nop 
+ 02fb: nop 
+ 02fc: br.s 30
+ 02fe: nop 
+ 02ff: ldloc.s 06
+ 0301: ldstr "layer_type"
+ 0306: ldstr "dynamicbubblelist"
+ 030b: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 0310: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 0315: nop 
+ 0316: ldloc.s 06
+ 0318: ldstr "layer_style"
+ 031d: ldstr "dynamicbubblelist"
+ 0322: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 0327: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 032c: nop 
+ 032d: nop 
+ 032e: ldarg.0 
+ 032f: ldloc.s 05
+ 0331: ldnull 
+ 0332: call Tizen.TV.Service.CoBA.Common.JsonMap::Serialize
+ 0337: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 033c: nop 
+ 033d: nop 
+ 033e: nop 
+ 033f: ldstr "===\u003E UIJson:%s1"
+ 0344: ldc.i4 7F969800
+ 0349: conv.i8 
+ 034a: ldc.i4 7F969800
+ 034f: conv.i8 
+ 0350: ldc.i4 7F969800
+ 0355: conv.i8 
+ 0356: ldc.i4 7F969800
+ 035b: conv.i8 
+ 035c: ldc.i4 7F969800
+ 0361: conv.i8 
+ 0362: ldarg.0 
+ 0363: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 0368: ldnull 
+ 0369: ldnull 
+ 036a: ldnull 
+ 036b: ldnull 
+ 036c: ldc.r8 000000E0CF126341
+ 0375: ldc.r8 000000E0CF126341
+ 037e: ldc.r8 000000E0CF126341
+ 0387: ldc.r8 000000E0CF126341
+ 0390: ldc.r8 000000E0CF126341
+ 0399: ldstr "Update"
+ 039e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 03a3: ldc.i4 40010000
+ 03a8: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 03ad: nop 
+ 03ae: ret 
+METHOD 0600003d Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryElement::CategoryTitle
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000015
+ 0007: dup 
+ 0008: brtrue.s 04
+ 000a: pop 
+ 000b: ldnull 
+ 000c: br.s 05
+ 000e: call get_title
+ 0013: stloc.0 
+ 0014: br.s 00
+ 0016: ldloc.0 
+ 0017: ret 
+METHOD 0600003e Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryElement::Priority
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000015
+ 0007: dup 
+ 0008: brtrue.s 04
+ 000a: pop 
+ 000b: ldc.i4.m1 
+ 000c: br.s 05
+ 000e: call get_priority
+ 0013: stloc.0 
+ 0014: br.s 00
+ 0016: ldloc.0 
+ 0017: ret 
+METHOD 0600003f Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryList::get_InstanceID
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000016
+ 0006: ret 
+METHOD 06000040 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryList::set_InstanceID
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000016
+ 0007: ret 
+METHOD 06000041 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryList::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000017
+ 0007: ldarg.0 
+ 0008: ldarg.1 
+ 0009: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 000e: nop 
+ 000f: nop 
+ 0010: ldarg.0 
+ 0011: ldarg.2 
+ 0012: call set_InstanceID
+ 0017: nop 
+ 0018: ldarg.0 
+ 0019: ldarg.1 
+ 001a: stfld FieldDefinition:04000017
+ 001f: ret 
+METHOD 06000042 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryList::GetItems
+ 0000: nop 
+ 0001: ldstr "GetItems for %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: call get_InstanceID
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "GetItems"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0065: ldc.i4 5B010000
+ 006a: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006f: nop 
+ 0070: ldarg.1 
+ 0071: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0076: ldarg.0 
+ 0077: call get_InstanceID
+ 007c: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Childs
+ 0081: stind.ref 
+ 0082: ldarg.1 
+ 0083: ldind.ref 
+ 0084: brfalse.s 08
+ 0086: ldarg.1 
+ 0087: ldind.ref 
+ 0088: ldlen 
+ 0089: ldc.i4.0 
+ 008a: ceq 
+ 008c: br.s 01
+ 008e: ldc.i4.1 
+ 008f: stloc.3 
+ 0090: ldloc.3 
+ 0091: brfalse A7000000
+ 0096: nop 
+ 0097: ldstr "%s1 has no child"
+ 009c: ldc.i4 7F969800
+ 00a1: conv.i8 
+ 00a2: ldc.i4 7F969800
+ 00a7: conv.i8 
+ 00a8: ldc.i4 7F969800
+ 00ad: conv.i8 
+ 00ae: ldc.i4 7F969800
+ 00b3: conv.i8 
+ 00b4: ldc.i4 7F969800
+ 00b9: conv.i8 
+ 00ba: ldarg.0 
+ 00bb: call get_InstanceID
+ 00c0: ldnull 
+ 00c1: ldnull 
+ 00c2: ldnull 
+ 00c3: ldnull 
+ 00c4: ldc.r8 000000E0CF126341
+ 00cd: ldc.r8 000000E0CF126341
+ 00d6: ldc.r8 000000E0CF126341
+ 00df: ldc.r8 000000E0CF126341
+ 00e8: ldc.r8 000000E0CF126341
+ 00f1: ldstr "GetItems"
+ 00f6: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 00fb: ldc.i4 61010000
+ 0100: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0105: nop 
+ 0106: ldarg.0 
+ 0107: call get_InstanceID
+ 010c: ldstr "TerraCategory_FirstTab_FirstRow"
+ 0111: call System.String::Equals
+ 0116: stloc.s 04
+ 0118: ldloc.s 04
+ 011a: brfalse.s 19
+ 011c: nop 
+ 011d: ldarg.1 
+ 011e: ldc.i4.1 
+ 011f: newarr System.String
+ 0124: dup 
+ 0125: ldc.i4.0 
+ 0126: ldstr "s/livetv.pig_layer@Recent"
+ 012b: stelem.ref 
+ 012c: stind.ref 
+ 012d: ldc.i4.1 
+ 012e: stloc.s 05
+ 0130: br 60030000
+ 0135: ldc.i4.0 
+ 0136: stloc.s 05
+ 0138: br 58030000
+ 013d: newobj TypeSpecification:1b000002::.ctor
+ 0142: stloc.0 
+ 0143: ldarg.1 
+ 0144: ldind.ref 
+ 0145: ldlen 
+ 0146: conv.i4 
+ 0147: stloc.1 
+ 0148: ldarg.0 
+ 0149: ldfld FieldDefinition:04000017
+ 014e: isinst Tizen.Tv.App.CoBA.Components.Home.CompDHCategory
+ 0153: stloc.2 
+ 0154: ldc.i4.0 
+ 0155: stloc.s 06
+ 0157: br F9010000
+ 015c: nop 
+ 015d: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0162: ldarg.1 
+ 0163: ldind.ref 
+ 0164: ldloc.s 06
+ 0166: ldelem.ref 
+ 0167: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::DataWithPreloading
+ 016c: stloc.s 07
+ 016e: ldloc.s 07
+ 0170: call System.String::IsNullOrEmpty
+ 0175: stloc.s 09
+ 0177: ldloc.s 09
+ 0179: brfalse.s 74
+ 017b: nop 
+ 017c: ldstr "%s1 has no data"
+ 0181: ldc.i4 7F969800
+ 0186: conv.i8 
+ 0187: ldc.i4 7F969800
+ 018c: conv.i8 
+ 018d: ldc.i4 7F969800
+ 0192: conv.i8 
+ 0193: ldc.i4 7F969800
+ 0198: conv.i8 
+ 0199: ldc.i4 7F969800
+ 019e: conv.i8 
+ 019f: ldarg.1 
+ 01a0: ldind.ref 
+ 01a1: ldloc.s 06
+ 01a3: ldelem.ref 
+ 01a4: ldnull 
+ 01a5: ldnull 
+ 01a6: ldnull 
+ 01a7: ldnull 
+ 01a8: ldc.r8 000000E0CF126341
+ 01b1: ldc.r8 000000E0CF126341
+ 01ba: ldc.r8 000000E0CF126341
+ 01c3: ldc.r8 000000E0CF126341
+ 01cc: ldc.r8 000000E0CF126341
+ 01d5: ldstr "GetItems"
+ 01da: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 01df: ldc.i4 7A010000
+ 01e4: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 01e9: nop 
+ 01ea: br 60010000
+ 01ef: ldstr ""
+ 01f4: stloc.s 08
+ 01f6: ldloc.s 07
+ 01f8: ldstr "additional_section_id"
+ 01fd: callvirt System.String::Contains
+ 0202: stloc.s 0A
+ 0204: ldloc.s 0A
+ 0206: brfalse AA000000
+ 020b: nop 
+ 020c: ldloc.2 
+ 020d: brfalse.s 08
+ 020f: ldloc.2 
+ 0210: ldfld FieldDefinition:04000014
+ 0215: br.s 01
+ 0217: ldc.i4.0 
+ 0218: stloc.s 0B
+ 021a: ldloc.s 0B
+ 021c: brfalse 85000000
+ 0221: nop 
+ 0222: ldsfld FieldDefinition:0400000c
+ 0227: ldarg.1 
+ 0228: ldind.ref 
+ 0229: ldloc.s 06
+ 022b: ldelem.ref 
+ 022c: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 0231: stloc.s 08
+ 0233: ldstr "Bubble [%s1] %s2"
+ 0238: ldc.i4 7F969800
+ 023d: conv.i8 
+ 023e: ldc.i4 7F969800
+ 0243: conv.i8 
+ 0244: ldc.i4 7F969800
+ 0249: conv.i8 
+ 024a: ldc.i4 7F969800
+ 024f: conv.i8 
+ 0250: ldc.i4 7F969800
+ 0255: conv.i8 
+ 0256: ldloc.2 
+ 0257: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 025c: ldloc.s 08
+ 025e: ldnull 
+ 025f: ldnull 
+ 0260: ldnull 
+ 0261: ldc.r8 000000E0CF126341
+ 026a: ldc.r8 000000E0CF126341
+ 0273: ldc.r8 000000E0CF126341
+ 027c: ldc.r8 000000E0CF126341
+ 0285: ldc.r8 000000E0CF126341
+ 028e: ldstr "GetItems"
+ 0293: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0298: ldc.i4 84010000
+ 029d: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 02a2: nop 
+ 02a3: nop 
+ 02a4: br.s 0C
+ 02a6: nop 
+ 02a7: ldarg.0 
+ 02a8: ldloc.s 07
+ 02aa: call ParseAdditionalSection
+ 02af: stloc.s 08
+ 02b1: nop 
+ 02b2: nop 
+ 02b3: br.s 13
+ 02b5: nop 
+ 02b6: ldsfld FieldDefinition:04000019
+ 02bb: ldarg.1 
+ 02bc: ldind.ref 
+ 02bd: ldloc.s 06
+ 02bf: ldelem.ref 
+ 02c0: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 02c5: stloc.s 08
+ 02c7: nop 
+ 02c8: ldloc.s 08
+ 02ca: call System.String::IsNullOrEmpty
+ 02cf: ldc.i4.0 
+ 02d0: ceq 
+ 02d2: stloc.s 0C
+ 02d4: ldloc.s 0C
+ 02d6: brfalse.s 76
+ 02d8: nop 
+ 02d9: ldloc.0 
+ 02da: ldloc.s 08
+ 02dc: callvirt TypeSpecification:1b000002::Add
+ 02e1: nop 
+ 02e2: ldstr "item: %s1"
+ 02e7: ldc.i4 7F969800
+ 02ec: conv.i8 
+ 02ed: ldc.i4 7F969800
+ 02f2: conv.i8 
+ 02f3: ldc.i4 7F969800
+ 02f8: conv.i8 
+ 02f9: ldc.i4 7F969800
+ 02fe: conv.i8 
+ 02ff: ldc.i4 7F969800
+ 0304: conv.i8 
+ 0305: ldloc.s 08
+ 0307: ldnull 
+ 0308: ldnull 
+ 0309: ldnull 
+ 030a: ldnull 
+ 030b: ldc.r8 000000E0CF126341
+ 0314: ldc.r8 000000E0CF126341
+ 031d: ldc.r8 000000E0CF126341
+ 0326: ldc.r8 000000E0CF126341
+ 032f: ldc.r8 000000E0CF126341
+ 0338: ldstr "GetItems"
+ 033d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0342: ldc.i4 93010000
+ 0347: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 034c: nop 
+ 034d: nop 
+ 034e: nop 
+ 034f: ldloc.s 06
+ 0351: ldc.i4.1 
+ 0352: add 
+ 0353: stloc.s 06
+ 0355: ldloc.s 06
+ 0357: ldloc.1 
+ 0358: clt 
+ 035a: stloc.s 0D
+ 035c: ldloc.s 0D
+ 035e: brtrue F9FDFFFF
+ 0363: ldarg.0 
+ 0364: call get_InstanceID
+ 0369: callvirt System.String::ToUpperInvariant
+ 036e: ldstr "ONNOW"
+ 0373: callvirt System.String::Contains
+ 0378: brfalse.s 0B
+ 037a: ldloc.0 
+ 037b: callvirt TypeSpecification:1b000002::get_Count
+ 0380: ldc.i4.0 
+ 0381: ceq 
+ 0383: br.s 01
+ 0385: ldc.i4.0 
+ 0386: stloc.s 0E
+ 0388: ldloc.s 0E
+ 038a: brfalse F9000000
+ 038f: nop 
+ 0390: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0395: ldarg.0 
+ 0396: call get_InstanceID
+ 039b: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 03a0: stloc.s 0F
+ 03a2: ldstr "[%s1] %s2"
+ 03a7: ldc.i4 7F969800
+ 03ac: conv.i8 
+ 03ad: ldc.i4 7F969800
+ 03b2: conv.i8 
+ 03b3: ldc.i4 7F969800
+ 03b8: conv.i8 
+ 03b9: ldc.i4 7F969800
+ 03be: conv.i8 
+ 03bf: ldc.i4 7F969800
+ 03c4: conv.i8 
+ 03c5: ldarg.0 
+ 03c6: call get_InstanceID
+ 03cb: ldloc.s 0F
+ 03cd: ldnull 
+ 03ce: ldnull 
+ 03cf: ldnull 
+ 03d0: ldc.r8 000000E0CF126341
+ 03d9: ldc.r8 000000E0CF126341
+ 03e2: ldc.r8 000000E0CF126341
+ 03eb: ldc.r8 000000E0CF126341
+ 03f4: ldc.r8 000000E0CF126341
+ 03fd: ldstr "GetItems"
+ 0402: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0407: ldc.i4 9A010000
+ 040c: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0411: nop 
+ 0412: ldstr "[%s1] No Child."
+ 0417: ldarg.1 
+ 0418: ldind.ref 
+ 0419: ldlen 
+ 041a: conv.i4 
+ 041b: conv.i8 
+ 041c: ldc.i4 7F969800
+ 0421: conv.i8 
+ 0422: ldc.i4 7F969800
+ 0427: conv.i8 
+ 0428: ldc.i4 7F969800
+ 042d: conv.i8 
+ 042e: ldc.i4 7F969800
+ 0433: conv.i8 
+ 0434: ldarg.0 
+ 0435: call get_InstanceID
+ 043a: ldnull 
+ 043b: ldnull 
+ 043c: ldnull 
+ 043d: ldnull 
+ 043e: ldc.r8 000000E0CF126341
+ 0447: ldc.r8 000000E0CF126341
+ 0450: ldc.r8 000000E0CF126341
+ 0459: ldc.r8 000000E0CF126341
+ 0462: ldc.r8 000000E0CF126341
+ 046b: ldstr "GetItems"
+ 0470: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0475: ldc.i4 9B010000
+ 047a: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 047f: nop 
+ 0480: ldloc.0 
+ 0481: callvirt TypeSpecification:1b000002::Clear
+ 0486: nop 
+ 0487: nop 
+ 0488: ldarg.1 
+ 0489: ldloc.0 
+ 048a: callvirt TypeSpecification:1b000002::ToArray
+ 048f: stind.ref 
+ 0490: ldc.i4.1 
+ 0491: stloc.s 05
+ 0493: br.s 00
+ 0495: ldloc.s 05
+ 0497: ret 
+METHOD 06000043 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryList::ParseAdditionalSection
+ 0000: nop 
+ 0001: ldstr ""
+ 0006: stloc.0 
+ 0007: nop 
+ 0008: ldarg.1 
+ 0009: ldstr "additional_section_id"
+ 000e: call Tizen.TV.Service.CoBA.Common.JsonMap::ParseGetValueStr
+ 0013: stloc.0 
+ 0014: nop 
+ 0015: leave.s 1C
+ 0017: stloc.1 
+ 0018: nop 
+ 0019: ldloc.1 
+ 001a: ldstr "ParseAdditionalSection"
+ 001f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategory.cs"
+ 0024: ldc.i4 AE010000
+ 0029: ldnull 
+ 002a: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 002f: nop 
+ 0030: nop 
+ 0031: leave.s 00
+ 0033: ldloc.0 
+ 0034: stloc.2 
+ 0035: br.s 00
+ 0037: ldloc.2 
+ 0038: ret 
+METHOD 06000044 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryDummyLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:04000018
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldstr "CompDHCategoryDummyLayer"
+ 0014: ldc.i4 7F969800
+ 0019: conv.i8 
+ 001a: ldc.i4 7F969800
+ 001f: conv.i8 
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldc.i4 7F969800
+ 002b: conv.i8 
+ 002c: ldc.i4 7F969800
+ 0031: conv.i8 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldnull 
+ 0035: ldnull 
+ 0036: ldnull 
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldc.r8 000000E0CF126341
+ 0064: ldstr ".ctor"
+ 0069: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryDummyLayer.cs"
+ 006e: ldc.i4.s 0D
+ 0070: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0075: nop 
+ 0076: ldarg.0 
+ 0077: ldc.i4.0 
+ 0078: call Tizen.TV.Service.CoBA.BPI.Entity::set_Visible
+ 007d: nop 
+ 007e: ldarg.0 
+ 007f: ldc.i4.1 
+ 0080: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0085: dup 
+ 0086: ldc.i4.0 
+ 0087: ldarg.0 
+ 0088: ldnull 
+ 0089: newobj .ctor
+ 008e: stelem.ref 
+ 008f: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0094: nop 
+ 0095: ldarg.0 
+ 0096: ldarg.0 
+ 0097: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 009c: ldc.i4.0 
+ 009d: ldelem.ref 
+ 009e: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 00a3: nop 
+ 00a4: ret 
+METHOD 06000045 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryDummyLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 06000046 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryDummyLayer::.cctor
+ 0000: ldstr "d/dhcategory.dummy_layer"
+ 0005: stsfld FieldDefinition:04000018
+ 000a: ret 
+METHOD 06000047 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryDummyLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 06000048 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryDummyLayerElement::Update
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0007: ldc.i4.0 
+ 0008: callvirt Tizen.TV.Service.CoBA.BPI.Entity::set_Visible
+ 000d: nop 
+ 000e: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 0013: stloc.0 
+ 0014: ldloc.0 
+ 0015: ldstr "type"
+ 001a: ldstr "Dummy"
+ 001f: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0024: pop 
+ 0025: ldarg.0 
+ 0026: ldloc.0 
+ 0027: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 002c: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0031: nop 
+ 0032: ldloc.0 
+ 0033: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 0038: nop 
+ 0039: ret 
+METHOD 06000049 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0006: stfld FieldDefinition:0400001a
+ 000b: ldarg.0 
+ 000c: ldnull 
+ 000d: stfld FieldDefinition:0400001b
+ 0012: ldarg.0 
+ 0013: ldstr ""
+ 0018: stfld FieldDefinition:0400001c
+ 001d: ldarg.0 
+ 001e: ldnull 
+ 001f: stfld FieldDefinition:0400001e
+ 0024: ldarg.0 
+ 0025: ldarg.1 
+ 0026: ldsfld FieldDefinition:04000019
+ 002b: ldarg.2 
+ 002c: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 0031: nop 
+ 0032: nop 
+ 0033: ldarg.2 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldc.i4 7F969800
+ 0045: conv.i8 
+ 0046: ldc.i4 7F969800
+ 004b: conv.i8 
+ 004c: ldc.i4 7F969800
+ 0051: conv.i8 
+ 0052: ldnull 
+ 0053: ldnull 
+ 0054: ldnull 
+ 0055: ldnull 
+ 0056: ldnull 
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldc.r8 000000E0CF126341
+ 0072: ldc.r8 000000E0CF126341
+ 007b: ldc.r8 000000E0CF126341
+ 0084: ldstr ".ctor"
+ 0089: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 008e: ldc.i4.s 1D
+ 0090: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0095: nop 
+ 0096: ret 
+METHOD 0600004a Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0008: ldc.i4 7F969800
+ 000d: conv.i8 
+ 000e: ldc.i4 7F969800
+ 0013: conv.i8 
+ 0014: ldc.i4 7F969800
+ 0019: conv.i8 
+ 001a: ldc.i4 7F969800
+ 001f: conv.i8 
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldc.r8 000000E0CF126341
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldstr "Finalize"
+ 005d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0062: ldc.i4.s 22
+ 0064: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0069: nop 
+ 006a: leave.s 08
+ 006c: ldarg.0 
+ 006d: call System.Object::Finalize
+ 0072: nop 
+ 0073: endfinally 
+ 0074: ret 
+METHOD 0600004b Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600004c Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::Run
+ 0000: nop 
+ 0001: ldstr "Run : %s1 / %d1"
+ 0006: ldarg.0 
+ 0007: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 000c: stloc.0 
+ 000d: ldarg.1 
+ 000e: conv.i8 
+ 000f: ldc.i4 7F969800
+ 0014: conv.i8 
+ 0015: ldc.i4 7F969800
+ 001a: conv.i8 
+ 001b: ldc.i4 7F969800
+ 0020: conv.i8 
+ 0021: ldc.i4 7F969800
+ 0026: conv.i8 
+ 0027: ldloc.0 
+ 0028: ldnull 
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldc.r8 000000E0CF126341
+ 0035: ldc.r8 000000E0CF126341
+ 003e: ldc.r8 000000E0CF126341
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldstr "Run"
+ 005e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0063: ldc.i4.s 2C
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006a: nop 
+ 006b: ldarg.0 
+ 006c: ldarg.0 
+ 006d: newobj .ctor
+ 0072: stfld FieldDefinition:0400001b
+ 0077: ldarg.0 
+ 0078: ldfld FieldDefinition:0400001b
+ 007d: ldarg.0 
+ 007e: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0083: callvirt set_InstanceID
+ 0088: nop 
+ 0089: ldarg.0 
+ 008a: ldc.i4.1 
+ 008b: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0090: dup 
+ 0091: ldc.i4.0 
+ 0092: ldarg.0 
+ 0093: ldarg.0 
+ 0094: ldfld FieldDefinition:0400001a
+ 0099: ldarg.0 
+ 009a: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 009f: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::DataWithPreloading
+ 00a4: newobj .ctor
+ 00a9: stelem.ref 
+ 00aa: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 00af: nop 
+ 00b0: ldarg.0 
+ 00b1: ldarg.0 
+ 00b2: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 00b7: ldc.i4.0 
+ 00b8: ldelem.ref 
+ 00b9: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 00be: nop 
+ 00bf: ldarg.0 
+ 00c0: ldarg.0 
+ 00c1: ldarg.0 
+ 00c2: ldfld FieldDefinition:0400001b
+ 00c7: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 00cc: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 00d1: nop 
+ 00d2: ldarg.0 
+ 00d3: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 00d8: ldarg.0 
+ 00d9: ldfld FieldDefinition:0400001a
+ 00de: ldarg.0 
+ 00df: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 00e4: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 00e9: callvirt Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 00ee: nop 
+ 00ef: nop 
+ 00f0: leave.s 19
+ 00f2: stloc.1 
+ 00f3: nop 
+ 00f4: ldloc.1 
+ 00f5: ldstr "Run"
+ 00fa: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 00ff: ldc.i4.s 3D
+ 0101: ldnull 
+ 0102: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 0107: nop 
+ 0108: nop 
+ 0109: leave.s 00
+ 010b: ldarg.0 
+ 010c: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 0111: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::GetLibrary
+ 0116: ldsfld FieldDefinition:0400001d
+ 011b: callvirt Tizen.TV.Service.CoBA.BPI.Library.LibraryBase::GetTimer
+ 0120: stfld FieldDefinition:0400001e
+ 0125: ldarg.0 
+ 0126: ldfld FieldDefinition:0400001e
+ 012b: ldarg.0 
+ 012c: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::SetHandler
+ 0131: nop 
+ 0132: ldarg.0 
+ 0133: call RegisterEvent
+ 0138: nop 
+ 0139: ldarg.0 
+ 013a: ldarg.1 
+ 013b: call Tizen.TV.Service.CoBA.Core.Component::Run
+ 0140: nop 
+ 0141: ret 
+METHOD 0600004d Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::OnShow
+ 0000: nop 
+ 0001: nop 
+ 0002: ldstr "OnShow %s1"
+ 0007: ldc.i4 7F969800
+ 000c: conv.i8 
+ 000d: ldc.i4 7F969800
+ 0012: conv.i8 
+ 0013: ldc.i4 7F969800
+ 0018: conv.i8 
+ 0019: ldc.i4 7F969800
+ 001e: conv.i8 
+ 001f: ldc.i4 7F969800
+ 0024: conv.i8 
+ 0025: ldarg.0 
+ 0026: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldnull 
+ 002f: ldc.r8 000000E0CF126341
+ 0038: ldc.r8 000000E0CF126341
+ 0041: ldc.r8 000000E0CF126341
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldstr "OnShow"
+ 0061: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0066: ldc.i4.s 4C
+ 0068: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006d: nop 
+ 006e: ldarg.0 
+ 006f: call Tizen.TV.Service.CoBA.Core.Component::OnShow
+ 0074: nop 
+ 0075: nop 
+ 0076: leave.s 19
+ 0078: stloc.0 
+ 0079: nop 
+ 007a: ldloc.0 
+ 007b: ldstr "OnShow"
+ 0080: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0085: ldc.i4.s 51
+ 0087: ldnull 
+ 0088: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 008d: nop 
+ 008e: nop 
+ 008f: leave.s 00
+ 0091: ret 
+METHOD 0600004e Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::OnHide
+ 0000: nop 
+ 0001: ldstr "OnHide %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "OnHide"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0065: ldc.i4.s 57
+ 0067: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006c: nop 
+ 006d: ldarg.0 
+ 006e: call Tizen.TV.Service.CoBA.Core.Component::OnHide
+ 0073: nop 
+ 0074: ret 
+METHOD 0600004f Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::OnExit
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.Component::OnExit
+ 0007: nop 
+ 0008: ldstr "OnExit : %s1"
+ 000d: ldc.i4 7F969800
+ 0012: conv.i8 
+ 0013: ldc.i4 7F969800
+ 0018: conv.i8 
+ 0019: ldc.i4 7F969800
+ 001e: conv.i8 
+ 001f: ldc.i4 7F969800
+ 0024: conv.i8 
+ 0025: ldc.i4 7F969800
+ 002a: conv.i8 
+ 002b: ldarg.0 
+ 002c: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldnull 
+ 0035: ldc.r8 000000E0CF126341
+ 003e: ldc.r8 000000E0CF126341
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldstr "OnExit"
+ 0067: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 006c: ldc.i4.s 5F
+ 006e: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0073: nop 
+ 0074: ldarg.0 
+ 0075: call UnregisterEvent
+ 007a: nop 
+ 007b: ldarg.0 
+ 007c: ldfld FieldDefinition:0400001b
+ 0081: ldnull 
+ 0082: cgt.un 
+ 0084: stloc.0 
+ 0085: ldloc.0 
+ 0086: brfalse.s 0E
+ 0088: nop 
+ 0089: ldarg.0 
+ 008a: ldfld FieldDefinition:0400001b
+ 008f: callvirt Dispose
+ 0094: nop 
+ 0095: nop 
+ 0096: ldarg.0 
+ 0097: ldnull 
+ 0098: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 009d: nop 
+ 009e: ldarg.0 
+ 009f: ldnull 
+ 00a0: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 00a5: nop 
+ 00a6: ldarg.0 
+ 00a7: ldnull 
+ 00a8: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 00ad: ret 
+METHOD 06000050 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::OnTimer
+ 0000: nop 
+ 0001: ldstr "Update Lock: %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "OnTimer"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0065: ldc.i4.s 6F
+ 0067: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 006c: nop 
+ 006d: ldarg.0 
+ 006e: call UpdateChildLock
+ 0073: nop 
+ 0074: ldc.i4.0 
+ 0075: stloc.0 
+ 0076: br.s 00
+ 0078: ldloc.0 
+ 0079: ret 
+METHOD 06000051 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::RegisterEvent
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.0 
+ 0003: ldftn OnRatingSettingChanged
+ 0009: newobj .RatingSettingChanged::.ctor
+ 000e: stfld FieldDefinition:0400001f
+ 0013: call TypeSpecification:1b00000a::GetInstance
+ 0018: ldarg.0 
+ 0019: ldfld FieldDefinition:0400001f
+ 001e: callvirt Tizen.TV.Service.CoBA.Common.RatingLockInfo::RegisterRatingChanged
+ 0023: nop 
+ 0024: ret 
+METHOD 06000052 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::UnregisterEvent
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:0400001e
+ 0007: dup 
+ 0008: brtrue.s 03
+ 000a: pop 
+ 000b: br.s 07
+ 000d: ldc.i4.1 
+ 000e: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 0013: nop 
+ 0014: ldarg.0 
+ 0015: ldnull 
+ 0016: stfld FieldDefinition:0400001e
+ 001b: call TypeSpecification:1b00000a::GetInstance
+ 0020: ldarg.0 
+ 0021: ldfld FieldDefinition:0400001f
+ 0026: callvirt Tizen.TV.Service.CoBA.Common.RatingLockInfo::UnregisterRatingChanged
+ 002b: nop 
+ 002c: ldarg.0 
+ 002d: ldnull 
+ 002e: stfld FieldDefinition:0400001f
+ 0033: ret 
+METHOD 06000053 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::OnRatingSettingChanged
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldc.r8 000000E0CF126341
+ 0037: ldc.r8 000000E0CF126341
+ 0040: ldc.r8 000000E0CF126341
+ 0049: ldc.r8 000000E0CF126341
+ 0052: ldc.r8 000000E0CF126341
+ 005b: ldstr "OnRatingSettingChanged"
+ 0060: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0065: ldc.i4 85000000
+ 006a: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006f: nop 
+ 0070: ldarg.0 
+ 0071: call StartUpdateLockTimer
+ 0076: nop 
+ 0077: ret 
+METHOD 06000054 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::StartUpdateLockTimer
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: ldfld FieldDefinition:0400001e
+ 0008: ldnull 
+ 0009: ceq 
+ 000b: stloc.0 
+ 000c: ldloc.0 
+ 000d: brfalse.s 29
+ 000f: nop 
+ 0010: ldarg.0 
+ 0011: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 0016: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::GetLibrary
+ 001b: ldsfld FieldDefinition:0400001d
+ 0020: callvirt Tizen.TV.Service.CoBA.BPI.Library.LibraryBase::GetTimer
+ 0025: stfld FieldDefinition:0400001e
+ 002a: ldarg.0 
+ 002b: ldfld FieldDefinition:0400001e
+ 0030: ldarg.0 
+ 0031: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::SetHandler
+ 0036: nop 
+ 0037: nop 
+ 0038: ldarg.0 
+ 0039: ldfld FieldDefinition:0400001e
+ 003e: ldc.i4.1 
+ 003f: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 0044: nop 
+ 0045: ldarg.0 
+ 0046: ldfld FieldDefinition:0400001e
+ 004b: ldstr "StartUpdateLockTimer"
+ 0050: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0055: ldc.i4 94000000
+ 005a: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Start
+ 005f: nop 
+ 0060: nop 
+ 0061: leave.s 74
+ 0063: stloc.1 
+ 0064: nop 
+ 0065: ldstr "Fail to start lockUpdateTimer %s1"
+ 006a: ldc.i4 7F969800
+ 006f: conv.i8 
+ 0070: ldc.i4 7F969800
+ 0075: conv.i8 
+ 0076: ldc.i4 7F969800
+ 007b: conv.i8 
+ 007c: ldc.i4 7F969800
+ 0081: conv.i8 
+ 0082: ldc.i4 7F969800
+ 0087: conv.i8 
+ 0088: ldloc.1 
+ 0089: callvirt System.Exception::get_Message
+ 008e: ldnull 
+ 008f: ldnull 
+ 0090: ldnull 
+ 0091: ldnull 
+ 0092: ldc.r8 000000E0CF126341
+ 009b: ldc.r8 000000E0CF126341
+ 00a4: ldc.r8 000000E0CF126341
+ 00ad: ldc.r8 000000E0CF126341
+ 00b6: ldc.r8 000000E0CF126341
+ 00bf: ldstr "StartUpdateLockTimer"
+ 00c4: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 00c9: ldc.i4 98000000
+ 00ce: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00d3: nop 
+ 00d4: nop 
+ 00d5: leave.s 00
+ 00d7: ret 
+METHOD 06000055 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::UpdateChildLock
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0007: ldnull 
+ 0008: ceq 
+ 000a: stloc.0 
+ 000b: ldloc.0 
+ 000c: brfalse.s 75
+ 000e: nop 
+ 000f: ldstr "m_conitrol of %s1 is null"
+ 0014: ldc.i4 7F969800
+ 0019: conv.i8 
+ 001a: ldc.i4 7F969800
+ 001f: conv.i8 
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldc.i4 7F969800
+ 002b: conv.i8 
+ 002c: ldc.i4 7F969800
+ 0031: conv.i8 
+ 0032: ldarg.0 
+ 0033: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0038: ldnull 
+ 0039: ldnull 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldc.r8 000000E0CF126341
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldstr "UpdateChildLock"
+ 006e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0073: ldc.i4 A0000000
+ 0078: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 007d: nop 
+ 007e: br C0000000
+ 0083: nop 
+ 0084: ldarg.0 
+ 0085: ldfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 008a: ldfld Tizen.TV.Service.CoBA.Core.ComponentControl::listComponent
+ 008f: callvirt TypeSpecification:1b000007::GetEnumerator
+ 0094: stloc.1 
+ 0095: br 8C000000
+ 009a: ldloca.s 01
+ 009c: call TypeSpecification:1b000008::get_Current
+ 00a1: stloc.2 
+ 00a2: nop 
+ 00a3: ldstr "%s1 update lock state"
+ 00a8: ldc.i4 7F969800
+ 00ad: conv.i8 
+ 00ae: ldc.i4 7F969800
+ 00b3: conv.i8 
+ 00b4: ldc.i4 7F969800
+ 00b9: conv.i8 
+ 00ba: ldc.i4 7F969800
+ 00bf: conv.i8 
+ 00c0: ldc.i4 7F969800
+ 00c5: conv.i8 
+ 00c6: ldloc.2 
+ 00c7: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 00cc: ldnull 
+ 00cd: ldnull 
+ 00ce: ldnull 
+ 00cf: ldnull 
+ 00d0: ldc.r8 000000E0CF126341
+ 00d9: ldc.r8 000000E0CF126341
+ 00e2: ldc.r8 000000E0CF126341
+ 00eb: ldc.r8 000000E0CF126341
+ 00f4: ldc.r8 000000E0CF126341
+ 00fd: ldstr "UpdateChildLock"
+ 0102: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0107: ldc.i4 A6000000
+ 010c: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0111: nop 
+ 0112: ldloc.2 
+ 0113: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 0118: callvirt Tizen.TV.Service.CoBA.BPI.Element::Update
+ 011d: nop 
+ 011e: ldloc.2 
+ 011f: callvirt Tizen.TV.Service.CoBA.Core.Component::UpdateItem
+ 0124: nop 
+ 0125: nop 
+ 0126: ldloca.s 01
+ 0128: call TypeSpecification:1b000008::MoveNext
+ 012d: brtrue 68FFFFFF
+ 0132: leave.s 0F
+ 0134: ldloca.s 01
+ 0136: constrained. TypeSpecification:1b000008
+ 013c: callvirt System.IDisposable::Dispose
+ 0141: nop 
+ 0142: endfinally 
+ 0143: ret 
+METHOD 06000056 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayer::.cctor
+ 0000: ldstr "d/dhcategory.layer"
+ 0005: stsfld FieldDefinition:04000019
+ 000a: ldc.i4 F4010000
+ 000f: stsfld FieldDefinition:0400001d
+ 0014: ret 
+METHOD 06000057 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 06000058 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerElement::Update
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0007: ldarg.0 
+ 0008: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 000d: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0012: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 0017: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 001c: nop 
+ 001d: ldstr "UIJson: %s1"
+ 0022: ldc.i4 7F969800
+ 0027: conv.i8 
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldarg.0 
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldstr "Update"
+ 007c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0081: ldc.i4 B6000000
+ 0086: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008b: nop 
+ 008c: ret 
+METHOD 06000059 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::get_InstanceID
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000022
+ 0006: ret 
+METHOD 0600005a Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::set_InstanceID
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000022
+ 0007: ret 
+METHOD 0600005b Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000020
+ 0007: ldarg.0 
+ 0008: newobj Tizen.TV.Service.CoBA.Core.PreviewManager::.ctor
+ 000d: stfld FieldDefinition:04000021
+ 0012: ldarg.0 
+ 0013: ldnull 
+ 0014: stfld FieldDefinition:04000023
+ 0019: ldarg.0 
+ 001a: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 001f: nop 
+ 0020: nop 
+ 0021: ldarg.0 
+ 0022: ldarg.1 
+ 0023: stfld FieldDefinition:04000020
+ 0028: ret 
+METHOD 0600005c Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: ldstr "CompDHCategoryLayerList Destructor %s1"
+ 0007: ldc.i4 7F969800
+ 000c: conv.i8 
+ 000d: ldc.i4 7F969800
+ 0012: conv.i8 
+ 0013: ldc.i4 7F969800
+ 0018: conv.i8 
+ 0019: ldc.i4 7F969800
+ 001e: conv.i8 
+ 001f: ldc.i4 7F969800
+ 0024: conv.i8 
+ 0025: ldarg.0 
+ 0026: call get_InstanceID
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldnull 
+ 002e: ldnull 
+ 002f: ldc.r8 000000E0CF126341
+ 0038: ldc.r8 000000E0CF126341
+ 0041: ldc.r8 000000E0CF126341
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldstr "Finalize"
+ 0061: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0066: ldc.i4 D2000000
+ 006b: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0070: nop 
+ 0071: leave.s 08
+ 0073: ldarg.0 
+ 0074: call System.Object::Finalize
+ 0079: nop 
+ 007a: endfinally 
+ 007b: ret 
+METHOD 0600005d Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::Dispose
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000023
+ 0007: ldnull 
+ 0008: cgt.un 
+ 000a: stloc.0 
+ 000b: ldloc.0 
+ 000c: brfalse.s 16
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldfld FieldDefinition:04000023
+ 0015: ldc.i4.1 
+ 0016: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 001b: nop 
+ 001c: ldarg.0 
+ 001d: ldnull 
+ 001e: stfld FieldDefinition:04000023
+ 0023: nop 
+ 0024: ret 
+METHOD 0600005e Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::CheckExpire
+ 0000: nop 
+ 0001: ldc.i4.0 
+ 0002: stloc.0 
+ 0003: nop 
+ 0004: ldnull 
+ 0005: stloc.1 
+ 0006: ldc.i4.5 
+ 0007: stloc.2 
+ 0008: br 41010000
+ 000d: nop 
+ 000e: ldarg.0 
+ 000f: ldfld FieldDefinition:04000021
+ 0014: ldarg.1 
+ 0015: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 001a: stloc.1 
+ 001b: ldloc.1 
+ 001c: call System.String::IsNullOrEmpty
+ 0021: brtrue.s 10
+ 0023: ldloc.1 
+ 0024: ldstr "{"
+ 0029: callvirt System.String::StartsWith
+ 002e: ldc.i4.0 
+ 002f: ceq 
+ 0031: br.s 01
+ 0033: ldc.i4.1 
+ 0034: stloc.s 08
+ 0036: ldloc.s 08
+ 0038: brfalse 09010000
+ 003d: nop 
+ 003e: ldloc.1 
+ 003f: brtrue.s 03
+ 0041: ldc.i4.0 
+ 0042: br.s 0E
+ 0044: ldloc.1 
+ 0045: ldstr "{"
+ 004a: call System.String::StartsWith
+ 004f: ldc.i4.0 
+ 0050: ceq 
+ 0052: stloc.s 09
+ 0054: ldloc.s 09
+ 0056: brfalse.s 6C
+ 0058: nop 
+ 0059: ldstr "[%s1] data is not json"
+ 005e: ldc.i4 7F969800
+ 0063: conv.i8 
+ 0064: ldc.i4 7F969800
+ 0069: conv.i8 
+ 006a: ldc.i4 7F969800
+ 006f: conv.i8 
+ 0070: ldc.i4 7F969800
+ 0075: conv.i8 
+ 0076: ldc.i4 7F969800
+ 007b: conv.i8 
+ 007c: ldarg.1 
+ 007d: ldnull 
+ 007e: ldnull 
+ 007f: ldnull 
+ 0080: ldnull 
+ 0081: ldc.r8 000000E0CF126341
+ 008a: ldc.r8 000000E0CF126341
+ 0093: ldc.r8 000000E0CF126341
+ 009c: ldc.r8 000000E0CF126341
+ 00a5: ldc.r8 000000E0CF126341
+ 00ae: ldstr "CheckExpire"
+ 00b3: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 00b8: ldc.i4 EC000000
+ 00bd: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00c2: nop 
+ 00c3: nop 
+ 00c4: ldloc.2 
+ 00c5: ldc.i4.1 
+ 00c6: ceq 
+ 00c8: stloc.s 0A
+ 00ca: ldloc.s 0A
+ 00cc: brfalse.s 6D
+ 00ce: nop 
+ 00cf: ldstr "PreviewManager Data for %s1 is null"
+ 00d4: ldc.i4 7F969800
+ 00d9: conv.i8 
+ 00da: ldc.i4 7F969800
+ 00df: conv.i8 
+ 00e0: ldc.i4 7F969800
+ 00e5: conv.i8 
+ 00e6: ldc.i4 7F969800
+ 00eb: conv.i8 
+ 00ec: ldc.i4 7F969800
+ 00f1: conv.i8 
+ 00f2: ldarg.1 
+ 00f3: ldnull 
+ 00f4: ldnull 
+ 00f5: ldnull 
+ 00f6: ldnull 
+ 00f7: ldc.r8 000000E0CF126341
+ 0100: ldc.r8 000000E0CF126341
+ 0109: ldc.r8 000000E0CF126341
+ 0112: ldc.r8 000000E0CF126341
+ 011b: ldc.r8 000000E0CF126341
+ 0124: ldstr "CheckExpire"
+ 0129: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 012e: ldc.i4 F1000000
+ 0133: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0138: nop 
+ 0139: br.s 20
+ 013b: ldc.i4.s 0A
+ 013d: call System.Threading.Thread::Sleep
+ 0142: nop 
+ 0143: nop 
+ 0144: br.s 03
+ 0146: nop 
+ 0147: br.s 12
+ 0149: ldloc.2 
+ 014a: ldc.i4.1 
+ 014b: sub 
+ 014c: stloc.2 
+ 014d: nop 
+ 014e: ldloc.2 
+ 014f: ldc.i4.0 
+ 0150: cgt 
+ 0152: stloc.s 0B
+ 0154: ldloc.s 0B
+ 0156: brtrue B2FEFFFF
+ 015b: ldloc.1 
+ 015c: call System.String::IsNullOrEmpty
+ 0161: stloc.s 0C
+ 0163: ldloc.s 0C
+ 0165: brfalse.s 73
+ 0167: nop 
+ 0168: ldstr "%s1 has no data"
+ 016d: ldc.i4 7F969800
+ 0172: conv.i8 
+ 0173: ldc.i4 7F969800
+ 0178: conv.i8 
+ 0179: ldc.i4 7F969800
+ 017e: conv.i8 
+ 017f: ldc.i4 7F969800
+ 0184: conv.i8 
+ 0185: ldc.i4 7F969800
+ 018a: conv.i8 
+ 018b: ldarg.1 
+ 018c: ldnull 
+ 018d: ldnull 
+ 018e: ldnull 
+ 018f: ldnull 
+ 0190: ldc.r8 000000E0CF126341
+ 0199: ldc.r8 000000E0CF126341
+ 01a2: ldc.r8 000000E0CF126341
+ 01ab: ldc.r8 000000E0CF126341
+ 01b4: ldc.r8 000000E0CF126341
+ 01bd: ldstr "CheckExpire"
+ 01c2: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 01c7: ldc.i4 00010000
+ 01cc: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 01d1: nop 
+ 01d2: ldc.i4.0 
+ 01d3: stloc.s 0D
+ 01d5: leave 87030000
+ 01da: ldloc.1 
+ 01db: ldstr "title"
+ 01e0: call Tizen.TV.Service.CoBA.Common.JsonMap::ParseGetValueStr
+ 01e5: stloc.3 
+ 01e6: ldstr ""
+ 01eb: stloc.s 04
+ 01ed: ldstr ""
+ 01f2: stloc.s 05
+ 01f4: newobj Tizen.TV.Service.CoBA.Common.JsonMap::.ctor
+ 01f9: stloc.s 0E
+ 01fb: nop 
+ 01fc: ldloc.s 0E
+ 01fe: ldloc.1 
+ 01ff: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::Parse
+ 0204: pop 
+ 0205: ldloc.s 0E
+ 0207: ldstr "extension"
+ 020c: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 0211: ldsfld System.IntPtr::Zero
+ 0216: call System.IntPtr::op_Inequality
+ 021b: stloc.s 0F
+ 021d: ldloc.s 0F
+ 021f: brfalse C8000000
+ 0224: nop 
+ 0225: ldloc.s 0E
+ 0227: ldstr "extension.is_progress"
+ 022c: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 0231: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 0236: stloc.s 10
+ 0238: ldloc.s 10
+ 023a: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 023f: ldsfld System.IntPtr::Zero
+ 0244: call System.IntPtr::op_Inequality
+ 0249: brtrue.s 03
+ 024b: ldnull 
+ 024c: br.s 0E
+ 024e: ldloc.s 0E
+ 0250: ldloc.s 10
+ 0252: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 0257: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 025c: stloc.s 11
+ 025e: ldloc.s 11
+ 0260: ldstr "1"
+ 0265: call System.String::op_Inequality
+ 026a: stloc.s 14
+ 026c: ldloc.s 14
+ 026e: brfalse.s 09
+ 0270: nop 
+ 0271: ldc.i4.3 
+ 0272: stloc.s 0D
+ 0274: leave E8020000
+ 0279: ldloc.s 0E
+ 027b: ldstr "extension.display_from"
+ 0280: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 0285: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 028a: stloc.s 12
+ 028c: ldloc.s 0E
+ 028e: ldstr "extension.display_until"
+ 0293: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 0298: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 029d: stloc.s 13
+ 029f: ldloc.s 12
+ 02a1: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 02a6: ldsfld System.IntPtr::Zero
+ 02ab: call System.IntPtr::op_Inequality
+ 02b0: brtrue.s 03
+ 02b2: ldnull 
+ 02b3: br.s 0E
+ 02b5: ldloc.s 0E
+ 02b7: ldloc.s 12
+ 02b9: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 02be: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 02c3: stloc.s 04
+ 02c5: ldloc.s 13
+ 02c7: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 02cc: ldsfld System.IntPtr::Zero
+ 02d1: call System.IntPtr::op_Inequality
+ 02d6: brtrue.s 03
+ 02d8: ldnull 
+ 02d9: br.s 0E
+ 02db: ldloc.s 0E
+ 02dd: ldloc.s 13
+ 02df: call Tizen.TV.Service.CoBA.Common.JsonMapNode::op_Implicit
+ 02e4: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 02e9: stloc.s 05
+ 02eb: nop 
+ 02ec: nop 
+ 02ed: leave.s 0D
+ 02ef: ldloc.s 0E
+ 02f1: brfalse.s 08
+ 02f3: ldloc.s 0E
+ 02f5: callvirt System.IDisposable::Dispose
+ 02fa: nop 
+ 02fb: endfinally 
+ 02fc: ldc.i4.0 
+ 02fd: conv.i8 
+ 02fe: stloc.s 06
+ 0300: ldc.i4.0 
+ 0301: conv.i8 
+ 0302: stloc.s 07
+ 0304: ldloc.s 04
+ 0306: call System.String::IsNullOrEmpty
+ 030b: brtrue.s 0C
+ 030d: ldloc.s 05
+ 030f: call System.String::IsNullOrEmpty
+ 0314: ldc.i4.0 
+ 0315: ceq 
+ 0317: br.s 01
+ 0319: ldc.i4.0 
+ 031a: stloc.s 15
+ 031c: ldloc.s 15
+ 031e: brfalse.s 28
+ 0320: nop 
+ 0321: ldloc.s 04
+ 0323: ldc.i4 FF010000
+ 0328: call System.Globalization.CultureInfo::get_InvariantCulture
+ 032d: call System.UInt64::Parse
+ 0332: stloc.s 06
+ 0334: ldloc.s 05
+ 0336: ldc.i4 FF010000
+ 033b: call System.Globalization.CultureInfo::get_InvariantCulture
+ 0340: call System.UInt64::Parse
+ 0345: stloc.s 07
+ 0347: nop 
+ 0348: ldstr "[utcFrom] %s1"
+ 034d: ldc.i4 7F969800
+ 0352: conv.i8 
+ 0353: ldc.i4 7F969800
+ 0358: conv.i8 
+ 0359: ldc.i4 7F969800
+ 035e: conv.i8 
+ 035f: ldc.i4 7F969800
+ 0364: conv.i8 
+ 0365: ldc.i4 7F969800
+ 036a: conv.i8 
+ 036b: ldloca.s 06
+ 036d: call System.UInt64::ToString
+ 0372: ldnull 
+ 0373: ldnull 
+ 0374: ldnull 
+ 0375: ldnull 
+ 0376: ldc.r8 000000E0CF126341
+ 037f: ldc.r8 000000E0CF126341
+ 0388: ldc.r8 000000E0CF126341
+ 0391: ldc.r8 000000E0CF126341
+ 039a: ldc.r8 000000E0CF126341
+ 03a3: ldstr "CheckExpire"
+ 03a8: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 03ad: ldc.i4 26010000
+ 03b2: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 03b7: nop 
+ 03b8: ldstr "[utcCurrent] %s1"
+ 03bd: ldc.i4 7F969800
+ 03c2: conv.i8 
+ 03c3: ldc.i4 7F969800
+ 03c8: conv.i8 
+ 03c9: ldc.i4 7F969800
+ 03ce: conv.i8 
+ 03cf: ldc.i4 7F969800
+ 03d4: conv.i8 
+ 03d5: ldc.i4 7F969800
+ 03da: conv.i8 
+ 03db: ldarga.s 02
+ 03dd: call System.UInt64::ToString
+ 03e2: ldnull 
+ 03e3: ldnull 
+ 03e4: ldnull 
+ 03e5: ldnull 
+ 03e6: ldc.r8 000000E0CF126341
+ 03ef: ldc.r8 000000E0CF126341
+ 03f8: ldc.r8 000000E0CF126341
+ 0401: ldc.r8 000000E0CF126341
+ 040a: ldc.r8 000000E0CF126341
+ 0413: ldstr "CheckExpire"
+ 0418: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 041d: ldc.i4 27010000
+ 0422: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0427: nop 
+ 0428: ldstr "[utcUntil] %s1"
+ 042d: ldc.i4 7F969800
+ 0432: conv.i8 
+ 0433: ldc.i4 7F969800
+ 0438: conv.i8 
+ 0439: ldc.i4 7F969800
+ 043e: conv.i8 
+ 043f: ldc.i4 7F969800
+ 0444: conv.i8 
+ 0445: ldc.i4 7F969800
+ 044a: conv.i8 
+ 044b: ldloca.s 07
+ 044d: call System.UInt64::ToString
+ 0452: ldnull 
+ 0453: ldnull 
+ 0454: ldnull 
+ 0455: ldnull 
+ 0456: ldc.r8 000000E0CF126341
+ 045f: ldc.r8 000000E0CF126341
+ 0468: ldc.r8 000000E0CF126341
+ 0471: ldc.r8 000000E0CF126341
+ 047a: ldc.r8 000000E0CF126341
+ 0483: ldstr "CheckExpire"
+ 0488: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 048d: ldc.i4 28010000
+ 0492: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0497: nop 
+ 0498: ldloc.s 06
+ 049a: ldarg.2 
+ 049b: bge.un.s 07
+ 049d: ldarg.2 
+ 049e: ldloc.s 07
+ 04a0: clt.un 
+ 04a2: br.s 01
+ 04a4: ldc.i4.0 
+ 04a5: stloc.s 16
+ 04a7: ldloc.s 16
+ 04a9: brfalse.s 06
+ 04ab: nop 
+ 04ac: ldc.i4.2 
+ 04ad: stloc.0 
+ 04ae: nop 
+ 04af: br.s 16
+ 04b1: ldloc.s 07
+ 04b3: ldc.i4.0 
+ 04b4: conv.i8 
+ 04b5: ceq 
+ 04b7: stloc.s 17
+ 04b9: ldloc.s 17
+ 04bb: brfalse.s 06
+ 04bd: nop 
+ 04be: ldc.i4.3 
+ 04bf: stloc.0 
+ 04c0: nop 
+ 04c1: br.s 04
+ 04c3: nop 
+ 04c4: ldc.i4.1 
+ 04c5: stloc.0 
+ 04c6: nop 
+ 04c7: ldstr "[%s1] %s2 (%s3)"
+ 04cc: ldc.i4 7F969800
+ 04d1: conv.i8 
+ 04d2: ldc.i4 7F969800
+ 04d7: conv.i8 
+ 04d8: ldc.i4 7F969800
+ 04dd: conv.i8 
+ 04de: ldc.i4 7F969800
+ 04e3: conv.i8 
+ 04e4: ldc.i4 7F969800
+ 04e9: conv.i8 
+ 04ea: ldloc.0 
+ 04eb: box .ExpireTime
+ 04f0: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 04f5: ldloc.3 
+ 04f6: ldarg.1 
+ 04f7: ldnull 
+ 04f8: ldnull 
+ 04f9: ldc.r8 000000E0CF126341
+ 0502: ldc.r8 000000E0CF126341
+ 050b: ldc.r8 000000E0CF126341
+ 0514: ldc.r8 000000E0CF126341
+ 051d: ldc.r8 000000E0CF126341
+ 0526: ldstr "CheckExpire"
+ 052b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0530: ldc.i4 37010000
+ 0535: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 053a: nop 
+ 053b: nop 
+ 053c: leave.s 1E
+ 053e: stloc.s 18
+ 0540: nop 
+ 0541: ldloc.s 18
+ 0543: ldstr "CheckExpire"
+ 0548: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 054d: ldc.i4 3B010000
+ 0552: ldnull 
+ 0553: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 0558: nop 
+ 0559: nop 
+ 055a: leave.s 00
+ 055c: ldloc.0 
+ 055d: stloc.s 0D
+ 055f: br.s 00
+ 0561: ldloc.s 0D
+ 0563: ret 
+METHOD 0600005f Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::GetItems
+ 0000: nop 
+ 0001: ldstr "parent:%s1, InstanceID:%s2"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: ldfld FieldDefinition:04000020
+ 002a: dup 
+ 002b: brtrue.s 04
+ 002d: pop 
+ 002e: ldnull 
+ 002f: br.s 11
+ 0031: call Tizen.TV.Service.CoBA.Core.Component::get_Parent
+ 0036: dup 
+ 0037: brtrue.s 04
+ 0039: pop 
+ 003a: ldnull 
+ 003b: br.s 05
+ 003d: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0042: ldarg.0 
+ 0043: call get_InstanceID
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldnull 
+ 004b: ldc.r8 000000E0CF126341
+ 0054: ldc.r8 000000E0CF126341
+ 005d: ldc.r8 000000E0CF126341
+ 0066: ldc.r8 000000E0CF126341
+ 006f: ldc.r8 000000E0CF126341
+ 0078: ldstr "GetItems"
+ 007d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0082: ldc.i4 43010000
+ 0087: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008c: nop 
+ 008d: newobj TypeSpecification:1b000002::.ctor
+ 0092: stloc.0 
+ 0093: ldarg.0 
+ 0094: ldfld FieldDefinition:04000021
+ 0099: ldarg.0 
+ 009a: call get_InstanceID
+ 009f: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Childs
+ 00a4: stloc.1 
+ 00a5: ldloc.1 
+ 00a6: ldnull 
+ 00a7: ceq 
+ 00a9: stloc.s 04
+ 00ab: ldloc.s 04
+ 00ad: brfalse.s 76
+ 00af: nop 
+ 00b0: ldstr "item null"
+ 00b5: ldc.i4 7F969800
+ 00ba: conv.i8 
+ 00bb: ldc.i4 7F969800
+ 00c0: conv.i8 
+ 00c1: ldc.i4 7F969800
+ 00c6: conv.i8 
+ 00c7: ldc.i4 7F969800
+ 00cc: conv.i8 
+ 00cd: ldc.i4 7F969800
+ 00d2: conv.i8 
+ 00d3: ldnull 
+ 00d4: ldnull 
+ 00d5: ldnull 
+ 00d6: ldnull 
+ 00d7: ldnull 
+ 00d8: ldc.r8 000000E0CF126341
+ 00e1: ldc.r8 000000E0CF126341
+ 00ea: ldc.r8 000000E0CF126341
+ 00f3: ldc.r8 000000E0CF126341
+ 00fc: ldc.r8 000000E0CF126341
+ 0105: ldstr "GetItems"
+ 010a: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 010f: ldc.i4 49010000
+ 0114: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0119: nop 
+ 011a: ldarg.1 
+ 011b: ldnull 
+ 011c: stind.ref 
+ 011d: ldc.i4.0 
+ 011e: stloc.s 05
+ 0120: br 1C020000
+ 0125: ldstr "CompDHCategoryLayerList CompList Count: %d1"
+ 012a: ldloc.1 
+ 012b: ldlen 
+ 012c: conv.i4 
+ 012d: conv.i8 
+ 012e: ldc.i4 7F969800
+ 0133: conv.i8 
+ 0134: ldc.i4 7F969800
+ 0139: conv.i8 
+ 013a: ldc.i4 7F969800
+ 013f: conv.i8 
+ 0140: ldc.i4 7F969800
+ 0145: conv.i8 
+ 0146: ldnull 
+ 0147: ldnull 
+ 0148: ldnull 
+ 0149: ldnull 
+ 014a: ldnull 
+ 014b: ldc.r8 000000E0CF126341
+ 0154: ldc.r8 000000E0CF126341
+ 015d: ldc.r8 000000E0CF126341
+ 0166: ldc.r8 000000E0CF126341
+ 016f: ldc.r8 000000E0CF126341
+ 0178: ldstr "GetItems"
+ 017d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0182: ldc.i4 4D010000
+ 0187: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 018c: nop 
+ 018d: call System.DateTimeOffset::get_UtcNow
+ 0192: stloc.s 06
+ 0194: ldloca.s 06
+ 0196: call System.DateTimeOffset::ToUnixTimeSeconds
+ 019b: stloc.2 
+ 019c: ldc.i4.0 
+ 019d: stloc.3 
+ 019e: ldc.i4.0 
+ 019f: stloc.s 07
+ 01a1: br.s 6E
+ 01a3: nop 
+ 01a4: ldarg.0 
+ 01a5: ldloc.1 
+ 01a6: ldloc.s 07
+ 01a8: ldelem.ref 
+ 01a9: ldloc.2 
+ 01aa: call CheckExpire
+ 01af: stloc.s 08
+ 01b1: ldloc.s 08
+ 01b3: stloc.s 0A
+ 01b5: ldloc.s 0A
+ 01b7: stloc.s 09
+ 01b9: ldloc.s 09
+ 01bb: switch 0400000002000000040000000800000021000000
+ 01d0: br.s 36
+ 01d2: br.s 36
+ 01d4: ldc.i4.1 
+ 01d5: stloc.3 
+ 01d6: br.s 32
+ 01d8: ldc.i4.1 
+ 01d9: stloc.3 
+ 01da: ldloc.0 
+ 01db: ldsfld FieldDefinition:04000030
+ 01e0: ldloc.1 
+ 01e1: ldloc.s 07
+ 01e3: ldelem.ref 
+ 01e4: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 01e9: callvirt TypeSpecification:1b000002::Add
+ 01ee: nop 
+ 01ef: br.s 19
+ 01f1: ldloc.0 
+ 01f2: ldsfld FieldDefinition:04000030
+ 01f7: ldloc.1 
+ 01f8: ldloc.s 07
+ 01fa: ldelem.ref 
+ 01fb: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 0200: callvirt TypeSpecification:1b000002::Add
+ 0205: nop 
+ 0206: br.s 02
+ 0208: br.s 00
+ 020a: nop 
+ 020b: ldloc.s 07
+ 020d: ldc.i4.1 
+ 020e: add 
+ 020f: stloc.s 07
+ 0211: ldloc.s 07
+ 0213: ldloc.1 
+ 0214: ldlen 
+ 0215: conv.i4 
+ 0216: clt 
+ 0218: stloc.s 0B
+ 021a: ldloc.s 0B
+ 021c: brtrue.s 85
+ 021e: ldstr "[hasTime] : %s1"
+ 0223: ldc.i4 7F969800
+ 0228: conv.i8 
+ 0229: ldc.i4 7F969800
+ 022e: conv.i8 
+ 022f: ldc.i4 7F969800
+ 0234: conv.i8 
+ 0235: ldc.i4 7F969800
+ 023a: conv.i8 
+ 023b: ldc.i4 7F969800
+ 0240: conv.i8 
+ 0241: ldloc.3 
+ 0242: brtrue.s 07
+ 0244: ldstr "F"
+ 0249: br.s 05
+ 024b: ldstr "T"
+ 0250: ldnull 
+ 0251: ldnull 
+ 0252: ldnull 
+ 0253: ldnull 
+ 0254: ldc.r8 000000E0CF126341
+ 025d: ldc.r8 000000E0CF126341
+ 0266: ldc.r8 000000E0CF126341
+ 026f: ldc.r8 000000E0CF126341
+ 0278: ldc.r8 000000E0CF126341
+ 0281: ldstr "GetItems"
+ 0286: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 028b: ldc.i4 69010000
+ 0290: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0295: nop 
+ 0296: ldloc.3 
+ 0297: stloc.s 0C
+ 0299: ldloc.s 0C
+ 029b: brfalse.s 25
+ 029d: nop 
+ 029e: ldarg.0 
+ 029f: ldftn <GetItems>b__13_0
+ 02a5: newobj TypeSpecification:1b000004::.ctor
+ 02aa: ldnull 
+ 02ab: ldc.i4.1 
+ 02ac: ldstr "GetItems"
+ 02b1: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 02b6: ldc.i4 6D010000
+ 02bb: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 02c0: nop 
+ 02c1: nop 
+ 02c2: ldstr "[%s1] =\u003E cur tiles: %d1, all tiles: %d2"
+ 02c7: ldarg.0 
+ 02c8: call get_InstanceID
+ 02cd: stloc.s 0D
+ 02cf: ldloc.0 
+ 02d0: callvirt TypeSpecification:1b000002::get_Count
+ 02d5: conv.i8 
+ 02d6: ldloc.1 
+ 02d7: ldlen 
+ 02d8: conv.i4 
+ 02d9: conv.i8 
+ 02da: ldc.i4 7F969800
+ 02df: conv.i8 
+ 02e0: ldc.i4 7F969800
+ 02e5: conv.i8 
+ 02e6: ldc.i4 7F969800
+ 02eb: conv.i8 
+ 02ec: ldloc.s 0D
+ 02ee: ldnull 
+ 02ef: ldnull 
+ 02f0: ldnull 
+ 02f1: ldnull 
+ 02f2: ldc.r8 000000E0CF126341
+ 02fb: ldc.r8 000000E0CF126341
+ 0304: ldc.r8 000000E0CF126341
+ 030d: ldc.r8 000000E0CF126341
+ 0316: ldc.r8 000000E0CF126341
+ 031f: ldstr "GetItems"
+ 0324: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0329: ldc.i4 7A010000
+ 032e: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0333: nop 
+ 0334: ldarg.1 
+ 0335: ldloc.0 
+ 0336: callvirt TypeSpecification:1b000002::ToArray
+ 033b: stind.ref 
+ 033c: ldc.i4.1 
+ 033d: stloc.s 05
+ 033f: br.s 00
+ 0341: ldloc.s 05
+ 0343: ret 
+METHOD 06000060 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::OnTimer
+ 0000: nop 
+ 0001: ldstr "OnTimer::UpdateChild "
+ 0006: ldarg.0 
+ 0007: ldfld FieldDefinition:04000020
+ 000c: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0011: call System.String::Concat
+ 0016: ldstr "OnTimer"
+ 001b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0020: ldc.i4 82010000
+ 0025: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 002a: stloc.0 
+ 002b: nop 
+ 002c: ldarg.0 
+ 002d: ldfld FieldDefinition:04000020
+ 0032: callvirt Tizen.TV.Service.CoBA.Core.Component::ReloadChild
+ 0037: nop 
+ 0038: ldarg.0 
+ 0039: ldfld FieldDefinition:04000020
+ 003e: ldfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0043: ldnull 
+ 0044: ceq 
+ 0046: stloc.1 
+ 0047: ldloc.1 
+ 0048: brfalse.s 05
+ 004a: nop 
+ 004b: ldc.i4.0 
+ 004c: stloc.2 
+ 004d: leave.s 7B
+ 004f: nop 
+ 0050: ldarg.0 
+ 0051: ldfld FieldDefinition:04000020
+ 0056: callvirt Tizen.TV.Service.CoBA.Core.Component::ChildAll
+ 005b: callvirt TypeSpecification:1b000007::GetEnumerator
+ 0060: stloc.3 
+ 0061: br.s 3B
+ 0063: newobj .ctor
+ 0068: stloc.s 04
+ 006a: ldloc.s 04
+ 006c: ldloca.s 03
+ 006e: call TypeSpecification:1b000008::get_Current
+ 0073: stfld FieldDefinition:04000044
+ 0078: nop 
+ 0079: ldloc.s 04
+ 007b: ldftn <OnTimer>b__0
+ 0081: newobj TypeSpecification:1b000004::.ctor
+ 0086: ldnull 
+ 0087: ldc.i4.1 
+ 0088: ldstr "OnTimer"
+ 008d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0092: ldc.i4 8D010000
+ 0097: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 009c: nop 
+ 009d: nop 
+ 009e: ldloca.s 03
+ 00a0: call TypeSpecification:1b000008::MoveNext
+ 00a5: brtrue.s BC
+ 00a7: leave.s 0F
+ 00a9: ldloca.s 03
+ 00ab: constrained. TypeSpecification:1b000008
+ 00b1: callvirt System.IDisposable::Dispose
+ 00b6: nop 
+ 00b7: endfinally 
+ 00b8: nop 
+ 00b9: leave.s 0B
+ 00bb: ldloc.0 
+ 00bc: brfalse.s 07
+ 00be: ldloc.0 
+ 00bf: callvirt System.IDisposable::Dispose
+ 00c4: nop 
+ 00c5: endfinally 
+ 00c6: ldc.i4.0 
+ 00c7: stloc.2 
+ 00c8: br.s 00
+ 00ca: ldloc.2 
+ 00cb: ret 
+METHOD 06000061 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::.cctor
+ 0000: ldc.i4 60EA0000
+ 0005: stsfld FieldDefinition:04000024
+ 000a: ret 
+METHOD 06000062 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryLayerList::<GetItems>b__13_0
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000023
+ 0007: ldnull 
+ 0008: ceq 
+ 000a: stloc.0 
+ 000b: ldloc.0 
+ 000c: brfalse.s 29
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 0015: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::GetLibrary
+ 001a: ldsfld FieldDefinition:04000024
+ 001f: callvirt Tizen.TV.Service.CoBA.BPI.Library.LibraryBase::GetTimer
+ 0024: stfld FieldDefinition:04000023
+ 0029: ldarg.0 
+ 002a: ldfld FieldDefinition:04000023
+ 002f: ldarg.0 
+ 0030: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::SetHandler
+ 0035: nop 
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldfld FieldDefinition:04000023
+ 003d: ldc.i4.1 
+ 003e: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 0043: nop 
+ 0044: ldarg.0 
+ 0045: ldfld FieldDefinition:04000023
+ 004a: ldstr "GetItems"
+ 004f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryLayer.cs"
+ 0054: ldc.i4 76010000
+ 0059: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Start
+ 005e: nop 
+ 005f: ret 
+METHOD 06000063 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_stored_id
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000025
+ 0006: ret 
+METHOD 06000064 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_stored_id
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000025
+ 0007: ret 
+METHOD 06000065 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_action_play_url
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000026
+ 0006: ret 
+METHOD 06000066 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_action_play_url
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000026
+ 0007: ret 
+METHOD 06000067 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_action_type
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000027
+ 0006: ret 
+METHOD 06000068 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_action_type
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000027
+ 0007: ret 
+METHOD 06000069 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_extra_app_id
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000028
+ 0006: ret 
+METHOD 0600006a Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_extra_app_id
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000028
+ 0007: ret 
+METHOD 0600006b Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_tile_id
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000029
+ 0006: ret 
+METHOD 0600006c Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_tile_id
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000029
+ 0007: ret 
+METHOD 0600006d Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_section_title
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400002a
+ 0006: ret 
+METHOD 0600006e Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_section_title
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400002a
+ 0007: ret 
+METHOD 0600006f Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_title
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400002b
+ 0006: ret 
+METHOD 06000070 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_title
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400002b
+ 0007: ret 
+METHOD 06000071 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_select_loading_time
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400002c
+ 0006: ret 
+METHOD 06000072 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_select_loading_time
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400002c
+ 0007: ret 
+METHOD 06000073 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_content_detail
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400002d
+ 0006: ret 
+METHOD 06000074 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_content_detail
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400002d
+ 0007: ret 
+METHOD 06000075 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_additionalDataForLock
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400002e
+ 0006: ret 
+METHOD 06000076 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_additionalDataForLock
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400002e
+ 0007: ret 
+METHOD 06000077 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::get_extension
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400002f
+ 0006: ret 
+METHOD 06000078 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::set_extension
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400002f
+ 0007: ret 
+METHOD 06000079 Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: ldnull 
+ 0004: call set_content_detail
+ 0009: nop 
+ 000a: ldarg.0 
+ 000b: ldnull 
+ 000c: call set_additionalDataForLock
+ 0011: nop 
+ 0012: ldarg.0 
+ 0013: ldnull 
+ 0014: call set_extension
+ 0019: nop 
+ 001a: leave.s 08
+ 001c: ldarg.0 
+ 001d: call System.Object::Finalize
+ 0022: nop 
+ 0023: endfinally 
+ 0024: ret 
+METHOD 0600007a Tizen.Tv.App.CoBA.Components.Home.DHCategoryTileData::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000025
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:04000026
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:04000027
+ 0015: ldarg.0 
+ 0016: ldnull 
+ 0017: stfld FieldDefinition:04000028
+ 001c: ldarg.0 
+ 001d: ldc.i4.0 
+ 001e: conv.i8 
+ 001f: stfld FieldDefinition:04000029
+ 0024: ldarg.0 
+ 0025: ldnull 
+ 0026: stfld FieldDefinition:0400002a
+ 002b: ldarg.0 
+ 002c: ldnull 
+ 002d: stfld FieldDefinition:0400002b
+ 0032: ldarg.0 
+ 0033: ldc.i4.s 14
+ 0035: stfld FieldDefinition:0400002c
+ 003a: ldarg.0 
+ 003b: ldnull 
+ 003c: stfld FieldDefinition:0400002d
+ 0041: ldarg.0 
+ 0042: ldnull 
+ 0043: stfld FieldDefinition:0400002e
+ 0048: ldarg.0 
+ 0049: ldnull 
+ 004a: stfld FieldDefinition:0400002f
+ 004f: ldarg.0 
+ 0050: call System.Object::.ctor
+ 0055: nop 
+ 0056: ret 
+METHOD 0600007b Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000031
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:04000032
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:04000033
+ 0015: ldarg.0 
+ 0016: ldarg.1 
+ 0017: ldsfld FieldDefinition:04000030
+ 001c: ldarg.2 
+ 001d: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 0022: nop 
+ 0023: nop 
+ 0024: ret 
+METHOD 0600007c Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0008: ldc.i4 7F969800
+ 000d: conv.i8 
+ 000e: ldc.i4 7F969800
+ 0013: conv.i8 
+ 0014: ldc.i4 7F969800
+ 0019: conv.i8 
+ 001a: ldc.i4 7F969800
+ 001f: conv.i8 
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldc.r8 000000E0CF126341
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldstr "Finalize"
+ 005d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 0062: ldc.i4.s 4A
+ 0064: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0069: nop 
+ 006a: leave.s 08
+ 006c: ldarg.0 
+ 006d: call System.Object::Finalize
+ 0072: nop 
+ 0073: endfinally 
+ 0074: ret 
+METHOD 0600007d Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600007e Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::Run
+ 0000: nop 
+ 0001: nop 
+ 0002: ldstr "CompDHCategoryTile:"
+ 0007: ldarg.0 
+ 0008: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 000d: call System.String::Concat
+ 0012: ldstr "Run"
+ 0017: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 001c: ldc.i4.s 56
+ 001e: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 0023: stloc.1 
+ 0024: nop 
+ 0025: ldarg.0 
+ 0026: ldc.i4.1 
+ 0027: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 002c: dup 
+ 002d: ldc.i4.0 
+ 002e: ldarg.0 
+ 002f: newobj .ctor
+ 0034: stelem.ref 
+ 0035: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 003a: nop 
+ 003b: ldarg.0 
+ 003c: ldarg.0 
+ 003d: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 0042: ldc.i4.0 
+ 0043: ldelem.ref 
+ 0044: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0049: nop 
+ 004a: nop 
+ 004b: leave.s 0B
+ 004d: ldloc.1 
+ 004e: brfalse.s 07
+ 0050: ldloc.1 
+ 0051: callvirt System.IDisposable::Dispose
+ 0056: nop 
+ 0057: endfinally 
+ 0058: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 005d: ldarg.0 
+ 005e: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0063: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 0068: stloc.0 
+ 0069: ldloc.0 
+ 006a: call System.String::IsNullOrEmpty
+ 006f: stloc.2 
+ 0070: ldloc.2 
+ 0071: brfalse A8000000
+ 0076: nop 
+ 0077: ldstr "PreviewManager Data for %s1 is empty"
+ 007c: ldc.i4 7F969800
+ 0081: conv.i8 
+ 0082: ldc.i4 7F969800
+ 0087: conv.i8 
+ 0088: ldc.i4 7F969800
+ 008d: conv.i8 
+ 008e: ldc.i4 7F969800
+ 0093: conv.i8 
+ 0094: ldc.i4 7F969800
+ 0099: conv.i8 
+ 009a: ldarg.0 
+ 009b: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 00a0: ldnull 
+ 00a1: ldnull 
+ 00a2: ldnull 
+ 00a3: ldnull 
+ 00a4: ldc.r8 000000E0CF126341
+ 00ad: ldc.r8 000000E0CF126341
+ 00b6: ldc.r8 000000E0CF126341
+ 00bf: ldc.r8 000000E0CF126341
+ 00c8: ldc.r8 000000E0CF126341
+ 00d1: ldstr "Run"
+ 00d6: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 00db: ldc.i4.s 5F
+ 00dd: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00e2: nop 
+ 00e3: ldarg.0 
+ 00e4: ldc.i4.0 
+ 00e5: call Tizen.TV.Service.CoBA.BPI.Entity::set_Visible
+ 00ea: nop 
+ 00eb: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 00f0: stloc.3 
+ 00f1: ldloc.3 
+ 00f2: ldstr "type"
+ 00f7: ldstr "Dummy"
+ 00fc: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0101: pop 
+ 0102: ldarg.0 
+ 0103: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 0108: ldloc.3 
+ 0109: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 010e: callvirt Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0113: nop 
+ 0114: ldloc.3 
+ 0115: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 011a: nop 
+ 011b: nop 
+ 011c: br.s 7E
+ 011e: nop 
+ 011f: ldstr "  DATA:%s1"
+ 0124: ldc.i4 7F969800
+ 0129: conv.i8 
+ 012a: ldc.i4 7F969800
+ 012f: conv.i8 
+ 0130: ldc.i4 7F969800
+ 0135: conv.i8 
+ 0136: ldc.i4 7F969800
+ 013b: conv.i8 
+ 013c: ldc.i4 7F969800
+ 0141: conv.i8 
+ 0142: ldloc.0 
+ 0143: ldnull 
+ 0144: ldnull 
+ 0145: ldnull 
+ 0146: ldnull 
+ 0147: ldc.r8 000000E0CF126341
+ 0150: ldc.r8 000000E0CF126341
+ 0159: ldc.r8 000000E0CF126341
+ 0162: ldc.r8 000000E0CF126341
+ 016b: ldc.r8 000000E0CF126341
+ 0174: ldstr "Run"
+ 0179: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 017e: ldc.i4.s 69
+ 0180: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0185: nop 
+ 0186: ldarg.0 
+ 0187: ldloc.0 
+ 0188: call UpdateTileData
+ 018d: nop 
+ 018e: ldarg.0 
+ 018f: call Tizen.TV.Service.CoBA.BPI.Entity::get_CurrentElement
+ 0194: ldloc.0 
+ 0195: callvirt Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 019a: nop 
+ 019b: nop 
+ 019c: nop 
+ 019d: leave.s 1B
+ 019f: stloc.s 04
+ 01a1: nop 
+ 01a2: ldloc.s 04
+ 01a4: ldstr "Run"
+ 01a9: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 01ae: ldc.i4.s 70
+ 01b0: ldnull 
+ 01b1: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 01b6: nop 
+ 01b7: nop 
+ 01b8: leave.s 00
+ 01ba: ldarg.0 
+ 01bb: ldarg.1 
+ 01bc: call Tizen.TV.Service.CoBA.Core.Component::Run
+ 01c1: nop 
+ 01c2: ret 
+METHOD 0600007f Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::OnExit
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.Component::OnExit
+ 0007: nop 
+ 0008: ldstr "OnExit %s1"
+ 000d: ldc.i4 7F969800
+ 0012: conv.i8 
+ 0013: ldc.i4 7F969800
+ 0018: conv.i8 
+ 0019: ldc.i4 7F969800
+ 001e: conv.i8 
+ 001f: ldc.i4 7F969800
+ 0024: conv.i8 
+ 0025: ldc.i4 7F969800
+ 002a: conv.i8 
+ 002b: ldarg.0 
+ 002c: call Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldnull 
+ 0035: ldc.r8 000000E0CF126341
+ 003e: ldc.r8 000000E0CF126341
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldstr "OnExit"
+ 0067: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 006c: ldc.i4.s 7A
+ 006e: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0073: nop 
+ 0074: ldarg.0 
+ 0075: ldnull 
+ 0076: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 007b: nop 
+ 007c: ldarg.0 
+ 007d: ldnull 
+ 007e: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0083: nop 
+ 0084: ldarg.0 
+ 0085: ldnull 
+ 0086: stfld FieldDefinition:04000031
+ 008b: ldarg.0 
+ 008c: ldnull 
+ 008d: stfld FieldDefinition:04000032
+ 0092: ret 
+METHOD 06000080 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::OnSelected
+ 0000: nop 
+ 0001: ldstr "OnSelected %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.1 
+ 0025: callvirt Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 002a: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 002f: ldnull 
+ 0030: ldnull 
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldc.r8 000000E0CF126341
+ 003c: ldc.r8 000000E0CF126341
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldstr "OnSelected"
+ 0065: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 006a: ldc.i4 84000000
+ 006f: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0074: nop 
+ 0075: ldarg.0 
+ 0076: ldarg.1 
+ 0077: call Tizen.TV.Service.CoBA.Core.Component::OnSelected
+ 007c: nop 
+ 007d: ldarg.0 
+ 007e: ldfld FieldDefinition:04000032
+ 0083: ldnull 
+ 0084: ceq 
+ 0086: stloc.1 
+ 0087: ldloc.1 
+ 0088: brfalse.s 70
+ 008a: nop 
+ 008b: ldstr "LaunchData is null"
+ 0090: ldc.i4 7F969800
+ 0095: conv.i8 
+ 0096: ldc.i4 7F969800
+ 009b: conv.i8 
+ 009c: ldc.i4 7F969800
+ 00a1: conv.i8 
+ 00a2: ldc.i4 7F969800
+ 00a7: conv.i8 
+ 00a8: ldc.i4 7F969800
+ 00ad: conv.i8 
+ 00ae: ldnull 
+ 00af: ldnull 
+ 00b0: ldnull 
+ 00b1: ldnull 
+ 00b2: ldnull 
+ 00b3: ldc.r8 000000E0CF126341
+ 00bc: ldc.r8 000000E0CF126341
+ 00c5: ldc.r8 000000E0CF126341
+ 00ce: ldc.r8 000000E0CF126341
+ 00d7: ldc.r8 000000E0CF126341
+ 00e0: ldstr "OnSelected"
+ 00e5: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 00ea: ldc.i4 89000000
+ 00ef: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00f4: nop 
+ 00f5: br 20020000
+ 00fa: ldnull 
+ 00fb: stloc.0 
+ 00fc: ldarg.0 
+ 00fd: ldfld FieldDefinition:04000031
+ 0102: dup 
+ 0103: brtrue.s 04
+ 0105: pop 
+ 0106: ldc.i4.0 
+ 0107: br.s 36
+ 0109: call get_additionalDataForLock
+ 010e: dup 
+ 010f: brtrue.s 0D
+ 0111: pop 
+ 0112: ldloca.s 05
+ 0114: initobj TypeSpecification:1b000005
+ 011a: ldloc.s 05
+ 011c: br.s 0A
+ 011e: call get_is_need_check_lock
+ 0123: newobj TypeSpecification:1b000005::.ctor
+ 0128: stloc.3 
+ 0129: ldc.i4.1 
+ 012a: stloc.s 04
+ 012c: ldloca.s 03
+ 012e: call TypeSpecification:1b000005::GetValueOrDefault
+ 0133: ldloc.s 04
+ 0135: ceq 
+ 0137: ldloca.s 03
+ 0139: call TypeSpecification:1b000005::get_HasValue
+ 013e: and 
+ 013f: stloc.2 
+ 0140: ldloc.2 
+ 0141: brfalse 43010000
+ 0146: nop 
+ 0147: ldarg.0 
+ 0148: ldfld FieldDefinition:04000031
+ 014d: dup 
+ 014e: brtrue.s 04
+ 0150: pop 
+ 0151: ldnull 
+ 0152: br.s 11
+ 0154: call get_content_detail
+ 0159: dup 
+ 015a: brtrue.s 04
+ 015c: pop 
+ 015d: ldnull 
+ 015e: br.s 05
+ 0160: call get_parental_rating_values
+ 0165: dup 
+ 0166: brtrue.s 1F
+ 0168: pop 
+ 0169: ldarg.0 
+ 016a: ldfld FieldDefinition:04000031
+ 016f: dup 
+ 0170: brtrue.s 04
+ 0172: pop 
+ 0173: ldnull 
+ 0174: br.s 11
+ 0176: call get_content_detail
+ 017b: dup 
+ 017c: brtrue.s 04
+ 017e: pop 
+ 017f: ldnull 
+ 0180: br.s 05
+ 0182: call get_parental_rating
+ 0187: stloc.s 06
+ 0189: call TypeSpecification:1b00000a::GetInstance
+ 018e: ldloc.s 06
+ 0190: callvirt Tizen.TV.Service.CoBA.Common.RatingLockInfo::IsContentRatingLocked
+ 0195: brtrue.s 45
+ 0197: ldarg.0 
+ 0198: ldfld FieldDefinition:04000031
+ 019d: dup 
+ 019e: brtrue.s 04
+ 01a0: pop 
+ 01a1: ldc.i4.0 
+ 01a2: br.s 36
+ 01a4: call get_extension
+ 01a9: dup 
+ 01aa: brtrue.s 0D
+ 01ac: pop 
+ 01ad: ldloca.s 05
+ 01af: initobj TypeSpecification:1b000005
+ 01b5: ldloc.s 05
+ 01b7: br.s 0A
+ 01b9: call get_is_lock
+ 01be: newobj TypeSpecification:1b000005::.ctor
+ 01c3: stloc.3 
+ 01c4: ldc.i4.1 
+ 01c5: stloc.s 04
+ 01c7: ldloca.s 03
+ 01c9: call TypeSpecification:1b000005::GetValueOrDefault
+ 01ce: ldloc.s 04
+ 01d0: ceq 
+ 01d2: ldloca.s 03
+ 01d4: call TypeSpecification:1b000005::get_HasValue
+ 01d9: and 
+ 01da: br.s 01
+ 01dc: ldc.i4.1 
+ 01dd: stloc.s 07
+ 01df: ldloc.s 07
+ 01e1: stloc.s 08
+ 01e3: ldloc.s 08
+ 01e5: brfalse.s 66
+ 01e7: nop 
+ 01e8: ldarg.0 
+ 01e9: ldfld FieldDefinition:04000032
+ 01ee: newobj Tizen.TV.Service.CoBA.Core.WebAppTileLaunchData::.ctor
+ 01f3: stloc.s 09
+ 01f5: ldloc.s 09
+ 01f7: ldarg.0 
+ 01f8: ldfld FieldDefinition:04000031
+ 01fd: dup 
+ 01fe: brtrue.s 04
+ 0200: pop 
+ 0201: ldnull 
+ 0202: br.s 11
+ 0204: call get_additionalDataForLock
+ 0209: dup 
+ 020a: brtrue.s 04
+ 020c: pop 
+ 020d: ldnull 
+ 020e: br.s 05
+ 0210: call get_lock_action_play_url
+ 0215: callvirt Tizen.TV.Service.CoBA.Core.WebAppTileLaunchData::set_action_play_url
+ 021a: nop 
+ 021b: ldloc.s 09
+ 021d: ldarg.0 
+ 021e: ldfld FieldDefinition:04000031
+ 0223: dup 
+ 0224: brtrue.s 04
+ 0226: pop 
+ 0227: ldnull 
+ 0228: br.s 11
+ 022a: call get_additionalDataForLock
+ 022f: dup 
+ 0230: brtrue.s 04
+ 0232: pop 
+ 0233: ldnull 
+ 0234: br.s 05
+ 0236: call get_lock_extra_app_id
+ 023b: callvirt Tizen.TV.Service.CoBA.Core.WebAppTileLaunchData::set_extra_app_id
+ 0240: nop 
+ 0241: ldloc.s 09
+ 0243: ldarg.0 
+ 0244: newobj Tizen.TV.Service.CoBA.Core.WebAppTileLauncher::.ctor
+ 0249: stloc.0 
+ 024a: nop 
+ 024b: br.s 39
+ 024d: nop 
+ 024e: ldarg.0 
+ 024f: ldfld FieldDefinition:04000032
+ 0254: ldarg.0 
+ 0255: ldfld FieldDefinition:04000031
+ 025a: dup 
+ 025b: brtrue.s 04
+ 025d: pop 
+ 025e: ldnull 
+ 025f: br.s 11
+ 0261: call get_additionalDataForLock
+ 0266: dup 
+ 0267: brtrue.s 04
+ 0269: pop 
+ 026a: ldnull 
+ 026b: br.s 05
+ 026d: call get_unlock_action_play_url
+ 0272: callvirt Tizen.TV.Service.CoBA.Core.WebAppTileLaunchData::set_action_play_url
+ 0277: nop 
+ 0278: ldarg.0 
+ 0279: ldfld FieldDefinition:04000032
+ 027e: ldarg.0 
+ 027f: newobj Tizen.TV.Service.CoBA.Core.WebAppTileLauncher::.ctor
+ 0284: stloc.0 
+ 0285: nop 
+ 0286: nop 
+ 0287: br.s 0F
+ 0289: nop 
+ 028a: ldarg.0 
+ 028b: ldfld FieldDefinition:04000032
+ 0290: ldarg.0 
+ 0291: newobj Tizen.TV.Service.CoBA.Core.WebAppTileLauncher::.ctor
+ 0296: stloc.0 
+ 0297: nop 
+ 0298: ldloc.0 
+ 0299: brtrue.s 03
+ 029b: ldc.i4.0 
+ 029c: br.s 09
+ 029e: ldloc.0 
+ 029f: call Tizen.TV.Service.CoBA.Core.WebAppTileLauncher::Launch
+ 02a4: ldc.i4.0 
+ 02a5: ceq 
+ 02a7: stloc.s 0A
+ 02a9: ldloc.s 0A
+ 02ab: brfalse.s 6D
+ 02ad: nop 
+ 02ae: ldstr "Launch Failed!!!"
+ 02b3: ldc.i4 7F969800
+ 02b8: conv.i8 
+ 02b9: ldc.i4 7F969800
+ 02be: conv.i8 
+ 02bf: ldc.i4 7F969800
+ 02c4: conv.i8 
+ 02c5: ldc.i4 7F969800
+ 02ca: conv.i8 
+ 02cb: ldc.i4 7F969800
+ 02d0: conv.i8 
+ 02d1: ldnull 
+ 02d2: ldnull 
+ 02d3: ldnull 
+ 02d4: ldnull 
+ 02d5: ldnull 
+ 02d6: ldc.r8 000000E0CF126341
+ 02df: ldc.r8 000000E0CF126341
+ 02e8: ldc.r8 000000E0CF126341
+ 02f1: ldc.r8 000000E0CF126341
+ 02fa: ldc.r8 000000E0CF126341
+ 0303: ldstr "OnSelected"
+ 0308: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 030d: ldc.i4 A6000000
+ 0312: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0317: nop 
+ 0318: br.s 00
+ 031a: ret 
+METHOD 06000081 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::WantToMaintainLastFocus
+ 0000: nop 
+ 0001: call TypeSpecification:1b00000b::GetInstance
+ 0006: ldstr "need_return"
+ 000b: callvirt Tizen.TV.Service.CoBA.Core.Vdb::DataCustomKey
+ 0010: stloc.0 
+ 0011: ldloc.0 
+ 0012: ldnull 
+ 0013: cgt.un 
+ 0015: stloc.1 
+ 0016: ldloc.1 
+ 0017: brfalse 87000000
+ 001c: nop 
+ 001d: ldstr "needReturn: %s1"
+ 0022: ldc.i4 7F969800
+ 0027: conv.i8 
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldloc.0 
+ 0041: unbox.any System.Boolean
+ 0046: brtrue.s 07
+ 0048: ldstr "F"
+ 004d: br.s 05
+ 004f: ldstr "T"
+ 0054: ldnull 
+ 0055: ldnull 
+ 0056: ldnull 
+ 0057: ldnull 
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldc.r8 000000E0CF126341
+ 006a: ldc.r8 000000E0CF126341
+ 0073: ldc.r8 000000E0CF126341
+ 007c: ldc.r8 000000E0CF126341
+ 0085: ldstr "WantToMaintainLastFocus"
+ 008a: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 008f: ldc.i4 B1000000
+ 0094: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0099: nop 
+ 009a: ldloc.0 
+ 009b: unbox.any System.Boolean
+ 00a0: stloc.2 
+ 00a1: br.s 04
+ 00a3: ldc.i4.0 
+ 00a4: stloc.2 
+ 00a5: br.s 00
+ 00a7: ldloc.2 
+ 00a8: ret 
+METHOD 06000082 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::UpdateTileData
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.0 
+ 0003: ldarg.1 
+ 0004: call ParseData
+ 0009: stfld FieldDefinition:04000031
+ 000e: ldarg.0 
+ 000f: ldarg.0 
+ 0010: ldarg.1 
+ 0011: call LaunchData
+ 0016: stfld FieldDefinition:04000032
+ 001b: ret 
+METHOD 06000083 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::ContentType
+ 0000: nop 
+ 0001: ldstr "ug_content"
+ 0006: stloc.0 
+ 0007: br.s 00
+ 0009: ldloc.0 
+ 000a: ret 
+METHOD 06000084 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::ContentInfo
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000031
+ 0007: dup 
+ 0008: brtrue.s 04
+ 000a: pop 
+ 000b: ldnull 
+ 000c: br.s 05
+ 000e: call get_title
+ 0013: stloc.0 
+ 0014: br.s 00
+ 0016: ldloc.0 
+ 0017: ret 
+METHOD 06000085 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::ParseData
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldnull 
+ 0003: cgt.un 
+ 0005: stloc.0 
+ 0006: ldloc.0 
+ 0007: brfalse 96000000
+ 000c: nop 
+ 000d: nop 
+ 000e: ldarg.1 
+ 000f: ldnull 
+ 0010: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 0015: stloc.1 
+ 0016: leave 8B000000
+ 001b: stloc.2 
+ 001c: nop 
+ 001d: ldstr " Json could not be deserialized: %s1"
+ 0022: ldc.i4 7F969800
+ 0027: conv.i8 
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldarg.1 
+ 0041: ldnull 
+ 0042: ldnull 
+ 0043: ldnull 
+ 0044: ldnull 
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldc.r8 000000E0CF126341
+ 0072: ldstr "ParseData"
+ 0077: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 007c: ldc.i4 D2000000
+ 0081: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0086: nop 
+ 0087: ldloc.2 
+ 0088: ldstr "ParseData"
+ 008d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 0092: ldc.i4 D3000000
+ 0097: ldnull 
+ 0098: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 009d: nop 
+ 009e: nop 
+ 009f: leave.s 00
+ 00a1: nop 
+ 00a2: ldnull 
+ 00a3: stloc.1 
+ 00a4: br.s 00
+ 00a6: ldloc.1 
+ 00a7: ret 
+METHOD 06000086 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::LaunchData
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldnull 
+ 0003: cgt.un 
+ 0005: stloc.0 
+ 0006: ldloc.0 
+ 0007: brfalse 96000000
+ 000c: nop 
+ 000d: nop 
+ 000e: ldarg.1 
+ 000f: ldnull 
+ 0010: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 0015: stloc.1 
+ 0016: leave 8B000000
+ 001b: stloc.2 
+ 001c: nop 
+ 001d: ldstr " Json could not be deserialized: %s1"
+ 0022: ldc.i4 7F969800
+ 0027: conv.i8 
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldarg.1 
+ 0041: ldnull 
+ 0042: ldnull 
+ 0043: ldnull 
+ 0044: ldnull 
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldc.r8 000000E0CF126341
+ 0072: ldstr "LaunchData"
+ 0077: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 007c: ldc.i4 E3000000
+ 0081: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0086: nop 
+ 0087: ldloc.2 
+ 0088: ldstr "LaunchData"
+ 008d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 0092: ldc.i4 E4000000
+ 0097: ldnull 
+ 0098: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 009d: nop 
+ 009e: nop 
+ 009f: leave.s 00
+ 00a1: nop 
+ 00a2: ldnull 
+ 00a3: stloc.1 
+ 00a4: br.s 00
+ 00a6: ldloc.1 
+ 00a7: ret 
+METHOD 06000087 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile::.cctor
+ 0000: ldstr "d/dhcategory.layer.tile"
+ 0005: stsfld FieldDefinition:04000030
+ 000a: ret 
+METHOD 06000088 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTileElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldnull 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ret 
+METHOD 06000089 Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTileElement::Update
+ 0000: nop 
+ 0001: nop 
+ 0002: ldnull 
+ 0003: stloc.0 
+ 0004: ldc.i4.5 
+ 0005: stloc.1 
+ 0006: br 61010000
+ 000b: nop 
+ 000c: call Tizen.TV.Service.CoBA.Core.PreviewManager::GetInstance
+ 0011: ldarg.0 
+ 0012: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0017: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 001c: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Data
+ 0021: stloc.0 
+ 0022: ldloc.0 
+ 0023: call System.String::IsNullOrEmpty
+ 0028: brtrue.s 10
+ 002a: ldloc.0 
+ 002b: ldstr "{"
+ 0030: callvirt System.String::StartsWith
+ 0035: ldc.i4.0 
+ 0036: ceq 
+ 0038: br.s 01
+ 003a: ldc.i4.1 
+ 003b: stloc.s 05
+ 003d: ldloc.s 05
+ 003f: brfalse 20010000
+ 0044: nop 
+ 0045: ldloc.0 
+ 0046: brtrue.s 03
+ 0048: ldc.i4.0 
+ 0049: br.s 0E
+ 004b: ldloc.0 
+ 004c: ldstr "{"
+ 0051: call System.String::StartsWith
+ 0056: ldc.i4.0 
+ 0057: ceq 
+ 0059: stloc.s 06
+ 005b: ldloc.s 06
+ 005d: brfalse.s 76
+ 005f: nop 
+ 0060: ldstr "data is not json: %s1"
+ 0065: ldc.i4 7F969800
+ 006a: conv.i8 
+ 006b: ldc.i4 7F969800
+ 0070: conv.i8 
+ 0071: ldc.i4 7F969800
+ 0076: conv.i8 
+ 0077: ldc.i4 7F969800
+ 007c: conv.i8 
+ 007d: ldc.i4 7F969800
+ 0082: conv.i8 
+ 0083: ldarg.0 
+ 0084: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0089: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 008e: ldnull 
+ 008f: ldnull 
+ 0090: ldnull 
+ 0091: ldnull 
+ 0092: ldc.r8 000000E0CF126341
+ 009b: ldc.r8 000000E0CF126341
+ 00a4: ldc.r8 000000E0CF126341
+ 00ad: ldc.r8 000000E0CF126341
+ 00b6: ldc.r8 000000E0CF126341
+ 00bf: ldstr "Update"
+ 00c4: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 00c9: ldc.i4 FD000000
+ 00ce: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00d3: nop 
+ 00d4: nop 
+ 00d5: ldloc.1 
+ 00d6: ldc.i4.1 
+ 00d7: ceq 
+ 00d9: stloc.s 07
+ 00db: ldloc.s 07
+ 00dd: brfalse.s 7A
+ 00df: nop 
+ 00e0: ldstr "PreviewManager Data for %s1 is null"
+ 00e5: ldc.i4 7F969800
+ 00ea: conv.i8 
+ 00eb: ldc.i4 7F969800
+ 00f0: conv.i8 
+ 00f1: ldc.i4 7F969800
+ 00f6: conv.i8 
+ 00f7: ldc.i4 7F969800
+ 00fc: conv.i8 
+ 00fd: ldc.i4 7F969800
+ 0102: conv.i8 
+ 0103: ldarg.0 
+ 0104: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 0109: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 010e: ldnull 
+ 010f: ldnull 
+ 0110: ldnull 
+ 0111: ldnull 
+ 0112: ldc.r8 000000E0CF126341
+ 011b: ldc.r8 000000E0CF126341
+ 0124: ldc.r8 000000E0CF126341
+ 012d: ldc.r8 000000E0CF126341
+ 0136: ldc.r8 000000E0CF126341
+ 013f: ldstr "Update"
+ 0144: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 0149: ldc.i4 02010000
+ 014e: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0153: nop 
+ 0154: leave 48040000
+ 0159: ldc.i4.s 0A
+ 015b: call System.Threading.Thread::Sleep
+ 0160: nop 
+ 0161: nop 
+ 0162: br.s 03
+ 0164: nop 
+ 0165: br.s 12
+ 0167: ldloc.1 
+ 0168: ldc.i4.1 
+ 0169: sub 
+ 016a: stloc.1 
+ 016b: nop 
+ 016c: ldloc.1 
+ 016d: ldc.i4.0 
+ 016e: cgt 
+ 0170: stloc.s 08
+ 0172: ldloc.s 08
+ 0174: brtrue 92FEFFFF
+ 0179: ldarg.0 
+ 017a: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 017f: isinst Tizen.Tv.App.CoBA.Components.Home.CompDHCategoryTile
+ 0184: stloc.2 
+ 0185: ldloc.2 
+ 0186: ldnull 
+ 0187: ceq 
+ 0189: stloc.s 09
+ 018b: ldloc.s 09
+ 018d: brfalse.s 7A
+ 018f: nop 
+ 0190: ldstr "CompDHCategoryTile %s1 is null"
+ 0195: ldc.i4 7F969800
+ 019a: conv.i8 
+ 019b: ldc.i4 7F969800
+ 01a0: conv.i8 
+ 01a1: ldc.i4 7F969800
+ 01a6: conv.i8 
+ 01a7: ldc.i4 7F969800
+ 01ac: conv.i8 
+ 01ad: ldc.i4 7F969800
+ 01b2: conv.i8 
+ 01b3: ldarg.0 
+ 01b4: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 01b9: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 01be: ldnull 
+ 01bf: ldnull 
+ 01c0: ldnull 
+ 01c1: ldnull 
+ 01c2: ldc.r8 000000E0CF126341
+ 01cb: ldc.r8 000000E0CF126341
+ 01d4: ldc.r8 000000E0CF126341
+ 01dd: ldc.r8 000000E0CF126341
+ 01e6: ldc.r8 000000E0CF126341
+ 01ef: ldstr "Update"
+ 01f4: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 01f9: ldc.i4 12010000
+ 01fe: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0203: nop 
+ 0204: leave 98030000
+ 0209: ldloc.2 
+ 020a: ldloc.0 
+ 020b: callvirt UpdateTileData
+ 0210: nop 
+ 0211: ldloc.0 
+ 0212: ldloca.s 0A
+ 0214: initobj TypeSpecification:1b000009
+ 021a: ldloc.s 0A
+ 021c: ldloca.s 0B
+ 021e: initobj System.Text.Json.JsonDocumentOptions
+ 0224: ldloc.s 0B
+ 0226: call System.Text.Json.Nodes.JsonNode::Parse
+ 022b: stloc.3 
+ 022c: ldloc.2 
+ 022d: ldfld FieldDefinition:04000031
+ 0232: dup 
+ 0233: brtrue.s 04
+ 0235: pop 
+ 0236: ldc.i4.0 
+ 0237: br.s 37
+ 0239: call get_extension
+ 023e: dup 
+ 023f: brtrue.s 0D
+ 0241: pop 
+ 0242: ldloca.s 0F
+ 0244: initobj TypeSpecification:1b000005
+ 024a: ldloc.s 0F
+ 024c: br.s 0A
+ 024e: call get_is_lock
+ 0253: newobj TypeSpecification:1b000005::.ctor
+ 0258: stloc.s 0D
+ 025a: ldc.i4.1 
+ 025b: stloc.s 0E
+ 025d: ldloca.s 0D
+ 025f: call TypeSpecification:1b000005::GetValueOrDefault
+ 0264: ldloc.s 0E
+ 0266: ceq 
+ 0268: ldloca.s 0D
+ 026a: call TypeSpecification:1b000005::get_HasValue
+ 026f: and 
+ 0270: stloc.s 0C
+ 0272: ldloc.s 0C
+ 0274: brfalse.s 76
+ 0276: nop 
+ 0277: ldstr "[UG Set] extension.is_lock is true (%s1)"
+ 027c: ldc.i4 7F969800
+ 0281: conv.i8 
+ 0282: ldc.i4 7F969800
+ 0287: conv.i8 
+ 0288: ldc.i4 7F969800
+ 028d: conv.i8 
+ 028e: ldc.i4 7F969800
+ 0293: conv.i8 
+ 0294: ldc.i4 7F969800
+ 0299: conv.i8 
+ 029a: ldarg.0 
+ 029b: call Tizen.TV.Service.CoBA.BPI.Element::get_Parent
+ 02a0: callvirt Tizen.TV.Service.CoBA.BPI.Entity::get_InstanceID
+ 02a5: ldnull 
+ 02a6: ldnull 
+ 02a7: ldnull 
+ 02a8: ldnull 
+ 02a9: ldc.r8 000000E0CF126341
+ 02b2: ldc.r8 000000E0CF126341
+ 02bb: ldc.r8 000000E0CF126341
+ 02c4: ldc.r8 000000E0CF126341
+ 02cd: ldc.r8 000000E0CF126341
+ 02d6: ldstr "Update"
+ 02db: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 02e0: ldc.i4 1B010000
+ 02e5: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 02ea: nop 
+ 02eb: nop 
+ 02ec: ldloc.2 
+ 02ed: ldfld FieldDefinition:04000031
+ 02f2: dup 
+ 02f3: brtrue.s 04
+ 02f5: pop 
+ 02f6: ldnull 
+ 02f7: br.s 11
+ 02f9: call get_content_detail
+ 02fe: dup 
+ 02ff: brtrue.s 04
+ 0301: pop 
+ 0302: ldnull 
+ 0303: br.s 05
+ 0305: call get_parental_rating_values
+ 030a: dup 
+ 030b: brtrue.s 1F
+ 030d: pop 
+ 030e: ldloc.2 
+ 030f: ldfld FieldDefinition:04000031
+ 0314: dup 
+ 0315: brtrue.s 04
+ 0317: pop 
+ 0318: ldnull 
+ 0319: br.s 11
+ 031b: call get_content_detail
+ 0320: dup 
+ 0321: brtrue.s 04
+ 0323: pop 
+ 0324: ldnull 
+ 0325: br.s 05
+ 0327: call get_parental_rating
+ 032c: stloc.s 04
+ 032e: ldloc.2 
+ 032f: ldfld FieldDefinition:04000031
+ 0334: dup 
+ 0335: brtrue.s 04
+ 0337: pop 
+ 0338: ldc.i4.0 
+ 0339: br.s 37
+ 033b: call get_extension
+ 0340: dup 
+ 0341: brtrue.s 0D
+ 0343: pop 
+ 0344: ldloca.s 0F
+ 0346: initobj TypeSpecification:1b000005
+ 034c: ldloc.s 0F
+ 034e: br.s 0A
+ 0350: call get_is_lock
+ 0355: newobj TypeSpecification:1b000005::.ctor
+ 035a: stloc.s 0D
+ 035c: ldc.i4.1 
+ 035d: stloc.s 0E
+ 035f: ldloca.s 0D
+ 0361: call TypeSpecification:1b000005::GetValueOrDefault
+ 0366: ldloc.s 0E
+ 0368: ceq 
+ 036a: ldloca.s 0D
+ 036c: call TypeSpecification:1b000005::get_HasValue
+ 0371: and 
+ 0372: brtrue.s 57
+ 0374: ldloc.2 
+ 0375: ldfld FieldDefinition:04000031
+ 037a: dup 
+ 037b: brtrue.s 04
+ 037d: pop 
+ 037e: ldc.i4.0 
+ 037f: br.s 37
+ 0381: call get_additionalDataForLock
+ 0386: dup 
+ 0387: brtrue.s 0D
+ 0389: pop 
+ 038a: ldloca.s 0F
+ 038c: initobj TypeSpecification:1b000005
+ 0392: ldloc.s 0F
+ 0394: br.s 0A
+ 0396: call get_is_need_check_lock
+ 039b: newobj TypeSpecification:1b000005::.ctor
+ 03a0: stloc.s 0D
+ 03a2: ldc.i4.1 
+ 03a3: stloc.s 0E
+ 03a5: ldloca.s 0D
+ 03a7: call TypeSpecification:1b000005::GetValueOrDefault
+ 03ac: ldloc.s 0E
+ 03ae: ceq 
+ 03b0: ldloca.s 0D
+ 03b2: call TypeSpecification:1b000005::get_HasValue
+ 03b7: and 
+ 03b8: brfalse.s 0E
+ 03ba: call TypeSpecification:1b00000a::GetInstance
+ 03bf: ldloc.s 04
+ 03c1: callvirt Tizen.TV.Service.CoBA.Common.RatingLockInfo::IsContentRatingLocked
+ 03c6: br.s 01
+ 03c8: ldc.i4.0 
+ 03c9: br.s 01
+ 03cb: ldc.i4.1 
+ 03cc: stloc.s 10
+ 03ce: ldloc.s 10
+ 03d0: brfalse 4E010000
+ 03d5: nop 
+ 03d6: ldloc.3 
+ 03d7: ldstr "focused_icon"
+ 03dc: ldloc.2 
+ 03dd: ldfld FieldDefinition:04000031
+ 03e2: dup 
+ 03e3: brtrue.s 04
+ 03e5: pop 
+ 03e6: ldnull 
+ 03e7: br.s 11
+ 03e9: call get_additionalDataForLock
+ 03ee: dup 
+ 03ef: brtrue.s 04
+ 03f1: pop 
+ 03f2: ldnull 
+ 03f3: br.s 05
+ 03f5: call get_lock_focused_icon
+ 03fa: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 03ff: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 0404: nop 
+ 0405: ldloc.3 
+ 0406: ldstr "type"
+ 040b: callvirt System.Text.Json.Nodes.JsonNode::get_Item
+ 0410: dup 
+ 0411: brtrue.s 04
+ 0413: pop 
+ 0414: ldnull 
+ 0415: br.s 05
+ 0417: callvirt System.Object::ToString
+ 041c: ldstr "RankingView"
+ 0421: call System.String::op_Inequality
+ 0426: stloc.s 11
+ 0428: ldloc.s 11
+ 042a: brfalse.s 18
+ 042c: nop 
+ 042d: ldloc.3 
+ 042e: ldstr "type"
+ 0433: ldstr "ImageTitlePreview"
+ 0438: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 043d: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 0442: nop 
+ 0443: nop 
+ 0444: ldloc.3 
+ 0445: ldstr "extension"
+ 044a: callvirt System.Text.Json.Nodes.JsonNode::get_Item
+ 044f: ldstr "svg_width"
+ 0454: ldloc.2 
+ 0455: ldfld FieldDefinition:04000031
+ 045a: dup 
+ 045b: brtrue.s 0D
+ 045d: pop 
+ 045e: ldloca.s 12
+ 0460: initobj TypeSpecification:1b000006
+ 0466: ldloc.s 12
+ 0468: br.s 1F
+ 046a: call get_additionalDataForLock
+ 046f: dup 
+ 0470: brtrue.s 0D
+ 0472: pop 
+ 0473: ldloca.s 12
+ 0475: initobj TypeSpecification:1b000006
+ 047b: ldloc.s 12
+ 047d: br.s 0A
+ 047f: call get_lock_svg_width
+ 0484: newobj TypeSpecification:1b000006::.ctor
+ 0489: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 048e: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 0493: nop 
+ 0494: ldloc.3 
+ 0495: ldstr "extension"
+ 049a: callvirt System.Text.Json.Nodes.JsonNode::get_Item
+ 049f: ldstr "svg_height"
+ 04a4: ldloc.2 
+ 04a5: ldfld FieldDefinition:04000031
+ 04aa: dup 
+ 04ab: brtrue.s 0D
+ 04ad: pop 
+ 04ae: ldloca.s 12
+ 04b0: initobj TypeSpecification:1b000006
+ 04b6: ldloc.s 12
+ 04b8: br.s 1F
+ 04ba: call get_additionalDataForLock
+ 04bf: dup 
+ 04c0: brtrue.s 0D
+ 04c2: pop 
+ 04c3: ldloca.s 12
+ 04c5: initobj TypeSpecification:1b000006
+ 04cb: ldloc.s 12
+ 04cd: br.s 0A
+ 04cf: call get_lock_svg_height
+ 04d4: newobj TypeSpecification:1b000006::.ctor
+ 04d9: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 04de: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 04e3: nop 
+ 04e4: ldloc.3 
+ 04e5: ldstr "extension"
+ 04ea: callvirt System.Text.Json.Nodes.JsonNode::get_Item
+ 04ef: ldstr "title_display_mode"
+ 04f4: ldstr "UnfocusedOnly"
+ 04f9: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 04fe: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 0503: nop 
+ 0504: ldloc.3 
+ 0505: ldstr "extension"
+ 050a: callvirt System.Text.Json.Nodes.JsonNode::get_Item
+ 050f: ldstr "is_lock"
+ 0514: ldc.i4.1 
+ 0515: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 051a: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 051f: nop 
+ 0520: nop 
+ 0521: br.s 1E
+ 0523: nop 
+ 0524: ldloc.3 
+ 0525: ldstr "extension"
+ 052a: callvirt System.Text.Json.Nodes.JsonNode::get_Item
+ 052f: ldstr "is_lock"
+ 0534: ldc.i4.0 
+ 0535: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 053a: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 053f: nop 
+ 0540: nop 
+ 0541: ldloc.3 
+ 0542: ldstr "select_loading_time"
+ 0547: ldloc.2 
+ 0548: ldfld FieldDefinition:04000031
+ 054d: dup 
+ 054e: brtrue.s 0D
+ 0550: pop 
+ 0551: ldloca.s 12
+ 0553: initobj TypeSpecification:1b000006
+ 0559: ldloc.s 12
+ 055b: br.s 0A
+ 055d: call get_select_loading_time
+ 0562: newobj TypeSpecification:1b000006::.ctor
+ 0567: call System.Text.Json.Nodes.JsonNode::op_Implicit
+ 056c: callvirt System.Text.Json.Nodes.JsonNode::set_Item
+ 0571: nop 
+ 0572: ldarg.0 
+ 0573: ldloc.3 
+ 0574: ldnull 
+ 0575: callvirt System.Text.Json.Nodes.JsonNode::ToJsonString
+ 057a: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 057f: nop 
+ 0580: nop 
+ 0581: leave.s 1E
+ 0583: stloc.s 13
+ 0585: nop 
+ 0586: ldloc.s 13
+ 0588: ldstr "Update"
+ 058d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/CompDHCategoryTile.cs"
+ 0592: ldc.i4 36010000
+ 0597: ldnull 
+ 0598: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 059d: nop 
+ 059e: nop 
+ 059f: leave.s 00
+ 05a1: ret 
+METHOD 0600008a Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::get_age
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000034
+ 0006: ret 
+METHOD 0600008b Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::set_age
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000034
+ 0007: ret 
+METHOD 0600008c Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::get_title
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000035
+ 0006: ret 
+METHOD 0600008d Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::set_title
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000035
+ 0007: ret 
+METHOD 0600008e Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::get_focused_icon
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000036
+ 0006: ret 
+METHOD 0600008f Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::set_focused_icon
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000036
+ 0007: ret 
+METHOD 06000090 Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::get_extension
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000037
+ 0006: ret 
+METHOD 06000091 Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::set_extension
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000037
+ 0007: ret 
+METHOD 06000092 Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::Deserializer
+ 0000: nop 
+ 0001: call System.Activator::CreateInstance
+ 0006: stloc.0 
+ 0007: ldstr "Deserializer"
+ 000c: ldstr "Deserializer"
+ 0011: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/DHPreviewData.cs"
+ 0016: ldc.i4.s 1C
+ 0018: newobj Tizen.TV.Service.CoBA.Common.CheckTime::.ctor
+ 001d: stloc.1 
+ 001e: nop 
+ 001f: nop 
+ 0020: newobj System.Text.Json.JsonSerializerOptions::.ctor
+ 0025: dup 
+ 0026: callvirt System.Text.Json.JsonSerializerOptions::get_Converters
+ 002b: newobj .BoolToStringConverter::.ctor
+ 0030: callvirt TypeSpecification:1b00000c::Add
+ 0035: nop 
+ 0036: stloc.2 
+ 0037: ldarg.0 
+ 0038: ldloc.2 
+ 0039: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 003e: stloc.0 
+ 003f: nop 
+ 0040: leave.s 70
+ 0042: stloc.3 
+ 0043: nop 
+ 0044: ldstr "Exception: %s1"
+ 0049: ldc.i4 7F969800
+ 004e: conv.i8 
+ 004f: ldc.i4 7F969800
+ 0054: conv.i8 
+ 0055: ldc.i4 7F969800
+ 005a: conv.i8 
+ 005b: ldc.i4 7F969800
+ 0060: conv.i8 
+ 0061: ldc.i4 7F969800
+ 0066: conv.i8 
+ 0067: ldloc.3 
+ 0068: callvirt System.Exception::get_Message
+ 006d: ldnull 
+ 006e: ldnull 
+ 006f: ldnull 
+ 0070: ldnull 
+ 0071: ldc.r8 000000E0CF126341
+ 007a: ldc.r8 000000E0CF126341
+ 0083: ldc.r8 000000E0CF126341
+ 008c: ldc.r8 000000E0CF126341
+ 0095: ldc.r8 000000E0CF126341
+ 009e: ldstr "Deserializer"
+ 00a3: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.coba.newhome-3.5.26220/CompDHCategory/CompDHCategory/DHPreviewData.cs"
+ 00a8: ldc.i4.s 25
+ 00aa: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00af: nop 
+ 00b0: ldloc.3 
+ 00b1: throw 
+ 00b2: ldloc.0 
+ 00b3: stloc.s 04
+ 00b5: leave.s 0B
+ 00b7: ldloc.1 
+ 00b8: brfalse.s 07
+ 00ba: ldloc.1 
+ 00bb: callvirt System.IDisposable::Dispose
+ 00c0: nop 
+ 00c1: endfinally 
+ 00c2: ldloc.s 04
+ 00c4: ret 
+METHOD 06000093 Tizen.Tv.App.CoBA.Components.Home.DHPreviewData::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000034
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:04000035
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:04000036
+ 0015: ldarg.0 
+ 0016: newobj .ctor
+ 001b: stfld FieldDefinition:04000037
+ 0020: ldarg.0 
+ 0021: call System.Object::.ctor
+ 0026: nop 
+ 0027: ret 
+METHOD 06000094 .DHCategoryElementData::get_type
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000039
+ 0006: ret 
+METHOD 06000095 .DHCategoryElementData::set_type
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000039
+ 0007: ret 
+METHOD 06000096 .DHCategoryElementData::get_title
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400003a
+ 0006: ret 
+METHOD 06000097 .DHCategoryElementData::set_title
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400003a
+ 0007: ret 
+METHOD 06000098 .DHCategoryElementData::get_bg_color
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400003b
+ 0006: ret 
+METHOD 06000099 .DHCategoryElementData::set_bg_color
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400003b
+ 0007: ret 
+METHOD 0600009a .DHCategoryElementData::get_focused_bg_icon
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400003c
+ 0006: ret 
+METHOD 0600009b .DHCategoryElementData::set_focused_bg_icon
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400003c
+ 0007: ret 
+METHOD 0600009c .DHCategoryElementData::get_unfocused_bg_icon
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400003d
+ 0006: ret 
+METHOD 0600009d .DHCategoryElementData::set_unfocused_bg_icon
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400003d
+ 0007: ret 
+METHOD 0600009e .DHCategoryElementData::get_priority
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400003e
+ 0006: ret 
+METHOD 0600009f .DHCategoryElementData::set_priority
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400003e
+ 0007: ret 
+METHOD 060000a0 .DHCategoryElementData::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000039
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:0400003a
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:0400003b
+ 0015: ldarg.0 
+ 0016: ldnull 
+ 0017: stfld FieldDefinition:0400003c
+ 001c: ldarg.0 
+ 001d: ldnull 
+ 001e: stfld FieldDefinition:0400003d
+ 0023: ldarg.0 
+ 0024: ldc.i4.0 
+ 0025: stfld FieldDefinition:0400003e
+ 002a: ldarg.0 
+ 002b: call System.Object::.ctor
+ 0030: nop 
+ 0031: ret 
+METHOD 060000a1 .<>c__DisplayClass14_0::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 060000a2 .<>c__DisplayClass14_0::<OnTimer>b__0
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldfld FieldDefinition:04000044
+ 0007: dup 
+ 0008: brtrue.s 03
+ 000a: pop 
+ 000b: br.s 06
+ 000d: call Tizen.TV.Service.CoBA.Core.Component::UpdateAll
+ 0012: nop 
+ 0013: ret 
+METHOD 060000a3 .ContentDetail::get_parental_rating
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000045
+ 0006: ret 
+METHOD 060000a4 .ContentDetail::set_parental_rating
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000045
+ 0007: ret 
+METHOD 060000a5 .ContentDetail::get_parental_rating_values
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000046
+ 0006: ret 
+METHOD 060000a6 .ContentDetail::set_parental_rating_values
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000046
+ 0007: ret 
+METHOD 060000a7 .ContentDetail::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000045
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:04000046
+ 000e: ldarg.0 
+ 000f: call System.Object::.ctor
+ 0014: nop 
+ 0015: ret 
+METHOD 060000a8 .LockData::get_is_need_check_lock
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000047
+ 0006: ret 
+METHOD 060000a9 .LockData::set_is_need_check_lock
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000047
+ 0007: ret 
+METHOD 060000aa .LockData::get_default_type
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000048
+ 0006: ret 
+METHOD 060000ab .LockData::set_default_type
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000048
+ 0007: ret 
+METHOD 060000ac .LockData::get_lock_action_play_url
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000049
+ 0006: ret 
+METHOD 060000ad .LockData::set_lock_action_play_url
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000049
+ 0007: ret 
+METHOD 060000ae .LockData::get_unlock_action_play_url
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400004a
+ 0006: ret 
+METHOD 060000af .LockData::set_unlock_action_play_url
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400004a
+ 0007: ret 
+METHOD 060000b0 .LockData::get_lock_extra_app_id
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400004b
+ 0006: ret 
+METHOD 060000b1 .LockData::set_lock_extra_app_id
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400004b
+ 0007: ret 
+METHOD 060000b2 .LockData::get_lock_focused_icon
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400004c
+ 0006: ret 
+METHOD 060000b3 .LockData::set_lock_focused_icon
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400004c
+ 0007: ret 
+METHOD 060000b4 .LockData::get_lock_svg_width
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400004d
+ 0006: ret 
+METHOD 060000b5 .LockData::set_lock_svg_width
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400004d
+ 0007: ret 
+METHOD 060000b6 .LockData::get_lock_svg_height
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400004e
+ 0006: ret 
+METHOD 060000b7 .LockData::set_lock_svg_height
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400004e
+ 0007: ret 
+METHOD 060000b8 .LockData::.ctor
+ 0000: ldarg.0 
+ 0001: ldc.i4.1 
+ 0002: stfld FieldDefinition:04000047
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:04000048
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:04000049
+ 0015: ldarg.0 
+ 0016: ldnull 
+ 0017: stfld FieldDefinition:0400004a
+ 001c: ldarg.0 
+ 001d: ldnull 
+ 001e: stfld FieldDefinition:0400004b
+ 0023: ldarg.0 
+ 0024: ldnull 
+ 0025: stfld FieldDefinition:0400004c
+ 002a: ldarg.0 
+ 002b: ldc.i4.0 
+ 002c: stfld FieldDefinition:0400004d
+ 0031: ldarg.0 
+ 0032: ldc.i4.0 
+ 0033: stfld FieldDefinition:0400004e
+ 0038: ldarg.0 
+ 0039: call System.Object::.ctor
+ 003e: nop 
+ 003f: ret 
+METHOD 060000b9 .Extension::get_is_lock
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400004f
+ 0006: ret 
+METHOD 060000ba .Extension::set_is_lock
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:0400004f
+ 0007: ret 
+METHOD 060000bb .Extension::.ctor
+ 0000: ldarg.0 
+ 0001: ldc.i4.0 
+ 0002: stfld FieldDefinition:0400004f
+ 0007: ldarg.0 
+ 0008: call System.Object::.ctor
+ 000d: nop 
+ 000e: ret 
+METHOD 060000bc .Extension::get_is_lock
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000050
+ 0006: ret 
+METHOD 060000bd .Extension::set_is_lock
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000050
+ 0007: ret 
+METHOD 060000be .Extension::get_display_from
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000051
+ 0006: ret 
+METHOD 060000bf .Extension::set_display_from
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000051
+ 0007: ret 
+METHOD 060000c0 .Extension::get_display_until
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000052
+ 0006: ret 
+METHOD 060000c1 .Extension::set_display_until
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000052
+ 0007: ret 
+METHOD 060000c2 .Extension::get_is_progress
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000053
+ 0006: ret 
+METHOD 060000c3 .Extension::set_is_progress
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000053
+ 0007: ret 
+METHOD 060000c4 .Extension::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000050
+ 0007: ldarg.0 
+ 0008: ldnull 
+ 0009: stfld FieldDefinition:04000051
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:04000052
+ 0015: ldarg.0 
+ 0016: ldnull 
+ 0017: stfld FieldDefinition:04000053
+ 001c: ldarg.0 
+ 001d: call System.Object::.ctor
+ 0022: nop 
+ 0023: ret 

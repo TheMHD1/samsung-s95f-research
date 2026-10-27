@@ -1,0 +1,402 @@
+{
+  "accepted": true,
+  "bulkTransfers": 24,
+  "busContentsAltered": false,
+  "claimed": true,
+  "cleanCyclesCompleted": 1,
+  "cleanCyclesDiscarded": 0,
+  "closed": true,
+  "cyclesStarted": 2,
+  "deadlineUs": 20000000,
+  "endUs": 251200,
+  "headersSent": 12,
+  "inputsCompleted": 12,
+  "onsetMissed": false,
+  "onsetObserved": true,
+  "opened": true,
+  "overshootUs": 0,
+  "physicalPictureObserved": false,
+  "protocolPhase": "ReadyForHeader",
+  "released": true,
+  "retained": [
+    {
+      "cycleIndex": 1,
+      "role": "last-clean",
+      "transfers": [
+        {
+          "afterUs": 100,
+          "beforeUs": 0,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "R-header"
+        },
+        {
+          "afterUs": 200,
+          "beforeUs": 100,
+          "count": 256,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 256,
+          "name": "R-data"
+        },
+        {
+          "afterUs": 300,
+          "beforeUs": 200,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "M-header"
+        },
+        {
+          "afterUs": 400,
+          "beforeUs": 300,
+          "count": 68,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 68,
+          "name": "M-data"
+        },
+        {
+          "afterUs": 500,
+          "beforeUs": 400,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "C-header"
+        },
+        {
+          "afterUs": 600,
+          "beforeUs": 500,
+          "count": 16,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 16,
+          "name": "C-data"
+        },
+        {
+          "afterUs": 700,
+          "beforeUs": 600,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "H-header"
+        },
+        {
+          "afterUs": 800,
+          "beforeUs": 700,
+          "count": 96,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 96,
+          "name": "H-data"
+        },
+        {
+          "afterUs": 900,
+          "beforeUs": 800,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "L-header"
+        },
+        {
+          "afterUs": 1000,
+          "beforeUs": 900,
+          "count": 64,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 64,
+          "name": "L-data"
+        },
+        {
+          "afterUs": 1100,
+          "beforeUs": 1000,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "R-header"
+        },
+        {
+          "afterUs": 1200,
+          "beforeUs": 1100,
+          "count": 256,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 256,
+          "name": "R-data"
+        }
+      ],
+      "windows": [
+        {
+          "address": "0x47012400",
+          "complete": true,
+          "count": 256,
+          "expected": 256,
+          "name": "R",
+          "observedRtState": {
+            "classification": "Clean",
+            "fault": 0,
+            "ordinaryGate": 1,
+            "stop": 0
+          },
+          "rawBase64": "[encoded-payload-omitted]",
+          "sha256": "f92f8e0e1cc0247abbd881c5dd10673e9c3dc0f36ce5a2774f0b8a05e7c9f084"
+        },
+        {
+          "address": "0x470004a0",
+          "complete": true,
+          "count": 68,
+          "expected": 68,
+          "name": "M",
+          "rawBase64": "oKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uM=",
+          "sha256": "18dcacb5d9a63b7fb761b256cca3c2bfe59de4c5502d8eb55676d6d9955a90ed"
+        },
+        {
+          "address": "0x47000bc0",
+          "complete": true,
+          "count": 16,
+          "expected": 16,
+          "name": "C",
+          "rawBase64": "wMHCw8TFxsfIycrLzM3Ozw==",
+          "sha256": "d4f376ea1200f6ee38e9d24177b882cf10532899277b7eb4b6e68fa13eeaf5fe"
+        },
+        {
+          "address": "0x4700d0e0",
+          "complete": true,
+          "count": 96,
+          "expected": 96,
+          "name": "H",
+          "rawBase64": "4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9/v8AAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/",
+          "sha256": "ad536af371f36b06cca701374d461ace6d15c9c676cc27226e0f07f3168b8277"
+        },
+        {
+          "address": "0x47010f00",
+          "complete": true,
+          "count": 64,
+          "expected": 64,
+          "name": "L",
+          "rawBase64": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+Pw==",
+          "sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108"
+        },
+        {
+          "address": "0x47012400",
+          "complete": true,
+          "count": 256,
+          "expected": 256,
+          "name": "R",
+          "observedRtState": {
+            "classification": "Clean",
+            "fault": 0,
+            "ordinaryGate": 1,
+            "stop": 0
+          },
+          "rawBase64": "[encoded-payload-omitted]",
+          "sha256": "f92f8e0e1cc0247abbd881c5dd10673e9c3dc0f36ce5a2774f0b8a05e7c9f084"
+        }
+      ]
+    },
+    {
+      "cycleIndex": 2,
+      "role": "transition",
+      "transfers": [
+        {
+          "afterUs": 250100,
+          "beforeUs": 250000,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "R-header"
+        },
+        {
+          "afterUs": 250200,
+          "beforeUs": 250100,
+          "count": 256,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 256,
+          "name": "R-data"
+        }
+      ],
+      "windows": [
+        {
+          "address": "0x47012400",
+          "complete": true,
+          "count": 256,
+          "expected": 256,
+          "name": "R",
+          "observedRtState": {
+            "classification": "Faulted",
+            "fault": 4097,
+            "ordinaryGate": 0,
+            "stop": 1
+          },
+          "rawBase64": "[encoded-payload-omitted]",
+          "sha256": "5e83f69dee5aba4b2469b3a085fe7b156ec9e3f3f56cc872bb3d7a232f85d77a"
+        }
+      ]
+    },
+    {
+      "cycleIndex": 2,
+      "role": "post-fault",
+      "transfers": [
+        {
+          "afterUs": 250300,
+          "beforeUs": 250200,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "M-header"
+        },
+        {
+          "afterUs": 250400,
+          "beforeUs": 250300,
+          "count": 68,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 68,
+          "name": "M-data"
+        },
+        {
+          "afterUs": 250500,
+          "beforeUs": 250400,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "C-header"
+        },
+        {
+          "afterUs": 250600,
+          "beforeUs": 250500,
+          "count": 16,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 16,
+          "name": "C-data"
+        },
+        {
+          "afterUs": 250700,
+          "beforeUs": 250600,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "H-header"
+        },
+        {
+          "afterUs": 250800,
+          "beforeUs": 250700,
+          "count": 96,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 96,
+          "name": "H-data"
+        },
+        {
+          "afterUs": 250900,
+          "beforeUs": 250800,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "L-header"
+        },
+        {
+          "afterUs": 251000,
+          "beforeUs": 250900,
+          "count": 64,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 64,
+          "name": "L-data"
+        },
+        {
+          "afterUs": 251100,
+          "beforeUs": 251000,
+          "count": 12,
+          "direction": "OUT",
+          "errno": 0,
+          "expected": 12,
+          "name": "R-header"
+        },
+        {
+          "afterUs": 251200,
+          "beforeUs": 251100,
+          "count": 256,
+          "direction": "IN",
+          "errno": 0,
+          "expected": 256,
+          "name": "R-data"
+        }
+      ],
+      "windows": [
+        {
+          "address": "0x470004a0",
+          "complete": true,
+          "count": 68,
+          "expected": 68,
+          "name": "M",
+          "rawBase64": "oKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr/AwcLDxMXGx8jJysvMzc7P0NHS09TV1tfY2drb3N3e3+Dh4uM=",
+          "sha256": "18dcacb5d9a63b7fb761b256cca3c2bfe59de4c5502d8eb55676d6d9955a90ed"
+        },
+        {
+          "address": "0x47000bc0",
+          "complete": true,
+          "count": 16,
+          "expected": 16,
+          "name": "C",
+          "rawBase64": "wMHCw8TFxsfIycrLzM3Ozw==",
+          "sha256": "d4f376ea1200f6ee38e9d24177b882cf10532899277b7eb4b6e68fa13eeaf5fe"
+        },
+        {
+          "address": "0x4700d0e0",
+          "complete": true,
+          "count": 96,
+          "expected": 96,
+          "name": "H",
+          "rawBase64": "4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9/v8AAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/",
+          "sha256": "ad536af371f36b06cca701374d461ace6d15c9c676cc27226e0f07f3168b8277"
+        },
+        {
+          "address": "0x47010f00",
+          "complete": true,
+          "count": 64,
+          "expected": 64,
+          "name": "L",
+          "rawBase64": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+Pw==",
+          "sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108"
+        },
+        {
+          "address": "0x47012400",
+          "complete": true,
+          "count": 256,
+          "expected": 256,
+          "name": "R",
+          "observedRtState": {
+            "classification": "Faulted",
+            "fault": 4097,
+            "ordinaryGate": 0,
+            "stop": 1
+          },
+          "rawBase64": "[encoded-payload-omitted]",
+          "sha256": "5e83f69dee5aba4b2469b3a085fe7b156ec9e3f3f56cc872bb3d7a232f85d77a"
+        }
+      ]
+    }
+  ],
+  "retentionPolicy": "last-fully-clean+transition+one-postfault-set+current-partial; older-clean-discarded",
+  "retries": 0,
+  "schema": "managed-usb-rt-passive-observer-v1",
+  "stage": "terminal",
+  "startUs": 0,
+  "terminalReason": "TransitionCaptured",
+  "writes": 0
+}

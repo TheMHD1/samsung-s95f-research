@@ -1,0 +1,20 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\numask 077\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest ! -e /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06\ntest ! -L /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06\nmkdir -m 700 /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06\nenlightenment_info -dump_screen -p /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/ -n frame.png\ntest -f /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\ntest ! -L /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\nchmod 600 /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\nwc -c /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\nsha256sum /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "make dump: /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\n435561 /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\n8da92d6b285c0352541ee5fe2ae0d8475a897d838ab9b5d88fc060f8db0929c3  /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest ! -L /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\ntest \"$(sha256sum /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png | cut -d \" \" -f1)\" = 8da92d6b285c0352541ee5fe2ae0d8475a897d838ab9b5d88fc060f8db0929c3\nrm /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06/frame.png\nrmdir /tmp/researcher-ui-nav-f15ac9d5a5e04ae49e033decb1564f06\necho PRIVATE_SCREENSHOT_STAGE_ABSENT\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "PRIVATE_SCREENSHOT_STAGE_ABSENT\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

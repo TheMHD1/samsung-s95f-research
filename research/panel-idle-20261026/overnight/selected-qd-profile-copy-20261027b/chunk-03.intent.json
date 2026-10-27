@@ -1,0 +1,5 @@
+{
+  "command": "set -eu\np=/factory_peq/tcon_data/QD/F_RSM1_BN9659934B_COMMON.bin\ntest -f \"$p\"; test ! -L \"$p\"\necho BEFORE\ncat /proc/sys/kernel/random/boot_id\nwc -c < \"$p\"\nsha256sum \"$p\"\necho DATA_START\ngzip -n -c \"$p\" | { dd bs=1 skip=98304 count=32768 2>/dev/null; cat >/dev/null; } | base64\necho DATA_END\necho AFTER\nsha256sum \"$p\"\ncat /proc/sys/kernel/random/boot_id\n",
+  "mode": "ordinary regular-file copy through compression; no device access",
+  "physical_state": "unobserved"
+}

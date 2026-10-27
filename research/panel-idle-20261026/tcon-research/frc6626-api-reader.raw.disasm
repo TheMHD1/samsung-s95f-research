@@ -1,0 +1,96 @@
+
+binaries/tztv_frc_tcon_api.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000009450 <FRC_WriteI2CData+0x18>:
+    9450:	2a0103f4 	mov	w20, w1
+    9454:	35000200 	cbnz	w0, 9494 <FRC_WriteI2CData+0x5c>
+    9458:	90000000 	adrp	x0, 0 <copy_overflow>
+			9458: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    945c:	f9400000 	ldr	x0, [x0]
+			945c: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    9460:	b4000120 	cbz	x0, 9484 <FRC_WriteI2CData+0x4c>
+    9464:	f9407804 	ldr	x4, [x0, #240]
+    9468:	b40000e4 	cbz	x4, 9484 <FRC_WriteI2CData+0x4c>
+    946c:	2a1403e1 	mov	w1, w20
+    9470:	2a1303e0 	mov	w0, w19
+    9474:	d63f0080 	blr	x4
+    9478:	a94153f3 	ldp	x19, x20, [sp, #16]
+    947c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    9480:	d65f03c0 	ret
+    9484:	52800000 	mov	w0, #0x0                   	// #0
+    9488:	a94153f3 	ldp	x19, x20, [sp, #16]
+    948c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    9490:	d65f03c0 	ret
+    9494:	90000001 	adrp	x1, 0 <copy_overflow>
+			9494: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x830
+    9498:	91000021 	add	x1, x1, #0x0
+			9498: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x830
+    949c:	910f6021 	add	x1, x1, #0x3d8
+    94a0:	2a1403e3 	mov	w3, w20
+    94a4:	2a1303e2 	mov	w2, w19
+    94a8:	90000000 	adrp	x0, 0 <copy_overflow>
+			94a8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x13b0
+    94ac:	91000000 	add	x0, x0, #0x0
+			94ac: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x13b0
+    94b0:	94000000 	bl	0 <printk>
+			94b0: R_AARCH64_CALL26	printk
+    94b4:	17ffffe9 	b	9458 <FRC_WriteI2CData+0x20>
+
+00000000000094b8 <FRC_ReadI2CData>:
+    94b8:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+    94bc:	910003fd 	mov	x29, sp
+    94c0:	f90013f5 	str	x21, [sp, #32]
+    94c4:	90000015 	adrp	x21, 410 <fop_frc_ew_ioctl_export+0x250>
+			94c4: R_AARCH64_ADR_PREL_PG_HI21	frc_tcon_debug_level
+    94c8:	a90153f3 	stp	x19, x20, [sp, #16]
+    94cc:	2a0003f3 	mov	w19, w0
+    94d0:	b94002a0 	ldr	w0, [x21]
+			94d0: R_AARCH64_LDST32_ABS_LO12_NC	frc_tcon_debug_level
+    94d4:	aa0103f4 	mov	x20, x1
+    94d8:	350002e0 	cbnz	w0, 9534 <FRC_ReadI2CData+0x7c>
+    94dc:	90000000 	adrp	x0, 0 <copy_overflow>
+			94dc: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x618
+    94e0:	f9400000 	ldr	x0, [x0]
+			94e0: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x618
+    94e4:	b40001c0 	cbz	x0, 951c <FRC_ReadI2CData+0x64>
+    94e8:	f9407c02 	ldr	x2, [x0, #248]
+    94ec:	b4000182 	cbz	x2, 951c <FRC_ReadI2CData+0x64>
+    94f0:	aa1403e1 	mov	x1, x20
+    94f4:	2a1303e0 	mov	w0, w19
+    94f8:	d63f0040 	blr	x2
+    94fc:	b94002a1 	ldr	w1, [x21]
+			94fc: R_AARCH64_LDST32_ABS_LO12_NC	frc_tcon_debug_level
+    9500:	2a0003f5 	mov	w21, w0
+    9504:	35000261 	cbnz	w1, 9550 <FRC_ReadI2CData+0x98>
+    9508:	2a1503e0 	mov	w0, w21
+    950c:	a94153f3 	ldp	x19, x20, [sp, #16]
+    9510:	f94013f5 	ldr	x21, [sp, #32]
+    9514:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    9518:	d65f03c0 	ret
+    951c:	52800015 	mov	w21, #0x0                   	// #0
+    9520:	2a1503e0 	mov	w0, w21
+    9524:	a94153f3 	ldp	x19, x20, [sp, #16]
+    9528:	f94013f5 	ldr	x21, [sp, #32]
+    952c:	a8c37bfd 	ldp	x29, x30, [sp], #48
+    9530:	d65f03c0 	ret
+    9534:	90000001 	adrp	x1, 0 <copy_overflow>
+			9534: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x830
+    9538:	91000021 	add	x1, x1, #0x0
+			9538: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x830
+    953c:	910fc021 	add	x1, x1, #0x3f0
+    9540:	90000000 	adrp	x0, 0 <copy_overflow>
+			9540: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x9c8
+    9544:	91000000 	add	x0, x0, #0x0
+			9544: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x9c8
+    9548:	94000000 	bl	0 <printk>
+			9548: R_AARCH64_CALL26	printk
+    954c:	17ffffe4 	b	94dc <FRC_ReadI2CData+0x24>
+    9550:	b9400283 	ldr	w3, [x20]
+    9554:	90000001 	adrp	x1, 0 <copy_overflow>
+			9554: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x830
+    9558:	91000021 	add	x1, x1, #0x0
+			9558: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x830
+    955c:	2a1303e2 	mov	w2, w19

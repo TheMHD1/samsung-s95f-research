@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -euo pipefail\numask 077\nboot=$(cat /proc/sys/kernel/random/boot_id)\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000\nO=/tmp/researcher-observed-quiescent-pm-onset-20261026/owner-power-on-20261026a\nR=/tmp/researcher-owner-power-on-rescue-20261026a\ntest ! -L \"$O\"; test -d \"$O\"; test \"$(stat -c '%u:%a' \"$O\")\" = 0:700\ntest ! -e \"$R\"; test ! -L \"$R\"; mkdir -m 700 \"$R\"\necho \"BOOT $boot\"\nfor f in trace meta.txt samples.txt sample-errors.txt artifacts.txt fds.txt vlog-after.txt; do\n test ! -L \"$O/$f\"; test -f \"$O/$f\"; test \"$(stat -c '%u:%a' \"$O/$f\")\" = 0:600\n n=$(stat -c '%s' \"$O/$f\"); test \"$n\" -gt 0; test \"$n\" -le 134217728\n h=$(sha256sum \"$O/$f\"); h=${h%% *}\n (ulimit -f 131072; gzip -1 -c \"$O/$f\" >\"$R/$f.gz\")\n chmod 600 \"$R/$f.gz\"\n test \"$(stat -c '%s' \"$O/$f\")\" = \"$n\"\n after=$(sha256sum \"$O/$f\"); test \"${after%% *}\" = \"$h\"\n cn=$(stat -c '%s' \"$R/$f.gz\"); ch=$(sha256sum \"$R/$f.gz\"); ch=${ch%% *}\n printf 'FILE %s %s %s %s %s\n' \"$f\" \"$n\" \"$h\" \"$cn\" \"$ch\"\ndone\necho COMPLETE_EXISTING_FAILED_CAPTURE_ONLY\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BOOT 00000000-0000-4000-8000-000000000000\nFILE trace 19310261 44f68ebd1fb301c74cab501a04e84b73b95223e96c977062ed6db0b92977b575 2400273 2768dcd6593646064e1db523e2c8ab756860e92beb54a4d6556786c85f2ba800\nFILE meta.txt 254743 3f36476bea2b434e7364ee86f019708290ed118f3123e4b993ba46d573c9ba0b 38676 e60efaa501917602cf1b7283e081982fd29cea9206e54c95eab916637e1b815a\nFILE samples.txt 117490 38931ba5c3eab82233d534e0de39e6cd279835d0b8d559b1e6244b86a8212a2f 3332 b88a7b9e4065d8445d3511217c1425ec3d92065ba0c0b07483e492d7c8247703\nFILE sample-errors.txt 201684 98d132e7f83e86b7d724586d7f73e05898edbf6f578522d4ecd5249b13b11c50 22608 639541a94f32714a90fca1857f39d7ec0a0d3be5ba5e87dc04eaaf79d0c6d059\nFILE artifacts.txt 3570 978bcadf1d6808708f4d0bcff3cdc977f9e95d4cd91dc9c96ec127b4d6181372 739 eea8bf90d4eae94067e902494926d485fe8485fbdacd9e562c905be372bf35d7\nFILE fds.txt 4690 93684e83a3293716db9a5252283a78efbaa2cc12a937eb12e1e04fff7ea11b66 1316 6c4e9346c8185733f9fede7f1092e2d8290469f4ed6e5e70546a17bcfee0b9f9\nFILE vlog-after.txt 67108864 eac02d7bf3a4fb216295edba8be99466d7b80c7a43f7535841f882b052c1c3d3 8962367 967439baa5904abba6018fc6f4288a19ab4b396dae71f05ba3f0c1e58f0d1a15\nCOMPLETE_EXISTING_FAILED_CAPTURE_ONLY\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

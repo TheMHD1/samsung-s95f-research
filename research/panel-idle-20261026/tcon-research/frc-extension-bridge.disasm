@@ -1,0 +1,169 @@
+
+## tztv_frc_tcon.ko .text 0x2a78..0x2b00
+00002a78  stp      x29, x30, [sp, #-0x30]!
+00002a7c  mov      x29, sp
+00002a80  stp      x19, x20, [sp, #0x10]
+00002a84  adrp     x20, #0x2000
+00002a88  add      x20, x20, #0
+00002a8c  str      x21, [sp, #0x20]
+00002a90  mov      x21, x0
+00002a94  mov      x0, x20
+00002a98  bl       #0x2a98
+00002a9c  mov      w4, #1
+00002aa0  mov      w3, w4
+00002aa4  mov      x2, #0
+00002aa8  mov      x1, #0
+00002aac  mov      x0, x21
+00002ab0  bl       #0x2ab0
+00002ab4  mov      x19, x0
+00002ab8  mov      x0, x20
+00002abc  bl       #0x2abc
+00002ac0  cbz      x19, #0x2ae0
+00002ac4  ldrsw    x0, [x19]
+00002ac8  add      x19, x19, x0
+00002acc  mov      x0, x19
+00002ad0  ldp      x19, x20, [sp, #0x10]
+00002ad4  ldr      x21, [sp, #0x20]
+00002ad8  ldp      x29, x30, [sp], #0x30
+00002adc  ret      
+00002ae0  mrs      x3, sp_el0
+00002ae4  ldr      w2, [x3, #0x440]
+00002ae8  mov      x1, x21
+00002aec  add      x3, x3, #0x5f0
+00002af0  adrp     x0, #0x2000
+00002af4  add      x0, x0, #0
+00002af8  bl       #0x2af8
+00002afc  b        #0x2acc
+
+## tztv_frc_tcon.ko .text 0x2d78..0x2ed8
+00002d78  stp      x29, x30, [sp, #-0x80]!
+00002d7c  adrp     x3, #0x2000
+00002d80  add      x3, x3, #0
+00002d84  mov      x29, sp
+00002d88  add      x5, x3, #0x4b8
+00002d8c  stp      x19, x20, [sp, #0x10]
+00002d90  adrp     x19, #0x2000
+00002d94  add      x19, x19, #0
+00002d98  add      x8, sp, #4
+00002d9c  adrp     x4, #0x2000
+00002da0  add      x4, x4, #0
+00002da4  stp      x21, x22, [sp, #0x20]
+00002da8  mov      w21, w0
+00002dac  ldr      w20, [x19, #0x78]
+00002db0  stp      x23, x24, [sp, #0x30]
+00002db4  mov      x22, x1
+00002db8  mov      w23, w2
+00002dbc  ldp      x6, x7, [x5]
+00002dc0  stp      x6, x7, [x8, #0x40]
+00002dc4  ldrb     w5, [x3, #0x4c8]
+00002dc8  strb     w5, [sp, #0x54]
+00002dcc  ldp      x6, x7, [x4]
+00002dd0  sturh    wzr, [sp, #0x55]
+00002dd4  ldr      w4, [x4, #0x10]
+00002dd8  ldr      x5, [x3, #0x4d0]
+00002ddc  strb     wzr, [sp, #0x57]
+00002de0  ldr      w3, [x3, #0x4d8]
+00002de4  str      x5, [sp, #0x58]
+00002de8  str      w3, [sp, #0x60]
+00002dec  stur     xzr, [sp, #0x64]
+00002df0  stp      x6, x7, [x8, #0x68]
+00002df4  str      w4, [sp, #0x7c]
+00002df8  cbz      w20, #0x2e30
+00002dfc  ldr      x3, [x19, #0x80]
+00002e00  cbz      x3, #0x2e98
+00002e04  mov      w2, w23
+00002e08  mov      x1, x22
+00002e0c  mov      w0, w21
+00002e10  blr      x3
+00002e14  mov      w20, w0
+00002e18  mov      w0, w20
+00002e1c  ldp      x19, x20, [sp, #0x10]
+00002e20  ldp      x21, x22, [sp, #0x20]
+00002e24  ldp      x23, x24, [sp, #0x30]
+00002e28  ldp      x29, x30, [sp], #0x80
+00002e2c  ret      
+00002e30  ldr      w0, [x19, #0x30]
+00002e34  add      x24, sp, #0x44
+00002e38  sub      w4, w0, #8
+00002e3c  sub      w3, w0, #0xb
+00002e40  cmp      w4, #1
+00002e44  ccmp     w3, #1, #0, hi
+00002e48  ccmp     w0, #3, #4, hi
+00002e4c  b.ne     #0x2e84
+00002e50  mov      x0, x24
+00002e54  bl       #0x2e54
+00002e58  str      x0, [x19, #0x80]
+00002e5c  mov      x1, x24
+00002e60  mrs      x3, sp_el0
+00002e64  ldr      w2, [x3, #0x440]
+00002e68  add      x3, x3, #0x5f0
+00002e6c  cbnz     x0, #0x2eb8
+00002e70  adrp     x0, #0x2000
+00002e74  mov      w20, #-1
+00002e78  add      x0, x0, #0
+00002e7c  bl       #0x2e7c
+00002e80  b        #0x2e18
+00002e84  add      x2, sp, #0x58
+00002e88  add      x1, sp, #0x6c
+00002e8c  cmp      w0, #0xa
+00002e90  csel     x24, x2, x1, eq
+00002e94  b        #0x2e50
+00002e98  mrs      x2, sp_el0
+00002e9c  ldr      w1, [x2, #0x440]
+00002ea0  mov      w20, #0
+00002ea4  add      x2, x2, #0x5f0
+00002ea8  adrp     x0, #0x2000
+00002eac  add      x0, x0, #0
+00002eb0  bl       #0x2eb0
+00002eb4  b        #0x2e18
+00002eb8  adrp     x0, #0x2000
+00002ebc  add      x0, x0, #0
+00002ec0  bl       #0x2ec0
+00002ec4  mov      w0, #1
+00002ec8  str      w0, [x19, #0x78]
+00002ecc  cmn      w21, #1
+00002ed0  b.eq     #0x2e18
+00002ed4  b        #0x2dfc
+
+## tztv_frc_tcon.ko .text.unlikely 0x8c..0xc0
+0000008c  stp      x29, x30, [sp, #-0x10]!
+00000090  mov      x29, sp
+00000094  cbz      x0, #0xa0
+00000098  mov      w1, #0xe
+0000009c  str      w1, [x0]
+000000a0  mov      w1, #0xe
+000000a4  adrp     x2, #0
+000000a8  adrp     x0, #0
+000000ac  add      x2, x2, #0
+000000b0  add      x0, x0, #0
+000000b4  bl       #0xb4
+000000b8  ldp      x29, x30, [sp], #0x10
+000000bc  ret      
+
+## tztv_frc_tcon.ko .text.unlikely 0x2e78..0x2ee0
+00002e78  stp      x29, x30, [sp, #-0x40]!
+00002e7c  mov      x29, sp
+00002e80  stp      x19, x20, [sp, #0x10]
+00002e84  adrp     x20, #0x2000
+00002e88  stp      x21, x22, [sp, #0x20]
+00002e8c  adrp     x21, #0x2000
+00002e90  add      x19, x21, #0
+00002e94  mov      x22, x0
+00002e98  str      x23, [sp, #0x30]
+00002e9c  ldr      x0, [x19, #0x388]
+00002ea0  cbnz     x0, #0x2eb8
+00002ea4  ldr      x1, [x20]
+00002ea8  adrp     x0, #0x2000
+00002eac  add      x0, x0, #0
+00002eb0  str      x1, [x19, #0x388]
+00002eb4  bl       #0x2eb4
+00002eb8  mov      w1, #1
+00002ebc  mov      w2, #-1
+00002ec0  ldr      x23, [x20]
+00002ec4  add      x0, x19, #0x30
+00002ec8  str      x22, [x19, #0x28]
+00002ecc  str      w2, [x19, #0x284]
+00002ed0  str      w1, [x19, #0x338]
+00002ed4  bl       #0x2ed4
+00002ed8  add      x0, x19, #0x10
+00002edc  bl       #0x2edc

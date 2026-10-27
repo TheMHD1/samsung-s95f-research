@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nif test -d /proc/28637; then\ncat /proc/28637/status\ncat /proc/28637/comm\nreadlink /proc/28637/exe\nelse\nprintf 'THREAD_ABSENT\\n'\nfi\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n113411.16 423453.58\nName:\t.NET ThreadPool\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t16097\nNgid:\t0\nPid:\t28637\nPPid:\t264\nTracerPid:\t0\nUid:\t5001\t5001\t5001\t5001\nGid:\t100\t100\t100\t100\nFDSize:\t512\nGroups:\t29 44 100 201 6509 10212 10502 10503 10704 10705 10711 \nNStgid:\t16097\nNSpid:\t28637\nNSpgid:\t16097\nNSsid:\t16097\nVmPeak:\t  803292 kB\nVmSize:\t  696224 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t  171172 kB\nVmRSS:\t   78864 kB\nRssAnon:\t   36916 kB\nRssFile:\t   41240 kB\nRssShmem:\t     708 kB\nVmData:\t  244328 kB\nVmStk:\t     132 kB\nVmExe:\t       8 kB\nVmLib:\t  183260 kB\nVmPTE:\t    1320 kB\nVmSwap:\t   44644 kB\nCoreDumping:\t0\nTHP_enabled:\t0\nThreads:\t55\nSigQ:\t3/6178\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000000001000\nSigCgt:\t0000000380036eff\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t0000003fffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSpeculation_Store_Bypass:\tthread vulnerable\nCpus_allowed:\tf\nCpus_allowed_list:\t0-3\nMems_allowed:\t1\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t1642\nnonvoluntary_ctxt_switches:\t3791\n.NET ThreadPool\n/usr/bin/dotnet-loader\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

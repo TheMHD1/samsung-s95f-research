@@ -1,0 +1,26 @@
+using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
+using System.Reflection.PortableExecutable;
+using System.Security.Cryptography;
+
+var input=File.ReadAllBytes(args[0]);
+if(Convert.ToHexString(SHA256.HashData(input)).ToLowerInvariant()!="9cae06a13d771f98aaaf4ce476b5d6ada12e99f9e4d035512bf49c600008699b") throw new Exception("Exact original HomeMedia hash mismatch");
+using var stream=new MemoryStream(input);
+using var pe=new PEReader(stream);
+var md=pe.GetMetadataReader();
+var method=md.GetMethodDefinition(MetadataTokens.MethodDefinitionHandle(0x36));
+if(md.GetString(method.Name)!="Main") throw new Exception("Method guard mismatch");
+var il=pe.GetMethodBody(method.RelativeVirtualAddress).GetILBytes()!;
+const int start=0x1af;
+if(il[start]!=0x25 || il[start+1]!=0x72 || il[start+6]!=0x6f || il[start+11]!=0 || il[start+12]!=0x25) throw new Exception("Instruction guard mismatch");
+if(md.GetUserString(MetadataTokens.UserStringHandle(BitConverter.ToInt32(il,start+2)))!="com.samsung.tv.ContentsBrowser") throw new Exception("Provider guard mismatch");
+var add=md.GetMemberReference((MemberReferenceHandle)MetadataTokens.EntityHandle(BitConverter.ToInt32(il,start+7)));
+if(md.GetString(add.Name)!="Add") throw new Exception("Call guard mismatch");
+var section=pe.PEHeaders.SectionHeaders.Single(s=>method.RelativeVirtualAddress>=s.VirtualAddress && method.RelativeVirtualAddress<s.VirtualAddress+s.VirtualSize);
+int body=section.PointerToRawData+method.RelativeVirtualAddress-section.VirtualAddress;
+int header=(input[body]&3)==2?1:(BitConverter.ToUInt16(input,body)>>12)*4;
+var output=(byte[])input.Clone();
+Array.Clear(output,body+header+start,12);
+File.WriteAllBytes(args[1],output);
+Console.WriteLine("Removed only ContentsBrowser from HomeMedia's component load order (12 IL bytes); all metadata and remaining methods preserved.");
+Console.WriteLine(Convert.ToHexString(SHA256.HashData(output)).ToLowerInvariant());

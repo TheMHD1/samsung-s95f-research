@@ -1,0 +1,74 @@
+{
+  "build": {
+    "errors": 0,
+    "external_packages": [],
+    "package_sources": [],
+    "restore": "NuGet.Config clears package sources; local SDK framework/reference packs only",
+    "sdk_path": "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+    "sdk_sha256": "6206ebc1d4b6fb5d73311bc7571c654451550e446daf39fe7cfd3cd84bd6da36",
+    "sdk_version": "6.0.428",
+    "warnings": 0
+  },
+  "classification_contract": {
+    "accepted": "ioctl return zero, exact envelope unchanged, close return zero => kernel_return_zero_only",
+    "automatic_retry": false,
+    "physical_state": "unobserved",
+    "recovery_inferred": false,
+    "zero_limit": "missing interface or callback can return zero without a power action"
+  },
+  "created_utc": "2026-10-27",
+  "files": {
+    "ManagedTconPowerCycleOnce.csproj": "3fe50e31992de812a0ec916669eec24cfc48c01dafb63b8d51e74782eb3af62e",
+    "NuGet.Config": "5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575",
+    "Program.cs": "2f4333d381a0a5dbba4b6fcdb87790438f595f981dfadd3e6e6e76b341ae5e9b",
+    "README.md": "f3a3f8bfd8a50c6684a1986f880fd96062c1ddecf0a790ea0edd0b5d06e20552",
+    "bin/Release/net6.0/ManagedTconPowerCycleOnce.deps.json": "52371e99801c9bc89c4635e0084a07f839338bedc1e195c8661b42b44ce3decb",
+    "bin/Release/net6.0/ManagedTconPowerCycleOnce.dll": "f3b54a30b92d2c749012cc9f070bad4c206090b4f90facf6237e4ce5a9f168ba",
+    "bin/Release/net6.0/ManagedTconPowerCycleOnce.runtimeconfig.json": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+    "local-x64-guard.json": "b4a4dab389c3a788ed9e2d03325cc50df6ca6197c51e97de53a249e4811d232f",
+    "recovery-experiment-plan.md": "5893a79ddde289e7821e358036727fbf65212808cf2316483c18099f9a8afba3"
+  },
+  "fixed_request": {
+    "device": "/dev/tztv_tcon",
+    "ioctl": "0xc010749f",
+    "mode_decimal": 2,
+    "operation_decimal": 41,
+    "operation_hex": "0x29",
+    "payload_words": [
+      "0x00000029",
+      "0x00000002",
+      "0x00000000",
+      "0x00000000"
+    ],
+    "reserved_words": [
+      0,
+      0
+    ]
+  },
+  "provenance": {
+    "hardware_sequence": {
+      "path": "tcon-research/qd-power-control-hardware-sequence.md",
+      "sha256": "01cb7aa76093d74b4ccd8124a667f0d0e58c68fdde6270a010445e57606f319d"
+    },
+    "lifecycle_source": {
+      "path": "overnight/managed-tcon-status-read/run-status-read.py",
+      "sha256": "7ca9bf01f3df4524f4f04e561dc4839d0805f4062f665b5c1b9a397adf788c8a"
+    },
+    "power_control_abi": {
+      "path": "tcon-research/qd-power-control-userspace-abi.md",
+      "sha256": "ff63e0c5c5c1679d870e4b816a47fcff51d6ccaf62aac0491f737962cb8e3983"
+    },
+    "power_control_abi_independent_review": {
+      "path": "tcon-research/qd-power-control-userspace-abi-independent-review.md",
+      "sha256": "6fe142a5d0c2d5e4105ec540a327ad13898afbd20b6486237df649537beaf510"
+    }
+  },
+  "schema": "managed-tcon-power-cycle-once-build-v1",
+  "status": "PREPARED_NOT_DEPLOYED",
+  "target": "net6.0 portable IL; exact ARM32 helper for one reviewed future MODE2 invocation",
+  "timing": {
+    "helper_deadline_ms": 8000,
+    "maximum_explicit_waits_in_recovered_lower_route_ms": 2700,
+    "root_command_timeout_seconds": 25
+  }
+}

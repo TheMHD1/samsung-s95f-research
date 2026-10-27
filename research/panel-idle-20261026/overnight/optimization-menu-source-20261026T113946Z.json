@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\nwc -c /usr/apps/org.tizen.menu/bin/org.tizen.menu.dll\nsha256sum /usr/apps/org.tizen.menu/bin/org.tizen.menu.dll\nls -l /usr/apps/org.tizen.menu/bin/*.dll /usr/apps/org.tizen.menu/bin/en-US/*\n",
+      "exit_code": 2,
+      "stderr": "ls: cannot access /usr/apps/org.tizen.menu/bin/en-US/*: No such file or directory\n",
+      "stdout": "Mon Oct 26 11:39:46 UTC 2026\n3641344 /usr/apps/org.tizen.menu/bin/org.tizen.menu.dll\nf2a5c1daaa515330503800d39d6025267615dff20f6bf78d8ef67d0e4c0c1921  /usr/apps/org.tizen.menu/bin/org.tizen.menu.dll\n-rwxr-xr-x 1 owner root 3641344 2026-07-14 07:37 /usr/apps/org.tizen.menu/bin/org.tizen.menu.dll\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

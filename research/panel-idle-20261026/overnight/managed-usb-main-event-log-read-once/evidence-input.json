@@ -1,0 +1,43 @@
+{
+  "address_convention": "image0 FILE = linked VA + 0x200",
+  "limitations": [
+    "Static package evidence does not establish running-image identity.",
+    "The mapper boundary does not independently prove direct DMA visibility.",
+    "A successful opaque read does not prove log validity or fault causality."
+  ],
+  "literal_window": {
+    "buffer_address": "0x20205000",
+    "file_start": "0x395ec",
+    "hex": "5c0e002000502020",
+    "index_cpu_address": "0x20000e5c",
+    "va_start": "0x393ec"
+  },
+  "logger": {
+    "enable_gate_in_slice": false,
+    "file_end_exclusive": "0x395ec",
+    "file_start": "0x39594",
+    "loop_va": "0x393b0..0x393dc",
+    "modulus": "0xc00",
+    "slice_hex": "0fb430b5adf5017d85a8009001a8009a8499c7f7b5f80546002414e00e4800684ff44061b0fbf1f201fb12000a49086001a8015d084802680068401c064b186006488154641cac42e8db002000900df5017d30bc5df814fb",
+    "slice_sha256": "a239deae60e46c486aaf5b99d7e4943b4614f0ce26b9f43cab36a21ad0415a3f",
+    "va_end_exclusive": "0x393ec",
+    "va_start": "0x39394"
+  },
+  "no_live_io": true,
+  "request_candidate": {
+    "address": "0x20205000",
+    "expected_packets_if_full": 6,
+    "header_hex": "0101000000502020000c0000",
+    "length": 3072,
+    "mapper_changes_candidate": false,
+    "mapper_range": "[0x20000000,0x20200000)",
+    "target": "0x101",
+    "usb_max_packet": 512
+  },
+  "schema": "main-controller-event-log-evidence-input-v1",
+  "source_package": {
+    "name": "F_RSM1_BN9659934B_COMMON.bin",
+    "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0",
+    "size": 5242880
+  }
+}

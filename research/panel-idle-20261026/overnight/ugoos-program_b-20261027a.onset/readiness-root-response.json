@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\nT=/sys/kernel/debug/tracing/instances/researcher-hdmi-onset-ugoos-program_b-20261027a\ncat /proc/uptime\ncat /proc/sys/kernel/random/boot_id\ntest -d \"$T\"\ncat \"$T/tracing_on\"\nawk '/CAPTURE_START/{print; found=1; exit} END{if(!found) exit 3}' \"$T/trace\"\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "90532.58 338899.03\n00000000-0000-4000-8000-000000000000\n1\n           <...>-30114   (  30114) [003] .... 90501.630636: 0xffffffc01017095c: CAPTURE_START utc=1793068892 uptime=90501.62\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,4338 @@
+METHOD 06000001 Com.Samsung.TV.Home.Media.ResetManager::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:04000009
+ 0007: ldarg.0 
+ 0008: newobj TypeSpecification:1b000003::.ctor
+ 000d: stfld FieldDefinition:0400000b
+ 0012: ldarg.0 
+ 0013: call TypeSpecification:1b000001::.ctor
+ 0018: nop 
+ 0019: nop 
+ 001a: ldarg.0 
+ 001b: call TypeSpecification:1b000004::GetInstance
+ 0020: ldsfld FieldDefinition:04000007
+ 0025: ldsfld FieldDefinition:04000008
+ 002a: ldarg.0 
+ 002b: callvirt Tizen.TV.Service.CoBA.Core.ServiceManager::RegisterCommand
+ 0030: stfld FieldDefinition:04000009
+ 0035: ret 
+METHOD 06000002 Com.Samsung.TV.Home.Media.ResetManager::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: call TypeSpecification:1b000004::GetInstance
+ 0007: ldarg.0 
+ 0008: ldfld FieldDefinition:04000009
+ 000d: callvirt Tizen.TV.Service.CoBA.Core.ServiceManager::UnregisterCommand
+ 0012: pop 
+ 0013: leave.s 08
+ 0015: ldarg.0 
+ 0016: call System.Object::Finalize
+ 001b: nop 
+ 001c: endfinally 
+ 001d: ret 
+METHOD 06000003 Com.Samsung.TV.Home.Media.ResetManager::IsReset
+ 0000: nop 
+ 0001: ldc.i4.0 
+ 0002: stloc.0 
+ 0003: ldc.i4.0 
+ 0004: stloc.1 
+ 0005: ldc.i4.0 
+ 0006: stloc.2 
+ 0007: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 000c: ldc.i4.s 53
+ 000e: ldloca.s 01
+ 0010: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 0015: pop 
+ 0016: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 001b: ldc.i4.s 54
+ 001d: ldloca.s 02
+ 001f: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 0024: pop 
+ 0025: ldnull 
+ 0026: stloc.3 
+ 0027: ldc.i4.0 
+ 0028: stloc.s 04
+ 002a: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_SHARED_TRUSTED
+ 002f: ldsfld FieldDefinition:04000002
+ 0034: call System.String::Concat
+ 0039: call System.IO.File::Exists
+ 003e: stloc.s 05
+ 0040: ldloc.s 05
+ 0042: brfalse.s 12
+ 0044: nop 
+ 0045: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_SHARED_TRUSTED
+ 004a: ldsfld FieldDefinition:04000002
+ 004f: call System.String::Concat
+ 0054: stloc.3 
+ 0055: nop 
+ 0056: ldloc.3 
+ 0057: ldnull 
+ 0058: cgt.un 
+ 005a: stloc.s 06
+ 005c: ldloc.s 06
+ 005e: brfalse 3D010000
+ 0063: nop 
+ 0064: ldloc.3 
+ 0065: newobj System.IO.StreamReader::.ctor
+ 006a: stloc.s 07
+ 006c: nop 
+ 006d: nop 
+ 006e: ldloc.s 07
+ 0070: callvirt System.IO.TextReader::ReadLine
+ 0075: ldc.i4 FF010000
+ 007a: call System.Globalization.CultureInfo::get_InvariantCulture
+ 007f: call System.Int32::Parse
+ 0084: stloc.s 08
+ 0086: ldloc.s 07
+ 0088: callvirt System.IO.TextReader::ReadLine
+ 008d: ldc.i4 FF010000
+ 0092: call System.Globalization.CultureInfo::get_InvariantCulture
+ 0097: call System.Int32::Parse
+ 009c: stloc.s 09
+ 009e: ldsfld FieldDefinition:04000001
+ 00a3: ldstr "cacheFR: "
+ 00a8: ldloca.s 08
+ 00aa: call System.Int32::ToString
+ 00af: ldstr ", count: "
+ 00b4: ldloca.s 01
+ 00b6: call System.Int32::ToString
+ 00bb: call System.String::Concat
+ 00c0: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 00c5: ldstr "IsReset"
+ 00ca: ldc.i4.s 3D
+ 00cc: call Tizen.InternalLog::Error
+ 00d1: nop 
+ 00d2: ldsfld FieldDefinition:04000001
+ 00d7: ldstr "cacheSR: "
+ 00dc: ldloca.s 09
+ 00de: call System.Int32::ToString
+ 00e3: ldstr ", count: "
+ 00e8: ldloca.s 02
+ 00ea: call System.Int32::ToString
+ 00ef: call System.String::Concat
+ 00f4: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 00f9: ldstr "IsReset"
+ 00fe: ldc.i4.s 3E
+ 0100: call Tizen.InternalLog::Error
+ 0105: nop 
+ 0106: ldloc.s 08
+ 0108: ldloc.1 
+ 0109: bne.un.s 0A
+ 010b: ldloc.s 09
+ 010d: ldloc.2 
+ 010e: ceq 
+ 0110: ldc.i4.0 
+ 0111: ceq 
+ 0113: br.s 01
+ 0115: ldc.i4.1 
+ 0116: stloc.0 
+ 0117: nop 
+ 0118: leave.s 73
+ 011a: stloc.s 0A
+ 011c: nop 
+ 011d: ldstr "Exception: %s1"
+ 0122: ldc.i4 7F969800
+ 0127: conv.i8 
+ 0128: ldc.i4 7F969800
+ 012d: conv.i8 
+ 012e: ldc.i4 7F969800
+ 0133: conv.i8 
+ 0134: ldc.i4 7F969800
+ 0139: conv.i8 
+ 013a: ldc.i4 7F969800
+ 013f: conv.i8 
+ 0140: ldloc.s 0A
+ 0142: callvirt System.Exception::get_Message
+ 0147: ldnull 
+ 0148: ldnull 
+ 0149: ldnull 
+ 014a: ldnull 
+ 014b: ldc.r8 000000E0CF126341
+ 0154: ldc.r8 000000E0CF126341
+ 015d: ldc.r8 000000E0CF126341
+ 0166: ldc.r8 000000E0CF126341
+ 016f: ldc.r8 000000E0CF126341
+ 0178: ldstr "IsReset"
+ 017d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0182: ldc.i4.s 44
+ 0184: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0189: nop 
+ 018a: nop 
+ 018b: leave.s 00
+ 018d: nop 
+ 018e: leave.s 0D
+ 0190: ldloc.s 07
+ 0192: brfalse.s 08
+ 0194: ldloc.s 07
+ 0196: callvirt System.IDisposable::Dispose
+ 019b: nop 
+ 019c: endfinally 
+ 019d: nop 
+ 019e: br.s 05
+ 01a0: nop 
+ 01a1: ldc.i4.1 
+ 01a2: stloc.s 04
+ 01a4: nop 
+ 01a5: ldloc.0 
+ 01a6: ldloc.s 04
+ 01a8: or 
+ 01a9: stloc.s 0B
+ 01ab: ldloc.s 0B
+ 01ad: brfalse.s 0B
+ 01af: nop 
+ 01b0: ldarg.0 
+ 01b1: ldloc.1 
+ 01b2: ldloc.2 
+ 01b3: call SaveResetFlag
+ 01b8: nop 
+ 01b9: nop 
+ 01ba: ldloc.0 
+ 01bb: stloc.s 0C
+ 01bd: br.s 00
+ 01bf: ldloc.s 0C
+ 01c1: ret 
+METHOD 06000004 Com.Samsung.TV.Home.Media.ResetManager::DoReset
+ 0000: nop 
+ 0001: ldsfld FieldDefinition:04000001
+ 0006: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 000b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0010: ldstr "DoReset"
+ 0015: ldc.i4.s 57
+ 0017: call Tizen.InternalLog::Error
+ 001c: nop 
+ 001d: ldarg.0 
+ 001e: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0023: ldarg.1 
+ 0024: ldc.i4.1 
+ 0025: call DeleteAllFiles
+ 002a: nop 
+ 002b: ldarg.0 
+ 002c: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_SHARED_TRUSTED
+ 0031: ldarg.1 
+ 0032: ldc.i4.0 
+ 0033: call DeleteAllFiles
+ 0038: nop 
+ 0039: ldstr "com.samsung/featureconf/ep.eden_for_b2btv.support"
+ 003e: call Tizen.TV.System.Config.system_info::GetCustomBoolean
+ 0043: stloc.0 
+ 0044: ldloc.0 
+ 0045: stloc.1 
+ 0046: ldloc.1 
+ 0047: brfalse.s 21
+ 0049: nop 
+ 004a: ldstr "/home/researcher/apps_rw/"
+ 004f: ldsfld Tizen.TV.Service.CoBA.Common.DB::PACKAGE_NAME
+ 0054: ldstr "/shared/data/"
+ 0059: call System.String::Concat
+ 005e: stloc.2 
+ 005f: ldarg.0 
+ 0060: ldloc.2 
+ 0061: ldarg.1 
+ 0062: ldc.i4.0 
+ 0063: call DeleteAllFiles
+ 0068: nop 
+ 0069: nop 
+ 006a: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 006f: ldc.i4.s 26
+ 0071: ldstr ""
+ 0076: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigStr
+ 007b: pop 
+ 007c: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0081: ldstr "db/eden/category/list"
+ 0086: ldstr "none"
+ 008b: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigStr
+ 0090: pop 
+ 0091: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0096: ldstr "db/home/mute_autoplay_sound"
+ 009b: ldc.i4.0 
+ 009c: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigInt
+ 00a1: pop 
+ 00a2: ldarg.1 
+ 00a3: stloc.3 
+ 00a4: ldloc.3 
+ 00a5: brfalse.s 2E
+ 00a7: nop 
+ 00a8: ldarg.0 
+ 00a9: call CreateSHResetFlag
+ 00ae: nop 
+ 00af: ldarg.0 
+ 00b0: call CreateNoRecentFlag
+ 00b5: nop 
+ 00b6: ldsfld FieldDefinition:0400000a
+ 00bb: ldc.i4.1 
+ 00bc: call Tizen.TV.System.Vconf::SetInt
+ 00c1: pop 
+ 00c2: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 00c7: ldc.i4.s 0D
+ 00c9: ldstr "reset"
+ 00ce: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::SetConfigStr
+ 00d3: pop 
+ 00d4: nop 
+ 00d5: ret 
+METHOD 06000005 Com.Samsung.TV.Home.Media.ResetManager::CreateSHResetFlag
+ 0000: nop 
+ 0001: nop 
+ 0002: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0007: ldsfld FieldDefinition:04000003
+ 000c: call System.String::Concat
+ 0011: call System.IO.File::Exists
+ 0016: stloc.1 
+ 0017: ldloc.1 
+ 0018: brfalse.s 03
+ 001a: nop 
+ 001b: leave.s 4A
+ 001d: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0022: ldsfld FieldDefinition:04000003
+ 0027: call System.String::Concat
+ 002c: ldc.i4.2 
+ 002d: call System.IO.File::Open
+ 0032: stloc.0 
+ 0033: ldloc.0 
+ 0034: newobj System.IO.BinaryWriter::.ctor
+ 0039: stloc.2 
+ 003a: nop 
+ 003b: nop 
+ 003c: leave.s 0B
+ 003e: ldloc.2 
+ 003f: brfalse.s 07
+ 0041: ldloc.2 
+ 0042: callvirt System.IDisposable::Dispose
+ 0047: nop 
+ 0048: endfinally 
+ 0049: nop 
+ 004a: leave.s 1B
+ 004c: stloc.3 
+ 004d: nop 
+ 004e: ldloc.3 
+ 004f: ldstr "CreateSHResetFlag"
+ 0054: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0059: ldc.i4 81000000
+ 005e: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 0063: nop 
+ 0064: nop 
+ 0065: leave.s 00
+ 0067: ret 
+METHOD 06000006 Com.Samsung.TV.Home.Media.ResetManager::CreateNoRecentFlag
+ 0000: nop 
+ 0001: nop 
+ 0002: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0007: ldsfld FieldDefinition:04000004
+ 000c: call System.String::Concat
+ 0011: call System.IO.File::Exists
+ 0016: stloc.0 
+ 0017: ldloc.0 
+ 0018: brfalse.s 71
+ 001a: nop 
+ 001b: ldstr "%s1 is exist."
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldc.i4 7F969800
+ 002b: conv.i8 
+ 002c: ldc.i4 7F969800
+ 0031: conv.i8 
+ 0032: ldc.i4 7F969800
+ 0037: conv.i8 
+ 0038: ldc.i4 7F969800
+ 003d: conv.i8 
+ 003e: ldsfld FieldDefinition:04000004
+ 0043: ldnull 
+ 0044: ldnull 
+ 0045: ldnull 
+ 0046: ldnull 
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldc.r8 000000E0CF126341
+ 006b: ldc.r8 000000E0CF126341
+ 0074: ldstr "CreateNoRecentFlag"
+ 0079: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 007e: ldc.i4 8B000000
+ 0083: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0088: nop 
+ 0089: leave.s 38
+ 008b: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_DATA
+ 0090: ldsfld FieldDefinition:04000004
+ 0095: call System.String::Concat
+ 009a: call System.IO.File::Create
+ 009f: callvirt System.IO.Stream::Dispose
+ 00a4: nop 
+ 00a5: nop 
+ 00a6: leave.s 1B
+ 00a8: stloc.1 
+ 00a9: nop 
+ 00aa: ldloc.1 
+ 00ab: ldstr "CreateNoRecentFlag"
+ 00b0: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 00b5: ldc.i4 93000000
+ 00ba: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 00bf: nop 
+ 00c0: nop 
+ 00c1: leave.s 00
+ 00c3: ret 
+METHOD 06000007 Com.Samsung.TV.Home.Media.ResetManager::SaveResetFlag
+ 0000: nop 
+ 0001: ldsfld FieldDefinition:04000001
+ 0006: ldc.i4.7 
+ 0007: newarr System.String
+ 000c: dup 
+ 000d: ldc.i4.0 
+ 000e: ldstr "Path: "
+ 0013: stelem.ref 
+ 0014: dup 
+ 0015: ldc.i4.1 
+ 0016: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_SHARED_TRUSTED
+ 001b: stelem.ref 
+ 001c: dup 
+ 001d: ldc.i4.2 
+ 001e: ldsfld FieldDefinition:04000002
+ 0023: stelem.ref 
+ 0024: dup 
+ 0025: ldc.i4.3 
+ 0026: ldstr " FR: "
+ 002b: stelem.ref 
+ 002c: dup 
+ 002d: ldc.i4.4 
+ 002e: ldarga.s 01
+ 0030: call System.Int32::ToString
+ 0035: stelem.ref 
+ 0036: dup 
+ 0037: ldc.i4.5 
+ 0038: ldstr " SR: "
+ 003d: stelem.ref 
+ 003e: dup 
+ 003f: ldc.i4.6 
+ 0040: ldarga.s 02
+ 0042: call System.Int32::ToString
+ 0047: stelem.ref 
+ 0048: call System.String::Concat
+ 004d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0052: ldstr "SaveResetFlag"
+ 0057: ldc.i4 99000000
+ 005c: call Tizen.InternalLog::Error
+ 0061: nop 
+ 0062: call Tizen.TV.Service.CoBA.Common.DB::get_PATH_SHARED_TRUSTED
+ 0067: ldsfld FieldDefinition:04000002
+ 006c: call System.String::Concat
+ 0071: newobj System.IO.FileInfo::.ctor
+ 0076: stloc.0 
+ 0077: ldloc.0 
+ 0078: ldc.i4.2 
+ 0079: callvirt System.IO.FileInfo::Open
+ 007e: stloc.1 
+ 007f: nop 
+ 0080: ldloc.1 
+ 0081: newobj System.IO.StreamWriter::.ctor
+ 0086: stloc.2 
+ 0087: nop 
+ 0088: ldloc.2 
+ 0089: ldarga.s 01
+ 008b: call System.Int32::ToString
+ 0090: callvirt System.IO.TextWriter::WriteLine
+ 0095: nop 
+ 0096: ldloc.2 
+ 0097: ldarga.s 02
+ 0099: call System.Int32::ToString
+ 009e: callvirt System.IO.TextWriter::WriteLine
+ 00a3: nop 
+ 00a4: nop 
+ 00a5: leave.s 0B
+ 00a7: ldloc.2 
+ 00a8: brfalse.s 07
+ 00aa: ldloc.2 
+ 00ab: callvirt System.IDisposable::Dispose
+ 00b0: nop 
+ 00b1: endfinally 
+ 00b2: nop 
+ 00b3: leave.s 0B
+ 00b5: ldloc.1 
+ 00b6: brfalse.s 07
+ 00b8: ldloc.1 
+ 00b9: callvirt System.IDisposable::Dispose
+ 00be: nop 
+ 00bf: endfinally 
+ 00c0: ret 
+METHOD 06000008 Com.Samsung.TV.Home.Media.ResetManager::DeleteAllFiles
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.1 
+ 0003: newobj System.IO.DirectoryInfo::.ctor
+ 0008: stloc.0 
+ 0009: nop 
+ 000a: ldloc.0 
+ 000b: callvirt System.IO.DirectoryInfo::GetFiles
+ 0010: stloc.1 
+ 0011: ldc.i4.0 
+ 0012: stloc.2 
+ 0013: br.s 7F
+ 0015: ldloc.1 
+ 0016: ldloc.2 
+ 0017: ldelem.ref 
+ 0018: stloc.3 
+ 0019: nop 
+ 001a: ldsfld FieldDefinition:04000002
+ 001f: ldloc.3 
+ 0020: callvirt System.IO.FileSystemInfo::get_Name
+ 0025: callvirt System.String::Equals
+ 002a: brfalse.s 06
+ 002c: ldarg.3 
+ 002d: ldc.i4.0 
+ 002e: ceq 
+ 0030: br.s 01
+ 0032: ldc.i4.0 
+ 0033: stloc.s 04
+ 0035: ldloc.s 04
+ 0037: brfalse.s 03
+ 0039: nop 
+ 003a: br.s 54
+ 003c: ldarg.2 
+ 003d: brfalse.s 16
+ 003f: ldarg.0 
+ 0040: ldfld FieldDefinition:0400000b
+ 0045: ldloc.3 
+ 0046: callvirt System.IO.FileSystemInfo::get_Name
+ 004b: callvirt TypeSpecification:1b000003::Contains
+ 0050: ldc.i4.0 
+ 0051: ceq 
+ 0053: br.s 01
+ 0055: ldc.i4.1 
+ 0056: stloc.s 05
+ 0058: ldloc.s 05
+ 005a: brfalse.s 33
+ 005c: nop 
+ 005d: ldsfld FieldDefinition:04000001
+ 0062: ldstr "Delete: "
+ 0067: ldloc.3 
+ 0068: callvirt System.IO.FileSystemInfo::get_Name
+ 006d: call System.String::Concat
+ 0072: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0077: ldstr "DeleteAllFiles"
+ 007c: ldc.i4 B6000000
+ 0081: call Tizen.InternalLog::Error
+ 0086: nop 
+ 0087: ldloc.3 
+ 0088: callvirt System.IO.FileSystemInfo::Delete
+ 008d: nop 
+ 008e: nop 
+ 008f: nop 
+ 0090: ldloc.2 
+ 0091: ldc.i4.1 
+ 0092: add 
+ 0093: stloc.2 
+ 0094: ldloc.2 
+ 0095: ldloc.1 
+ 0096: ldlen 
+ 0097: conv.i4 
+ 0098: blt 78FFFFFF
+ 009d: nop 
+ 009e: ldloc.0 
+ 009f: callvirt System.IO.DirectoryInfo::GetDirectories
+ 00a4: stloc.s 06
+ 00a6: ldc.i4.0 
+ 00a7: stloc.s 07
+ 00a9: br.s 43
+ 00ab: ldloc.s 06
+ 00ad: ldloc.s 07
+ 00af: ldelem.ref 
+ 00b0: stloc.s 08
+ 00b2: nop 
+ 00b3: ldsfld FieldDefinition:04000001
+ 00b8: ldstr "Delete: "
+ 00bd: ldloc.s 08
+ 00bf: callvirt System.IO.FileSystemInfo::get_FullName
+ 00c4: call System.String::Concat
+ 00c9: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 00ce: ldstr "DeleteAllFiles"
+ 00d3: ldc.i4 BD000000
+ 00d8: call Tizen.InternalLog::Error
+ 00dd: nop 
+ 00de: ldloc.s 08
+ 00e0: ldc.i4.1 
+ 00e1: callvirt System.IO.DirectoryInfo::Delete
+ 00e6: nop 
+ 00e7: nop 
+ 00e8: ldloc.s 07
+ 00ea: ldc.i4.1 
+ 00eb: add 
+ 00ec: stloc.s 07
+ 00ee: ldloc.s 07
+ 00f0: ldloc.s 06
+ 00f2: ldlen 
+ 00f3: conv.i4 
+ 00f4: blt.s B5
+ 00f6: ldsfld FieldDefinition:04000005
+ 00fb: call System.IO.File::Exists
+ 0100: stloc.s 09
+ 0102: ldloc.s 09
+ 0104: brfalse.s 0D
+ 0106: nop 
+ 0107: ldsfld FieldDefinition:04000005
+ 010c: call System.IO.File::Delete
+ 0111: nop 
+ 0112: nop 
+ 0113: ldsfld FieldDefinition:04000006
+ 0118: call System.IO.File::Exists
+ 011d: stloc.s 0A
+ 011f: ldloc.s 0A
+ 0121: brfalse.s 0D
+ 0123: nop 
+ 0124: ldsfld FieldDefinition:04000006
+ 0129: call System.IO.File::Delete
+ 012e: nop 
+ 012f: nop 
+ 0130: nop 
+ 0131: leave.s 76
+ 0133: stloc.s 0B
+ 0135: nop 
+ 0136: ldstr "Can\u0027t delete file or directory. %s1"
+ 013b: ldc.i4 7F969800
+ 0140: conv.i8 
+ 0141: ldc.i4 7F969800
+ 0146: conv.i8 
+ 0147: ldc.i4 7F969800
+ 014c: conv.i8 
+ 014d: ldc.i4 7F969800
+ 0152: conv.i8 
+ 0153: ldc.i4 7F969800
+ 0158: conv.i8 
+ 0159: ldloc.s 0B
+ 015b: callvirt System.Exception::get_Message
+ 0160: ldnull 
+ 0161: ldnull 
+ 0162: ldnull 
+ 0163: ldnull 
+ 0164: ldc.r8 000000E0CF126341
+ 016d: ldc.r8 000000E0CF126341
+ 0176: ldc.r8 000000E0CF126341
+ 017f: ldc.r8 000000E0CF126341
+ 0188: ldc.r8 000000E0CF126341
+ 0191: ldstr "DeleteAllFiles"
+ 0196: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 019b: ldc.i4 CD000000
+ 01a0: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 01a5: nop 
+ 01a6: nop 
+ 01a7: leave.s 00
+ 01a9: ret 
+METHOD 06000009 Com.Samsung.TV.Home.Media.ResetManager::OnCommand
+ 0000: nop 
+ 0001: ldstr "%s1 : %d1"
+ 0006: ldarg.1 
+ 0007: stloc.0 
+ 0008: ldarg.2 
+ 0009: callvirt TypeSpecification:1b000005::get_Count
+ 000e: conv.i8 
+ 000f: ldc.i4 7F969800
+ 0014: conv.i8 
+ 0015: ldc.i4 7F969800
+ 001a: conv.i8 
+ 001b: ldc.i4 7F969800
+ 0020: conv.i8 
+ 0021: ldc.i4 7F969800
+ 0026: conv.i8 
+ 0027: ldloc.0 
+ 0028: ldnull 
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldc.r8 000000E0CF126341
+ 0035: ldc.r8 000000E0CF126341
+ 003e: ldc.r8 000000E0CF126341
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldstr "OnCommand"
+ 005e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0063: ldc.i4 D3000000
+ 0068: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006d: nop 
+ 006e: ldarg.1 
+ 006f: ldsfld FieldDefinition:04000007
+ 0074: call System.String::op_Equality
+ 0079: stloc.1 
+ 007a: ldloc.1 
+ 007b: brfalse 3C010000
+ 0080: nop 
+ 0081: nop 
+ 0082: ldarg.2 
+ 0083: callvirt TypeSpecification:1b000005::GetEnumerator
+ 0088: stloc.2 
+ 0089: br 10010000
+ 008e: ldloca.s 02
+ 0090: call TypeSpecification:1b000006::get_Current
+ 0095: stloc.3 
+ 0096: nop 
+ 0097: ldloca.s 03
+ 0099: call TypeSpecification:1b000007::get_Value
+ 009e: stloc.s 04
+ 00a0: ldarg.0 
+ 00a1: ldfld FieldDefinition:0400000b
+ 00a6: ldloc.s 04
+ 00a8: callvirt TypeSpecification:1b000003::Contains
+ 00ad: stloc.s 05
+ 00af: ldloc.s 05
+ 00b1: brfalse.s 6F
+ 00b3: nop 
+ 00b4: ldstr "[Skip] %s1 is already added in noResetFiles"
+ 00b9: ldc.i4 7F969800
+ 00be: conv.i8 
+ 00bf: ldc.i4 7F969800
+ 00c4: conv.i8 
+ 00c5: ldc.i4 7F969800
+ 00ca: conv.i8 
+ 00cb: ldc.i4 7F969800
+ 00d0: conv.i8 
+ 00d1: ldc.i4 7F969800
+ 00d6: conv.i8 
+ 00d7: ldloc.s 04
+ 00d9: ldnull 
+ 00da: ldnull 
+ 00db: ldnull 
+ 00dc: ldnull 
+ 00dd: ldc.r8 000000E0CF126341
+ 00e6: ldc.r8 000000E0CF126341
+ 00ef: ldc.r8 000000E0CF126341
+ 00f8: ldc.r8 000000E0CF126341
+ 0101: ldc.r8 000000E0CF126341
+ 010a: ldstr "OnCommand"
+ 010f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0114: ldc.i4 DB000000
+ 0119: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 011e: nop 
+ 011f: nop 
+ 0120: br.s 7B
+ 0122: nop 
+ 0123: ldarg.0 
+ 0124: ldfld FieldDefinition:0400000b
+ 0129: ldloc.s 04
+ 012b: callvirt TypeSpecification:1b000003::Add
+ 0130: nop 
+ 0131: ldstr "[Add] %s1 is added in noResetFiles"
+ 0136: ldc.i4 7F969800
+ 013b: conv.i8 
+ 013c: ldc.i4 7F969800
+ 0141: conv.i8 
+ 0142: ldc.i4 7F969800
+ 0147: conv.i8 
+ 0148: ldc.i4 7F969800
+ 014d: conv.i8 
+ 014e: ldc.i4 7F969800
+ 0153: conv.i8 
+ 0154: ldloc.s 04
+ 0156: ldnull 
+ 0157: ldnull 
+ 0158: ldnull 
+ 0159: ldnull 
+ 015a: ldc.r8 000000E0CF126341
+ 0163: ldc.r8 000000E0CF126341
+ 016c: ldc.r8 000000E0CF126341
+ 0175: ldc.r8 000000E0CF126341
+ 017e: ldc.r8 000000E0CF126341
+ 0187: ldstr "OnCommand"
+ 018c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/ResetManager.cs"
+ 0191: ldc.i4 E0000000
+ 0196: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 019b: nop 
+ 019c: nop 
+ 019d: nop 
+ 019e: ldloca.s 02
+ 01a0: call TypeSpecification:1b000006::MoveNext
+ 01a5: brtrue E4FEFFFF
+ 01aa: leave.s 0F
+ 01ac: ldloca.s 02
+ 01ae: constrained. TypeSpecification:1b000006
+ 01b4: callvirt System.IDisposable::Dispose
+ 01b9: nop 
+ 01ba: endfinally 
+ 01bb: nop 
+ 01bc: ret 
+METHOD 0600000a Com.Samsung.TV.Home.Media.ResetManager::.cctor
+ 0000: ldstr "HOME_MEDIA"
+ 0005: stsfld FieldDefinition:04000001
+ 000a: ldstr ".resetflag"
+ 000f: stsfld FieldDefinition:04000002
+ 0014: ldstr ".SHResetflag"
+ 0019: stsfld FieldDefinition:04000003
+ 001e: ldstr "no_recent"
+ 0023: stsfld FieldDefinition:04000004
+ 0028: ldstr "/home/researcher/share/voltapps/firstscreen_data/FromSmarthubToFS.txt"
+ 002d: stsfld FieldDefinition:04000005
+ 0032: ldstr "/home/researcher/share/voltapps/firstscreen_data/makeYourSmartDataAssist.txt"
+ 0037: stsfld FieldDefinition:04000006
+ 003c: ldstr "no_delete_on_smarthub_reset"
+ 0041: stsfld FieldDefinition:04000007
+ 0046: ldstr "Key:[index], Value:[name of cache file]"
+ 004b: stsfld FieldDefinition:04000008
+ 0050: ldstr "memory/eden/smarthub_reset_media"
+ 0055: stsfld FieldDefinition:0400000a
+ 005a: ret 
+METHOD 0600000b Com.Samsung.TV.Home.Media.WatchDog::smart_deadlock_register_watchdog_service
+METHOD 0600000c Com.Samsung.TV.Home.Media.WatchDog::smart_deadlock_watchdog_notify
+METHOD 0600000d Com.Samsung.TV.Home.Media.WatchDog::.ctor
+ 0000: ldarg.0 
+ 0001: ldnull 
+ 0002: stfld FieldDefinition:0400000c
+ 0007: ldarg.0 
+ 0008: call TypeSpecification:1b000002::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldc.i4 B4000000
+ 0014: call smart_deadlock_register_watchdog_service
+ 0019: stloc.0 
+ 001a: ldstr "register watchdog %d1"
+ 001f: ldloc.0 
+ 0020: conv.i8 
+ 0021: ldc.i4 7F969800
+ 0026: conv.i8 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldc.i4 7F969800
+ 0032: conv.i8 
+ 0033: ldc.i4 7F969800
+ 0038: conv.i8 
+ 0039: ldnull 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldnull 
+ 003d: ldnull 
+ 003e: ldc.r8 000000E0CF126341
+ 0047: ldc.r8 000000E0CF126341
+ 0050: ldc.r8 000000E0CF126341
+ 0059: ldc.r8 000000E0CF126341
+ 0062: ldc.r8 000000E0CF126341
+ 006b: ldstr ".ctor"
+ 0070: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/WatchDog.cs"
+ 0075: ldc.i4.s 15
+ 0077: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 007c: nop 
+ 007d: ldloc.0 
+ 007e: ldc.i4.0 
+ 007f: cgt.un 
+ 0081: stloc.1 
+ 0082: ldloc.1 
+ 0083: brfalse.s 03
+ 0085: nop 
+ 0086: br.s 5F
+ 0088: ldarg.0 
+ 0089: ldfld FieldDefinition:0400000c
+ 008e: ldnull 
+ 008f: ceq 
+ 0091: stloc.2 
+ 0092: ldloc.2 
+ 0093: brfalse.s 2B
+ 0095: nop 
+ 0096: ldarg.0 
+ 0097: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 009c: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::GetLibrary
+ 00a1: ldsfld FieldDefinition:0400000d
+ 00a6: callvirt Tizen.TV.Service.CoBA.BPI.Library.LibraryBase::GetTimer
+ 00ab: stfld FieldDefinition:0400000c
+ 00b0: ldarg.0 
+ 00b1: ldfld FieldDefinition:0400000c
+ 00b6: ldarg.0 
+ 00b7: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::SetHandler
+ 00bc: nop 
+ 00bd: nop 
+ 00be: br.s 0F
+ 00c0: nop 
+ 00c1: ldarg.0 
+ 00c2: ldfld FieldDefinition:0400000c
+ 00c7: ldc.i4.1 
+ 00c8: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 00cd: nop 
+ 00ce: nop 
+ 00cf: ldarg.0 
+ 00d0: ldfld FieldDefinition:0400000c
+ 00d5: ldstr ".ctor"
+ 00da: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/WatchDog.cs"
+ 00df: ldc.i4.s 26
+ 00e1: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Start
+ 00e6: nop 
+ 00e7: ret 
+METHOD 0600000e Com.Samsung.TV.Home.Media.WatchDog::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: ldfld FieldDefinition:0400000c
+ 0008: dup 
+ 0009: brtrue.s 03
+ 000b: pop 
+ 000c: br.s 07
+ 000e: ldc.i4.1 
+ 000f: callvirt Tizen.TV.Service.CoBA.BPI.Library.CSTimer::Stop
+ 0014: nop 
+ 0015: ldarg.0 
+ 0016: ldnull 
+ 0017: stfld FieldDefinition:0400000c
+ 001c: leave.s 08
+ 001e: ldarg.0 
+ 001f: call System.Object::Finalize
+ 0024: nop 
+ 0025: endfinally 
+ 0026: ret 
+METHOD 0600000f Com.Samsung.TV.Home.Media.WatchDog::OnTimer
+ 0000: nop 
+ 0001: call smart_deadlock_watchdog_notify
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldc.i4.0 
+ 0009: cgt.un 
+ 000b: stloc.1 
+ 000c: ldloc.1 
+ 000d: brfalse.s 65
+ 000f: nop 
+ 0010: ldstr "watchdog notify returns error: %d1"
+ 0015: ldloc.0 
+ 0016: conv.i8 
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldnull 
+ 0030: ldnull 
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldstr "OnTimer"
+ 0066: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/Common/WatchDog.cs"
+ 006b: ldc.i4.s 34
+ 006d: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0072: nop 
+ 0073: nop 
+ 0074: ldc.i4.1 
+ 0075: stloc.2 
+ 0076: br.s 00
+ 0078: ldloc.2 
+ 0079: ret 
+METHOD 06000010 Com.Samsung.TV.Home.Media.WatchDog::.cctor
+ 0000: ldc.i4 10270000
+ 0005: stsfld FieldDefinition:0400000d
+ 000a: ret 
+METHOD 06000011 Com.Samsung.TV.Home.Media.MediaAppLayerCache::GetItems
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.0 
+ 0003: newarr System.String
+ 0008: stind.ref 
+ 0009: ldc.i4.1 
+ 000a: stloc.0 
+ 000b: br.s 00
+ 000d: ldloc.0 
+ 000e: ret 
+METHOD 06000012 Com.Samsung.TV.Home.Media.MediaAppLayerCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 06000013 Com.Samsung.TV.Home.Media.AppLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ldstr "UpdateItem: parent=%s1, json: %s2"
+ 000f: ldc.i4 7F969800
+ 0014: conv.i8 
+ 0015: ldc.i4 7F969800
+ 001a: conv.i8 
+ 001b: ldc.i4 7F969800
+ 0020: conv.i8 
+ 0021: ldc.i4 7F969800
+ 0026: conv.i8 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldarg.1 
+ 002e: brtrue.s 03
+ 0030: ldnull 
+ 0031: br.s 06
+ 0033: ldarg.1 
+ 0034: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0039: ldarg.2 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldnull 
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldc.r8 000000E0CF126341
+ 006a: ldstr ".ctor"
+ 006f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaAppLayer.cs"
+ 0074: ldc.i4.s 14
+ 0076: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 007b: nop 
+ 007c: ret 
+METHOD 06000014 Com.Samsung.TV.Home.Media.AppLayerElement::Update
+ 0000: nop 
+ 0001: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "title"
+ 000d: ldstr "Home Media Business"
+ 0012: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0017: pop 
+ 0018: ldloc.0 
+ 0019: ldstr "type"
+ 001e: ldstr "Config"
+ 0023: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0028: pop 
+ 0029: ldloc.0 
+ 002a: ldstr "hide_priority"
+ 002f: ldstr "window"
+ 0034: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0039: pop 
+ 003a: ldarg.0 
+ 003b: ldloc.0 
+ 003c: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0046: nop 
+ 0047: ldloc.0 
+ 0048: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 004d: nop 
+ 004e: ret 
+METHOD 06000015 Com.Samsung.TV.Home.Media.MediaAppLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:0400000e
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 06000016 Com.Samsung.TV.Home.Media.MediaAppLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 06000017 Com.Samsung.TV.Home.Media.MediaAppLayer::.cctor
+ 0000: ldstr "s/app.layer"
+ 0005: stsfld FieldDefinition:0400000e
+ 000a: ret 
+METHOD 06000018 Com.Samsung.TV.Home.Media.MediaFirstscreenCache::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0007: nop 
+ 0008: nop 
+ 0009: ret 
+METHOD 06000019 Com.Samsung.TV.Home.Media.MediaFirstscreenCache::GetItems
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000003::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "d/media.category"
+ 000d: callvirt TypeSpecification:1b000003::Add
+ 0012: nop 
+ 0013: ldloc.0 
+ 0014: ldstr "d/mobilebff"
+ 0019: callvirt TypeSpecification:1b000003::Add
+ 001e: nop 
+ 001f: call Tizen.TV.Service.CoBA.Common.FSSystemProperty::get_IsEdenForB2BTV
+ 0024: stloc.1 
+ 0025: ldloc.1 
+ 0026: brfalse.s 0E
+ 0028: nop 
+ 0029: ldloc.0 
+ 002a: ldstr "s/htv.media.service"
+ 002f: callvirt TypeSpecification:1b000003::Add
+ 0034: nop 
+ 0035: nop 
+ 0036: ldarg.1 
+ 0037: ldloc.0 
+ 0038: callvirt TypeSpecification:1b000003::ToArray
+ 003d: stind.ref 
+ 003e: ldstr "[ClassID: %s1] GetItems is called"
+ 0043: ldc.i4 7F969800
+ 0048: conv.i8 
+ 0049: ldc.i4 7F969800
+ 004e: conv.i8 
+ 004f: ldc.i4 7F969800
+ 0054: conv.i8 
+ 0055: ldc.i4 7F969800
+ 005a: conv.i8 
+ 005b: ldc.i4 7F969800
+ 0060: conv.i8 
+ 0061: ldsfld FieldDefinition:04000010
+ 0066: ldnull 
+ 0067: ldnull 
+ 0068: ldnull 
+ 0069: ldnull 
+ 006a: ldc.r8 000000E0CF126341
+ 0073: ldc.r8 000000E0CF126341
+ 007c: ldc.r8 000000E0CF126341
+ 0085: ldc.r8 000000E0CF126341
+ 008e: ldc.r8 000000E0CF126341
+ 0097: ldstr "GetItems"
+ 009c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 00a1: ldc.i4.s 1B
+ 00a3: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00a8: nop 
+ 00a9: ldc.i4.1 
+ 00aa: stloc.2 
+ 00ab: br.s 00
+ 00ad: ldloc.2 
+ 00ae: ret 
+METHOD 0600001a Com.Samsung.TV.Home.Media.FirstScreenElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ldstr "[ClassID: %s1] parent=%s2, json: %s3"
+ 000f: ldc.i4 7F969800
+ 0014: conv.i8 
+ 0015: ldc.i4 7F969800
+ 001a: conv.i8 
+ 001b: ldc.i4 7F969800
+ 0020: conv.i8 
+ 0021: ldc.i4 7F969800
+ 0026: conv.i8 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldsfld FieldDefinition:04000010
+ 0032: ldarg.1 
+ 0033: brtrue.s 03
+ 0035: ldnull 
+ 0036: br.s 06
+ 0038: ldarg.1 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 003e: ldarg.2 
+ 003f: ldnull 
+ 0040: ldnull 
+ 0041: ldc.r8 000000E0CF126341
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldstr ".ctor"
+ 0073: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 0078: ldc.i4.s 26
+ 007a: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 007f: nop 
+ 0080: ret 
+METHOD 0600001b Com.Samsung.TV.Home.Media.FirstScreenElement::Update
+ 0000: nop 
+ 0001: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "title"
+ 000d: ldstr "Home Media Business"
+ 0012: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0017: pop 
+ 0018: ldloc.0 
+ 0019: ldstr "type"
+ 001e: ldstr "Config"
+ 0023: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0028: pop 
+ 0029: ldloc.0 
+ 002a: ldstr "hide_priority"
+ 002f: ldstr "window"
+ 0034: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0039: pop 
+ 003a: ldarg.0 
+ 003b: ldloc.0 
+ 003c: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0046: nop 
+ 0047: ldloc.0 
+ 0048: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 004d: nop 
+ 004e: ldstr "[ClassID: %s1] UIJson: %s2"
+ 0053: ldc.i4 7F969800
+ 0058: conv.i8 
+ 0059: ldc.i4 7F969800
+ 005e: conv.i8 
+ 005f: ldc.i4 7F969800
+ 0064: conv.i8 
+ 0065: ldc.i4 7F969800
+ 006a: conv.i8 
+ 006b: ldc.i4 7F969800
+ 0070: conv.i8 
+ 0071: ldsfld FieldDefinition:04000010
+ 0076: ldarg.0 
+ 0077: call Tizen.TV.Service.CoBA.BPI.Element::get_UIJson
+ 007c: ldnull 
+ 007d: ldnull 
+ 007e: ldnull 
+ 007f: ldc.r8 000000E0CF126341
+ 0088: ldc.r8 000000E0CF126341
+ 0091: ldc.r8 000000E0CF126341
+ 009a: ldc.r8 000000E0CF126341
+ 00a3: ldc.r8 000000E0CF126341
+ 00ac: ldstr "Update"
+ 00b1: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 00b6: ldc.i4.s 35
+ 00b8: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00bd: nop 
+ 00be: ret 
+METHOD 0600001c Com.Samsung.TV.Home.Media.MediaFirstscreen::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:04000010
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: ldarg.0 
+ 0012: newobj .ctor
+ 0017: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001c: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0021: ldarg.0 
+ 0022: ldc.i4.1 
+ 0023: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0028: dup 
+ 0029: ldc.i4.0 
+ 002a: ldarg.0 
+ 002b: ldnull 
+ 002c: newobj .ctor
+ 0031: stelem.ref 
+ 0032: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0037: nop 
+ 0038: ldarg.0 
+ 0039: ldarg.0 
+ 003a: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003f: ldc.i4.0 
+ 0040: ldelem.ref 
+ 0041: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0046: nop 
+ 0047: ldstr "[ClassID: %s1] parent=%s2, instanceId: %s3"
+ 004c: ldc.i4 7F969800
+ 0051: conv.i8 
+ 0052: ldc.i4 7F969800
+ 0057: conv.i8 
+ 0058: ldc.i4 7F969800
+ 005d: conv.i8 
+ 005e: ldc.i4 7F969800
+ 0063: conv.i8 
+ 0064: ldc.i4 7F969800
+ 0069: conv.i8 
+ 006a: ldsfld FieldDefinition:04000010
+ 006f: ldarg.1 
+ 0070: brtrue.s 03
+ 0072: ldnull 
+ 0073: br.s 06
+ 0075: ldarg.1 
+ 0076: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 007b: ldarg.2 
+ 007c: ldnull 
+ 007d: ldnull 
+ 007e: ldc.r8 000000E0CF126341
+ 0087: ldc.r8 000000E0CF126341
+ 0090: ldc.r8 000000E0CF126341
+ 0099: ldc.r8 000000E0CF126341
+ 00a2: ldc.r8 000000E0CF126341
+ 00ab: ldstr ".ctor"
+ 00b0: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 00b5: ldc.i4.s 4A
+ 00b7: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00bc: nop 
+ 00bd: ret 
+METHOD 0600001d Com.Samsung.TV.Home.Media.MediaFirstscreen::Alloc
+ 0000: nop 
+ 0001: ldstr "[ClassID: %s1] parent=%s2, instanceId: %s3"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldsfld FieldDefinition:04000010
+ 0029: ldarg.0 
+ 002a: brtrue.s 03
+ 002c: ldnull 
+ 002d: br.s 06
+ 002f: ldarg.0 
+ 0030: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0035: ldarg.1 
+ 0036: ldnull 
+ 0037: ldnull 
+ 0038: ldc.r8 000000E0CF126341
+ 0041: ldc.r8 000000E0CF126341
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldstr "Alloc"
+ 006a: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 006f: ldc.i4.s 4E
+ 0071: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0076: nop 
+ 0077: ldarg.0 
+ 0078: ldarg.1 
+ 0079: newobj .ctor
+ 007e: stloc.0 
+ 007f: br.s 00
+ 0081: ldloc.0 
+ 0082: ret 
+METHOD 0600001e Com.Samsung.TV.Home.Media.MediaFirstscreen::Run
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: call Tizen.TV.Service.CoBA.Core.Component::Run
+ 0008: nop 
+ 0009: ldarg.0 
+ 000a: ldsfld FieldDefinition:04000011
+ 000f: call CreateReadyFile
+ 0014: nop 
+ 0015: ldstr "HOMEAPP_VERSION: [%s1]"
+ 001a: ldc.i4 7F969800
+ 001f: conv.i8 
+ 0020: ldc.i4 7F969800
+ 0025: conv.i8 
+ 0026: ldc.i4 7F969800
+ 002b: conv.i8 
+ 002c: ldc.i4 7F969800
+ 0031: conv.i8 
+ 0032: ldc.i4 7F969800
+ 0037: conv.i8 
+ 0038: ldsfld FieldDefinition:0400000f
+ 003d: ldnull 
+ 003e: ldnull 
+ 003f: ldnull 
+ 0040: ldnull 
+ 0041: ldc.r8 000000E0CF126341
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldstr "Run"
+ 0073: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 0078: ldc.i4.s 56
+ 007a: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 007f: nop 
+ 0080: ret 
+METHOD 0600001f Com.Samsung.TV.Home.Media.MediaFirstscreen::OnExit
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.Component::OnExit
+ 0007: nop 
+ 0008: ret 
+METHOD 06000020 Com.Samsung.TV.Home.Media.MediaFirstscreen::OnShow
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.Core.Component::OnShow
+ 0007: nop 
+ 0008: ret 
+METHOD 06000021 Com.Samsung.TV.Home.Media.MediaFirstscreen::OnPrepare
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: call Tizen.TV.Service.CoBA.BPI.Entity::OnPrepare
+ 0007: nop 
+ 0008: ret 
+METHOD 06000022 Com.Samsung.TV.Home.Media.MediaFirstscreen::CreateReadyFile
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.1 
+ 0003: call System.IO.File::Exists
+ 0008: stloc.1 
+ 0009: ldloc.1 
+ 000a: brfalse.s 06
+ 000c: nop 
+ 000d: leave 07010000
+ 0012: ldstr "%s1"
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldc.i4 7F969800
+ 0034: conv.i8 
+ 0035: ldarg.1 
+ 0036: ldnull 
+ 0037: ldnull 
+ 0038: ldnull 
+ 0039: ldnull 
+ 003a: ldc.r8 000000E0CF126341
+ 0043: ldc.r8 000000E0CF126341
+ 004c: ldc.r8 000000E0CF126341
+ 0055: ldc.r8 000000E0CF126341
+ 005e: ldc.r8 000000E0CF126341
+ 0067: ldstr "CreateReadyFile"
+ 006c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 0071: ldc.i4.s 70
+ 0073: call Tizen.TV.Service.CoBA.Common.FSLogger::CheckTimeC
+ 0078: nop 
+ 0079: ldarg.1 
+ 007a: ldc.i4.2 
+ 007b: call System.IO.File::Open
+ 0080: stloc.0 
+ 0081: ldloc.0 
+ 0082: newobj System.IO.BinaryWriter::.ctor
+ 0087: stloc.2 
+ 0088: nop 
+ 0089: nop 
+ 008a: leave.s 0B
+ 008c: ldloc.2 
+ 008d: brfalse.s 07
+ 008f: ldloc.2 
+ 0090: callvirt System.IDisposable::Dispose
+ 0095: nop 
+ 0096: endfinally 
+ 0097: ldstr "%s1 is generated"
+ 009c: ldc.i4 7F969800
+ 00a1: conv.i8 
+ 00a2: ldc.i4 7F969800
+ 00a7: conv.i8 
+ 00a8: ldc.i4 7F969800
+ 00ad: conv.i8 
+ 00ae: ldc.i4 7F969800
+ 00b3: conv.i8 
+ 00b4: ldc.i4 7F969800
+ 00b9: conv.i8 
+ 00ba: ldarg.1 
+ 00bb: ldnull 
+ 00bc: ldnull 
+ 00bd: ldnull 
+ 00be: ldnull 
+ 00bf: ldc.r8 000000E0CF126341
+ 00c8: ldc.r8 000000E0CF126341
+ 00d1: ldc.r8 000000E0CF126341
+ 00da: ldc.r8 000000E0CF126341
+ 00e3: ldc.r8 000000E0CF126341
+ 00ec: ldstr "CreateReadyFile"
+ 00f1: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 00f6: ldc.i4.s 75
+ 00f8: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 00fd: nop 
+ 00fe: nop 
+ 00ff: leave.s 18
+ 0101: stloc.3 
+ 0102: nop 
+ 0103: ldloc.3 
+ 0104: ldstr "CreateReadyFile"
+ 0109: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaFirstScreen.cs"
+ 010e: ldc.i4.s 79
+ 0110: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 0115: nop 
+ 0116: nop 
+ 0117: leave.s 00
+ 0119: ret 
+METHOD 06000023 Com.Samsung.TV.Home.Media.MediaFirstscreen::.cctor
+ 0000: ldstr "3.5.26050"
+ 0005: stsfld FieldDefinition:0400000f
+ 000a: ldstr "s/firstscreen"
+ 000f: stsfld FieldDefinition:04000010
+ 0014: ldstr "/home/researcher/apps_rw/com.samsung.tv.home.media/shared/trusted/db_ready"
+ 0019: stsfld FieldDefinition:04000011
+ 001e: ret 
+METHOD 06000024 Com.Samsung.TV.Home.Media.MediaSystemLayerCache::GetItems
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldc.i4.0 
+ 0003: newarr System.String
+ 0008: stind.ref 
+ 0009: ldc.i4.1 
+ 000a: stloc.0 
+ 000b: br.s 00
+ 000d: ldloc.0 
+ 000e: ret 
+METHOD 06000025 Com.Samsung.TV.Home.Media.MediaSystemLayerCache::.ctor
+ 0000: ldarg.0 
+ 0001: call Tizen.TV.Service.CoBA.Core.ComponentCache::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 06000026 Com.Samsung.TV.Home.Media.SystemLayerElement::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldarg.2 
+ 0003: call Tizen.TV.Service.CoBA.BPI.Element::.ctor
+ 0008: nop 
+ 0009: nop 
+ 000a: ldstr "UpdateItem: parent=%s1, json: %s2"
+ 000f: ldc.i4 7F969800
+ 0014: conv.i8 
+ 0015: ldc.i4 7F969800
+ 001a: conv.i8 
+ 001b: ldc.i4 7F969800
+ 0020: conv.i8 
+ 0021: ldc.i4 7F969800
+ 0026: conv.i8 
+ 0027: ldc.i4 7F969800
+ 002c: conv.i8 
+ 002d: ldarg.1 
+ 002e: brtrue.s 03
+ 0030: ldnull 
+ 0031: br.s 06
+ 0033: ldarg.1 
+ 0034: call Tizen.TV.Service.CoBA.BPI.Entity::get_ID
+ 0039: ldarg.2 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldnull 
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldc.r8 000000E0CF126341
+ 006a: ldstr ".ctor"
+ 006f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/CompBase/MediaSystemLayer.cs"
+ 0074: ldc.i4.s 14
+ 0076: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 007b: nop 
+ 007c: ret 
+METHOD 06000027 Com.Samsung.TV.Home.Media.SystemLayerElement::Update
+ 0000: nop 
+ 0001: newobj Tizen.TV.Service.CoBA.Common.JsonMapPair::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "title"
+ 000d: ldstr "Home Media Business"
+ 0012: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0017: pop 
+ 0018: ldloc.0 
+ 0019: ldstr "type"
+ 001e: ldstr "Config"
+ 0023: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0028: pop 
+ 0029: ldloc.0 
+ 002a: ldstr "hide_priority"
+ 002f: ldstr "window"
+ 0034: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Add
+ 0039: pop 
+ 003a: ldarg.0 
+ 003b: ldloc.0 
+ 003c: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::ToJsonString
+ 0041: call Tizen.TV.Service.CoBA.BPI.Element::set_UIJson
+ 0046: nop 
+ 0047: ldloc.0 
+ 0048: callvirt Tizen.TV.Service.CoBA.Common.JsonMapPair::Dispose
+ 004d: nop 
+ 004e: ret 
+METHOD 06000028 Com.Samsung.TV.Home.Media.MediaSystemLayer::.ctor
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: ldsfld FieldDefinition:04000012
+ 0007: ldarg.2 
+ 0008: call Tizen.TV.Service.CoBA.Core.Component::.ctor
+ 000d: nop 
+ 000e: nop 
+ 000f: ldarg.0 
+ 0010: ldarg.0 
+ 0011: newobj .ctor
+ 0016: newobj Tizen.TV.Service.CoBA.Core.ComponentControl::.ctor
+ 001b: stfld Tizen.TV.Service.CoBA.Core.Component::m_control
+ 0020: ldarg.0 
+ 0021: ldc.i4.1 
+ 0022: newarr Tizen.TV.Service.CoBA.BPI.Element
+ 0027: dup 
+ 0028: ldc.i4.0 
+ 0029: ldarg.0 
+ 002a: ldnull 
+ 002b: newobj .ctor
+ 0030: stelem.ref 
+ 0031: call Tizen.TV.Service.CoBA.BPI.Entity::set_Elements
+ 0036: nop 
+ 0037: ldarg.0 
+ 0038: ldarg.0 
+ 0039: call Tizen.TV.Service.CoBA.BPI.Entity::get_Elements
+ 003e: ldc.i4.0 
+ 003f: ldelem.ref 
+ 0040: call Tizen.TV.Service.CoBA.BPI.Entity::set_CurrentElement
+ 0045: nop 
+ 0046: ret 
+METHOD 06000029 Com.Samsung.TV.Home.Media.MediaSystemLayer::Alloc
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldarg.1 
+ 0003: newobj .ctor
+ 0008: stloc.0 
+ 0009: br.s 00
+ 000b: ldloc.0 
+ 000c: ret 
+METHOD 0600002a Com.Samsung.TV.Home.Media.MediaSystemLayer::.cctor
+ 0000: ldstr "s/system.layer"
+ 0005: stsfld FieldDefinition:04000012
+ 000a: ret 
+METHOD 0600002b Com.Samsung.TV.Home.Media.Program::get_Title
+ 0000: ldstr "HOME_MEDIA"
+ 0005: ret 
+METHOD 0600002c Com.Samsung.TV.Home.Media.Program::.ctor
+ 0000: ldarg.0 
+ 0001: ldc.i4.0 
+ 0002: stfld FieldDefinition:04000019
+ 0007: ldarg.0 
+ 0008: ldc.i4.0 
+ 0009: stfld FieldDefinition:0400001a
+ 000e: ldarg.0 
+ 000f: ldnull 
+ 0010: stfld FieldDefinition:0400001b
+ 0015: ldarg.0 
+ 0016: ldnull 
+ 0017: stfld FieldDefinition:0400001c
+ 001c: ldarg.0 
+ 001d: ldnull 
+ 001e: stfld FieldDefinition:0400001d
+ 0023: ldarg.0 
+ 0024: call System.Object::.ctor
+ 0029: nop 
+ 002a: nop 
+ 002b: ret 
+METHOD 0600002d Com.Samsung.TV.Home.Media.Program::OnCreate
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldstr "OnCreate"
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldc.r8 000000E0CF126341
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldstr "OnCreate"
+ 005f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0064: ldc.i4.s 2F
+ 0066: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006b: nop 
+ 006c: ldsfld FieldDefinition:04000020
+ 0071: dup 
+ 0072: brtrue.s 17
+ 0074: pop 
+ 0075: ldsfld FieldDefinition:0400001f
+ 007a: ldftn <OnCreate>b__14_0
+ 0080: newobj TypeSpecification:1b000008::.ctor
+ 0085: dup 
+ 0086: stsfld FieldDefinition:04000020
+ 008b: ldnull 
+ 008c: ldc.i4.1 
+ 008d: ldstr "OnCreate"
+ 0092: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0097: ldc.i4.s 31
+ 0099: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 009e: nop 
+ 009f: ldsfld FieldDefinition:04000021
+ 00a4: dup 
+ 00a5: brtrue.s 17
+ 00a7: pop 
+ 00a8: ldsfld FieldDefinition:0400001f
+ 00ad: ldftn <OnCreate>b__14_1
+ 00b3: newobj System.Action::.ctor
+ 00b8: dup 
+ 00b9: stsfld FieldDefinition:04000021
+ 00be: call System.Threading.Tasks.Task::Run
+ 00c3: pop 
+ 00c4: ret 
+METHOD 0600002e Com.Samsung.TV.Home.Media.Program::OnAppControlReceived
+ 0000: nop 
+ 0001: ldloca.s 04
+ 0003: ldc.i4.s 15
+ 0005: ldc.i4.1 
+ 0006: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor
+ 000b: ldloca.s 04
+ 000d: ldstr "OnAppControlReceive: "
+ 0012: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 0017: nop 
+ 0018: ldloca.s 04
+ 001a: ldarg.1 
+ 001b: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 0020: nop 
+ 0021: ldloca.s 04
+ 0023: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldc.i4 7F969800
+ 0045: conv.i8 
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldnull 
+ 004b: ldc.r8 000000E0CF126341
+ 0054: ldc.r8 000000E0CF126341
+ 005d: ldc.r8 000000E0CF126341
+ 0066: ldc.r8 000000E0CF126341
+ 006f: ldc.r8 000000E0CF126341
+ 0078: ldstr "OnAppControlReceived"
+ 007d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0082: ldc.i4.s 46
+ 0084: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0089: nop 
+ 008a: ldstr "OnAppControlReceive: %s1"
+ 008f: ldc.i4 7F969800
+ 0094: conv.i8 
+ 0095: ldc.i4 7F969800
+ 009a: conv.i8 
+ 009b: ldc.i4 7F969800
+ 00a0: conv.i8 
+ 00a1: ldc.i4 7F969800
+ 00a6: conv.i8 
+ 00a7: ldc.i4 7F969800
+ 00ac: conv.i8 
+ 00ad: ldarg.1 
+ 00ae: callvirt Tizen.TV.Service.CoBA.BPI.AppControlEventArgs::get_CallerAppId
+ 00b3: ldnull 
+ 00b4: ldnull 
+ 00b5: ldnull 
+ 00b6: ldnull 
+ 00b7: ldc.r8 000000E0CF126341
+ 00c0: ldc.r8 000000E0CF126341
+ 00c9: ldc.r8 000000E0CF126341
+ 00d2: ldc.r8 000000E0CF126341
+ 00db: ldc.r8 000000E0CF126341
+ 00e4: ldstr "OnAppControlReceived"
+ 00e9: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 00ee: ldc.i4.s 47
+ 00f0: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 00f5: nop 
+ 00f6: ldarg.0 
+ 00f7: ldfld FieldDefinition:04000019
+ 00fc: ldc.i4.0 
+ 00fd: ceq 
+ 00ff: stloc.s 05
+ 0101: ldloc.s 05
+ 0103: brfalse 1D010000
+ 0108: nop 
+ 0109: ldsfld FieldDefinition:04000018
+ 010e: ldc.i4.1 
+ 010f: call Tizen.TV.System.Vconf::SetInt
+ 0114: pop 
+ 0115: ldarg.0 
+ 0116: ldc.i4.1 
+ 0117: stfld FieldDefinition:04000019
+ 011c: nop 
+ 011d: call System.Diagnostics.Process::GetCurrentProcess
+ 0122: stloc.s 06
+ 0124: nop 
+ 0125: ldloc.s 06
+ 0127: callvirt System.Diagnostics.Process::get_Id
+ 012c: stloc.s 07
+ 012e: ldloc.s 07
+ 0130: call Tizen.TV.Application.AppManagerExtension::GetLastCallerPid
+ 0135: stloc.s 08
+ 0137: ldstr "SetProcessGroup: OwnerPID [%d1], ChildPID [%d2]"
+ 013c: ldloc.s 08
+ 013e: conv.i8 
+ 013f: ldloc.s 07
+ 0141: conv.i8 
+ 0142: ldc.i4 7F969800
+ 0147: conv.i8 
+ 0148: ldc.i4 7F969800
+ 014d: conv.i8 
+ 014e: ldc.i4 7F969800
+ 0153: conv.i8 
+ 0154: ldnull 
+ 0155: ldnull 
+ 0156: ldnull 
+ 0157: ldnull 
+ 0158: ldnull 
+ 0159: ldc.r8 000000E0CF126341
+ 0162: ldc.r8 000000E0CF126341
+ 016b: ldc.r8 000000E0CF126341
+ 0174: ldc.r8 000000E0CF126341
+ 017d: ldc.r8 000000E0CF126341
+ 0186: ldstr "OnAppControlReceived"
+ 018b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0190: ldc.i4.s 53
+ 0192: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0197: nop 
+ 0198: ldloc.s 08
+ 019a: ldloc.s 07
+ 019c: call Tizen.TV.Application.AppManagerExtension::SetProcessGroup
+ 01a1: nop 
+ 01a2: nop 
+ 01a3: leave.s 0D
+ 01a5: ldloc.s 06
+ 01a7: brfalse.s 08
+ 01a9: ldloc.s 06
+ 01ab: callvirt System.IDisposable::Dispose
+ 01b0: nop 
+ 01b1: endfinally 
+ 01b2: nop 
+ 01b3: leave.s 6F
+ 01b5: stloc.s 09
+ 01b7: nop 
+ 01b8: ldloc.s 09
+ 01ba: callvirt System.Exception::get_Message
+ 01bf: ldc.i4 7F969800
+ 01c4: conv.i8 
+ 01c5: ldc.i4 7F969800
+ 01ca: conv.i8 
+ 01cb: ldc.i4 7F969800
+ 01d0: conv.i8 
+ 01d1: ldc.i4 7F969800
+ 01d6: conv.i8 
+ 01d7: ldc.i4 7F969800
+ 01dc: conv.i8 
+ 01dd: ldnull 
+ 01de: ldnull 
+ 01df: ldnull 
+ 01e0: ldnull 
+ 01e1: ldnull 
+ 01e2: ldc.r8 000000E0CF126341
+ 01eb: ldc.r8 000000E0CF126341
+ 01f4: ldc.r8 000000E0CF126341
+ 01fd: ldc.r8 000000E0CF126341
+ 0206: ldc.r8 000000E0CF126341
+ 020f: ldstr "OnAppControlReceived"
+ 0214: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0219: ldc.i4.s 59
+ 021b: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0220: nop 
+ 0221: nop 
+ 0222: leave.s 00
+ 0224: nop 
+ 0225: newobj TypeSpecification:1b000005::.ctor
+ 022a: stloc.0 
+ 022b: ldnull 
+ 022c: stloc.1 
+ 022d: ldarg.1 
+ 022e: ldfld Tizen.TV.Service.CoBA.BPI.AppControlEventArgs::control
+ 0233: ldnull 
+ 0234: cgt.un 
+ 0236: stloc.s 0A
+ 0238: ldloc.s 0A
+ 023a: brfalse D3060000
+ 023f: nop 
+ 0240: nop 
+ 0241: ldarg.1 
+ 0242: ldfld Tizen.TV.Service.CoBA.BPI.AppControlEventArgs::control
+ 0247: callvirt TypeSpecification:1b000005::GetEnumerator
+ 024c: stloc.s 0B
+ 024e: br A1060000
+ 0253: ldloca.s 0B
+ 0255: call TypeSpecification:1b000006::get_Current
+ 025a: stloc.s 0C
+ 025c: nop 
+ 025d: ldstr "OnAppControlReceived   %s1 = %s2"
+ 0262: ldc.i4 7F969800
+ 0267: conv.i8 
+ 0268: ldc.i4 7F969800
+ 026d: conv.i8 
+ 026e: ldc.i4 7F969800
+ 0273: conv.i8 
+ 0274: ldc.i4 7F969800
+ 0279: conv.i8 
+ 027a: ldc.i4 7F969800
+ 027f: conv.i8 
+ 0280: ldloca.s 0C
+ 0282: call TypeSpecification:1b000007::get_Key
+ 0287: ldloca.s 0C
+ 0289: call TypeSpecification:1b000007::get_Value
+ 028e: ldnull 
+ 028f: ldnull 
+ 0290: ldnull 
+ 0291: ldc.r8 000000E0CF126341
+ 029a: ldc.r8 000000E0CF126341
+ 02a3: ldc.r8 000000E0CF126341
+ 02ac: ldc.r8 000000E0CF126341
+ 02b5: ldc.r8 000000E0CF126341
+ 02be: ldstr "OnAppControlReceived"
+ 02c3: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 02c8: ldc.i4.s 64
+ 02ca: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 02cf: nop 
+ 02d0: ldloca.s 0C
+ 02d2: call TypeSpecification:1b000007::get_Key
+ 02d7: ldstr "appId"
+ 02dc: callvirt System.String::Contains
+ 02e1: stloc.s 0D
+ 02e3: ldloc.s 0D
+ 02e5: brfalse B6000000
+ 02ea: nop 
+ 02eb: ldarg.0 
+ 02ec: ldfld FieldDefinition:0400001b
+ 02f1: ldnull 
+ 02f2: ceq 
+ 02f4: stloc.s 0E
+ 02f6: ldloc.s 0E
+ 02f8: brfalse.s 65
+ 02fa: nop 
+ 02fb: newobj TypeSpecification:1b000009::.ctor
+ 0300: stloc.s 0F
+ 0302: call Tizen.TV.Service.CoBA.Core.AppListManager::GetInstance
+ 0307: ldsfld FieldDefinition:04000017
+ 030c: ldloca.s 0F
+ 030e: callvirt Tizen.TV.Service.CoBA.Core.AppListManager::GetComponents
+ 0313: pop 
+ 0314: ldloc.s 0F
+ 0316: callvirt TypeSpecification:1b000009::get_Count
+ 031b: ldc.i4.0 
+ 031c: ceq 
+ 031e: stloc.s 10
+ 0320: ldloc.s 10
+ 0322: brfalse.s 2D
+ 0324: nop 
+ 0325: ldsfld FieldDefinition:04000017
+ 032a: ldstr " category has not created yet!!"
+ 032f: call System.String::Concat
+ 0334: newobj System.Exception::.ctor
+ 0339: ldstr "OnAppControlReceived"
+ 033e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0343: ldc.i4.s 6D
+ 0345: ldnull 
+ 0346: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 034b: nop 
+ 034c: leave 2B0D0000
+ 0351: ldarg.0 
+ 0352: ldloc.s 0F
+ 0354: call System.Linq.Enumerable::FirstOrDefault
+ 0359: stfld FieldDefinition:0400001b
+ 035e: nop 
+ 035f: ldarg.0 
+ 0360: ldloca.s 0C
+ 0362: call TypeSpecification:1b000007::get_Value
+ 0367: stfld FieldDefinition:0400001c
+ 036c: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 0371: dup 
+ 0372: brtrue.s 03
+ 0374: pop 
+ 0375: br.s 07
+ 0377: ldarg.0 
+ 0378: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::RegisterEvent
+ 037d: nop 
+ 037e: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetExtInstance
+ 0383: dup 
+ 0384: brtrue.s 03
+ 0386: pop 
+ 0387: br.s 11
+ 0389: ldarg.0 
+ 038a: ldfld FieldDefinition:0400001b
+ 038f: callvirt Tizen.TV.Service.CoBA.Core.Component::get_Node
+ 0394: callvirt Tizen.TV.Service.CoBA.BPI.BPIBaseExtension::RequestLoadPage
+ 0399: nop 
+ 039a: nop 
+ 039b: br 53050000
+ 03a0: ldloca.s 0C
+ 03a2: call TypeSpecification:1b000007::get_Key
+ 03a7: ldstr "smarthub_reset"
+ 03ac: callvirt System.String::Contains
+ 03b1: stloc.s 11
+ 03b3: ldloc.s 11
+ 03b5: brfalse.s 1F
+ 03b7: nop 
+ 03b8: ldarg.0 
+ 03b9: ldc.i4.1 
+ 03ba: stfld FieldDefinition:0400001a
+ 03bf: call Tizen.Applications.Application::get_Current
+ 03c4: dup 
+ 03c5: brtrue.s 03
+ 03c7: pop 
+ 03c8: br.s 06
+ 03ca: callvirt Tizen.Applications.Application::Exit
+ 03cf: nop 
+ 03d0: nop 
+ 03d1: br 1D050000
+ 03d6: ldloca.s 0C
+ 03d8: call TypeSpecification:1b000007::get_Key
+ 03dd: ldstr "DBError"
+ 03e2: callvirt System.String::Contains
+ 03e7: stloc.s 12
+ 03e9: ldloc.s 12
+ 03eb: brfalse A2000000
+ 03f0: nop 
+ 03f1: ldstr "DBError"
+ 03f6: ldc.i4 7F969800
+ 03fb: conv.i8 
+ 03fc: ldc.i4 7F969800
+ 0401: conv.i8 
+ 0402: ldc.i4 7F969800
+ 0407: conv.i8 
+ 0408: ldc.i4 7F969800
+ 040d: conv.i8 
+ 040e: ldc.i4 7F969800
+ 0413: conv.i8 
+ 0414: ldnull 
+ 0415: ldnull 
+ 0416: ldnull 
+ 0417: ldnull 
+ 0418: ldnull 
+ 0419: ldc.r8 000000E0CF126341
+ 0422: ldc.r8 000000E0CF126341
+ 042b: ldc.r8 000000E0CF126341
+ 0434: ldc.r8 000000E0CF126341
+ 043d: ldc.r8 000000E0CF126341
+ 0446: ldstr "OnAppControlReceived"
+ 044b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0450: ldc.i4 80000000
+ 0455: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 045a: nop 
+ 045b: ldsfld FieldDefinition:04000015
+ 0460: call System.IO.File::Exists
+ 0465: ldc.i4.0 
+ 0466: ceq 
+ 0468: stloc.s 13
+ 046a: ldloc.s 13
+ 046c: brfalse.s 1E
+ 046e: nop 
+ 046f: ldsfld FieldDefinition:04000016
+ 0474: call System.IO.File::Delete
+ 0479: nop 
+ 047a: call Tizen.Applications.Application::get_Current
+ 047f: dup 
+ 0480: brtrue.s 03
+ 0482: pop 
+ 0483: br.s 06
+ 0485: callvirt Tizen.Applications.Application::Exit
+ 048a: nop 
+ 048b: nop 
+ 048c: nop 
+ 048d: br 61040000
+ 0492: ldloca.s 0C
+ 0494: call TypeSpecification:1b000007::get_Key
+ 0499: ldstr "addToHomeType"
+ 049e: call System.String::op_Equality
+ 04a3: brtrue.s 39
+ 04a5: ldloca.s 0C
+ 04a7: call TypeSpecification:1b000007::get_Key
+ 04ac: ldstr "addToHomeId"
+ 04b1: call System.String::op_Equality
+ 04b6: brtrue.s 26
+ 04b8: ldloca.s 0C
+ 04ba: call TypeSpecification:1b000007::get_Key
+ 04bf: ldstr "addToHomeFrom"
+ 04c4: call System.String::op_Equality
+ 04c9: brtrue.s 13
+ 04cb: ldloca.s 0C
+ 04cd: call TypeSpecification:1b000007::get_Key
+ 04d2: ldstr "addToHomeSourceType"
+ 04d7: call System.String::op_Equality
+ 04dc: br.s 01
+ 04de: ldc.i4.1 
+ 04df: stloc.s 14
+ 04e1: ldloc.s 14
+ 04e3: brfalse 92000000
+ 04e8: nop 
+ 04e9: ldstr "%s1: %s2"
+ 04ee: ldc.i4 7F969800
+ 04f3: conv.i8 
+ 04f4: ldc.i4 7F969800
+ 04f9: conv.i8 
+ 04fa: ldc.i4 7F969800
+ 04ff: conv.i8 
+ 0500: ldc.i4 7F969800
+ 0505: conv.i8 
+ 0506: ldc.i4 7F969800
+ 050b: conv.i8 
+ 050c: ldloca.s 0C
+ 050e: call TypeSpecification:1b000007::get_Key
+ 0513: ldloca.s 0C
+ 0515: call TypeSpecification:1b000007::get_Value
+ 051a: ldnull 
+ 051b: ldnull 
+ 051c: ldnull 
+ 051d: ldc.r8 000000E0CF126341
+ 0526: ldc.r8 000000E0CF126341
+ 052f: ldc.r8 000000E0CF126341
+ 0538: ldc.r8 000000E0CF126341
+ 0541: ldc.r8 000000E0CF126341
+ 054a: ldstr "OnAppControlReceived"
+ 054f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0554: ldc.i4 89000000
+ 0559: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 055e: nop 
+ 055f: ldloc.0 
+ 0560: ldloca.s 0C
+ 0562: call TypeSpecification:1b000007::get_Key
+ 0567: ldloca.s 0C
+ 0569: call TypeSpecification:1b000007::get_Value
+ 056e: callvirt TypeSpecification:1b000005::Add
+ 0573: nop 
+ 0574: nop 
+ 0575: br 79030000
+ 057a: ldloca.s 0C
+ 057c: call TypeSpecification:1b000007::get_Key
+ 0581: ldstr "__COBA_REQUEST_FOCUS_GROUPTAG__"
+ 0586: call System.String::op_Equality
+ 058b: stloc.s 15
+ 058d: ldloc.s 15
+ 058f: brfalse 77010000
+ 0594: nop 
+ 0595: ldstr "%s1: %s2"
+ 059a: ldc.i4 7F969800
+ 059f: conv.i8 
+ 05a0: ldc.i4 7F969800
+ 05a5: conv.i8 
+ 05a6: ldc.i4 7F969800
+ 05ab: conv.i8 
+ 05ac: ldc.i4 7F969800
+ 05b1: conv.i8 
+ 05b2: ldc.i4 7F969800
+ 05b7: conv.i8 
+ 05b8: ldloca.s 0C
+ 05ba: call TypeSpecification:1b000007::get_Key
+ 05bf: ldloca.s 0C
+ 05c1: call TypeSpecification:1b000007::get_Value
+ 05c6: ldnull 
+ 05c7: ldnull 
+ 05c8: ldnull 
+ 05c9: ldc.r8 000000E0CF126341
+ 05d2: ldc.r8 000000E0CF126341
+ 05db: ldc.r8 000000E0CF126341
+ 05e4: ldc.r8 000000E0CF126341
+ 05ed: ldc.r8 000000E0CF126341
+ 05f6: ldstr "OnAppControlReceived"
+ 05fb: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0600: ldc.i4 8E000000
+ 0605: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 060a: nop 
+ 060b: ldloca.s 0C
+ 060d: call TypeSpecification:1b000007::get_Value
+ 0612: stloc.s 16
+ 0614: ldloc.s 16
+ 0616: call System.String::IsNullOrEmpty
+ 061b: ldc.i4.0 
+ 061c: ceq 
+ 061e: stloc.s 17
+ 0620: ldloc.s 17
+ 0622: brfalse DE000000
+ 0627: newobj .ctor
+ 062c: stloc.s 18
+ 062e: nop 
+ 062f: newobj Tizen.TV.Service.CoBA.Core.PreviewManager::.ctor
+ 0634: stloc.s 19
+ 0636: ldloc.s 18
+ 0638: ldstr ""
+ 063d: stfld FieldDefinition:04000022
+ 0642: ldloc.s 19
+ 0644: ldloc.s 16
+ 0646: ldstr "ComponentID"
+ 064b: ldloc.s 18
+ 064d: ldflda FieldDefinition:04000022
+ 0652: callvirt Tizen.TV.Service.CoBA.Core.PreviewManager::Get
+ 0657: pop 
+ 0658: ldstr "GroupTag: %s1, ComponentID: %s2"
+ 065d: ldc.i4 7F969800
+ 0662: conv.i8 
+ 0663: ldc.i4 7F969800
+ 0668: conv.i8 
+ 0669: ldc.i4 7F969800
+ 066e: conv.i8 
+ 066f: ldc.i4 7F969800
+ 0674: conv.i8 
+ 0675: ldc.i4 7F969800
+ 067a: conv.i8 
+ 067b: ldloc.s 16
+ 067d: ldloc.s 18
+ 067f: ldfld FieldDefinition:04000022
+ 0684: ldnull 
+ 0685: ldnull 
+ 0686: ldnull 
+ 0687: ldc.r8 000000E0CF126341
+ 0690: ldc.r8 000000E0CF126341
+ 0699: ldc.r8 000000E0CF126341
+ 06a2: ldc.r8 000000E0CF126341
+ 06ab: ldc.r8 000000E0CF126341
+ 06b4: ldstr "OnAppControlReceived"
+ 06b9: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 06be: ldc.i4 95000000
+ 06c3: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 06c8: nop 
+ 06c9: ldloc.s 18
+ 06cb: ldfld FieldDefinition:04000022
+ 06d0: call System.String::IsNullOrEmpty
+ 06d5: ldc.i4.0 
+ 06d6: ceq 
+ 06d8: stloc.s 1A
+ 06da: ldloc.s 1A
+ 06dc: brfalse.s 26
+ 06de: nop 
+ 06df: ldloc.s 18
+ 06e1: ldftn <OnAppControlReceived>b__0
+ 06e7: newobj TypeSpecification:1b000008::.ctor
+ 06ec: ldnull 
+ 06ed: ldc.i4.1 
+ 06ee: ldstr "OnAppControlReceived"
+ 06f3: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 06f8: ldc.i4 98000000
+ 06fd: call Tizen.TV.Service.CoBA.Common.FSEventManager::Send
+ 0702: nop 
+ 0703: nop 
+ 0704: nop 
+ 0705: nop 
+ 0706: br E8010000
+ 070b: ldloca.s 0C
+ 070d: call TypeSpecification:1b000007::get_Key
+ 0712: ldstr "tvkey"
+ 0717: call System.String::op_Equality
+ 071c: brtrue.s 26
+ 071e: ldloca.s 0C
+ 0720: call TypeSpecification:1b000007::get_Key
+ 0725: ldstr "tvkey_uuid"
+ 072a: call System.String::op_Equality
+ 072f: brtrue.s 13
+ 0731: ldloca.s 0C
+ 0733: call TypeSpecification:1b000007::get_Key
+ 0738: ldstr "tvkey_position"
+ 073d: call System.String::op_Equality
+ 0742: br.s 01
+ 0744: ldc.i4.1 
+ 0745: stloc.s 1B
+ 0747: ldloc.s 1B
+ 0749: brfalse 99000000
+ 074e: nop 
+ 074f: ldloc.1 
+ 0750: ldnull 
+ 0751: ceq 
+ 0753: stloc.s 1C
+ 0755: ldloc.s 1C
+ 0757: brfalse.s 08
+ 0759: nop 
+ 075a: newobj TypeSpecification:1b000005::.ctor
+ 075f: stloc.1 
+ 0760: nop 
+ 0761: ldloc.1 
+ 0762: ldloca.s 0C
+ 0764: call TypeSpecification:1b000007::get_Key
+ 0769: ldloca.s 0C
+ 076b: call TypeSpecification:1b000007::get_Value
+ 0770: callvirt TypeSpecification:1b000005::Add
+ 0775: nop 
+ 0776: ldc.i4.s 0B
+ 0778: ldc.i4.2 
+ 0779: newobj System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::.ctor
+ 077e: stloc.s 04
+ 0780: ldloca.s 04
+ 0782: ldstr "TVKey  ("
+ 0787: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 078c: nop 
+ 078d: ldloca.s 04
+ 078f: ldloca.s 0C
+ 0791: call TypeSpecification:1b000007::get_Key
+ 0796: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 079b: nop 
+ 079c: ldloca.s 04
+ 079e: ldstr ": "
+ 07a3: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 07a8: nop 
+ 07a9: ldloca.s 04
+ 07ab: ldloca.s 0C
+ 07ad: call TypeSpecification:1b000007::get_Value
+ 07b2: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendFormatted
+ 07b7: nop 
+ 07b8: ldloca.s 04
+ 07ba: ldstr ")"
+ 07bf: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::AppendLiteral
+ 07c4: nop 
+ 07c5: ldloca.s 04
+ 07c7: call System.Runtime.CompilerServices.DefaultInterpolatedStringHandler::ToStringAndClear
+ 07cc: ldstr "OnAppControlReceived"
+ 07d1: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 07d6: ldc.i4 A9000000
+ 07db: call Tizen.TV.Service.CoBA.Common.FSLogger::Debug
+ 07e0: nop 
+ 07e1: nop 
+ 07e2: br 0C010000
+ 07e7: ldloca.s 0C
+ 07e9: call TypeSpecification:1b000007::get_Key
+ 07ee: ldstr "livetv_enable"
+ 07f3: call System.String::op_Equality
+ 07f8: stloc.s 1D
+ 07fa: ldloc.s 1D
+ 07fc: brfalse.s 32
+ 07fe: nop 
+ 07ff: call TypeSpecification:1b00000a::GetInstance
+ 0804: ldloca.s 0C
+ 0806: call TypeSpecification:1b000007::get_Key
+ 080b: ldloca.s 0C
+ 080d: call TypeSpecification:1b000007::get_Value
+ 0812: callvirt Tizen.TV.Service.CoBA.Core.Manager.TVKeyManager::SetTVKeyOption
+ 0817: nop 
+ 0818: ldarg.0 
+ 0819: ldarg.1 
+ 081a: ldfld Tizen.TV.Service.CoBA.BPI.AppControlEventArgs::control
+ 081f: newobj TypeSpecification:1b000005::.ctor
+ 0824: call LaunchHomeByTVKey
+ 0829: nop 
+ 082a: nop 
+ 082b: br C3000000
+ 0830: ldloca.s 0C
+ 0832: call TypeSpecification:1b000007::get_Key
+ 0837: ldstr "vconfReg"
+ 083c: call System.String::op_Equality
+ 0841: stloc.s 1E
+ 0843: ldloc.s 1E
+ 0845: brfalse.s 6A
+ 0847: nop 
+ 0848: ldloca.s 0C
+ 084a: call TypeSpecification:1b000007::get_Value
+ 084f: ldnull 
+ 0850: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 0855: stloc.s 1F
+ 0857: ldloc.s 1F
+ 0859: ldnull 
+ 085a: cgt.un 
+ 085c: stloc.s 20
+ 085e: ldloc.s 20
+ 0860: brfalse.s 4C
+ 0862: nop 
+ 0863: nop 
+ 0864: ldloc.s 1F
+ 0866: callvirt TypeSpecification:1b00000b::GetEnumerator
+ 086b: stloc.s 21
+ 086d: br.s 24
+ 086f: ldloca.s 21
+ 0871: call TypeSpecification:1b00000c::get_Current
+ 0876: stloc.s 22
+ 0878: nop 
+ 0879: call TypeSpecification:1b00000d::GetInstance
+ 087e: ldloca.s 22
+ 0880: call TypeSpecification:1b00000e::get_Key
+ 0885: ldloca.s 22
+ 0887: call TypeSpecification:1b00000e::get_Value
+ 088c: callvirt Tizen.TV.Service.CoBA.Core.LauncherVconfManager::SetLauncherVconf
+ 0891: nop 
+ 0892: nop 
+ 0893: ldloca.s 21
+ 0895: call TypeSpecification:1b00000c::MoveNext
+ 089a: brtrue.s D3
+ 089c: leave.s 0F
+ 089e: ldloca.s 21
+ 08a0: constrained. TypeSpecification:1b00000c
+ 08a6: callvirt System.IDisposable::Dispose
+ 08ab: nop 
+ 08ac: endfinally 
+ 08ad: nop 
+ 08ae: nop 
+ 08af: br.s 42
+ 08b1: ldloca.s 0C
+ 08b3: call TypeSpecification:1b000007::get_Key
+ 08b8: ldstr "EOS"
+ 08bd: call System.String::op_Equality
+ 08c2: stloc.s 23
+ 08c4: ldloc.s 23
+ 08c6: brfalse.s 2B
+ 08c8: nop 
+ 08c9: ldloca.s 0C
+ 08cb: call TypeSpecification:1b000007::get_Value
+ 08d0: ldnull 
+ 08d1: call Tizen.TV.Service.CoBA.Common.JsonMap::Deserialize
+ 08d6: stloc.s 24
+ 08d8: ldloc.s 24
+ 08da: ldnull 
+ 08db: cgt.un 
+ 08dd: stloc.s 25
+ 08df: ldloc.s 25
+ 08e1: brfalse.s 0F
+ 08e3: nop 
+ 08e4: call TypeSpecification:1b00000d::GetInstance
+ 08e9: ldloc.s 24
+ 08eb: callvirt Tizen.TV.Service.CoBA.Core.LauncherVconfManager::CategoryServiceEnd
+ 08f0: nop 
+ 08f1: nop 
+ 08f2: nop 
+ 08f3: nop 
+ 08f4: ldloca.s 0B
+ 08f6: call TypeSpecification:1b000006::MoveNext
+ 08fb: brtrue 53F9FFFF
+ 0900: leave.s 0F
+ 0902: ldloca.s 0B
+ 0904: constrained. TypeSpecification:1b000006
+ 090a: callvirt System.IDisposable::Dispose
+ 090f: nop 
+ 0910: endfinally 
+ 0911: nop 
+ 0912: ldloc.0 
+ 0913: callvirt TypeSpecification:1b000005::get_Count
+ 0918: ldc.i4.0 
+ 0919: cgt 
+ 091b: stloc.s 26
+ 091d: ldloc.s 26
+ 091f: brfalse ED030000
+ 0924: nop 
+ 0925: nop 
+ 0926: ldloc.0 
+ 0927: ldstr "addToHomeType"
+ 092c: ldloca.s 27
+ 092e: callvirt TypeSpecification:1b000005::TryGetValue
+ 0933: pop 
+ 0934: ldloc.0 
+ 0935: ldstr "addToHomeId"
+ 093a: ldloca.s 28
+ 093c: callvirt TypeSpecification:1b000005::TryGetValue
+ 0941: pop 
+ 0942: ldloc.s 28
+ 0944: call System.String::IsNullOrEmpty
+ 0949: brtrue.s 0C
+ 094b: ldloc.s 27
+ 094d: call System.String::IsNullOrEmpty
+ 0952: ldc.i4.0 
+ 0953: ceq 
+ 0955: br.s 01
+ 0957: ldc.i4.0 
+ 0958: stloc.s 29
+ 095a: ldloc.s 29
+ 095c: brfalse 1C030000
+ 0961: nop 
+ 0962: ldc.i4.3 
+ 0963: stloc.s 2A
+ 0965: ldloc.s 27
+ 0967: ldstr "source"
+ 096c: call System.String::op_Equality
+ 0971: brtrue.s 0E
+ 0973: ldloc.s 27
+ 0975: ldstr "sourceBG"
+ 097a: call System.String::op_Equality
+ 097f: br.s 01
+ 0981: ldc.i4.1 
+ 0982: stloc.s 2B
+ 0984: ldloc.s 2B
+ 0986: brfalse 57020000
+ 098b: nop 
+ 098c: ldloc.0 
+ 098d: ldstr "addToHomeSourceType"
+ 0992: ldloca.s 2C
+ 0994: callvirt TypeSpecification:1b000005::TryGetValue
+ 0999: stloc.s 2D
+ 099b: ldloc.s 2D
+ 099d: brfalse 5D010000
+ 09a2: nop 
+ 09a3: call TypeSpecification:1b00000f::GetInstance
+ 09a8: ldstr "fromCategory"
+ 09ad: callvirt Tizen.TV.Service.CoBA.Core.KPILogger::SetExtraReference
+ 09b2: nop 
+ 09b3: ldloc.s 2C
+ 09b5: ldc.i4 FF010000
+ 09ba: call System.Globalization.CultureInfo::get_InvariantCulture
+ 09bf: call System.Int32::Parse
+ 09c4: stloc.s 2E
+ 09c6: ldstr "%s1 : %s2"
+ 09cb: ldc.i4 7F969800
+ 09d0: conv.i8 
+ 09d1: ldc.i4 7F969800
+ 09d6: conv.i8 
+ 09d7: ldc.i4 7F969800
+ 09dc: conv.i8 
+ 09dd: ldc.i4 7F969800
+ 09e2: conv.i8 
+ 09e3: ldc.i4 7F969800
+ 09e8: conv.i8 
+ 09e9: ldloc.s 2E
+ 09eb: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 09f0: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 09f5: ldloc.s 28
+ 09f7: ldnull 
+ 09f8: ldnull 
+ 09f9: ldnull 
+ 09fa: ldc.r8 000000E0CF126341
+ 0a03: ldc.r8 000000E0CF126341
+ 0a0c: ldc.r8 000000E0CF126341
+ 0a15: ldc.r8 000000E0CF126341
+ 0a1e: ldc.r8 000000E0CF126341
+ 0a27: ldstr "OnAppControlReceived"
+ 0a2c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0a31: ldc.i4 D9000000
+ 0a36: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0a3b: nop 
+ 0a3c: ldloc.s 2E
+ 0a3e: call Tizen.TV.Service.CoBA.Core.Manager.SourceIDConverter::SourceClassID
+ 0a43: ldloc.s 28
+ 0a45: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 0a4a: stloc.s 28
+ 0a4c: ldarg.0 
+ 0a4d: ldfld FieldDefinition:0400001b
+ 0a52: ldnull 
+ 0a53: ceq 
+ 0a55: stloc.s 2F
+ 0a57: ldloc.s 2F
+ 0a59: brfalse.s 68
+ 0a5b: nop 
+ 0a5c: newobj TypeSpecification:1b000009::.ctor
+ 0a61: stloc.s 30
+ 0a63: call Tizen.TV.Service.CoBA.Core.AppListManager::GetInstance
+ 0a68: ldsfld FieldDefinition:04000017
+ 0a6d: ldloca.s 30
+ 0a6f: callvirt Tizen.TV.Service.CoBA.Core.AppListManager::GetComponents
+ 0a74: pop 
+ 0a75: ldloc.s 30
+ 0a77: callvirt TypeSpecification:1b000009::get_Count
+ 0a7c: ldc.i4.0 
+ 0a7d: ceq 
+ 0a7f: stloc.s 31
+ 0a81: ldloc.s 31
+ 0a83: brfalse.s 30
+ 0a85: nop 
+ 0a86: ldsfld FieldDefinition:04000017
+ 0a8b: ldstr " category has not created yet!!"
+ 0a90: call System.String::Concat
+ 0a95: newobj System.Exception::.ctor
+ 0a9a: ldstr "OnAppControlReceived"
+ 0a9f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0aa4: ldc.i4 E2000000
+ 0aa9: ldnull 
+ 0aaa: call Tizen.TV.Service.CoBA.Common.FSLogger::Exception
+ 0aaf: nop 
+ 0ab0: leave C7050000
+ 0ab5: ldarg.0 
+ 0ab6: ldloc.s 30
+ 0ab8: call System.Linq.Enumerable::FirstOrDefault
+ 0abd: stfld FieldDefinition:0400001b
+ 0ac2: nop 
+ 0ac3: ldarg.0 
+ 0ac4: ldloc.s 28
+ 0ac6: stfld FieldDefinition:0400001d
+ 0acb: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 0ad0: dup 
+ 0ad1: brtrue.s 03
+ 0ad3: pop 
+ 0ad4: br.s 07
+ 0ad6: ldarg.0 
+ 0ad7: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::RegisterEvent
+ 0adc: nop 
+ 0add: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetExtInstance
+ 0ae2: dup 
+ 0ae3: brtrue.s 03
+ 0ae5: pop 
+ 0ae6: br.s 11
+ 0ae8: ldarg.0 
+ 0ae9: ldfld FieldDefinition:0400001b
+ 0aee: callvirt Tizen.TV.Service.CoBA.Core.Component::get_Node
+ 0af3: callvirt Tizen.TV.Service.CoBA.BPI.BPIBaseExtension::RequestLoadPage
+ 0af8: nop 
+ 0af9: nop 
+ 0afa: br DD000000
+ 0aff: ldloc.0 
+ 0b00: ldstr "addToHomeFrom"
+ 0b05: ldloca.s 32
+ 0b07: callvirt TypeSpecification:1b000005::TryGetValue
+ 0b0c: stloc.s 33
+ 0b0e: ldloc.s 33
+ 0b10: brfalse C7000000
+ 0b15: nop 
+ 0b16: ldloc.s 32
+ 0b18: call System.Enum::Parse
+ 0b1d: stloc.s 2A
+ 0b1f: ldloc.s 2A
+ 0b21: ldc.i4.3 
+ 0b22: ceq 
+ 0b24: stloc.s 34
+ 0b26: ldloc.s 34
+ 0b28: brfalse.s 14
+ 0b2a: nop 
+ 0b2b: call TypeSpecification:1b000010::GetInstance
+ 0b30: ldstr "AddedToHomeSourceID"
+ 0b35: ldloc.s 28
+ 0b37: callvirt Tizen.TV.Service.CoBA.Core.Vdb::SetCustomKey
+ 0b3c: nop 
+ 0b3d: nop 
+ 0b3e: ldstr "AddSourceToMediaLauncher: %s1, %s2, %s3"
+ 0b43: ldc.i4 7F969800
+ 0b48: conv.i8 
+ 0b49: ldc.i4 7F969800
+ 0b4e: conv.i8 
+ 0b4f: ldc.i4 7F969800
+ 0b54: conv.i8 
+ 0b55: ldc.i4 7F969800
+ 0b5a: conv.i8 
+ 0b5b: ldc.i4 7F969800
+ 0b60: conv.i8 
+ 0b61: ldloc.s 28
+ 0b63: ldloc.s 2A
+ 0b65: box .AddToHomeFrom
+ 0b6a: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0b6f: ldloc.s 27
+ 0b71: ldnull 
+ 0b72: ldnull 
+ 0b73: ldc.r8 000000E0CF126341
+ 0b7c: ldc.r8 000000E0CF126341
+ 0b85: ldc.r8 000000E0CF126341
+ 0b8e: ldc.r8 000000E0CF126341
+ 0b97: ldc.r8 000000E0CF126341
+ 0ba0: ldstr "OnAppControlReceived"
+ 0ba5: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0baa: ldc.i4 F7000000
+ 0baf: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0bb4: nop 
+ 0bb5: call TypeSpecification:1b00000f::GetInstance
+ 0bba: ldstr "source"
+ 0bbf: callvirt Tizen.TV.Service.CoBA.Core.KPILogger::SetExtraReference
+ 0bc4: nop 
+ 0bc5: ldloc.s 28
+ 0bc7: ldloc.s 2A
+ 0bc9: ldloc.s 27
+ 0bcb: ldstr "sourceBG"
+ 0bd0: call System.String::op_Equality
+ 0bd5: call Tizen.TV.Service.CoBA2.Core.CategoryManager::AddSourceToMediaLauncher
+ 0bda: nop 
+ 0bdb: nop 
+ 0bdc: nop 
+ 0bdd: br 9A000000
+ 0be2: ldloc.s 27
+ 0be4: ldstr "app"
+ 0be9: call System.String::op_Equality
+ 0bee: stloc.s 35
+ 0bf0: ldloc.s 35
+ 0bf2: brfalse 85000000
+ 0bf7: nop 
+ 0bf8: ldstr "AddAppToMediaLauncher: %s1"
+ 0bfd: ldc.i4 7F969800
+ 0c02: conv.i8 
+ 0c03: ldc.i4 7F969800
+ 0c08: conv.i8 
+ 0c09: ldc.i4 7F969800
+ 0c0e: conv.i8 
+ 0c0f: ldc.i4 7F969800
+ 0c14: conv.i8 
+ 0c15: ldc.i4 7F969800
+ 0c1a: conv.i8 
+ 0c1b: ldloc.s 28
+ 0c1d: ldnull 
+ 0c1e: ldnull 
+ 0c1f: ldnull 
+ 0c20: ldnull 
+ 0c21: ldc.r8 000000E0CF126341
+ 0c2a: ldc.r8 000000E0CF126341
+ 0c33: ldc.r8 000000E0CF126341
+ 0c3c: ldc.r8 000000E0CF126341
+ 0c45: ldc.r8 000000E0CF126341
+ 0c4e: ldstr "OnAppControlReceived"
+ 0c53: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0c58: ldc.i4 FF000000
+ 0c5d: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0c62: nop 
+ 0c63: call TypeSpecification:1b00000f::GetInstance
+ 0c68: ldstr "apps"
+ 0c6d: callvirt Tizen.TV.Service.CoBA.Core.KPILogger::SetExtraReference
+ 0c72: nop 
+ 0c73: ldloc.s 28
+ 0c75: call Tizen.TV.Service.CoBA2.Core.CategoryManager::AddAppToMediaLauncher
+ 0c7a: nop 
+ 0c7b: nop 
+ 0c7c: nop 
+ 0c7d: nop 
+ 0c7e: leave 8D000000
+ 0c83: stloc.s 36
+ 0c85: nop 
+ 0c86: ldstr "Can not add to launcher: %s1"
+ 0c8b: ldc.i4 7F969800
+ 0c90: conv.i8 
+ 0c91: ldc.i4 7F969800
+ 0c96: conv.i8 
+ 0c97: ldc.i4 7F969800
+ 0c9c: conv.i8 
+ 0c9d: ldc.i4 7F969800
+ 0ca2: conv.i8 
+ 0ca3: ldc.i4 7F969800
+ 0ca8: conv.i8 
+ 0ca9: ldloc.s 36
+ 0cab: callvirt System.Exception::get_Message
+ 0cb0: ldnull 
+ 0cb1: ldnull 
+ 0cb2: ldnull 
+ 0cb3: ldnull 
+ 0cb4: ldc.r8 000000E0CF126341
+ 0cbd: ldc.r8 000000E0CF126341
+ 0cc6: ldc.r8 000000E0CF126341
+ 0ccf: ldc.r8 000000E0CF126341
+ 0cd8: ldc.r8 000000E0CF126341
+ 0ce1: ldstr "OnAppControlReceived"
+ 0ce6: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0ceb: ldc.i4 07010000
+ 0cf0: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0cf5: nop 
+ 0cf6: ldloc.s 36
+ 0cf8: ldstr "OnAppControlReceived"
+ 0cfd: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0d02: ldc.i4 08010000
+ 0d07: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 0d0c: nop 
+ 0d0d: nop 
+ 0d0e: leave.s 00
+ 0d10: nop 
+ 0d11: ldloc.1 
+ 0d12: brfalse.s 1E
+ 0d14: ldloc.1 
+ 0d15: ldstr "tvkey"
+ 0d1a: ldloca.s 02
+ 0d1c: callvirt TypeSpecification:1b000005::TryGetValue
+ 0d21: brfalse.s 0F
+ 0d23: ldloc.1 
+ 0d24: ldstr "tvkey_uuid"
+ 0d29: ldloca.s 03
+ 0d2b: callvirt TypeSpecification:1b000005::TryGetValue
+ 0d30: br.s 01
+ 0d32: ldc.i4.0 
+ 0d33: stloc.s 37
+ 0d35: ldloc.s 37
+ 0d37: brfalse 35030000
+ 0d3c: nop 
+ 0d3d: nop 
+ 0d3e: ldloc.2 
+ 0d3f: ldstr "add"
+ 0d44: call System.String::op_Equality
+ 0d49: stloc.s 38
+ 0d4b: ldloc.s 38
+ 0d4d: brfalse C5010000
+ 0d52: nop 
+ 0d53: call TypeSpecification:1b00000a::GetInstance
+ 0d58: ldloc.3 
+ 0d59: ldloca.s 39
+ 0d5b: callvirt Tizen.TV.Service.CoBA.Core.Manager.TVKeyManager::GetTVKeyProfileData
+ 0d60: brfalse.s 07
+ 0d62: ldloc.s 39
+ 0d64: ldnull 
+ 0d65: ceq 
+ 0d67: br.s 01
+ 0d69: ldc.i4.1 
+ 0d6a: stloc.s 3B
+ 0d6c: ldloc.s 3B
+ 0d6e: brfalse.s 6C
+ 0d70: nop 
+ 0d71: ldstr "There is no data for %s1. (Add Component. Cache will be updated later)"
+ 0d76: ldc.i4 7F969800
+ 0d7b: conv.i8 
+ 0d7c: ldc.i4 7F969800
+ 0d81: conv.i8 
+ 0d82: ldc.i4 7F969800
+ 0d87: conv.i8 
+ 0d88: ldc.i4 7F969800
+ 0d8d: conv.i8 
+ 0d8e: ldc.i4 7F969800
+ 0d93: conv.i8 
+ 0d94: ldloc.3 
+ 0d95: ldnull 
+ 0d96: ldnull 
+ 0d97: ldnull 
+ 0d98: ldnull 
+ 0d99: ldc.r8 000000E0CF126341
+ 0da2: ldc.r8 000000E0CF126341
+ 0dab: ldc.r8 000000E0CF126341
+ 0db4: ldc.r8 000000E0CF126341
+ 0dbd: ldc.r8 000000E0CF126341
+ 0dc6: ldstr "OnAppControlReceived"
+ 0dcb: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0dd0: ldc.i4 14010000
+ 0dd5: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0dda: nop 
+ 0ddb: nop 
+ 0ddc: ldstr "s/livetv"
+ 0de1: ldstr "TVKEY/"
+ 0de6: ldloc.3 
+ 0de7: call System.String::Concat
+ 0dec: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 0df1: stloc.s 3A
+ 0df3: ldstr "[%s1] id: %s2, compID: %s3"
+ 0df8: ldc.i4 7F969800
+ 0dfd: conv.i8 
+ 0dfe: ldc.i4 7F969800
+ 0e03: conv.i8 
+ 0e04: ldc.i4 7F969800
+ 0e09: conv.i8 
+ 0e0a: ldc.i4 7F969800
+ 0e0f: conv.i8 
+ 0e10: ldc.i4 7F969800
+ 0e15: conv.i8 
+ 0e16: ldloc.2 
+ 0e17: ldloc.3 
+ 0e18: ldloc.s 3A
+ 0e1a: ldnull 
+ 0e1b: ldnull 
+ 0e1c: ldc.r8 000000E0CF126341
+ 0e25: ldc.r8 000000E0CF126341
+ 0e2e: ldc.r8 000000E0CF126341
+ 0e37: ldc.r8 000000E0CF126341
+ 0e40: ldc.r8 000000E0CF126341
+ 0e49: ldstr "OnAppControlReceived"
+ 0e4e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0e53: ldc.i4 18010000
+ 0e58: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0e5d: nop 
+ 0e5e: call Tizen.TV.Service.CoBA.Core.AppListManager::GetInstance
+ 0e63: ldloc.s 3A
+ 0e65: callvirt Tizen.TV.Service.CoBA.Core.AppListManager::CheckComponent
+ 0e6a: ldc.i4.0 
+ 0e6b: ceq 
+ 0e6d: stloc.s 3C
+ 0e6f: ldloc.s 3C
+ 0e71: brfalse.s 1F
+ 0e73: nop 
+ 0e74: ldloc.s 3A
+ 0e76: ldloc.s 39
+ 0e78: brfalse.s 0A
+ 0e7a: ldloc.s 39
+ 0e7c: call .TVKeyProfileInfo::get_launcherPosition
+ 0e81: ldc.i4.m1 
+ 0e82: beq.s 03
+ 0e84: ldc.i4.2 
+ 0e85: br.s 01
+ 0e87: ldc.i4.1 
+ 0e88: ldc.i4.0 
+ 0e89: call Tizen.TV.Service.CoBA2.Core.CategoryManager::AddSourceToMediaLauncher
+ 0e8e: nop 
+ 0e8f: nop 
+ 0e90: br.s 6D
+ 0e92: nop 
+ 0e93: ldstr "%s1 is already exist"
+ 0e98: ldc.i4 7F969800
+ 0e9d: conv.i8 
+ 0e9e: ldc.i4 7F969800
+ 0ea3: conv.i8 
+ 0ea4: ldc.i4 7F969800
+ 0ea9: conv.i8 
+ 0eaa: ldc.i4 7F969800
+ 0eaf: conv.i8 
+ 0eb0: ldc.i4 7F969800
+ 0eb5: conv.i8 
+ 0eb6: ldloc.s 3A
+ 0eb8: ldnull 
+ 0eb9: ldnull 
+ 0eba: ldnull 
+ 0ebb: ldnull 
+ 0ebc: ldc.r8 000000E0CF126341
+ 0ec5: ldc.r8 000000E0CF126341
+ 0ece: ldc.r8 000000E0CF126341
+ 0ed7: ldc.r8 000000E0CF126341
+ 0ee0: ldc.r8 000000E0CF126341
+ 0ee9: ldstr "OnAppControlReceived"
+ 0eee: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0ef3: ldc.i4 21010000
+ 0ef8: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0efd: nop 
+ 0efe: nop 
+ 0eff: ldarg.0 
+ 0f00: ldarg.1 
+ 0f01: ldfld Tizen.TV.Service.CoBA.BPI.AppControlEventArgs::control
+ 0f06: newobj TypeSpecification:1b000005::.ctor
+ 0f0b: call LaunchHomeByTVKey
+ 0f10: nop 
+ 0f11: nop 
+ 0f12: br 39010000
+ 0f17: ldloc.2 
+ 0f18: ldstr "remove"
+ 0f1d: call System.String::op_Equality
+ 0f22: stloc.s 3D
+ 0f24: ldloc.s 3D
+ 0f26: brfalse B9000000
+ 0f2b: nop 
+ 0f2c: ldstr "s/livetv"
+ 0f31: ldstr "TVKEY/"
+ 0f36: ldloc.3 
+ 0f37: call System.String::Concat
+ 0f3c: call Tizen.TV.Service.CoBA.Core.Component::ComponentID
+ 0f41: stloc.s 3E
+ 0f43: ldstr "[%s1] id: %s2, compID: %s3"
+ 0f48: ldc.i4 7F969800
+ 0f4d: conv.i8 
+ 0f4e: ldc.i4 7F969800
+ 0f53: conv.i8 
+ 0f54: ldc.i4 7F969800
+ 0f59: conv.i8 
+ 0f5a: ldc.i4 7F969800
+ 0f5f: conv.i8 
+ 0f60: ldc.i4 7F969800
+ 0f65: conv.i8 
+ 0f66: ldloc.2 
+ 0f67: ldloc.3 
+ 0f68: ldloc.s 3E
+ 0f6a: ldnull 
+ 0f6b: ldnull 
+ 0f6c: ldc.r8 000000E0CF126341
+ 0f75: ldc.r8 000000E0CF126341
+ 0f7e: ldc.r8 000000E0CF126341
+ 0f87: ldc.r8 000000E0CF126341
+ 0f90: ldc.r8 000000E0CF126341
+ 0f99: ldstr "OnAppControlReceived"
+ 0f9e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0fa3: ldc.i4 29010000
+ 0fa8: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0fad: nop 
+ 0fae: call Tizen.TV.Service.CoBA.Core.AppListManager::GetInstance
+ 0fb3: ldloc.s 3E
+ 0fb5: callvirt Tizen.TV.Service.CoBA.Core.AppListManager::CheckComponent
+ 0fba: stloc.s 3F
+ 0fbc: ldloc.s 3F
+ 0fbe: brfalse.s 0F
+ 0fc0: nop 
+ 0fc1: call Tizen.TV.Service.CoBA.Core.AppListManager::GetInstance
+ 0fc6: ldloc.s 3E
+ 0fc8: callvirt Tizen.TV.Service.CoBA.Core.AppListManager::RemoveComponent
+ 0fcd: nop 
+ 0fce: nop 
+ 0fcf: ldarg.0 
+ 0fd0: ldarg.1 
+ 0fd1: ldfld Tizen.TV.Service.CoBA.BPI.AppControlEventArgs::control
+ 0fd6: newobj TypeSpecification:1b000005::.ctor
+ 0fdb: call LaunchHomeByTVKey
+ 0fe0: nop 
+ 0fe1: nop 
+ 0fe2: br.s 6C
+ 0fe4: nop 
+ 0fe5: ldstr "%s1 is not handled command"
+ 0fea: ldc.i4 7F969800
+ 0fef: conv.i8 
+ 0ff0: ldc.i4 7F969800
+ 0ff5: conv.i8 
+ 0ff6: ldc.i4 7F969800
+ 0ffb: conv.i8 
+ 0ffc: ldc.i4 7F969800
+ 1001: conv.i8 
+ 1002: ldc.i4 7F969800
+ 1007: conv.i8 
+ 1008: ldloc.2 
+ 1009: ldnull 
+ 100a: ldnull 
+ 100b: ldnull 
+ 100c: ldnull 
+ 100d: ldc.r8 000000E0CF126341
+ 1016: ldc.r8 000000E0CF126341
+ 101f: ldc.r8 000000E0CF126341
+ 1028: ldc.r8 000000E0CF126341
+ 1031: ldc.r8 000000E0CF126341
+ 103a: ldstr "OnAppControlReceived"
+ 103f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 1044: ldc.i4 34010000
+ 1049: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 104e: nop 
+ 104f: nop 
+ 1050: nop 
+ 1051: leave.s 1D
+ 1053: stloc.s 40
+ 1055: nop 
+ 1056: ldloc.s 40
+ 1058: ldstr "OnAppControlReceived"
+ 105d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 1062: ldc.i4 39010000
+ 1067: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 106c: nop 
+ 106d: nop 
+ 106e: leave.s 00
+ 1070: nop 
+ 1071: ldstr "/tmp/home_media_done"
+ 1076: call CreateFile
+ 107b: nop 
+ 107c: ret 
+METHOD 0600002f Com.Samsung.TV.Home.Media.Program::OnPause
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldstr "OnPause"
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldc.r8 000000E0CF126341
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldstr "OnPause"
+ 005f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0064: ldc.i4 42010000
+ 0069: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006e: nop 
+ 006f: ret 
+METHOD 06000030 Com.Samsung.TV.Home.Media.Program::OnResume
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldstr "OnResume"
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldc.r8 000000E0CF126341
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldstr "OnResume"
+ 005f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0064: ldc.i4 47010000
+ 0069: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006e: nop 
+ 006f: ret 
+METHOD 06000031 Com.Samsung.TV.Home.Media.Program::OnShow
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldstr "OnShow"
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldc.r8 000000E0CF126341
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldstr "OnShow"
+ 005f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0064: ldc.i4 4C010000
+ 0069: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006e: nop 
+ 006f: ret 
+METHOD 06000032 Com.Samsung.TV.Home.Media.Program::OnHide
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldstr "OnHide"
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldc.r8 000000E0CF126341
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldstr "OnHide"
+ 005f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0064: ldc.i4 51010000
+ 0069: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006e: nop 
+ 006f: ret 
+METHOD 06000033 Com.Samsung.TV.Home.Media.Program::OnLowMemory
+ 0000: nop 
+ 0001: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0006: ldc.i4.s 51
+ 0008: ldloca.s 00
+ 000a: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigInt
+ 000f: pop 
+ 0010: ldstr "OnLowMemory : %d1"
+ 0015: ldloc.0 
+ 0016: conv.i8 
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldnull 
+ 0030: ldnull 
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldnull 
+ 0034: ldc.r8 000000E0CF126341
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldstr "OnLowMemory"
+ 0066: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 006b: ldc.i4 58010000
+ 0070: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0075: nop 
+ 0076: ldloc.0 
+ 0077: stloc.s 04
+ 0079: ldloc.s 04
+ 007b: stloc.3 
+ 007c: ldloc.3 
+ 007d: ldc.i4.2 
+ 007e: beq.s 0E
+ 0080: br.s 00
+ 0082: ldloc.3 
+ 0083: ldc.i4.4 
+ 0084: beq 11010000
+ 0089: br 08020000
+ 008e: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0093: ldc.i4.s 50
+ 0095: ldloca.s 01
+ 0097: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 009c: pop 
+ 009d: ldstr "Current Category : %s1"
+ 00a2: ldc.i4 7F969800
+ 00a7: conv.i8 
+ 00a8: ldc.i4 7F969800
+ 00ad: conv.i8 
+ 00ae: ldc.i4 7F969800
+ 00b3: conv.i8 
+ 00b4: ldc.i4 7F969800
+ 00b9: conv.i8 
+ 00ba: ldc.i4 7F969800
+ 00bf: conv.i8 
+ 00c0: ldloc.1 
+ 00c1: ldnull 
+ 00c2: ldnull 
+ 00c3: ldnull 
+ 00c4: ldnull 
+ 00c5: ldc.r8 000000E0CF126341
+ 00ce: ldc.r8 000000E0CF126341
+ 00d7: ldc.r8 000000E0CF126341
+ 00e0: ldc.r8 000000E0CF126341
+ 00e9: ldc.r8 000000E0CF126341
+ 00f2: ldstr "OnLowMemory"
+ 00f7: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 00fc: ldc.i4 5E010000
+ 0101: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0106: nop 
+ 0107: ldloc.1 
+ 0108: ldsfld FieldDefinition:04000017
+ 010d: call System.String::op_Inequality
+ 0112: stloc.s 05
+ 0114: ldloc.s 05
+ 0116: brfalse.s 7D
+ 0118: nop 
+ 0119: ldstr "Exit on Low Memory : Soft Warning"
+ 011e: ldc.i4 7F969800
+ 0123: conv.i8 
+ 0124: ldc.i4 7F969800
+ 0129: conv.i8 
+ 012a: ldc.i4 7F969800
+ 012f: conv.i8 
+ 0130: ldc.i4 7F969800
+ 0135: conv.i8 
+ 0136: ldc.i4 7F969800
+ 013b: conv.i8 
+ 013c: ldnull 
+ 013d: ldnull 
+ 013e: ldnull 
+ 013f: ldnull 
+ 0140: ldnull 
+ 0141: ldc.r8 000000E0CF126341
+ 014a: ldc.r8 000000E0CF126341
+ 0153: ldc.r8 000000E0CF126341
+ 015c: ldc.r8 000000E0CF126341
+ 0165: ldc.r8 000000E0CF126341
+ 016e: ldstr "OnLowMemory"
+ 0173: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0178: ldc.i4 61010000
+ 017d: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0182: nop 
+ 0183: call Tizen.Applications.Application::get_Current
+ 0188: dup 
+ 0189: brtrue.s 03
+ 018b: pop 
+ 018c: br.s 06
+ 018e: callvirt Tizen.Applications.Application::Exit
+ 0193: nop 
+ 0194: nop 
+ 0195: br FE000000
+ 019a: ldstr "memory/eden/activate_status"
+ 019f: ldloca.s 02
+ 01a1: call Tizen.TV.System.Vconf::GetInt
+ 01a6: pop 
+ 01a7: ldstr "Home is Active : %d1"
+ 01ac: ldloc.2 
+ 01ad: conv.i8 
+ 01ae: ldc.i4 7F969800
+ 01b3: conv.i8 
+ 01b4: ldc.i4 7F969800
+ 01b9: conv.i8 
+ 01ba: ldc.i4 7F969800
+ 01bf: conv.i8 
+ 01c0: ldc.i4 7F969800
+ 01c5: conv.i8 
+ 01c6: ldnull 
+ 01c7: ldnull 
+ 01c8: ldnull 
+ 01c9: ldnull 
+ 01ca: ldnull 
+ 01cb: ldc.r8 000000E0CF126341
+ 01d4: ldc.r8 000000E0CF126341
+ 01dd: ldc.r8 000000E0CF126341
+ 01e6: ldc.r8 000000E0CF126341
+ 01ef: ldc.r8 000000E0CF126341
+ 01f8: ldstr "OnLowMemory"
+ 01fd: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0202: ldc.i4 67010000
+ 0207: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 020c: nop 
+ 020d: ldloc.2 
+ 020e: ldc.i4.0 
+ 020f: ceq 
+ 0211: stloc.s 06
+ 0213: ldloc.s 06
+ 0215: brfalse.s 7D
+ 0217: nop 
+ 0218: ldstr "Exit on Low Memory : Hard Warning"
+ 021d: ldc.i4 7F969800
+ 0222: conv.i8 
+ 0223: ldc.i4 7F969800
+ 0228: conv.i8 
+ 0229: ldc.i4 7F969800
+ 022e: conv.i8 
+ 022f: ldc.i4 7F969800
+ 0234: conv.i8 
+ 0235: ldc.i4 7F969800
+ 023a: conv.i8 
+ 023b: ldnull 
+ 023c: ldnull 
+ 023d: ldnull 
+ 023e: ldnull 
+ 023f: ldnull 
+ 0240: ldc.r8 000000E0CF126341
+ 0249: ldc.r8 000000E0CF126341
+ 0252: ldc.r8 000000E0CF126341
+ 025b: ldc.r8 000000E0CF126341
+ 0264: ldc.r8 000000E0CF126341
+ 026d: ldstr "OnLowMemory"
+ 0272: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0277: ldc.i4 6A010000
+ 027c: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0281: nop 
+ 0282: call Tizen.Applications.Application::get_Current
+ 0287: dup 
+ 0288: brtrue.s 03
+ 028a: pop 
+ 028b: br.s 06
+ 028d: callvirt Tizen.Applications.Application::Exit
+ 0292: nop 
+ 0293: nop 
+ 0294: br.s 02
+ 0296: br.s 00
+ 0298: ret 
+METHOD 06000034 Com.Samsung.TV.Home.Media.Program::OnLocaleChanged
+ 0000: nop 
+ 0001: ldstr "changedLocale : %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.1 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "OnLocaleChanged"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0060: ldc.i4 75010000
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006a: nop 
+ 006b: ret 
+METHOD 06000035 Com.Samsung.TV.Home.Media.Program::OnTerminate
+ 0000: nop 
+ 0001: ldstr "OnTerminate: %s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: ldfld FieldDefinition:0400001a
+ 002a: brtrue.s 07
+ 002c: ldstr "F"
+ 0031: br.s 05
+ 0033: ldstr "T"
+ 0038: ldnull 
+ 0039: ldnull 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldc.r8 000000E0CF126341
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldc.r8 000000E0CF126341
+ 0069: ldstr "OnTerminate"
+ 006e: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0073: ldc.i4 7A010000
+ 0078: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 007d: nop 
+ 007e: ldsfld FieldDefinition:04000018
+ 0083: ldc.i4.0 
+ 0084: call Tizen.TV.System.Vconf::SetInt
+ 0089: pop 
+ 008a: ldarg.0 
+ 008b: ldfld FieldDefinition:0400001a
+ 0090: stloc.0 
+ 0091: ldloc.0 
+ 0092: brfalse.s 15
+ 0094: nop 
+ 0095: call TypeSpecification:1b000001::GetInstance
+ 009a: ldc.i4.1 
+ 009b: callvirt DoReset
+ 00a0: nop 
+ 00a1: ldarg.0 
+ 00a2: ldc.i4.0 
+ 00a3: stfld FieldDefinition:0400001a
+ 00a8: nop 
+ 00a9: call Tizen.TV.Service.CoBA.Core.CoBA::Finish
+ 00ae: nop 
+ 00af: ldstr "ResourceUnregisterCpuInheritanceDestination: %s1"
+ 00b4: ldc.i4 7F969800
+ 00b9: conv.i8 
+ 00ba: ldc.i4 7F969800
+ 00bf: conv.i8 
+ 00c0: ldc.i4 7F969800
+ 00c5: conv.i8 
+ 00c6: ldc.i4 7F969800
+ 00cb: conv.i8 
+ 00cc: ldc.i4 7F969800
+ 00d1: conv.i8 
+ 00d2: ldsfld Tizen.TV.Service.CoBA.Common.DB::PACKAGE_NAME
+ 00d7: ldnull 
+ 00d8: ldnull 
+ 00d9: ldnull 
+ 00da: ldnull 
+ 00db: ldc.r8 000000E0CF126341
+ 00e4: ldc.r8 000000E0CF126341
+ 00ed: ldc.r8 000000E0CF126341
+ 00f6: ldc.r8 000000E0CF126341
+ 00ff: ldc.r8 000000E0CF126341
+ 0108: ldstr "OnTerminate"
+ 010d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0112: ldc.i4 84010000
+ 0117: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 011c: nop 
+ 011d: ldsfld Tizen.TV.Service.CoBA.Common.DB::PACKAGE_NAME
+ 0122: call Tizen.System.Resource::ResourceUnregisterCpuInheritanceDestination
+ 0127: nop 
+ 0128: ret 
+METHOD 06000036 Com.Samsung.TV.Home.Media.Program::Main
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldstr "Main"
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldc.r8 000000E0CF126341
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldstr "Main"
+ 005f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0064: ldc.i4 97010000
+ 0069: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006e: nop 
+ 006f: ldstr "ResourceRegisterCpuInheritanceDestination: %s1"
+ 0074: ldc.i4 7F969800
+ 0079: conv.i8 
+ 007a: ldc.i4 7F969800
+ 007f: conv.i8 
+ 0080: ldc.i4 7F969800
+ 0085: conv.i8 
+ 0086: ldc.i4 7F969800
+ 008b: conv.i8 
+ 008c: ldc.i4 7F969800
+ 0091: conv.i8 
+ 0092: ldsfld FieldDefinition:04000014
+ 0097: ldnull 
+ 0098: ldnull 
+ 0099: ldnull 
+ 009a: ldnull 
+ 009b: ldc.r8 000000E0CF126341
+ 00a4: ldc.r8 000000E0CF126341
+ 00ad: ldc.r8 000000E0CF126341
+ 00b6: ldc.r8 000000E0CF126341
+ 00bf: ldc.r8 000000E0CF126341
+ 00c8: ldstr "Main"
+ 00cd: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 00d2: ldc.i4 99010000
+ 00d7: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00dc: nop 
+ 00dd: ldloca.s 00
+ 00df: ldc.i4.0 
+ 00e0: stfld Tizen.System.ResourcePidInfo::Pid
+ 00e5: ldloca.s 00
+ 00e7: ldsfld System.IntPtr::Zero
+ 00ec: stfld Tizen.System.ResourcePidInfo::Tid
+ 00f1: ldloca.s 00
+ 00f3: ldc.i4.0 
+ 00f4: stfld Tizen.System.ResourcePidInfo::TidCount
+ 00f9: ldsfld FieldDefinition:04000014
+ 00fe: ldloc.0 
+ 00ff: call Tizen.System.Resource::ResourceRegisterCpuInheritanceDestination
+ 0104: nop 
+ 0105: call BuildConfiguration
+ 010a: nop 
+ 010b: call SetCompList
+ 0110: nop 
+ 0111: call TypeSpecification:1b000011::GetInstance
+ 0116: callvirt Tizen.TV.Service.CoBA.Core.PreviewSyncManager::Start
+ 011b: nop 
+ 011c: ldsfld FieldDefinition:04000014
+ 0121: ldnull 
+ 0122: call Tizen.TV.Service.CoBA.Common.DB::Initialize
+ 0127: nop 
+ 0128: call CheckDBFile
+ 012d: nop 
+ 012e: ldc.i4.1 
+ 012f: call Tizen.TV.Service.CoBA.Common.FSSystemProperty::set_IsEdenProfile
+ 0134: nop 
+ 0135: ldc.i4.0 
+ 0136: stloc.1 
+ 0137: call TypeSpecification:1b000001::GetInstance
+ 013c: callvirt IsReset
+ 0141: stloc.s 05
+ 0143: ldloc.s 05
+ 0145: brfalse.s 10
+ 0147: nop 
+ 0148: call TypeSpecification:1b000001::GetInstance
+ 014d: ldc.i4.0 
+ 014e: callvirt DoReset
+ 0153: nop 
+ 0154: ldc.i4.1 
+ 0155: stloc.1 
+ 0156: nop 
+ 0157: ldstr "memory/eden/smarthub_reset_media"
+ 015c: ldloca.s 02
+ 015e: call Tizen.TV.System.Vconf::GetInt
+ 0163: pop 
+ 0164: ldloc.2 
+ 0165: ldc.i4.0 
+ 0166: ceq 
+ 0168: stloc.s 06
+ 016a: ldloc.s 06
+ 016c: brfalse.s 10
+ 016e: nop 
+ 016f: call TypeSpecification:1b000001::GetInstance
+ 0174: ldc.i4.1 
+ 0175: callvirt DoReset
+ 017a: nop 
+ 017b: ldc.i4.1 
+ 017c: stloc.1 
+ 017d: nop 
+ 017e: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0183: ldc.i4.3 
+ 0184: ldloca.s 03
+ 0186: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 018b: pop 
+ 018c: ldloc.3 
+ 018d: ldstr "PNP_SETUP"
+ 0192: call System.String::op_Equality
+ 0197: stloc.s 07
+ 0199: ldloc.s 07
+ 019b: brfalse.s 0D
+ 019d: nop 
+ 019e: call TypeSpecification:1b000001::GetInstance
+ 01a3: callvirt CreateNoRecentFlag
+ 01a8: nop 
+ 01a9: nop 
+ 01aa: newobj TypeSpecification:1b000003::.ctor
+ 01af: dup 
+ 01b0: ldstr "com.samsung.tv.ContentsBrowser"
+ 01b5: callvirt TypeSpecification:1b000003::Add
+ 01ba: nop 
+ 01bb: dup 
+ 01bc: ldstr "com.samsung.tv.coba.newhome"
+ 01c1: callvirt TypeSpecification:1b000003::Add
+ 01c6: nop 
+ 01c7: dup 
+ 01c8: ldstr "com.samsung.tv.coba.dhcategory"
+ 01cd: callvirt TypeSpecification:1b000003::Add
+ 01d2: nop 
+ 01d3: dup 
+ 01d4: ldstr "com.samsung.tv.coba.adagent"
+ 01d9: callvirt TypeSpecification:1b000003::Add
+ 01de: nop 
+ 01df: dup 
+ 01e0: ldstr "com.samsung.tv.coba.apps"
+ 01e5: callvirt TypeSpecification:1b000003::Add
+ 01ea: nop 
+ 01eb: stloc.s 04
+ 01ed: call TypeSpecification:1b000012::GetInstance
+ 01f2: ldloc.s 04
+ 01f4: callvirt Tizen.TV.Service.CoBA.Core.ComponentManager::SetLoadingOrder
+ 01f9: nop 
+ 01fa: ldsfld FieldDefinition:0400001e
+ 01ff: ldc.i4.0 
+ 0200: conv.i8 
+ 0201: call Tizen.TV.Service.CoBA.Core.CoBA::Initialize
+ 0206: nop 
+ 0207: ldloc.1 
+ 0208: stloc.s 08
+ 020a: ldloc.s 08
+ 020c: brfalse.s 13
+ 020e: nop 
+ 020f: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetExtInstance
+ 0214: dup 
+ 0215: brtrue.s 03
+ 0217: pop 
+ 0218: br.s 06
+ 021a: callvirt Tizen.TV.Service.CoBA.BPI.BPIBaseExtension::DBReset
+ 021f: nop 
+ 0220: nop 
+ 0221: ldstr "/tmp/firstscreen_ready"
+ 0226: call CreateFile
+ 022b: nop 
+ 022c: ldarg.0 
+ 022d: call Tizen.TV.Service.CoBA.Core.CoBA::Start
+ 0232: nop 
+ 0233: ldstr "%s1"
+ 0238: ldc.i4 7F969800
+ 023d: conv.i8 
+ 023e: ldc.i4 7F969800
+ 0243: conv.i8 
+ 0244: ldc.i4 7F969800
+ 0249: conv.i8 
+ 024a: ldc.i4 7F969800
+ 024f: conv.i8 
+ 0250: ldc.i4 7F969800
+ 0255: conv.i8 
+ 0256: ldstr "Main END"
+ 025b: ldnull 
+ 025c: ldnull 
+ 025d: ldnull 
+ 025e: ldnull 
+ 025f: ldc.r8 000000E0CF126341
+ 0268: ldc.r8 000000E0CF126341
+ 0271: ldc.r8 000000E0CF126341
+ 027a: ldc.r8 000000E0CF126341
+ 0283: ldc.r8 000000E0CF126341
+ 028c: ldstr "Main"
+ 0291: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0296: ldc.i4 D8010000
+ 029b: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 02a0: nop 
+ 02a1: ret 
+METHOD 06000037 Com.Samsung.TV.Home.Media.Program::BuildConfiguration
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldstr "BuildConfiguration !!!!"
+ 0029: ldnull 
+ 002a: ldnull 
+ 002b: ldnull 
+ 002c: ldnull 
+ 002d: ldc.r8 000000E0CF126341
+ 0036: ldc.r8 000000E0CF126341
+ 003f: ldc.r8 000000E0CF126341
+ 0048: ldc.r8 000000E0CF126341
+ 0051: ldc.r8 000000E0CF126341
+ 005a: ldstr "BuildConfiguration"
+ 005f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0064: ldc.i4 DD010000
+ 0069: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 006e: nop 
+ 006f: call TypeSpecification:1b000012::GetInstance
+ 0074: stloc.0 
+ 0075: ldloc.0 
+ 0076: ldsfld FieldDefinition:04000010
+ 007b: ldnull 
+ 007c: ldftn Alloc
+ 0082: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 0087: ldc.i4.4 
+ 0088: callvirt Tizen.TV.Service.CoBA.Core.ComponentManager::AddComponent
+ 008d: pop 
+ 008e: ldloc.0 
+ 008f: ldsfld FieldDefinition:04000012
+ 0094: ldnull 
+ 0095: ldftn Alloc
+ 009b: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 00a0: ldc.i4.4 
+ 00a1: callvirt Tizen.TV.Service.CoBA.Core.ComponentManager::AddComponent
+ 00a6: pop 
+ 00a7: ldstr "%s1"
+ 00ac: ldc.i4 7F969800
+ 00b1: conv.i8 
+ 00b2: ldc.i4 7F969800
+ 00b7: conv.i8 
+ 00b8: ldc.i4 7F969800
+ 00bd: conv.i8 
+ 00be: ldc.i4 7F969800
+ 00c3: conv.i8 
+ 00c4: ldc.i4 7F969800
+ 00c9: conv.i8 
+ 00ca: ldstr "BuildConfiguration END!!!!"
+ 00cf: ldnull 
+ 00d0: ldnull 
+ 00d1: ldnull 
+ 00d2: ldnull 
+ 00d3: ldc.r8 000000E0CF126341
+ 00dc: ldc.r8 000000E0CF126341
+ 00e5: ldc.r8 000000E0CF126341
+ 00ee: ldc.r8 000000E0CF126341
+ 00f7: ldc.r8 000000E0CF126341
+ 0100: ldstr "BuildConfiguration"
+ 0105: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 010a: ldc.i4 E1010000
+ 010f: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 0114: nop 
+ 0115: ret 
+METHOD 06000038 Com.Samsung.TV.Home.Media.Program::CreateFile
+ 0000: nop 
+ 0001: nop 
+ 0002: ldarg.0 
+ 0003: call System.IO.File::Exists
+ 0008: stloc.1 
+ 0009: ldloc.1 
+ 000a: brfalse.s 06
+ 000c: nop 
+ 000d: leave 10010000
+ 0012: ldstr "%s1"
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldc.i4 7F969800
+ 0034: conv.i8 
+ 0035: ldarg.0 
+ 0036: ldnull 
+ 0037: ldnull 
+ 0038: ldnull 
+ 0039: ldnull 
+ 003a: ldc.r8 000000E0CF126341
+ 0043: ldc.r8 000000E0CF126341
+ 004c: ldc.r8 000000E0CF126341
+ 0055: ldc.r8 000000E0CF126341
+ 005e: ldc.r8 000000E0CF126341
+ 0067: ldstr "CreateFile"
+ 006c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0071: ldc.i4 EC010000
+ 0076: call Tizen.TV.Service.CoBA.Common.FSLogger::CheckTimeC
+ 007b: nop 
+ 007c: ldarg.0 
+ 007d: ldc.i4.2 
+ 007e: call System.IO.File::Open
+ 0083: stloc.0 
+ 0084: ldloc.0 
+ 0085: newobj System.IO.BinaryWriter::.ctor
+ 008a: stloc.2 
+ 008b: nop 
+ 008c: nop 
+ 008d: leave.s 0B
+ 008f: ldloc.2 
+ 0090: brfalse.s 07
+ 0092: ldloc.2 
+ 0093: callvirt System.IDisposable::Dispose
+ 0098: nop 
+ 0099: endfinally 
+ 009a: ldstr "%s1 is generated"
+ 009f: ldc.i4 7F969800
+ 00a4: conv.i8 
+ 00a5: ldc.i4 7F969800
+ 00aa: conv.i8 
+ 00ab: ldc.i4 7F969800
+ 00b0: conv.i8 
+ 00b1: ldc.i4 7F969800
+ 00b6: conv.i8 
+ 00b7: ldc.i4 7F969800
+ 00bc: conv.i8 
+ 00bd: ldarg.0 
+ 00be: ldnull 
+ 00bf: ldnull 
+ 00c0: ldnull 
+ 00c1: ldnull 
+ 00c2: ldc.r8 000000E0CF126341
+ 00cb: ldc.r8 000000E0CF126341
+ 00d4: ldc.r8 000000E0CF126341
+ 00dd: ldc.r8 000000E0CF126341
+ 00e6: ldc.r8 000000E0CF126341
+ 00ef: ldstr "CreateFile"
+ 00f4: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 00f9: ldc.i4 F1010000
+ 00fe: call Tizen.TV.Service.CoBA.Common.FSLogger::InfoC
+ 0103: nop 
+ 0104: nop 
+ 0105: leave.s 1B
+ 0107: stloc.3 
+ 0108: nop 
+ 0109: ldloc.3 
+ 010a: ldstr "CreateFile"
+ 010f: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0114: ldc.i4 F5010000
+ 0119: call Tizen.TV.Service.CoBA.Common.FSLogger::Error
+ 011e: nop 
+ 011f: nop 
+ 0120: leave.s 00
+ 0122: ret 
+METHOD 06000039 Com.Samsung.TV.Home.Media.Program::SetCompList
+ 0000: nop 
+ 0001: br.s 00
+ 0003: ret 
+METHOD 0600003a Com.Samsung.TV.Home.Media.Program::CheckDBFile
+ 0000: nop 
+ 0001: ldc.i4.1 
+ 0002: stloc.0 
+ 0003: nop 
+ 0004: ldsfld FieldDefinition:04000015
+ 0009: call System.IO.File::Exists
+ 000e: ldc.i4.0 
+ 000f: ceq 
+ 0011: stloc.1 
+ 0012: ldloc.1 
+ 0013: brfalse.s 06
+ 0015: nop 
+ 0016: ldc.i4.0 
+ 0017: stloc.0 
+ 0018: nop 
+ 0019: br.s 1C
+ 001b: ldsfld FieldDefinition:04000016
+ 0020: call System.IO.File::Exists
+ 0025: stloc.2 
+ 0026: ldloc.2 
+ 0027: brfalse.s 0A
+ 0029: nop 
+ 002a: call CheckDBHeader
+ 002f: stloc.0 
+ 0030: nop 
+ 0031: br.s 04
+ 0033: nop 
+ 0034: ldc.i4.0 
+ 0035: stloc.0 
+ 0036: nop 
+ 0037: ldloc.0 
+ 0038: ldc.i4.0 
+ 0039: ceq 
+ 003b: stloc.3 
+ 003c: ldloc.3 
+ 003d: brfalse.s 18
+ 003f: nop 
+ 0040: ldsfld FieldDefinition:04000015
+ 0045: call System.IO.File::Delete
+ 004a: nop 
+ 004b: ldsfld FieldDefinition:04000016
+ 0050: call System.IO.File::Delete
+ 0055: nop 
+ 0056: nop 
+ 0057: nop 
+ 0058: leave.s 46
+ 005a: pop 
+ 005b: nop 
+ 005c: nop 
+ 005d: ldsfld FieldDefinition:04000015
+ 0062: call System.IO.File::Delete
+ 0067: nop 
+ 0068: ldsfld FieldDefinition:04000016
+ 006d: call System.IO.File::Delete
+ 0072: nop 
+ 0073: nop 
+ 0074: leave.s 27
+ 0076: stloc.s 04
+ 0078: nop 
+ 0079: ldsfld FieldDefinition:04000013
+ 007e: ldloc.s 04
+ 0080: callvirt System.Exception::get_Message
+ 0085: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 008a: ldstr "CheckDBFile"
+ 008f: ldc.i4 5F020000
+ 0094: call Tizen.InternalLog::Error
+ 0099: nop 
+ 009a: nop 
+ 009b: leave.s 00
+ 009d: nop 
+ 009e: leave.s 00
+ 00a0: ret 
+METHOD 0600003b Com.Samsung.TV.Home.Media.Program::CheckDBHeader
+ 0000: nop 
+ 0001: ldc.i4.s 10
+ 0003: newarr System.Byte
+ 0008: stloc.0 
+ 0009: ldsfld FieldDefinition:04000016
+ 000e: call System.IO.File::OpenRead
+ 0013: stloc.1 
+ 0014: nop 
+ 0015: ldloc.1 
+ 0016: callvirt System.IO.Stream::get_Length
+ 001b: stloc.2 
+ 001c: ldloc.2 
+ 001d: ldc.i4.s 10
+ 001f: conv.i8 
+ 0020: clt 
+ 0022: stloc.3 
+ 0023: ldloc.3 
+ 0024: brfalse.s 25
+ 0026: nop 
+ 0027: ldsfld FieldDefinition:04000013
+ 002c: ldstr "db len \u003C 16"
+ 0031: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0036: ldstr "CheckDBHeader"
+ 003b: ldc.i4 6C020000
+ 0040: call Tizen.InternalLog::Error
+ 0045: nop 
+ 0046: ldc.i4.0 
+ 0047: stloc.s 04
+ 0049: leave.s 4F
+ 004b: ldloc.1 
+ 004c: ldloc.0 
+ 004d: ldc.i4.0 
+ 004e: ldc.i4.s 10
+ 0050: callvirt System.IO.Stream::Read
+ 0055: pop 
+ 0056: ldloc.0 
+ 0057: call IsDBHeader
+ 005c: stloc.s 05
+ 005e: ldloc.s 05
+ 0060: brfalse.s 25
+ 0062: nop 
+ 0063: ldsfld FieldDefinition:04000013
+ 0068: ldstr "DB valid header"
+ 006d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0072: ldstr "CheckDBHeader"
+ 0077: ldc.i4 73020000
+ 007c: call Tizen.InternalLog::Error
+ 0081: nop 
+ 0082: ldc.i4.1 
+ 0083: stloc.s 04
+ 0085: leave.s 13
+ 0087: nop 
+ 0088: leave.s 0B
+ 008a: ldloc.1 
+ 008b: brfalse.s 07
+ 008d: ldloc.1 
+ 008e: callvirt System.IDisposable::Dispose
+ 0093: nop 
+ 0094: endfinally 
+ 0095: ldc.i4.0 
+ 0096: stloc.s 04
+ 0098: br.s 00
+ 009a: ldloc.s 04
+ 009c: ret 
+METHOD 0600003c Com.Samsung.TV.Home.Media.Program::IsDBHeader
+ 0000: nop 
+ 0001: ldarg.0 
+ 0002: ldc.i4.0 
+ 0003: ldelem.u1 
+ 0004: ldc.i4.s 53
+ 0006: bne.un.s 53
+ 0008: ldarg.0 
+ 0009: ldc.i4.1 
+ 000a: ldelem.u1 
+ 000b: ldc.i4.s 51
+ 000d: bne.un.s 4C
+ 000f: ldarg.0 
+ 0010: ldc.i4.2 
+ 0011: ldelem.u1 
+ 0012: ldc.i4.s 4C
+ 0014: bne.un.s 45
+ 0016: ldarg.0 
+ 0017: ldc.i4.3 
+ 0018: ldelem.u1 
+ 0019: ldc.i4.s 69
+ 001b: bne.un.s 3E
+ 001d: ldarg.0 
+ 001e: ldc.i4.4 
+ 001f: ldelem.u1 
+ 0020: ldc.i4.s 74
+ 0022: bne.un.s 37
+ 0024: ldarg.0 
+ 0025: ldc.i4.5 
+ 0026: ldelem.u1 
+ 0027: ldc.i4.s 65
+ 0029: bne.un.s 30
+ 002b: ldarg.0 
+ 002c: ldc.i4.7 
+ 002d: ldelem.u1 
+ 002e: ldc.i4.s 66
+ 0030: bne.un.s 29
+ 0032: ldarg.0 
+ 0033: ldc.i4.8 
+ 0034: ldelem.u1 
+ 0035: ldc.i4.s 6F
+ 0037: bne.un.s 22
+ 0039: ldarg.0 
+ 003a: ldc.i4.s 09
+ 003c: ldelem.u1 
+ 003d: ldc.i4.s 72
+ 003f: bne.un.s 1A
+ 0041: ldarg.0 
+ 0042: ldc.i4.s 0A
+ 0044: ldelem.u1 
+ 0045: ldc.i4.s 6D
+ 0047: bne.un.s 12
+ 0049: ldarg.0 
+ 004a: ldc.i4.s 0B
+ 004c: ldelem.u1 
+ 004d: ldc.i4.s 61
+ 004f: bne.un.s 0A
+ 0051: ldarg.0 
+ 0052: ldc.i4.s 0C
+ 0054: ldelem.u1 
+ 0055: ldc.i4.s 74
+ 0057: ceq 
+ 0059: br.s 01
+ 005b: ldc.i4.0 
+ 005c: stloc.0 
+ 005d: br.s 00
+ 005f: ldloc.0 
+ 0060: ret 
+METHOD 0600003d Com.Samsung.TV.Home.Media.Program::LaunchHomeByTVKey
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: ldstr "__NO_RAISE_WINDOW"
+ 0007: ldloca.s 00
+ 0009: callvirt TypeSpecification:1b000005::TryGetValue
+ 000e: brfalse.s 0D
+ 0010: ldloc.0 
+ 0011: ldstr "enable"
+ 0016: call System.String::op_Equality
+ 001b: br.s 01
+ 001d: ldc.i4.0 
+ 001e: stloc.1 
+ 001f: ldloc.1 
+ 0020: brfalse.s 6D
+ 0022: nop 
+ 0023: ldstr "__NO_RAISE_WINDOW is enable. Do not launch csfs"
+ 0028: ldc.i4 7F969800
+ 002d: conv.i8 
+ 002e: ldc.i4 7F969800
+ 0033: conv.i8 
+ 0034: ldc.i4 7F969800
+ 0039: conv.i8 
+ 003a: ldc.i4 7F969800
+ 003f: conv.i8 
+ 0040: ldc.i4 7F969800
+ 0045: conv.i8 
+ 0046: ldnull 
+ 0047: ldnull 
+ 0048: ldnull 
+ 0049: ldnull 
+ 004a: ldnull 
+ 004b: ldc.r8 000000E0CF126341
+ 0054: ldc.r8 000000E0CF126341
+ 005d: ldc.r8 000000E0CF126341
+ 0066: ldc.r8 000000E0CF126341
+ 006f: ldc.r8 000000E0CF126341
+ 0078: ldstr "LaunchHomeByTVKey"
+ 007d: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0082: ldc.i4 84020000
+ 0087: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 008c: nop 
+ 008d: br.s 08
+ 008f: ldarg.0 
+ 0090: ldarg.1 
+ 0091: call LaunchHome
+ 0096: nop 
+ 0097: ret 
+METHOD 0600003e Com.Samsung.TV.Home.Media.Program::LaunchHome
+ 0000: nop 
+ 0001: ldstr ""
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldnull 
+ 0025: ldnull 
+ 0026: ldnull 
+ 0027: ldnull 
+ 0028: ldnull 
+ 0029: ldc.r8 000000E0CF126341
+ 0032: ldc.r8 000000E0CF126341
+ 003b: ldc.r8 000000E0CF126341
+ 0044: ldc.r8 000000E0CF126341
+ 004d: ldc.r8 000000E0CF126341
+ 0056: ldstr "LaunchHome"
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0060: ldc.i4 8D020000
+ 0065: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 006a: nop 
+ 006b: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0070: ldc.i4.s 2E
+ 0072: ldloca.s 00
+ 0074: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 0079: pop 
+ 007a: ldarg.1 
+ 007b: ldnull 
+ 007c: ceq 
+ 007e: stloc.1 
+ 007f: ldloc.1 
+ 0080: brfalse.s 0D
+ 0082: nop 
+ 0083: ldloc.0 
+ 0084: ldnull 
+ 0085: ldc.i4.0 
+ 0086: call Tizen.TV.Service.CoBA.Core.Util.AppLauncher::LaunchApp
+ 008b: nop 
+ 008c: nop 
+ 008d: br.s 0B
+ 008f: nop 
+ 0090: ldloc.0 
+ 0091: ldarg.1 
+ 0092: ldc.i4.0 
+ 0093: call Tizen.TV.Service.CoBA.Core.Util.AppLauncher::LaunchApp
+ 0098: nop 
+ 0099: nop 
+ 009a: ret 
+METHOD 0600003f Com.Samsung.TV.Home.Media.Program::OnBPIEvent
+ 0000: nop 
+ 0001: ldstr "%s1"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.1 
+ 0025: box Tizen.TV.Service.CoBA.BPI.BPIEvent
+ 002a: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 002f: ldnull 
+ 0030: ldnull 
+ 0031: ldnull 
+ 0032: ldnull 
+ 0033: ldc.r8 000000E0CF126341
+ 003c: ldc.r8 000000E0CF126341
+ 0045: ldc.r8 000000E0CF126341
+ 004e: ldc.r8 000000E0CF126341
+ 0057: ldc.r8 000000E0CF126341
+ 0060: ldstr "OnBPIEvent"
+ 0065: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 006a: ldc.i4 9C020000
+ 006f: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0074: nop 
+ 0075: ldarg.1 
+ 0076: stloc.1 
+ 0077: ldloc.1 
+ 0078: stloc.0 
+ 0079: ldloc.0 
+ 007a: ldc.i4.s 0E
+ 007c: beq.s 02
+ 007e: br.s 64
+ 0080: call Tizen.TV.Service.CoBA.BPI.BPIFactory::GetInstance
+ 0085: dup 
+ 0086: brtrue.s 03
+ 0088: pop 
+ 0089: br.s 07
+ 008b: ldarg.0 
+ 008c: callvirt Tizen.TV.Service.CoBA.BPI.BPIBase::UnregisterEvent
+ 0091: nop 
+ 0092: ldarg.0 
+ 0093: ldfld FieldDefinition:0400001c
+ 0098: call System.String::IsNullOrEmpty
+ 009d: ldc.i4.0 
+ 009e: ceq 
+ 00a0: stloc.2 
+ 00a1: ldloc.2 
+ 00a2: brfalse.s 15
+ 00a4: nop 
+ 00a5: ldarg.0 
+ 00a6: ldfld FieldDefinition:0400001c
+ 00ab: call Tizen.TV.Service.CoBA2.Core.CategoryManager::AddAppToMedia
+ 00b0: nop 
+ 00b1: ldarg.0 
+ 00b2: ldnull 
+ 00b3: stfld FieldDefinition:0400001c
+ 00b8: nop 
+ 00b9: ldarg.0 
+ 00ba: ldfld FieldDefinition:0400001d
+ 00bf: call System.String::IsNullOrEmpty
+ 00c4: ldc.i4.0 
+ 00c5: ceq 
+ 00c7: stloc.3 
+ 00c8: ldloc.3 
+ 00c9: brfalse.s 17
+ 00cb: nop 
+ 00cc: ldarg.0 
+ 00cd: ldfld FieldDefinition:0400001d
+ 00d2: ldc.i4.3 
+ 00d3: ldc.i4.0 
+ 00d4: call Tizen.TV.Service.CoBA2.Core.CategoryManager::AddSourceToMediaLauncher
+ 00d9: nop 
+ 00da: ldarg.0 
+ 00db: ldnull 
+ 00dc: stfld FieldDefinition:0400001d
+ 00e1: nop 
+ 00e2: br.s 02
+ 00e4: br.s 00
+ 00e6: ret 
+METHOD 06000040 Com.Samsung.TV.Home.Media.Program::.cctor
+ 0000: ldstr "HOME_MEDIA"
+ 0005: stsfld FieldDefinition:04000013
+ 000a: ldstr "com.samsung.tv.home.media"
+ 000f: stsfld FieldDefinition:04000014
+ 0014: ldstr "/home/researcher/apps_rw/com.samsung.tv.home.media/shared/trusted/db_ready"
+ 0019: stsfld FieldDefinition:04000015
+ 001e: ldstr "/home/researcher/apps_rw/com.samsung.tv.home.media/shared/trusted/sqlite.db"
+ 0023: stsfld FieldDefinition:04000016
+ 0028: ldstr "d/media.category"
+ 002d: stsfld FieldDefinition:04000017
+ 0032: ldstr "memory/eden/home_media_done"
+ 0037: stsfld FieldDefinition:04000018
+ 003c: newobj Tizen.TV.Service.CoBA.Core.CoBAInitData::.ctor
+ 0041: dup 
+ 0042: ldsfld FieldDefinition:04000014
+ 0047: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::packageName
+ 004c: dup 
+ 004d: ldstr "yyoung12.lee@samsung.com"
+ 0052: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::packageOwnerEmail
+ 0057: dup 
+ 0058: ldstr "ImplViewDB.dll"
+ 005d: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::presentationDllName
+ 0062: dup 
+ 0063: ldstr "com.samsung.tv.coba.viewdb"
+ 0068: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::presentationPackageName
+ 006d: dup 
+ 006e: ldsfld FieldDefinition:04000014
+ 0073: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::resourcePackageName
+ 0078: dup 
+ 0079: ldsfld FieldDefinition:04000013
+ 007e: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::logTag
+ 0083: dup 
+ 0084: ldstr "/run/user/5001/home-media.txt"
+ 0089: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::fileLogPath
+ 008e: dup 
+ 008f: newobj .ctor
+ 0094: stfld Tizen.TV.Service.CoBA.Core.CoBAInitData::bpiMain
+ 0099: stsfld FieldDefinition:0400001e
+ 009e: ret 
+METHOD 06000041 .<>c::.cctor
+ 0000: newobj .ctor
+ 0005: stsfld FieldDefinition:0400001f
+ 000a: ret 
+METHOD 06000042 .<>c::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 06000043 .<>c::<OnCreate>b__14_0
+ 0000: nop 
+ 0001: call TypeSpecification:1b000002::GetInstance
+ 0006: pop 
+ 0007: ret 
+METHOD 06000044 .<>c::<OnCreate>b__14_1
+ 0000: nop 
+ 0001: call TypeSpecification:1b000013::GetInstance
+ 0006: callvirt Tizen.TV.Service.CoBA.Core.Manager.TVServiceManager::InitializeServiceListCache
+ 000b: nop 
+ 000c: ldstr "%s1"
+ 0011: ldc.i4 7F969800
+ 0016: conv.i8 
+ 0017: ldc.i4 7F969800
+ 001c: conv.i8 
+ 001d: ldc.i4 7F969800
+ 0022: conv.i8 
+ 0023: ldc.i4 7F969800
+ 0028: conv.i8 
+ 0029: ldc.i4 7F969800
+ 002e: conv.i8 
+ 002f: ldstr "Create TVServiceManager END"
+ 0034: ldnull 
+ 0035: ldnull 
+ 0036: ldnull 
+ 0037: ldnull 
+ 0038: ldc.r8 000000E0CF126341
+ 0041: ldc.r8 000000E0CF126341
+ 004a: ldc.r8 000000E0CF126341
+ 0053: ldc.r8 000000E0CF126341
+ 005c: ldc.r8 000000E0CF126341
+ 0065: ldstr "OnCreate"
+ 006a: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 006f: ldc.i4.s 39
+ 0071: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0076: nop 
+ 0077: call Tizen.TV.Service.CoBA.Core.Manager.SourceManager::GetInstance
+ 007c: pop 
+ 007d: ldstr "%s1"
+ 0082: ldc.i4 7F969800
+ 0087: conv.i8 
+ 0088: ldc.i4 7F969800
+ 008d: conv.i8 
+ 008e: ldc.i4 7F969800
+ 0093: conv.i8 
+ 0094: ldc.i4 7F969800
+ 0099: conv.i8 
+ 009a: ldc.i4 7F969800
+ 009f: conv.i8 
+ 00a0: ldstr "Create SourceManager END"
+ 00a5: ldnull 
+ 00a6: ldnull 
+ 00a7: ldnull 
+ 00a8: ldnull 
+ 00a9: ldc.r8 000000E0CF126341
+ 00b2: ldc.r8 000000E0CF126341
+ 00bb: ldc.r8 000000E0CF126341
+ 00c4: ldc.r8 000000E0CF126341
+ 00cd: ldc.r8 000000E0CF126341
+ 00d6: ldstr "OnCreate"
+ 00db: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 00e0: ldc.i4.s 3B
+ 00e2: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00e7: nop 
+ 00e8: call TypeSpecification:1b000014::GetInstance
+ 00ed: pop 
+ 00ee: ldstr "%s1"
+ 00f3: ldc.i4 7F969800
+ 00f8: conv.i8 
+ 00f9: ldc.i4 7F969800
+ 00fe: conv.i8 
+ 00ff: ldc.i4 7F969800
+ 0104: conv.i8 
+ 0105: ldc.i4 7F969800
+ 010a: conv.i8 
+ 010b: ldc.i4 7F969800
+ 0110: conv.i8 
+ 0111: ldstr "Create MbrManager END"
+ 0116: ldnull 
+ 0117: ldnull 
+ 0118: ldnull 
+ 0119: ldnull 
+ 011a: ldc.r8 000000E0CF126341
+ 0123: ldc.r8 000000E0CF126341
+ 012c: ldc.r8 000000E0CF126341
+ 0135: ldc.r8 000000E0CF126341
+ 013e: ldc.r8 000000E0CF126341
+ 0147: ldstr "OnCreate"
+ 014c: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 0151: ldc.i4.s 3D
+ 0153: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0158: nop 
+ 0159: call TypeSpecification:1b00000a::GetInstance
+ 015e: pop 
+ 015f: ldstr "%s1"
+ 0164: ldc.i4 7F969800
+ 0169: conv.i8 
+ 016a: ldc.i4 7F969800
+ 016f: conv.i8 
+ 0170: ldc.i4 7F969800
+ 0175: conv.i8 
+ 0176: ldc.i4 7F969800
+ 017b: conv.i8 
+ 017c: ldc.i4 7F969800
+ 0181: conv.i8 
+ 0182: ldstr "Create TVKeyManager END"
+ 0187: ldnull 
+ 0188: ldnull 
+ 0189: ldnull 
+ 018a: ldnull 
+ 018b: ldc.r8 000000E0CF126341
+ 0194: ldc.r8 000000E0CF126341
+ 019d: ldc.r8 000000E0CF126341
+ 01a6: ldc.r8 000000E0CF126341
+ 01af: ldc.r8 000000E0CF126341
+ 01b8: ldstr "OnCreate"
+ 01bd: ldstr "/home/researcher/rpmbuild/BUILD/com.samsung.tv.home.media-3.5.26050/HomeMedia/ServiceApplication.cs"
+ 01c2: ldc.i4.s 3F
+ 01c4: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 01c9: nop 
+ 01ca: call TypeSpecification:1b00000f::GetInstance
+ 01cf: pop 
+ 01d0: ret 
+METHOD 06000045 .<>c__DisplayClass15_0::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 06000046 .<>c__DisplayClass15_0::<OnAppControlReceived>b__0
+ 0000: nop 
+ 0001: newobj TypeSpecification:1b000005::.ctor
+ 0006: stloc.0 
+ 0007: ldloc.0 
+ 0008: ldstr "__COBA_REQUEST_FOCUS_GROUPTAG__"
+ 000d: ldarg.0 
+ 000e: ldfld FieldDefinition:04000022
+ 0013: callvirt TypeSpecification:1b000005::Add
+ 0018: nop 
+ 0019: ldstr "com.samsung.tv.csfs"
+ 001e: ldloc.0 
+ 001f: ldc.i4.0 
+ 0020: call Tizen.TV.Service.CoBA.Core.Util.AppLauncher::LaunchApp
+ 0025: nop 
+ 0026: ret 

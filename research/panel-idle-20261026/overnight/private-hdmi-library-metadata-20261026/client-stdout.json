@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho AVOC_IDENTITY\nreadlink -f /proc/706/exe\ncat /proc/706/stat\necho AVOC_HDMI_MAPS\nawk '$NF == \"/usr/lib/libhdmi-control.so.0.1\" { print }' /proc/706/maps\necho LIBRARY_IDENTITY\ntest -f /usr/lib/libhdmi-control.so.0.1\ntest ! -L /usr/lib/libhdmi-control.so.0.1\nstat -c '%s %F %a %u' /usr/lib/libhdmi-control.so.0.1\nsha256sum /usr/lib/libhdmi-control.so.0.1\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BOOT_START\n00000000-0000-4000-8000-000000000000\nTIME_START\n1793048181\n69790.66 261219.31\nAVOC_IDENTITY\n/usr/bin/avocd\n706 (avocd) S 1 642 642 0 -1 4194624 419353 0 7761 0 349556 113388 0 0 20 0 23 0 603 204062720 2316 18446744073709551615 65536 1387296 4291230352 0 0 0 0 4096 16384 0 0 0 17 3 0 0 47 0 0 1608924 1733396 34242560 4291231407 4291231425 4291231425 4291231721 0\nAVOC_HDMI_MAPS\n47e10000-47e70000 r-xp 00000000 b3:1a 62055                              /usr/lib/libhdmi-control.so.0.1\n47e70000-47e80000 ---p 00060000 b3:1a 62055                              /usr/lib/libhdmi-control.so.0.1\n47e80000-47e82000 r--p 00060000 b3:1a 62055                              /usr/lib/libhdmi-control.so.0.1\n47e82000-47e84000 rw-p 00062000 b3:1a 62055                              /usr/lib/libhdmi-control.so.0.1\nLIBRARY_IDENTITY\n415124 regular file 755 0\n067ddb8f639f8e91d02524f0820fb3a56e2d9f174d0f3f75a5dec963f7339410  /usr/lib/libhdmi-control.so.0.1\nBOOT_END\n00000000-0000-4000-8000-000000000000\nTIME_END\n1793048181\n69790.68 261219.38\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

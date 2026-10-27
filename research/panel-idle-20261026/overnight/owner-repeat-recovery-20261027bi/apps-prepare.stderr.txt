@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/run-once.py", line 347, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/run-once.py", line 339, in main
+    prepare(args, root)
+    ~~~~~~~^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/run-once.py", line 135, in prepare
+    call('set -eu\numask 077\n' +
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+         f'test "$(cat /proc/sys/kernel/random/boot_id)" = {BOOT}\n' +
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+         f'mkdir -m 700 {shlex.quote(stage)}\n' + dir_guard(stage) +
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         'cat /proc/uptime\necho PRIVATE_STAGE_CREATED\n')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/run-once.py", line 133, in call
+    return root.root(command, record, record_path)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-ui-tab-launch/root-with-margin.py", line 72, in root
+    base.require(process.returncode == 0 and process.stderr == b'',
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 'Root client failed')
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-status-read/run-status-read.py", line 57, in require
+    raise ContractError(message)
+pinned_margin_base_runner.ContractError: Root client failed

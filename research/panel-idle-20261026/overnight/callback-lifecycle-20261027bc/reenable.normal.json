@@ -1,0 +1,53 @@
+{
+  "accepted": true,
+  "coordinate_model": "image0 FILE = VA + 0x200",
+  "descriptor8_callback": {
+    "bit3_one_action": "saved IRQ -> ICER-class disable via 0x1b0b8",
+    "body": "0x132c0..0x13345",
+    "completion": "saved IRQ -> ICPR-class clear via 0x1b024",
+    "gate": "descriptor word bit3=1 enters disable/work; bit3=0 skips to completion clear",
+    "self_reenable_in_body": false
+  },
+  "fault_teardown": {
+    "first_relevant_disable": "descriptor0x1c IRQ -> ICER-class 0x1b0e8",
+    "later_disable": "descriptor8 IRQ -> ICER-class 0x1b0e8"
+  },
+  "interpretation": "selected-code positive ordinary handoff edge, not a proved post-fault recovery because teardown disables its descriptor0x1c owner too; no live execution, IRQ state, or physical-effect proof",
+  "ordinary_handoff_enable": {
+    "actions": [
+      "descriptor8 pending clear via 0x1b024",
+      "descriptor8 enable via 0x1b16e"
+    ],
+    "gates": [
+      "descriptor0x1c word bit3 = 1",
+      "two separate loads each observe CPU 0x2000087c nonzero",
+      "saved descriptor8 pointer nonzero"
+    ],
+    "owner_callback": "descriptor 0x1c callback 0x13465",
+    "owner_enabled_during_registration": true,
+    "pre_action_separate_store": "CPU 0x2000087e = 0"
+  },
+  "package_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0",
+  "registration": {
+    "body": "0x1e47c..0x1eb35",
+    "claim_failure_checked_before_lookup": false,
+    "descriptor8_callback": "0x132c1",
+    "descriptor8_saved_pointer": "0x20000884",
+    "sole_direct_caller": "0x39b8e"
+  },
+  "slice_sha256": {
+    "clear_pending": "91c14e2a69ee54b1a85f6ca9fba1b7004f0c9178c21cd2e2f363852488f9d02f",
+    "descriptor1c_callback": "ceb2219987046cb185913963cda6583abc9822e845ddbfdab30053f50c735d5f",
+    "descriptor8_callback": "2e472ef163d2a285a67628abaef6195cdc824f781654e471f4e9659eb51e7a25",
+    "descriptor_claim": "4f160a140ffebfdcc7a428da7829be6c682cf040a35167439cf25bf50c0a11fa",
+    "descriptor_lookup": "287a309773f5f64fae4fac7d201097180674aa4480a6dd708fe5d84afc204df6",
+    "disable_variant": "6d4da6c2ee0a19e412c80eba27610a4c0040d66bae19a1a1222c5910c7ad294a",
+    "enable": "a4940f4a39907bf72dcf887e531703a4c0b564813da44480efc432e5b0bae667",
+    "fault_disable": "6d4da6c2ee0a19e412c80eba27610a4c0040d66bae19a1a1222c5910c7ad294a",
+    "fault_teardown": "9bdc29f2519b7a6ac90e2e3bc5fea5054249f4218d6b99d8591f454e6f4a212d",
+    "reenable_gate": "1eda93f58a7aaa3a35f4d9f891e6f2f97321f17e7f5a2c48aac38c4754b999d6",
+    "registration_enclosing": "318d15a1c1cb53a00219e72b355f297ca210e4e141c4b64ea5b6db97b6d6eadf",
+    "startup_call_context": "1d588034fe1142f5a5cf29e460295cb9eb8ff55525f0df6ae1b7d94c1ace2a22"
+  },
+  "target_operations": 0
+}

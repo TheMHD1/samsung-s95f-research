@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\nn=0\nhits=0\nfor f in /lib/modules/5.4.261/kernel/*.ko /lib/modules/5.4.261/kernel/soc/*.ko; do\n  [ -f \"$f\" ] || continue\n  n=$((n+1))\n  [ \"$n\" -le 256 ] || exit 65\n  matched=0\n  for symbol in SDP_OCL_I2C_AckPolling suspend_hdmi_resume; do\n    if LC_ALL=C grep -q -F \"$symbol\" \"$f\"; then\n      hits=$((hits+1))\n      [ \"$hits\" -le 64 ] || exit 66\n      echo \"@@ MATCH $symbol $f\"\n      matched=1\n    fi\n  done\n  if [ \"$matched\" = 1 ]; then\n    echo \"@@ MODULE $f\"\n    wc -c < \"$f\"\n    sha256sum \"$f\"\n  fi\ndone\necho \"@@ SCANNED $n\"\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "@@ BOOT_START\n00000000-0000-4000-8000-000000000000\n@@ TIME_START\n1793045808\n67417.25 252273.94\n@@ MATCH suspend_hdmi_resume /lib/modules/5.4.261/kernel/tztv_hdmi_switch_api.ko\n@@ MODULE /lib/modules/5.4.261/kernel/tztv_hdmi_switch_api.ko\n1143558\nc586a2601665a778a1e7401cd6b7553e03684f2e4536a282047b17059b7eec97  /lib/modules/5.4.261/kernel/tztv_hdmi_switch_api.ko\n@@ MATCH suspend_hdmi_resume /lib/modules/5.4.261/kernel/tztv_hdmi_switch.ko\n@@ MODULE /lib/modules/5.4.261/kernel/tztv_hdmi_switch.ko\n87934\n11d9c53a0e08300bb12b1cafd513e3fc6ee84ba1bcd434007e459dce70fa82b6  /lib/modules/5.4.261/kernel/tztv_hdmi_switch.ko\n@@ MATCH SDP_OCL_I2C_AckPolling /lib/modules/5.4.261/kernel/soc/sdp_ocl_jp.ko\n@@ MODULE /lib/modules/5.4.261/kernel/soc/sdp_ocl_jp.ko\n594110\ne5a064da2cfbd37194f5e97463c3519126a09aedaf4b3c95107b08ab0680aa2c  /lib/modules/5.4.261/kernel/soc/sdp_ocl_jp.ko\n@@ MATCH SDP_OCL_I2C_AckPolling /lib/modules/5.4.261/kernel/soc/sdp_ocl.ko\n@@ MODULE /lib/modules/5.4.261/kernel/soc/sdp_ocl.ko\n261166\n80b9e66f4129a31207f1eee8d7636d7565193ecf9ba87e3bded6196c5e1b02e7  /lib/modules/5.4.261/kernel/soc/sdp_ocl.ko\n@@ SCANNED 67\n@@ BOOT_END\n00000000-0000-4000-8000-000000000000\n@@ TIME_END\n1793045808\n67417.57 252274.73\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

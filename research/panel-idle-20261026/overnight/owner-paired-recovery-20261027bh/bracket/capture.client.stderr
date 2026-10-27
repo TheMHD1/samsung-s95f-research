@@ -1,0 +1,36 @@
+Collector start is scheduled near 2026-10-27T21:07:35.145605+00:00 with at least ±1.157s clock/transport uncertainty; this is a countdown, not verified readiness. Enter annotations as: picture visible|black reaction_ms=N clock_ms=N (apps/warning/audio/note also accepted).
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-hdmi-onset-capture.py", line 192, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-hdmi-onset-capture.py", line 188, in main
+    run_capture(args.label)
+    ~~~~~~~~~~~^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-hdmi-onset-capture.py", line 141, in run_capture
+    _short.run_capture(label)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-short-onset-capture.py", line 142, in run_capture
+    _frozen.run_capture(label, WINDOW_SECONDS, smoke_unobserved=False)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-quiescent-pm-onset-capture.py", line 266, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 708, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-preroll-onset-capture.py", line 625, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-branch-onset-capture.py", line 544, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1213, in run_capture
+    trace_report = trace_accounting(data["trace"], fd_report["tids"],
+                                    meta["avoc_identity"][0], collector["pid"],
+                                    meta["trace_start"], meta["trace_end"],
+                                    meta["trace_drain_end"])
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 646, in trace_accounting
+    pm = _pm_accounting(data, report)
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 560, in _pm_accounting
+    raise ValueError(f"pending {family} operation overlaps physical window at drain")
+ValueError: pending runtime operation overlaps physical window at drain

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\necho BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho TTYUSB_PARENT\nfor p in /sys/class/tty/ttyUSB0/device /sys/class/tty/ttyUSB0/device/driver; do echo \"$p\"; readlink -f \"$p\"; done\necho MATCHING_USB_DEVICE\nfor p in /sys/bus/usb/devices/*; do\n if test -r \"$p/idVendor\" && test -r \"$p/idProduct\"; then\n  v=$(cat \"$p/idVendor\")\n  q=$(cat \"$p/idProduct\")\n  if test \"$v:$q\" = 04e8:20e4; then\n   echo \"$p\"\n   readlink -f \"$p\"\n   for f in idVendor idProduct manufacturer product bDeviceClass bDeviceSubClass bDeviceProtocol bcdDevice busnum devnum; do if test -r \"$p/$f\"; then echo \"$f=$(cat \"$p/$f\")\"; fi; done\n   for c in \"$p\":*; do if test -d \"$c\"; then echo \"$c\"; for f in bInterfaceClass bInterfaceSubClass bInterfaceProtocol interface; do if test -r \"$c/$f\"; then echo \"$f=$(cat \"$c/$f\")\"; fi; done; if test -e \"$c/driver\"; then readlink -f \"$c/driver\"; fi; fi; done\n  fi\n fi\ndone\necho END\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BEGIN\n00000000-0000-4000-8000-000000000000\n97224.86 363485.90\nTTYUSB_PARENT\n/sys/class/tty/ttyUSB0/device\n/sys/devices/platform/soc/2818000.ohci/usb12/12-1/12-1:1.0/ttyUSB0\n/sys/class/tty/ttyUSB0/device/driver\n/sys/bus/usb-serial/drivers/cp210x\nMATCHING_USB_DEVICE\n/sys/bus/usb/devices/12-1\n/sys/devices/platform/soc/2818000.ohci/usb12/12-1\nidVendor=04e8\nidProduct=20e4\nmanufacturer=Silicon Labs\nproduct=SmartThings Dongle\nbDeviceClass=00\nbDeviceSubClass=00\nbDeviceProtocol=00\nbcdDevice=0100\nbusnum=12\ndevnum=2\n/sys/bus/usb/devices/12-1:1.0\nbInterfaceClass=ff\nbInterfaceSubClass=00\nbInterfaceProtocol=00\n/sys/bus/usb/drivers/cp210x\nEND\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

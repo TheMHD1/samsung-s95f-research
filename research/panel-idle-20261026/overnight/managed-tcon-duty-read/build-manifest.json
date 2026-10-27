@@ -1,0 +1,82 @@
+{
+  "build": {
+    "errors": 0,
+    "external_packages": [],
+    "package_sources": [],
+    "restore": "NuGet.Config clears all package sources; local SDK framework/reference packs only",
+    "sdk_path": "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+    "sdk_sha256": "6206ebc1d4b6fb5d73311bc7571c654451550e446daf39fe7cfd3cd84bd6da36",
+    "sdk_version": "6.0.428",
+    "warnings": 0
+  },
+  "classification_contract": {
+    "fresh": "ioctl return zero, output changed from sentinel, command words unchanged, close return zero => kernel_output_written only",
+    "in_range": "0..1023 is only within_packaged_low10_range, not physical brightness",
+    "out_of_range": "changed value above 1023 is incompatible_profile_range and exits nonzero",
+    "physical_state": "unobserved",
+    "unchanged": "sentinel unchanged is not read success"
+  },
+  "created_utc": "2026-10-27",
+  "excluded": [
+    "runner or remote command",
+    "target execution or deployment",
+    "arbitrary command or selector arguments",
+    "retry, polling, or loop",
+    "setter, PM, power, reset, GPIO, protection, recovery, settings, or network action",
+    "physical brightness or panel-state inference"
+  ],
+  "files": {
+    "ManagedTconDutyRead.csproj": "bc27cdc2ff4b91366e9bd05c5e54aed94515f65bdc3688e73ad58b356e4ea342",
+    "NuGet.Config": "5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575",
+    "Program.cs": "2ac6519a9f22ff029f47395eba97ac28d6151c74086e9c636199433ae874410a",
+    "README.md": "f3257ba74811f7a72de1be899fd9f28410c0720bdc9234db5dcfbc9c0096a34d",
+    "bin/Release/net6.0/ManagedTconDutyRead.deps.json": "0d9923f0cf033abaa9b7a999fc30056d66577d218627ef8d610e941806b36bd3",
+    "bin/Release/net6.0/ManagedTconDutyRead.dll": "32e488ff78af4310423bf2c1475f922fec49f1fb5a1cacf10161fe21423f7ee6",
+    "bin/Release/net6.0/ManagedTconDutyRead.runtimeconfig.json": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+    "local-x64-guard.json": "badd68e57f98632e7eeae220d5081ee54c7bf2e8fba9fc6fbcd929647678391e"
+  },
+  "fixed_request": {
+    "command_high_word": "0x0000f300",
+    "command_low_word": "0x00000128",
+    "command_u64": "0x0000f30000000128",
+    "device": "/dev/tztv_tcon",
+    "ioctl": "0xc010749f",
+    "operation_decimal": 19,
+    "output_sentinel": "0xa55a5aa5",
+    "response_bytes": 4,
+    "wire_request_hex": "f30000000128"
+  },
+  "local_guard": {
+    "architecture": "X64",
+    "device_open_reached": false,
+    "exit_code": 64,
+    "target_validation": false,
+    "terminal_line": "REFUSED_ARCH_ABI"
+  },
+  "provenance": {
+    "controller_getter_and_low10_field": {
+      "path": "tcon-research/qd-f300-write-payload-dispatch.md",
+      "sha256": "2fd6029d587022c839a2655108c977ed0108e2835a7069d590b2ac7ac4da7664"
+    },
+    "generic_read_abi": {
+      "path": "tcon-research/qd-generic-read-command-abi.md",
+      "sha256": "52b1be2e269edc353ffa3f290305067c3c720a3ae000526e08f59d2bbe412172"
+    },
+    "generic_read_abi_independent_review": {
+      "path": "tcon-research/qd-generic-read-command-independent-review.md",
+      "sha256": "0e0191069116e6d85bdc45dfa178adc2aa83b2bed8f33f1eae6fff17bec79150"
+    },
+    "selected_profile_analysis": {
+      "path": "tcon-research/qd-selected-profile-content.md",
+      "sha256": "e2dcdd78576032d2a250d388cbc55f40950f961238ce426bd5c9b961a4a40beb"
+    },
+    "selected_profile_binary": {
+      "bytes": 5242880,
+      "path": "overnight/selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+      "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+    }
+  },
+  "schema": "managed-tcon-duty-read-build-v1",
+  "status": "PREPARED_NOT_DEPLOYED_TARGET_EXECUTION_HOLD",
+  "target": "net6.0 portable IL; intended only for separately reviewed ARM32 Tizen CLR execution"
+}

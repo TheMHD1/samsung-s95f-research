@@ -1,0 +1,273 @@
+ppi_ve_check_panel_mute_for_resolution call 0x74882
+000747e2: ldr       r2, [r3, #0x30]
+000747e4: str       r2, [r7, #0x54]
+000747e6: add.w     r2, r7, #0x20
+000747ea: strd      r0, r2, [r7, #0x6c]
+000747ee: ldr.w     r2, [sb, #4]
+000747f2: str       r2, [r7, #0x58]
+000747f4: ldrd      r1, r2, [r3, #0x38]
+000747f8: ldr       r0, [r3, #0x24]
+000747fa: bl        #0x687c4
+000747fe: mov       r3, r0
+00074800: ldrd      r1, r2, [sb, #0xc]
+00074804: str       r3, [r7, #0x5c]
+00074806: ldr       r0, [r4, #8]
+00074808: bl        #0x687c4
+0007480c: ldr       r1, [r4, #0xc]
+0007480e: str       r0, [r7, #0x60]
+00074810: movw      r3, #0xbc2c
+00074814: movt      r3, #0xf
+00074818: ldr.w     r2, [sb, #0x50]
+0007481c: ldr.w     ip, [r1, #0x94]
+00074820: ldr       r0, [r7, #0x6c]
+00074822: ldr       r1, [pc, #0xac]
+00074824: str       r1, [sp]
+00074826: movs      r1, #3
+00074828: str       r2, [sp, #0x10]
+0007482a: movw      r2, #0xcba4
+0007482e: movt      r2, #0xd
+00074832: strd      r6, r0, [sp, #8]
+00074836: str       r5, [sp, #4]
+00074838: movs      r0, #2
+0007483a: str.w     ip, [r7, #0x64]
+0007483e: ldr.w     r6, [sb, #0x68]
+00074842: str       r6, [r7, #0x68]
+00074844: blx       #0x1c3c4
+00074848: ldr       r2, [r7, #0x60]
+0007484a: movs      r1, #0x5f
+0007484c: ldr       r0, [r4, #0xc]
+0007484e: bl        #0xb99c4
+00074852: cmp.w     r8, #0
+00074856: beq       #0x7485c
+00074858: ldr.w     r8, [r7, #0x68]
+0007485c: ldr       r0, [r4, #0xc]
+0007485e: mov       r2, r8
+00074860: movs      r1, #0x60
+00074862: bl        #0xb99c4
+00074866: add.w     r0, r7, #0x74
+0007486a: movs      r1, #0
+0007486c: bl        #0x72060
+00074870: movs      r0, #0
+00074872: bl        #0xae6e4
+00074876: add.w     r0, r7, #0x24
+0007487a: bl        #0x73d0c
+0007487e: add.w     r0, r7, #0x44
+00074882: blx       #0x1bfc8
+00074886: mov       r8, r0
+00074888: cmp       r0, #0
+0007488a: bne.w     #0x74e18
+0007488e: add.w     r0, r7, #0x24
+00074892: bl        #0x6f294
+00074896: add.w     r0, r7, #0x74
+0007489a: bl        #0x71fc8
+0007489e: ldr       r0, [r7, #0x20]
+000748a0: cmp       r0, #2
+000748a2: beq.w     #0x74c76
+000748a6: ldr       r3, [r7, #0x1c]
+000748a8: cmp       r3, #0
+000748aa: it        eq
+000748ac: cmpeq     r0, #1
+000748ae: beq.w     #0x74d78
+000748b2: ldr       r3, [r7, #0x1c]
+000748b4: movs      r1, #0xa6
+000748b6: ldr       r2, [pc, #0x18]
+000748b8: str       r3, [sp, #0x10]
+000748ba: movw      r3, #0xbdc4
+000748be: movt      r3, #0xf
+000748c2: str       r0, [sp, #0xc]
+000748c4: str       r2, [sp]
+000748c6: movs      r0, #2
+000748c8: str       r1, [sp, #8]
+000748ca: movw      r2, #0xcba4
+000748ce: b         #0x748d4
+000748d0: ldr       r2, [sp, #0x228]
+000748d2: movs      r7, r1
+000748d4: movt      r2, #0xd
+000748d8: movs      r1, #4
+000748da: str       r5, [sp, #4]
+000748dc: blx       #0x1c3c4
+000748e0: movs      r0, #0xf
+000748e2: bl        #0x716f4
+
+ppi_ve_check_panel_mute_for_photo call 0xab25a
+000ab1ba: movt      r3, #0x12
+000ab1be: ldr       r3, [r3]
+000ab1c0: str.w     r3, [r7, #0xdc]
+000ab1c4: mov.w     r3, #0
+000ab1c8: bl        #0x72060
+000ab1cc: ldr       r3, [r5]
+000ab1ce: ldr       r3, [r3, #0x4c]
+000ab1d0: cmp       r4, r3
+000ab1d2: it        eq
+000ab1d4: moveq     r6, r7
+000ab1d6: beq       #0xab208
+000ab1d8: movw      r8, #0x4004
+000ab1dc: movt      r8, #0x17
+000ab1e0: movs      r1, #0
+000ab1e2: add.w     r0, r7, #0x70
+000ab1e6: bl        #0x72060
+000ab1ea: ldr.w     r6, [r8, #0x14]
+000ab1ee: adds      r3, r6, #1
+000ab1f0: beq       #0xab24a
+000ab1f2: add.w     r0, r7, #0x70
+000ab1f6: bl        #0x71fc8
+000ab1fa: cmp       r6, #1
+000ab1fc: beq       #0xab276
+000ab1fe: cmp       r6, #2
+000ab200: beq       #0xab242
+000ab202: mov       r6, r7
+000ab204: ldr       r3, [r5]
+000ab206: str       r4, [r3, #0x4c]
+000ab208: mov       r0, r6
+000ab20a: bl        #0x73d0c
+000ab20e: and       r0, r4, #1
+000ab212: blx       #0x1cc64
+000ab216: mov       r5, r0
+000ab218: cbnz      r0, #0xab27e
+000ab21a: mov       r0, r6
+000ab21c: bl        #0x6f294
+000ab220: adds      r0, r7, #4
+000ab222: bl        #0x71fc8
+000ab226: movw      r3, #0x5be0
+000ab22a: movt      r3, #0x12
+000ab22e: ldr       r2, [r3]
+000ab230: ldr.w     r3, [r7, #0xdc]
+000ab234: eors      r2, r3
+000ab236: bne       #0xab2f0
+000ab238: mov       r0, r5
+000ab23a: adds      r7, #0xe0
+000ab23c: mov       sp, r7
+000ab23e: pop.w     {r4, r5, r6, r7, r8, pc}
+000ab242: movs      r0, #1
+000ab244: bl        #0xb161c
+000ab248: b         #0xab202
+000ab24a: mov       r0, r7
+000ab24c: mov       r6, r7
+000ab24e: bl        #0x73d0c
+000ab252: mov       r0, r8
+000ab254: movs      r3, #0
+000ab256: str       r3, [r0, #0x14]!
+000ab25a: blx       #0x1c064
+000ab25e: cbnz      r0, #0xab2b4
+000ab260: mov       r0, r7
+000ab262: bl        #0x6f294
+000ab266: ldr.w     r6, [r8, #0x14]
+000ab26a: add.w     r0, r7, #0x70
+000ab26e: bl        #0x71fc8
+000ab272: cmp       r6, #1
+000ab274: bne       #0xab1fe
+000ab276: movs      r0, #0
+000ab278: bl        #0xb161c
+000ab27c: b         #0xab202
+000ab27e: ldr       r1, [pc, #0xa0]
+000ab280: movw      r2, #0xa96
+000ab284: movw      r3, #0x300c
+000ab288: movt      r3, #0x12
+000ab28c: strd      r0, r4, [sp, #0xc]
+000ab290: movs      r0, #2
+000ab292: str       r3, [sp, #4]
+000ab294: movw      r3, #0x2fc4
+000ab298: movt      r3, #0x12
+000ab29c: str       r1, [sp]
+000ab29e: str       r2, [sp, #8]
+000ab2a0: movs      r1, #6
+000ab2a2: movw      r2, #0xcba4
+000ab2a6: movt      r2, #0xd
+000ab2aa: blx       #0x1c3c4
+000ab2ae: mov.w     r5, #-1
+000ab2b2: b         #0xab21a
+000ab2b4: ldr       r1, [pc, #0x68]
+000ab2b6: movs      r2, #0xc9
+000ab2b8: movw      r3, #0x2f9c
+000ab2bc: .byte     0xc0, 0xf2
+
+ppi_ve_set_panel_mute call 0xac2f6
+000ac256: bl        #0x71fc8
+000ac25a: movw      r3, #0x5c28
+000ac25e: movt      r3, #0x12
+000ac262: ldr       r2, [r3]
+000ac264: ldr       r3, [r7, #0x74]
+000ac266: eors      r2, r3
+000ac268: bne       #0xac2a8
+000ac26a: mov       r0, r4
+000ac26c: adds      r7, #0x78
+000ac26e: mov       sp, r7
+000ac270: pop       {r4, r5, r7, pc}
+000ac272: ldr       r1, [pc, #0x50]
+000ac274: movw      r2, #0x67e
+000ac278: movw      r3, #0x3aac
+000ac27c: movt      r3, #0x12
+000ac280: strd      r0, r5, [sp, #0xc]
+000ac284: movs      r0, #2
+000ac286: str       r3, [sp, #4]
+000ac288: movw      r3, #0x3a64
+000ac28c: movt      r3, #0x12
+000ac290: str       r1, [sp]
+000ac292: str       r2, [sp, #8]
+000ac294: movs      r1, #6
+000ac296: movw      r2, #0xcba4
+000ac29a: movt      r2, #0xd
+000ac29e: blx       #0x1c3c4
+000ac2a2: mov.w     r4, #-1
+000ac2a6: b         #0xac24c
+000ac2a8: blx       #0x1b848
+000ac2ac: mov       r4, r0
+000ac2ae: adds      r0, r7, #4
+000ac2b0: bl        #0x6f294
+000ac2b4: add.w     r0, r7, #8
+000ac2b8: bl        #0x71fc8
+000ac2bc: mov       r0, r4
+000ac2be: blx       #0x1bc80
+000ac2c2: nop       
+000ac2c4: b         #0xac6aa
+000ac2c6: movs      r5, r1
+000ac2c8: push      {r4, r5, r7, lr}
+000ac2ca: movs      r1, #0
+000ac2cc: mov       r5, r0
+000ac2ce: sub       sp, #0x90
+000ac2d0: add       r7, sp, #0x18
+000ac2d2: movw      r3, #0x5c2c
+000ac2d6: movt      r3, #0x12
+000ac2da: add.w     r0, r7, #8
+000ac2de: ldr       r3, [r3]
+000ac2e0: str       r3, [r7, #0x74]
+000ac2e2: mov.w     r3, #0
+000ac2e6: bl        #0x72060
+000ac2ea: adds      r0, r7, #4
+000ac2ec: bl        #0x73d0c
+000ac2f0: and       r0, r5, #1
+000ac2f4: movs      r1, #0
+000ac2f6: blx       #0x1c448
+000ac2fa: mov       r4, r0
+000ac2fc: cbnz      r0, #0xac324
+000ac2fe: adds      r0, r7, #4
+000ac300: bl        #0x6f294
+000ac304: add.w     r0, r7, #8
+000ac308: bl        #0x71fc8
+000ac30c: movw      r3, #0x5c2c
+000ac310: movt      r3, #0x12
+000ac314: ldr       r2, [r3]
+000ac316: ldr       r3, [r7, #0x74]
+000ac318: eors      r2, r3
+000ac31a: bne       #0xac35a
+000ac31c: mov       r0, r4
+000ac31e: adds      r7, #0x78
+000ac320: mov       sp, r7
+000ac322: pop       {r4, r5, r7, pc}
+000ac324: ldr       r1, [pc, #0x4c]
+000ac326: mov.w     r2, #0x670
+000ac32a: movw      r3, #0x3b10
+000ac32e: movt      r3, #0x12
+000ac332: strd      r0, r5, [sp, #0xc]
+000ac336: movs      r0, #2
+000ac338: str       r3, [sp, #4]
+000ac33a: movw      r3, #0x3ad0
+000ac33e: movt      r3, #0x12
+000ac342: str       r1, [sp]
+000ac344: str       r2, [sp, #8]
+000ac346: movs      r1, #6
+000ac348: movw      r2, #0xcba4
+000ac34c: movt      r2, #0xd
+000ac350: blx       #0x1c3c4
+000ac354: mov.w     r4, #-1
+000ac358: b         #0xac2fe

@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho QD_HASH_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ni=0\nfor p in /factory_peq/tcon_data/QD/*.bin; do\n test -f \"$p\"\n test ! -L \"$p\"\n test \"$(wc -c < \"$p\")\" = 5242880\n i=$((i+1))\n test \"$i\" -le 9\n stat -c '%n %s %b' \"$p\"\n sha256sum \"$p\"\ndone\ntest \"$i\" = 9\necho QD_HASH_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "mode": "hash nine observed 5MiB regular files, no firmware API",
+  "physical_state": "unobserved",
+  "time": "2026-10-26T23:25:57.239950+00:00"
+}

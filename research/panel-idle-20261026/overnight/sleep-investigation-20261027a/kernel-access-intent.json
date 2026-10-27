@@ -1,0 +1,5 @@
+{
+  "command": "set -eu\necho KERNEL_ACCESS_METADATA_BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ncat /proc/self/status | awk '/^Uid:|^Gid:|^CapInh:|^CapPrm:|^CapEff:|^CapBnd:|^NoNewPrivs:|^Seccomp:/ {print}'\nfor p in /proc/sys/kernel/modules_disabled /proc/sys/kernel/kptr_restrict /sys/module/module/parameters/sig_enforce; do\nif test -r \"$p\"; then echo \"VALUE $p\"; cat \"$p\"; fi\ndone\nfor p in /sys/module/qdf_tcon/sections/.text /sys/module/qdf_tcon/sections/.bss /dev/mem /dev/kmem /proc/kcore; do\nif test -e \"$p\"; then stat -c '%F %a %n' \"$p\"; else echo \"ABSENT $p\"; fi\ndone\necho KERNEL_ACCESS_METADATA_END\n",
+  "device_open": false,
+  "mutations": false
+}

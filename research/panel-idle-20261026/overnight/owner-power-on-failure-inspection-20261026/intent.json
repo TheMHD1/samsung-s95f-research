@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -eu\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ CORE'; pidof avocd; pidof deviced\nO=/tmp/researcher-observed-quiescent-pm-onset-20261026/owner-power-on-20261026a\nSD=/tmp/researcher-observed-quiescent-pm-onset-stage-20261026/owner-power-on-20261026a\nT=/sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-owner-power-on-20261026a\necho '@@ OWNED_FILES'\nfor f in \"$O\"/* \"$SD\"/*; do if test -f \"$f\" && test ! -L \"$f\"; then stat -c '%n %s %u %a' \"$f\"; case \"$f\" in *.pid) cat \"$f\";; esac; fi; done\necho '@@ COLLECTOR_PROC'\nif test -r /proc/28815/stat; then cat /proc/28815/stat; cat /proc/28815/wchan; cat /proc/28815/syscall; fi\necho '@@ COLLECTOR_GROUP'\nfor f in /proc/[0-9]*/stat; do row=; { IFS= read -r row <\"$f\"; } 2>/dev/null || continue; rest=${row##*) }; set -- $rest; if test \"${3:-}\" = 28815; then echo \"$row\"; fi; done\necho '@@ TRACE_STATE'\nif test -d \"$T\"; then cat \"$T/tracing_on\" \"$T/current_tracer\"; grep 'CAPTURE_.*utc=' \"$T/trace\"; else echo PRIVATE_INSTANCE_ABSENT; fi\necho '@@ GLOBAL'; cat /sys/kernel/debug/tracing/tracing_on /sys/kernel/debug/tracing/current_tracer\necho '@@ COMPLETE'\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -eu\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ CORE'; pidof avocd; pidof deviced\nO=/tmp/researcher-observed-quiescent-pm-onset-20261026/owner-power-on-20261026a\nSD=/tmp/researcher-observed-quiescent-pm-onset-stage-20261026/owner-power-on-20261026a\nT=/sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-owner-power-on-20261026a\necho '@@ OWNED_FILES'\nfor f in \"$O\"/* \"$SD\"/*; do if test -f \"$f\" && test ! -L \"$f\"; then stat -c '%n %s %u %a' \"$f\"; case \"$f\" in *.pid) cat \"$f\";; esac; fi; done\necho '@@ COLLECTOR_PROC'\nif test -r /proc/28815/stat; then cat /proc/28815/stat; cat /proc/28815/wchan; cat /proc/28815/syscall; fi\necho '@@ COLLECTOR_GROUP'\nfor f in /proc/[0-9]*/stat; do row=; { IFS= read -r row <\"$f\"; } 2>/dev/null || continue; rest=${row##*) }; set -- $rest; if test \"${3:-}\" = 28815; then echo \"$row\"; fi; done\necho '@@ TRACE_STATE'\nif test -d \"$T\"; then cat \"$T/tracing_on\" \"$T/current_tracer\"; grep 'CAPTURE_.*utc=' \"$T/trace\"; else echo PRIVATE_INSTANCE_ABSENT; fi\necho '@@ GLOBAL'; cat /sys/kernel/debug/tracing/tracing_on /sys/kernel/debug/tracing/current_tracer\necho '@@ COMPLETE'\n",
+  "command_sha256": "2572a7c34dd79937bd6f6a2cb0ee62375a6edf2a90714708574e34c572d8643c",
+  "physical_state": "unobserved",
+  "purpose": "Read one stock event format and global baseline; no trace enable or control.",
+  "retry": false,
+  "started_utc": "2026-10-26T21:53:33.447997+00:00"
+}

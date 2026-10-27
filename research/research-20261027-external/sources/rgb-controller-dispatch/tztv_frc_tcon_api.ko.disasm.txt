@@ -1,0 +1,94 @@
+
+### map_extra_functions .text+0x7c68 size 0xc
+00007c68 adrp     x1, #0x7000 ; RELOC 275 <.bss> + 0x628
+00007c6c str      x0, [x1] ; RELOC 286 <.bss> + 0x628
+00007c70 ret      
+
+### FRC_GetRgbMeasureInfo .text+0xa5e0 size 0x68
+0000a5e0 stp      x29, x30, [sp, #-0x20]!
+0000a5e4 adrp     x1, #0xa000 ; RELOC 275 frc_tcon_debug_level + 0x0
+0000a5e8 mov      x29, sp
+0000a5ec str      x19, [sp, #0x10]
+0000a5f0 mov      x19, x0
+0000a5f4 ldr      w0, [x1] ; RELOC 285 frc_tcon_debug_level + 0x0
+0000a5f8 cbnz     w0, #0xa62c
+0000a5fc adrp     x0, #0xa000 ; RELOC 275 <.bss> + 0x618
+0000a600 ldr      x0, [x0] ; RELOC 286 <.bss> + 0x618
+0000a604 cbz      x0, #0xa624
+0000a608 ldr      x1, [x0, #0x2a0]
+0000a60c cbz      x1, #0xa624
+0000a610 mov      x0, x19
+0000a614 blr      x1
+0000a618 ldr      x19, [sp, #0x10]
+0000a61c ldp      x29, x30, [sp], #0x20
+0000a620 ret      
+0000a624 mov      w0, #-1
+0000a628 b        #0xa618
+0000a62c adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0x830
+0000a630 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x830
+0000a634 add      x1, x1, #0x728
+0000a638 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x9c8
+0000a63c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9c8
+0000a640 bl       #0xa640 ; RELOC 283 printk + 0x0
+0000a644 b        #0xa5fc
+
+### FRC_SetRgbMeasurePosition .text+0xa578 size 0x68
+0000a578 stp      x29, x30, [sp, #-0x20]!
+0000a57c adrp     x2, #0xa000 ; RELOC 275 frc_tcon_debug_level + 0x0
+0000a580 mov      x29, sp
+0000a584 str      x0, [sp, #0x10]
+0000a588 ldr      w0, [x2] ; RELOC 285 frc_tcon_debug_level + 0x0
+0000a58c str      w1, [sp, #0x18]
+0000a590 cbnz     w0, #0xa5c4
+0000a594 adrp     x0, #0xa000 ; RELOC 275 <.bss> + 0x618
+0000a598 ldr      x0, [x0] ; RELOC 286 <.bss> + 0x618
+0000a59c cbz      x0, #0xa5bc
+0000a5a0 ldr      x2, [x0, #0x298]
+0000a5a4 cbz      x2, #0xa5bc
+0000a5a8 ldr      w1, [sp, #0x18]
+0000a5ac ldr      x0, [sp, #0x10]
+0000a5b0 blr      x2
+0000a5b4 ldp      x29, x30, [sp], #0x20
+0000a5b8 ret      
+0000a5bc mov      w0, #-1
+0000a5c0 b        #0xa5b4
+0000a5c4 adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0x830
+0000a5c8 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x830
+0000a5cc add      x1, x1, #0x708
+0000a5d0 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x9c8
+0000a5d4 add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9c8
+0000a5d8 bl       #0xa5d8 ; RELOC 283 printk + 0x0
+0000a5dc b        #0xa594
+
+### FRC_GetRgbMeasureCondition .text+0xa510 size 0x68
+0000a510 stp      x29, x30, [sp, #-0x20]!
+0000a514 adrp     x1, #0xa000 ; RELOC 275 frc_tcon_debug_level + 0x0
+0000a518 mov      x29, sp
+0000a51c str      x19, [sp, #0x10]
+0000a520 mov      x19, x0
+0000a524 ldr      w0, [x1] ; RELOC 285 frc_tcon_debug_level + 0x0
+0000a528 cbnz     w0, #0xa55c
+0000a52c adrp     x0, #0xa000 ; RELOC 275 <.bss> + 0x618
+0000a530 ldr      x0, [x0] ; RELOC 286 <.bss> + 0x618
+0000a534 cbz      x0, #0xa554
+0000a538 ldr      x1, [x0, #0x290]
+0000a53c cbz      x1, #0xa554
+0000a540 mov      x0, x19
+0000a544 blr      x1
+0000a548 ldr      x19, [sp, #0x10]
+0000a54c ldp      x29, x30, [sp], #0x20
+0000a550 ret      
+0000a554 mov      w0, #-1
+0000a558 b        #0xa548
+0000a55c adrp     x1, #0xa000 ; RELOC 275 <.rodata> + 0x830
+0000a560 add      x1, x1, #0 ; RELOC 277 <.rodata> + 0x830
+0000a564 add      x1, x1, #0x6e8
+0000a568 adrp     x0, #0xa000 ; RELOC 275 <.rodata.str1.8> + 0x9c8
+0000a56c add      x0, x0, #0 ; RELOC 277 <.rodata.str1.8> + 0x9c8
+0000a570 bl       #0xa570 ; RELOC 283 printk + 0x0
+0000a574 b        #0xa52c
+
+### map_frc_functions .text+0x7c48 size 0xc
+00007c48 adrp     x1, #0x7000 ; RELOC 275 <.bss> + 0x618
+00007c4c str      x0, [x1] ; RELOC 286 <.bss> + 0x618
+00007c50 ret      

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho CACHED_FIRST_117_MAX\nod -An -tx1 -N117 /sys/bus/usb/devices/7-1/descriptors\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n99887.08 373438.24\nCACHED_FIRST_117_MAX\n 12 01 00 02 ef 02 01 40 e8 04 01 20 50 02 01 02\n 03 01 09 02 62 00 03 01 04 80 32 08 0b 00 02 02\n 02 01 0a 09 04 00 00 01 02 02 01 0a 05 24 00 10\n 01 05 24 01 00 01 04 24 02 02 05 24 06 00 01 07\n 05 83 03 08 00 10 09 04 01 00 02 0a 00 00 0a 07\n 05 01 02 40 00 10 07 05 81 02 40 00 00 09 04 02\n 00 02 ff 00 00 00 07 05 82 02 00 02 00 07 05 02\n 02 00 02 00\n99887.09 373438.25\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor tool_name in python3 python perl ruby node gdb gdbserver lldb strace dotnet csi dbus-send gdbus; do\n echo \"TOOL_LOOKUP $tool_name\"\n command -v \"$tool_name\"\n tool_lookup_exit=$?\n echo \"TOOL_LOOKUP_EXIT $tool_lookup_exit\"\ndone\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 14:03:56 UTC 2026\n00000000-0000-4000-8000-000000000000\n45045.52 168132.52\nTOOL_LOOKUP python3\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP python\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP perl\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP ruby\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP node\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP gdb\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP gdbserver\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP lldb\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP strace\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP dotnet\n/usr/bin/dotnet\nTOOL_LOOKUP_EXIT 0\nTOOL_LOOKUP csi\nTOOL_LOOKUP_EXIT 1\nTOOL_LOOKUP dbus-send\n/usr/bin/dbus-send\nTOOL_LOOKUP_EXIT 0\nTOOL_LOOKUP gdbus\n/usr/bin/gdbus\nTOOL_LOOKUP_EXIT 0\nMon Oct 26 14:03:56 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

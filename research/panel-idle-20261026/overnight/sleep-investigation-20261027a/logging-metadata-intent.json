@@ -1,0 +1,4 @@
+{
+  "command": "set -eu\necho LOGGER_METADATA_BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho MATCHED_MODULES\ncat /proc/modules | awk '$1 ~ /qdf_tcon|tztv_frc_tcon|sdp/ {print}'\necho LOG_CONTROLS\nfor p in /sys/kernel/debug/dynamic_debug/control /proc/dynamic_debug/control /dev/kmsg /sys/module/qdf_tcon/parameters /sys/module/tztv_frc_tcon_api/parameters /sys/module/tztv_frc_tcon/parameters; do\nif test -e \"$p\"; then stat -c '%F %a %n' \"$p\"; if test -d \"$p\"; then for q in \"$p\"/*; do test -e \"$q\" || continue; stat -c '%F %a %n' \"$q\"; done; fi; else echo \"ABSENT $p\"; fi\ndone\necho TRACE_EVENTS\nfor p in /sys/kernel/debug/tracing/events/*; do test -d \"$p\" || continue; echo \"${p##*/}\"; done\necho LOGGER_METADATA_END\n",
+  "mutations": false
+}

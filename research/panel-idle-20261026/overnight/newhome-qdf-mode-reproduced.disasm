@@ -1,0 +1,623 @@
+# m_tcon_set_frame_mode @ .text+0x10508
+010508: stp     x29, x30, [sp, #-0x60]!
+01050c: mov     w2, #-1
+010510: adrp    x1, #0x10000
+010514: mov     x29, sp
+010518: stp     x19, x20, [sp, #0x10]
+01051c: adrp    x20, #0x10000
+010520: add     x20, x20, #0
+010524: str     w2, [sp, #0x4c]
+010528: mov     w19, w0
+01052c: ldr     w0, [x1]
+010530: ldrh    w2, [x20, #0xb50]
+010534: stp     x21, x22, [sp, #0x20]
+010538: cmp     w0, #1
+01053c: stp     x23, x24, [sp, #0x30]
+010540: sturh   w2, [sp, #0x53]
+010544: stur    xzr, [sp, #0x55]
+010548: sturh   wzr, [sp, #0x5d]
+01054c: strb    wzr, [sp, #0x5f]
+010550: b.eq    #0x106b8
+010554: bl      #0x10554
+010558: mov     w21, w0
+01055c: bl      #0x1055c
+010560: mov     x3, x0
+010564: mov     w2, w21
+010568: add     x1, x20, #0xb60
+01056c: adrp    x0, #0x10000
+010570: add     x0, x0, #0
+010574: bl      #0x10574
+010578: mov     w23, #1
+01057c: mov     w2, w23
+010580: mov     w1, w23
+010584: mov     x0, #0x164
+010588: movk    x0, #0xf300, lsl #32
+01058c: bl      #0xbba0
+010590: mov     w21, w0
+010594: mov     w0, #0x32
+010598: bl      #0x10598
+01059c: add     x1, sp, #0x53
+0105a0: mov     w0, w19
+0105a4: bl      #0x1558
+0105a8: add     x24, x20, #0xb60
+0105ac: bl      #0x105ac
+0105b0: mov     w22, w0
+0105b4: bl      #0x105b4
+0105b8: mov     x3, x0
+0105bc: mov     w2, w22
+0105c0: add     x4, sp, #0x53
+0105c4: mov     w5, w19
+0105c8: mov     x1, x24
+0105cc: adrp    x0, #0x10000
+0105d0: add     x0, x0, #0
+0105d4: bl      #0x105d4
+0105d8: add     x1, sp, #0x4c
+0105dc: mov     x0, #0x160
+0105e0: movk    x0, #0xf300, lsl #32
+0105e4: bl      #0x9b88
+0105e8: ldr     w1, [sp, #0x4c]
+0105ec: cmp     w1, w19
+0105f0: b.eq    #0x106e8
+0105f4: mov     x0, x24
+0105f8: bl      #0x105f8
+0105fc: mov     w1, w19
+010600: mov     x0, #0x160
+010604: mov     w2, #0
+010608: movk    x0, #0xf300, lsl #32
+01060c: bl      #0xbba0
+010610: add     x1, sp, #0x4c
+010614: mov     w21, w0
+010618: mov     x0, #0x160
+01061c: movk    x0, #0xf300, lsl #32
+010620: bl      #0xb8a0
+010624: orr     w21, w0, w21
+010628: bl      #0x10628
+01062c: mov     w22, w0
+010630: bl      #0x10630
+010634: ldr     w5, [sp, #0x4c]
+010638: mov     x3, x0
+01063c: mov     w2, w22
+010640: mov     w6, w21
+010644: mov     w4, w19
+010648: mov     x1, x24
+01064c: adrp    x0, #0x10000
+010650: add     x0, x0, #0
+010654: bl      #0x10654
+010658: ldr     w0, [sp, #0x4c]
+01065c: cmp     w0, w19
+010660: b.ne    #0x10758
+010664: mov     w0, #0x1f4
+010668: add     x19, x20, #0xb60
+01066c: bl      #0x1066c
+010670: bl      #0x10670
+010674: mov     w22, w0
+010678: bl      #0x10678
+01067c: mov     x3, x0
+010680: mov     w2, w22
+010684: mov     x1, x19
+010688: adrp    x0, #0x10000
+01068c: add     x0, x0, #0
+010690: bl      #0x10690
+010694: mov     x0, x19
+010698: bl      #0x10698
+01069c: cbnz    w23, #0x10718
+0106a0: mov     w0, w21
+0106a4: ldp     x19, x20, [sp, #0x10]
+0106a8: ldp     x21, x22, [sp, #0x20]
+0106ac: ldp     x23, x24, [sp, #0x30]
+0106b0: ldp     x29, x30, [sp], #0x60
+0106b4: ret     
+0106b8: bl      #0x106b8
+0106bc: mov     w22, w0
+0106c0: bl      #0x106c0
+0106c4: mov     w23, #0
+0106c8: mov     x3, x0
+0106cc: mov     w2, w22
+0106d0: add     x1, x20, #0xb60
+0106d4: mov     w21, #0
+0106d8: adrp    x0, #0x10000
+0106dc: add     x0, x0, #0
+0106e0: bl      #0x106e0
+0106e4: b       #0x1059c
+0106e8: orr     w21, w21, w0
+0106ec: bl      #0x106ec
+0106f0: mov     w19, w0
+0106f4: bl      #0x106f4
+0106f8: ldr     w4, [sp, #0x4c]
+0106fc: mov     x3, x0
+010700: mov     w2, w19
+010704: mov     x1, x24
+010708: adrp    x0, #0x10000
+01070c: add     x0, x0, #0
+010710: bl      #0x10710
+010714: b       #0x1069c
+010718: bl      #0x10718
+01071c: mov     w19, w0
+010720: bl      #0x10720
+010724: mov     x3, x0
+010728: mov     w2, w19
+01072c: add     x1, x20, #0xb60
+010730: adrp    x0, #0x10000
+010734: add     x0, x0, #0
+010738: bl      #0x10738
+01073c: mov     x0, #0x164
+010740: mov     w2, w23
+010744: mov     w1, #0
+010748: movk    x0, #0xf300, lsl #32
+01074c: bl      #0xbba0
+010750: orr     w21, w21, w0
+010754: b       #0x106a0
+010758: bl      #0x10758
+01075c: mov     w22, w0
+010760: bl      #0x10760
+010764: mov     x3, x0
+010768: mov     w5, w21
+01076c: mov     w4, w19
+010770: mov     w2, w22
+010774: mov     x1, x24
+010778: adrp    x0, #0x10000
+01077c: add     x0, x0, #0
+010780: bl      #0x10780
+010784: mov     x0, #0x160
+010788: mov     w2, #0
+01078c: mov     w1, w19
+010790: movk    x0, #0xf300, lsl #32
+010794: bl      #0xbba0
+010798: mov     w22, w0
+01079c: mov     x0, #0x160
+0107a0: add     x1, sp, #0x4c
+0107a4: movk    x0, #0xf300, lsl #32
+0107a8: bl      #0xb8a0
+0107ac: orr     w0, w0, w22
+0107b0: orr     w21, w21, w0
+0107b4: bl      #0x107b4
+0107b8: mov     w22, w0
+0107bc: bl      #0x107bc
+0107c0: ldr     w5, [sp, #0x4c]
+0107c4: mov     x3, x0
+0107c8: mov     w2, w22
+0107cc: mov     w4, w19
+0107d0: mov     x1, x24
+0107d4: mov     w6, w21
+0107d8: adrp    x0, #0x10000
+0107dc: add     x0, x0, #0
+0107e0: bl      #0x107e0
+0107e4: b       #0x10664
+
+# m_tcon_set_frame_control @ .text+0x11058
+011058: stp     x29, x30, [sp, #-0x50]!
+01105c: mov     x29, sp
+011060: stp     x19, x20, [sp, #0x10]
+011064: adrp    x20, #0x11000
+011068: add     x20, x20, #0
+01106c: str     x23, [sp, #0x30]
+011070: mov     w23, w0
+011074: stur    xzr, [sp, #0x45]
+011078: ldrh    w1, [x20, #0xb50]
+01107c: sturh   w1, [sp, #0x43]
+011080: sturh   wzr, [sp, #0x4d]
+011084: strb    wzr, [sp, #0x4f]
+011088: tbnz    w0, #0x1f, #0x1123c
+01108c: adrp    x19, #0x11000
+011090: add     x19, x19, #0
+011094: stp     x21, x22, [sp, #0x20]
+011098: ldr     w1, [x19, #0x48]
+01109c: ldr     w2, [x19, #0x138]
+0110a0: and     w0, w1, #0xfffffff7
+0110a4: cmp     w0, #3
+0110a8: b.ne    #0x11188
+0110ac: cmp     w2, #1
+0110b0: mov     w21, #2
+0110b4: b.eq    #0x110c8
+0110b8: mov     w1, #-0x16a8
+0110bc: add     w0, w23, w1
+0110c0: cmp     w0, #0x258
+0110c4: b.hi    #0x11208
+0110c8: bl      #0x110c8
+0110cc: mov     w22, w0
+0110d0: bl      #0x110d0
+0110d4: add     x20, x20, #0xc08
+0110d8: ldr     w5, [x19, #0x130]
+0110dc: mov     x3, x0
+0110e0: ldr     w4, [x19, #0x138]
+0110e4: mov     w2, w22
+0110e8: mov     x1, x20
+0110ec: mov     w7, w21
+0110f0: mov     w6, w23
+0110f4: adrp    x0, #0x11000
+0110f8: add     x0, x0, #0
+0110fc: bl      #0x110fc
+011100: ldr     w0, [x19, #0x13c]
+011104: cmp     w0, w21
+011108: mov     w0, w21
+01110c: b.eq    #0x111bc
+011110: str     w21, [x19, #0x13c]
+011114: bl      #0x10508
+011118: bl      #0x11118
+01111c: mov     w21, w0
+011120: bl      #0x11120
+011124: mov     x3, x0
+011128: mov     w2, w21
+01112c: mov     x1, x20
+011130: adrp    x0, #0x11000
+011134: add     x0, x0, #0
+011138: bl      #0x11138
+01113c: ldr     w0, [x19, #0x130]
+011140: bl      #0xd7c8
+011144: ldr     w0, [x19, #0x130]
+011148: bl      #0xd728
+01114c: bl      #0x1114c
+011150: mov     w19, w0
+011154: bl      #0x11154
+011158: mov     x3, x0
+01115c: mov     w2, w19
+011160: mov     x1, x20
+011164: adrp    x0, #0x11000
+011168: add     x0, x0, #0
+01116c: bl      #0x1116c
+011170: mov     w0, #0
+011174: ldp     x19, x20, [sp, #0x10]
+011178: ldp     x21, x22, [sp, #0x20]
+01117c: ldr     x23, [sp, #0x30]
+011180: ldp     x29, x30, [sp], #0x50
+011184: ret     
+011188: cmp     w1, #8
+01118c: b.eq    #0x11278
+011190: cmp     w1, #7
+011194: b.eq    #0x11220
+011198: ldr     w0, [x19, #0x1a8]
+01119c: cmp     w2, #1
+0111a0: mov     w21, #2
+0111a4: cbz     w0, #0x112a4
+0111a8: b.eq    #0x110c8
+0111ac: mov     w0, #0x4074
+0111b0: cmp     w23, w0
+0111b4: cset    w21, ne
+0111b8: b       #0x110c8
+0111bc: add     x1, sp, #0x43
+0111c0: bl      #0x1558
+0111c4: bl      #0x111c4
+0111c8: mov     w19, w0
+0111cc: bl      #0x111cc
+0111d0: mov     x3, x0
+0111d4: mov     w2, w19
+0111d8: mov     w5, w23
+0111dc: mov     x1, x20
+0111e0: add     x4, sp, #0x43
+0111e4: adrp    x0, #0x11000
+0111e8: add     x0, x0, #0
+0111ec: bl      #0x111ec
+0111f0: mov     w0, #0
+0111f4: ldp     x19, x20, [sp, #0x10]
+0111f8: ldp     x21, x22, [sp, #0x20]
+0111fc: ldr     x23, [sp, #0x30]
+011200: ldp     x29, x30, [sp], #0x50
+011204: ret     
+011208: mov     w0, #0x4074
+01120c: cmp     w23, w0
+011210: mov     w0, #0x5dc0
+011214: ccmp    w23, w0, #4, ne
+011218: cset    w21, ne
+01121c: b       #0x110c8
+011220: cmp     w2, #1
+011224: mov     w21, #2
+011228: b.eq    #0x110c8
+01122c: mov     w0, #0x3840
+011230: cmp     w23, w0
+011234: cset    w21, eq
+011238: b       #0x110c8
+01123c: bl      #0x1123c
+011240: mov     w19, w0
+011244: bl      #0x11244
+011248: mov     x3, x0
+01124c: mov     w2, w19
+011250: mov     w4, w23
+011254: add     x1, x20, #0xc08
+011258: adrp    x0, #0x11000
+01125c: add     x0, x0, #0
+011260: bl      #0x11260
+011264: mov     w0, #0
+011268: ldp     x19, x20, [sp, #0x10]
+01126c: ldr     x23, [sp, #0x30]
+011270: ldp     x29, x30, [sp], #0x50
+011274: ret     
+011278: cmp     w2, #1
+01127c: mov     w21, #2
+011280: b.eq    #0x110c8
+011284: mov     w0, #-0x16a8
+011288: add     w0, w23, w0
+01128c: cmp     w0, #0x258
+011290: b.ls    #0x110c8
+011294: mov     w0, #0x445c
+011298: cmp     w23, w0
+01129c: cset    w21, ne
+0112a0: b       #0x110c8
+0112a4: b.eq    #0x110c8
+0112a8: mov     w0, #0x3840
+0112ac: cmp     w23, w0
+0112b0: mov     w0, #0x4074
+0112b4: ccmp    w23, w0, #4, ne
+0112b8: cset    w21, eq
+0112bc: b       #0x110c8
+
+# QDFTcon_SetVRRFrameRate @ .text+0x112c0
+0112c0: stp     x29, x30, [sp, #-0x20]!
+0112c4: mov     x29, sp
+0112c8: stp     x19, x20, [sp, #0x10]
+0112cc: adrp    x19, #0x11000
+0112d0: add     x19, x19, #0
+0112d4: ldr     w1, [x19, #0x134]
+0112d8: cmp     w1, w0
+0112dc: b.ne    #0x112f0
+0112e0: mov     w0, #0
+0112e4: ldp     x19, x20, [sp, #0x10]
+0112e8: ldp     x29, x30, [sp], #0x20
+0112ec: ret     
+0112f0: str     w0, [x19, #0x134]
+0112f4: bl      #0x112f4
+0112f8: mov     w20, w0
+0112fc: bl      #0x112fc
+011300: ldr     w4, [x19, #0x134]
+011304: adrp    x1, #0x11000
+011308: ldr     w5, [x19, #0x138]
+01130c: add     x1, x1, #0
+011310: mov     x3, x0
+011314: mov     w2, w20
+011318: add     x1, x1, #0xc28
+01131c: adrp    x0, #0x11000
+011320: add     x0, x0, #0
+011324: bl      #0x11324
+011328: ldr     w0, [x19, #0x134]
+01132c: bl      #0x11058
+011330: b       #0x112e0
+
+# QDFTcon_t_Tcon_SetMute @ .text+0xce00
+00ce00: stp     x29, x30, [sp, #-0x40]!
+00ce04: mov     x29, sp
+00ce08: stp     x19, x20, [sp, #0x10]
+00ce0c: adrp    x19, #0xc000
+00ce10: add     x19, x19, #0
+00ce14: stp     x21, x22, [sp, #0x20]
+00ce18: mov     w21, w0
+00ce1c: ldr     w1, [x19, #0x6c]
+00ce20: cmp     w1, #1
+00ce24: b.ne    #0xce30
+00ce28: ldr     w20, [x19, #0x1a0]
+00ce2c: cbz     w20, #0xced4
+00ce30: bl      #0xce30
+00ce34: mov     w20, w0
+00ce38: bl      #0xce38
+00ce3c: ldr     w1, [x19, #0x140]
+00ce40: cbz     w1, #0xcf14
+00ce44: adrp    x4, #0xc000
+00ce48: add     x4, x4, #0
+00ce4c: cbz     w21, #0xcf20
+00ce50: adrp    x22, #0xc000
+00ce54: add     x22, x22, #0
+00ce58: add     x22, x22, #0xf38
+00ce5c: mov     x3, x0
+00ce60: mov     w2, w20
+00ce64: mov     x1, x22
+00ce68: adrp    x5, #0xc000
+00ce6c: adrp    x0, #0xc000
+00ce70: add     x5, x5, #0
+00ce74: add     x0, x0, #0
+00ce78: bl      #0xce78
+00ce7c: mov     w20, #0
+00ce80: ldr     w0, [x19, #0x140]
+00ce84: cmp     w0, w21
+00ce88: b.eq    #0xcf00
+00ce8c: bl      #0xce8c
+00ce90: mov     w20, w0
+00ce94: bl      #0xce94
+00ce98: mov     x3, x0
+00ce9c: mov     w4, w21
+00cea0: mov     w2, w20
+00cea4: mov     x1, x22
+00cea8: adrp    x0, #0xc000
+00ceac: add     x0, x0, #0
+00ceb0: bl      #0xceb0
+00ceb4: mov     x0, #0x164
+00ceb8: mov     w1, w21
+00cebc: mov     w2, #1
+00cec0: movk    x0, #0xf300, lsl #32
+00cec4: bl      #0xbba0
+00cec8: mov     w20, w0
+00cecc: str     w21, [x19, #0x140]
+00ced0: b       #0xcf00
+00ced4: bl      #0xced4
+00ced8: mov     w19, w0
+00cedc: bl      #0xcedc
+00cee0: mov     x3, x0
+00cee4: adrp    x1, #0xc000
+00cee8: add     x1, x1, #0
+00ceec: adrp    x0, #0xc000
+00cef0: mov     w2, w19
+00cef4: add     x1, x1, #0xf38
+00cef8: add     x0, x0, #0
+00cefc: bl      #0xcefc
+00cf00: mov     w0, w20
+00cf04: ldp     x19, x20, [sp, #0x10]
+00cf08: ldp     x21, x22, [sp, #0x20]
+00cf0c: ldp     x29, x30, [sp], #0x40
+00cf10: ret     
+00cf14: adrp    x4, #0xc000
+00cf18: add     x4, x4, #0
+00cf1c: cbnz    w21, #0xce50
+00cf20: adrp    x21, #0xc000
+00cf24: add     x21, x21, #0
+00cf28: add     x22, x21, #0xf38
+00cf2c: mov     x3, x0
+00cf30: mov     w2, w20
+00cf34: mov     x1, x22
+00cf38: adrp    x5, #0xc000
+00cf3c: adrp    x0, #0xc000
+00cf40: add     x5, x5, #0
+00cf44: add     x0, x0, #0
+00cf48: bl      #0xcf48
+00cf4c: ldr     w20, [x19, #0x140]
+00cf50: cbz     w20, #0xcf98
+00cf54: bl      #0xcf54
+00cf58: mov     w20, w0
+00cf5c: bl      #0xcf5c
+00cf60: mov     x3, x0
+00cf64: mov     w2, w20
+00cf68: mov     x1, x22
+00cf6c: mov     w4, #0
+00cf70: adrp    x0, #0xc000
+00cf74: add     x0, x0, #0
+00cf78: bl      #0xcf78
+00cf7c: mov     x0, #0x164
+00cf80: mov     w2, #1
+00cf84: movk    x0, #0xf300, lsl #32
+00cf88: mov     w1, #0
+00cf8c: bl      #0xbba0
+00cf90: mov     w20, w0
+00cf94: str     wzr, [x19, #0x140]
+00cf98: add     x1, sp, #0x30
+00cf9c: mov     w2, #0xff
+00cfa0: mov     x0, #0x164
+00cfa4: str     w2, [sp, #0x30]
+00cfa8: movk    x0, #0xf300, lsl #32
+00cfac: bl      #0x9b88
+00cfb0: bl      #0xcfb0
+00cfb4: mov     w19, w0
+00cfb8: bl      #0xcfb8
+00cfbc: ldr     w4, [sp, #0x30]
+00cfc0: add     x22, x21, #0xf38
+00cfc4: mov     x3, x0
+00cfc8: mov     w2, w19
+00cfcc: mov     x1, x22
+00cfd0: adrp    x0, #0xc000
+00cfd4: add     x0, x0, #0
+00cfd8: bl      #0xcfd8
+00cfdc: ldr     w0, [sp, #0x30]
+00cfe0: cbz     w0, #0xd01c
+00cfe4: bl      #0xcfe4
+00cfe8: mov     w19, w0
+00cfec: bl      #0xcfec
+00cff0: mov     x3, x0
+00cff4: mov     w2, w19
+00cff8: mov     x1, x22
+00cffc: adrp    x0, #0xc000
+00d000: add     x0, x0, #0
+00d004: bl      #0xd004
+00d008: mov     x0, #0x164
+00d00c: mov     w2, #1
+00d010: movk    x0, #0xf300, lsl #32
+00d014: mov     w1, #0
+00d018: bl      #0xbba0
+00d01c: mov     x0, #0x20
+00d020: add     x1, sp, #0x34
+00d024: movk    x0, #0xf380, lsl #32
+00d028: stp     wzr, wzr, [sp, #0x34]
+00d02c: str     wzr, [sp, #0x3c]
+00d030: bl      #0x9b88
+00d034: mov     x0, #0x21
+00d038: add     x1, sp, #0x38
+00d03c: movk    x0, #0xf380, lsl #32
+00d040: bl      #0x9b88
+00d044: add     x1, sp, #0x3c
+00d048: mov     x0, #0x22
+00d04c: movk    x0, #0xf380, lsl #32
+00d050: bl      #0x9b88
+00d054: bl      #0xd054
+00d058: mov     w19, w0
+00d05c: bl      #0xd05c
+00d060: ldr     w6, [sp, #0x3c]
+00d064: ldp     w4, w5, [sp, #0x34]
+00d068: mov     x3, x0
+00d06c: mov     w2, w19
+00d070: add     x1, x21, #0xf50
+00d074: adrp    x0, #0xd000
+00d078: add     x0, x0, #0
+00d07c: bl      #0xd07c
+00d080: b       #0xcf00
+00d084: nop     
+00d088: stp     x29, x30, [sp, #-0x30]!
+00d08c: mov     x29, sp
+
+# m_tcon_set_vrr_control @ .text+0xd728
+00d728: stp     x29, x30, [sp, #-0x20]!
+00d72c: cmp     w0, #1
+00d730: mov     x29, sp
+00d734: stp     x19, x20, [sp, #0x10]
+00d738: mov     w19, w0
+00d73c: b.hi    #0xd790
+00d740: bl      #0xd740
+00d744: mov     w20, w0
+00d748: bl      #0xd748
+00d74c: mov     x3, x0
+00d750: mov     w4, w19
+00d754: adrp    x1, #0xd000
+00d758: add     x1, x1, #0
+00d75c: mov     w2, w20
+00d760: sub     x1, x1, #0xc0
+00d764: adrp    x0, #0xd000
+00d768: add     x0, x0, #0
+00d76c: bl      #0xd76c
+00d770: mov     x0, #0x15c
+00d774: mov     w1, w19
+00d778: movk    x0, #0xf300, lsl #32
+00d77c: mov     w2, #1
+00d780: bl      #0xbba0
+00d784: ldp     x19, x20, [sp, #0x10]
+00d788: ldp     x29, x30, [sp], #0x20
+00d78c: ret     
+00d790: bl      #0xd790
+00d794: mov     w20, w0
+00d798: bl      #0xd798
+00d79c: mov     x3, x0
+00d7a0: adrp    x1, #0xd000
+00d7a4: add     x1, x1, #0
+00d7a8: mov     w2, w20
+00d7ac: mov     w4, w19
+00d7b0: sub     x1, x1, #0xc0
+00d7b4: adrp    x0, #0xd000
+00d7b8: add     x0, x0, #0
+00d7bc: bl      #0xd7bc
+00d7c0: mov     w0, #-1
+00d7c4: b       #0xd784
+
+# m_tcon_set_vrr_dia_en @ .text+0xd7c8
+00d7c8: stp     x29, x30, [sp, #-0x20]!
+00d7cc: cmp     w0, #1
+00d7d0: mov     x29, sp
+00d7d4: stp     x19, x20, [sp, #0x10]
+00d7d8: mov     w19, w0
+00d7dc: b.hi    #0xd830
+00d7e0: bl      #0xd7e0
+00d7e4: mov     w20, w0
+00d7e8: bl      #0xd7e8
+00d7ec: mov     x3, x0
+00d7f0: mov     w4, w19
+00d7f4: adrp    x1, #0xd000
+00d7f8: add     x1, x1, #0
+00d7fc: mov     w2, w20
+00d800: sub     x1, x1, #0xa8
+00d804: adrp    x0, #0xd000
+00d808: add     x0, x0, #0
+00d80c: bl      #0xd80c
+00d810: mov     x0, #0x150
+00d814: mov     w1, w19
+00d818: movk    x0, #0xf300, lsl #32
+00d81c: mov     w2, #1
+00d820: bl      #0xbba0
+00d824: ldp     x19, x20, [sp, #0x10]
+00d828: ldp     x29, x30, [sp], #0x20
+00d82c: ret     
+00d830: bl      #0xd830
+00d834: mov     w20, w0
+00d838: bl      #0xd838
+00d83c: mov     x3, x0
+00d840: adrp    x1, #0xd000
+00d844: add     x1, x1, #0
+00d848: mov     w2, w20
+00d84c: mov     w4, w19
+00d850: sub     x1, x1, #0xa8
+00d854: adrp    x0, #0xd000
+00d858: add     x0, x0, #0
+00d85c: bl      #0xd85c
+00d860: mov     w0, #-1
+00d864: b       #0xd824
+

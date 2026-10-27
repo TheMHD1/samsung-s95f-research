@@ -1,0 +1,23 @@
+{
+  "individual_help_exit_not_captured_due_to_head_pipeline": true,
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncommand -v vlogutil\nvlogutil -h 2>&1 | head -120\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 14:59:02 UTC 2026\n/usr/bin/vlogutil\n\n\nUsage: vlogutil [OPTION]... [FILTER]...\n\nOption:\n -d              dump to default path (vlog_dump.txt in USB mount path or /var/log)\n -z              compress log dump to zip file (append \".zip\" to the file name)\n -o <filename>   specify dump file name\n -t <seconds>    print out the logs written for the last seconds\n -v <format>     set time format as \"kerneltime\", \"hwclock\" or \"nsec(default)\"\n -P <pid1>,<pid2>,...,<N>  process filter; print only logs written by the processes with the given pids\n -p <tid1>,<tid2>,...,<N>  thread filter; print only logs written by the threads with the given tids\n\n ## below options are for streaming\n -s              enable log streaming\n -r <KBytes>     rotate log every KBytes. (default 1024 KBytes)\n -n <count>      sets max number of rotated logs to <count>. (default 4)\n --start-from=<time>     Set time to start to read\n --end-to=<time>         Set time to stop to read\n\nTime format:\n   1) Absolute time format\n      Time value in second of monotonic clock\n      (example)\n      --start-from=100 --end-to=200                // Read logs from 100 sec to 200 sec\n   2) Relative time format\n      You can use special macro 'now' for relative expression.\n      It tells how much time range would be read based on now.\n      The pattern 'now' should be come at first when relative form is used.\n      (example)\n       --start-from=now                            // Read logs from now on\n       --end-to=now+10                             // Read logs for 10 sec from now on\n       --start-from='now - 5' --end-to='now + 5'   // Read logs from 5 sec before and after now\n\nFilter:\n filterspecs are a series of <tag>[:priority]\n where <tag> is a log component tag (or * for all) and priority is:\n  V    Verbose\n  D    Debug\n  I    Info\n  W    Warn\n  E    Error\n  F    Fatal\n  S    Silent (suppress all output)\n\n <tag> by itself means <tag>:V\n If no filterspec is found, filter defaults to '*:V'\n\n00000000-0000-4000-8000-000000000000\n48351.87 180616.16\nMon Oct 26 14:59:02 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

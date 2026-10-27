@@ -1,0 +1,146 @@
+{
+  "boot_id": "[private-identity-or-secret-omitted]",
+  "build": {
+    "configuration": "Release",
+    "derivation_stdout_sha256": "06b1e7a66c53a90b9375233069878d2157cf63a2e5ce3ca31f14abd0ce9fabb5",
+    "dotnet_path": "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+    "dotnet_sha256": "6206ebc1d4b6fb5d73311bc7571c654451550e446daf39fe7cfd3cd84bd6da36",
+    "framework": "net6.0",
+    "nuget_sources": []
+  },
+  "evidence_pins": {
+    "ap-exco-helper-inputs-20261027s/ap-exco-helper-inputs.md": "17068bd31de065a2720ca027498da41517e5d214e0dd633272ed144c29cabdb6",
+    "ap-exco-helper-inputs-20261027s/verify-helper-inputs.py": "ae0d25c648e8b777f3829cd2e13fc563ec5f26cb0514c7a89b542b9bac1283bd",
+    "ap-exco-input-snapshot-20261027w/read-plan.md": "5034fba44f9c91182b65ece200149f8c2b4320b9c4c9d73c20058dd28336db11"
+  },
+  "files": {
+    "ManagedUsbRtBlockReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "NuGet.Config": {
+      "sha256": "5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575",
+      "size": 125
+    },
+    "Program.cs": {
+      "sha256": "ef5dd6f33a9daece5fbcaca8decf1328128a0b648268d21a1dc97d28da9136b9",
+      "size": 26641
+    },
+    "README.md": {
+      "sha256": "ab9f9de5bcc12713cb1cbce7db10ffc7bd6f8bd505a8112be7f0f57e16bc7862",
+      "size": 1527
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.deps.json": {
+      "sha256": "0594831db607c7c2f313830330313e4464c89a02262ca0f17ac23380cb18b111",
+      "size": 445
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.dll": {
+      "sha256": "6ee73254087fcf34e19159b25b16d3cd3afd8e63ee033fcc19db5f7b3473e0b0",
+      "size": 39936
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    },
+    "build-derivative.py": {
+      "sha256": "9f322b36482bc0a2a2121fe7f36db26a6c670ae64548f294b68f713cccf0c158",
+      "size": 19734
+    },
+    "build-offline.py": {
+      "sha256": "83024a18bda82d3ea261a0c193e5c3aeb123dfbd09850fb3476fd339e06040f5",
+      "size": 7226
+    },
+    "root-with-margin.py": {
+      "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a",
+      "size": 3388
+    },
+    "run-once.py": {
+      "sha256": "92b6b36e9001fed8817d3b34420fd5b85cb5cf25c20f5a957c6d8deeb3f9b37e",
+      "size": 19951
+    },
+    "test-wrapper.py": {
+      "sha256": "aefa8a5859676d0d6e8586afbfcd67a227d7fda1bf98070afab87a946c7e512b",
+      "size": 8259
+    }
+  },
+  "interpretation": {
+    "derived_byte_offsets": [
+      "0x0",
+      "0x1",
+      "0x3d8"
+    ],
+    "derived_pointer_expected": "0x450158a8",
+    "derived_pointer_response_offset": 12,
+    "event_time_inferred": false,
+    "late_failure_preserves_prior_exact_windows": true,
+    "ordinary_pointer_expected": "0x4500ff14",
+    "ordinary_pointer_response_offset": 4,
+    "ordinary_u16_offsets": [
+      "0xca",
+      "0x116",
+      "0x10a",
+      "0x10c",
+      "0xe6",
+      "0x2fc",
+      "0x300",
+      "0x302"
+    ],
+    "physical_cause_inferred": false,
+    "pointer_mismatch_preserves_raw_and_stops": true,
+    "samples_atomic": false
+  },
+  "object_geometry": {
+    "derived_base": "0x450158a8",
+    "derived_extent": 1004,
+    "ordinary_base": "0x4500ff14",
+    "ordinary_captured_prefix": 824,
+    "ordinary_extent": 826,
+    "ordinary_last_offset": "0x337"
+  },
+  "offline_only": true,
+  "parent": {
+    "directory": "managed-usb-ap-exco-callback-read",
+    "manifest_sha256": "48b202a87cd714dab866a32cb36cb716a65cdec6745519463a346bab9d35f00a",
+    "program_sha256": "cc90506197ba2784d0918b5cc9567d7fd78c5bcb10973c6b7bb90870080842be",
+    "wrapper_sha256": "a7d50ab656c727c2aab080410a1360db27f64051c0b488398eb9836651d0feae"
+  },
+  "protocol": {
+    "bulk_steps": 6,
+    "pointer_gate_before_dependent_headers": true,
+    "requests": [
+      {
+        "address": "0x470002c0",
+        "header_hex": "01010000c002004720000000",
+        "length": 32
+      },
+      {
+        "address": "0x4500ff14",
+        "header_hex": "0101000014ff004538030000",
+        "length": 824
+      },
+      {
+        "address": "0x450158a8",
+        "header_hex": "01010000a8580145ec030000",
+        "length": 1004
+      }
+    ],
+    "retries": 0,
+    "target": "0x101",
+    "timeout_ms_per_bulk": 2000,
+    "writes": 0
+  },
+  "root_adapter": {
+    "host_timeout_seconds": 75,
+    "remote_timeout_seconds": 45,
+    "sha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a"
+  },
+  "schema": "managed-usb-ap-exco-input-snapshot-build-v1",
+  "target_executions": 0,
+  "tests": {
+    "host_abi_refusal": true,
+    "native_fake_ops": 48,
+    "unknown_cli_refusal": true,
+    "wrapper_normal": 26,
+    "wrapper_optimized": 26
+  }
+}

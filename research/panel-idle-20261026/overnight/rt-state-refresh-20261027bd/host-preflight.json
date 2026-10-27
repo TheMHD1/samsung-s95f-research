@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(cat /sys/bus/usb/devices/7-1/devnum)\" = 46\ntest \"$(cat /sys/bus/usb/devices/7-1/idVendor)\" = 04e8\ntest \"$(cat /sys/bus/usb/devices/7-1/idProduct)\" = 2001\ntest \"$(cat /sys/bus/usb/devices/7-1/bcdDevice)\" = 0250\ntest \"$(cat /sys/bus/usb/devices/7-1/bConfigurationValue)\" = 1\nfor n in 0 1 2; do test ! -L /sys/bus/usb/devices/7-1:1.$n/driver; done\ntest \"$(cat /sys/bus/usb/devices/7-1/authorized)\" = 1\ntest \"$(cat /sys/bus/usb/devices/7-1/power/runtime_status)\" = active\ncat /proc/uptime\nbus=$(cat /sys/bus/usb/devices/7-1/busnum)\nnum=$(cat /sys/bus/usb/devices/7-1/devnum)\nnode=$(printf '/dev/bus/usb/%03d/%03d' \"$bus\" \"$num\")\ncount=0\nfor fd in /proc/[0-9]*/fd/*; do link=$(readlink \"$fd\" 2>/dev/null) || continue; if test \"$link\" = \"$node\"; then echo \"USB_FD_HOLDER=$fd\"; count=$((count+1)); fi; done\nprintf 'USB_FD_HOLDERS=%s\n' \"$count\"\ncat /proc/uptime\ncat /proc/sys/kernel/random/boot_id\necho RT_REFRESH_HOST_PREFLIGHT_COMPLETE\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "141992.59 528990.57\nUSB_FD_HOLDERS=0\n142018.41 529055.32\n00000000-0000-4000-8000-000000000000\nRT_REFRESH_HOST_PREFLIGHT_COMPLETE\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

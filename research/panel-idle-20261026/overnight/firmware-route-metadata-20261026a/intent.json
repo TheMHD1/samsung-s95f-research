@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho FW_ROUTE_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho FW_TCON_TREE\nif test -d /prd/lib/firmware/tcon; then\n find /prd/lib/firmware/tcon -maxdepth 8 -print | awk 'NR<=80 {print substr($0,1,256)} length($0)>256 {long++} END {print \"TREE_ROWS\",NR; print \"LONG_PATHS\",long+0}'\nfi\necho FW_PLACEHOLDER_METADATA\nfor p in /prd/lib/firmware/tcon/default_tcon/tcon_flash_data/dummy.bin /prd/lib/firmware/tcon/default_tcon/tcon_flash_fw/dummy.bin; do\n if test -f \"$p\" && test ! -L \"$p\"; then\n  stat -c '%n %s %u:%g:%a' \"$p\"\n  sha256sum \"$p\"\n fi\ndone\necho FW_ROUTE_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "mode": "filesystem metadata only",
+  "physical_state": "unobserved",
+  "time": "2026-10-26T23:21:22.014813+00:00"
+}

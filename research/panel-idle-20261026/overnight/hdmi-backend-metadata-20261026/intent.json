@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho AVOC_IDENTITY\nreadlink -f /proc/706/exe\ncat /proc/706/stat\necho AVOC_BACKEND_MAPS\nawk '$NF == \"/prd/usr/lib/libhdmi-input-control-impl-sec.so\" || $NF == \"/prd/usr/lib/libhdmi-control-impl-sec.so\" { print }' /proc/706/maps\necho INPUT_BACKEND_IDENTITY\ntest -f /prd/usr/lib/libhdmi-input-control-impl-sec.so\ntest ! -L /prd/usr/lib/libhdmi-input-control-impl-sec.so\nstat -c '%s %F %a %u' /prd/usr/lib/libhdmi-input-control-impl-sec.so\nsha256sum /prd/usr/lib/libhdmi-input-control-impl-sec.so\necho CONTROL_BACKEND_IDENTITY\ntest -f /prd/usr/lib/libhdmi-control-impl-sec.so\ntest ! -L /prd/usr/lib/libhdmi-control-impl-sec.so\nstat -c '%s %F %a %u' /prd/usr/lib/libhdmi-control-impl-sec.so\nsha256sum /prd/usr/lib/libhdmi-control-impl-sec.so\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho AVOC_IDENTITY\nreadlink -f /proc/706/exe\ncat /proc/706/stat\necho AVOC_BACKEND_MAPS\nawk '$NF == \"/prd/usr/lib/libhdmi-input-control-impl-sec.so\" || $NF == \"/prd/usr/lib/libhdmi-control-impl-sec.so\" { print }' /proc/706/maps\necho INPUT_BACKEND_IDENTITY\ntest -f /prd/usr/lib/libhdmi-input-control-impl-sec.so\ntest ! -L /prd/usr/lib/libhdmi-input-control-impl-sec.so\nstat -c '%s %F %a %u' /prd/usr/lib/libhdmi-input-control-impl-sec.so\nsha256sum /prd/usr/lib/libhdmi-input-control-impl-sec.so\necho CONTROL_BACKEND_IDENTITY\ntest -f /prd/usr/lib/libhdmi-control-impl-sec.so\ntest ! -L /prd/usr/lib/libhdmi-control-impl-sec.so\nstat -c '%s %F %a %u' /prd/usr/lib/libhdmi-control-impl-sec.so\nsha256sum /prd/usr/lib/libhdmi-control-impl-sec.so\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "7a44fc83fd0e38cc4d2ab28cf36ed6626f49611f00693614c454cf686982636b",
+  "physical_state": "unobserved",
+  "purpose": "Read two fixed HDMI backend file identities and AVOC maps; no backend calls.",
+  "retry": false,
+  "started_utc": "2026-10-26T21:04:48.318099+00:00"
+}

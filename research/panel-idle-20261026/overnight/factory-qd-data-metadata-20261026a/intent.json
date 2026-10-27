@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho QD_DATA_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ni=0\nfor p in /factory_peq/tcon_data/QD/*.bin; do\n test -f \"$p\"\n test ! -L \"$p\"\n i=$((i+1))\n test \"$i\" -le 20\n echo FILE\n stat -c '%n %s %u:%g:%a' \"$p\"\n n=$(wc -c < \"$p\")\n if test \"$n\" -le 4194304; then sha256sum \"$p\"; else echo HASH_SKIPPED_SIZE; fi\n echo HEADER64\n head -c 64 \"$p\" | od -An -tx1\ndone\necho \"FILE_COUNT=$i\"\necho QD_DATA_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "mode": "existing regular file metadata/hash/64byte header only",
+  "physical_state": "unobserved",
+  "time": "2026-10-26T23:25:11.577709+00:00"
+}

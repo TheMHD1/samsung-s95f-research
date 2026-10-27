@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\nn=0\nfor f in /lib/modules/5.4.261/kernel/*.ko /lib/modules/5.4.261/kernel/soc/*.ko; do\n  [ -f \"$f\" ] || continue\n  n=$((n+1))\n  [ \"$n\" -le 256 ] || exit 65\n  if LC_ALL=C grep -q 'tztv_sys_use_hdmi_cell_sw' \"$f\"; then\n    echo \"@@ MATCH $f\"\n    wc -c < \"$f\"\n    sha256sum \"$f\"\n  fi\ndone\necho \"@@ SCANNED $n\"\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "@@ BOOT_START\n00000000-0000-4000-8000-000000000000\n@@ TIME_START\n1793042715\n64324.15 240607.49\n@@ MATCH /lib/modules/5.4.261/kernel/tztv-battery.ko\n174902\ndd7e9c1c68b3802e8e8fc04a9097c2cc6baaedd5960e7a25bb387499edbc2270  /lib/modules/5.4.261/kernel/tztv-battery.ko\n@@ MATCH /lib/modules/5.4.261/kernel/soc/sdp_drm.ko\n1808606\nd1016cf5b72f86a1623b231d96dc944082263a70d3602d859f993d751bfdf881  /lib/modules/5.4.261/kernel/soc/sdp_drm.ko\n@@ MATCH /lib/modules/5.4.261/kernel/soc/sdp_frc.ko\n1053302\n05dea2eaad34a23def837fb86d2f7a4e99ef630066ad6fed18d0cf55ba37063d  /lib/modules/5.4.261/kernel/soc/sdp_frc.ko\n@@ MATCH /lib/modules/5.4.261/kernel/soc/sdp_pqe_frc.ko\n1015070\n1a312cf33a0ca67c170b9dc73a56a58fa03a0f05bbfb6277a72740dd8e7328a4  /lib/modules/5.4.261/kernel/soc/sdp_pqe_frc.ko\n@@ MATCH /lib/modules/5.4.261/kernel/soc/sdp_tcon.ko\n226262\n9b7c1cb8e2bb8d11e5465a41fa402e71bd8d15a5dabd6b3d76de98a7a42549ee  /lib/modules/5.4.261/kernel/soc/sdp_tcon.ko\n@@ SCANNED 67\n@@ BOOT_END\n00000000-0000-4000-8000-000000000000\n@@ TIME_END\n1793042715\n64324.68 240609.09\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

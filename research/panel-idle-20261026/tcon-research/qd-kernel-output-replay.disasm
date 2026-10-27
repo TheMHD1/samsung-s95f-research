@@ -1,0 +1,805 @@
+qdf_tcon.ko SHA256 97fff5ba5cf3cff758807abbc2bdfb835b4696cbf88626dec5f7eb0e33b7ea63
+ELF64 little-endian AArch64 relocatable; addresses are .text offsets
+
+BSS replay descriptor symbols:
+  m_npc_lut_register_data  .bss+0x160 size 8
+  m_npc_lut_register_info  .bss+0x300 size 24
+  fields used here: values*=+0x160 count=+0x300 valid*=+0x308 commands*=+0x310
+
+command table .rodata+0x15f0, 226 u64 entries, SHA256 1ca59d38d74dda0bbaf0d40453c57c6b53d0d3c692cee627d1856c9fd73bebb4
+  [213] 0x0000f300000004cc
+  [214] 0x0000f300000004d0
+  [215] 0x0000f300000004d4
+  [216] 0x0000f300000004d8
+  [217] 0x0000f3000000012c
+  [218] 0x0000f30000000128  <F3:0x128>
+  [219] 0x0000f30000000144
+  [220] 0x0000f30000000148
+  [221] 0x0000f30000000100
+  [222] 0x0000f30000000120
+  [223] 0x0000f30000000124
+  [224] 0x0000f30000000110
+  [225] 0x0000f300000000fc
+
+direct m_register_recovery_noFramerate call sites:
+  0x10cd8 QDFTcon_MonitorTemperatureSensor; preceding 0x10cd4 m_tcon_recovery_frame_mode
+  0x10de0 QDFTcon_MonitorTemperatureSensor; preceding 0x10ddc m_tcon_recovery_frame_mode
+  0x11040 QDFTcon_Resume; preceding 0x1103c m_tcon_recovery_frame_mode
+  0x11934 m_set_power_control; preceding 0x11930 m_tcon_recovery_frame_mode
+  0x121d8 QDFTcon_SetElSensing; preceding 0x121d4 m_tcon_recovery_frame_mode
+  0x13bec QDFTcon_SetOffSensing; preceding 0x13be8 m_tcon_recovery_frame_mode
+
+[QDFTcon_InitVariable replay-descriptor clear] 0x10a4..0x10c4
+0010a4: stp      w2, wzr, [x19, #4]
+0010a8: str      wzr, [x19, #0x48]
+0010ac: str      wzr, [x19, #0x150]
+0010b0: str      wzr, [x19, #0x154]
+0010b4: str      wzr, [x19, #0x158]
+0010b8: str      xzr, [x19, #0x160]
+0010bc: str      w2, [x19, #0x178]
+0010c0: stp      w1, w1, [x12, #-8]
+
+[QDFTcon_InitVariable info-struct zero] 0x1274..0x1298
+001274: add      x0, x19, #0x200
+001278: mov      x2, #0x100
+00127c: mov      w1, #0
+001280: bl       #0x1280 ; RELOC type=283 ft_memset addend=0x0
+001284: add      x0, x19, #0x300
+001288: mov      x2, #0x18
+00128c: mov      w1, #0
+001290: bl       #0x1290 ; RELOC type=283 ft_memset addend=0x0
+001294: add      x0, x19, #0x318
+
+[QDFTcon_Tcon_InitDevice table count] 0xfb20..0xfb40
+00fb20: mov      w0, #0
+00fb24: bl       #0xb250
+00fb28: mov      w1, #0xe2
+00fb2c: orr      w23, w0, w23
+00fb30: str      w1, [x19, #0x300]
+00fb34: add      x24, x20, #0x3b0
+00fb38: bl       #0xfb38 ; RELOC type=283 ft_current_pid addend=0x0
+00fb3c: mov      w21, w0
+
+[QDFTcon_Tcon_InitDevice values allocation] 0x101e8..0x10230
+0101e8: ldr      w0, [x19, #0x300]
+0101ec: cbz      w0, #0xfb70
+0101f0: bl       #0x101f0 ; RELOC type=283 ft_current_pid addend=0x0
+0101f4: mov      w21, w0
+0101f8: bl       #0x101f8 ; RELOC type=283 ft_current_comm addend=0x0
+0101fc: mov      x3, x0
+010200: ldr      w4, [x19, #0x300]
+010204: mov      w2, w21
+010208: add      x1, x20, #0x3b0
+01020c: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x76f8 addend=0x76f8
+010210: add      x0, x0, #0 ; RELOC type=277 section-addend:0x76f8 addend=0x76f8
+010214: lsl      w5, w4, #2
+010218: bl       #0x10218 ; RELOC type=283 printk addend=0x0
+01021c: ldr      w0, [x19, #0x300]
+010220: lsl      x0, x0, #2
+010224: bl       #0x10224 ; RELOC type=283 ft_vmalloc addend=0x0
+010228: str      x0, [x19, #0x160]
+01022c: b        #0xfb70
+
+[QDFTcon_Tcon_InitDevice command/valid allocation and population] 0x1026c..0x10304
+01026c: ldr      w0, [x19, #0x300]
+010270: lsl      x0, x0, #3
+010274: bl       #0x10274 ; RELOC type=283 ft_vmalloc addend=0x0
+010278: ldr      w1, [x19, #0x300]
+01027c: str      x0, [x19, #0x310]
+010280: lsl      x0, x1, #2
+010284: bl       #0x10284 ; RELOC type=283 ft_vmalloc addend=0x0
+010288: str      x0, [x19, #0x308]
+01028c: ldr      x1, [x19, #0x310]
+010290: cmp      x1, #0
+010294: ccmp     x0, #0, #4, ne
+010298: b.eq     #0xfb68
+01029c: ldr      w0, [x19, #0x300]
+0102a0: cbz      w0, #0xfb70
+0102a4: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x76c8 addend=0x76c8
+0102a8: stp      x27, x28, [sp, #0x80]
+0102ac: add      x27, x0, #0 ; RELOC type=277 section-addend:0x76c8 addend=0x76c8
+0102b0: mov      x0, #0x1d0
+0102b4: mov      x22, #0
+0102b8: movk     x0, #0xf300, lsl #32
+0102bc: stp      x25, x26, [sp, #0x70]
+0102c0: add      x26, x20, #0x3c8
+0102c4: b        #0x102d0
+0102c8: ldr      x0, [x26, x22, lsl #3]
+0102cc: ldr      x1, [x19, #0x310]
+0102d0: str      x0, [x1, x22, lsl #3]
+0102d4: ldr      w0, [x19, #0x44]
+0102d8: lsl      x25, x22, #3
+0102dc: ldr      x1, [x19, #0x308]
+0102e0: str      wzr, [x1, x22, lsl #2]
+0102e4: cbnz     w0, #0x10480
+0102e8: ldr      w0, [x19, #0x300]
+0102ec: add      x22, x22, #1
+0102f0: cmp      w0, w22
+0102f4: b.hi     #0x102c8
+0102f8: ldp      x25, x26, [sp, #0x70]
+0102fc: ldp      x27, x28, [sp, #0x80]
+010300: b        #0xfb68
+
+[QDFTcon_SendOneCommand] 0xd120..0xd250
+00d120: stp      x29, x30, [sp, #-0x60]!
+00d124: mov      x29, sp
+00d128: stp      x21, x22, [sp, #0x20]
+00d12c: mov      x21, x1
+00d130: adrp     x22, #0xd000 ; RELOC type=275 section-addend:0x128 addend=0x128
+00d134: stp      x19, x20, [sp, #0x10]
+00d138: mov      x19, x0
+00d13c: bl       #0xd13c ; RELOC type=283 ft_current_pid addend=0x0
+00d140: mov      w20, w0
+00d144: bl       #0xd144 ; RELOC type=283 ft_current_comm addend=0x0
+00d148: ldr      w6, [x21]
+00d14c: mov      w2, w20
+00d150: adrp     x20, #0xd000 ; RELOC type=275 section-addend:0x0 addend=0x0
+00d154: add      x20, x20, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+00d158: add      x22, x22, #0 ; RELOC type=277 section-addend:0x128 addend=0x128
+00d15c: mov      x3, x0
+00d160: mov      w5, w19
+00d164: lsr      x4, x19, #0x20
+00d168: add      x1, x22, #0xf88
+00d16c: adrp     x0, #0xd000 ; RELOC type=275 section-addend:0x47a0 addend=0x47a0
+00d170: add      x0, x0, #0 ; RELOC type=277 section-addend:0x47a0 addend=0x47a0
+00d174: bl       #0xd174 ; RELOC type=283 printk addend=0x0
+00d178: ldr      x3, [x20, #0x160]
+00d17c: cbz      x3, #0xd1e4
+00d180: ldr      x1, [x20, #0x310]
+00d184: cbz      x1, #0xd1e4
+00d188: ldr      w2, [x20, #0x300]
+00d18c: cbz      w2, #0xd1e4
+00d190: stp      x23, x24, [sp, #0x30]
+00d194: stp      x25, x26, [sp, #0x40]
+00d198: mov      x26, #0
+00d19c: b        #0xd1ac
+00d1a0: add      x26, x26, #1
+00d1a4: cmp      w2, w26
+00d1a8: b.ls     #0xd1dc
+00d1ac: ldr      x0, [x1, x26, lsl #3]
+00d1b0: lsl      x23, x26, #3
+00d1b4: cmp      x0, x19
+00d1b8: b.ne     #0xd1a0
+00d1bc: ldr      w0, [x21]
+00d1c0: mov      w2, #1
+00d1c4: str      w0, [x3, x26, lsl #2]
+00d1c8: lsl      x25, x26, #2
+00d1cc: ldr      w0, [x20, #0x44]
+00d1d0: ldr      x1, [x20, #0x308]
+00d1d4: str      w2, [x1, x26, lsl #2]
+00d1d8: cbnz     w0, #0xd204
+00d1dc: ldp      x23, x24, [sp, #0x30]
+00d1e0: ldp      x25, x26, [sp, #0x40]
+00d1e4: mov      x0, x19
+00d1e8: ldr      w1, [x21]
+00d1ec: mov      w2, #1
+00d1f0: bl       #0xbba0
+00d1f4: ldp      x19, x20, [sp, #0x10]
+00d1f8: ldp      x21, x22, [sp, #0x20]
+00d1fc: ldp      x29, x30, [sp], #0x60
+00d200: ret
+00d204: str      x27, [sp, #0x50]
+00d208: bl       #0xd208 ; RELOC type=283 ft_current_pid addend=0x0
+00d20c: mov      w27, w0
+00d210: bl       #0xd210 ; RELOC type=283 ft_current_comm addend=0x0
+00d214: mov      x3, x0
+00d218: mov      w2, w27
+00d21c: ldr      x0, [x20, #0x160]
+00d220: mov      w4, w26
+00d224: ldr      x1, [x20, #0x310]
+00d228: ldr      w6, [x0, x25]
+00d22c: adrp     x0, #0xd000 ; RELOC type=275 section-addend:0x5e58 addend=0x5e58
+00d230: add      x0, x0, #0 ; RELOC type=277 section-addend:0x5e58 addend=0x5e58
+00d234: ldr      x5, [x1, x23]
+00d238: add      x1, x22, #0xf88
+00d23c: bl       #0xd23c ; RELOC type=283 printk addend=0x0
+00d240: ldp      x23, x24, [sp, #0x30]
+00d244: ldp      x25, x26, [sp, #0x40]
+00d248: ldr      x27, [sp, #0x50]
+00d24c: b        #0xd1e4
+
+[m_register_recovery_noFramerate] 0xf6d8..0xf910
+00f6d8: stp      x29, x30, [sp, #-0x60]!
+00f6dc: mov      x29, sp
+00f6e0: stp      x19, x20, [sp, #0x10]
+00f6e4: adrp     x19, #0xf000 ; RELOC type=275 section-addend:0x0 addend=0x0
+00f6e8: add      x19, x19, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+00f6ec: stp      x21, x22, [sp, #0x20]
+00f6f0: adrp     x21, #0xf000 ; RELOC type=275 section-addend:0x1228 addend=0x1228
+00f6f4: add      x21, x21, #0 ; RELOC type=277 section-addend:0x1228 addend=0x1228
+00f6f8: ldr      w0, [x19, #0xb4]
+00f6fc: mov      w22, #0
+00f700: stp      x23, x24, [sp, #0x30]
+00f704: add      x23, x21, #0x378
+00f708: bl       #0xdba8
+00f70c: ldr      w0, [x19, #0xb0]
+00f710: bl       #0xf1c0
+00f714: ldr      w0, [x19, #0xc0]
+00f718: bl       #0xef98
+00f71c: ldr      w0, [x19, #0xc4]
+00f720: bl       #0xeef8
+00f724: ldr      w0, [x19, #0xc8]
+00f728: bl       #0xee58
+00f72c: ldr      w0, [x19, #0xcc]
+00f730: bl       #0xece0
+00f734: ldr      w0, [x19, #0xd0]
+00f738: bl       #0xeb60
+00f73c: ldr      w0, [x19, #0xd8]
+00f740: bl       #0xe9e8
+00f744: ldr      w0, [x19, #0xdc]
+00f748: bl       #0xe870
+00f74c: ldr      w0, [x19, #0x174]
+00f750: bl       #0xe740
+00f754: ldr      w0, [x19, #0xe4]
+00f758: bl       #0xe6a0
+00f75c: ldr      w0, [x19, #0xe8]
+00f760: bl       #0xe600
+00f764: ldr      w0, [x19, #0xec]
+00f768: bl       #0xe560
+00f76c: ldr      w0, [x19, #0xf4]
+00f770: bl       #0xe4c0
+00f774: ldr      w0, [x19, #0xfc]
+00f778: bl       #0xe420
+00f77c: ldr      w0, [x19, #0x124]
+00f780: bl       #0xe2f8
+00f784: ldr      w0, [x19, #0x320]
+00f788: bl       #0xda80
+00f78c: ldr      w0, [x19, #0x148]
+00f790: bl       #0xe1b8
+00f794: ldr      w0, [x19, #0x14c]
+00f798: bl       #0xe098
+00f79c: ldr      w0, [x19, #0x150]
+00f7a0: bl       #0xdf78
+00f7a4: ldr      w0, [x19, #0x170]
+00f7a8: bl       #0xd8f8
+00f7ac: ldr      w0, [x19, #0x130]
+00f7b0: bl       #0xd7c8
+00f7b4: ldr      w0, [x19, #0x130]
+00f7b8: bl       #0xd728
+00f7bc: ldr      w0, [x19, #0x17c]
+00f7c0: bl       #0xde50
+00f7c4: ldr      w0, [x19, #0x180]
+00f7c8: bl       #0xdd28
+00f7cc: ldr      w0, [x19, #0x184]
+00f7d0: bl       #0xd600
+00f7d4: ldr      w0, [x19, #0x188]
+00f7d8: bl       #0xd428
+00f7dc: ldr      w0, [x19, #0x18c]
+00f7e0: bl       #0xd250
+00f7e4: bl       #0xf7e4 ; RELOC type=283 ft_current_pid addend=0x0
+00f7e8: mov      w20, w0
+00f7ec: bl       #0xf7ec ; RELOC type=283 ft_current_comm addend=0x0
+00f7f0: mov      x3, x0
+00f7f4: mov      w2, w20
+00f7f8: mov      x1, x23
+00f7fc: adrp     x0, #0xf000 ; RELOC type=275 section-addend:0x7120 addend=0x7120
+00f800: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7120 addend=0x7120
+00f804: bl       #0xf804 ; RELOC type=283 printk addend=0x0
+00f808: ldr      x0, [x19, #0x160]
+00f80c: cbz      x0, #0xf8cc
+00f810: ldr      x1, [x19, #0x310]
+00f814: cbz      x1, #0xf8cc
+00f818: ldr      x0, [x19, #0x308]
+00f81c: cbz      x0, #0xf8cc
+00f820: ldr      w1, [x19, #0x300]
+00f824: cbz      w1, #0xf8cc
+00f828: adrp     x24, #0xf000 ; RELOC type=275 section-addend:0x7150 addend=0x7150
+00f82c: mov      w20, #0
+00f830: add      x24, x24, #0 ; RELOC type=277 section-addend:0x7150 addend=0x7150
+00f834: stp      x25, x26, [sp, #0x40]
+00f838: stp      x27, x28, [sp, #0x50]
+00f83c: b        #0xf854
+00f840: ldr      w1, [x19, #0x300]
+00f844: add      w20, w20, #1
+00f848: cmp      w20, w1
+00f84c: b.hs     #0xf8c4
+00f850: ldr      x0, [x19, #0x308]
+00f854: mov      w3, w20
+00f858: ubfiz    x25, x20, #2, #0x20
+00f85c: ldr      w2, [x0, x3, lsl #2]
+00f860: cmp      w2, #1
+00f864: b.ne     #0xf840
+00f868: ldr      x1, [x19, #0x160]
+00f86c: lsl      x27, x3, #3
+00f870: ldr      x0, [x19, #0x310]
+00f874: add      w22, w22, #1
+00f878: ldr      w1, [x1, x3, lsl #2]
+00f87c: ldr      x0, [x0, x3, lsl #3]
+00f880: bl       #0xbba0
+00f884: ldr      w0, [x19, #0x44]
+00f888: cbz      w0, #0xf840
+00f88c: bl       #0xf88c ; RELOC type=283 ft_current_pid addend=0x0
+00f890: mov      w28, w0
+00f894: bl       #0xf894 ; RELOC type=283 ft_current_comm addend=0x0
+00f898: mov      x3, x0
+00f89c: ldr      x0, [x19, #0x160]
+00f8a0: mov      w2, w28
+00f8a4: ldr      x1, [x19, #0x310]
+00f8a8: mov      w4, w20
+00f8ac: ldr      w6, [x0, x25]
+00f8b0: mov      x0, x24
+00f8b4: ldr      x5, [x1, x27]
+00f8b8: mov      x1, x23
+00f8bc: bl       #0xf8bc ; RELOC type=283 printk addend=0x0
+00f8c0: b        #0xf840
+00f8c4: ldp      x25, x26, [sp, #0x40]
+00f8c8: ldp      x27, x28, [sp, #0x50]
+00f8cc: bl       #0xf8cc ; RELOC type=283 ft_current_pid addend=0x0
+00f8d0: mov      w20, w0
+00f8d4: bl       #0xf8d4 ; RELOC type=283 ft_current_comm addend=0x0
+00f8d8: ldr      w4, [x19, #0x300]
+00f8dc: mov      w2, w20
+00f8e0: mov      x3, x0
+00f8e4: mov      w5, w22
+00f8e8: add      x1, x21, #0x378
+00f8ec: adrp     x0, #0xf000 ; RELOC type=275 section-addend:0x7188 addend=0x7188
+00f8f0: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7188 addend=0x7188
+00f8f4: bl       #0xf8f4 ; RELOC type=283 printk addend=0x0
+00f8f8: mov      w0, #0
+00f8fc: ldp      x19, x20, [sp, #0x10]
+00f900: ldp      x21, x22, [sp, #0x20]
+00f904: ldp      x23, x24, [sp, #0x30]
+00f908: ldp      x29, x30, [sp], #0x60
+00f90c: ret
+
+[m_tcon_recovery_frame_mode] 0x107e8..0x10928
+0107e8: stp      x29, x30, [sp, #-0x40]!
+0107ec: mov      x0, #0x160
+0107f0: movk     x0, #0xf300, lsl #32
+0107f4: add      x1, sp, #0x3c
+0107f8: mov      x29, sp
+0107fc: stp      x19, x20, [sp, #0x10]
+010800: stp      x21, x22, [sp, #0x20]
+010804: adrp     x21, #0x10000 ; RELOC type=275 section-addend:0x1228 addend=0x1228
+010808: add      x21, x21, #0 ; RELOC type=277 section-addend:0x1228 addend=0x1228
+01080c: str      wzr, [sp, #0x3c]
+010810: bl       #0x9b88
+010814: mov      w19, w0
+010818: bl       #0x10818 ; RELOC type=283 ft_current_pid addend=0x0
+01081c: mov      w20, w0
+010820: bl       #0x10820 ; RELOC type=283 ft_current_comm addend=0x0
+010824: ldr      w4, [sp, #0x3c]
+010828: mov      x3, x0
+01082c: mov      w2, w20
+010830: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x7b60 addend=0x7b60
+010834: mov      w5, w19
+010838: add      x1, x21, #0xb78
+01083c: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7b60 addend=0x7b60
+010840: bl       #0x10840 ; RELOC type=283 printk addend=0x0
+010844: cbnz     w19, #0x108e8
+010848: adrp     x20, #0x10000 ; RELOC type=275 section-addend:0x0 addend=0x0
+01084c: add      x20, x20, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+010850: ldr      w1, [sp, #0x3c]
+010854: ldr      w0, [x20, #0x13c]
+010858: cmp      w1, w0
+01085c: b.eq     #0x108ac
+010860: bl       #0x10860 ; RELOC type=283 ft_current_pid addend=0x0
+010864: mov      w19, w0
+010868: bl       #0x10868 ; RELOC type=283 ft_current_comm addend=0x0
+01086c: ldr      w4, [sp, #0x3c]
+010870: ldr      w5, [x20, #0x13c]
+010874: mov      w2, w19
+010878: mov      x3, x0
+01087c: add      x1, x21, #0xb90
+010880: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x7b98 addend=0x7b98
+010884: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7b98 addend=0x7b98
+010888: bl       #0x10888 ; RELOC type=283 printk addend=0x0
+01088c: ldr      w0, [x20, #0x13c]
+010890: bl       #0x10508
+010894: mov      w19, w0
+010898: mov      w0, w19
+01089c: ldp      x19, x20, [sp, #0x10]
+0108a0: ldp      x21, x22, [sp, #0x20]
+0108a4: ldp      x29, x30, [sp], #0x40
+0108a8: ret
+0108ac: bl       #0x108ac ; RELOC type=283 ft_current_pid addend=0x0
+0108b0: mov      w22, w0
+0108b4: bl       #0x108b4 ; RELOC type=283 ft_current_comm addend=0x0
+0108b8: mov      x3, x0
+0108bc: ldr      w4, [x20, #0x13c]
+0108c0: mov      w2, w22
+0108c4: add      x1, x21, #0xb90
+0108c8: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x7be8 addend=0x7be8
+0108cc: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7be8 addend=0x7be8
+0108d0: bl       #0x108d0 ; RELOC type=283 printk addend=0x0
+0108d4: mov      w0, w19
+0108d8: ldp      x19, x20, [sp, #0x10]
+0108dc: ldp      x21, x22, [sp, #0x20]
+0108e0: ldp      x29, x30, [sp], #0x40
+0108e4: ret
+0108e8: adrp     x19, #0x10000 ; RELOC type=275 section-addend:0x0 addend=0x0
+0108ec: add      x19, x19, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+0108f0: bl       #0x108f0 ; RELOC type=283 ft_current_pid addend=0x0
+0108f4: mov      w20, w0
+0108f8: bl       #0x108f8 ; RELOC type=283 ft_current_comm addend=0x0
+0108fc: mov      x3, x0
+010900: ldr      w4, [x19, #0x13c]
+010904: mov      w2, w20
+010908: add      x1, x21, #0xb90
+01090c: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x7c30 addend=0x7c30
+010910: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7c30 addend=0x7c30
+010914: bl       #0x10914 ; RELOC type=283 printk addend=0x0
+010918: ldr      w0, [x19, #0x13c]
+01091c: bl       #0x10508
+010920: mov      w19, w0
+010924: b        #0x10898
+
+[QDFTcon_Resume] 0x10ee8..0x11054
+010ee8: stp      x29, x30, [sp, #-0x30]!
+010eec: mov      x29, sp
+010ef0: stp      x19, x20, [sp, #0x10]
+010ef4: mov      w19, w0
+010ef8: adrp     x20, #0x10000 ; RELOC type=275 section-addend:0x1228 addend=0x1228
+010efc: add      x20, x20, #0 ; RELOC type=277 section-addend:0x1228 addend=0x1228
+010f00: stp      x21, x22, [sp, #0x20]
+010f04: bl       #0x10f04 ; RELOC type=283 ft_current_pid addend=0x0
+010f08: mov      w21, w0
+010f0c: bl       #0x10f0c ; RELOC type=283 ft_current_comm addend=0x0
+010f10: mov      w2, w21
+010f14: mov      x3, x0
+010f18: mov      w4, w19
+010f1c: add      x1, x20, #0xbd8
+010f20: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x7fa8 addend=0x7fa8
+010f24: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7fa8 addend=0x7fa8
+010f28: bl       #0x10f28 ; RELOC type=283 printk addend=0x0
+010f2c: cmp      w19, #0xa
+010f30: b.eq     #0x10fe0
+010f34: cmp      w19, #0x46
+010f38: b.eq     #0x10f54
+010f3c: cbz      w19, #0x10f6c
+010f40: mov      w0, #0
+010f44: ldp      x19, x20, [sp, #0x10]
+010f48: ldp      x21, x22, [sp, #0x20]
+010f4c: ldp      x29, x30, [sp], #0x30
+010f50: ret
+010f54: bl       #0x1d00
+010f58: mov      w0, #0
+010f5c: ldp      x19, x20, [sp, #0x10]
+010f60: ldp      x21, x22, [sp, #0x20]
+010f64: ldp      x29, x30, [sp], #0x30
+010f68: ret
+010f6c: adrp     x19, #0x10000 ; RELOC type=275 section-addend:0x0 addend=0x0
+010f70: add      x19, x19, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+010f74: bl       #0x2e80
+010f78: ldp      w0, w22, [x19, #0xa4]
+010f7c: ldr      w21, [x19, #0xac]
+010f80: bl       #0x32f8
+010f84: ldr      w0, [x19, #0xa4]
+010f88: cmp      w0, #1
+010f8c: b.eq     #0x10fd4
+010f90: mov      w1, #0
+010f94: mov      w0, #4
+010f98: bl       #0x30a0
+010f9c: bl       #0x10f9c ; RELOC type=283 ft_current_pid addend=0x0
+010fa0: mov      w19, w0
+010fa4: bl       #0x10fa4 ; RELOC type=283 ft_current_comm addend=0x0
+010fa8: mov      x3, x0
+010fac: mov      w2, w19
+010fb0: add      x1, x20, #0xbe8
+010fb4: adrp     x0, #0x10000 ; RELOC type=275 section-addend:0x7fd8 addend=0x7fd8
+010fb8: add      x0, x0, #0 ; RELOC type=277 section-addend:0x7fd8 addend=0x7fd8
+010fbc: bl       #0x10fbc ; RELOC type=283 printk addend=0x0
+010fc0: mov      w0, #0
+010fc4: ldp      x19, x20, [sp, #0x10]
+010fc8: ldp      x21, x22, [sp, #0x20]
+010fcc: ldp      x29, x30, [sp], #0x30
+010fd0: ret
+010fd4: orr      w0, w21, w22, lsl #16
+010fd8: bl       #0x31e0
+010fdc: b        #0x10f90
+010fe0: adrp     x19, #0x10000 ; RELOC type=275 section-addend:0x0 addend=0x0
+010fe4: add      x19, x19, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+010fe8: ldr      w0, [x19, #8]
+010fec: cbnz     w0, #0x11030
+010ff0: bl       #0x10ff0 ; RELOC type=283 ft_current_pid addend=0x0
+010ff4: mov      w21, w0
+010ff8: bl       #0x10ff8 ; RELOC type=283 ft_current_comm addend=0x0
+010ffc: mov      x3, x0
+011000: mov      w2, w21
+011004: add      x1, x20, #0xbd8
+011008: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x8010 addend=0x8010
+01100c: add      x0, x0, #0 ; RELOC type=277 section-addend:0x8010 addend=0x8010
+011010: bl       #0x11010 ; RELOC type=283 printk addend=0x0
+011014: mov      x0, #0x164
+011018: mov      w2, #1
+01101c: movk     x0, #0xf300, lsl #32
+011020: mov      w1, #0
+011024: bl       #0xbba0
+011028: str      wzr, [x19, #0x140]
+01102c: b        #0x10f40
+011030: mov      w0, #1
+011034: str      wzr, [x19, #0x10c]
+011038: bl       #0xb250
+01103c: bl       #0x107e8
+011040: bl       #0xf6d8
+011044: str      wzr, [x19, #8]
+011048: str      wzr, [x19, #0x128]
+01104c: str      wzr, [x19, #0x12c]
+011050: b        #0x10ff0
+
+[m_set_power_control] 0x11848..0x11b88
+011848: stp      x29, x30, [sp, #-0x50]!
+01184c: mov      x29, sp
+011850: stp      x19, x20, [sp, #0x10]
+011854: stp      x21, x22, [sp, #0x20]
+011858: cbz      w0, #0x11a28
+01185c: adrp     x20, #0x11000 ; RELOC type=275 section-addend:0x0 addend=0x0
+011860: add      x20, x20, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+011864: bl       #0x11864 ; RELOC type=283 ft_current_pid addend=0x0
+011868: adrp     x21, #0x11000 ; RELOC type=275 section-addend:0x1228 addend=0x1228
+01186c: mov      w19, w0
+011870: add      x21, x21, #0 ; RELOC type=277 section-addend:0x1228 addend=0x1228
+011874: bl       #0x11874 ; RELOC type=283 ft_current_comm addend=0x0
+011878: mov      x3, x0
+01187c: mov      w2, w19
+011880: add      x1, x21, #0xca0
+011884: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x8378 addend=0x8378
+011888: add      x0, x0, #0 ; RELOC type=277 section-addend:0x8378 addend=0x8378
+01188c: bl       #0x1188c ; RELOC type=283 printk addend=0x0
+011890: ldr      w0, [x20, #0x1a8]
+011894: cmp      w0, #1
+011898: b.ne     #0x11954
+01189c: adrp     x1, #0x11000 ; RELOC type=275 tztv_frc_tcon_set_dvdd addend=0x0
+0118a0: mov      w19, #0
+0118a4: ldr      x1, [x1] ; RELOC type=286 tztv_frc_tcon_set_dvdd addend=0x0
+0118a8: cbz      x1, #0x118b4
+0118ac: blr      x1
+0118b0: mov      w19, w0
+0118b4: mov      w0, #0x2bc
+0118b8: bl       #0x118b8 ; RELOC type=283 ft_msleep addend=0x0
+0118bc: adrp     x0, #0x11000 ; RELOC type=275 tztv_frc_tcon_set_acdet addend=0x0
+0118c0: ldr      x1, [x0] ; RELOC type=286 tztv_frc_tcon_set_acdet addend=0x0
+0118c4: cbz      x1, #0x118d4
+0118c8: mov      w0, #1
+0118cc: blr      x1
+0118d0: orr      w19, w19, w0
+0118d4: adrp     x0, #0x11000 ; RELOC type=275 tztv_frc_tcon_read_err_det_status addend=0x0
+0118d8: ldr      x1, [x0] ; RELOC type=286 tztv_frc_tcon_read_err_det_status addend=0x0
+0118dc: cbz      x1, #0x118f8
+0118e0: str      wzr, [sp, #0x4c]
+0118e4: add      x0, sp, #0x4c
+0118e8: blr      x1
+0118ec: ldr      w1, [sp, #0x4c]
+0118f0: orr      w19, w19, w0
+0118f4: cbnz     w1, #0x11994
+0118f8: str      x23, [sp, #0x30]
+0118fc: mov      w23, #1
+011900: str      w23, [x20, #0x40]
+011904: bl       #0x11904 ; RELOC type=283 ft_current_pid addend=0x0
+011908: mov      w22, w0
+01190c: bl       #0x1190c ; RELOC type=283 ft_current_comm addend=0x0
+011910: mov      w2, w22
+011914: mov      x3, x0
+011918: add      x1, x21, #0xca0
+01191c: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x8438 addend=0x8438
+011920: add      x0, x0, #0 ; RELOC type=277 section-addend:0x8438 addend=0x8438
+011924: bl       #0x11924 ; RELOC type=283 printk addend=0x0
+011928: mov      w0, #2
+01192c: bl       #0xb250
+011930: bl       #0x107e8
+011934: bl       #0xf6d8
+011938: str      w23, [x20, #4]
+01193c: ldr      x23, [sp, #0x30]
+011940: mov      w0, w19
+011944: ldp      x19, x20, [sp, #0x10]
+011948: ldp      x21, x22, [sp, #0x20]
+01194c: ldp      x29, x30, [sp], #0x50
+011950: ret
+011954: ldr      w1, [x20, #0x1ac]
+011958: cmp      w1, #4
+01195c: b.eq     #0x119dc
+011960: adrp     x1, #0x11000 ; RELOC type=275 tztv_frc_tcon_set_elvdd addend=0x0
+011964: mov      w19, #0
+011968: ldr      x1, [x1] ; RELOC type=286 tztv_frc_tcon_set_elvdd addend=0x0
+01196c: cbz      x1, #0x118b4
+011970: cbz      w0, #0x11984
+011974: mov      w0, #1
+011978: blr      x1
+01197c: mov      w19, w0
+011980: b        #0x118b4
+011984: mov      w0, #0
+011988: blr      x1
+01198c: mov      w19, w0
+011990: b        #0x118b4
+011994: mov      w0, #1
+011998: str      w0, [x20, #4]
+01199c: str      w0, [x20, #0x40]
+0119a0: bl       #0x119a0 ; RELOC type=283 ft_current_pid addend=0x0
+0119a4: mov      w20, w0
+0119a8: bl       #0x119a8 ; RELOC type=283 ft_current_comm addend=0x0
+0119ac: ldr      w4, [sp, #0x4c]
+0119b0: mov      w2, w20
+0119b4: mov      x3, x0
+0119b8: add      x1, x21, #0xca0
+0119bc: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x83e0 addend=0x83e0
+0119c0: add      x0, x0, #0 ; RELOC type=277 section-addend:0x83e0 addend=0x83e0
+0119c4: bl       #0x119c4 ; RELOC type=283 printk addend=0x0
+0119c8: mov      w0, w19
+0119cc: ldp      x19, x20, [sp, #0x10]
+0119d0: ldp      x21, x22, [sp, #0x20]
+0119d4: ldp      x29, x30, [sp], #0x50
+0119d8: ret
+0119dc: adrp     x0, #0x11000 ; RELOC type=275 tztv_set_sdp_jp_tcon_power_reset addend=0x0
+0119e0: mov      w19, #0
+0119e4: ldr      x1, [x0] ; RELOC type=286 tztv_set_sdp_jp_tcon_power_reset addend=0x0
+0119e8: cbz      x1, #0x118b4
+0119ec: mov      w0, #0
+0119f0: blr      x1
+0119f4: mov      w19, w0
+0119f8: bl       #0x119f8 ; RELOC type=283 ft_current_pid addend=0x0
+0119fc: mov      w22, w0
+011a00: bl       #0x11a00 ; RELOC type=283 ft_current_comm addend=0x0
+011a04: mov      w2, w22
+011a08: mov      x3, x0
+011a0c: add      x1, x21, #0xcb8
+011a10: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x83a0 addend=0x83a0
+011a14: add      x0, x0, #0 ; RELOC type=277 section-addend:0x83a0 addend=0x83a0
+011a18: bl       #0x11a18 ; RELOC type=283 printk addend=0x0
+011a1c: mov      w0, #0x64
+011a20: bl       #0x11a20 ; RELOC type=283 ft_msleep addend=0x0
+011a24: b        #0x118b4
+011a28: adrp     x21, #0x11000 ; RELOC type=275 section-addend:0x1228 addend=0x1228
+011a2c: add      x21, x21, #0 ; RELOC type=277 section-addend:0x1228 addend=0x1228
+011a30: mov      w22, w0
+011a34: str      x23, [sp, #0x30]
+011a38: bl       #0x11a38 ; RELOC type=283 ft_current_pid addend=0x0
+011a3c: add      x23, x21, #0xca0
+011a40: mov      w19, w0
+011a44: bl       #0x11a44 ; RELOC type=283 ft_current_comm addend=0x0
+011a48: mov      w2, w19
+011a4c: mov      x3, x0
+011a50: mov      x1, x23
+011a54: adrp     x20, #0x11000 ; RELOC type=275 section-addend:0x0 addend=0x0
+011a58: add      x20, x20, #0 ; RELOC type=277 section-addend:0x0 addend=0x0
+011a5c: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x82e0 addend=0x82e0
+011a60: add      x0, x0, #0 ; RELOC type=277 section-addend:0x82e0 addend=0x82e0
+011a64: bl       #0x11a64 ; RELOC type=283 printk addend=0x0
+011a68: str      wzr, [x20, #4]
+011a6c: str      wzr, [x20, #0x10]
+011a70: str      wzr, [x20, #0x40]
+011a74: bl       #0x11a74 ; RELOC type=283 ft_current_pid addend=0x0
+011a78: mov      w19, w0
+011a7c: bl       #0x11a7c ; RELOC type=283 ft_current_comm addend=0x0
+011a80: mov      x1, x23
+011a84: mov      x3, x0
+011a88: mov      w2, w19
+011a8c: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x8310 addend=0x8310
+011a90: add      x0, x0, #0 ; RELOC type=277 section-addend:0x8310 addend=0x8310
+011a94: bl       #0x11a94 ; RELOC type=283 printk addend=0x0
+011a98: adrp     x0, #0x11000 ; RELOC type=275 tztv_frc_tcon_set_acdet addend=0x0
+011a9c: ldr      x1, [x0] ; RELOC type=286 tztv_frc_tcon_set_acdet addend=0x0
+011aa0: cbz      x1, #0x11b70
+011aa4: mov      w0, #0
+011aa8: blr      x1
+011aac: mov      w19, w0
+011ab0: ldr      w0, [x20, #0x1a8]
+011ab4: cmp      w0, #1
+011ab8: b.eq     #0x11b4c
+011abc: mov      w0, #0xa
+011ac0: bl       #0x11ac0 ; RELOC type=283 ft_msleep addend=0x0
+011ac4: ldr      w0, [x20, #0x1ac]
+011ac8: cmp      w0, #4
+011acc: b.eq     #0x11b04
+011ad0: adrp     x0, #0x11000 ; RELOC type=275 tztv_frc_tcon_set_elvdd addend=0x0
+011ad4: ldr      x1, [x0] ; RELOC type=286 tztv_frc_tcon_set_elvdd addend=0x0
+011ad8: cbz      x1, #0x11af0
+011adc: ldr      w0, [x20, #0x1a8]
+011ae0: cbz      w0, #0x11b78
+011ae4: mov      w0, #0
+011ae8: blr      x1
+011aec: mov      w22, w0
+011af0: orr      w19, w19, w22
+011af4: mov      w0, #0x3e8
+011af8: bl       #0x11af8 ; RELOC type=283 ft_msleep addend=0x0
+011afc: ldr      x23, [sp, #0x30]
+011b00: b        #0x11940
+011b04: adrp     x0, #0x11000 ; RELOC type=275 tztv_set_sdp_jp_tcon_power_reset addend=0x0
+011b08: ldr      x1, [x0] ; RELOC type=286 tztv_set_sdp_jp_tcon_power_reset addend=0x0
+011b0c: cbz      x1, #0x11af0
+011b10: mov      w0, #1
+011b14: blr      x1
+011b18: mov      w22, w0
+011b1c: bl       #0x11b1c ; RELOC type=283 ft_current_pid addend=0x0
+011b20: mov      w20, w0
+011b24: bl       #0x11b24 ; RELOC type=283 ft_current_comm addend=0x0
+011b28: mov      w2, w20
+011b2c: mov      x3, x0
+011b30: add      x1, x21, #0xcb8
+011b34: adrp     x0, #0x11000 ; RELOC type=275 section-addend:0x8338 addend=0x8338
+011b38: add      x0, x0, #0 ; RELOC type=277 section-addend:0x8338 addend=0x8338
+011b3c: bl       #0x11b3c ; RELOC type=283 printk addend=0x0
+011b40: mov      w0, #0x64
+011b44: bl       #0x11b44 ; RELOC type=283 ft_msleep addend=0x0
+011b48: b        #0x11af0
+011b4c: mov      w0, #0x3e8
+011b50: bl       #0x11b50 ; RELOC type=283 ft_msleep addend=0x0
+011b54: adrp     x0, #0x11000 ; RELOC type=275 tztv_frc_tcon_set_dvdd addend=0x0
+011b58: ldr      x1, [x0] ; RELOC type=286 tztv_frc_tcon_set_dvdd addend=0x0
+011b5c: cbz      x1, #0x11af4
+011b60: mov      w0, #0
+011b64: blr      x1
+011b68: orr      w19, w19, w0
+011b6c: b        #0x11af4
+011b70: mov      w19, #0
+011b74: b        #0x11ab0
+011b78: mov      w0, #1
+011b7c: blr      x1
+011b80: mov      w22, w0
+011b84: b        #0x11af0
+
+[m_set_ss_brightness] 0xeb60..0xec00
+00eb60: stp      x29, x30, [sp, #-0x20]!
+00eb64: cmp      w0, #7
+00eb68: mov      x29, sp
+00eb6c: stp      x19, x20, [sp, #0x10]
+00eb70: mov      w19, w0
+00eb74: b.hi     #0xebc8
+00eb78: bl       #0xeb78 ; RELOC type=283 ft_current_pid addend=0x0
+00eb7c: mov      w20, w0
+00eb80: bl       #0xeb80 ; RELOC type=283 ft_current_comm addend=0x0
+00eb84: mov      x3, x0
+00eb88: mov      w4, w19
+00eb8c: adrp     x1, #0xe000 ; RELOC type=275 section-addend:0x1228 addend=0x1228
+00eb90: add      x1, x1, #0 ; RELOC type=277 section-addend:0x1228 addend=0x1228
+00eb94: mov      w2, w20
+00eb98: add      x1, x1, #0x250
+00eb9c: adrp     x0, #0xe000 ; RELOC type=275 section-addend:0x6b60 addend=0x6b60
+00eba0: add      x0, x0, #0 ; RELOC type=277 section-addend:0x6b60 addend=0x6b60
+00eba4: bl       #0xeba4 ; RELOC type=283 printk addend=0x0
+00eba8: mov      x0, #0xc4
+00ebac: mov      w1, w19
+00ebb0: movk     x0, #0xf300, lsl #32
+00ebb4: mov      w2, #1
+00ebb8: bl       #0xbba0
+00ebbc: ldp      x19, x20, [sp, #0x10]
+00ebc0: ldp      x29, x30, [sp], #0x20
+00ebc4: ret
+00ebc8: bl       #0xebc8 ; RELOC type=283 ft_current_pid addend=0x0
+00ebcc: mov      w20, w0
+00ebd0: bl       #0xebd0 ; RELOC type=283 ft_current_comm addend=0x0
+00ebd4: mov      x3, x0
+00ebd8: adrp     x1, #0xe000 ; RELOC type=275 section-addend:0x1228 addend=0x1228
+00ebdc: add      x1, x1, #0 ; RELOC type=277 section-addend:0x1228 addend=0x1228
+00ebe0: mov      w2, w20
+00ebe4: mov      w4, w19
+00ebe8: add      x1, x1, #0x250
+00ebec: adrp     x0, #0xe000 ; RELOC type=275 section-addend:0x6b98 addend=0x6b98
+00ebf0: add      x0, x0, #0 ; RELOC type=277 section-addend:0x6b98 addend=0x6b98
+00ebf4: bl       #0xebf4 ; RELOC type=283 printk addend=0x0
+00ebf8: mov      w0, #-1
+00ebfc: b        #0xebbc
+
+[QDFTcon_EW_QdNpcTest direct F3:0x128 excerpt] 0x11694..0x116fc
+011694: mov      x21, #0x128
+011698: bl       #0x11698 ; RELOC type=283 printk addend=0x0
+01169c: ldr      w1, [sp, #0x5c]
+0116a0: mov      x0, #0x40
+0116a4: mov      w2, #1
+0116a8: movk     x0, #0xf300, lsl #32
+0116ac: mov      w19, #0
+0116b0: movk     x21, #0xf300, lsl #32
+0116b4: bl       #0xbba0
+0116b8: orr      w20, w20, w0
+0116bc: nop
+0116c0: mov      w1, w19
+0116c4: mov      w2, #1
+0116c8: mov      x0, x21
+0116cc: bl       #0xbba0
+0116d0: add      w19, w19, #0xa
+0116d4: orr      w20, w20, w0
+0116d8: mov      w0, #0xa
+0116dc: bl       #0x116dc ; RELOC type=283 ft_msleep addend=0x0
+0116e0: cmp      w19, #0x3fc
+0116e4: b.ne     #0x116c0
+0116e8: mov      w2, #1
+0116ec: mov      w1, #0x3ff
+0116f0: mov      x0, #0x128
+0116f4: movk     x0, #0xf300, lsl #32
+0116f8: bl       #0xbba0
+
+[init_module ops-table SendOneCommand binding] 0x2ac..0x2c0
+0002ac: adrp     x4, #0 ; RELOC type=275 QDFTcon_SendOneCommand addend=0x0
+0002b0: adrp     x7, #0 ; RELOC type=275 QDFTcon_ReadOneCommand addend=0x0
+0002b4: add      x4, x4, #0 ; RELOC type=277 QDFTcon_SendOneCommand addend=0x0
+0002b8: add      x7, x7, #0 ; RELOC type=277 QDFTcon_ReadOneCommand addend=0x0
+0002bc: stp      x4, x7, [x11, #0x10]

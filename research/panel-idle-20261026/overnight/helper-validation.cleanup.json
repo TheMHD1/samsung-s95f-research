@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "if test -d /sys/kernel/debug/tracing/instances/researcher-helper-validation; then echo 0 > /sys/kernel/debug/tracing/instances/researcher-helper-validation/tracing_on; echo 0 > /sys/kernel/debug/tracing/instances/researcher-helper-validation/events/enable; rmdir /sys/kernel/debug/tracing/instances/researcher-helper-validation; fi\ncat /sys/kernel/debug/tracing/tracing_on\nls -ld /sys/kernel/debug/tracing/instances/researcher-helper-validation 2>/dev/null || true",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "0\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

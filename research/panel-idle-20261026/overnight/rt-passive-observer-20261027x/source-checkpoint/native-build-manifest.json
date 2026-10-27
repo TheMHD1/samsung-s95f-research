@@ -1,0 +1,111 @@
+{
+  "build": {
+    "configuration": "Release",
+    "dotnet_path": "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+    "dotnet_sha256": "6206ebc1d4b6fb5d73311bc7571c654451550e446daf39fe7cfd3cd84bd6da36",
+    "framework": "net6.0",
+    "outputs_reproducible": true
+  },
+  "files": {
+    "ManagedUsbRtPassiveObserver.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "0edd0363c0969e3abc1d69c9116e2b06c9414632a069a78a767379f1cd19887e",
+      "size": 45919
+    },
+    "README-native.md": {
+      "sha256": "994dacbdd621be7ad042a3847a608fec6b7d0413364d72b0fbc4afecdf5ff0d0",
+      "size": 4808
+    },
+    "bin/Release/net6.0/ManagedUsbRtPassiveObserver.deps.json": {
+      "sha256": "51f9ead672617c90e4d7b43c7a3393513e36de8d74ae52036287fa56f65d8a8e",
+      "size": 451
+    },
+    "bin/Release/net6.0/ManagedUsbRtPassiveObserver.dll": {
+      "sha256": "ffcba3f95040114a4ee3c6476a2d686d9e874d198898d678707ccc31b1cf6e2d",
+      "size": 52736
+    },
+    "bin/Release/net6.0/ManagedUsbRtPassiveObserver.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    },
+    "build-native.py": {
+      "sha256": "3f90e63426764bd4a53689246c3a8b359bd0cdba35d827482eeddd12465bd4e3",
+      "size": 5970
+    }
+  },
+  "offline_only": true,
+  "parent": {
+    "directory": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-usb-rt-fault-context-read",
+    "dll_sha256": "cd80eafa03fdcf9f3cc514434aef78ccd25228bb3b5cbe058d93dcb788e32127",
+    "program_sha256": "f7418df841af9b616c198958b5b725dd7fc2434c92f5b360b65989c9da66b6a0"
+  },
+  "protocol": {
+    "cycle": [
+      "R",
+      "M",
+      "C",
+      "H",
+      "L",
+      "R"
+    ],
+    "duration_ms": 20000,
+    "interface": 2,
+    "max_cycles": 80,
+    "nominal_period_ms": 250,
+    "requests": [
+      {
+        "address": "0x47012400",
+        "header_hex": "010100000024014700010000",
+        "id": "R",
+        "length": 256
+      },
+      {
+        "address": "0x470004a0",
+        "header_hex": "01010000a004004744000000",
+        "id": "M",
+        "length": 68
+      },
+      {
+        "address": "0x47000bc0",
+        "header_hex": "01010000c00b004710000000",
+        "id": "C",
+        "length": 16
+      },
+      {
+        "address": "0x4700d0e0",
+        "header_hex": "01010000e0d0004760000000",
+        "id": "H",
+        "length": 96
+      },
+      {
+        "address": "0x47010f00",
+        "header_hex": "01010000000f014740000000",
+        "id": "L",
+        "length": 64
+      }
+    ],
+    "retries": 0,
+    "target": "0x101",
+    "timeout_ms_per_bulk": 2000,
+    "writes": 0
+  },
+  "retention": {
+    "current_partial": 1,
+    "last_fully_clean": 1,
+    "output_limit_bytes": 24576,
+    "post_fault_sets": 1,
+    "transition": 1
+  },
+  "schema": "managed-usb-rt-passive-observer-native-build-v1",
+  "target_executions": 0,
+  "tests": {
+    "default_zero_io": true,
+    "host_abi_refusal": true,
+    "max_test_output_bytes": 10541,
+    "native_fake_cases": 75,
+    "unknown_cli_refusal": true
+  }
+}

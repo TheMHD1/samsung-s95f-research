@@ -1,0 +1,907 @@
+# qdf_tcon.ko sha256=97fff5ba5cf3cff758807abbc2bdfb835b4696cbf88626dec5f7eb0e33b7ea63
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000f98 <QDFTcon_InitVariable>:
+     f98:	a9ba7bfd 	stp	x29, x30, [sp, #-96]!
+     f9c:	90000004 	adrp	x4, 0 <QDFTcon_GetUSITVersion>
+			f9c: R_AARCH64_ADR_PREL_PG_HI21	.bss
+     fa0:	12800001 	mov	w1, #0xffffffff            	// #-1
+     fa4:	910003fd 	mov	x29, sp
+     fa8:	a90153f3 	stp	x19, x20, [sp, #16]
+     fac:	91000093 	add	x19, x4, #0x0
+			fac: R_AARCH64_ADD_ABS_LO12_NC	.bss
+     fb0:	52800022 	mov	w2, #0x1                   	// #1
+     fb4:	529fffe3 	mov	w3, #0xffff                	// #65535
+     fb8:	52801289 	mov	w9, #0x94                  	// #148
+     fbc:	52800288 	mov	w8, #0x14                  	// #20
+     fc0:	29018a7f 	stp	wzr, w2, [x19, #12]
+     fc4:	2902fe7f 	stp	wzr, wzr, [x19, #20]
+     fc8:	9105226a 	add	x10, x19, #0x148
+     fcc:	2903867f 	stp	wzr, w1, [x19, #28]
+     fd0:	9105c26b 	add	x11, x19, #0x170
+     fd4:	a9025bf5 	stp	x21, x22, [sp, #32]
+     fd8:	9106126c 	add	x12, x19, #0x184
+     fdc:	90000005 	adrp	x5, 0 <tztv_get_product_info>
+			fdc: R_AARCH64_ADR_PREL_PG_HI21	tztv_get_product_info
+     fe0:	b9002662 	str	w2, [x19, #36]
+     fe4:	9106726d 	add	x13, x19, #0x19c
+     fe8:	f9001bf7 	str	x23, [sp, #48]
+     fec:	aa0003f7 	mov	x23, x0
+     ff0:	29060a62 	stp	w2, w2, [x19, #48]
+     ff4:	91042260 	add	x0, x19, #0x108
+     ff8:	29070a62 	stp	w2, w2, [x19, #56]
+     ffc:	52800327 	mov	w7, #0x19                  	// #25
+    1000:	29087e62 	stp	w2, wzr, [x19, #64]
+    1004:	528008c6 	mov	w6, #0x46                  	// #70
+    1008:	290b7e69 	stp	w9, wzr, [x19, #88]
+    100c:	9104e269 	add	x9, x19, #0x138
+    1010:	290c7e7f 	stp	wzr, wzr, [x19, #96]
+    1014:	290d7e62 	stp	w2, wzr, [x19, #104]
+    1018:	290e0e68 	stp	w8, w3, [x19, #112]
+    101c:	9104a268 	add	x8, x19, #0x128
+    1020:	290f0e63 	stp	w3, w3, [x19, #120]
+    1024:	b900827f 	str	wzr, [x19, #128]
+    1028:	29108a63 	stp	w3, w2, [x19, #132]
+    102c:	91046263 	add	x3, x19, #0x118
+    1030:	29057e7f 	stp	wzr, wzr, [x19, #40]
+    1034:	2911fe7f 	stp	wzr, wzr, [x19, #140]
+    1038:	2912fe7f 	stp	wzr, wzr, [x19, #148]
+    103c:	2913867f 	stp	wzr, w1, [x19, #156]
+    1040:	29148661 	stp	w1, w1, [x19, #164]
+    1044:	29158661 	stp	w1, w1, [x19, #172]
+    1048:	29168661 	stp	w1, w1, [x19, #180]
+    104c:	29178661 	stp	w1, w1, [x19, #188]
+    1050:	29188661 	stp	w1, w1, [x19, #196]
+    1054:	29198661 	stp	w1, w1, [x19, #204]
+    1058:	291a8661 	stp	w1, w1, [x19, #212]
+    105c:	291b8661 	stp	w1, w1, [x19, #220]
+    1060:	291c8661 	stp	w1, w1, [x19, #228]
+    1064:	291d8661 	stp	w1, w1, [x19, #236]
+    1068:	291efe61 	stp	w1, wzr, [x19, #244]
+    106c:	b900fe61 	str	w1, [x19, #252]
+    1070:	293f7c1f 	stp	wzr, wzr, [x0, #-8]
+    1074:	b900009f 	str	wzr, [x4]
+			1074: R_AARCH64_LDST32_ABS_LO12_NC	.bss
+    1078:	293f7c7f 	stp	wzr, wzr, [x3, #-8]
+    107c:	293f051f 	stp	wzr, w1, [x8, #-8]
+    1080:	293f0521 	stp	w1, w1, [x9, #-8]
+    1084:	293f055f 	stp	wzr, w1, [x10, #-8]
+    1088:	293f7d67 	stp	w7, wzr, [x11, #-8]
+    108c:	29007c1f 	stp	wzr, wzr, [x0]
+    1090:	29007c7f 	stp	wzr, wzr, [x3]
+    1094:	29007d1f 	stp	wzr, wzr, [x8]
+    1098:	29007d3f 	stp	wzr, wzr, [x9]
+    109c:	2900095f 	stp	wzr, w2, [x10]
+    10a0:	29000561 	stp	w1, w1, [x11]
+    10a4:	2900fe62 	stp	w2, wzr, [x19, #4]
+    10a8:	b9004a7f 	str	wzr, [x19, #72]
+    10ac:	b901527f 	str	wzr, [x19, #336]
+    10b0:	b901567f 	str	wzr, [x19, #340]
+    10b4:	b9015a7f 	str	wzr, [x19, #344]
+    10b8:	f900b27f 	str	xzr, [x19, #352]
+    10bc:	b9017a62 	str	w2, [x19, #376]
+    10c0:	293f0581 	stp	w1, w1, [x12, #-8]
+    10c4:	f94000a0 	ldr	x0, [x5]
+			10c4: R_AARCH64_LDST64_ABS_LO12_NC	tztv_get_product_info
+    10c8:	293f7da2 	stp	w2, wzr, [x13, #-8]
+    10cc:	29000581 	stp	w1, w1, [x12]
+    10d0:	2900fdbf 	stp	wzr, wzr, [x13, #4]
+    10d4:	b9018e61 	str	w1, [x19, #396]
+    10d8:	3906427f 	strb	wzr, [x19, #400]
+    10dc:	39067266 	strb	w6, [x19, #412]
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000000bba0 <m_send_cmd_with_lock.constprop.0>:
+    bba0:	d10303ff 	sub	sp, sp, #0xc0
+    bba4:	90000003 	adrp	x3, 0 <QDFTcon_GetUSITVersion>
+			bba4: R_AARCH64_ADR_PREL_PG_HI21	.bss
+    bba8:	a9037bfd 	stp	x29, x30, [sp, #48]
+    bbac:	9100c3fd 	add	x29, sp, #0x30
+    bbb0:	a9076bf9 	stp	x25, x26, [sp, #112]
+    bbb4:	91000079 	add	x25, x3, #0x0
+			bbb4: R_AARCH64_ADD_ABS_LO12_NC	.bss
+    bbb8:	b9400063 	ldr	w3, [x3]
+			bbb8: R_AARCH64_LDST32_ABS_LO12_NC	.bss
+    bbbc:	a90453f3 	stp	x19, x20, [sp, #64]
+    bbc0:	aa0003f4 	mov	x20, x0
+    bbc4:	b9404733 	ldr	w19, [x25, #68]
+    bbc8:	7100047f 	cmp	w3, #0x1
+    bbcc:	54001d20 	b.eq	bf70 <m_send_cmd_with_lock.constprop.0+0x3d0>  // b.none
+    bbd0:	a9055bf5 	stp	x21, x22, [sp, #80]
+    bbd4:	2a0103f5 	mov	w21, w1
+    bbd8:	a90873fb 	stp	x27, x28, [sp, #128]
+    bbdc:	2a0203fb 	mov	w27, w2
+    bbe0:	35002513 	cbnz	w19, c080 <m_send_cmd_with_lock.constprop.0+0x4e0>
+    bbe4:	9000001a 	adrp	x26, 0 <QDFTcon_GetUSITVersion>
+			bbe4: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    bbe8:	9100035a 	add	x26, x26, #0x0
+			bbe8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    bbec:	b9419733 	ldr	w19, [x25, #404]
+    bbf0:	2a1302b3 	orr	w19, w21, w19
+    bbf4:	34001473 	cbz	w19, be80 <m_send_cmd_with_lock.constprop.0+0x2e0>
+    bbf8:	b9410f20 	ldr	w0, [x25, #268]
+    bbfc:	7100041f 	cmp	w0, #0x1
+    bc00:	54002a00 	b.eq	c140 <m_send_cmd_with_lock.constprop.0+0x5a0>  // b.none
+    bc04:	35001cbb 	cbnz	w27, bf98 <m_send_cmd_with_lock.constprop.0+0x3f8>
+    bc08:	b9401320 	ldr	w0, [x25, #16]
+    bc0c:	7100041f 	cmp	w0, #0x1
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000000be80 <m_send_cmd_with_lock.constprop.0+0x2e0>:
+    be80:	d2802c80 	mov	x0, #0x164                 	// #356
+    be84:	f2de6000 	movk	x0, #0xf300, lsl #32
+    be88:	eb00029f 	cmp	x20, x0
+    be8c:	54ffeb61 	b.ne	bbf8 <m_send_cmd_with_lock.constprop.0+0x58>  // b.any
+    be90:	94000000 	bl	16ba8 <ft_current_pid>
+			be90: R_AARCH64_CALL26	ft_current_pid
+    be94:	2a0003f5 	mov	w21, w0
+    be98:	94000000 	bl	16bb8 <ft_current_comm>
+			be98: R_AARCH64_CALL26	ft_current_comm
+    be9c:	aa0003e3 	mov	x3, x0
+    bea0:	b9410f25 	ldr	w5, [x25, #268]
+    bea4:	2a1503e2 	mov	w2, w21
+    bea8:	b9419724 	ldr	w4, [x25, #404]
+    beac:	aa1403e6 	mov	x6, x20
+    beb0:	913a6341 	add	x1, x26, #0xe98
+    beb4:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			beb4: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x53e0
+    beb8:	91000000 	add	x0, x0, #0x0
+			beb8: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x53e0
+    bebc:	94000000 	bl	0 <printk>
+			bebc: R_AARCH64_CALL26	printk
+    bec0:	a9455bf5 	ldp	x21, x22, [sp, #80]
+    bec4:	a94873fb 	ldp	x27, x28, [sp, #128]
+    bec8:	17ffffdc 	b	be38 <m_send_cmd_with_lock.constprop.0+0x298>
+    becc:	52800057 	mov	w23, #0x2                   	// #2
+    bed0:	94000000 	bl	16ba8 <ft_current_pid>
+			bed0: R_AARCH64_CALL26	ft_current_pid
+    bed4:	2a0003f5 	mov	w21, w0
+    bed8:	94000000 	bl	16bb8 <ft_current_comm>
+			bed8: R_AARCH64_CALL26	ft_current_comm
+    bedc:	b940abe4 	ldr	w4, [sp, #168]
+    bee0:	913a6341 	add	x1, x26, #0xe98
+    bee4:	2a1503e2 	mov	w2, w21
+    bee8:	aa0003e3 	mov	x3, x0
+    beec:	2a1703e6 	mov	w6, w23
+    bef0:	2a1403e5 	mov	w5, w20
+    bef4:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			bef4: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x55f0
+    bef8:	aa0103f4 	mov	x20, x1
+    befc:	91000000 	add	x0, x0, #0x0
+			befc: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x55f0
+    bf00:	94000000 	bl	0 <printk>
+			bf00: R_AARCH64_CALL26	printk
+    bf04:	94000000 	bl	16ba8 <ft_current_pid>
+			bf04: R_AARCH64_CALL26	ft_current_pid
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000011b88 <QDFTcon_t_Tcon_SetPvccFlag>:
+   11b88:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+   11b8c:	7100041f 	cmp	w0, #0x1
+   11b90:	910003fd 	mov	x29, sp
+   11b94:	a90153f3 	stp	x19, x20, [sp, #16]
+   11b98:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+			11b98: R_AARCH64_ADR_PREL_PG_HI21	.bss
+   11b9c:	91000294 	add	x20, x20, #0x0
+			11b9c: R_AARCH64_ADD_ABS_LO12_NC	.bss
+   11ba0:	a9025bf5 	stp	x21, x22, [sp, #32]
+   11ba4:	2a0003f3 	mov	w19, w0
+   11ba8:	b9004280 	str	w0, [x20, #64]
+   11bac:	b9019680 	str	w0, [x20, #404]
+   11bb0:	54000041 	b.ne	11bb8 <QDFTcon_t_Tcon_SetPvccFlag+0x30>  // b.any
+   11bb4:	b900729f 	str	wzr, [x20, #112]
+   11bb8:	90000015 	adrp	x21, 0 <QDFTcon_GetUSITVersion>
+			11bb8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1228
+   11bbc:	910002b5 	add	x21, x21, #0x0
+			11bbc: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1228
+   11bc0:	94000000 	bl	16ba8 <ft_current_pid>
+			11bc0: R_AARCH64_CALL26	ft_current_pid
+   11bc4:	913342b5 	add	x21, x21, #0xcd0
+   11bc8:	2a0003f6 	mov	w22, w0
+   11bcc:	94000000 	bl	16bb8 <ft_current_comm>
+			11bcc: R_AARCH64_CALL26	ft_current_comm
+   11bd0:	2a1303e4 	mov	w4, w19
+   11bd4:	aa0003e3 	mov	x3, x0
+   11bd8:	2a1603e2 	mov	w2, w22
+   11bdc:	aa1503e1 	mov	x1, x21
+   11be0:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			11be0: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x8478
+   11be4:	91000000 	add	x0, x0, #0x0
+			11be4: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x8478
+   11be8:	94000000 	bl	0 <printk>
+			11be8: R_AARCH64_CALL26	printk
+   11bec:	b9404293 	ldr	w19, [x20, #64]
+   11bf0:	7100067f 	cmp	w19, #0x1
+   11bf4:	540000c0 	b.eq	11c0c <QDFTcon_t_Tcon_SetPvccFlag+0x84>  // b.none
+   11bf8:	52800000 	mov	w0, #0x0                   	// #0
+   11bfc:	a94153f3 	ldp	x19, x20, [sp, #16]
+   11c00:	a9425bf5 	ldp	x21, x22, [sp, #32]
+   11c04:	a8c37bfd 	ldp	x29, x30, [sp], #48
+   11c08:	d65f03c0 	ret
+   11c0c:	b9400680 	ldr	w0, [x20, #4]
+   11c10:	35ffff40 	cbnz	w0, 11bf8 <QDFTcon_t_Tcon_SetPvccFlag+0x70>
+   11c14:	94000000 	bl	16ba8 <ft_current_pid>
+			11c14: R_AARCH64_CALL26	ft_current_pid
+   11c18:	2a0003f4 	mov	w20, w0
+   11c1c:	94000000 	bl	16bb8 <ft_current_comm>
+			11c1c: R_AARCH64_CALL26	ft_current_comm
+   11c20:	aa0003e3 	mov	x3, x0
+   11c24:	2a1403e2 	mov	w2, w20
+   11c28:	aa1503e1 	mov	x1, x21
+   11c2c:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			11c2c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x84a0
+   11c30:	91000000 	add	x0, x0, #0x0
+			11c30: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x84a0
+   11c34:	94000000 	bl	0 <printk>
+			11c34: R_AARCH64_CALL26	printk
+   11c38:	2a1303e0 	mov	w0, w19
+   11c3c:	97ffff03 	bl	11848 <m_set_power_control>
+   11c40:	17ffffee 	b	11bf8 <QDFTcon_t_Tcon_SetPvccFlag+0x70>
+   11c44:	d503201f 	nop
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .init.text:
+
+00000000000000e4 <init_module+0xe4>:
+  e4:	9000000b 	adrp	x11, 2c80 <QDFTcon_SetFactoryModeIn>
+			e4: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetFactoryModeIn
+  e8:	90000011 	adrp	x17, 11b88 <QDFTcon_t_Tcon_SetPvccFlag>
+			e8: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_t_Tcon_SetPvccFlag
+  ec:	9100016b 	add	x11, x11, #0x0
+			ec: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetFactoryModeIn
+  f0:	91000231 	add	x17, x17, #0x0
+			f0: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_t_Tcon_SetPvccFlag
+  f4:	91000042 	add	x2, x2, #0x0
+			f4: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_InitVariable
+  f8:	910001ad 	add	x13, x13, #0x0
+			f8: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetSuspendFlag
+  fc:	90000010 	adrp	x16, 10ee8 <QDFTcon_Resume>
+			fc: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_Resume
+ 100:	9000000e 	adrp	x14, f498 <QDFTcon_SetFactoryData>
+			100: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetFactoryData
+ 104:	91000210 	add	x16, x16, #0x0
+			104: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_Resume
+ 108:	910001ce 	add	x14, x14, #0x0
+			108: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetFactoryData
+ 10c:	9000000f 	adrp	x15, 1c18 <QDFTcon_SetStabilizeTime>
+			10c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetStabilizeTime
+ 110:	90000004 	adrp	x4, dc98 <QDFTcon_SetBacklight>
+			110: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetBacklight
+ 114:	910001ef 	add	x15, x15, #0x0
+			114: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetStabilizeTime
+ 118:	91000084 	add	x4, x4, #0x0
+			118: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetBacklight
+ 11c:	9000000c 	adrp	x12, f410 <QDFTcon_SetNpcLut>
+			11c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetNpcLut
+ 120:	90000000 	adrp	x0, 2b38 <QDFTcon_GetCurrentTemperature>
+			120: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_GetCurrentTemperature
+ 124:	9100018c 	add	x12, x12, #0x0
+			124: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetNpcLut
+ 128:	91000000 	add	x0, x0, #0x0
+			128: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_GetCurrentTemperature
+ 12c:	f9000667 	str	x7, [x19, #8]
+ 130:	90000007 	adrp	x7, 13690 <QDFTcon_SetOffSensing>
+			130: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetOffSensing
+ 134:	910000e7 	add	x7, x7, #0x0
+			134: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetOffSensing
+ 138:	f9002a66 	str	x6, [x19, #80]
+ 13c:	90000006 	adrp	x6, e398 <QDFTcon_SetNpcDimLvl2>
+			13c: R_AARCH64_ADR_PREL_PG_HI21	QDFTcon_SetNpcDimLvl2
+ 140:	910000c6 	add	x6, x6, #0x0
+			140: R_AARCH64_ADD_ABS_LO12_NC	QDFTcon_SetNpcDimLvl2
+ 144:	f9003a71 	str	x17, [x19, #112]
+# tztv_frc_tcon_api.ko sha256=3a34e9507c44f3ca9b7955e92844187a5396e30e3ab7c745bf0296145be3f7c6
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon_api.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000000c020 <TCON_SetPvccFlag>:
+    c020:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    c024:	90000001 	adrp	x1, 410 <fop_frc_ew_ioctl_export+0x250>
+			c024: R_AARCH64_ADR_PREL_PG_HI21	frc_tcon_debug_level
+    c028:	910003fd 	mov	x29, sp
+    c02c:	f9000bf3 	str	x19, [sp, #16]
+    c030:	2a0003f3 	mov	w19, w0
+    c034:	b9400020 	ldr	w0, [x1]
+			c034: R_AARCH64_LDST32_ABS_LO12_NC	frc_tcon_debug_level
+    c038:	350001e0 	cbnz	w0, c074 <TCON_SetPvccFlag+0x54>
+    c03c:	90000000 	adrp	x0, 0 <copy_overflow>
+			c03c: R_AARCH64_ADR_PREL_PG_HI21	.bss+0x620
+    c040:	f9400000 	ldr	x0, [x0]
+			c040: R_AARCH64_LDST64_ABS_LO12_NC	.bss+0x620
+    c044:	b4000100 	cbz	x0, c064 <TCON_SetPvccFlag+0x44>
+    c048:	f9403801 	ldr	x1, [x0, #112]
+    c04c:	b40000c1 	cbz	x1, c064 <TCON_SetPvccFlag+0x44>
+    c050:	2a1303e0 	mov	w0, w19
+    c054:	d63f0020 	blr	x1
+    c058:	f9400bf3 	ldr	x19, [sp, #16]
+    c05c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    c060:	d65f03c0 	ret
+    c064:	52800000 	mov	w0, #0x0                   	// #0
+    c068:	f9400bf3 	ldr	x19, [sp, #16]
+    c06c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    c070:	d65f03c0 	ret
+    c074:	90000001 	adrp	x1, 0 <copy_overflow>
+			c074: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x830
+    c078:	91000021 	add	x1, x1, #0x0
+			c078: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x830
+    c07c:	912c8021 	add	x1, x1, #0xb20
+    c080:	2a1303e2 	mov	w2, w19
+    c084:	90000000 	adrp	x0, 0 <copy_overflow>
+			c084: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0xe98
+    c088:	91000000 	add	x0, x0, #0x0
+			c088: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0xe98
+    c08c:	94000000 	bl	0 <printk>
+			c08c: R_AARCH64_CALL26	printk
+    c090:	17ffffeb 	b	c03c <TCON_SetPvccFlag+0x1c>
+    c094:	d503201f 	nop
+# tztv_frc_tcon.ko sha256=aefabb5735b8b091c70006833141b9b0602983a9c1dbc182830dca7cf8b45dbd
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000005408 <get_fn_ad+0x6c0>:
+    5408:	90000000 	adrp	x0, 0 <_tztv_is_chip_nikem2>
+			5408: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x4d48
+    540c:	91000000 	add	x0, x0, #0x0
+			540c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x4d48
+    5410:	f9016661 	str	x1, [x19, #712]
+    5414:	94000000 	bl	2a78 <resolve_symbol>
+			5414: R_AARCH64_CALL26	resolve_symbol
+    5418:	aa0003e1 	mov	x1, x0
+    541c:	90000000 	adrp	x0, 0 <_tztv_is_chip_nikem2>
+			541c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x4d60
+    5420:	91000000 	add	x0, x0, #0x0
+			5420: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x4d60
+    5424:	f900fe61 	str	x1, [x19, #504]
+    5428:	94000000 	bl	2a78 <resolve_symbol>
+			5428: R_AARCH64_CALL26	resolve_symbol
+    542c:	aa0003e1 	mov	x1, x0
+    5430:	90000000 	adrp	x0, 0 <_tztv_is_chip_nikem2>
+			5430: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x4d78
+    5434:	91000000 	add	x0, x0, #0x0
+			5434: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x4d78
+    5438:	f9016a61 	str	x1, [x19, #720]
+    543c:	94000000 	bl	2a78 <resolve_symbol>
+			543c: R_AARCH64_CALL26	resolve_symbol
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000060d0 <tztv_frc_tcon_set_power>:
+    60d0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+    60d4:	910003fd 	mov	x29, sp
+    60d8:	a90153f3 	stp	x19, x20, [sp, #16]
+    60dc:	90000014 	adrp	x20, 0 <_tztv_is_chip_nikem2>
+			60dc: R_AARCH64_ADR_PREL_PG_HI21	.bss
+    60e0:	91000294 	add	x20, x20, #0x0
+			60e0: R_AARCH64_ADD_ABS_LO12_NC	.bss
+    60e4:	b9428682 	ldr	w2, [x20, #644]
+    60e8:	6b00005f 	cmp	w2, w0
+    60ec:	540010c0 	b.eq	6304 <tztv_frc_tcon_set_power+0x234>  // b.none
+    60f0:	2a0003f3 	mov	w19, w0
+    60f4:	34000a00 	cbz	w0, 6234 <tztv_frc_tcon_set_power+0x164>
+    60f8:	f9418281 	ldr	x1, [x20, #768]
+    60fc:	52800013 	mov	w19, #0x0                   	// #0
+    6100:	b4000081 	cbz	x1, 6110 <tztv_frc_tcon_set_power+0x40>
+    6104:	52800000 	mov	w0, #0x0                   	// #0
+    6108:	d63f0020 	blr	x1
+    610c:	2a0003f3 	mov	w19, w0
+    6110:	b9434e80 	ldr	w0, [x20, #844]
+    6114:	7100041f 	cmp	w0, #0x1
+    6118:	54000080 	b.eq	6128 <tztv_frc_tcon_set_power+0x58>  // b.none
+    611c:	b9435280 	ldr	w0, [x20, #848]
+    6120:	7100041f 	cmp	w0, #0x1
+    6124:	54000d21 	b.ne	62c8 <tztv_frc_tcon_set_power+0x1f8>  // b.any
+    6128:	52800020 	mov	w0, #0x1                   	// #1
+    612c:	94000000 	bl	5ff0 <tztv_frc_tcon_set_lvds_clk>
+			612c: R_AARCH64_CALL26	tztv_frc_tcon_set_lvds_clk
+    6130:	f9415281 	ldr	x1, [x20, #672]
+    6134:	2a000273 	orr	w19, w19, w0
+    6138:	b4000081 	cbz	x1, 6148 <tztv_frc_tcon_set_power+0x78>
+    613c:	52800000 	mov	w0, #0x0                   	// #0
+    6140:	d63f0020 	blr	x1
+    6144:	2a000273 	orr	w19, w19, w0
+    6148:	f9415681 	ldr	x1, [x20, #680]
+    614c:	b4000081 	cbz	x1, 615c <tztv_frc_tcon_set_power+0x8c>
+    6150:	52800020 	mov	w0, #0x1                   	// #1
+    6154:	d63f0020 	blr	x1
+    6158:	2a000273 	orr	w19, w19, w0
+    615c:	f9416a81 	ldr	x1, [x20, #720]
+    6160:	b4000081 	cbz	x1, 6170 <tztv_frc_tcon_set_power+0xa0>
+    6164:	52800020 	mov	w0, #0x1                   	// #1
+    6168:	d63f0020 	blr	x1
+    616c:	2a000273 	orr	w19, w19, w0
+    6170:	f9416e81 	ldr	x1, [x20, #728]
+    6174:	b4000081 	cbz	x1, 6184 <tztv_frc_tcon_set_power+0xb4>
+    6178:	52800020 	mov	w0, #0x1                   	// #1
+    617c:	d63f0020 	blr	x1
+    6180:	2a000273 	orr	w19, w19, w0
+    6184:	f9417e81 	ldr	x1, [x20, #760]
+    6188:	b4000081 	cbz	x1, 6198 <tztv_frc_tcon_set_power+0xc8>
+    618c:	52800000 	mov	w0, #0x0                   	// #0
+    6190:	d63f0020 	blr	x1
+    6194:	2a000273 	orr	w19, w19, w0
+    6198:	f9415281 	ldr	x1, [x20, #672]
+    619c:	b40009e1 	cbz	x1, 62d8 <tztv_frc_tcon_set_power+0x208>
+    61a0:	52800020 	mov	w0, #0x1                   	// #1
+    61a4:	d63f0020 	blr	x1
+    61a8:	f9415281 	ldr	x1, [x20, #672]
+    61ac:	2a000273 	orr	w19, w19, w0
+    61b0:	b4000941 	cbz	x1, 62d8 <tztv_frc_tcon_set_power+0x208>
+    61b4:	52800140 	mov	w0, #0xa                   	// #10
+    61b8:	d63f0020 	blr	x1
+    61bc:	f9417e81 	ldr	x1, [x20, #760]
+    61c0:	2a000273 	orr	w19, w19, w0
+    61c4:	b4000081 	cbz	x1, 61d4 <tztv_frc_tcon_set_power+0x104>
+    61c8:	52800140 	mov	w0, #0xa                   	// #10
+    61cc:	d63f0020 	blr	x1
+    61d0:	2a000273 	orr	w19, w19, w0
+    61d4:	f9415281 	ldr	x1, [x20, #672]
+    61d8:	b40008a1 	cbz	x1, 62ec <tztv_frc_tcon_set_power+0x21c>
+    61dc:	52800280 	mov	w0, #0x14                  	// #20
+    61e0:	d63f0020 	blr	x1
+    61e4:	f9417e81 	ldr	x1, [x20, #760]
+    61e8:	2a000273 	orr	w19, w19, w0
+    61ec:	b40007a1 	cbz	x1, 62e0 <tztv_frc_tcon_set_power+0x210>
+    61f0:	52800280 	mov	w0, #0x14                  	// #20
+    61f4:	d63f0020 	blr	x1
+    61f8:	f9415281 	ldr	x1, [x20, #672]
+    61fc:	2a000273 	orr	w19, w19, w0
+    6200:	b4000081 	cbz	x1, 6210 <tztv_frc_tcon_set_power+0x140>
+    6204:	52800500 	mov	w0, #0x28                  	// #40
+    6208:	d63f0020 	blr	x1
+    620c:	2a000273 	orr	w19, w19, w0
+    6210:	f9417e81 	ldr	x1, [x20, #760]
+    6214:	b4000081 	cbz	x1, 6224 <tztv_frc_tcon_set_power+0x154>
+    6218:	52800500 	mov	w0, #0x28                  	// #40
+    621c:	d63f0020 	blr	x1
+    6220:	2a000273 	orr	w19, w19, w0
+    6224:	2a1303e0 	mov	w0, w19
+    6228:	a94153f3 	ldp	x19, x20, [sp, #16]
+    622c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    6230:	d65f03c0 	ret
+    6234:	f9419280 	ldr	x0, [x20, #800]
+    6238:	b4000060 	cbz	x0, 6244 <tztv_frc_tcon_set_power+0x174>
+    623c:	d63f0000 	blr	x0
+    6240:	2a0003f3 	mov	w19, w0
+    6244:	f9414e80 	ldr	x0, [x20, #664]
+    6248:	b4000060 	cbz	x0, 6254 <tztv_frc_tcon_set_power+0x184>
+    624c:	d63f0000 	blr	x0
+    6250:	2a000273 	orr	w19, w19, w0
+    6254:	f9415681 	ldr	x1, [x20, #680]
+    6258:	b4000081 	cbz	x1, 6268 <tztv_frc_tcon_set_power+0x198>
+    625c:	52800000 	mov	w0, #0x0                   	// #0
+    6260:	d63f0020 	blr	x1
+    6264:	2a000273 	orr	w19, w19, w0
+    6268:	f9416a81 	ldr	x1, [x20, #720]
+    626c:	b4000081 	cbz	x1, 627c <tztv_frc_tcon_set_power+0x1ac>
+    6270:	52800000 	mov	w0, #0x0                   	// #0
+    6274:	d63f0020 	blr	x1
+    6278:	2a000273 	orr	w19, w19, w0
+    627c:	b9421e80 	ldr	w0, [x20, #540]
+    6280:	7100041f 	cmp	w0, #0x1
+    6284:	540003a0 	b.eq	62f8 <tztv_frc_tcon_set_power+0x228>  // b.none
+    6288:	52800000 	mov	w0, #0x0                   	// #0
+    628c:	94000000 	bl	5ff0 <tztv_frc_tcon_set_lvds_clk>
+			628c: R_AARCH64_CALL26	tztv_frc_tcon_set_lvds_clk
+    6290:	2a0003e1 	mov	w1, w0
+    6294:	52800000 	mov	w0, #0x0                   	// #0
+    6298:	2a010273 	orr	w19, w19, w1
+    629c:	94000000 	bl	5b90 <_tztv_frc_tcon_set_pvcc>
+			629c: R_AARCH64_CALL26	_tztv_frc_tcon_set_pvcc
+    62a0:	2a000273 	orr	w19, w19, w0
+    62a4:	f9416e81 	ldr	x1, [x20, #728]
+    62a8:	b4fffbe1 	cbz	x1, 6224 <tztv_frc_tcon_set_power+0x154>
+    62ac:	52800000 	mov	w0, #0x0                   	// #0
+    62b0:	d63f0020 	blr	x1
+    62b4:	2a000273 	orr	w19, w19, w0
+    62b8:	2a1303e0 	mov	w0, w19
+    62bc:	a94153f3 	ldp	x19, x20, [sp, #16]
+    62c0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+    62c4:	d65f03c0 	ret
+    62c8:	52800020 	mov	w0, #0x1                   	// #1
+    62cc:	94000000 	bl	5b90 <_tztv_frc_tcon_set_pvcc>
+			62cc: R_AARCH64_CALL26	_tztv_frc_tcon_set_pvcc
+    62d0:	2a000273 	orr	w19, w19, w0
+    62d4:	17ffff95 	b	6128 <tztv_frc_tcon_set_power+0x58>
+    62d8:	f9417e81 	ldr	x1, [x20, #760]
+    62dc:	b5fff761 	cbnz	x1, 61c8 <tztv_frc_tcon_set_power+0xf8>
+    62e0:	f9415281 	ldr	x1, [x20, #672]
+    62e4:	b5fff901 	cbnz	x1, 6204 <tztv_frc_tcon_set_power+0x134>
+    62e8:	17ffffcf 	b	6224 <tztv_frc_tcon_set_power+0x154>
+    62ec:	f9417e81 	ldr	x1, [x20, #760]
+    62f0:	b5fff801 	cbnz	x1, 61f0 <tztv_frc_tcon_set_power+0x120>
+    62f4:	17ffffcc 	b	6224 <tztv_frc_tcon_set_power+0x154>
+    62f8:	94000000 	bl	44e8 <tztv_frc_tcon_sr_upgrade_check>
+			62f8: R_AARCH64_CALL26	tztv_frc_tcon_sr_upgrade_check
+    62fc:	2a000273 	orr	w19, w19, w0
+    6300:	17ffffe2 	b	6288 <tztv_frc_tcon_set_power+0x1b8>
+    6304:	d5384104 	mrs	x4, sp_el0
+    6308:	b9444083 	ldr	w3, [x4, #1088]
+    630c:	2a0203e1 	mov	w1, w2
+    6310:	9117c084 	add	x4, x4, #0x5f0
+    6314:	90000000 	adrp	x0, 0 <_tztv_is_chip_nikem2>
+			6314: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5a90
+    6318:	52800013 	mov	w19, #0x0                   	// #0
+    631c:	91000000 	add	x0, x0, #0x0
+			631c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5a90
+    6320:	94000000 	bl	0 <printk>
+			6320: R_AARCH64_CALL26	printk
+    6324:	17ffffc0 	b	6224 <tztv_frc_tcon_set_power+0x154>
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+00000000000063d8 <_tztv_frc_tcon_dpms_off+0xb0>:
+    63d8:	b9428660 	ldr	w0, [x19, #644]
+    63dc:	340007c0 	cbz	w0, 64d4 <_tztv_frc_tcon_dpms_off+0x1ac>
+    63e0:	39413fe0 	ldrb	w0, [sp, #79]
+    63e4:	35000aa0 	cbnz	w0, 6538 <_tztv_frc_tcon_dpms_off+0x210>
+    63e8:	128005c1 	mov	w1, #0xffffffd1            	// #-47
+    63ec:	52800002 	mov	w2, #0x0                   	// #0
+    63f0:	2a0103e0 	mov	w0, w1
+    63f4:	94000000 	bl	4898 <tztv_frc_tcon_sdp_micom_send_cmd>
+			63f4: R_AARCH64_CALL26	tztv_frc_tcon_sdp_micom_send_cmd
+    63f8:	52800c80 	mov	w0, #0x64                  	// #100
+    63fc:	94000000 	bl	0 <msleep>
+			63fc: R_AARCH64_CALL26	msleep
+    6400:	52800000 	mov	w0, #0x0                   	// #0
+    6404:	94000000 	bl	60d0 <tztv_frc_tcon_set_power>
+			6404: R_AARCH64_CALL26	tztv_frc_tcon_set_power
+    6408:	2a0003e1 	mov	w1, w0
+    640c:	52801900 	mov	w0, #0xc8                  	// #200
+    6410:	2a010294 	orr	w20, w20, w1
+    6414:	94000000 	bl	0 <msleep>
+			6414: R_AARCH64_CALL26	msleep
+    6418:	f9417e61 	ldr	x1, [x19, #760]
+    641c:	b4000081 	cbz	x1, 642c <_tztv_frc_tcon_dpms_off+0x104>
+    6420:	52800780 	mov	w0, #0x3c                  	// #60
+    6424:	d63f0020 	blr	x1
+    6428:	2a000294 	orr	w20, w20, w0
+    642c:	90000016 	adrp	x22, 0 <_tztv_is_chip_nikem2>
+			642c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5f00
+    6430:	910002d6 	add	x22, x22, #0x0
+			6430: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5f00
+    6434:	aa1603e0 	mov	x0, x22
+    6438:	b902867f 	str	wzr, [x19, #644]
+    643c:	94000000 	bl	0 <trace_early_message>
+			643c: R_AARCH64_CALL26	trace_early_message
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/tztv_frc_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text.unlikely:
+
+0000000000001114 <_tztv_frc_tcon_dpms_on>:
+    1114:	a9bb7bfd 	stp	x29, x30, [sp, #-80]!
+    1118:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1118: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5ad0
+    111c:	d5384103 	mrs	x3, sp_el0
+    1120:	910003fd 	mov	x29, sp
+    1124:	a90153f3 	stp	x19, x20, [sp, #16]
+    1128:	90000013 	adrp	x19, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1128: R_AARCH64_ADR_PREL_PG_HI21	.bss
+    112c:	91000273 	add	x19, x19, #0x0
+			112c: R_AARCH64_ADD_ABS_LO12_NC	.bss
+    1130:	a9025bf5 	stp	x21, x22, [sp, #32]
+    1134:	91000000 	add	x0, x0, #0x0
+			1134: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5ad0
+    1138:	90000014 	adrp	x20, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1138: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5b08
+    113c:	f9001bf7 	str	x23, [sp, #48]
+    1140:	91000294 	add	x20, x20, #0x0
+			1140: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5b08
+    1144:	b9433a61 	ldr	w1, [x19, #824]
+    1148:	90000015 	adrp	x21, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1148: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x310
+    114c:	b9444062 	ldr	w2, [x3, #1088]
+    1150:	9117c063 	add	x3, x3, #0x5f0
+    1154:	910002b5 	add	x21, x21, #0x0
+			1154: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x310
+    1158:	94000000 	bl	0 <printk>
+			1158: R_AARCH64_CALL26	printk
+    115c:	aa1403e0 	mov	x0, x20
+    1160:	94000000 	bl	0 <trace_early_message>
+			1160: R_AARCH64_CALL26	trace_early_message
+    1164:	aa1503e1 	mov	x1, x21
+    1168:	aa1403e2 	mov	x2, x20
+    116c:	52800080 	mov	w0, #0x4                   	// #4
+    1170:	94000000 	bl	0 <vlog_print>
+			1170: R_AARCH64_CALL26	vlog_print
+    1174:	f9419a61 	ldr	x1, [x19, #816]
+    1178:	b902827f 	str	wzr, [x19, #640]
+    117c:	b4000061 	cbz	x1, 1188 <_tztv_frc_tcon_dpms_on+0x74>
+    1180:	52800000 	mov	w0, #0x0                   	// #0
+    1184:	d63f0020 	blr	x1
+    1188:	b9438274 	ldr	w20, [x19, #896]
+    118c:	350014f4 	cbnz	w20, 1428 <_tztv_frc_tcon_dpms_on+0x314>
+    1190:	b9433a60 	ldr	w0, [x19, #824]
+    1194:	7100041f 	cmp	w0, #0x1
+    1198:	540000e1 	b.ne	11b4 <_tztv_frc_tcon_dpms_on+0xa0>  // b.any
+    119c:	f9419661 	ldr	x1, [x19, #808]
+    11a0:	b4001021 	cbz	x1, 13a4 <_tztv_frc_tcon_dpms_on+0x290>
+    11a4:	52800000 	mov	w0, #0x0                   	// #0
+    11a8:	d63f0020 	blr	x1
+    11ac:	2a0003f4 	mov	w20, w0
+    11b0:	1400007d 	b	13a4 <_tztv_frc_tcon_dpms_on+0x290>
+    11b4:	51000c01 	sub	w1, w0, #0x3
+    11b8:	7100043f 	cmp	w1, #0x1
+    11bc:	54000089 	b.ls	11cc <_tztv_frc_tcon_dpms_on+0xb8>  // b.plast
+    11c0:	51001801 	sub	w1, w0, #0x6
+    11c4:	7100043f 	cmp	w1, #0x1
+    11c8:	540002e8 	b.hi	1224 <_tztv_frc_tcon_dpms_on+0x110>  // b.pmore
+    11cc:	94000000 	bl	4448 <tztv_frc_tcon_resume_check>
+			11cc: R_AARCH64_CALL26	tztv_frc_tcon_resume_check
+    11d0:	f9417e61 	ldr	x1, [x19, #760]
+    11d4:	b4000081 	cbz	x1, 11e4 <_tztv_frc_tcon_dpms_on+0xd0>
+    11d8:	52800640 	mov	w0, #0x32                  	// #50
+    11dc:	d63f0020 	blr	x1
+    11e0:	2a0003f4 	mov	w20, w0
+    11e4:	aa1503e1 	mov	x1, x21
+    11e8:	90000002 	adrp	x2, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			11e8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5b28
+    11ec:	52800080 	mov	w0, #0x4                   	// #4
+    11f0:	91000042 	add	x2, x2, #0x0
+			11f0: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5b28
+    11f4:	94000000 	bl	0 <vlog_print>
+			11f4: R_AARCH64_CALL26	vlog_print
+    11f8:	f9415261 	ldr	x1, [x19, #672]
+    11fc:	b4000081 	cbz	x1, 120c <_tztv_frc_tcon_dpms_on+0xf8>
+    1200:	52800640 	mov	w0, #0x32                  	// #50
+    1204:	d63f0020 	blr	x1
+    1208:	2a000294 	orr	w20, w20, w0
+    120c:	aa1503e1 	mov	x1, x21
+    1210:	90000002 	adrp	x2, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1210: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5b50
+    1214:	52800080 	mov	w0, #0x4                   	// #4
+    1218:	91000042 	add	x2, x2, #0x0
+			1218: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5b50
+    121c:	94000000 	bl	0 <vlog_print>
+			121c: R_AARCH64_CALL26	vlog_print
+    1220:	14000061 	b	13a4 <_tztv_frc_tcon_dpms_on+0x290>
+    1224:	7100081f 	cmp	w0, #0x2
+    1228:	540000e1 	b.ne	1244 <_tztv_frc_tcon_dpms_on+0x130>  // b.any
+    122c:	d5384102 	mrs	x2, sp_el0
+    1230:	b9444041 	ldr	w1, [x2, #1088]
+    1234:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1234: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5b78
+    1238:	9117c042 	add	x2, x2, #0x5f0
+    123c:	91000000 	add	x0, x0, #0x0
+			123c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5b78
+    1240:	94000000 	bl	0 <printk>
+			1240: R_AARCH64_CALL26	printk
+    1244:	b9438660 	ldr	w0, [x19, #900]
+    1248:	b9428661 	ldr	w1, [x19, #644]
+    124c:	7100041f 	cmp	w0, #0x1
+    1250:	54000101 	b.ne	1270 <_tztv_frc_tcon_dpms_on+0x15c>  // b.any
+    1254:	d5384103 	mrs	x3, sp_el0
+    1258:	b9444062 	ldr	w2, [x3, #1088]
+    125c:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			125c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5bb8
+    1260:	9117c063 	add	x3, x3, #0x5f0
+    1264:	91000000 	add	x0, x0, #0x0
+			1264: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5bb8
+    1268:	94000000 	bl	0 <printk>
+			1268: R_AARCH64_CALL26	printk
+    126c:	1400004e 	b	13a4 <_tztv_frc_tcon_dpms_on+0x290>
+    1270:	7100043f 	cmp	w1, #0x1
+    1274:	540008c0 	b.eq	138c <_tztv_frc_tcon_dpms_on+0x278>  // b.none
+    1278:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1278: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5be8
+    127c:	91000000 	add	x0, x0, #0x0
+			127c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5be8
+    1280:	94000000 	bl	0 <printk>
+			1280: R_AARCH64_CALL26	printk
+    1284:	90000000 	adrp	x0, 0 <jiffies>
+			1284: R_AARCH64_ADR_PREL_PG_HI21	jiffies
+    1288:	aa0003f6 	mov	x22, x0
+    128c:	b9434e61 	ldr	w1, [x19, #844]
+    1290:	f9400000 	ldr	x0, [x0]
+			1290: R_AARCH64_LDST64_ABS_LO12_NC	jiffies
+    1294:	f901c660 	str	x0, [x19, #904]
+    1298:	7100043f 	cmp	w1, #0x1
+    129c:	54000080 	b.eq	12ac <_tztv_frc_tcon_dpms_on+0x198>  // b.none
+    12a0:	b9435260 	ldr	w0, [x19, #848]
+    12a4:	7100041f 	cmp	w0, #0x1
+    12a8:	54000141 	b.ne	12d0 <_tztv_frc_tcon_dpms_on+0x1bc>  // b.any
+    12ac:	52800020 	mov	w0, #0x1                   	// #1
+    12b0:	94000000 	bl	5b90 <_tztv_frc_tcon_set_pvcc>
+			12b0: R_AARCH64_CALL26	_tztv_frc_tcon_set_pvcc
+    12b4:	2a0003f4 	mov	w20, w0
+    12b8:	528006e0 	mov	w0, #0x37                  	// #55
+    12bc:	94000000 	bl	0 <msleep>
+			12bc: R_AARCH64_CALL26	msleep
+    12c0:	b9434e60 	ldr	w0, [x19, #844]
+    12c4:	7100041f 	cmp	w0, #0x1
+    12c8:	54000041 	b.ne	12d0 <_tztv_frc_tcon_dpms_on+0x1bc>  // b.any
+    12cc:	94000000 	bl	5a48 <_tztv_frc_tcon_nreset_control>
+			12cc: R_AARCH64_CALL26	_tztv_frc_tcon_nreset_control
+    12d0:	52800020 	mov	w0, #0x1                   	// #1
+    12d4:	94000000 	bl	60d0 <tztv_frc_tcon_set_power>
+			12d4: R_AARCH64_CALL26	tztv_frc_tcon_set_power
+    12d8:	2a0003f7 	mov	w23, w0
+    12dc:	910133e0 	add	x0, sp, #0x4c
+    12e0:	b9004fff 	str	wzr, [sp, #76]
+    12e4:	94000000 	bl	c0 <_tztv_get_platform_type>
+			12e4: R_AARCH64_CALL26	_tztv_get_platform_type
+    12e8:	b9404fe0 	ldr	w0, [sp, #76]
+    12ec:	121e7800 	and	w0, w0, #0xfffffffd
+    12f0:	7100241f 	cmp	w0, #0x9
+    12f4:	54000140 	b.eq	131c <_tztv_frc_tcon_dpms_on+0x208>  // b.none
+    12f8:	f94002c1 	ldr	x1, [x22]
+			12f8: R_AARCH64_LDST64_ABS_LO12_NC	jiffies
+    12fc:	f941c660 	ldr	x0, [x19, #904]
+    1300:	cb000020 	sub	x0, x1, x0
+    1304:	94000000 	bl	0 <jiffies_to_msecs>
+			1304: R_AARCH64_CALL26	jiffies_to_msecs
+    1308:	71095c1f 	cmp	w0, #0x257
+    130c:	54000088 	b.hi	131c <_tztv_frc_tcon_dpms_on+0x208>  // b.pmore
+    1310:	52804b01 	mov	w1, #0x258                 	// #600
+    1314:	4b000020 	sub	w0, w1, w0
+    1318:	94000000 	bl	0 <msleep>
+			1318: R_AARCH64_CALL26	msleep
+    131c:	f9415261 	ldr	x1, [x19, #672]
+    1320:	2a170294 	orr	w20, w20, w23
+    1324:	b4000081 	cbz	x1, 1334 <_tztv_frc_tcon_dpms_on+0x220>
+    1328:	528003c0 	mov	w0, #0x1e                  	// #30
+    132c:	d63f0020 	blr	x1
+    1330:	2a000294 	orr	w20, w20, w0
+    1334:	f94002c1 	ldr	x1, [x22]
+			1334: R_AARCH64_LDST64_ABS_LO12_NC	jiffies
+    1338:	f941c660 	ldr	x0, [x19, #904]
+    133c:	cb000020 	sub	x0, x1, x0
+    1340:	94000000 	bl	0 <jiffies_to_msecs>
+			1340: R_AARCH64_CALL26	jiffies_to_msecs
+    1344:	90000002 	adrp	x2, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1344: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5c00
+    1348:	2a0003e1 	mov	w1, w0
+    134c:	91000040 	add	x0, x2, #0x0
+			134c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5c00
+    1350:	94000000 	bl	0 <printk>
+			1350: R_AARCH64_CALL26	printk
+    1354:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1354: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5c28
+    1358:	91000000 	add	x0, x0, #0x0
+			1358: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5c28
+    135c:	94000000 	bl	0 <printk>
+			135c: R_AARCH64_CALL26	printk
+    1360:	f94002c1 	ldr	x1, [x22]
+			1360: R_AARCH64_LDST64_ABS_LO12_NC	jiffies
+    1364:	f941c660 	ldr	x0, [x19, #904]
+    1368:	cb000020 	sub	x0, x1, x0
+    136c:	94000000 	bl	0 <jiffies_to_msecs>
+			136c: R_AARCH64_CALL26	jiffies_to_msecs
+    1370:	aa1503e1 	mov	x1, x21
+    1374:	2a0003e3 	mov	w3, w0
+    1378:	90000002 	adrp	x2, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1378: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5c40
+    137c:	52800080 	mov	w0, #0x4                   	// #4
+    1380:	91000042 	add	x2, x2, #0x0
+			1380: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5c40
+    1384:	94000000 	bl	0 <vlog_print>
+			1384: R_AARCH64_CALL26	vlog_print
+    1388:	14000007 	b	13a4 <_tztv_frc_tcon_dpms_on+0x290>
+    138c:	d5384103 	mrs	x3, sp_el0
+    1390:	b9444062 	ldr	w2, [x3, #1088]
+    1394:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1394: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5c68
+    1398:	9117c063 	add	x3, x3, #0x5f0
+    139c:	91000000 	add	x0, x0, #0x0
+			139c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5c68
+    13a0:	94000000 	bl	0 <printk>
+			13a0: R_AARCH64_CALL26	printk
+    13a4:	b9438660 	ldr	w0, [x19, #900]
+    13a8:	7100041f 	cmp	w0, #0x1
+    13ac:	54000161 	b.ne	13d8 <_tztv_frc_tcon_dpms_on+0x2c4>  // b.any
+    13b0:	f9416661 	ldr	x1, [x19, #712]
+    13b4:	52800000 	mov	w0, #0x0                   	// #0
+    13b8:	d63f0020 	blr	x1
+    13bc:	b9428661 	ldr	w1, [x19, #644]
+    13c0:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			13c0: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5bb8
+    13c4:	d5384102 	mrs	x2, sp_el0
+    13c8:	9117c043 	add	x3, x2, #0x5f0
+    13cc:	b9444042 	ldr	w2, [x2, #1088]
+    13d0:	91000000 	add	x0, x0, #0x0
+			13d0: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5bb8
+    13d4:	94000000 	bl	0 <printk>
+			13d4: R_AARCH64_CALL26	printk
+    13d8:	f9417e61 	ldr	x1, [x19, #760]
+    13dc:	b903867f 	str	wzr, [x19, #900]
+    13e0:	b4000081 	cbz	x1, 13f0 <_tztv_frc_tcon_dpms_on+0x2dc>
+    13e4:	52800780 	mov	w0, #0x3c                  	// #60
+    13e8:	d63f0020 	blr	x1
+    13ec:	2a000294 	orr	w20, w20, w0
+    13f0:	128005c1 	mov	w1, #0xffffffd1            	// #-47
+    13f4:	52800022 	mov	w2, #0x1                   	// #1
+    13f8:	2a0103e0 	mov	w0, w1
+    13fc:	94000000 	bl	4898 <tztv_frc_tcon_sdp_micom_send_cmd>
+			13fc: R_AARCH64_CALL26	tztv_frc_tcon_sdp_micom_send_cmd
+    1400:	aa1503e1 	mov	x1, x21
+    1404:	90000002 	adrp	x2, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1404: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5c98
+    1408:	52800080 	mov	w0, #0x4                   	// #4
+    140c:	91000042 	add	x2, x2, #0x0
+			140c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5c98
+    1410:	94000000 	bl	0 <vlog_print>
+			1410: R_AARCH64_CALL26	vlog_print
+    1414:	b9439260 	ldr	w0, [x19, #912]
+    1418:	7100041f 	cmp	w0, #0x1
+    141c:	54000241 	b.ne	1464 <_tztv_frc_tcon_dpms_on+0x350>  // b.any
+    1420:	94000000 	bl	928 <dpms_inverter_on_command>
+			1420: R_AARCH64_CALL26	dpms_inverter_on_command
+    1424:	14000010 	b	1464 <_tztv_frc_tcon_dpms_on+0x350>
+    1428:	d5384102 	mrs	x2, sp_el0
+    142c:	b9444041 	ldr	w1, [x2, #1088]
+    1430:	9117c042 	add	x2, x2, #0x5f0
+    1434:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1434: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5cc0
+    1438:	91000000 	add	x0, x0, #0x0
+			1438: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5cc0
+    143c:	94000000 	bl	0 <printk>
+			143c: R_AARCH64_CALL26	printk
+    1440:	52800020 	mov	w0, #0x1                   	// #1
+    1444:	94000000 	bl	5b90 <_tztv_frc_tcon_set_pvcc>
+			1444: R_AARCH64_CALL26	_tztv_frc_tcon_set_pvcc
+    1448:	f9419661 	ldr	x1, [x19, #808]
+    144c:	2a0003f4 	mov	w20, w0
+    1450:	b4000081 	cbz	x1, 1460 <_tztv_frc_tcon_dpms_on+0x34c>
+    1454:	52800000 	mov	w0, #0x0                   	// #0
+    1458:	d63f0020 	blr	x1
+    145c:	2a000294 	orr	w20, w20, w0
+    1460:	b903827f 	str	wzr, [x19, #896]
+    1464:	52800021 	mov	w1, #0x1                   	// #1
+    1468:	90000016 	adrp	x22, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1468: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5d20
+    146c:	910002d6 	add	x22, x22, #0x0
+			146c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5d20
+    1470:	b9028661 	str	w1, [x19, #644]
+    1474:	aa1603e0 	mov	x0, x22
+    1478:	b9033a7f 	str	wzr, [x19, #824]
+    147c:	94000000 	bl	0 <trace_early_message>
+			147c: R_AARCH64_CALL26	trace_early_message
+    1480:	aa1603e2 	mov	x2, x22
+    1484:	aa1503e1 	mov	x1, x21
+    1488:	52800080 	mov	w0, #0x4                   	// #4
+    148c:	94000000 	bl	0 <vlog_print>
+			148c: R_AARCH64_CALL26	vlog_print
+    1490:	2a1403e1 	mov	w1, w20
+    1494:	90000000 	adrp	x0, 0 <tztv_frc_tcon_sr_upgrade_th_fn>
+			1494: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5d40
+    1498:	91000000 	add	x0, x0, #0x0
+			1498: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5d40
+    149c:	94000000 	bl	0 <printk>
+			149c: R_AARCH64_CALL26	printk
+    14a0:	2a1403e0 	mov	w0, w20
+    14a4:	a94153f3 	ldp	x19, x20, [sp, #16]
+    14a8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    14ac:	f9401bf7 	ldr	x23, [sp, #48]
+    14b0:	a8c57bfd 	ldp	x29, x30, [sp], #80
+    14b4:	d65f03c0 	ret

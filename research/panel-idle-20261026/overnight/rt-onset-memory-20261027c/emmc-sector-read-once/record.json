@@ -1,0 +1,48 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\numask 077\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nmkdir /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9\necho STAGE_CREATED\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_CREATED\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.dll.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.deps.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.runtimeconfig.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n/usr/bin/dotnet /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.dll --self-test\necho ACTIVE_READ_BEGIN\nrc=0\n/usr/bin/dotnet /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.dll --execute || rc=$?\necho HELPER_EXIT=$rc\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n101591.89 379658.39\n{\"selfTestsPassed\":26,\"targetOperations\":0}\n[GC_INFO] GC_Start #1: Gen(0), Time(101592127 ms), Reason(0)\n[GC_INFO] GC_End #1: Gen(0), Time(101592127 ms)\nACTIVE_READ_BEGIN\n{\"Stage\":\"complete\",\"Steps\":[{\"Phase\":\"open\",\"Value\":25,\"Errno\":0,\"Error\":null},{\"Phase\":\"claim\",\"Value\":0,\"Errno\":0,\"Error\":null},{\"Phase\":\"out\",\"Value\":12,\"Errno\":0,\"Error\":null},{\"Phase\":\"in\",\"Value\":512,\"Errno\":0,\"Error\":null},{\"Phase\":\"release\",\"Value\":0,\"Errno\":0,\"Error\":null},{\"Phase\":\"close\",\"Value\":0,\"Errno\":0,\"Error\":null}],\"Opened\":true,\"Claimed\":true,\"Released\":true,\"Closed\":true,\"Accepted\":true,\"OutCount\":12,\"InCount\":512,\"DataBase64\":\"[encoded-payload-omitted]\",\"DataSha256\":\"3683a8b7fb7937de2c8fc57b770e949e20ad528890a3ccc67b5c0cabaec9cb7a\"}\n[GC_INFO] GC_Start #1: Gen(0), Time(101592277 ms), Reason(0)\n[GC_INFO] GC_End #1: Gen(0), Time(101592277 ms)\nHELPER_EXIT=0\n101592.39 379659.75\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest ! -L /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9\nif test -d /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9; then\nrm -f /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.dll /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.dll.b64 /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.deps.json /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.deps.json.b64 /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.runtimeconfig.json /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9/ManagedUsbEmmcSectorReadOnce.runtimeconfig.json.b64\nrmdir /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9\nfi\ntest ! -e /tmp/researcher-usb-emmcsector-da8a22e1bd894ceab3295cfc01e1bdd9\necho STAGE_ABSENT\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_ABSENT\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

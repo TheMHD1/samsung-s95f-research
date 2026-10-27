@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho FW_RESOLVER_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho FW_RESOLVER_ROOTS\nfor p in /factory_peq/tcon_data/QD /opt/media/USBDriveA/TCON /opt/media/USBDriveA1/TCON /opt/media/USBDriveA2/TCON /opt/media/USBDriveA3/TCON /opt/media/USBDriveA4/TCON /opt/media/USBDriveB/TCON /opt/media/USBDriveB1/TCON /opt/media/USBDriveB2/TCON /opt/media/USBDriveB3/TCON /opt/media/USBDriveB4/TCON /opt/media/USBDriveC/TCON /opt/media/USBDriveC1/TCON /opt/media/USBDriveC2/TCON /opt/media/USBDriveC3/TCON /opt/media/USBDriveC4/TCON /opt/media/USBDriveD/TCON /opt/media/USBDriveD1/TCON /opt/media/USBDriveD2/TCON /opt/media/USBDriveD3/TCON /opt/media/USBDriveD4/TCON; do\n if test -d \"$p\"; then\n  echo \"PRESENT $p\"\n  stat -c '%n %F' \"$p\"\n  readlink -f \"$p\"\n  find \"$p\" -maxdepth 4 -print\n else\n  echo \"ABSENT_OR_NOT_DIRECTORY $p\"\n fi\ndone | awk 'NR<=100 {print substr($0,1,256)} length($0)>256 {long++} END {print \"ROWS\",NR; print \"LONG_PATHS\",long+0}'\necho FW_RESOLVER_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "mode": "read-only candidate path metadata, not updater invocation",
+  "physical_state": "unobserved",
+  "time": "2026-10-26T23:24:32.551508+00:00"
+}

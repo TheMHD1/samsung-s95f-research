@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nvconftool get db/factory/FC_STORE_LEVEL_EER_B/OFFSENSING_TEST_PERIOD\nfactory_key_get_status=$?\necho \"FACTORY_KEY_GET_EXIT $factory_key_get_status\"\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetItem int32:200802\ndbus-send --system --print-reply --reply-timeout=1000 --dest=org.tizen.system.deviced /Org/Tizen/System/DeviceD/Display org.tizen.system.deviced.display.BurnInProtectionInProgress\ncat /proc/uptime\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 13:41:21 UTC 2026\n00000000-0000-4000-8000-000000000000\n43690.51 163020.82\nError: Get: Layer 'system' Key 'db/factory/FC_STORE_LEVEL_EER_B/OFFSENSING_TEST_PERIOD': No such file or directory\nFACTORY_KEY_GET_EXIT 1\nmethod return time=1793022081.563245 sender=:1.249 -> destination=:1.1478 serial=218 reply_serial=2\n   struct {\n      int32 200802\n      int32 0\n      int32 19\n      int32 5\n      int32 5\n      byte 1\n      string \"0\"\n      string \"Offsensing TEST Period\"\n   }\n   struct {\n      int32 1\n   }\nmethod return time=1793022081.576243 sender=:1.34 -> destination=:1.1479 serial=1032 reply_serial=2\n   int32 0\n43690.61 163021.11\nMon Oct 26 13:41:21 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

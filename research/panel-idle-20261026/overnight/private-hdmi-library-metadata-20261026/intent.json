@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho AVOC_IDENTITY\nreadlink -f /proc/706/exe\ncat /proc/706/stat\necho AVOC_HDMI_MAPS\nawk '$NF == \"/usr/lib/libhdmi-control.so.0.1\" { print }' /proc/706/maps\necho LIBRARY_IDENTITY\ntest -f /usr/lib/libhdmi-control.so.0.1\ntest ! -L /usr/lib/libhdmi-control.so.0.1\nstat -c '%s %F %a %u' /usr/lib/libhdmi-control.so.0.1\nsha256sum /usr/lib/libhdmi-control.so.0.1\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho AVOC_IDENTITY\nreadlink -f /proc/706/exe\ncat /proc/706/stat\necho AVOC_HDMI_MAPS\nawk '$NF == \"/usr/lib/libhdmi-control.so.0.1\" { print }' /proc/706/maps\necho LIBRARY_IDENTITY\ntest -f /usr/lib/libhdmi-control.so.0.1\ntest ! -L /usr/lib/libhdmi-control.so.0.1\nstat -c '%s %F %a %u' /usr/lib/libhdmi-control.so.0.1\nsha256sum /usr/lib/libhdmi-control.so.0.1\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "1e8dd0320f0a61f2d45c88e9a55dc66e60b8e092484f664f2ddfaf8606836384",
+  "physical_state": "unobserved",
+  "purpose": "Read fixed on-disk HDMI-library metadata and its AVOC map; no library calls.",
+  "retry": false,
+  "started_utc": "2026-10-26T20:56:19.620481+00:00"
+}

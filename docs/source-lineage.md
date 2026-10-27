@@ -1,0 +1,38 @@
+# Source lineage
+
+The retained source registry pins external sources used in the research. A cited project is not an independent target replication. HyperTizen and TizenWLED share a retained commit and are one lineage for that comparison. No upstream endorsement is implied.
+
+The modified local `research/root-access/source/` snapshot identifies local HEAD `4ad2c4d3b0d0e0da4b5b7ebe4a787e94596f416b`, with working-tree modifications to `archive_root.py` and its end-to-end tests. It preserves the original Unlicense. The [local source delta](../research/research-20261027-external/sources/root-sources/local-source-delta.json) distinguishes that snapshot from later upstream HEADs; do not replace the local changes with an upstream release and assume equivalence.
+
+| Source | Retained commit | License / reuse boundary |
+| --- | --- | --- |
+| [JoergZ2/ovos-skill-my-samsungctl](https://github.com/JoergZ2/ovos-skill-my-samsungctl) | `4e1e25048de0a01f6243bbdeef7bffd95b7b6d71` | Apache-2.0 and GPL-3.0 files; mixed source notices, verify per-file reuse |
+| [jakubpas/samsungctl](https://github.com/jakubpas/samsungctl) | `ebdaf6b896f69c2d87e4738f58360a510cb6404e` | MIT |
+| [topics/samsung-smart-tv](https://github.com/topics/samsung-smart-tv) | `discovery only` | GitHub topic discovery page; linked code licenses separate |
+| [hTobi02/TizenWLED](https://github.com/hTobi02/TizenWLED) | `e6b4acea23bd4fd53a779ac23f371db70a55eda1` | {"key": "gpl-3.0", "name": "GNU General Public License v3.0", "node_id": "MDc6TGljZW5zZTk=", "spdx_id": "GPL-3.0", "url": "https://api.github.com/licenses/gpl-3.0"} |
+| [bugficks/msddecrypt](https://github.com/bugficks/msddecrypt) | `c5e6d661640521ab292f7cedc329b092d805906b` | {"key": "gpl-2.0", "name": "GNU General Public License v2.0", "node_id": "MDc6TGljZW5zZTg=", "spdx_id": "GPL-2.0", "url": "https://api.github.com/licenses/gpl-2.0"} |
+| [synacktiv/samsung-q60t-exploit](https://github.com/synacktiv/samsung-q60t-exploit) | `db3697456be6f95599ea09ad1570bb80dd8797e1` | {"note": "HTTP Error 404: Not Found", "spdx_id": "not_returned"} |
+| [rampageX/firmware-mod-kit](https://github.com/rampageX/firmware-mod-kit) | `c72f45d7a062156125ae00cb867d8a614b50b963` | {"note": "HTTP Error 404: Not Found", "spdx_id": "not_returned"} |
+| [vdfs-team/vdfs4](https://github.com/vdfs-team/vdfs4) | `dfb2450427477c7b1eefb0a8580e92c24feba3b4` | {"note": "HTTP Error 404: Not Found", "spdx_id": "not_returned"} |
+| [gtors/vdfs-unpack](https://github.com/gtors/vdfs-unpack) | `0bc1e65b74016fbd59d5d68f09ab7920044be1f9` | {"key": "mit", "name": "MIT License", "node_id": "MDc6TGljZW5zZTEz", "spdx_id": "MIT", "url": "https://api.github.com/licenses/mit"} |
+| [ARM-software/CMSIS_6](https://github.com/ARM-software/CMSIS_6) | `99072a3bf70578394bea9dba511922d2961007f5` | {"key": "apache-2.0", "name": "Apache License 2.0", "node_id": "MDc6TGljZW5zZTI=", "spdx_id": "Apache-2.0", "url": "https://api.github.com/licenses/apache-2.0"} |
+| [https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_CA&OriginYN=N&ModelType=N&ModelName=QN77S95FAF&CttFileID=11121872&CDCttType=EU&VPath=EU%2F202511%2F20251120162206263%2F77.Repair_Guide_S95FH_QNxxS95FDFXxx_Ver1.0.pdf](https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_CA&OriginYN=N&ModelType=N&ModelName=QN77S95FAF&CttFileID=11121872&CDCttType=EU&VPath=EU%2F202511%2F20251120162206263%2F77.Repair_Guide_S95FH_QNxxS95FDFXxx_Ver1.0.pdf) | `discovery only` | publicly accessible vendor/standards material; no open-source license established |
+| [https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_CA&OriginYN=N&ModelType=N&ModelName=QN77S95FAF&CttFileID=11227395&CDCttType=FM&VPath=FM%2F202601%2F20260102174449889%2FTV_USB_Update_Guide.pdf](https://org.downloadcenter.samsung.com/downloadfile/ContentsFile.aspx?CDSite=UNI_CA&OriginYN=N&ModelType=N&ModelName=QN77S95FAF&CttFileID=11227395&CDCttType=FM&VPath=FM%2F202601%2F20260102174449889%2FTV_USB_Update_Guide.pdf) | `discovery only` | publicly accessible vendor/standards material; no open-source license established |
+| [https://documentation-service.arm.com/static/5f19da2a20b7cf4bc524d99a](https://documentation-service.arm.com/static/5f19da2a20b7cf4bc524d99a) | `discovery only` | publicly accessible vendor/standards material; no open-source license established |
+| [https://www.samsung.com/ca/support/model/QN77S95FAFXZC/](https://www.samsung.com/ca/support/model/QN77S95FAFXZC/) | `discovery only` | publicly accessible vendor/standards material; no open-source license established |
+| [https://www.usb.org/document-library/class-definitions-communication-devices-12](https://www.usb.org/document-library/class-definitions-communication-devices-12) | `discovery only` | publicly accessible vendor/standards material; no open-source license established |
+| [https://wiki.samygo.tv/index.php?title=Playing_with_Firmware_Images](https://wiki.samygo.tv/index.php?title=Playing_with_Firmware_Images) | `discovery only` | not established |
+| [jss8649/quiet-tizen](https://github.com/jss8649/quiet-tizen) | `cf518d7a9278dca7990e27756218258e44044a29` | MIT for original source; third-party licenses separately retained |
+| [gregkh/linux](https://github.com/gregkh/linux) | `ef379773e2e76d6470a907ae36c3d12f65a6ecdb` | GPL-2.0 kernel tree; consult each retained file SPDX for exact license |
+| [Samsung/tizen-docs](https://github.com/Samsung/tizen-docs) | `d6400bdd0450b41a2842d5c9c63002ab876f88b9` | Other contents CC BY 3.0 Unported; code examples BSD 3-Clause (content-license.md and LICENSE-CODE retained) |
+| [https://opensource.samsung.com/uploadList?menuItem=tv&searchValue=T-RSMFAKUC](https://opensource.samsung.com/uploadList?menuItem=tv&searchValue=T-RSMFAKUC) | `discovery only` | Not determined; no release retrieved |
+| [DemonKingSwarn/samsung-tv-tizen-root](https://github.com/DemonKingSwarn/samsung-tv-tizen-root) | `ec5a8fcdc22e4014bde24a1970ce4cd4adc823de` | CC-BY-4.0 |
+| [levkropp/samsung-tv-root-untethered](https://github.com/levkropp/samsung-tv-root-untethered) | `2b0629381b3eaf5a78f84332d630d6d4b10681e7` | Unlicense |
+| [chris-ritsen/samsung-tv-root](https://github.com/chris-ritsen/samsung-tv-root) | `3b97edf3762db7670585d73e29623dc56195bf98` | Unlicense |
+| [cfloinc/samsung-q70t-tizen-root](https://github.com/cfloinc/samsung-q70t-tizen-root) | `cb2aa139b61f9d7f7c08d98f4a3cc3e8a488133e` | MIT |
+| [BigSant/HyperTizen](https://github.com/BigSant/HyperTizen) | `e6b4acea23bd4fd53a779ac23f371db70a55eda1` | GPL-3.0 |
+| [RitwickVerma/TizenAmbilight](https://github.com/RitwickVerma/TizenAmbilight) | `ccb646600286a02150aa353db261ca3753a44a9e` | MIT |
+
+The [full registry](../research/research-20261027-external/source-registry.json), input manifests, source audits and disassembly reproducers are included. Vendor and firmware files are identified by original hashes and acquisition descriptions without redistributing the inputs. Upstream source copies and archives are omitted except the explicitly licensed modified root-access snapshot. Linux USB source observations can be reconstructed from the cited Linux 5.4 lineage.
+
+Original project software contributions are licensed MIT and original research prose/commentary CC BY 4.0. This does not replace upstream notices or grant rights over vendor-derived excerpts. The [origin-confidence and license-scope matrix](../manifests/license-scope.json) distinguishes new authorship, explicitly licensed upstream, source-derived material and mixed/uncertain provenance.

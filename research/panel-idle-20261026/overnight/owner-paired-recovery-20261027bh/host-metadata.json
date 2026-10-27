@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor key in busnum devnum idVendor idProduct bcdDevice authorized bConfigurationValue power/runtime_status; do printf '%s=' \"$key\"; cat \"/sys/bus/usb/devices/7-1/$key\"; done\nfor n in 0 1 2; do if test -L /sys/bus/usb/devices/7-1:1.$n/driver; then printf 'BOUND_%s=' \"$n\"; readlink /sys/bus/usb/devices/7-1:1.$n/driver; else printf 'UNBOUND_%s\n' \"$n\"; fi; done\nbus=$(cat /sys/bus/usb/devices/7-1/busnum)\nnum=$(cat /sys/bus/usb/devices/7-1/devnum)\nnode=$(printf '/dev/bus/usb/%03d/%03d' \"$bus\" \"$num\")\ncount=0\nfor fd in /proc/[0-9]*/fd/*; do link=$(readlink \"$fd\" 2>/dev/null) || continue; if test \"$link\" = \"$node\"; then echo \"USB_FD_HOLDER=$fd\"; count=$((count+1)); fi; done\nprintf 'USB_FD_HOLDERS=%s\n' \"$count\"\ncat /proc/uptime\ncat /proc/sys/kernel/random/boot_id\necho OWNER_PAIRED_HOST_METADATA_COMPLETE\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n156677.06 583245.65\nbusnum=7\ndevnum=47\nidVendor=04e8\nidProduct=2001\nbcdDevice=0250\nauthorized=1\nbConfigurationValue=1\npower/runtime_status=active\nUNBOUND_0\nUNBOUND_1\nUNBOUND_2\nUSB_FD_HOLDERS=0\n156702.26 583308.13\n00000000-0000-4000-8000-000000000000\nOWNER_PAIRED_HOST_METADATA_COMPLETE\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

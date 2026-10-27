@@ -1,0 +1,242 @@
+Source: ${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/sdp_pqe_dp.ko
+SHA256: 2f23cf9256f2cc2b39a2e0afea7a7fc6007bffd3d5efb536aacd695ee4f3967e
+Addresses are ELF .text section-relative; relocations annotated from RELA, not live kernel addresses.
+
+FUNCTION sdp_pqe_dp_compat_ioctl start=0x1788 size=512 sha256=8b80a0f0088b6991fcd919408e6b375204ab88618a071a646c9fa3bae9818ab4
+00001788  fd7bbea9  stp      x29, x30, [sp, #-0x20]!                  
+0000178c  84228a52  mov      w4, #0x5114                              
+00001790  8400b872  movk     w4, #0xc004, lsl #16                     
+00001794  fd030091  mov      x29, sp                                  
+00001798  e30302aa  mov      x3, x2                                   
+0000179c  3f00046b  cmp      w1, w4                                   
+000017a0  80080054  b.eq     #0x18b0                                  
+000017a4  49030054  b.ls     #0x180c                                  
+000017a8  43268a52  mov      w3, #0x5132                              
+000017ac  8300b872  movk     w3, #0xc004, lsl #16                     
+000017b0  3f00036b  cmp      w1, w3                                   
+000017b4  400c0054  b.eq     #0x193c                                  
+000017b8  69010054  b.ls     #0x17e4                                  
+000017bc  83278a52  mov      w3, #0x513c                              
+000017c0  8300b872  movk     w3, #0xc004, lsl #16                     
+000017c4  3f00036b  cmp      w1, w3                                   
+000017c8  610d0054  b.ne     #0x1974                                  
+000017cc  81278a52  mov      w1, #0x513c                              
+000017d0  0101b872  movk     w1, #0xc008, lsl #16                     
+000017d4  27feff97  bl       #0x1070                                  
+000017d8  000080d2  mov      x0, #0                                   
+000017dc  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+000017e0  c0035fd6  ret                                               
+000017e4  c3238a52  mov      w3, #0x511e                              
+000017e8  8300b872  movk     w3, #0xc004, lsl #16                     
+000017ec  3f00036b  cmp      w1, w3                                   
+000017f0  81020054  b.ne     #0x1840                                  
+000017f4  c1238a52  mov      w1, #0x511e                              
+000017f8  0101b872  movk     w1, #0xc008, lsl #16                     
+000017fc  1dfeff97  bl       #0x1070                                  
+00001800  000080d2  mov      x0, #0                                   
+00001804  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+00001808  c0035fd6  ret                                               
+0000180c  64208a52  mov      w4, #0x5103                              
+00001810  8400b872  movk     w4, #0xc004, lsl #16                     
+00001814  3f00046b  cmp      w1, w4                                   
+00001818  e0090054  b.eq     #0x1954                                  
+0000181c  49020054  b.ls     #0x1864                                  
+00001820  40218a52  mov      w0, #0x510a                              
+00001824  8000b872  movk     w0, #0xc004, lsl #16                     
+00001828  3f00006b  cmp      w1, w0                                   
+0000182c  410a0054  b.ne     #0x1974                                  
+00001830  e00302aa  mov      x0, x2                                   
+00001834  00000094  bl       #0x1834                                  _query_event+0
+00001838  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+0000183c  c0035fd6  ret                                               
+00001840  63140011  add      w3, w3, #5                               
+00001844  3f00036b  cmp      w1, w3                                   
+00001848  61090054  b.ne     #0x1974                                  
+0000184c  61248a52  mov      w1, #0x5123                              
+00001850  0101b872  movk     w1, #0xc008, lsl #16                     
+00001854  07feff97  bl       #0x1070                                  
+00001858  000080d2  mov      x0, #0                                   
+0000185c  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+00001860  c0035fd6  ret                                               
+00001864  23208a52  mov      w3, #0x5101                              
+00001868  8300b872  movk     w3, #0xc004, lsl #16                     
+0000186c  3f00036b  cmp      w1, w3                                   
+00001870  e1000054  b.ne     #0x188c                                  
+00001874  21208a52  mov      w1, #0x5101                              
+00001878  0101b872  movk     w1, #0xc008, lsl #16                     
+0000187c  fdfdff97  bl       #0x1070                                  
+00001880  000080d2  mov      x0, #0                                   
+00001884  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+00001888  c0035fd6  ret                                               
+0000188c  63040011  add      w3, w3, #1                               
+00001890  3f00036b  cmp      w1, w3                                   
+00001894  01070054  b.ne     #0x1974                                  
+00001898  41208a52  mov      w1, #0x5102                              
+0000189c  0101b872  movk     w1, #0xc008, lsl #16                     
+000018a0  f4fdff97  bl       #0x1070                                  
+000018a4  000080d2  mov      x0, #0                                   
+000018a8  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+000018ac  c0035fd6  ret                                               
+000018b0  004138d5  mrs      x0, sp_el0                               
+000018b4  022c40b9  ldr      w2, [x0, #0x2c]                          
+000018b8  010440f9  ldr      x1, [x0, #8]                             
+000018bc  a203a837  tbnz     w2, #0x15, #0x1930                       
+000018c0  020040f9  ldr      x2, [x0]                                 
+000018c4  e00303aa  mov      x0, x3                                   
+000018c8  5f000672  tst      w2, #0x4000000                           
+000018cc  21030054  b.ne     #0x1930                                  
+000018d0  001000b1  adds     x0, x0, #4                               
+000018d4  e183819a  csel     x1, xzr, x1, hi                          
+000018d8  00309fda  csinv    x0, x0, xzr, lo                          
+000018dc  1f0001fa  sbcs     xzr, x0, x1                              
+000018e0  e0879f9a  cset     x0, ls                                   
+000018e4  400400b4  cbz      x0, #0x196c                              
+000018e8  1f2003d5  nop                                               
+000018ec  60dc4093  sbfx     x0, x3, #0, #0x38                        
+000018f0  014138d5  mrs      x1, sp_el0                               
+000018f4  0000038a  and      x0, x0, x3                               
+000018f8  220440f9  ldr      x2, [x1, #8]                             
+000018fc  1f0022ea  bics     xzr, x0, x2                              
+00001900  61009f9a  csel     x1, x3, xzr, eq                          
+00001904  9f2203d5  csdb                                              
+00001908  820080d2  mov      x2, #4                                   
+0000190c  e0730091  add      x0, sp, #0x1c                            
+00001910  00000094  bl       #0x1910                                  __arch_copy_from_user+0
+00001914  1f2003d5  nop                                               
+00001918  a00200b5  cbnz     x0, #0x196c                              
+0000191c  e01f40b9  ldr      w0, [sp, #0x1c]                          
+00001920  00000094  bl       #0x1920                                  sdp_pqe_dp_dlsr_set_cloudgame_mode+0
+00001924  000080d2  mov      x0, #0                                   
+00001928  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+0000192c  c0035fd6  ret                                               
+00001930  60dc4093  sbfx     x0, x3, #0, #0x38                        
+00001934  0000038a  and      x0, x0, x3                               
+00001938  e6ffff17  b        #0x18d0                                  
+0000193c  41268a52  mov      w1, #0x5132                              
+00001940  0101b872  movk     w1, #0xc008, lsl #16                     
+00001944  cbfdff97  bl       #0x1070                                  
+00001948  000080d2  mov      x0, #0                                   
+0000194c  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+00001950  c0035fd6  ret                                               
+00001954  61208a52  mov      w1, #0x5103                              
+00001958  0101b872  movk     w1, #0xc008, lsl #16                     
+0000195c  c5fdff97  bl       #0x1070                                  
+00001960  000080d2  mov      x0, #0                                   
+00001964  fd7bc2a8  ldp      x29, x30, [sp], #0x20                    
+00001968  c0035fd6  ret                                               
+0000196c  a0018092  mov      x0, #-0xe                                
+00001970  9bffff17  b        #0x17dc                                  
+00001974  00000090  adrp     x0, #0x1000                              section15+ac0
+00001978  00000091  add      x0, x0, #0                               section15+ac0
+0000197c  00000094  bl       #0x197c                                  printk+0
+00001980  000080d2  mov      x0, #0                                   
+00001984  96ffff17  b        #0x17dc                                  
+
+FUNCTION _query_event start=0xfa0 size=204 sha256=6529d6c0dc25fc3ecb0992890d9ce4b5e94d9e624347ca5029bfaef7ddfd2923
+00000fa0  fd7bb4a9  stp      x29, x30, [sp, #-0xc0]!                  
+00000fa4  fd030091  mov      x29, sp                                  
+00000fa8  e1830091  add      x1, sp, #0x20                            
+00000fac  f35301a9  stp      x19, x20, [sp, #0x10]                    
+00000fb0  f30300aa  mov      x19, x0                                  
+00000fb4  00000090  adrp     x0, #0                                   section31+271b0
+00000fb8  00000091  add      x0, x0, #0                               section31+271b0
+00000fbc  00000094  bl       #0xfbc                                   _queue_pop+0
+00000fc0  147c4093  sxtw     x20, w0                                  
+00000fc4  014138d5  mrs      x1, sp_el0                               
+00000fc8  232c40b9  ldr      w3, [x1, #0x2c]                          
+00000fcc  220440f9  ldr      x2, [x1, #8]                             
+00000fd0  e301a837  tbnz     w3, #0x15, #0x100c                       
+00000fd4  200040f9  ldr      x0, [x1]                                 
+00000fd8  e10313aa  mov      x1, x19                                  
+00000fdc  1f000672  tst      w0, #0x4000000                           
+00000fe0  61010054  b.ne     #0x100c                                  
+00000fe4  21d000b1  adds     x1, x1, #0x34                            
+00000fe8  e283829a  csel     x2, xzr, x2, hi                          
+00000fec  21309fda  csinv    x1, x1, xzr, lo                          
+00000ff0  3f0002fa  sbcs     xzr, x1, x2                              
+00000ff4  e1879f9a  cset     x1, ls                                   
+00000ff8  a10100b5  cbnz     x1, #0x102c                              
+00000ffc  e00314aa  mov      x0, x20                                  
+00001000  f35341a9  ldp      x19, x20, [sp, #0x10]                    
+00001004  fd7bcca8  ldp      x29, x30, [sp], #0xc0                    
+00001008  c0035fd6  ret                                               
+0000100c  61de4093  sbfx     x1, x19, #0, #0x38                       
+00001010  2100138a  and      x1, x1, x19                              
+00001014  21d000b1  adds     x1, x1, #0x34                            
+00001018  e283829a  csel     x2, xzr, x2, hi                          
+0000101c  21309fda  csinv    x1, x1, xzr, lo                          
+00001020  3f0002fa  sbcs     xzr, x1, x2                              
+00001024  e1879f9a  cset     x1, ls                                   
+00001028  a1feffb4  cbz      x1, #0xffc                               
+0000102c  1f2003d5  nop                                               
+00001030  61de4093  sbfx     x1, x19, #0, #0x38                       
+00001034  004138d5  mrs      x0, sp_el0                               
+00001038  2100138a  and      x1, x1, x19                              
+0000103c  020440f9  ldr      x2, [x0, #8]                             
+00001040  3f0022ea  bics     xzr, x1, x2                              
+00001044  60029f9a  csel     x0, x19, xzr, eq                         
+00001048  9f2203d5  csdb                                              
+0000104c  820680d2  mov      x2, #0x34                                
+00001050  e1830091  add      x1, sp, #0x20                            
+00001054  00000094  bl       #0x1054                                  __arch_copy_to_user+0
+00001058  1f2003d5  nop                                               
+0000105c  e00314aa  mov      x0, x20                                  
+00001060  f35341a9  ldp      x19, x20, [sp, #0x10]                    
+00001064  fd7bcca8  ldp      x29, x30, [sp], #0xc0                    
+00001068  c0035fd6  ret                                               
+
+FUNCTION _queue_pop start=0x1cc8 size=160 sha256=15b566ceb39b9767a202a2bf04f7b4fe305b7957b6de349b9c88bba1a7382443
+00001cc8  fd7bbda9  stp      x29, x30, [sp, #-0x30]!                  
+00001ccc  fd030091  mov      x29, sp                                  
+00001cd0  f35301a9  stp      x19, x20, [sp, #0x10]                    
+00001cd4  f30300aa  mov      x19, x0                                  
+00001cd8  000040b9  ldr      w0, [x0]                                 
+00001cdc  1f040031  cmn      w0, #1                                   
+00001ce0  00040054  b.eq     #0x1d60                                  
+00001ce4  f40301aa  mov      x20, x1                                  
+00001ce8  610640b9  ldr      w1, [x19, #4]                            
+00001cec  1f00016b  cmp      w0, w1                                   
+00001cf0  40030054  b.eq     #0x1d58                                  
+00001cf4  f55b02a9  stp      x21, x22, [sp, #0x20]                    
+00001cf8  769e4091  add      x22, x19, #0x27, lsl #12                 
+00001cfc  d6220491  add      x22, x22, #0x108                         
+00001d00  e00316aa  mov      x0, x22                                  
+00001d04  00000094  bl       #0x1d04                                  _raw_spin_lock_irqsave+0
+00001d08  610640b9  ldr      w1, [x19, #4]                            
+00001d0c  03148052  mov      w3, #0xa0                                
+00001d10  f50300aa  mov      x21, x0                                  
+00001d14  021480d2  mov      x2, #0xa0                                
+00001d18  e00314aa  mov      x0, x20                                  
+00001d1c  214c239b  smaddl   x1, w1, w3, x19                          
+00001d20  21200091  add      x1, x1, #8                               
+00001d24  00000094  bl       #0x1d24                                  memcpy+0
+00001d28  620640b9  ldr      w2, [x19, #4]                            
+00001d2c  e00316aa  mov      x0, x22                                  
+00001d30  e10315aa  mov      x1, x21                                  
+00001d34  5f9c0f71  cmp      w2, #0x3e7                               
+00001d38  e207821a  csinc    w2, wzr, w2, eq                          
+00001d3c  620600b9  str      w2, [x19, #4]                            
+00001d40  00000094  bl       #0x1d40                                  _raw_spin_unlock_irqrestore+0
+00001d44  f55b42a9  ldp      x21, x22, [sp, #0x20]                    
+00001d48  00008052  mov      w0, #0                                   
+00001d4c  f35341a9  ldp      x19, x20, [sp, #0x10]                    
+00001d50  fd7bc3a8  ldp      x29, x30, [sp], #0x30                    
+00001d54  c0035fd6  ret                                               
+00001d58  40018012  mov      w0, #-0xb                                
+00001d5c  fcffff17  b        #0x1d4c                                  
+00001d60  20008012  mov      w0, #-2                                  
+00001d64  faffff17  b        #0x1d4c                                  
+
+FUNCTION _dlsr_queue_event start=0x95b8 size=48 sha256=d03431bcc86d9bb93f96a5918695eef0fa6d390cb2544542c842de96ba306377
+000095b8  fd7bb5a9  stp      x29, x30, [sp, #-0xb0]!                  
+000095bc  fd030091  mov      x29, sp                                  
+000095c0  00000094  bl       #0x95c0                                  get_pqe_data+0
+000095c4  02704291  add      x2, x0, #0x9c, lsl #12                   
+000095c8  009c4091  add      x0, x0, #0x27, lsl #12                   
+000095cc  e1430091  add      x1, sp, #0x10                            
+000095d0  00400591  add      x0, x0, #0x150                           
+000095d4  42f446b9  ldr      w2, [x2, #0x6f4]                         
+000095d8  ff0b0229  stp      wzr, w2, [sp, #0x10]                     
+000095dc  00000094  bl       #0x95dc                                  _queue_push+0
+000095e0  fd7bcba8  ldp      x29, x30, [sp], #0xb0                    
+000095e4  c0035fd6  ret                                               

@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(cat /sys/kernel/debug/tracing/instances/researcher-hdmi-onset-stock-rt-av-20261027/tracing_on)\" = 1\necho READY_UPTIME=$(cut -d ' ' -f1 /proc/uptime)\nawk '/: CAPTURE_START / {s++} /: CAPTURE_END / {e++} END {if(s!=1 || e!=0) exit 81; print \"ACTIVE_CAPTURE_START_VERIFIED\"}' /sys/kernel/debug/tracing/instances/researcher-hdmi-onset-stock-rt-av-20261027/trace\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "READY_UPTIME=136354.04\nACTIVE_CAPTURE_START_VERIFIED\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

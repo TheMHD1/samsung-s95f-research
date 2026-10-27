@@ -1,0 +1,5 @@
+{
+  "command": "set -eu\necho TCON_PROVIDER_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfind /lib/modules/5.4.261 -maxdepth 8 -type f -name '*.ko' -print | (\n n=0\n m=0\n while IFS= read -r p; do\n  n=$((n+1))\n  if LC_ALL=C grep -a -q -w tcon_ex_proc \"$p\"; then\n   m=$((m+1))\n   test \"$m\" -le 20\n   echo \"CANDIDATE=$p\"\n   stat -c '%n %s' \"$p\"\n   sha256sum \"$p\"\n  else\n   rc=$?\n   test \"$rc\" = 1\n  fi\n done\n echo \"MODULES_SCANNED=$n\"\n echo \"CANDIDATES=$m\"\n)\necho TCON_PROVIDER_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "mode": "ordinary installed module-file literal scan, no load/symbol invocation",
+  "time": "2026-10-26T23:38:45.893555+00:00"
+}

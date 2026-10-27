@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 731, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 727, in main
+    run_capture(args.label, args.seconds, smoke_unobserved=args.smoke_unobserved)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 669, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-preroll-onset-capture.py", line 625, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-branch-onset-capture.py", line 544, in run_capture
+    _ORIGINAL_RUN(label, seconds, smoke_unobserved=smoke_unobserved)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 1213, in run_capture
+    trace_report = trace_accounting(data["trace"], fd_report["tids"],
+                                    meta["avoc_identity"][0], collector["pid"],
+                                    meta["trace_start"], meta["trace_end"],
+                                    meta["trace_drain_end"])
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 607, in trace_accounting
+    pm = _pm_accounting(data, report)
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-pm-onset-capture.py", line 438, in _pm_accounting
+    require(row["pid"] > 0 and row["tgid"] is not None and row["tgid"] > 0,
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            "PM row lacks exact task/saved-TGID identity")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/observed-onset-capture.py", line 84, in require
+    raise ValueError(message)
+ValueError: PM row lacks exact task/saved-TGID identity

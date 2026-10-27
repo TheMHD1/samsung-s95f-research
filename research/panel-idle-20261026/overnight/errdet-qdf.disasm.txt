@@ -1,0 +1,113 @@
+
+${S95F_EVIDENCE_ROOT}/panel-idle-20261026/binaries/qdf_tcon.ko:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+000000000000a000 <QDFTcon_GetErrDetStatus>:
+    a000:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+    a004:	910003fd 	mov	x29, sp
+    a008:	a90153f3 	stp	x19, x20, [sp, #16]
+    a00c:	a9025bf5 	stp	x21, x22, [sp, #32]
+    a010:	b4000460 	cbz	x0, a09c <QDFTcon_GetErrDetStatus+0x9c>
+    a014:	90000015 	adrp	x21, 0 <QDFTcon_GetUSITVersion>
+			a014: R_AARCH64_ADR_PREL_PG_HI21	.bss
+    a018:	910002b5 	add	x21, x21, #0x0
+			a018: R_AARCH64_ADD_ABS_LO12_NC	.bss
+    a01c:	f9001bf7 	str	x23, [sp, #48]
+    a020:	aa0003f3 	mov	x19, x0
+    a024:	b9406ea0 	ldr	w0, [x21, #108]
+    a028:	7100041f 	cmp	w0, #0x1
+    a02c:	540006e0 	b.eq	a108 <QDFTcon_GetErrDetStatus+0x108>  // b.none
+    a030:	d2800100 	mov	x0, #0x8                   	// #8
+    a034:	aa1303e1 	mov	x1, x19
+    a038:	f2de7000 	movk	x0, #0xf380, lsl #32
+    a03c:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+			a03c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    a040:	97fffed2 	bl	9b88 <m_read_cmd.constprop.0>
+    a044:	91000294 	add	x20, x20, #0x0
+			a044: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    a048:	2a0003f6 	mov	w22, w0
+    a04c:	94000000 	bl	16ba8 <ft_current_pid>
+			a04c: R_AARCH64_CALL26	ft_current_pid
+    a050:	2a0003f7 	mov	w23, w0
+    a054:	94000000 	bl	16bb8 <ft_current_comm>
+			a054: R_AARCH64_CALL26	ft_current_comm
+    a058:	9133a294 	add	x20, x20, #0xce8
+    a05c:	b9400264 	ldr	w4, [x19]
+    a060:	aa0003e3 	mov	x3, x0
+    a064:	2a1703e2 	mov	w2, w23
+    a068:	aa1403e1 	mov	x1, x20
+    a06c:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			a06c: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x4738
+    a070:	91000000 	add	x0, x0, #0x0
+			a070: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x4738
+    a074:	94000000 	bl	0 <printk>
+			a074: R_AARCH64_CALL26	printk
+    a078:	b9402aa0 	ldr	w0, [x21, #40]
+    a07c:	7100041f 	cmp	w0, #0x1
+    a080:	54000280 	b.eq	a0d0 <QDFTcon_GetErrDetStatus+0xd0>  // b.none
+    a084:	f9401bf7 	ldr	x23, [sp, #48]
+    a088:	2a1603e0 	mov	w0, w22
+    a08c:	a94153f3 	ldp	x19, x20, [sp, #16]
+    a090:	a9425bf5 	ldp	x21, x22, [sp, #32]
+    a094:	a8c47bfd 	ldp	x29, x30, [sp], #64
+    a098:	d65f03c0 	ret
+    a09c:	94000000 	bl	16ba8 <ft_current_pid>
+			a09c: R_AARCH64_CALL26	ft_current_pid
+    a0a0:	2a0003f3 	mov	w19, w0
+    a0a4:	94000000 	bl	16bb8 <ft_current_comm>
+			a0a4: R_AARCH64_CALL26	ft_current_comm
+    a0a8:	12800016 	mov	w22, #0xffffffff            	// #-1
+    a0ac:	90000001 	adrp	x1, 0 <QDFTcon_GetUSITVersion>
+			a0ac: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    a0b0:	91000021 	add	x1, x1, #0x0
+			a0b0: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    a0b4:	aa0003e3 	mov	x3, x0
+    a0b8:	2a1303e2 	mov	w2, w19
+    a0bc:	9133a021 	add	x1, x1, #0xce8
+    a0c0:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			a0c0: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x1428
+    a0c4:	91000000 	add	x0, x0, #0x0
+			a0c4: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x1428
+    a0c8:	94000000 	bl	0 <printk>
+			a0c8: R_AARCH64_CALL26	printk
+    a0cc:	17ffffef 	b	a088 <QDFTcon_GetErrDetStatus+0x88>
+    a0d0:	b94122a0 	ldr	w0, [x21, #288]
+    a0d4:	b9000260 	str	w0, [x19]
+    a0d8:	94000000 	bl	16ba8 <ft_current_pid>
+			a0d8: R_AARCH64_CALL26	ft_current_pid
+    a0dc:	2a0003f5 	mov	w21, w0
+    a0e0:	94000000 	bl	16bb8 <ft_current_comm>
+			a0e0: R_AARCH64_CALL26	ft_current_comm
+    a0e4:	aa0003e3 	mov	x3, x0
+    a0e8:	b9400264 	ldr	w4, [x19]
+    a0ec:	2a1503e2 	mov	w2, w21
+    a0f0:	aa1403e1 	mov	x1, x20
+    a0f4:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			a0f4: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x4768
+    a0f8:	91000000 	add	x0, x0, #0x0
+			a0f8: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x4768
+    a0fc:	94000000 	bl	0 <printk>
+			a0fc: R_AARCH64_CALL26	printk
+    a100:	f9401bf7 	ldr	x23, [sp, #48]
+    a104:	17ffffe1 	b	a088 <QDFTcon_GetErrDetStatus+0x88>
+    a108:	94000000 	bl	16ba8 <ft_current_pid>
+			a108: R_AARCH64_CALL26	ft_current_pid
+    a10c:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+			a10c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+    a110:	2a0003f6 	mov	w22, w0
+    a114:	91000294 	add	x20, x20, #0x0
+			a114: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+    a118:	94000000 	bl	16bb8 <ft_current_comm>
+			a118: R_AARCH64_CALL26	ft_current_comm
+    a11c:	aa0003e3 	mov	x3, x0
+    a120:	2a1603e2 	mov	w2, w22
+    a124:	9133a281 	add	x1, x20, #0xce8
+    a128:	90000000 	adrp	x0, 0 <QDFTcon_GetUSITVersion>
+			a128: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x1480
+    a12c:	52800016 	mov	w22, #0x0                   	// #0
+    a130:	91000000 	add	x0, x0, #0x0
+			a130: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x1480
+    a134:	94000000 	bl	0 <printk>
+			a134: R_AARCH64_CALL26	printk

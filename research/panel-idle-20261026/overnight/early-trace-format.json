@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "cat /sys/kernel/debug/tracing/events/early_trace/early_event/format\ncat /sys/kernel/debug/tracing/tracing_on\nls -l /sys/kernel/debug/tracing/instances\nreadlink /proc/706/fd/21\ncat /proc/706/task/1013/stat\ncat /proc/706/task/1014/comm",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "name: early_event\nID: 132\nformat:\n\tfield:unsigned short common_type;\toffset:0;\tsize:2;\tsigned:0;\n\tfield:unsigned char common_flags;\toffset:2;\tsize:1;\tsigned:0;\n\tfield:unsigned char common_preempt_count;\toffset:3;\tsize:1;\tsigned:0;\n\tfield:int common_pid;\toffset:4;\tsize:4;\tsigned:1;\n\n\tfield:__data_loc char[] str;\toffset:8;\tsize:4;\tsigned:0;\n\nprint fmt: \"%s\", __get_str(str)\n0\ntotal 0\n/dev/tztv_frc\n1013 (AVEMonDIM) S 1 642 642 0 -1 1077936192 1341 0 162 0 12302 2251 0 0 20 0 23 0 1074 204062720 3219 18446744073709551615 65536 1387296 4291230352 0 0 0 0 4096 16384 1 0 0 -1 3 0 0 3 0 0 1608924 1733396 34242560 4291231407 4291231425 4291231425 4291231721 0\nAVEMonAmb\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

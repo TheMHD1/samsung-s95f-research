@@ -1,0 +1,2335 @@
+
+FUNCTION 002450f8..0024524c (ARM exidx boundary)
+002450f8  ldr       r2, [pc, #0x11c]
+002450fa  ldr       r3, [pc, #0x120]
+002450fc  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00245100  add       r2, pc
+00245102  ldr       r7, [pc, #0x11c]
+00245104  ldr       r5, [pc, #0x11c]
+00245106  mov       sb, r0
+00245108  add       r7, pc
+0024510a  ldr       r0, [pc, #0x11c]
+0024510c  ldr       r3, [r2, r3]
+0024510e  sub       sp, #0x1c4
+00245110  add       r0, pc
+00245112  mov       r8, r1
+00245114  ldr       r3, [r3]
+00245116  str       r3, [sp, #0x1bc]
+00245118  mov.w     r3, #0
+0024511c  ldr       r4, [pc, #0x10c]
+0024511e  bl        #0xb1260
+00245122  ldr.w     sl, [r7, r5]
+00245126  ldr       r1, [pc, #0x108]
+00245128  movs      r6, #0
+0024512a  mov.w     ip, #0x2d
+0024512e  add       r4, pc
+00245130  mov       r3, r6
+00245132  movs      r2, #3
+00245134  add       r1, pc
+00245136  str       r0, [sp, #8]
+00245138  strd      r6, r4, [sp]
+0024513c  mov       r0, sl
+0024513e  str.w     ip, [sp, #0xc]
+00245142  add       r5, sp, #0x14
+00245144  bl        #0xb144c
+00245148  ldr       r3, [pc, #0xe8]
+0024514a  add       r4, sp, #0x20
+0024514c  mov       r1, r6
+0024514e  mov       r0, r4
+00245150  ldr       r3, [r7, r3]
+00245152  ldr.w     fp, [r3]
+00245156  mov       r2, fp
+00245158  bl        #0x246afc
+0024515c  ldr.w     r0, [sb]
+00245160  mov       r2, fp
+00245162  mov       r1, r5
+00245164  strd      r6, r6, [r5]
+00245168  str       r6, [r5, #8]
+0024516a  bl        #0x2453a0
+0024516e  mov       r2, r8
+00245170  mov       r1, r5
+00245172  mov       r0, r4
+00245174  bl        #0x247b04
+00245178  ldr       r0, [pc, #0xbc]
+0024517a  add       r0, pc
+0024517c  bl        #0xb1260
+00245180  movs      r1, #0x35
+00245182  ldr       r2, [pc, #0xb8]
+00245184  str       r1, [sp, #0xc]
+00245186  mov       r3, r6
+00245188  ldr       r1, [pc, #0xb4]
+0024518a  add       r2, pc
+0024518c  str       r0, [sp, #8]
+0024518e  mov       r0, sl
+00245190  strd      r6, r2, [sp]
+00245194  add       r1, pc
+00245196  movs      r2, #3
+00245198  bl        #0xb144c
+0024519c  ldr       r0, [r5]
+0024519e  cbz       r0, #0x2451a4
+002451a0  blx       #0x56df0
+002451a4  ldr       r3, [pc, #0x9c]
+002451a6  ldr.w     r0, [r4, #0x178]
+002451aa  ldr       r3, [r7, r3]
+002451ac  adds      r3, #8
+002451ae  str       r3, [r4]
+002451b0  add       r3, sp, #0x1a0
+002451b2  cmp       r0, r3
+002451b4  beq       #0x2451ba
+002451b6  blx       #0x56df0
+002451ba  ldr.w     r0, [r4, #0x160]
+002451be  add       r3, sp, #0x188
+002451c0  cmp       r0, r3
+002451c2  beq       #0x2451c8
+002451c4  blx       #0x56df0
+002451c8  add       r0, sp, #0x130
+002451ca  bl        #0xf9dd4
+002451ce  add       r0, sp, #0xe0
+002451d0  bl        #0xf9dd4
+002451d4  add       r0, sp, #0x48
+002451d6  bl        #0x245b10
+002451da  ldr       r0, [r4, #0x18]
+002451dc  cbz       r0, #0x2451e2
+002451de  blx       #0x56df0
+002451e2  ldr       r0, [r4, #0xc]
+002451e4  cbz       r0, #0x2451ea
+002451e6  blx       #0x56df0
+002451ea  ldr       r2, [pc, #0x5c]
+002451ec  ldr       r3, [pc, #0x2c]
+002451ee  add       r2, pc
+002451f0  ldr       r3, [r2, r3]
+002451f2  ldr       r2, [r3]
+002451f4  ldr       r3, [sp, #0x1bc]
+002451f6  eors      r2, r3
+002451f8  bne       #0x245200
+002451fa  add       sp, #0x1c4
+002451fc  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00245200  blx       #0x56af0
+00245204  ldr       r0, [r5]
+00245206  cbz       r0, #0x24520c
+00245208  blx       #0x56df0
+0024520c  mov       r0, r4
+0024520e  bl        #0x244fd0
+00245212  blx       #0x574cc
+00245216  nop       
+00245218  ldr       r6, [pc, #0x3f0]
+0024521a  movs      r0, r5
+0024521c  ldr       r6, [pc, #0x10]
+0024521e  movs      r0, r0
+00245220  ldr       r6, [pc, #0x3d0]
+00245222  movs      r0, r5
+00245224  asrs      r4, r6, #0x1e
+00245226  movs      r0, r0
+00245228  ldr       r4, [r0, #0x24]
+0024522a  movs      r3, r3
+0024522c  ldr       r6, [r0, #0x2c]
+0024522e  movs      r3, r3
+00245230  ldrsb     r4, [r5, r1]
+00245232  movs      r3, r2
+00245234  adds      r0, #0xdc
+00245236  movs      r0, r0
+00245238  ldr       r2, [r3, #0x1c]
+0024523a  movs      r3, r3
+0024523c  ldr       r2, [r4, #0x28]
+0024523e  movs      r3, r3
+00245240  ldrsb     r4, [r1, r0]
+00245242  movs      r3, r2
+00245244  asrs      r4, r6, #0x14
+00245246  movs      r0, r0
+00245248  ldr       r6, [pc, #0x38]
+0024524a  movs      r0, r5
+
+FUNCTION 0024524c..002453a0 (ARM exidx boundary)
+0024524c  ldr       r2, [pc, #0x11c]
+0024524e  ldr       r3, [pc, #0x120]
+00245250  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00245254  add       r2, pc
+00245256  ldr       r7, [pc, #0x11c]
+00245258  ldr       r5, [pc, #0x11c]
+0024525a  mov       sb, r0
+0024525c  add       r7, pc
+0024525e  ldr       r0, [pc, #0x11c]
+00245260  ldr       r3, [r2, r3]
+00245262  sub       sp, #0x1c4
+00245264  add       r0, pc
+00245266  mov       r8, r1
+00245268  ldr       r3, [r3]
+0024526a  str       r3, [sp, #0x1bc]
+0024526c  mov.w     r3, #0
+00245270  ldr       r4, [pc, #0x10c]
+00245272  bl        #0xb1260
+00245276  ldr.w     sl, [r7, r5]
+0024527a  ldr       r1, [pc, #0x108]
+0024527c  movs      r6, #0
+0024527e  mov.w     ip, #0x3a
+00245282  add       r4, pc
+00245284  mov       r3, r6
+00245286  movs      r2, #3
+00245288  add       r1, pc
+0024528a  str       r0, [sp, #8]
+0024528c  strd      r6, r4, [sp]
+00245290  mov       r0, sl
+00245292  str.w     ip, [sp, #0xc]
+00245296  add       r5, sp, #0x14
+00245298  bl        #0xb144c
+0024529c  ldr       r3, [pc, #0xe8]
+0024529e  add       r4, sp, #0x20
+002452a0  movs      r1, #1
+002452a2  mov       r0, r4
+002452a4  ldr       r3, [r7, r3]
+002452a6  ldr.w     fp, [r3]
+002452aa  mov       r2, fp
+002452ac  bl        #0x246afc
+002452b0  ldr.w     r0, [sb]
+002452b4  mov       r2, fp
+002452b6  mov       r1, r5
+002452b8  strd      r6, r6, [r5]
+002452bc  str       r6, [r5, #8]
+002452be  bl        #0x2453a0
+002452c2  mov       r2, r8
+002452c4  mov       r1, r5
+002452c6  mov       r0, r4
+002452c8  bl        #0x247b04
+002452cc  ldr       r0, [pc, #0xbc]
+002452ce  add       r0, pc
+002452d0  bl        #0xb1260
+002452d4  movs      r1, #0x42
+002452d6  ldr       r2, [pc, #0xb8]
+002452d8  str       r1, [sp, #0xc]
+002452da  mov       r3, r6
+002452dc  ldr       r1, [pc, #0xb4]
+002452de  add       r2, pc
+002452e0  str       r0, [sp, #8]
+002452e2  mov       r0, sl
+002452e4  strd      r6, r2, [sp]
+002452e8  add       r1, pc
+002452ea  movs      r2, #3
+002452ec  bl        #0xb144c
+002452f0  ldr       r0, [r5]
+002452f2  cbz       r0, #0x2452f8
+002452f4  blx       #0x56df0
+002452f8  ldr       r3, [pc, #0x9c]
+002452fa  ldr.w     r0, [r4, #0x178]
+002452fe  ldr       r3, [r7, r3]
+00245300  adds      r3, #8
+00245302  str       r3, [r4]
+00245304  add       r3, sp, #0x1a0
+00245306  cmp       r0, r3
+00245308  beq       #0x24530e
+0024530a  blx       #0x56df0
+0024530e  ldr.w     r0, [r4, #0x160]
+00245312  add       r3, sp, #0x188
+00245314  cmp       r0, r3
+00245316  beq       #0x24531c
+00245318  blx       #0x56df0
+0024531c  add       r0, sp, #0x130
+0024531e  bl        #0xf9dd4
+00245322  add       r0, sp, #0xe0
+00245324  bl        #0xf9dd4
+00245328  add       r0, sp, #0x48
+0024532a  bl        #0x245b10
+0024532e  ldr       r0, [r4, #0x18]
+00245330  cbz       r0, #0x245336
+00245332  blx       #0x56df0
+00245336  ldr       r0, [r4, #0xc]
+00245338  cbz       r0, #0x24533e
+0024533a  blx       #0x56df0
+0024533e  ldr       r2, [pc, #0x5c]
+00245340  ldr       r3, [pc, #0x2c]
+00245342  add       r2, pc
+00245344  ldr       r3, [r2, r3]
+00245346  ldr       r2, [r3]
+00245348  ldr       r3, [sp, #0x1bc]
+0024534a  eors      r2, r3
+0024534c  bne       #0x245354
+0024534e  add       sp, #0x1c4
+00245350  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00245354  blx       #0x56af0
+00245358  ldr       r0, [r5]
+0024535a  cbz       r0, #0x245360
+0024535c  blx       #0x56df0
+00245360  mov       r0, r4
+00245362  bl        #0x244fd0
+00245366  blx       #0x574cc
+0024536a  nop       
+0024536c  ldr       r5, [pc, #0x2a0]
+0024536e  movs      r0, r5
+00245370  ldr       r6, [pc, #0x10]
+00245372  movs      r0, r0
+00245374  ldr       r5, [pc, #0x280]
+00245376  movs      r0, r5
+00245378  asrs      r4, r6, #0x1e
+0024537a  movs      r0, r0
+0024537c  ldr       r0, [r6, #0xc]
+0024537e  movs      r3, r3
+00245380  ldr       r2, [r2, #0x1c]
+00245382  movs      r3, r3
+00245384  strb      r0, [r3, r4]
+00245386  movs      r3, r2
+00245388  adds      r0, #0xdc
+0024538a  movs      r0, r0
+0024538c  ldr       r6, [r0, #8]
+0024538e  movs      r3, r3
+00245390  ldr       r6, [r5, #0x18]
+00245392  movs      r3, r3
+00245394  strb      r0, [r7, r2]
+00245396  movs      r3, r2
+00245398  asrs      r4, r6, #0x14
+0024539a  movs      r0, r0
+0024539c  ldr       r4, [pc, #0x2e8]
+0024539e  movs      r0, r5
+
+FUNCTION 002453a0..00245554 (ARM exidx boundary)
+002453a0  cmp       r2, #1
+002453a2  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+002453a6  it        lo
+002453a8  movlo     r2, #1
+002453aa  mov       r5, r2
+002453ac  mvns      r7, r2
+002453ae  ldr       r2, [pc, #0x17c]
+002453b0  sub       sp, #0x8c
+002453b2  ldr       r3, [pc, #0x17c]
+002453b4  mov       r6, r1
+002453b6  add       r2, pc
+002453b8  ldr.w     sb, [pc, #0x178]
+002453bc  mov       sl, r0
+002453be  add       sb, pc
+002453c0  ldr       r3, [r2, r3]
+002453c2  ldr       r3, [r3]
+002453c4  str       r3, [sp, #0x84]
+002453c6  mov.w     r3, #0
+002453ca  ldrd      r3, r1, [r1]
+002453ce  subs      r4, r1, r3
+002453d0  mov       r8, r4
+002453d2  b         #0x24540c
+002453d4  add       r0, r3
+002453d6  cmp       r0, r1
+002453d8  beq       #0x2453dc
+002453da  str       r0, [r6, #4]
+002453dc  cmp       r3, r0
+002453de  beq       #0x24542c
+002453e0  ldr.w     r3, [sl]
+002453e4  mov       r2, r5
+002453e6  mov       r0, sl
+002453e8  ldr       r3, [r3, #8]
+002453ea  blx       r3
+002453ec  ldr       r3, [r6]
+002453ee  ldr       r1, [r6, #4]
+002453f0  adds      r2, r4, r0
+002453f2  mov       fp, r0
+002453f4  subs      r4, r1, r3
+002453f6  cmp       r2, r4
+002453f8  bhi       #0x24545e
+002453fa  bhs       #0x245406
+002453fc  add       r2, r3
+002453fe  cmp       r1, r2
+00245400  beq       #0x245406
+00245402  mov       r1, r2
+00245404  str       r2, [r6, #4]
+00245406  cmp       fp, r5
+00245408  blo       #0x2454fc
+0024540a  subs      r4, r1, r3
+0024540c  cmp       r4, r7
+0024540e  strd      r4, r5, [sp, #8]
+00245412  bhi       #0x24546c
+00245414  adds      r0, r4, r5
+00245416  mov.w     r2, #1
+0024541a  it        lo
+0024541c  movlo     r2, #0
+0024541e  cmp       r4, r0
+00245420  blo       #0x24544a
+00245422  cmp       r2, #0
+00245424  bne       #0x2453d4
+00245426  mov       r0, r1
+00245428  cmp       r3, r0
+0024542a  bne       #0x2453e0
+0024542c  mov       r1, r0
+0024542e  ldr       r2, [pc, #0x108]
+00245430  subs      r1, r1, r0
+00245432  ldr       r3, [pc, #0xfc]
+00245434  sub.w     r0, r1, r8
+00245438  add       r2, pc
+0024543a  ldr       r3, [r2, r3]
+0024543c  ldr       r2, [r3]
+0024543e  ldr       r3, [sp, #0x84]
+00245440  eors      r2, r3
+00245442  bne       #0x2454f8
+00245444  add       sp, #0x8c
+00245446  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+0024544a  mov       r1, r5
+0024544c  mov       r0, r6
+0024544e  bl        #0xa5888
+00245452  ldrd      r1, r0, [r6]
+00245456  cmp       r1, r0
+00245458  beq       #0x24542c
+0024545a  add       r1, r4
+0024545c  b         #0x2453e0
+0024545e  subs      r1, r2, r4
+00245460  mov       r0, r6
+00245462  bl        #0xa5888
+00245466  ldrd      r3, r1, [r6]
+0024546a  b         #0x245406
+0024546c  ldr       r2, [pc, #0xcc]
+0024546e  movs      r3, #0
+00245470  mov.w     r1, #-1
+00245474  strd      r3, r3, [sp, #0x18]
+00245478  str       r3, [sp, #0x20]
+0024547a  add       r0, sp, #0x2c
+0024547c  strd      r1, r1, [sp, #0x24]
+00245480  add       r5, sp, #0x68
+00245482  ldr.w     r2, [sb, r2]
+00245486  strd      r3, r3, [sp, #0x50]
+0024548a  add.w     r4, r2, #0x18
+0024548e  str       r3, [sp, #0x58]
+00245490  adds      r2, #0x30
+00245492  strd      r1, r1, [sp, #0x5c]
+00245496  str       r3, [sp, #0x64]
+00245498  str       r2, [sp, #0x14]
+0024549a  str       r2, [sp, #0x4c]
+0024549c  str       r4, [sp, #0x10]
+0024549e  str       r4, [sp, #0x2c]
+002454a0  str       r4, [sp, #0x48]
+002454a2  blx       #0x568b4
+002454a6  add       r1, sp, #0xc
+002454a8  ldr       r3, [pc, #0x94]
+002454aa  str       r1, [sp]
+002454ac  mov       r0, r5
+002454ae  ldr       r1, [pc, #0x94]
+002454b0  add       r3, pc
+002454b2  add       r2, sp, #8
+002454b4  add       r1, pc
+002454b6  bl        #0x14d954
+002454ba  add       r4, sp, #0x48
+002454bc  mov       r1, r5
+002454be  mov       r0, r4
+002454c0  bl        #0x998b8
+002454c4  ldr       r3, [sp, #0x48]
+002454c6  add       r1, sp, #0x88
+002454c8  ldr       r5, [pc, #0x7c]
+002454ca  movs      r6, #0x63
+002454cc  mov       r0, r4
+002454ce  ldr       r2, [r3, #-0x18]
+002454d2  add       r5, pc
+002454d4  add       r2, r1
+002454d6  ldr       r1, [pc, #0x74]
+002454d8  add       r1, pc
+002454da  str       r5, [r2, #-0x38]
+002454de  add       r5, sp, #0x88
+002454e0  ldr       r2, [r3, #-0x18]
+002454e4  add       r2, r5
+002454e6  str       r1, [r2, #-0x34]
+002454ea  ldr       r3, [r3, #-0x18]
+002454ee  add       r3, r5
+002454f0  str       r6, [r3, #-0x30]
+002454f4  bl        #0x99b48
+002454f8  blx       #0x56af0
+002454fc  mov       r0, r3
+002454fe  b         #0x24542e
+00245500  ldr       r3, [pc, #0x4c]
+00245502  ldr       r0, [sp, #0x6c]
+00245504  ldr.w     r3, [sb, r3]
+00245508  adds      r3, #8
+0024550a  str       r3, [sp, #0x68]
+0024550c  add       r3, sp, #0x74
+0024550e  cmp       r0, r3
+00245510  beq       #0x245516
+00245512  blx       #0x56df0
+00245516  mov       r0, r4
+00245518  bl        #0x990f8
+0024551c  add       r0, sp, #0x10
+0024551e  bl        #0x99068
+00245522  blx       #0x574cc
+00245526  add       r4, sp, #0x48
+00245528  b         #0x245516
+0024552a  nop       
+0024552c  ldr       r4, [pc, #0x118]
+0024552e  movs      r0, r5
+00245530  ldr       r6, [pc, #0x10]
+00245532  movs      r0, r0
+00245534  ldr       r4, [pc, #0xf8]
+00245536  movs      r0, r5
+00245538  ldr       r3, [pc, #0x310]
+0024553a  movs      r0, r5
+0024553c  ldr       r7, [pc, #0x30]
+0024553e  movs      r0, r0
+00245540  ldr       r4, [sp, #0x270]
+00245542  movs      r6, r2
+00245544  ldr       r4, [sp, #0x270]
+00245546  movs      r6, r2
+
+FUNCTION 00245554..0024555c (ARM exidx boundary)
+00245554  movs      r2, #0
+00245556  strh.w    r2, [r0, #0x74]
+0024555a  bx        lr
+
+FUNCTION 0024555c..0024558c (ARM exidx boundary)
+0024555c  push      {r4, lr}
+0024555e  mov       r4, r0
+00245560  adds      r0, #4
+00245562  blx       #0x56b78
+00245566  add.w     r0, r4, #0x50
+0024556a  blx       #0x589e8
+0024556e  add.w     r0, r4, #0x2c
+00245572  blx       #0x589e8
+00245576  add.w     r0, r4, #8
+0024557a  blx       #0x589e8
+0024557e  mov       r0, r4
+00245580  blx       #0x572e4
+00245584  movs      r3, #0
+00245586  strb.w    r3, [r4, #0x74]
+0024558a  pop       {r4, pc}
+
+FUNCTION 0024558c..00245594 (ARM exidx boundary)
+0024558c  ldrb.w    r0, [r0, #0x75]
+00245590  bx        lr
+00245592  nop       
+
+FUNCTION 00245594..0024581c (ARM exidx boundary)
+00245594  ldr       r2, [pc, #0x244]
+00245596  ldr       r3, [pc, #0x248]
+00245598  add       r2, pc
+0024559a  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0024559e  ldr.w     r8, [pc, #0x244]
+002455a2  sub       sp, #0x2c
+002455a4  mov       r4, r0
+002455a6  ldr       r3, [r2, r3]
+002455a8  add       r8, pc
+002455aa  ldr       r5, [pc, #0x23c]
+002455ac  mov       r0, r8
+002455ae  ldr       r3, [r3]
+002455b0  str       r3, [sp, #0x24]
+002455b2  mov.w     r3, #0
+002455b6  bl        #0xb1260
+002455ba  ldr       r1, [pc, #0x230]
+002455bc  add       r5, pc
+002455be  ldr       r7, [pc, #0x230]
+002455c0  mov.w     sb, #0
+002455c4  ldr.w     ip, [pc, #0x22c]
+002455c8  mov       r2, r5
+002455ca  add       r7, pc
+002455cc  mov.w     lr, #0x108
+002455d0  ldr       r6, [r5, r1]
+002455d2  add       ip, pc
+002455d4  mov       r3, sb
+002455d6  mov       r1, r7
+002455d8  str       r0, [sp, #8]
+002455da  mov       r0, r6
+002455dc  movs      r2, #3
+002455de  strd      sb, ip, [sp]
+002455e2  str.w     lr, [sp, #0xc]
+002455e6  bl        #0xb144c
+002455ea  mov       r0, r4
+002455ec  bl        #0x24558c
+002455f0  mov       r5, r0
+002455f2  cmp       r0, #0
+002455f4  bne       #0x2456e2
+002455f6  mov       r1, r4
+002455f8  blx       #0x576cc
+002455fc  mov       sb, r0
+002455fe  cmp       r0, #0
+00245600  bne       #0x2456a4
+00245602  add.w     fp, r4, #8
+00245606  mov.w     sl, #0x10000
+0024560a  mov.w     sb, #3
+0024560e  mov       r1, fp
+00245610  mov       r0, r4
+00245612  str.w     sl, [r4, #0xc]
+00245616  str.w     sb, [r4, #0x10]
+0024561a  blx       #0x58b6c
+0024561e  cmp       r0, #0
+00245620  bne.w     #0x24573e
+00245624  add.w     r3, r4, #0x2c
+00245628  mov       r0, r4
+0024562a  mov       r1, r3
+0024562c  strd      sl, sb, [r4, #0x30]
+00245630  str       r3, [sp, #0x18]
+00245632  blx       #0x58b6c
+00245636  cmp       r0, #0
+00245638  bne       #0x245708
+0024563a  add.w     r3, r4, #0x50
+0024563e  strd      sl, sb, [r4, #0x54]
+00245642  mov       r1, r3
+00245644  mov       r0, r4
+00245646  str       r3, [sp, #0x1c]
+00245648  blx       #0x58b6c
+0024564c  mov       sl, r0
+0024564e  cmp       r0, #0
+00245650  bne.w     #0x24576e
+00245654  add       r2, sp, #0x20
+00245656  str       r2, [sp, #8]
+00245658  ldr       r2, [pc, #0x19c]
+0024565a  mov       r3, r5
+0024565c  adds      r1, r4, #4
+0024565e  mov       r0, r4
+00245660  add       r2, pc
+00245662  strd      r5, r5, [sp]
+00245666  str       r5, [sp, #0x20]
+00245668  blx       #0x57ae8
+0024566c  mov       sl, r0
+0024566e  mov       r0, r8
+00245670  cmp.w     sl, #0
+00245674  bne.w     #0x2457a8
+00245678  mov.w     r8, #1
+0024567c  strb.w    r8, [r4, #0x74]
+00245680  ldr       r4, [pc, #0x178]
+00245682  bl        #0xb1260
+00245686  mov       r3, r5
+00245688  str       r5, [sp]
+0024568a  add       r4, pc
+0024568c  str       r0, [sp, #8]
+0024568e  str       r4, [sp, #4]
+00245690  mov       r2, sb
+00245692  mov.w     r4, #0x146
+00245696  mov       r1, r7
+00245698  mov       r0, r6
+0024569a  str       r4, [sp, #0xc]
+0024569c  mov       r5, r8
+0024569e  bl        #0xb144c
+002456a2  b         #0x2456ca
+002456a4  mov       r0, r8
+002456a6  mov.w     r4, #0x114
+002456aa  bl        #0xb1260
+002456ae  ldr       r2, [pc, #0x150]
+002456b0  str       r0, [sp, #8]
+002456b2  mov       r1, r7
+002456b4  add       r2, pc
+002456b6  mov       r0, r6
+002456b8  str       r2, [sp, #4]
+002456ba  mov       r3, r5
+002456bc  movs      r2, #5
+002456be  str.w     sb, [sp, #0x10]
+002456c2  str       r5, [sp]
+002456c4  str       r4, [sp, #0xc]
+002456c6  bl        #0xb144c
+002456ca  ldr       r2, [pc, #0x138]
+002456cc  ldr       r3, [pc, #0x110]
+002456ce  add       r2, pc
+002456d0  ldr       r3, [r2, r3]
+002456d2  ldr       r2, [r3]
+002456d4  ldr       r3, [sp, #0x24]
+002456d6  eors      r2, r3
+002456d8  bne       #0x2457d8
+002456da  mov       r0, r5
+002456dc  add       sp, #0x2c
+002456de  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+002456e2  mov       r0, r8
+002456e4  bl        #0xb1260
+002456e8  ldr       r2, [pc, #0x11c]
+002456ea  str       r0, [sp, #8]
+002456ec  mov       r1, r7
+002456ee  add       r2, pc
+002456f0  mov       r0, r6
+002456f2  str       r2, [sp, #4]
+002456f4  mov       r3, sb
+002456f6  mov.w     r2, #0x10c
+002456fa  str.w     sb, [sp]
+002456fe  str       r2, [sp, #0xc]
+00245700  movs      r2, #3
+00245702  bl        #0xb144c
+00245706  b         #0x2456ca
+00245708  str       r0, [sp, #0x18]
+0024570a  mov       r0, r8
+0024570c  bl        #0xb1260
+00245710  ldr       r2, [pc, #0xf8]
+00245712  ldr       r3, [sp, #0x18]
+00245714  mov       r1, r7
+00245716  str       r0, [sp, #8]
+00245718  add       r2, pc
+0024571a  mov       r0, r6
+0024571c  str       r3, [sp, #0x10]
+0024571e  str       r2, [sp, #4]
+00245720  mov       r3, r5
+00245722  movs      r2, #5
+00245724  movw      r6, #0x127
+00245728  str       r5, [sp]
+0024572a  str       r6, [sp, #0xc]
+0024572c  bl        #0xb144c
+00245730  mov       r0, fp
+00245732  blx       #0x589e8
+00245736  mov       r0, r4
+00245738  blx       #0x572e4
+0024573c  b         #0x2456ca
+0024573e  str       r0, [sp, #0x18]
+00245740  mov       r0, r8
+00245742  bl        #0xb1260
+00245746  ldr       r2, [pc, #0xc8]
+00245748  ldr       r3, [sp, #0x18]
+0024574a  mov       r1, r7
+0024574c  str       r0, [sp, #8]
+0024574e  add       r2, pc
+00245750  mov       r0, r6
+00245752  str       r3, [sp, #0x10]
+00245754  str       r2, [sp, #4]
+00245756  mov       r3, r5
+00245758  movs      r2, #5
+0024575a  movw      r6, #0x11d
+0024575e  str       r5, [sp]
+00245760  str       r6, [sp, #0xc]
+00245762  bl        #0xb144c
+00245766  mov       r0, r4
+00245768  blx       #0x572e4
+0024576c  b         #0x2456ca
+0024576e  mov       r0, r8
+00245770  bl        #0xb1260
+00245774  ldr       r2, [pc, #0x9c]
+00245776  str       r0, [sp, #8]
+00245778  mov       r1, r7
+0024577a  add       r2, pc
+0024577c  mov       r0, r6
+0024577e  str       r2, [sp, #4]
+00245780  mov.w     r6, #0x132
+00245784  mov       r3, r5
+00245786  movs      r2, #5
+00245788  str.w     sl, [sp, #0x10]
+0024578c  str       r5, [sp]
+0024578e  str       r6, [sp, #0xc]
+00245790  bl        #0xb144c
+00245794  ldr       r0, [sp, #0x18]
+00245796  blx       #0x589e8
+0024579a  mov       r0, fp
+0024579c  blx       #0x589e8
+002457a0  mov       r0, r4
+002457a2  blx       #0x572e4
+002457a6  b         #0x2456ca
+002457a8  bl        #0xb1260
+002457ac  ldr       r2, [pc, #0x68]
+002457ae  ldr       r3, [sp, #0x20]
+002457b0  mov       r1, r7
+002457b2  str       r0, [sp, #8]
+002457b4  add       r2, pc
+002457b6  mov       r0, r6
+002457b8  str       r3, [sp, #0x14]
+002457ba  str       r2, [sp, #4]
+002457bc  mov       r3, r5
+002457be  movs      r2, #5
+002457c0  str.w     sl, [sp, #0x10]
+002457c4  movw      r6, #0x13d
+002457c8  str       r5, [sp]
+002457ca  str       r6, [sp, #0xc]
+002457cc  bl        #0xb144c
+002457d0  ldr       r0, [sp, #0x1c]
+002457d2  blx       #0x589e8
+002457d6  b         #0x245794
+002457d8  blx       #0x56af0
+002457dc  ldr       r2, [pc, #0x190]
+002457de  movs      r0, r5
+002457e0  ldr       r6, [pc, #0x10]
+002457e2  movs      r0, r0
+002457e4  str       r4, [r1, #0x70]
+002457e6  movs      r3, r3
+002457e8  ldr       r2, [pc, #0x100]
+002457ea  movs      r0, r5
+002457ec  asrs      r4, r6, #0x1e
+002457ee  movs      r0, r0
+002457f0  str       r6, [r2, r7]
+002457f2  movs      r3, r2
+002457f4  str       r6, [r6, #0x74]
+002457f6  movs      r3, r3
+002457f8  ldr       r4, [r0, #0x48]
+002457fa  movs      r3, r3
+002457fc  ldr       r2, [r3, #4]
+002457fe  movs      r3, r3
+00245800  str       r4, [r4, #0x6c]
+00245802  movs      r3, r3
+00245804  ldr       r1, [pc, #0xb8]
+00245806  movs      r0, r5
+00245808  str       r6, [r6, #0x64]
+0024580a  movs      r3, r3
+0024580c  str       r0, [r0, #0x70]
+0024580e  movs      r3, r3
+00245810  str       r2, [r0, #0x68]
+00245812  movs      r3, r3
+00245814  str       r2, [r5, #0x6c]
+00245816  movs      r3, r3
+00245818  str       r0, [r6, #0x6c]
+0024581a  movs      r3, r3
+
+FUNCTION 0024581c..00245b08 (ARM exidx boundary)
+0024581c  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00245820  mov       r4, r0
+00245822  ldr.w     sb, [pc, #0x288]
+00245826  sub       sp, #0x10c
+00245828  ldr       r7, [pc, #0x284]
+0024582a  add       sb, pc
+0024582c  ldr.w     r8, [pc, #0x284]
+00245830  mov       r0, sb
+00245832  ldr       r5, [pc, #0x284]
+00245834  strd      r2, r1, [sp, #0x18]
+00245838  movs      r6, #0
+0024583a  ldr       r2, [pc, #0x280]
+0024583c  add       r8, pc
+0024583e  str       r3, [sp, #0x20]
+00245840  add       r5, pc
+00245842  ldr       r3, [pc, #0x27c]
+00245844  add       r2, pc
+00245846  ldrd      fp, sl, [sp, #0x138]
+0024584a  ldr       r3, [r2, r3]
+0024584c  ldr       r3, [r3]
+0024584e  str       r3, [sp, #0x104]
+00245850  mov.w     r3, #0
+00245854  bl        #0xb1260
+00245858  ldr       r1, [pc, #0x268]
+0024585a  mov       r3, r6
+0024585c  mov.w     ip, #0x4b
+00245860  movs      r2, #3
+00245862  add       r1, pc
+00245864  ldr       r7, [r1, r7]
+00245866  mov       r1, r8
+00245868  str       r0, [sp, #8]
+0024586a  strd      r6, r5, [sp]
+0024586e  mov       r0, r7
+00245870  str.w     ip, [sp, #0xc]
+00245874  bl        #0xb144c
+00245878  ldr       r3, [sp, #0x140]
+0024587a  cmp.w     r3, #0x10000
+0024587e  bhi.w     #0x2459c2
+00245882  mov       r0, r4
+00245884  bl        #0x245594
+00245888  mov       r5, r0
+0024588a  cmp       r0, #0
+0024588c  beq.w     #0x245a4a
+00245890  ldrd      r1, r2, [fp]
+00245894  ldr       r3, [r4, #0xc]
+00245896  subs      r2, r2, r1
+00245898  cmp       r3, r2
+0024589a  blo       #0x245980
+0024589c  ldr       r0, [r4, #0x54]
+0024589e  str       r0, [sp, #0x24]
+002458a0  ldr.w     r3, [sl, #4]
+002458a4  ldr.w     r0, [sl]
+002458a8  subs      r3, r3, r0
+002458aa  ldr       r0, [sp, #0x24]
+002458ac  cmp       r0, r3
+002458ae  blo       #0x245980
+002458b0  ldr       r0, [r4, #8]
+002458b2  blx       #0x580e0
+002458b6  ldr       r0, [r4, #0x50]
+002458b8  ldrd      r1, r2, [sl]
+002458bc  subs      r2, r2, r1
+002458be  blx       #0x580e0
+002458c2  ldr       r3, [sp, #0x18]
+002458c4  cmp       r3, #0
+002458c6  bne.w     #0x245a34
+002458ca  mov       r0, sb
+002458cc  bl        #0xb1260
+002458d0  ldr       r2, [pc, #0x1f4]
+002458d2  ldr       r3, [sp, #0x18]
+002458d4  mov       r1, r8
+002458d6  str       r0, [sp, #8]
+002458d8  add       r2, pc
+002458da  movs      r0, #0x6b
+002458dc  str       r3, [sp]
+002458de  str       r2, [sp, #4]
+002458e0  movs      r2, #3
+002458e2  str       r0, [sp, #0xc]
+002458e4  mov       r0, r7
+002458e6  bl        #0xb144c
+002458ea  ldr       r2, [sp, #0x1c]
+002458ec  ldrd      ip, r6, [sl]
+002458f0  str       r2, [sp, #0x4c]
+002458f2  ldr.w     r3, [fp]
+002458f6  mov.w     r8, #0
+002458fa  sub.w     r6, r6, ip
+002458fe  str       r6, [sp, #0x44]
+00245900  movw      r6, #0xd0d
+00245904  movt      r6, #0x101
+00245908  str       r6, [sp, #0x30]
+0024590a  add.w     r6, r4, #8
+0024590e  str       r6, [sp, #0x34]
+00245910  add.w     r6, r4, #0x50
+00245914  str       r6, [sp, #0x40]
+00245916  mov       r1, r8
+00245918  ldr       r6, [sp, #0x134]
+0024591a  ldr       r2, [sp, #0x18]
+0024591c  mov       ip, r6
+0024591e  ldr.w     r0, [fp, #4]
+00245922  ldr       r6, [sp, #0x130]
+00245924  str       r2, [sp, #0x50]
+00245926  subs      r0, r0, r3
+00245928  ldr       r2, [sp, #0x20]
+0024592a  add       r3, sp, #0x28
+0024592c  str       r2, [sp, #0x58]
+0024592e  add       r2, sp, #0x2c
+00245930  str       r0, [sp, #0x38]
+00245932  adds      r0, r4, #4
+00245934  add.w     r6, ip, r6, lsl #8
+00245938  str.w     r8, [sp, #0x3c]
+0024593c  str       r6, [sp, #0x5c]
+0024593e  str.w     r8, [sp, #0x48]
+00245942  str.w     r8, [sp, #0x28]
+00245946  blx       #0x57f24
+0024594a  mov       r6, r0
+0024594c  cmp       r0, #0
+0024594e  bne.w     #0x245a6c
+00245952  ldr       r0, [pc, #0x178]
+00245954  movs      r3, #1
+00245956  strb.w    r3, [r4, #0x75]
+0024595a  add       r0, pc
+0024595c  bl        #0xb1260
+00245960  movs      r1, #0x87
+00245962  ldr       r2, [pc, #0x16c]
+00245964  mov       r3, r0
+00245966  str       r1, [sp, #0xc]
+00245968  mov       r0, r7
+0024596a  ldr       r1, [pc, #0x168]
+0024596c  add       r2, pc
+0024596e  str       r3, [sp, #8]
+00245970  mov       r3, r6
+00245972  str       r2, [sp, #4]
+00245974  add       r1, pc
+00245976  movs      r2, #3
+00245978  str       r6, [sp]
+0024597a  bl        #0xb144c
+0024597e  b         #0x2459aa
+00245980  ldr       r0, [pc, #0x154]
+00245982  movs      r4, #0
+00245984  mov       r5, r4
+00245986  add       r0, pc
+00245988  bl        #0xb1260
+0024598c  movs      r1, #0x61
+0024598e  ldr       r2, [pc, #0x14c]
+00245990  mov       r3, r0
+00245992  str       r1, [sp, #0xc]
+00245994  mov       r0, r7
+00245996  ldr       r1, [pc, #0x148]
+00245998  add       r2, pc
+0024599a  str       r3, [sp, #8]
+0024599c  mov       r3, r4
+0024599e  str       r2, [sp, #4]
+002459a0  add       r1, pc
+002459a2  movs      r2, #5
+002459a4  str       r4, [sp]
+002459a6  bl        #0xb144c
+002459aa  ldr       r2, [pc, #0x138]
+002459ac  ldr       r3, [pc, #0x110]
+002459ae  add       r2, pc
+002459b0  ldr       r3, [r2, r3]
+002459b2  ldr       r2, [r3]
+002459b4  ldr       r3, [sp, #0x104]
+002459b6  eors      r2, r3
+002459b8  bne       #0x245a9e
+002459ba  mov       r0, r5
+002459bc  add       sp, #0x10c
+002459be  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+002459c2  add       r5, sp, #0x2c
+002459c4  mov       r0, sb
+002459c6  bl        #0xb1260
+002459ca  movs      r2, #0x4f
+002459cc  mov       r3, r0
+002459ce  str       r2, [sp]
+002459d0  mov       r1, r8
+002459d2  mov       r0, r5
+002459d4  movs      r2, #5
+002459d6  bl        #0xb1a68
+002459da  mov       r0, r5
+002459dc  bl        #0xb1870
+002459e0  ldr       r1, [pc, #0x104]
+002459e2  movs      r2, #0x3d
+002459e4  mov       r4, r0
+002459e6  add       r1, pc
+002459e8  blx       #0x58560
+002459ec  ldr       r3, [r4]
+002459ee  mov       r0, r4
+002459f0  ldr       r1, [sp, #0x140]
+002459f2  ldr       r2, [r3, #-0xc]
+002459f6  add       r2, r4
+002459f8  ldr       r3, [r2, #0xc]
+002459fa  bic       r3, r3, #0x4a
+002459fe  orr       r3, r3, #8
+00245a02  str       r3, [r2, #0xc]
+00245a04  blx       #0x56d98
+00245a08  ldr       r1, [pc, #0xe0]
+00245a0a  movs      r2, #0x18
+00245a0c  mov       r0, r4
+00245a0e  add       r1, pc
+00245a10  blx       #0x58560
+00245a14  mov.w     r1, #0x10000
+00245a18  mov       r0, r4
+00245a1a  blx       #0x56d98
+00245a1e  ldr       r1, [pc, #0xd0]
+00245a20  mov       r0, r4
+00245a22  movs      r2, #1
+00245a24  add       r1, pc
+00245a26  blx       #0x58560
+00245a2a  mov       r0, r5
+00245a2c  mov       r5, r6
+00245a2e  bl        #0xb1744
+00245a32  b         #0x2459aa
+00245a34  mov       r0, sb
+00245a36  bl        #0xb1260
+00245a3a  ldr       r2, [pc, #0xb8]
+00245a3c  str       r0, [sp, #8]
+00245a3e  mov       r1, r8
+00245a40  add       r2, pc
+00245a42  mov       r3, r6
+00245a44  movs      r0, #0x67
+00245a46  str       r6, [sp]
+00245a48  b         #0x2458de
+00245a4a  mov       r0, sb
+00245a4c  bl        #0xb1260
+00245a50  ldr       r3, [pc, #0xa4]
+00245a52  movs      r2, #0x56
+00245a54  str       r0, [sp, #8]
+00245a56  add       r3, pc
+00245a58  str       r2, [sp, #0xc]
+00245a5a  str       r3, [sp, #4]
+00245a5c  mov       r1, r8
+00245a5e  mov       r0, r7
+00245a60  mov       r3, r5
+00245a62  movs      r2, #5
+00245a64  str       r5, [sp]
+00245a66  bl        #0xb144c
+00245a6a  b         #0x2459aa
+00245a6c  ldr       r0, [pc, #0x8c]
+00245a6e  movs      r4, #0x82
+00245a70  mov       r5, r8
+00245a72  add       r0, pc
+00245a74  bl        #0xb1260
+00245a78  ldr       r1, [sp, #0x28]
+00245a7a  str       r1, [sp, #0x14]
+00245a7c  mov       r3, r0
+00245a7e  ldr       r1, [pc, #0x80]
+00245a80  mov       r0, r7
+00245a82  str       r3, [sp, #8]
+00245a84  movs      r2, #5
+00245a86  add       r1, pc
+00245a88  str       r1, [sp, #4]
+00245a8a  ldr       r1, [pc, #0x78]
+00245a8c  mov       r3, r8
+00245a8e  str       r6, [sp, #0x10]
+00245a90  add       r1, pc
+00245a92  str.w     r8, [sp]
+00245a96  str       r4, [sp, #0xc]
+00245a98  bl        #0xb144c
+00245a9c  b         #0x2459aa
+00245a9e  blx       #0x56af0
+00245aa2  mov       r0, r5
+00245aa4  bl        #0xb1744
+00245aa8  blx       #0x574cc
+00245aac  str       r2, [r1, #0x48]
+00245aae  movs      r3, r3
+00245ab0  asrs      r4, r6, #0x1e
+00245ab2  movs      r0, r0
+00245ab4  ldr       r7, [pc, #0x190]
+00245ab6  movs      r3, r2
+00245ab8  str       r4, [r7, #0x68]
+00245aba  movs      r3, r3
+00245abc  blx       r7
+00245abe  movs      r0, r5
+00245ac0  ldr       r6, [pc, #0x10]
+00245ac2  movs      r0, r0
+
+FUNCTION 00245b08..00245b10 (ARM exidx boundary)
+00245b08  ldrb.w    r0, [r0, #0x74]
+00245b0c  bx        lr
+00245b0e  nop       
+
+FUNCTION 00245b10..00245b74 (ARM exidx boundary)
+00245b10  push      {r4, r5, r6, lr}
+00245b12  mov       r4, r0
+00245b14  ldr       r5, [pc, #0x48]
+00245b16  ldr       r0, [pc, #0x4c]
+00245b18  sub       sp, #0x10
+00245b1a  ldr       r6, [pc, #0x4c]
+00245b1c  add       r5, pc
+00245b1e  add       r0, pc
+00245b20  bl        #0xb1260
+00245b24  ldr       r1, [pc, #0x44]
+00245b26  mov       r2, r5
+00245b28  movs      r3, #0
+00245b2a  add       r1, pc
+00245b2c  ldr       r2, [r5, r6]
+00245b2e  strd      r3, r1, [sp]
+00245b32  movs      r5, #0x3a
+00245b34  ldr       r1, [pc, #0x38]
+00245b36  str       r0, [sp, #8]
+00245b38  mov       r0, r2
+00245b3a  add       r1, pc
+00245b3c  movs      r2, #3
+00245b3e  str       r5, [sp, #0xc]
+00245b40  bl        #0xb144c
+00245b44  mov       r0, r4
+00245b46  bl        #0x245b08
+00245b4a  cbnz      r0, #0x245b52
+00245b4c  mov       r0, r4
+00245b4e  add       sp, #0x10
+00245b50  pop       {r4, r5, r6, pc}
+00245b52  mov       r0, r4
+00245b54  bl        #0x24555c
+00245b58  mov       r0, r4
+00245b5a  add       sp, #0x10
+00245b5c  pop       {r4, r5, r6, pc}
+00245b5e  nop       
+00245b60  add       r8, ip
+00245b62  movs      r0, r5
+00245b64  str       r6, [r2, #0x18]
+00245b66  movs      r3, r3
+00245b68  asrs      r4, r6, #0x1e
+00245b6a  movs      r0, r0
+00245b6c  str       r2, [r6, #0x58]
+00245b6e  movs      r3, r3
+00245b70  ldr       r4, [pc, #0x198]
+00245b72  movs      r3, r2
+
+FUNCTION 00245b74..00245d98 (ARM exidx boundary)
+00245b74  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00245b78  mov       r8, r2
+00245b7a  ldr       r2, [pc, #0x1e4]
+00245b7c  sub       sp, #0x10c
+00245b7e  mov       r7, r3
+00245b80  ldr       r3, [pc, #0x1e0]
+00245b82  add       r2, pc
+00245b84  ldr.w     sl, [pc, #0x1e0]
+00245b88  mov       r4, r0
+00245b8a  str       r1, [sp, #0x24]
+00245b8c  movs      r5, #0
+00245b8e  add       sl, pc
+00245b90  ldr.w     sb, [pc, #0x1d8]
+00245b94  ldr       r3, [r2, r3]
+00245b96  mov       r0, sl
+00245b98  ldr       r6, [pc, #0x1d4]
+00245b9a  add       sb, pc
+00245b9c  ldr       r3, [r3]
+00245b9e  str       r3, [sp, #0x104]
+00245ba0  mov.w     r3, #0
+00245ba4  ldr       r3, [sp, #0x130]
+00245ba6  str       r3, [sp, #0x1c]
+00245ba8  add       r6, pc
+00245baa  ldr       r3, [sp, #0x134]
+00245bac  str       r3, [sp, #0x20]
+00245bae  bl        #0xb1260
+00245bb2  ldr       r2, [pc, #0x1c0]
+00245bb4  mov.w     ip, #0xd7
+00245bb8  ldr       r1, [pc, #0x1bc]
+00245bba  mov       r3, r5
+00245bbc  add       r2, pc
+00245bbe  ldr       r2, [r2, r1]
+00245bc0  mov       r1, sb
+00245bc2  str       r2, [sp, #0x18]
+00245bc4  movs      r2, #3
+00245bc6  str       r0, [sp, #8]
+00245bc8  strd      r5, r6, [sp]
+00245bcc  ldr       r0, [sp, #0x18]
+00245bce  str.w     ip, [sp, #0xc]
+00245bd2  bl        #0xb144c
+00245bd6  mov       r0, r4
+00245bd8  bl        #0x245594
+00245bdc  mov       r6, r0
+00245bde  cmp       r0, #0
+00245be0  beq       #0x245ce2
+00245be2  ldr       r3, [r4, #0xc]
+00245be4  cmp       r3, r7
+00245be6  blo       #0x245c86
+00245be8  mov       fp, r4
+00245bea  mov       r2, r7
+00245bec  mov       r1, r8
+00245bee  ldr       r0, [fp, #8]!
+00245bf2  blx       #0x580e0
+00245bf6  mov       r0, sl
+00245bf8  bl        #0xb1260
+00245bfc  ldr       r1, [pc, #0x17c]
+00245bfe  mov.w     ip, #0xe9
+00245c02  mov       r3, r5
+00245c04  add       r1, pc
+00245c06  movs      r2, #3
+00245c08  str       r0, [sp, #8]
+00245c0a  str       r1, [sp, #4]
+00245c0c  mov       r1, sb
+00245c0e  ldr       r0, [sp, #0x18]
+00245c10  str.w     ip, [sp, #0xc]
+00245c14  str       r5, [sp]
+00245c16  bl        #0xb144c
+00245c1a  strd      r7, r5, [sp, #0x38]
+00245c1e  ldr       r7, [sp, #0x24]
+00245c20  add       r3, sp, #0x28
+00245c22  str       r7, [sp, #0x4c]
+00245c24  add       r2, sp, #0x2c
+00245c26  ldr       r7, [r4, #0x30]
+00245c28  movs      r1, #3
+00245c2a  adds      r0, r4, #4
+00245c2c  add.w     lr, r4, #0x2c
+00245c30  str       r7, [sp, #0x44]
+00245c32  movw      ip, #0xe0d
+00245c36  movt      ip, #3
+00245c3a  str.w     fp, [sp, #0x34]
+00245c3e  str       r5, [sp, #0x48]
+00245c40  str       r5, [sp, #0x28]
+00245c42  str.w     ip, [sp, #0x30]
+00245c46  str.w     lr, [sp, #0x40]
+00245c4a  blx       #0x57f24
+00245c4e  mov       r7, r0
+00245c50  cmp       r0, #0
+00245c52  bne       #0x245d04
+00245c54  ldr       r3, [sp, #0x20]
+00245c56  ldr       r2, [sp, #0x50]
+00245c58  str       r2, [r3]
+00245c5a  ldr       r3, [sp, #0x1c]
+00245c5c  ldr       r0, [r3]
+00245c5e  ldr       r3, [r3, #4]
+00245c60  subs      r1, r3, r0
+00245c62  cmp       r2, r1
+00245c64  bhi       #0x245d40
+00245c66  blo       #0x245d30
+00245c68  ldr       r1, [r4, #0x2c]
+00245c6a  blx       #0x580e0
+00245c6e  ldr       r2, [pc, #0x110]
+00245c70  ldr       r3, [pc, #0xf0]
+00245c72  add       r2, pc
+00245c74  ldr       r3, [r2, r3]
+00245c76  ldr       r2, [r3]
+00245c78  ldr       r3, [sp, #0x104]
+00245c7a  eors      r2, r3
+00245c7c  bne       #0x245d52
+00245c7e  mov       r0, r6
+00245c80  add       sp, #0x10c
+00245c82  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00245c86  add       r6, sp, #0x2c
+00245c88  mov       r0, sl
+00245c8a  bl        #0xb1260
+00245c8e  movs      r2, #0xe5
+00245c90  mov       r3, r0
+00245c92  str       r2, [sp]
+00245c94  mov       r1, sb
+00245c96  mov       r0, r6
+00245c98  movs      r2, #5
+00245c9a  bl        #0xb1a68
+00245c9e  mov       r0, r6
+00245ca0  bl        #0xb1870
+00245ca4  ldr       r1, [pc, #0xdc]
+00245ca6  movs      r2, #0x1c
+00245ca8  mov       r5, r0
+00245caa  add       r1, pc
+00245cac  blx       #0x58560
+00245cb0  mov       r1, r7
+00245cb2  mov       r0, r5
+00245cb4  blx       #0x56d98
+00245cb8  ldr       r1, [pc, #0xcc]
+00245cba  movs      r2, #3
+00245cbc  mov       r0, r5
+00245cbe  add       r1, pc
+00245cc0  blx       #0x58560
+00245cc4  ldr       r1, [r4, #0xc]
+00245cc6  mov       r0, r5
+00245cc8  blx       #0x56d98
+00245ccc  ldr       r1, [pc, #0xbc]
+00245cce  mov       r0, r5
+00245cd0  movs      r2, #4
+00245cd2  add       r1, pc
+00245cd4  blx       #0x58560
+00245cd8  mov       r0, r6
+00245cda  movs      r6, #0
+00245cdc  bl        #0xb1744
+00245ce0  b         #0x245c6e
+00245ce2  mov       r0, sl
+00245ce4  bl        #0xb1260
+00245ce8  ldr       r3, [pc, #0xa4]
+00245cea  movs      r2, #0xdb
+00245cec  str       r0, [sp, #8]
+00245cee  add       r3, pc
+00245cf0  str       r2, [sp, #0xc]
+00245cf2  str       r3, [sp, #4]
+00245cf4  mov       r1, sb
+00245cf6  ldr       r0, [sp, #0x18]
+00245cf8  mov       r3, r6
+00245cfa  movs      r2, #5
+00245cfc  str       r6, [sp]
+00245cfe  bl        #0xb144c
+00245d02  b         #0x245c6e
+00245d04  mov       r0, sl
+00245d06  movs      r4, #0xfb
+00245d08  bl        #0xb1260
+00245d0c  ldr       r2, [sp, #0x28]
+00245d0e  str       r2, [sp, #0x14]
+00245d10  mov       r3, r0
+00245d12  ldr       r2, [pc, #0x80]
+00245d14  mov       r1, sb
+00245d16  str       r3, [sp, #8]
+00245d18  mov       r3, r5
+00245d1a  add       r2, pc
+00245d1c  ldr       r0, [sp, #0x18]
+00245d1e  str       r2, [sp, #4]
+00245d20  movs      r2, #5
+00245d22  str       r7, [sp, #0x10]
+00245d24  mov       r6, r5
+00245d26  str       r5, [sp]
+00245d28  str       r4, [sp, #0xc]
+00245d2a  bl        #0xb144c
+00245d2e  b         #0x245c6e
+00245d30  adds      r1, r0, r2
+00245d32  cmp       r3, r1
+00245d34  beq       #0x245c68
+00245d36  ldr       r3, [sp, #0x1c]
+00245d38  str       r1, [r3, #4]
+00245d3a  ldr       r3, [sp, #0x20]
+00245d3c  ldr       r2, [r3]
+00245d3e  b         #0x245c68
+00245d40  ldr       r5, [sp, #0x1c]
+00245d42  subs      r1, r2, r1
+00245d44  mov       r0, r5
+00245d46  bl        #0xa5888
+00245d4a  ldr       r3, [sp, #0x20]
+00245d4c  ldr       r0, [r5]
+00245d4e  ldr       r2, [r3]
+00245d50  b         #0x245c68
+00245d52  blx       #0x56af0
+00245d56  mov       r0, r6
+00245d58  bl        #0xb1744
+00245d5c  blx       #0x574cc
+00245d60  add       r2, pc
+00245d62  movs      r0, r5
+00245d64  ldr       r6, [pc, #0x10]
+00245d66  movs      r0, r0
+00245d68  str       r6, [r4, #0x10]
+00245d6a  movs      r3, r3
+00245d6c  ldr       r4, [pc, #0x18]
+00245d6e  movs      r3, r2
+00245d70  str       r4, [r3, #0x54]
+00245d72  movs      r3, r3
+00245d74  add       r0, r8
+00245d76  movs      r0, r5
+00245d78  asrs      r4, r6, #0x1e
+00245d7a  movs      r0, r0
+00245d7c  str       r0, [r7, #0x48]
+00245d7e  movs      r3, r3
+00245d80  bics      r2, r1
+00245d82  movs      r0, r5
+00245d84  str       r2, [r7, #0x44]
+00245d86  movs      r3, r3
+00245d88  str       r6, [r0, #0x48]
+00245d8a  movs      r3, r3
+00245d8c  str       r5, [sp, #0x2a8]
+00245d8e  movs      r6, r2
+00245d90  str       r2, [r1, #0x28]
+00245d92  movs      r3, r3
+00245d94  str       r6, [r5, #0x40]
+00245d96  movs      r3, r3
+
+FUNCTION 00245d98..00245ed8 (ARM exidx boundary)
+00245d98  push.w    {r4, r5, r6, r7, r8, sb, sl, lr}
+00245d9c  mov       sb, r2
+00245d9e  ldr       r2, [pc, #0x10c]
+00245da0  ldr       r3, [pc, #0x10c]
+00245da2  sub       sp, #0x60
+00245da4  add       r2, pc
+00245da6  ldr       r6, [pc, #0x10c]
+00245da8  mov       r8, r1
+00245daa  mov       r7, r0
+00245dac  add       r6, pc
+00245dae  ldr       r3, [r2, r3]
+00245db0  ldr       r3, [r3]
+00245db2  str       r3, [sp, #0x5c]
+00245db4  mov.w     r3, #0
+00245db8  bl        #0x24558c
+00245dbc  mov       r4, r0
+00245dbe  cmp       r0, #0
+00245dc0  beq       #0x245e64
+00245dc2  add       r3, sp, #0x1c
+00245dc4  add       r2, sp, #0x20
+00245dc6  movs      r1, #2
+00245dc8  adds      r0, r7, #4
+00245dca  add.w     r5, r7, #0x2c
+00245dce  mov.w     sl, #0
+00245dd2  movw      ip, #0x20e
+00245dd6  str       r5, [sp, #0x28]
+00245dd8  str.w     ip, [sp, #0x24]
+00245ddc  mov.w     r5, #0x10000
+00245de0  str.w     sl, [sp, #0x30]
+00245de4  str       r5, [sp, #0x2c]
+00245de6  str.w     sl, [sp, #0x1c]
+00245dea  blx       #0x57f24
+00245dee  mov       r5, r0
+00245df0  cbnz      r0, #0x245e1a
+00245df2  ldr       r2, [sp, #0x34]
+00245df4  str.w     r2, [sb]
+00245df8  ldrd      r0, r3, [r8]
+00245dfc  subs      r1, r3, r0
+00245dfe  cmp       r2, r1
+00245e00  bhi       #0x245e8e
+00245e02  bhs       #0x245e12
+00245e04  adds      r1, r0, r2
+00245e06  cmp       r3, r1
+00245e08  beq       #0x245e12
+00245e0a  str.w     r1, [r8, #4]
+00245e0e  ldr.w     r2, [sb]
+00245e12  ldr       r1, [r7, #0x2c]
+00245e14  blx       #0x580e0
+00245e18  b         #0x245e4c
+00245e1a  ldr       r0, [pc, #0x9c]
+00245e1c  movs      r7, #0xc9
+00245e1e  mov       r4, sl
+00245e20  add       r0, pc
+00245e22  bl        #0xb1260
+00245e26  ldr       r3, [pc, #0x94]
+00245e28  ldr       r1, [pc, #0x94]
+00245e2a  ldr       r2, [sp, #0x1c]
+00245e2c  add       r1, pc
+00245e2e  ldr       r3, [r6, r3]
+00245e30  str       r1, [sp, #4]
+00245e32  ldr       r1, [pc, #0x90]
+00245e34  str       r0, [sp, #8]
+00245e36  mov       r0, r3
+00245e38  str       r2, [sp, #0x14]
+00245e3a  mov       r3, sl
+00245e3c  movs      r2, #5
+00245e3e  add       r1, pc
+00245e40  str       r5, [sp, #0x10]
+00245e42  str.w     sl, [sp]
+00245e46  str       r7, [sp, #0xc]
+00245e48  bl        #0xb144c
+00245e4c  ldr       r2, [pc, #0x78]
+00245e4e  ldr       r3, [pc, #0x60]
+00245e50  add       r2, pc
+00245e52  ldr       r3, [r2, r3]
+00245e54  ldr       r2, [r3]
+00245e56  ldr       r3, [sp, #0x5c]
+00245e58  eors      r2, r3
+00245e5a  bne       #0x245ea6
+00245e5c  mov       r0, r4
+00245e5e  add       sp, #0x60
+00245e60  pop.w     {r4, r5, r6, r7, r8, sb, sl, pc}
+00245e64  ldr       r0, [pc, #0x64]
+00245e66  movs      r5, #0xbb
+00245e68  add       r0, pc
+00245e6a  bl        #0xb1260
+00245e6e  ldr       r2, [pc, #0x4c]
+00245e70  ldr       r1, [pc, #0x5c]
+00245e72  mov       r7, r0
+00245e74  mov       r3, r4
+00245e76  add       r1, pc
+00245e78  ldr       r0, [r6, r2]
+00245e7a  movs      r2, #5
+00245e7c  strd      r4, r1, [sp]
+00245e80  ldr       r1, [pc, #0x50]
+00245e82  str       r7, [sp, #8]
+00245e84  add       r1, pc
+00245e86  str       r5, [sp, #0xc]
+00245e88  bl        #0xb144c
+00245e8c  b         #0x245e4c
+00245e8e  subs      r1, r2, r1
+00245e90  mov       r0, r8
+00245e92  bl        #0xa5888
+00245e96  ldr.w     r2, [sb]
+00245e9a  ldr.w     r0, [r8]
+00245e9e  ldr       r1, [r7, #0x2c]
+00245ea0  blx       #0x580e0
+00245ea4  b         #0x245e4c
+00245ea6  blx       #0x56af0
+00245eaa  nop       
+00245eac  rsbs      r0, r3, #0
+00245eae  movs      r0, r5
+00245eb0  ldr       r6, [pc, #0x10]
+00245eb2  movs      r0, r0
+00245eb4  rsbs      r0, r2, #0
+00245eb6  movs      r0, r5
+00245eb8  ldrsh     r4, [r2, r2]
+00245eba  movs      r3, r3
+00245ebc  asrs      r4, r6, #0x1e
+00245ebe  movs      r0, r0
+00245ec0  str       r4, [r6, #0x38]
+00245ec2  movs      r3, r3
+00245ec4  ldr       r1, [pc, #0x188]
+00245ec6  movs      r3, r2
+00245ec8  sbcs      r4, r5
+00245eca  movs      r0, r5
+00245ecc  ldrsh     r4, [r1, r1]
+00245ece  movs      r3, r3
+00245ed0  str       r2, [r5, #0x30]
+00245ed2  movs      r3, r3
+00245ed4  ldr       r1, [pc, #0x70]
+00245ed6  movs      r3, r2
+
+FUNCTION 00245ed8..002460a0 (ARM exidx boundary)
+00245ed8  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00245edc  mov       r6, r2
+00245ede  ldr       r2, [pc, #0x184]
+00245ee0  mov       r7, r3
+00245ee2  ldr       r3, [pc, #0x184]
+00245ee4  add       r2, pc
+00245ee6  sub       sp, #0xfc
+00245ee8  ldr.w     sb, [pc, #0x180]
+00245eec  mov       r8, r1
+00245eee  mov       r5, r0
+00245ef0  ldr       r3, [r2, r3]
+00245ef2  add       sb, pc
+00245ef4  ldr.w     fp, [sp, #0x120]
+00245ef8  ldr       r3, [r3]
+00245efa  str       r3, [sp, #0xf4]
+00245efc  mov.w     r3, #0
+00245f00  bl        #0x24558c
+00245f04  mov       r4, r0
+00245f06  cmp       r0, #0
+00245f08  beq       #0x245fd4
+00245f0a  ldr       r3, [r5, #0xc]
+00245f0c  cmp       r3, r6
+00245f0e  blo       #0x245f88
+00245f10  mov       sl, r5
+00245f12  mov       r1, r8
+00245f14  mov       r2, r6
+00245f16  mov.w     r8, #0
+00245f1a  ldr       r0, [sl, #8]!
+00245f1e  blx       #0x580e0
+00245f22  add       r3, sp, #0x18
+00245f24  add       r2, sp, #0x1c
+00245f26  movs      r1, #1
+00245f28  adds      r0, r5, #4
+00245f2a  str       r6, [sp, #0x28]
+00245f2c  str       r6, [sp, #0x34]
+00245f2e  movw      r6, #0xe0d
+00245f32  movt      r6, #2
+00245f36  str.w     sl, [sp, #0x24]
+00245f3a  str       r6, [sp, #0x20]
+00245f3c  add.w     r6, r5, #0x2c
+00245f40  str.w     r8, [sp, #0x2c]
+00245f44  str       r6, [sp, #0x30]
+00245f46  str.w     r8, [sp, #0x38]
+00245f4a  str.w     r8, [sp, #0x18]
+00245f4e  blx       #0x57f24
+00245f52  mov       r6, r0
+00245f54  cmp       r0, #0
+00245f56  bne       #0x246000
+00245f58  ldr       r2, [sp, #0x3c]
+00245f5a  str.w     r2, [fp]
+00245f5e  ldrd      r0, r3, [r7]
+00245f62  subs      r1, r3, r0
+00245f64  cmp       r2, r1
+00245f66  bhi       #0x246044
+00245f68  blo       #0x246036
+00245f6a  ldr       r1, [r5, #0x2c]
+00245f6c  blx       #0x580e0
+00245f70  ldr       r2, [pc, #0xfc]
+00245f72  ldr       r3, [pc, #0xf4]
+00245f74  add       r2, pc
+00245f76  ldr       r3, [r2, r3]
+00245f78  ldr       r2, [r3]
+00245f7a  ldr       r3, [sp, #0xf4]
+00245f7c  eors      r2, r3
+00245f7e  bne       #0x246054
+00245f80  mov       r0, r4
+00245f82  add       sp, #0xfc
+00245f84  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00245f88  ldr       r0, [pc, #0xe8]
+00245f8a  add       r5, sp, #0x1c
+00245f8c  add       r0, pc
+00245f8e  bl        #0xb1260
+00245f92  movs      r1, #0x99
+00245f94  str       r1, [sp]
+00245f96  mov       r3, r0
+00245f98  ldr       r1, [pc, #0xdc]
+00245f9a  mov       r0, r5
+00245f9c  movs      r2, #5
+00245f9e  add       r1, pc
+00245fa0  bl        #0xb1a68
+00245fa4  mov       r0, r5
+00245fa6  bl        #0xb1870
+00245faa  ldr       r1, [pc, #0xd0]
+00245fac  movs      r2, #0x2b
+00245fae  mov       r4, r0
+00245fb0  add       r1, pc
+00245fb2  blx       #0x58560
+00245fb6  mov       r1, r6
+00245fb8  mov       r0, r4
+00245fba  blx       #0x56d98
+00245fbe  ldr       r1, [pc, #0xc0]
+00245fc0  mov       r0, r4
+00245fc2  movs      r2, #4
+00245fc4  add       r1, pc
+00245fc6  blx       #0x58560
+00245fca  mov       r0, r5
+00245fcc  movs      r4, #0
+00245fce  bl        #0xb1744
+00245fd2  b         #0x245f70
+00245fd4  ldr       r0, [pc, #0xac]
+00245fd6  movs      r5, #0x8f
+00245fd8  add       r0, pc
+00245fda  bl        #0xb1260
+00245fde  ldr       r2, [pc, #0xa8]
+00245fe0  ldr       r1, [pc, #0xa8]
+00245fe2  mov       r6, r0
+00245fe4  mov       r3, r4
+00245fe6  add       r1, pc
+00245fe8  ldr.w     r0, [sb, r2]
+00245fec  movs      r2, #5
+00245fee  strd      r4, r1, [sp]
+00245ff2  ldr       r1, [pc, #0x9c]
+00245ff4  str       r6, [sp, #8]
+00245ff6  add       r1, pc
+00245ff8  str       r5, [sp, #0xc]
+00245ffa  bl        #0xb144c
+00245ffe  b         #0x245f70
+00246000  ldr       r0, [pc, #0x90]
+00246002  movs      r5, #0xab
+00246004  mov       r4, r8
+00246006  add       r0, pc
+00246008  bl        #0xb1260
+0024600c  ldr       r3, [pc, #0x78]
+0024600e  ldr       r1, [pc, #0x88]
+00246010  ldr       r2, [sp, #0x18]
+00246012  add       r1, pc
+00246014  ldr.w     r3, [sb, r3]
+00246018  str       r1, [sp, #4]
+0024601a  ldr       r1, [pc, #0x80]
+0024601c  str       r0, [sp, #8]
+0024601e  mov       r0, r3
+00246020  str       r2, [sp, #0x14]
+00246022  mov       r3, r8
+00246024  movs      r2, #5
+00246026  add       r1, pc
+00246028  str       r6, [sp, #0x10]
+0024602a  str.w     r8, [sp]
+0024602e  str       r5, [sp, #0xc]
+00246030  bl        #0xb144c
+00246034  b         #0x245f70
+00246036  adds      r1, r0, r2
+00246038  cmp       r3, r1
+0024603a  beq       #0x245f6a
+0024603c  str       r1, [r7, #4]
+0024603e  ldr.w     r2, [fp]
+00246042  b         #0x245f6a
+00246044  subs      r1, r2, r1
+00246046  mov       r0, r7
+00246048  bl        #0xa5888
+0024604c  ldr.w     r2, [fp]
+00246050  ldr       r0, [r7]
+00246052  b         #0x245f6a
+00246054  blx       #0x56af0
+00246058  mov       r0, r5
+0024605a  bl        #0xb1744
+0024605e  blx       #0x574cc
+00246062  nop       
+00246064  asrs      r0, r3
+00246066  movs      r0, r5
+00246068  ldr       r6, [pc, #0x10]
+0024606a  movs      r0, r0
+0024606c  asrs      r2, r1
+0024606e  movs      r0, r5
+00246070  lsls      r0, r1
+00246072  movs      r0, r5
+00246074  ldrb      r0, [r5, r4]
+00246076  movs      r3, r3
+00246078  ldr       r0, [pc, #8]
+0024607a  movs      r3, r2
+0024607c  str       r4, [r7, #0x28]
+0024607e  movs      r3, r3
+00246080  str       r2, [sp, #0x2e0]
+00246082  movs      r6, r2
+00246084  ldrb      r4, [r3, r3]
+00246086  movs      r3, r3
+00246088  asrs      r4, r6, #0x1e
+0024608a  movs      r0, r0
+0024608c  str       r6, [r0, #0x24]
+0024608e  movs      r3, r3
+
+FUNCTION 002460a0..00246120 (ARM exidx boundary)
+002460a0  strd      r2, r3, [r0, #0xa8]
+002460a4  bx        lr
+002460a6  nop       
+002460a8  cmp       r0, r1
+002460aa  beq       #0x2460ce
+002460ac  push      {r3, lr}
+002460ae  ldr       r0, [r0, #4]
+002460b0  ldr       r1, [r1, #4]
+002460b2  ldrsb.w   r3, [r0]
+002460b6  cmp       r3, #0x2a
+002460b8  ldrsb.w   r3, [r1]
+002460bc  it        eq
+002460be  addeq     r0, #1
+002460c0  cmp       r3, #0x2a
+002460c2  it        eq
+002460c4  addeq     r1, #1
+002460c6  blx       #0x5868c
+002460ca  lsrs      r0, r0, #0x1f
+002460cc  pop       {r3, pc}
+002460ce  movs      r0, #0
+002460d0  bx        lr
+002460d2  nop       
+002460d4  push      {r3, r4, r5, lr}
+002460d6  mov       r4, r0
+002460d8  ldr       r5, [pc, #0x34]
+002460da  ldr       r3, [pc, #0x38]
+002460dc  add       r5, pc
+002460de  ldr       r0, [r5, r3]
+002460e0  blx       #0x5779c
+002460e4  ldr       r3, [r4]
+002460e6  ldr       r2, [r3, #8]
+002460e8  cmp       r0, r2
+002460ea  it        hs
+002460ec  movhs     r0, #0
+002460ee  bhs       #0x24610c
+002460f0  ldr       r3, [r3, #4]
+002460f2  ldr.w     r0, [r3, r0, lsl #2]
+002460f6  cbz       r0, #0x24610c
+002460f8  ldr       r2, [pc, #0x1c]
+002460fa  movs      r3, #0
+002460fc  ldr       r1, [pc, #0x1c]
+002460fe  ldr       r2, [r5, r2]
+00246100  ldr       r1, [r5, r1]
+00246102  blx       #0x587fc
+00246106  subs      r0, #0
+00246108  it        ne
+0024610a  movne     r0, #1
+0024610c  pop       {r3, r4, r5, pc}
+0024610e  nop       
+00246110  subs      r7, #0x20
+00246112  movs      r0, r5
+00246114  subs      r4, #0x94
+00246116  movs      r0, r0
+00246118  subs      r0, r2, #5
+0024611a  movs      r0, r0
+0024611c  cmp       r1, #0x18
+0024611e  movs      r0, r0
+
+FUNCTION 00246120..00246280 (ARM exidx boundary)
+00246120  push.w    {r4, r5, r6, r7, r8, sb, sl, lr}
+00246124  ldr       r4, [pc, #0x138]
+00246126  ldr       r3, [pc, #0x13c]
+00246128  sub       sp, #0x28
+0024612a  add       r4, pc
+0024612c  ldr       r6, [pc, #0x138]
+0024612e  ldr       r2, [pc, #0x13c]
+00246130  add       r6, pc
+00246132  ldr       r5, [r1]
+00246134  ldr       r3, [r4, r3]
+00246136  mov       r4, r0
+00246138  ldr       r3, [r3]
+0024613a  str       r3, [sp, #0x24]
+0024613c  mov.w     r3, #0
+00246140  ldr       r3, [pc, #0x12c]
+00246142  ldr       r7, [r6, r2]
+00246144  add.w     r2, r7, #8
+00246148  str       r2, [sp, #8]
+0024614a  ldr       r5, [r5, #-0x18]
+0024614e  ldr.w     sl, [r6, r3]
+00246152  add       r5, r1
+00246154  add.w     r3, sl, #8
+00246158  str       r3, [sp, #0xc]
+0024615a  ldr       r0, [r5, #4]
+0024615c  str       r0, [sp, #0x10]
+0024615e  cbz       r0, #0x246172
+00246160  ldr       r3, [pc, #0x110]
+00246162  ldr       r2, [r0]
+00246164  ldr       r1, [r6, r3]
+00246166  ldr       r3, [r2, #0xc]
+00246168  cmp       r3, r1
+0024616a  bne       #0x24620c
+0024616c  ldr       r3, [r0, #0x34]
+0024616e  adds      r3, #1
+00246170  str       r3, [r0, #0x34]
+00246172  ldr       r2, [pc, #0x104]
+00246174  add.w     r3, r7, #8
+00246178  ldr.w     ip, [r5, #8]
+0024617c  add.w     lr, sl, #8
+00246180  ldrd      r7, r1, [r5, #0xc]
+00246184  strd      ip, r7, [sp, #0x14]
+00246188  ldr.w     sb, [r5, #0x14]
+0024618c  strd      r1, sb, [sp, #0x1c]
+00246190  ldr       r5, [r6, r2]
+00246192  str       r3, [r4]
+00246194  add.w     r2, r5, #0x18
+00246198  add.w     r3, r5, #0x30
+0024619c  str       r0, [r4, #8]
+0024619e  strd      r2, r3, [sp, #8]
+002461a2  str.w     lr, [r4, #4]
+002461a6  cbz       r0, #0x2461fc
+002461a8  ldr.w     r8, [pc, #0xc8]
+002461ac  ldr.w     r6, [r6, r8]
+002461b0  str       r6, [sp, #4]
+002461b2  ldr       r6, [r0]
+002461b4  ldr.w     r8, [r6, #0xc]
+002461b8  ldr       r6, [sp, #4]
+002461ba  cmp       r8, r6
+002461bc  bne       #0x246212
+002461be  ldr       r5, [r0, #0x34]
+002461c0  movs      r6, #0
+002461c2  str.w     lr, [sp, #0xc]
+002461c6  adds      r5, #1
+002461c8  str       r5, [r0, #0x34]
+002461ca  strd      ip, r7, [r4, #0xc]
+002461ce  strd      r1, sb, [r4, #0x14]
+002461d2  strd      r2, r3, [r4]
+002461d6  str       r6, [r4, #0x1c]
+002461d8  ldr       r3, [r0]
+002461da  ldr       r3, [r3, #0x10]
+002461dc  blx       r3
+002461de  add       r0, sp, #8
+002461e0  blx       #0x568b4
+002461e4  ldr       r2, [pc, #0x94]
+002461e6  ldr       r3, [pc, #0x7c]
+002461e8  add       r2, pc
+002461ea  ldr       r3, [r2, r3]
+002461ec  ldr       r2, [r3]
+002461ee  ldr       r3, [sp, #0x24]
+002461f0  eors      r2, r3
+002461f2  bne       #0x246242
+002461f4  mov       r0, r4
+002461f6  add       sp, #0x28
+002461f8  pop.w     {r4, r5, r6, r7, r8, sb, sl, pc}
+002461fc  strd      ip, r7, [r4, #0xc]
+00246200  strd      r1, sb, [r4, #0x14]
+00246204  strd      r2, r3, [r4]
+00246208  str       r0, [r4, #0x1c]
+0024620a  b         #0x2461de
+0024620c  blx       r3
+0024620e  ldr       r0, [sp, #0x10]
+00246210  b         #0x246172
+00246212  blx       r8
+00246214  ldr       r0, [sp, #0x10]
+00246216  add.w     r2, r5, #0x18
+0024621a  ldr       r1, [sp, #0x1c]
+0024621c  add.w     r3, sl, #8
+00246220  str       r1, [r4, #0x14]
+00246222  adds      r5, #0x30
+00246224  ldr       r1, [sp, #0x20]
+00246226  ldr       r6, [sp, #0x18]
+00246228  str       r1, [r4, #0x18]
+0024622a  ldr       r1, [sp, #0x14]
+0024622c  str       r3, [sp, #0xc]
+0024622e  movs      r3, #0
+00246230  str       r6, [r4, #0x10]
+00246232  str       r1, [r4, #0xc]
+00246234  str       r2, [r4]
+00246236  str       r2, [sp, #8]
+00246238  str       r5, [r4, #4]
+0024623a  str       r3, [r4, #0x1c]
+0024623c  cmp       r0, #0
+0024623e  bne       #0x2461d8
+00246240  b         #0x2461de
+00246242  blx       #0x56af0
+00246246  mov       r0, r4
+00246248  blx       #0x568b4
+0024624c  add       r0, sp, #8
+0024624e  bl        #0x99068
+00246252  blx       #0x574cc
+00246256  add       r0, sp, #8
+00246258  blx       #0x568b4
+0024625c  blx       #0x574cc
+00246260  subs      r6, #0xd2
+00246262  movs      r0, r5
+00246264  ldr       r6, [pc, #0x10]
+00246266  movs      r0, r0
+00246268  subs      r6, #0xcc
+0024626a  movs      r0, r5
+0024626c  subs      r0, #0xa8
+0024626e  movs      r0, r0
+00246270  add       r4, lr
+00246272  movs      r0, r0
+00246274  subs      r0, r3, r4
+00246276  movs      r0, r0
+00246278  ldr       r7, [pc, #0x30]
+0024627a  movs      r0, r0
+0024627c  subs      r6, #0x14
+0024627e  movs      r0, r5
+
+FUNCTION 00246280..002463fc (ARM exidx boundary)
+00246280  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00246284  ldr       r4, [pc, #0x150]
+00246286  ldr       r3, [pc, #0x154]
+00246288  sub       sp, #0x2c
+0024628a  add       r4, pc
+0024628c  ldr       r6, [pc, #0x150]
+0024628e  ldr       r2, [pc, #0x154]
+00246290  add       r6, pc
+00246292  ldr       r5, [r1]
+00246294  ldr       r3, [r4, r3]
+00246296  mov       r4, r0
+00246298  ldr       r3, [r3]
+0024629a  str       r3, [sp, #0x24]
+0024629c  mov.w     r3, #0
+002462a0  ldr       r3, [pc, #0x144]
+002462a2  ldr       r7, [r6, r2]
+002462a4  add.w     r2, r7, #8
+002462a8  str       r2, [sp, #8]
+002462aa  ldr       r5, [r5, #-0x18]
+002462ae  ldr.w     fp, [r6, r3]
+002462b2  add       r5, r1
+002462b4  add.w     r3, fp, #8
+002462b8  str       r3, [sp, #0xc]
+002462ba  ldr       r0, [r5, #4]
+002462bc  str       r0, [sp, #0x10]
+002462be  cbz       r0, #0x2462d2
+002462c0  ldr       r3, [pc, #0x128]
+002462c2  ldr       r2, [r0]
+002462c4  ldr       r1, [r6, r3]
+002462c6  ldr       r3, [r2, #0xc]
+002462c8  cmp       r3, r1
+002462ca  bne       #0x24637c
+002462cc  ldr       r3, [r0, #0x34]
+002462ce  adds      r3, #1
+002462d0  str       r3, [r0, #0x34]
+002462d2  ldr       r3, [pc, #0x11c]
+002462d4  adds      r7, #8
+002462d6  ldrd      ip, r1, [r5, #0xc]
+002462da  add.w     sb, fp, #8
+002462de  ldr.w     lr, [r5, #8]
+002462e2  ldr.w     sl, [r5, #0x14]
+002462e6  strd      lr, ip, [sp, #0x14]
+002462ea  strd      r1, sl, [sp, #0x1c]
+002462ee  ldr       r5, [r6, r3]
+002462f0  str       r7, [r4]
+002462f2  add.w     r2, r5, #0x18
+002462f6  add.w     r3, r5, #0x30
+002462fa  str       r0, [r4, #8]
+002462fc  strd      r2, r3, [sp, #8]
+00246300  str.w     sb, [r4, #4]
+00246304  cmp       r0, #0
+00246306  beq       #0x246364
+00246308  ldr       r7, [pc, #0xe0]
+0024630a  ldr       r7, [r6, r7]
+0024630c  str       r7, [sp, #4]
+0024630e  ldr       r7, [r0]
+00246310  ldr.w     r8, [r7, #0xc]
+00246314  ldr       r7, [sp, #4]
+00246316  cmp       r8, r7
+00246318  bne       #0x246382
+0024631a  ldr       r5, [r0, #0x34]
+0024631c  mov.w     r8, #0
+00246320  ldr       r7, [pc, #0xd0]
+00246322  adds      r5, #1
+00246324  str       r5, [r0, #0x34]
+00246326  strd      lr, ip, [r4, #0xc]
+0024632a  strd      r1, sl, [r4, #0x14]
+0024632e  strd      r2, r3, [r4]
+00246332  str.w     r8, [r4, #0x1c]
+00246336  ldr       r3, [r6, r7]
+00246338  str.w     sb, [sp, #0xc]
+0024633c  adds      r3, #0x18
+0024633e  str       r3, [sp, #8]
+00246340  ldr       r3, [r0]
+00246342  ldr       r3, [r3, #0x10]
+00246344  blx       r3
+00246346  add       r0, sp, #8
+00246348  blx       #0x568b4
+0024634c  ldr       r2, [pc, #0xa8]
+0024634e  ldr       r3, [pc, #0x8c]
+00246350  add       r2, pc
+00246352  ldr       r3, [r2, r3]
+00246354  ldr       r2, [r3]
+00246356  ldr       r3, [sp, #0x24]
+00246358  eors      r2, r3
+0024635a  bne       #0x2463b8
+0024635c  mov       r0, r4
+0024635e  add       sp, #0x2c
+00246360  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00246364  ldr       r5, [pc, #0x8c]
+00246366  strd      lr, ip, [r4, #0xc]
+0024636a  strd      r1, sl, [r4, #0x14]
+0024636e  strd      r2, r3, [r4]
+00246372  str       r0, [r4, #0x1c]
+00246374  ldr       r3, [r6, r5]
+00246376  adds      r3, #0x18
+00246378  str       r3, [sp, #8]
+0024637a  b         #0x246346
+0024637c  blx       r3
+0024637e  ldr       r0, [sp, #0x10]
+00246380  b         #0x2462d2
+00246382  blx       r8
+00246384  ldr       r1, [sp, #0x18]
+00246386  add.w     r2, fp, #8
+0024638a  str       r1, [r4, #0x10]
+0024638c  ldr       r1, [sp, #0x1c]
+0024638e  str       r1, [r4, #0x14]
+00246390  ldr       r3, [pc, #0x60]
+00246392  ldr       r1, [sp, #0x20]
+00246394  str       r1, [r4, #0x18]
+00246396  ldr       r1, [sp, #0x14]
+00246398  str       r1, [r4, #0xc]
+0024639a  add.w     r1, r5, #0x18
+0024639e  ldr       r0, [sp, #0x10]
+002463a0  adds      r5, #0x30
+002463a2  strd      r1, r5, [r4]
+002463a6  movs      r1, #0
+002463a8  str       r1, [r4, #0x1c]
+002463aa  ldr       r3, [r6, r3]
+002463ac  str       r2, [sp, #0xc]
+002463ae  adds      r3, #0x18
+002463b0  str       r3, [sp, #8]
+002463b2  cmp       r0, #0
+002463b4  bne       #0x246340
+002463b6  b         #0x246346
+002463b8  blx       #0x56af0
+002463bc  mov       r0, r4
+002463be  blx       #0x568b4
+002463c2  add       r0, sp, #8
+002463c4  bl        #0x2480b4
+002463c8  blx       #0x574cc
+002463cc  add       r0, sp, #8
+002463ce  blx       #0x568b4
+002463d2  blx       #0x574cc
+002463d6  nop       
+002463d8  subs      r5, #0x72
+002463da  movs      r0, r5
+002463dc  ldr       r6, [pc, #0x10]
+002463de  movs      r0, r0
+002463e0  subs      r5, #0x6c
+002463e2  movs      r0, r5
+002463e4  subs      r0, #0xa8
+002463e6  movs      r0, r0
+002463e8  add       r4, lr
+002463ea  movs      r0, r0
+002463ec  subs      r0, r3, r4
+002463ee  movs      r0, r0
+002463f0  mov       r4, r0
+002463f2  movs      r0, r0
+002463f4  movs      r0, #0xe8
+002463f6  movs      r0, r0
+002463f8  subs      r4, #0xac
+002463fa  movs      r0, r5
+
+FUNCTION 002463fc..002465a0 (ARM exidx boundary)
+002463fc  ldr       r2, [pc, #0x174]
+002463fe  ldr       r3, [pc, #0x178]
+00246400  add       r2, pc
+00246402  push.w    {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00246406  ldr       r0, [pc, #0x174]
+00246408  sub       sp, #0xf4
+0024640a  mov       r5, r1
+0024640c  ldr       r3, [r2, r3]
+0024640e  add       r0, pc
+00246410  add       r6, sp, #0x14
+00246412  ldr       r3, [r3]
+00246414  str       r3, [sp, #0xec]
+00246416  mov.w     r3, #0
+0024641a  ldrd      r3, r7, [r1]
+0024641e  subs      r7, r7, r3
+00246420  bl        #0xb1260
+00246424  ldr       r1, [pc, #0x158]
+00246426  mov       r3, r0
+00246428  mov.w     r2, #0x138
+0024642c  mov       r0, r6
+0024642e  str       r2, [sp]
+00246430  add       r1, pc
+00246432  movs      r2, #3
+00246434  bl        #0xb1a68
+00246438  mov       r0, r6
+0024643a  bl        #0xb1870
+0024643e  ldr       r1, [pc, #0x144]
+00246440  movs      r2, #0xf
+00246442  mov       r4, r0
+00246444  add       r1, pc
+00246446  blx       #0x58560
+0024644a  ldr       r3, [r4]
+0024644c  mov       r0, r4
+0024644e  ldr       r2, [r3, #-0xc]
+00246452  add       r2, r4
+00246454  ldr       r3, [r2, #0xc]
+00246456  bic       r3, r3, #0x4a
+0024645a  orr       r3, r3, #8
+0024645e  str       r3, [r2, #0xc]
+00246460  ldrd      r3, r1, [r5]
+00246464  subs      r1, r1, r3
+00246466  blx       #0x56d98
+0024646a  ldr       r1, [pc, #0x11c]
+0024646c  movs      r2, #0x22
+0024646e  mov       r0, r4
+00246470  add       r1, pc
+00246472  blx       #0x58560
+00246476  and       r7, r7, #0xf
+0024647a  mov       r0, r4
+0024647c  rsb.w     r7, r7, #0x10
+00246480  mov       r1, r7
+00246482  blx       #0x56d98
+00246486  mov       r0, r6
+00246488  uxtb.w    sl, r7
+0024648c  bl        #0xb1744
+00246490  movs      r6, #0
+00246492  ldr       r4, [r5, #4]
+00246494  b         #0x2464a8
+00246496  strb.w    sl, [r4]
+0024649a  adds      r6, #1
+0024649c  cmp       r7, r6
+0024649e  ldr       r4, [r5, #4]
+002464a0  add.w     r4, r4, #1
+002464a4  str       r4, [r5, #4]
+002464a6  beq       #0x246512
+002464a8  ldr       r3, [r5, #8]
+002464aa  cmp       r4, r3
+002464ac  bne       #0x246496
+002464ae  ldr.w     sb, [r5]
+002464b2  mvn       r3, #0x80000000
+002464b6  sub.w     r8, r4, sb
+002464ba  cmp       r8, r3
+002464bc  beq       #0x246548
+002464be  mov.w     fp, #1
+002464c2  cmp.w     r8, #0
+002464c6  beq       #0x2464e4
+002464c8  lsl.w     fp, r8, #1
+002464cc  cmp.w     r8, r8, lsl #1
+002464d0  bls       #0x2464d8
+002464d2  mvn       fp, #0x80000000
+002464d6  b         #0x2464e4
+002464d8  cmp.w     fp, #0
+002464dc  mvn       r3, #0x80000000
+002464e0  it        lt
+002464e2  movlt     fp, r3
+002464e4  mov       r0, fp
+002464e6  add.w     r4, r8, #1
+002464ea  blx       #0x56e7c
+002464ee  cmp.w     r8, #0
+002464f2  mov       r3, r0
+002464f4  add       fp, r0
+002464f6  add       r4, r0
+002464f8  strb.w    sl, [r0, r8]
+002464fc  bgt       #0x246530
+002464fe  cmp.w     sb, #0
+00246502  bne       #0x24653c
+00246504  adds      r6, #1
+00246506  strd      r3, r4, [r5]
+0024650a  cmp       r7, r6
+0024650c  str.w     fp, [r5, #8]
+00246510  bne       #0x2464a8
+00246512  ldr       r3, [r5]
+00246514  subs      r4, r4, r3
+00246516  lsls      r3, r4, #0x1c
+00246518  bne       #0x246554
+0024651a  ldr       r2, [pc, #0x70]
+0024651c  ldr       r3, [pc, #0x58]
+0024651e  add       r2, pc
+00246520  ldr       r3, [r2, r3]
+00246522  ldr       r2, [r3]
+00246524  ldr       r3, [sp, #0xec]
+00246526  eors      r2, r3
+00246528  bne       #0x246550
+0024652a  add       sp, #0xf4
+0024652c  pop.w     {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00246530  mov       r2, r8
+00246532  mov       r1, sb
+00246534  str       r3, [sp, #0xc]
+00246536  blx       #0x56e30
+0024653a  ldr       r3, [sp, #0xc]
+0024653c  mov       r0, sb
+0024653e  str       r3, [sp, #0xc]
+00246540  blx       #0x56df0
+00246544  ldr       r3, [sp, #0xc]
+00246546  b         #0x246504
+00246548  ldr       r0, [pc, #0x44]
+0024654a  add       r0, pc
+0024654c  blx       #0x56fa8
+00246550  blx       #0x56af0
+00246554  ldr       r2, [pc, #0x3c]
+00246556  mov.w     r3, #0x140
+0024655a  ldr       r1, [pc, #0x3c]
+0024655c  ldr       r0, [pc, #0x3c]
+0024655e  add       r2, pc
+00246560  add       r1, pc
+00246562  add       r0, pc
+00246564  bl        #0x377d84
+00246568  mov       r0, r6
+0024656a  bl        #0xb1744
+0024656e  blx       #0x574cc
+00246572  nop       
+00246574  subs      r3, #0xfc
+00246576  movs      r0, r5
+00246578  ldr       r6, [pc, #0x10]
+0024657a  movs      r0, r0
+0024657c  ldrsh     r6, [r4, r3]
+0024657e  movs      r3, r3
+00246580  muls      r0, r6, r0
+00246582  movs      r3, r2
+00246584  ldrsh     r4, [r0, r5]
+00246586  movs      r3, r3
+00246588  ldrsh     r0, [r5, r4]
+0024658a  movs      r3, r3
+0024658c  subs      r2, #0xde
+0024658e  movs      r0, r5
+00246590  add       r3, sp, #0x328
+00246592  movs      r3, r2
+00246594  ldrb      r6, [r2, r6]
+00246596  movs      r3, r3
+00246598  ldrsh     r4, [r3, r1]
+0024659a  movs      r3, r3
+0024659c  ldrsh     r2, [r5, r2]
+0024659e  movs      r3, r3
+
+FUNCTION 002465a0..00246774 (ARM exidx boundary)
+002465a0  ldr       r0, [pc, #0x18c]
+002465a2  cmp       r2, #0xf
+002465a4  ldr       r3, [pc, #0x18c]
+002465a6  add       r0, pc
+002465a8  push      {r4, r5, r6, r7, lr}
+002465aa  sub       sp, #0xec
+002465ac  ldr       r3, [r0, r3]
+002465ae  ldr       r3, [r3]
+002465b0  str       r3, [sp, #0xe4]
+002465b2  mov.w     r3, #0
+002465b6  bls.w     #0x24670a
+002465ba  ldr       r1, [r1]
+002465bc  subs      r2, #1
+002465be  adds      r3, r1, r2
+002465c0  ldrb      r5, [r1, r2]
+002465c2  cmp       r5, #0x10
+002465c4  bhi       #0x2466ac
+002465c6  cmp       r5, #0
+002465c8  beq       #0x246656
+002465ca  movs      r4, #0
+002465cc  adds      r4, #1
+002465ce  cmp       r5, r4
+002465d0  beq       #0x246658
+002465d2  ldrb      r2, [r3, #-0x1]!
+002465d6  cmp       r2, r5
+002465d8  beq       #0x2465cc
+002465da  ldr       r0, [pc, #0x15c]
+002465dc  add       r6, sp, #0xc
+002465de  add       r0, pc
+002465e0  bl        #0xb1260
+002465e4  mov.w     r1, #0x156
+002465e8  str       r1, [sp]
+002465ea  mov       r3, r0
+002465ec  ldr       r1, [pc, #0x14c]
+002465ee  mov       r0, r6
+002465f0  movs      r2, #5
+002465f2  add       r1, pc
+002465f4  bl        #0xb1a68
+002465f8  mov       r0, r6
+002465fa  bl        #0xb1870
+002465fe  ldr       r1, [pc, #0x140]
+00246600  mov       r7, r0
+00246602  add       r1, pc
+00246604  blx       #0x58174
+00246608  ldr       r3, [r7]
+0024660a  mov       r1, r5
+0024660c  mov       r0, r7
+0024660e  ldr       r2, [r3, #-0xc]
+00246612  add       r2, r7
+00246614  ldr       r3, [r2, #0xc]
+00246616  bic       r3, r3, #0x4a
+0024661a  orr       r3, r3, #8
+0024661e  str       r3, [r2, #0xc]
+00246620  blx       #0x56d98
+00246624  ldr       r1, [pc, #0x11c]
+00246626  movs      r2, #0x10
+00246628  mov       r0, r7
+0024662a  add       r1, pc
+0024662c  blx       #0x58560
+00246630  mov       r1, r4
+00246632  mov       r0, r7
+00246634  blx       #0x56d98
+00246638  mov       r0, r6
+0024663a  movs      r4, #0
+0024663c  bl        #0xb1744
+00246640  ldr       r2, [pc, #0x104]
+00246642  ldr       r3, [pc, #0xf0]
+00246644  add       r2, pc
+00246646  ldr       r3, [r2, r3]
+00246648  ldr       r2, [r3]
+0024664a  ldr       r3, [sp, #0xe4]
+0024664c  eors      r2, r3
+0024664e  bne       #0x24671e
+00246650  mov       r0, r4
+00246652  add       sp, #0xec
+00246654  pop       {r4, r5, r6, r7, pc}
+00246656  mov       r4, r5
+00246658  ldr       r0, [pc, #0xf0]
+0024665a  add       r6, sp, #0xc
+0024665c  add       r0, pc
+0024665e  bl        #0xb1260
+00246662  mov.w     r1, #0x15e
+00246666  str       r1, [sp]
+00246668  mov       r3, r0
+0024666a  ldr       r1, [pc, #0xe4]
+0024666c  mov       r0, r6
+0024666e  movs      r2, #3
+00246670  add       r1, pc
+00246672  bl        #0xb1a68
+00246676  mov       r0, r6
+00246678  bl        #0xb1870
+0024667c  ldr       r1, [pc, #0xd4]
+0024667e  movs      r2, #0x20
+00246680  mov       r5, r0
+00246682  add       r1, pc
+00246684  blx       #0x58560
+00246688  ldr       r3, [r5]
+0024668a  mov       r0, r5
+0024668c  mov       r1, r4
+0024668e  ldr       r3, [r3, #-0xc]
+00246692  add       r5, r3
+00246694  ldr       r3, [r5, #0xc]
+00246696  bic       r3, r3, #0x4a
+0024669a  orr       r3, r3, #8
+0024669e  str       r3, [r5, #0xc]
+002466a0  blx       #0x56d98
+002466a4  mov       r0, r6
+002466a6  bl        #0xb1744
+002466aa  b         #0x246640
+002466ac  ldr       r0, [pc, #0xa8]
+002466ae  add       r6, sp, #0xc
+002466b0  add       r0, pc
+002466b2  bl        #0xb1260
+002466b6  movw      r1, #0x14b
+002466ba  str       r1, [sp]
+002466bc  mov       r3, r0
+002466be  ldr       r1, [pc, #0x9c]
+002466c0  mov       r0, r6
+002466c2  movs      r2, #5
+002466c4  add       r1, pc
+002466c6  bl        #0xb1a68
+002466ca  mov       r0, r6
+002466cc  bl        #0xb1870
+002466d0  ldr       r1, [pc, #0x8c]
+002466d2  mov       r4, r0
+002466d4  add       r1, pc
+002466d6  blx       #0x58174
+002466da  ldr       r3, [r4]
+002466dc  mov       r1, r5
+002466de  mov       r0, r4
+002466e0  ldr       r2, [r3, #-0xc]
+002466e4  add       r2, r4
+002466e6  ldr       r3, [r2, #0xc]
+002466e8  bic       r3, r3, #0x4a
+002466ec  orr       r3, r3, #8
+002466f0  str       r3, [r2, #0xc]
+002466f2  blx       #0x56d98
+002466f6  ldr       r1, [pc, #0x6c]
+002466f8  mov       r0, r4
+002466fa  add       r1, pc
+002466fc  blx       #0x58174
+00246700  mov       r0, r4
+00246702  movs      r1, #0x10
+00246704  blx       #0x56d98
+00246708  b         #0x246638
+0024670a  ldr       r2, [pc, #0x5c]
+0024670c  mov.w     r3, #0x146
+00246710  ldr       r1, [pc, #0x58]
+00246712  ldr       r0, [pc, #0x5c]
+00246714  add       r2, pc
+00246716  add       r1, pc
+00246718  add       r0, pc
+0024671a  bl        #0x377d84
+0024671e  blx       #0x56af0
+00246722  mov       r0, r6
+00246724  bl        #0xb1744
+00246728  blx       #0x574cc
+0024672c  b         #0x246722
+0024672e  b         #0x246722
+00246730  subs      r2, #0x56
+00246732  movs      r0, r5
+00246734  ldr       r6, [pc, #0x10]
+00246736  movs      r0, r0
+00246738  ldrb      r6, [r2, r4]
+0024673a  movs      r3, r3
+0024673c  sbcs      r6, r5
+0024673e  movs      r3, r2
+00246740  ldrsh     r6, [r5, r3]
+00246742  movs      r3, r3
+00246744  ldrsh     r6, [r6, r3]
+00246746  movs      r3, r3
+00246748  subs      r1, #0xb8
+0024674a  movs      r0, r5
+0024674c  ldrb      r0, [r3, r2]
+0024674e  movs      r3, r3
+00246750  asrs      r0, r6
+00246752  movs      r3, r2
+00246754  ldrsh     r2, [r6, r2]
+00246756  movs      r3, r3
+00246758  ldrb      r4, [r0, r1]
+0024675a  movs      r3, r3
+0024675c  lsrs      r4, r3
+0024675e  movs      r3, r2
+00246760  ldrb      r0, [r2, r7]
+00246762  movs      r3, r3
+00246764  ldrb      r6, [r4, r7]
+00246766  movs      r3, r3
+00246768  ldrh      r0, [r4, r7]
+0024676a  movs      r3, r3
+0024676c  ldrb      r6, [r2, r4]
+0024676e  movs      r3, r3
+00246770  ldrb      r0, [r7, r5]
+00246772  movs      r3, r3

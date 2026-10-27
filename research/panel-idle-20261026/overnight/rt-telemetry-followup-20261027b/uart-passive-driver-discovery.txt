@@ -1,0 +1,28 @@
+BEGIN
+00000000-0000-4000-8000-000000000000
+97134.81 363150.84
+TTY_DRIVERS
+/dev/tty             /dev/tty        5       0 system:/dev/tty
+/dev/console         /dev/console    5       1 system:console
+/dev/ptmx            /dev/ptmx       5       2 system
+/dev/vc/0            /dev/vc/0       4       0 system:vtmaster
+usbserial            /dev/ttyUSB   188 0-511 serial
+ttynull              /dev/ttynull  249       0 console
+ttySD                /dev/ttySD    204 74-78 serial
+sdp-uart2            /dev/ttyS     204 64-68 serial
+pty_slave            /dev/pts      136 0-1048575 pty:slave
+pty_master           /dev/ptm      128 0-1048575 pty:master
+unknown              /dev/tty        4 1-63 console
+DRIVER_NAMES
+total 0
+-r--r--r-- 1 owner root 0 2026-10-27 00:32 sdp-uart2
+-r--r--r-- 1 owner root 0 2026-10-27 00:32 ttySD
+-r--r--r-- 1 owner root 0 2026-10-27 00:32 usbserial
+UART_IRQS
+ 12:          0          0          0          0     GIC-0 167 Level      190a00.serial (   0us/   0us)
+ 13:          0          0          0          0     GIC-0 166 Level      190a00.serial (   0us/   0us)
+ 16:          0          0        483          0     GIC-0 148 Level      550f00.serial (   3us/   9us) [ 91840.9555s| +    3549ns]
+ 17:          0          0       2010          0     GIC-0 145 Level      550f00.serial (   3us/  29us) [ 91841.0119s| +    3781ns]
+ 18:          0          0          1          0     GIC-0 149 Level      551000.serial (   1us/   1us) [     0.0841s| +    1081ns]
+ 19:          1          0          0          0     GIC-0 146 Level      551000.serial (   7us/   7us) [     0.0841s| +    7099ns]
+END

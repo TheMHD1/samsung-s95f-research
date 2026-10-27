@@ -1,0 +1,48 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\numask 077\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nmkdir /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\necho STAGE_CREATED\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_CREATED\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest -d /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\ntest ! -L /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.dll.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest -d /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\ntest ! -L /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.deps.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest -d /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\ntest ! -L /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\nprintf %s [encoded-payload-omitted] >> /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.runtimeconfig.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\necho BEGIN_ARM_DRYRUN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n/usr/bin/dotnet /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.dll\n/usr/bin/dotnet /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.dll --self-test\necho END_ARM_DRYRUN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BEGIN_ARM_DRYRUN\n00000000-0000-4000-8000-000000000000\n98704.39 369026.07\n{\"dryRun\":true,\"targetOperations\":0,\"headerHex\":\"030200000000000000200000\",\"inputLength\":8192,\"timeoutMs\":2000,\"interfaceNumber\":2}\n{\"selfTestsPassed\":22,\"targetOperations\":0}\n[GC_INFO] GC_Start #1: Gen(0), Time(98704760 ms), Reason(0)\n[GC_INFO] GC_End #1: Gen(0), Time(98704761 ms)\nEND_ARM_DRYRUN\n00000000-0000-4000-8000-000000000000\n98704.84 369027.35\n",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest -d /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\ntest ! -L /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\nrm -f /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.dll /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.dll.b64\nrm -f /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.deps.json /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.deps.json.b64\nrm -f /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.runtimeconfig.json /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282/ManagedUsbSsbReadOnce.runtimeconfig.json.b64\nrmdir /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\ntest ! -e /tmp/researcher-usb-read-4e5a4a7f412343d09c971cfd85bb1282\necho STAGE_ABSENT\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "STAGE_ABSENT\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

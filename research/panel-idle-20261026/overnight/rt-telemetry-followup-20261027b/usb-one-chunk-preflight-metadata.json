@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\necho BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\np=/sys/bus/usb/devices/7-1\nfor n in idVendor idProduct bcdDevice busnum devnum bConfigurationValue authorized product manufacturer power/runtime_status; do\n echo FIELD=$n\n cat \"$p/$n\"\ndone\nfor i in /sys/bus/usb/devices/7-1:1.0 /sys/bus/usb/devices/7-1:1.1 /sys/bus/usb/devices/7-1:1.2; do\n echo INTERFACE=$i\n for n in bInterfaceNumber bAlternateSetting bInterfaceClass bInterfaceSubClass bInterfaceProtocol; do echo FIELD=$n; cat \"$i/$n\"; done\n if test -L \"$i/driver\"; then echo DRIVER; readlink -f \"$i/driver\"; else echo UNBOUND; fi\ndone\necho CACHED_DESCRIPTORS\nod -An -v -tx1 \"$p/descriptors\"\necho USBFS_NODES\nls -l /dev/bus/usb/007/*\necho END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BEGIN\n00000000-0000-4000-8000-000000000000\n98176.31 367052.09\nFIELD=idVendor\n04e8\nFIELD=idProduct\n2001\nFIELD=bcdDevice\n0250\nFIELD=busnum\n7\nFIELD=devnum\n45\nFIELD=bConfigurationValue\n1\nFIELD=authorized\n1\nFIELD=product\nSTL1 CDC and Bulk\nFIELD=manufacturer\nSamsung\nFIELD=power/runtime_status\nactive\nINTERFACE=/sys/bus/usb/devices/7-1:1.0\nFIELD=bInterfaceNumber\n00\nFIELD=bAlternateSetting\n 0\nFIELD=bInterfaceClass\n02\nFIELD=bInterfaceSubClass\n02\nFIELD=bInterfaceProtocol\n01\nUNBOUND\nINTERFACE=/sys/bus/usb/devices/7-1:1.1\nFIELD=bInterfaceNumber\n01\nFIELD=bAlternateSetting\n 0\nFIELD=bInterfaceClass\n0a\nFIELD=bInterfaceSubClass\n00\nFIELD=bInterfaceProtocol\n00\nUNBOUND\nINTERFACE=/sys/bus/usb/devices/7-1:1.2\nFIELD=bInterfaceNumber\n02\nFIELD=bAlternateSetting\n 0\nFIELD=bInterfaceClass\nff\nFIELD=bInterfaceSubClass\n00\nFIELD=bInterfaceProtocol\n00\nUNBOUND\nCACHED_DESCRIPTORS\n 12 01 00 02 ef 02 01 40 e8 04 01 20 50 02 01 02\n 03 01 09 02 62 00 03 01 04 80 32 08 0b 00 02 02\n 02 01 0a 09 04 00 00 01 02 02 01 0a 05 24 00 10\n 01 05 24 01 00 01 04 24 02 02 05 24 06 00 01 07\n 05 83 03 08 00 10 09 04 01 00 02 0a 00 00 0a 07\n 05 01 02 40 00 10 07 05 81 02 40 00 00 09 04 02\n 00 02 ff 00 00 00 07 05 82 02 00 02 00 07 05 02\n 02 00 02 00\nUSBFS_NODES\ncrw-rw---- 1 owner system_share 189, 768 2026-10-25 21:33 /dev/bus/usb/007/001\ncrw-rw---- 1 owner system_share 189, 812 2026-10-26 23:46 /dev/bus/usb/007/045\nEND\n00000000-0000-4000-8000-000000000000\n98176.36 367052.18\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

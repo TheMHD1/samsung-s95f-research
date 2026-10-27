@@ -1,0 +1,64 @@
+{
+  "acceptance_scope": "Exact counts and cleanup only; opaque 64-byte DMA-window snapshot. A matching shape does not prove the active core-tag branch or secondary namespace.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x470004c0\",\"operation\":\"opaque-secondary-root-and-gates-DMA-IN\",\"headerHex\":\"01010000C004004740000000\",\"inputLength\":64,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":26,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "files": {
+    "ManagedUsbRtBlockReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "4a725f342237a848bd835ef090a9341ae30a80c70e9798a05236d108bbffe5e4",
+      "size": 16844
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.deps.json": {
+      "sha256": "0594831db607c7c2f313830330313e4464c89a02262ca0f17ac23380cb18b111",
+      "size": 445
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.dll": {
+      "sha256": "4114e63ee7a2e3150b9ade1578e1b55863b705799ca639ae452f4f644efece1f",
+      "size": 28672
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x470004c0",
+  "fixed_length": 64,
+  "fixed_target": "0x101",
+  "header_hex": "01010000c004004740000000",
+  "schema": "usb-fixed-secondary-root-read-build-v1",
+  "source_parent_sha256": "795bc39dd478146d6c947ecb4b0d604f18851d2655b9500182af1baf02e6b8c5",
+  "wrapper_parent_sha256": "b80c5a4553e351b23a842a96c5dc6bdf5275e811543cf19be8f0c53ca6ca43e8"
+}

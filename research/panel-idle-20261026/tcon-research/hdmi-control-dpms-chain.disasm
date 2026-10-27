@@ -1,0 +1,728 @@
+# Exact HDMI control DPMS notification chain
+Implementation SHA-256: 5eaef7e92eac9468bf41073ccece56a64a70339c3056c3ca2b62391171f4d2a1
+
+## All instruction/GOT-resolved PLT entries
+00001f30 GOT 0001f00c sync
+00001f3c GOT 0001f010 drmIoctl
+00001f48 GOT 0001f014 hdmisw_set_ext_ctrls
+00001f54 GOT 0001f018 SllTestPatternOn
+00001f64 GOT 0001f01c ApiSetFactoryItemHdmi
+00001f70 GOT 0001f020 __isoc99_fscanf
+00001f7c GOT 0001f024 _Z12getDrmCrtcIdv
+00001f88 GOT 0001f028 _Z13getDrmPlaneId18sdp_drm_plane_type
+00001f94 GOT 0001f02c __gmon_start__
+00001fa0 GOT 0001f030 fconfig_get_bool
+00001fac GOT 0001f034 strncpy
+00001fb8 GOT 0001f038 fclose
+00001fc4 GOT 0001f03c fgets
+00001fd0 GOT 0001f040 system
+00001fdc GOT 0001f044 _Z28api_drmfac_do_hdmi_path_testjiiPj
+00001fe8 GOT 0001f048 pclose
+00001ff4 GOT 0001f04c calloc
+00002000 GOT 0001f050 _Z32api_drmfac_hdmi_copy_edid_to_usbjjPii
+0000200c GOT 0001f054 t_support_extin_res_by_multiview
+00002018 GOT 0001f058 memset
+00002024 GOT 0001f05c _Z14setDrmPropertyijjPKcy
+00002030 GOT 0001f060 _Z41api_drmfac_hdmi_write_edid_version_to_usbPcS_
+0000203c GOT 0001f064 __dlog_print
+00002048 GOT 0001f068 hdmi_control_impl_set_funcs
+00002054 GOT 0001f06c __strncpy_chk
+00002060 GOT 0001f070 _Z18FillDefaultDrmInfoP8v4l2_drm
+0000206c GOT 0001f074 hdmi_control_backend_data_inject
+00002078 GOT 0001f078 usleep
+00002084 GOT 0001f07c free
+00002090 GOT 0001f080 _Z27api_drmfac_set_hdmi_patternii
+0000209c GOT 0001f084 drmModeSetPlane
+000020ac GOT 0001f088 api_hdmisw_get_edid
+000020b8 GOT 0001f08c api_drmfac_hdmisw_uhd_path
+000020c4 GOT 0001f090 drmDropMaster
+000020d4 GOT 0001f094 ConvertValueToStrHdmi
+000020e0 GOT 0001f098 _Z23api_drmfac_set_uhd_pathih
+000020ec GOT 0001f09c fconfig_get_int
+000020f8 GOT 0001f0a0 prd_factory_set_data
+00002104 GOT 0001f0a4 ioctl
+00002110 GOT 0001f0a8 strlen
+0000211c GOT 0001f0ac memcpy
+00002128 GOT 0001f0b0 fopen64
+00002134 GOT 0001f0b4 APIHdmiSetForyItem
+00002140 GOT 0001f0b8 _Z13getDrmDummyFbiiPj
+0000214c GOT 0001f0bc ApiSetFactoryFuncPtr
+00002158 GOT 0001f0c0 _Z26ConvertValueToStrWithTablePK8strTablejjPc
+00002164 GOT 0001f0c4 strtol
+00002170 GOT 0001f0c8 hdmisw_get_ext_ctrls
+00002180 GOT 0001f0cc ApiHdmiConvertValueToString
+0000218c GOT 0001f0d0 open64
+00002198 GOT 0001f0d4 _Z18setDrmVideoControl7DrmCmdsi
+000021a4 GOT 0001f0d8 ppi_system_info_get_value_int
+000021b0 GOT 0001f0dc __snprintf_chk
+000021bc GOT 0001f0e0 realpath
+000021c8 GOT 0001f0e4 close
+000021d4 GOT 0001f0e8 api_hdmisw_new_update_edid
+000021e0 GOT 0001f0ec __stack_chk_fail
+000021ec GOT 0001f0f0 ppi_hdmi_control_get_backend_data_address
+000021f8 GOT 0001f0f4 strnlen
+00002204 GOT 0001f0f8 _Z33api_drmfac_prepare_hdmi_path_testPiS_Pj
+00002210 GOT 0001f0fc HdmiLoopbackTest
+0000221c GOT 0001f100 popen
+00002228 GOT 0001f104 prctl
+00002234 GOT 0001f108 _Z15scaler_drm_openv
+00002240 GOT 0001f10c t_convert_component_resolution
+0000224c GOT 0001f110 api_drmfac_hdmi_update_edid_to_usb
+00002258 GOT 0001f114 strncmp
+00002264 GOT 0001f118 HdmiSoftwareSmartInspection
+00002270 GOT 0001f11c _Z26api_drmfac_check_file_pathPc
+0000227c GOT 0001f120 strcmp
+00002288 GOT 0001f124 _Z16scaler_drm_closei
+00002294 GOT 0001f128 __errno_location
+000022a0 GOT 0001f12c __cxa_finalize
+000022ac GOT 0001f130 t_convert_hdmi_resolution
+000022b8 GOT 0001f134 _Z32api_drmfac_hdmi_reload_edid_datav
+000022c4 GOT 0001f138 fputs
+000022d0 GOT 0001f13c _Z26api_drmfac_hdmi_check_filePc
+
+## ppi_hdmi_control_set_notify_dpms_type_impl VA 8574..8618
+00008574 30b5       push     {r4, r5, lr}
+00008576 c0ef1000   vmov.i32 d16, #0
+0000857a 204a       ldr      r2, [pc, #0x80]
+0000857c 8fb0       sub      sp, #0x3c
+0000857e 204b       ldr      r3, [pc, #0x80]
+00008580 7a44       add      r2, pc
+00008582 0424       movs     r4, #4
+00008584 0790       str      r0, [sp, #0x1c]
+00008586 08a8       add      r0, sp, #0x20
+00008588 d358       ldr      r3, [r2, r3]
+0000858a 1b68       ldr      r3, [r3]
+0000858c 0d93       str      r3, [sp, #0x34]
+0000858e 4ff00003   mov.w    r3, #0
+00008592 cded0a0b   vstr     d16, [sp, #0x28]
+00008596 0994       str      r4, [sp, #0x24]
+00008598 40f6d513   movw     r3, #0x9d5
+0000859c c0f2a003   movt     r3, #0xa0
+000085a0 cded0b0b   vstr     d16, [sp, #0x2c]
+000085a4 0893       str      r3, [sp, #0x20]
+000085a6 07ab       add      r3, sp, #0x1c
+000085a8 0b93       str      r3, [sp, #0x2c]
+000085aa f9f7ceec   blx      #0x1f48 ; hdmisw_set_ext_ctrls
+000085ae 154b       ldr      r3, [pc, #0x54]
+000085b0 0546       mov      r5, r0
+000085b2 154a       ldr      r2, [pc, #0x54]
+000085b4 2146       mov      r1, r4
+000085b6 7b44       add      r3, pc
+000085b8 079c       ldr      r4, [sp, #0x1c]
+000085ba 7a44       add      r2, pc
+000085bc 03f59f60   add.w    r0, r3, #0x4f8
+000085c0 4432       adds     r2, #0x44
+000085c2 03f22453   addw     r3, r3, #0x524
+000085c6 0092       str      r2, [sp]
+000085c8 0193       str      r3, [sp, #4]
+000085ca 40f27943   movw     r3, #0x479
+000085ce 0f4a       ldr      r2, [pc, #0x3c]
+000085d0 0293       str      r3, [sp, #8]
+000085d2 0f4b       ldr      r3, [pc, #0x3c]
+000085d4 7a44       add      r2, pc
+000085d6 0390       str      r0, [sp, #0xc]
+000085d8 0020       movs     r0, #0
+000085da 7b44       add      r3, pc
+000085dc 0494       str      r4, [sp, #0x10]
+000085de f9f72eed   blx      #0x203c ; __dlog_print
+000085e2 0c4a       ldr      r2, [pc, #0x30]
+000085e4 064b       ldr      r3, [pc, #0x18]
+000085e6 7a44       add      r2, pc
+000085e8 d358       ldr      r3, [r2, r3]
+000085ea 1a68       ldr      r2, [r3]
+000085ec 0d9b       ldr      r3, [sp, #0x34]
+000085ee 5a40       eors     r2, r3
+000085f0 02d1       bne      #0x85f8
+000085f2 2846       mov      r0, r5
+000085f4 0fb0       add      sp, #0x3c
+000085f6 30bd       pop      {r4, r5, pc}
+000085f8 f9f7f2ed   blx      #0x21e0 ; __stack_chk_fail
+000085fc DATA 7c6a0100
+00008600 DATA 94010000
+00008604 DATA a2400000
+00008608 DATA 8a0b0000
+0000860c DATA 5c0b0000
+00008610 DATA f22c0000
+00008614 DATA 166a0100
+
+## hdmisw_set_ext_ctrls VA 816c..82bc
+0000816c 424a       ldr      r2, [pc, #0x108]
+0000816e 40f60201   movw     r1, #0x802
+00008172 424b       ldr      r3, [pc, #0x108]
+00008174 7a44       add      r2, pc
+00008176 70b5       push     {r4, r5, r6, lr}
+00008178 414e       ldr      r6, [pc, #0x104]
+0000817a 8cb0       sub      sp, #0x30
+0000817c 0446       mov      r4, r0
+0000817e d358       ldr      r3, [r2, r3]
+00008180 7e44       add      r6, pc
+00008182 3046       mov      r0, r6
+00008184 1b68       ldr      r3, [r3]
+00008186 0b93       str      r3, [sp, #0x2c]
+00008188 4ff00003   mov.w    r3, #0
+0000818c f9f7feef   blx      #0x218c ; open64
+00008190 051e       subs     r5, r0, #0
+00008192 56db       blt      #0x8242
+00008194 c0ef1000   vmov.i32 d16, #0
+00008198 05aa       add      r2, sp, #0x14
+0000819a 45f24861   movw     r1, #0x5648
+0000819e ccf21801   movt     r1, #0xc018
+000081a2 4ff42003   mov.w    r3, #0xa00000
+000081a6 0a94       str      r4, [sp, #0x28]
+000081a8 0593       str      r3, [sp, #0x14]
+000081aa 0123       movs     r3, #1
+000081ac cded070b   vstr     d16, [sp, #0x1c]
+000081b0 0693       str      r3, [sp, #0x18]
+000081b2 cded080b   vstr     d16, [sp, #0x20]
+000081b6 f9f7a6ef   blx      #0x2104 ; ioctl
+000081ba 0028       cmp      r0, #0
+000081bc a8bf       it       ge
+000081be 0024       movge    r4, #0
+000081c0 0edb       blt      #0x81e0
+000081c2 2846       mov      r0, r5
+000081c4 faf700e8   blx      #0x21c8 ; close
+000081c8 08bb       cbnz     r0, #0x820e
+000081ca 2e4a       ldr      r2, [pc, #0xb8]
+000081cc 2b4b       ldr      r3, [pc, #0xac]
+000081ce 7a44       add      r2, pc
+000081d0 d358       ldr      r3, [r2, r3]
+000081d2 1a68       ldr      r2, [r3]
+000081d4 0b9b       ldr      r3, [sp, #0x2c]
+000081d6 5a40       eors     r2, r3
+000081d8 4bd1       bne      #0x8272
+000081da 2046       mov      r0, r4
+000081dc 0cb0       add      sp, #0x30
+000081de 70bd       pop      {r4, r5, r6, pc}
+000081e0 294b       ldr      r3, [pc, #0xa4]
+000081e2 40f2d710   movw     r0, #0x1d7
+000081e6 294a       ldr      r2, [pc, #0xa4]
+000081e8 0621       movs     r1, #6
+000081ea 7b44       add      r3, pc
+000081ec 4ff0ff34   mov.w    r4, #-1
+000081f0 7a44       add      r2, pc
+000081f2 03f2bc43   addw     r3, r3, #0x4bc
+000081f6 4432       adds     r2, #0x44
+000081f8 cde90130   strd     r3, r0, [sp, #4]
+000081fc 0092       str      r2, [sp]
+000081fe 0020       movs     r0, #0
+00008200 234b       ldr      r3, [pc, #0x8c]
+00008202 244a       ldr      r2, [pc, #0x90]
+00008204 7b44       add      r3, pc
+00008206 7a44       add      r2, pc
+00008208 f9f718ef   blx      #0x203c ; __dlog_print
+0000820c d9e7       b        #0x81c2
+0000820e 224a       ldr      r2, [pc, #0x88]
+00008210 40f2dd15   movw     r5, #0x1dd
+00008214 214b       ldr      r3, [pc, #0x84]
+00008216 0621       movs     r1, #6
+00008218 7a44       add      r2, pc
+0000821a 2148       ldr      r0, [pc, #0x84]
+0000821c 7b44       add      r3, pc
+0000821e 02f2bc42   addw     r2, r2, #0x4bc
+00008222 4433       adds     r3, #0x44
+00008224 cde90032   strd     r3, r2, [sp]
+00008228 1e4b       ldr      r3, [pc, #0x78]
+0000822a 7844       add      r0, pc
+0000822c 1e4a       ldr      r2, [pc, #0x78]
+0000822e 4ff0ff34   mov.w    r4, #-1
+00008232 0390       str      r0, [sp, #0xc]
+00008234 7b44       add      r3, pc
+00008236 7a44       add      r2, pc
+00008238 0295       str      r5, [sp, #8]
+0000823a 0020       movs     r0, #0
+0000823c f9f7feee   blx      #0x203c ; __dlog_print
+00008240 c3e7       b        #0x81ca
+00008242 1a4a       ldr      r2, [pc, #0x68]
+00008244 4ff4e574   mov.w    r4, #0x1ca
+00008248 194b       ldr      r3, [pc, #0x64]
+0000824a 0621       movs     r1, #6
+0000824c 7a44       add      r2, pc
+0000824e 0294       str      r4, [sp, #8]
+00008250 7b44       add      r3, pc
+00008252 02f2bc42   addw     r2, r2, #0x4bc
+00008256 4433       adds     r3, #0x44
+00008258 cde90032   strd     r3, r2, [sp]
+0000825c 154b       ldr      r3, [pc, #0x54]
+0000825e 0020       movs     r0, #0
+00008260 154a       ldr      r2, [pc, #0x54]
+00008262 4ff0ff34   mov.w    r4, #-1
+00008266 7b44       add      r3, pc
+00008268 0396       str      r6, [sp, #0xc]
+0000826a 7a44       add      r2, pc
+0000826c f9f7e6ee   blx      #0x203c ; __dlog_print
+00008270 abe7       b        #0x81ca
+00008272 f9f7b6ef   blx      #0x21e0 ; __stack_chk_fail
+00008276 00bf       nop      
+00008278 DATA 886e0100
+0000827c DATA 94010000
+00008280 DATA 20100000
+00008284 DATA 2e6e0100
+00008288 DATA 6e440000
+0000828c DATA 540f0000
+00008290 DATA 1c300000
+00008294 DATA 2a0f0000
+00008298 DATA 40440000
+0000829c DATA 280f0000
+000082a0 DATA 760f0000
+000082a4 DATA c40f0000
+000082a8 DATA fa0e0000
+000082ac DATA 0c440000
+000082b0 DATA f40e0000
+000082b4 DATA 76110000
+000082b8 DATA c60e0000
+
+## hdmi_control_impl_set_funcs VA 8e78..8fc8
+00008e78 324b       ldr      r3, [pc, #0xc8]
+00008e7a 30b4       push     {r4, r5}
+00008e7c 324d       ldr      r5, [pc, #0xc8]
+00008e7e 7b44       add      r3, pc
+00008e80 324c       ldr      r4, [pc, #0xc8]
+00008e82 3349       ldr      r1, [pc, #0xcc]
+00008e84 334a       ldr      r2, [pc, #0xcc]
+00008e86 5d59       ldr      r5, [r3, r5]
+00008e88 0560       str      r5, [r0]
+00008e8a 334d       ldr      r5, [pc, #0xcc]
+00008e8c 1c59       ldr      r4, [r3, r4]
+00008e8e 4460       str      r4, [r0, #4]
+00008e90 324c       ldr      r4, [pc, #0xc8]
+00008e92 5958       ldr      r1, [r3, r1]
+00008e94 8160       str      r1, [r0, #8]
+00008e96 3249       ldr      r1, [pc, #0xc8]
+00008e98 9a58       ldr      r2, [r3, r2]
+00008e9a c260       str      r2, [r0, #0xc]
+00008e9c 314a       ldr      r2, [pc, #0xc4]
+00008e9e 5d59       ldr      r5, [r3, r5]
+00008ea0 0561       str      r5, [r0, #0x10]
+00008ea2 314d       ldr      r5, [pc, #0xc4]
+00008ea4 1c59       ldr      r4, [r3, r4]
+00008ea6 4461       str      r4, [r0, #0x14]
+00008ea8 304c       ldr      r4, [pc, #0xc0]
+00008eaa 5958       ldr      r1, [r3, r1]
+00008eac 8161       str      r1, [r0, #0x18]
+00008eae 3049       ldr      r1, [pc, #0xc0]
+00008eb0 9a58       ldr      r2, [r3, r2]
+00008eb2 c261       str      r2, [r0, #0x1c]
+00008eb4 2f4a       ldr      r2, [pc, #0xbc]
+00008eb6 5d59       ldr      r5, [r3, r5]
+00008eb8 0562       str      r5, [r0, #0x20]
+00008eba 2f4d       ldr      r5, [pc, #0xbc]
+00008ebc 1c59       ldr      r4, [r3, r4]
+00008ebe 4462       str      r4, [r0, #0x24]
+00008ec0 2e4c       ldr      r4, [pc, #0xb8]
+00008ec2 5958       ldr      r1, [r3, r1]
+00008ec4 8162       str      r1, [r0, #0x28]
+00008ec6 2e49       ldr      r1, [pc, #0xb8]
+00008ec8 9a58       ldr      r2, [r3, r2]
+00008eca c262       str      r2, [r0, #0x2c]
+00008ecc 2d4a       ldr      r2, [pc, #0xb4]
+00008ece 5d59       ldr      r5, [r3, r5]
+00008ed0 0563       str      r5, [r0, #0x30]
+00008ed2 2d4d       ldr      r5, [pc, #0xb4]
+00008ed4 1c59       ldr      r4, [r3, r4]
+00008ed6 4463       str      r4, [r0, #0x34]
+00008ed8 2c4c       ldr      r4, [pc, #0xb0]
+00008eda 5958       ldr      r1, [r3, r1]
+00008edc c163       str      r1, [r0, #0x3c]
+00008ede 2c49       ldr      r1, [pc, #0xb0]
+00008ee0 9a58       ldr      r2, [r3, r2]
+00008ee2 8263       str      r2, [r0, #0x38]
+00008ee4 5d59       ldr      r5, [r3, r5]
+00008ee6 0564       str      r5, [r0, #0x40]
+00008ee8 2a4a       ldr      r2, [pc, #0xa8]
+00008eea 1c59       ldr      r4, [r3, r4]
+00008eec 4464       str      r4, [r0, #0x44]
+00008eee 2a4d       ldr      r5, [pc, #0xa8]
+00008ef0 5958       ldr      r1, [r3, r1]
+00008ef2 8164       str      r1, [r0, #0x48]
+00008ef4 294c       ldr      r4, [pc, #0xa4]
+00008ef6 9a58       ldr      r2, [r3, r2]
+00008ef8 c264       str      r2, [r0, #0x4c]
+00008efa 2949       ldr      r1, [pc, #0xa4]
+00008efc 5d59       ldr      r5, [r3, r5]
+00008efe 0565       str      r5, [r0, #0x50]
+00008f00 284a       ldr      r2, [pc, #0xa0]
+00008f02 1c59       ldr      r4, [r3, r4]
+00008f04 4465       str      r4, [r0, #0x54]
+00008f06 284d       ldr      r5, [pc, #0xa0]
+00008f08 5958       ldr      r1, [r3, r1]
+00008f0a 8165       str      r1, [r0, #0x58]
+00008f0c 274c       ldr      r4, [pc, #0x9c]
+00008f0e 9a58       ldr      r2, [r3, r2]
+00008f10 c265       str      r2, [r0, #0x5c]
+00008f12 2749       ldr      r1, [pc, #0x9c]
+00008f14 5d59       ldr      r5, [r3, r5]
+00008f16 0566       str      r5, [r0, #0x60]
+00008f18 264a       ldr      r2, [pc, #0x98]
+00008f1a 1c59       ldr      r4, [r3, r4]
+00008f1c 4466       str      r4, [r0, #0x64]
+00008f1e 264d       ldr      r5, [pc, #0x98]
+00008f20 5958       ldr      r1, [r3, r1]
+00008f22 8166       str      r1, [r0, #0x68]
+00008f24 254c       ldr      r4, [pc, #0x94]
+00008f26 9a58       ldr      r2, [r3, r2]
+00008f28 c266       str      r2, [r0, #0x6c]
+00008f2a 2549       ldr      r1, [pc, #0x94]
+00008f2c 5d59       ldr      r5, [r3, r5]
+00008f2e 0567       str      r5, [r0, #0x70]
+00008f30 244a       ldr      r2, [pc, #0x90]
+00008f32 1c59       ldr      r4, [r3, r4]
+00008f34 4467       str      r4, [r0, #0x74]
+00008f36 5958       ldr      r1, [r3, r1]
+00008f38 8167       str      r1, [r0, #0x78]
+00008f3a 9b58       ldr      r3, [r3, r2]
+00008f3c c367       str      r3, [r0, #0x7c]
+00008f3e 30bc       pop      {r4, r5}
+00008f40 7047       bx       lr
+00008f42 00bf       nop      
+00008f44 DATA 7e610100
+00008f48 DATA 8c010000
+00008f4c DATA 90010000
+00008f50 DATA 58010000
+00008f54 DATA ac010000
+00008f58 DATA 70010000
+00008f5c DATA 7c010000
+00008f60 DATA c4010000
+00008f64 DATA bc010000
+00008f68 DATA b4010000
+00008f6c DATA 5c010000
+00008f70 DATA 64010000
+00008f74 DATA 88010000
+00008f78 DATA 60010000
+00008f7c DATA 9c010000
+00008f80 DATA 48010000
+00008f84 DATA 84010000
+00008f88 DATA a0010000
+00008f8c DATA 54010000
+00008f90 DATA a8010000
+00008f94 DATA cc010000
+00008f98 DATA b8010000
+00008f9c DATA 4c010000
+00008fa0 DATA 80010000
+00008fa4 DATA c8010000
+00008fa8 DATA 44010000
+00008fac DATA 98010000
+00008fb0 DATA 68010000
+00008fb4 DATA a4010000
+00008fb8 DATA c0010000
+00008fbc DATA 74010000
+00008fc0 DATA b0010000
+00008fc4 DATA 40010000
+
+## hdmi_control_backend_data_inject VA 8fc8..9100
+00008fc8 f0b5       push     {r4, r5, r6, r7, lr}
+00008fca 40f29d13   movw     r3, #0x19d
+00008fce 3c4d       ldr      r5, [pc, #0xf0]
+00008fd0 89b0       sub      sp, #0x24
+00008fd2 3c4c       ldr      r4, [pc, #0xf0]
+00008fd4 dff8f0c0   ldr.w    ip, [pc, #0xf0]
+00008fd8 7d44       add      r5, pc
+00008fda 3c4e       ldr      r6, [pc, #0xf0]
+00008fdc 7c44       add      r4, pc
+00008fde fc44       add      ip, pc
+00008fe0 0293       str      r3, [sp, #8]
+00008fe2 3b4f       ldr      r7, [pc, #0xec]
+00008fe4 05f5bc65   add.w    r5, r5, #0x5e0
+00008fe8 4434       adds     r4, #0x44
+00008fea cde90045   strd     r4, r5, [sp]
+00008fee 394b       ldr      r3, [pc, #0xe4]
+00008ff0 7f44       add      r7, pc
+00008ff2 5cf80660   ldr.w    r6, [ip, r6]
+00008ff6 0621       movs     r1, #6
+00008ff8 3a46       mov      r2, r7
+00008ffa 7b44       add      r3, pc
+00008ffc 0020       movs     r0, #0
+00008ffe 3668       ldr      r6, [r6]
+00009000 0796       str      r6, [sp, #0x1c]
+00009002 4ff00006   mov.w    r6, #0
+00009006 f9f71ae8   blx      #0x203c ; __dlog_print
+0000900a 06a8       add      r0, sp, #0x18
+0000900c f9f7eee8   blx      #0x21ec ; ppi_hdmi_control_get_backend_data_address
+00009010 0646       mov      r6, r0
+00009012 0028       cmp      r0, #0
+00009014 3fd1       bne      #0x9096
+00009016 069b       ldr      r3, [sp, #0x18]
+00009018 5868       ldr      r0, [r3, #4]
+0000901a f9f716e8   blx      #0x2048 ; hdmi_control_impl_set_funcs
+0000901e 2e4b       ldr      r3, [pc, #0xb8]
+00009020 3a46       mov      r2, r7
+00009022 4ff4d571   mov.w    r1, #0x1aa
+00009026 7b44       add      r3, pc
+00009028 0291       str      r1, [sp, #8]
+0000902a 3046       mov      r0, r6
+0000902c 0621       movs     r1, #6
+0000902e cde90045   strd     r4, r5, [sp]
+00009032 f9f704e8   blx      #0x203c ; __dlog_print
+00009036 069b       ldr      r3, [sp, #0x18]
+00009038 2848       ldr      r0, [pc, #0xa0]
+0000903a 4ff48072   mov.w    r2, #0x100
+0000903e 05a9       add      r1, sp, #0x14
+00009040 1a60       str      r2, [r3]
+00009042 7844       add      r0, pc
+00009044 0596       str      r6, [sp, #0x14]
+00009046 f9f752e8   blx      #0x20ec ; fconfig_get_int
+0000904a e8b1       cbz      r0, #0x9088
+0000904c 244b       ldr      r3, [pc, #0x90]
+0000904e 40f2bd10   movw     r0, #0x1bd
+00009052 244a       ldr      r2, [pc, #0x90]
+00009054 0621       movs     r1, #6
+00009056 7b44       add      r3, pc
+00009058 7a44       add      r2, pc
+0000905a 03f5bc63   add.w    r3, r3, #0x5e0
+0000905e 4432       adds     r2, #0x44
+00009060 cde90130   strd     r3, r0, [sp, #4]
+00009064 0092       str      r2, [sp]
+00009066 0020       movs     r0, #0
+00009068 1f4b       ldr      r3, [pc, #0x7c]
+0000906a 204a       ldr      r2, [pc, #0x80]
+0000906c 7b44       add      r3, pc
+0000906e 7a44       add      r2, pc
+00009070 f8f7e4ef   blx      #0x203c ; __dlog_print
+00009074 1e4a       ldr      r2, [pc, #0x78]
+00009076 154b       ldr      r3, [pc, #0x54]
+00009078 7a44       add      r2, pc
+0000907a d358       ldr      r3, [r2, r3]
+0000907c 1a68       ldr      r2, [r3]
+0000907e 079b       ldr      r3, [sp, #0x1c]
+00009080 5a40       eors     r2, r3
+00009082 1bd1       bne      #0x90bc
+00009084 09b0       add      sp, #0x24
+00009086 f0bd       pop      {r4, r5, r6, r7, pc}
+00009088 059b       ldr      r3, [sp, #0x14]
+0000908a 052b       cmp      r3, #5
+0000908c 11d0       beq      #0x90b2
+0000908e 194b       ldr      r3, [pc, #0x64]
+00009090 7b44       add      r3, pc
+00009092 1870       strb     r0, [r3]
+00009094 dae7       b        #0x904c
+00009096 40f2a513   movw     r3, #0x1a5
+0000909a 0293       str      r3, [sp, #8]
+0000909c 164b       ldr      r3, [pc, #0x58]
+0000909e 3a46       mov      r2, r7
+000090a0 0390       str      r0, [sp, #0xc]
+000090a2 0621       movs     r1, #6
+000090a4 7b44       add      r3, pc
+000090a6 0195       str      r5, [sp, #4]
+000090a8 0094       str      r4, [sp]
+000090aa 0020       movs     r0, #0
+000090ac f8f7c6ef   blx      #0x203c ; __dlog_print
+000090b0 e0e7       b        #0x9074
+000090b2 124b       ldr      r3, [pc, #0x48]
+000090b4 0122       movs     r2, #1
+000090b6 7b44       add      r3, pc
+000090b8 1a70       strb     r2, [r3]
+000090ba c7e7       b        #0x904c
+000090bc f9f790e8   blx      #0x21e0 ; __stack_chk_fail
+000090c0 DATA 80360000
+000090c4 DATA 68010000
+000090c8 DATA 1e600100
+000090cc DATA 94010000
+000090d0 DATA 40010000
+000090d4 DATA 72240000
+000090d8 DATA 92240000
+000090dc DATA be240000
+000090e0 DATA 02360000
+000090e4 DATA ec000000
+000090e8 DATA bc240000
+000090ec DATA c2000000
+000090f0 DATA 845f0100
+000090f4 DATA 58610100
+000090f8 DATA fc230000
+000090fc DATA 32610100
+
+## hdmicontrol_inject VA 22dc..2340
+000022dc 70b5       push     {r4, r5, r6, lr}
+000022de 40f29513   movw     r3, #0x195
+000022e2 124d       ldr      r5, [pc, #0x48]
+000022e4 84b0       sub      sp, #0x10
+000022e6 124c       ldr      r4, [pc, #0x48]
+000022e8 124e       ldr      r6, [pc, #0x48]
+000022ea 7d44       add      r5, pc
+000022ec 7c44       add      r4, pc
+000022ee 0621       movs     r1, #6
+000022f0 0293       str      r3, [sp, #8]
+000022f2 7e44       add      r6, pc
+000022f4 104b       ldr      r3, [pc, #0x40]
+000022f6 3246       mov      r2, r6
+000022f8 05f2cc55   addw     r5, r5, #0x5cc
+000022fc 4434       adds     r4, #0x44
+000022fe 7b44       add      r3, pc
+00002300 cde90045   strd     r4, r5, [sp]
+00002304 0020       movs     r0, #0
+00002306 fff79aee   blx      #0x203c ; __dlog_print
+0000230a fff7b0ee   blx      #0x206c ; hdmi_control_backend_data_inject
+0000230e 0b4b       ldr      r3, [pc, #0x2c]
+00002310 3246       mov      r2, r6
+00002312 cde90045   strd     r4, r5, [sp]
+00002316 7b44       add      r3, pc
+00002318 40f29711   movw     r1, #0x197
+0000231c 0020       movs     r0, #0
+0000231e 0291       str      r1, [sp, #8]
+00002320 0621       movs     r1, #6
+00002322 fff78cee   blx      #0x203c ; __dlog_print
+00002326 04b0       add      sp, #0x10
+00002328 70bd       pop      {r4, r5, r6, pc}
+0000232a 00bf       nop      
+0000232c DATA 6ea30000
+00002330 DATA 586e0000
+00002334 DATA 3e6e0000
+00002338 DATA be900000
+0000233c DATA f6900000
+
+## Statically constructed implementation table
++00 ppi_hdmi_control_get_hdmi_infopacket_impl
++04 ppi_hdmi_control_get_resolution_impl
++08 ppi_hdmi_control_get_edid_impl
++0c ppi_hdmi_control_boot_time_edid_check_impl
++10 ppi_hdmi_control_update_edid_impl
++14 ppi_hdmi_control_get_5v_onoff_impl
++18 ppi_hdmi_control_set_arc_driver_state_impl
++1c ppi_hdmi_control_set_earc_driver_state_impl
++20 ppi_hdmi_control_get_earc_driver_state_impl
++24 ppi_hdmi_control_set_earc_enable_impl
++28 ppi_hdmi_control_get_audio_cap_impl
++2c ppi_hdmi_control_get_power_status_on_standby_impl
++30 ppi_hdmi_control_set_standby_clk_det_enable_impl
++34 ppi_hdmi_control_get_dpms_wakeup_src_port_impl
++38 ppi_hdmi_control_set_notify_dpms_type_impl
++3c ppi_hdmi_control_set_latency_level_impl
++40 ppi_hdmi_control_get_resolution_enum_ext_in_impl
++44 ppi_hdmi_control_get_resolution_app_ext_in_impl
++48 ppi_hdmi_control_convert_value_to_str_hdmi_impl
++4c ppi_hdmi_control_set_factory_item_hdmi_impl
++50 ppi_hdmi_control_check_edid_impl
++54 ppi_hdmi_control_get_pcm_num_of_channel_impl
++58 ppi_hdmi_control_get_external_input_status_impl
++5c ppi_hdmi_control_get_fw_version_impl
++60 ppi_hdmi_control_get_hsm_error_ext_hdmi_info_impl
++64 ppi_hdmi_control_get_clock_detection_status_impl
++68 ppi_hdmi_control_get_no_signal_error_info_impl
++6c ppi_hdmi_control_set_delay_time_impl
++70 ppi_hdmi_control_get_hsm_error_hdmi_info_impl
++74 ppi_hdmi_control_set_eq_sweep_impl
++78 ppi_hdmi_control_get_eq_sweep_result_impl
++7c ppi_hdmi_control_set_hotplug_with_time_impl
+
+## switch: DPMS switch case .text+1da0..1e14
+00001da0 ldur     x1, [x19, #0xc]
+00001da4 cbz      x1, #0x222c
+00001da8 mov      x2, #1
+00001dac add      x0, sp, #0x210
+00001db0 strb     wzr, [sp, #0x210]
+00001db4 bl       #0x8a8
+00001db8 ldrb     w0, [sp, #0x210]
+00001dbc bl       #0x1dbc
+00001dc0 mov      w20, w0
+00001dc4 bl       #0x1dc4
+00001dc8 mov      w19, w0
+00001dcc bl       #0x1dcc
+00001dd0 ldrb     w4, [sp, #0x210]
+00001dd4 adrp     x2, #0x1000
+00001dd8 mov      w1, w19
+00001ddc ldr      w3, [x2]
+00001de0 mov      x2, x0
+00001de4 adrp     x0, #0x1000
+00001de8 add      x0, x0, #0
+00001dec bl       #0x1dec
+00001df0 ldrb     w1, [sp, #0x210]
+00001df4 adrp     x0, #0x1000
+00001df8 add      x0, x0, #0
+00001dfc bl       #0x1dfc
+00001e00 ldrb     w1, [sp, #0x210]
+00001e04 adrp     x0, #0x1000
+00001e08 add      x0, x0, #0
+00001e0c bl       #0x1e0c
+00001e10 b        #0x1654
+
+## api: API DPMS callback wrapper .text+3280..32c0
+00003280 stp      x29, x30, [sp, #-0x10]!
+00003284 adrp     x1, #0x3000
+00003288 mov      x29, sp
+0000328c ldr      x1, [x1]
+00003290 cbz      x1, #0x32ac
+00003294 ldr      x1, [x1, #0x240]
+00003298 cbz      x1, #0x32ac
+0000329c and      w0, w0, #0xff
+000032a0 blr      x1
+000032a4 ldp      x29, x30, [sp], #0x10
+000032a8 ret      
+000032ac adrp     x0, #0x3000
+000032b0 add      x0, x0, #0
+000032b4 bl       #0x32b4
+000032b8 mov      w0, #-0x13
+000032bc b        #0x32a4
+
+## api: driver operation publication .text+1d10..1d94
+00001d10 stp      x29, x30, [sp, #-0x30]!
+00001d14 mov      x29, sp
+00001d18 stp      x19, x20, [sp, #0x10]
+00001d1c adrp     x20, #0x1000
+00001d20 str      wzr, [x20]
+00001d24 str      x21, [sp, #0x20]
+00001d28 mov      x21, x0
+00001d2c add      x0, x20, #0
+00001d30 bl       #0x1d30
+00001d34 mov      w19, w0
+00001d38 cbz      w0, #0x1d50
+00001d3c mov      w0, w19
+00001d40 ldp      x19, x20, [sp, #0x10]
+00001d44 ldr      x21, [sp, #0x20]
+00001d48 ldp      x29, x30, [sp], #0x30
+00001d4c ret      
+00001d50 ldr      w0, [x20]
+00001d54 str      w0, [x21]
+00001d58 bl       #0x1d58
+00001d5c adrp     x1, #0x1000
+00001d60 str      x0, [x1]
+00001d64 cbz      x0, #0x1d3c
+00001d68 ldr      x1, [x0]
+00001d6c cbz      x1, #0x1d3c
+00001d70 ldr      w0, [x20]
+00001d74 blr      x1
+00001d78 cmp      w0, #0
+00001d7c csetm    w19, ne
+00001d80 mov      w0, w19
+00001d84 ldp      x19, x20, [sp, #0x10]
+00001d88 ldr      x21, [sp, #0x20]
+00001d8c ldp      x29, x30, [sp], #0x30
+00001d90 ret      
+
+## api: operation table address .text+1cfd0..1cfe0
+0001cfd0 adrp     x0, #0x1c000
+0001cfd4 add      x0, x0, #0
+0001cfd8 add      x0, x0, #0x180
+0001cfdc ret      
+
+## api: NotifyDpmsType .text+c958..c9dc
+0000c958 stp      x29, x30, [sp, #-0x30]!
+0000c95c mov      x29, sp
+0000c960 stp      x19, x20, [sp, #0x10]
+0000c964 adrp     x19, #0xc000
+0000c968 add      x19, x19, #0
+0000c96c and      w20, w0, #0xff
+0000c970 str      x21, [sp, #0x20]
+0000c974 strb     w20, [x19, #8]
+0000c978 bl       #0xc978
+0000c97c mov      w21, w0
+0000c980 bl       #0xc980
+0000c984 adrp     x3, #0xc000
+0000c988 mov      w1, w21
+0000c98c mov      x2, x0
+0000c990 adrp     x0, #0xc000
+0000c994 ldr      w3, [x3]
+0000c998 add      x0, x0, #0
+0000c99c bl       #0xc99c
+0000c9a0 ldrb     w1, [x19, #8]
+0000c9a4 mov      w2, w20
+0000c9a8 adrp     x0, #0xc000
+0000c9ac add      x0, x0, #0
+0000c9b0 bl       #0xc9b0
+0000c9b4 ldrb     w1, [x19, #8]
+0000c9b8 mov      w2, w20
+0000c9bc adrp     x0, #0xc000
+0000c9c0 add      x0, x0, #0
+0000c9c4 bl       #0xc9c4
+0000c9c8 mov      w0, #0
+0000c9cc ldp      x19, x20, [sp, #0x10]
+0000c9d0 ldr      x21, [sp, #0x20]
+0000c9d4 ldp      x29, x30, [sp], #0x30
+0000c9d8 ret      

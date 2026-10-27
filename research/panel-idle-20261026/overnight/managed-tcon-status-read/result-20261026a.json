@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\numask 077\nck() {\n  test -f \"$1\"\n  test ! -L \"$1\"\n  test \"$2\" = - || test \"$(wc -c < \"$1\")\" = \"$2\"\n  test \"$(sha256sum \"$1\" | cut -d ' ' -f1)\" = \"$3\"\n}\nck /usr/bin/dotnet - e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nck /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.9/libcoreclr.so - 5e5b5f160204058284d7fcced47fc57e65111e8203b53be5104350a63efd46ff\nck /usr/share/dotnet/shared/Microsoft.NETCore.App/6.0.9/System.Private.CoreLib.dll - 5cfe69fbb72ba75a78b1b993c46a0d7983b2674d0affcee161ecdf4b08fb17f8\nck /lib/modules/5.4.261/kernel/tztv_frc_tcon.ko 254406 aefabb5735b8b091c70006833141b9b0602983a9c1dbc182830dca7cf8b45dbd\nck /lib/modules/5.4.261/kernel/tztv_frc_tcon_api.ko 317998 3a34e9507c44f3ca9b7955e92844187a5396e30e3ab7c745bf0296145be3f7c6\nck /lib/modules/5.4.261/kernel/qdf_tcon.ko 403294 97fff5ba5cf3cff758807abbc2bdfb835b4696cbf88626dec5f7eb0e33b7ea63\ntest -c /dev/tztv_tcon\nboot=$(cat /proc/sys/kernel/random/boot_id)\ncase \"$boot\" in ????????-????-????-????-????????????) ;; *) exit 80;; esac\nprintf 'PREFLIGHT_BOOT=%s\\n' \"$boot\"\nprintf 'PREFLIGHT_UTC=%s\\n' \"$(date -u +%s)\"\nprintf 'PREFLIGHT_UPTIME=%s\\n' \"$(cut -d ' ' -f1 /proc/uptime)\"\necho PREFLIGHT_IDENTITY_MATCH\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "PREFLIGHT_BOOT=00000000-0000-4000-8000-000000000000\\nPREFLIGHT_UTC=1793053297\\nPREFLIGHT_UPTIME=74906.07\\nPREFLIGHT_IDENTITY_MATCH\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

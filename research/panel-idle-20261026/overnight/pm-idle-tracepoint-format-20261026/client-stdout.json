@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ GLOBAL_START'\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho '@@ FORMAT rpm/rpm_idle'\ncat /sys/kernel/debug/tracing/events/rpm/rpm_idle/format\necho '@@ END_FORMAT'\necho '@@ GLOBAL_END'\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "@@ BOOT_START\n00000000-0000-4000-8000-000000000000\n@@ TIME_START\n1793045628\n67237.64 251593.78\n@@ GLOBAL_START\n0\nnop\n@@ FORMAT rpm/rpm_idle\nname: rpm_idle\nID: 129\nformat:\n\tfield:unsigned short common_type;\toffset:0;\tsize:2;\tsigned:0;\n\tfield:unsigned char common_flags;\toffset:2;\tsize:1;\tsigned:0;\n\tfield:unsigned char common_preempt_count;\toffset:3;\tsize:1;\tsigned:0;\n\tfield:int common_pid;\toffset:4;\tsize:4;\tsigned:1;\n\n\tfield:__data_loc char[] name;\toffset:8;\tsize:4;\tsigned:0;\n\tfield:int flags;\toffset:12;\tsize:4;\tsigned:1;\n\tfield:int usage_count;\toffset:16;\tsize:4;\tsigned:1;\n\tfield:int disable_depth;\toffset:20;\tsize:4;\tsigned:1;\n\tfield:int runtime_auto;\toffset:24;\tsize:4;\tsigned:1;\n\tfield:int request_pending;\toffset:28;\tsize:4;\tsigned:1;\n\tfield:int irq_safe;\toffset:32;\tsize:4;\tsigned:1;\n\tfield:int child_count;\toffset:36;\tsize:4;\tsigned:1;\n\nprint fmt: \"%s flags-%x cnt-%-2d dep-%-2d auto-%-1d p-%-1d irq-%-1d child-%d\", __get_str(name), REC->flags, REC->usage_count, REC->disable_depth, REC->runtime_auto, REC->request_pending, REC->irq_safe, REC->child_count\n@@ END_FORMAT\n@@ GLOBAL_END\n0\nnop\n@@ BOOT_END\n00000000-0000-4000-8000-000000000000\n@@ TIME_END\n1793045628\n67237.65 251593.81\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

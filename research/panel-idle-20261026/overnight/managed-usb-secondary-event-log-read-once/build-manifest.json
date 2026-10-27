@@ -1,0 +1,80 @@
+{
+  "acceptance_scope": "Exact one-OUT and one-IN counts plus cleanup only; opaque fixed 15372-byte snapshot covering the 12-byte metadata header and 0x3c00-byte secondary event-log ring. The prior 64-byte sample proves visibility only. Acceptance does not prove freshness, stability, running-image identity, formatter activity, record boundaries, log validity, or fault causality.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x20200000\",\"operation\":\"opaque-secondary-event-log-DMA-IN\",\"headerHex\":\"01010000000020200C3C0000\",\"inputLength\":15372,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":26,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "evidence_input_sha256": "6eb6237ca5ffef037ff99f653aec20271217cf525872f94093b69e95cfdd2d68",
+  "evidence_report_sha256": "83d499bd9a44fd602b0211491521774f4fc53c86765fc3bb437386cd7fedcc6f",
+  "evidence_verifier_sha256": "a82bdb61e7ff94e412a9c0304fef61f0819c157bcdca37503243c5fd98eb5ded",
+  "exact_extent": {
+    "metadata_bytes": 12,
+    "ring_bytes": 15360,
+    "total_bytes": 15372
+  },
+  "files": {
+    "ManagedUsbRtBlockReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "3558fea1af5c89b7312ebf8879689738f377b6e145dd148572a2c5e5ef6616c7",
+      "size": 16970
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.deps.json": {
+      "sha256": "0594831db607c7c2f313830330313e4464c89a02262ca0f17ac23380cb18b111",
+      "size": 445
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.dll": {
+      "sha256": "03883212be65bb5e703b92c8b45742f092b304cff2bdd3e32ac7987e065f31f8",
+      "size": 28672
+    },
+    "bin/Release/net6.0/ManagedUsbRtBlockReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x20200000",
+  "fixed_length": 15372,
+  "fixed_target": "0x101",
+  "header_hex": "01010000000020200c3c0000",
+  "in_transfers": 1,
+  "out_transfers": 1,
+  "qualified_header_payload_sha256": "c3adf13d0ea6ae4678758c97de3639dfcb068eca1e92fdb089d9212f3be020b4",
+  "qualified_header_record_sha256": "6bdf6ef5ae71915763f4aa38022184fd80c95c9795a5d89a878aa61e5133be59",
+  "qualified_header_stdout_sha256": "fe08a1079175b24a6a1a2effc205ee53aeea572f5cabc0579de9c1ab707b11a3",
+  "response_geometry": "30*512+12",
+  "retries": 0,
+  "schema": "usb-fixed-secondary-event-log-read-build-v1",
+  "source_parent_sha256": "6bb6d6313beeea6ef464ce09e3d4c3a98e39d3d53ed78f53d19ccd7074e02c4f",
+  "usb_max_packet": 512,
+  "wrapper_parent_sha256": "245323c709dc098d343a1ee470c505ba909249126d4fe5645b12b20709ff7031"
+}

@@ -1,0 +1,25 @@
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit ContentsBrowser.CompUGTabCache : Tizen.TV.Service.CoBA.Core.ComponentCache
+ FIELD 040003b7 Private String strInstanceId
+ METHOD 0600062d PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(String)
+ METHOD 0600062e PrivateScope, Public, Virtual, HideBySig Boolean GetItems(String[]&)
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit ContentsBrowser.CompUGTabElement : Tizen.TV.Service.CoBA.BPI.Element
+ FIELD 040003b8 Private String strInstanceId
+ METHOD 0600062f PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.BPI.Entity,String)
+ METHOD 06000630 PrivateScope, Public, Virtual, HideBySig Void Update()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit ContentsBrowser.CompUGTab : Tizen.TV.Service.CoBA.Core.Component
+ INTERFACE Tizen.TV.Service.CoBA.Core.IChangeApp
+ FIELD 040003b9 Public, Static, InitOnly String CLASS_ID
+ FIELD 040003ba Public, Static ContentsBrowser.CompUGTab instance
+ FIELD 040003bb Private Int32 optionBtnClickCount
+ METHOD 06000631 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000632 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 06000633 PrivateScope, Public, Static, HideBySig Tizen.TV.Service.CoBA.Core.Component Alloc(Tizen.TV.Service.CoBA.Core.Component,String)
+ METHOD 06000634 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnAddApp(String)
+ METHOD 06000635 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnRemoveApp(String)
+ METHOD 06000636 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnMoveApp(String)
+ METHOD 06000637 PrivateScope, Public, HideBySig Void IncreaseDebugCount()
+ METHOD 06000638 PrivateScope, Public, HideBySig Void InitDebugCount()
+ METHOD 06000639 PrivateScope, Public, HideBySig Int32 GetDebugCount()
+ METHOD 0600063a PrivateScope, Public, HideBySig Void SaveDebugInfo()
+ METHOD 0600063b PrivateScope, Public, Virtual, HideBySig Void OnSelected(Tizen.TV.Service.CoBA.BPI.Element)
+ METHOD 0600063c PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()

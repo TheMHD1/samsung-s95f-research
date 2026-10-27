@@ -1,0 +1,22 @@
+{
+  "response": {
+    "authenticated": true,
+    "commands": [
+      {
+        "command": "date -u\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho SYSTEM_NOTIFICATION_LITERAL_SCAN\nn=0\nfor f in /usr/bin/* /usr/sbin/*; do\n if test -f \"$f\"; then\n  n=$((n+1))\n  grep -a -l -F -e normal_off_sensing_required -e force_off_sensing_required -e reinforce_off_sensing \"$f\"\n fi\ndone\necho \"SCANNED_DIRECT_SYSTEM_FILES=$n\"\ndate -u\n",
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "Mon Oct 26 13:24:19 UTC 2026\n00000000-0000-4000-8000-000000000000\n42668.05 159205.43\nSYSTEM_NOTIFICATION_LITERAL_SCAN\n/usr/bin/app-control-service\nSCANNED_DIRECT_SYSTEM_FILES=1162\nMon Oct 26 13:24:33 UTC 2026\n",
+        "timed_out": false
+      }
+    ],
+    "euid": 0,
+    "global_system_files_unchanged_at_acquisition": true,
+    "host": "198.51.100.20",
+    "model": "QN77S95FAFXZC",
+    "root_persistence": "host-assisted",
+    "uid": 0
+  },
+  "wrapper_exit": 0,
+  "wrapper_stderr": ""
+}

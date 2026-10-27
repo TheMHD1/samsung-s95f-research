@@ -1,0 +1,5 @@
+{
+  "command": "set -eu\np=/usr/lib/libteec.so\ntest -f \"$p\"; test ! -L \"$p\"\necho BEFORE\ncat /proc/sys/kernel/random/boot_id\nwc -c < \"$p\"\nsha256sum \"$p\"\necho DATA_START\nbase64 \"$p\"\necho DATA_END\nsha256sum \"$p\"\ncat /proc/sys/kernel/random/boot_id\n",
+  "mode": "ordinary shared-library file copy only; not loaded/invoked",
+  "physical_state": "unobserved"
+}

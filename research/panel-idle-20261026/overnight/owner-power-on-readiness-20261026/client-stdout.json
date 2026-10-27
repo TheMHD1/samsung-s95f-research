@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\nT=/sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-owner-power-on-20261026a\necho '@@ TIME'; date -u +%s; cat /proc/uptime\necho '@@ BOOT'; cat /proc/sys/kernel/random/boot_id\necho '@@ PRIVATE_TRACE_ON'; test -d \"$T\"; cat \"$T/tracing_on\"; test \"$(cat \"$T/tracing_on\")\" = 1\necho '@@ START_MARKER'; grep 'CAPTURE_START utc=' \"$T/trace\"\necho '@@ READY_OBSERVED'\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "@@ TIME\n1793051473\n73082.42 273569.91\n@@ BOOT\n00000000-0000-4000-8000-000000000000\n@@ PRIVATE_TRACE_ON\n1\n@@ START_MARKER\n              sh-28815   (  28815) [002] .... 73052.233218: 0xffffffc01017095c: CAPTURE_START utc=1793051443 uptime=73052.22\n@@ READY_OBSERVED\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

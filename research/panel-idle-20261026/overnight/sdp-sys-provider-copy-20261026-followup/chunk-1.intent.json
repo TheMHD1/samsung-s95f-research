@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ HASH_START'\nsha256sum /lib/modules/5.4.261/kernel/soc/sdp_sys.ko\necho '@@ DATA'\ndd if=/lib/modules/5.4.261/kernel/soc/sdp_sys.ko bs=32768 skip=1 count=1 2>/dev/null | base64\necho '@@ HASH_END'\nsha256sum /lib/modules/5.4.261/kernel/soc/sdp_sys.ko\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "24c7af8d5d326da281901c2d4abaad98ba9842be3f4b698243d63e3b1e7ad591",
+  "purpose": "Copy only missing fixed-file chunk; no control/load/trace/getter; no retry; physical panel unobserved.",
+  "started_utc": "2026-10-26T19:24:30.056264+00:00"
+}

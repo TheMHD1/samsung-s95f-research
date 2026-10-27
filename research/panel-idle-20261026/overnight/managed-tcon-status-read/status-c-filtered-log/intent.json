@@ -1,0 +1,3 @@
+{
+  "command": "set -euo pipefail\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\necho LOG_READ_START; cat /proc/uptime\necho FILTERED_VLOG_75260_75264\n/usr/bin/vlogutil -v kerneltime -s --start-from=75260 --end-to=75264 | awk '/ERR DET Status|GetErrDetStatus|ERR DET Status Debug|RT Protect/ {n++; if(n<=32) print} END {print \"FILTER_MATCH_COUNT\",n+0}'\necho LOG_READ_END; cat /proc/uptime\necho COMPLETE\n"
+}

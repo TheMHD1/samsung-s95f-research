@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\necho '@@ HASH_START'\nsha256sum /lib/modules/5.4.261/kernel/system_drv.ko\necho '@@ DATA'\ndd if=/lib/modules/5.4.261/kernel/system_drv.ko bs=32768 skip=0 count=1 2>/dev/null | base64\necho '@@ HASH_END'\nsha256sum /lib/modules/5.4.261/kernel/system_drv.ko\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "914c27bf07473b6ae4b33a890e818ea694526eb5bfc318b9fbd7f648cc8a22fc",
+  "purpose": "Finite fixed-module passive copy; no load/callback/getter/control/trace; no retry; physical panel unobserved.",
+  "started_utc": "2026-10-26T19:38:57.969459+00:00"
+}

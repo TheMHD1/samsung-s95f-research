@@ -1,0 +1,89 @@
+{
+  "checks": [
+    ".text+0x2798: cmp w20, #0x400",
+    ".text+0x279c: b.eq #0x28e8",
+    ".text+0xa138: cmp w1, #2",
+    ".text+0xa13c: b.eq #0xa270",
+    ".text+0xa148: cmp w1, #1",
+    ".text+0xa14c: b.eq #0xa17c",
+    ".text+0xa1f8: cmp w21, #1",
+    ".text+0xa1fc: b.hi #0xa37c",
+    ".text+0xa27c: cmp w2, #1",
+    ".text+0xa280: b.hi #0xa37c",
+    ".text+0xa2a0: b.lo #0xa38c",
+    ".text+0xa2ac: b.lo #0xa38c",
+    ".text+0xa250: and w1, w1, #0x3ff",
+    ".text+0x1e684: str w1, [x0]",
+    ".text+0x1e6d8: ldr w0, [x0]",
+    ".text+0xce50: ldr x0, [x0, #0x138]",
+    ".text+0x1e30: str x0, [x22, #0x138]"
+  ],
+  "condition_data_offset": "sdp_frc.ko .data+0xf88",
+  "condition_u32": [
+    2,
+    16,
+    16,
+    20,
+    3840,
+    2160
+  ],
+  "dt": {
+    "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/devicetree/soc/sdp_frc",
+    "reg_names": "frc-reg",
+    "reg_u32_be": [
+      12124160,
+      389120
+    ]
+  },
+  "limits": [
+    "Instruction/relocation landmarks only, not emulation or all-path proof.",
+    "DT address is retained bus resource; missing parent ranges prevent independent final physical translation.",
+    "No current callback/base/gating/selected-controller executable proof.",
+    "No freshness acknowledgment, hardware register specification or actual PrePD writer edge recovered."
+  ],
+  "prepd_literal_census": {
+    "rosem_frc.ko": {
+      "0x584109a4_big": [],
+      "0x584109a4_little": [],
+      "0x58410aa4_big": [],
+      "0x58410aa4_little": []
+    },
+    "sdp_frc.ko": {
+      "0x584109a4_big": [],
+      "0x584109a4_little": [],
+      "0x58410aa4_big": [],
+      "0x58410aa4_little": []
+    },
+    "tztv_frc_tcon.ko": {
+      "0x584109a4_big": [],
+      "0x584109a4_little": [],
+      "0x58410aa4_big": [],
+      "0x58410aa4_little": []
+    },
+    "tztv_frc_tcon_api.ko": {
+      "0x584109a4_big": [],
+      "0x584109a4_little": [],
+      "0x58410aa4_big": [],
+      "0x58410aa4_little": []
+    }
+  },
+  "register_offsets": {
+    "normalization_selector": "0x22188",
+    "slot0": {
+      "B": "0x221b0",
+      "G": "0x221ac",
+      "R": "0x221b4",
+      "control": "0x22190",
+      "x": "0x22194",
+      "y": "0x22198"
+    },
+    "slot1": {
+      "B": "0x221ec",
+      "G": "0x221e8",
+      "R": "0x221f0",
+      "control": "0x221a0",
+      "x": "0x221a4",
+      "y": "0x221a8"
+    }
+  }
+}

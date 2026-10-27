@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest ! -e /tmp/researcher-panel-trace-20261026/detached-expiry-validation.ok\n/usr/bin/setsid /bin/sh -c 'sleep 3; echo detached-expiry-completed > /tmp/researcher-panel-trace-20261026/detached-expiry-validation.ok' > /tmp/researcher-panel-trace-20261026/detached-expiry-validation.log 2>&1 < /dev/null &\necho expiry_pid=$!\nsleep 7\n",
+      "exit_code": 124,
+      "stderr": "",
+      "stdout": "expiry_pid=28607\n",
+      "timed_out": true
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

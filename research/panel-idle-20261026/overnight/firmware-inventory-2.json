@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\nfind /lib/firmware /prd/lib/firmware /usr/share /prd/usr/share -maxdepth 4 -type f 2>/dev/null | grep -Ei \"tcon|qdf|rheam|fwfa|f77abu\" | head -n 100\nls -l /sys/kernel/debug/tracing/instances\ncat /sys/kernel/debug/tracing/tracing_on",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Mon Oct 26 04:12:40 UTC 2026\n/prd/lib/firmware/tcon/default_tcon/tcon_flash_data/dummy.bin\n/prd/lib/firmware/tcon/default_tcon/tcon_flash_fw/dummy.bin\n/usr/share/dotnet.tizen/framework/Tizen.Applications.WidgetControl.dll\n/usr/share/dotnet.tizen/framework/Tizen.Applications.WidgetControl.ni.dll\n/usr/share/dotnet.tizen/framework/Tizen.Network.IoTConnectivity.dll\n/usr/share/dotnet.tizen/framework/Tizen.Network.IoTConnectivity.ni.dll\n/usr/share/gettext/its/fontconfig.its\n/usr/share/gettext/its/fontconfig.loc\n/usr/share/licenses/fontconfig/COPYING\n/usr/share/licenses/iotcon/LICENSE.APLv2\n/usr/share/locale/ka/LC_MESSAGES/fontconfig-conf.mo\n/usr/share/locale/ka/LC_MESSAGES/fontconfig.mo\n/usr/share/sdp/smartcontrolservice-key/00000088.bin\n/usr/share/sdp/smartcontrolservice-key/00000088.bin_hash.txt\ntotal 0\n0\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

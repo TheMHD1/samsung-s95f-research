@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "dbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetParentItem int32:0\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetChildItem int32:0 int32:0\ndbus-send --system --print-reply --reply-timeout=1500 --dest=org.tizen.tv.factory-service /TIFacSerObj org.tizen.tv.factoryservice.GetChildItem int32:0 int32:1",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "method return time=1792983401.926207 sender=:1.249 -> destination=:1.750 serial=8 reply_serial=2\n   struct {\n      int32 -1\n      int32 17\n      int32 0\n      int32 0\n      int32 0\n      byte 0\n      string \"\"\n      string \"\"\n   }\n   struct {\n      int32 1\n   }\nmethod return time=1792983401.936761 sender=:1.249 -> destination=:1.751 serial=9 reply_serial=2\n   struct {\n      int32 0\n      int32 0\n      int32 0\n      int32 0\n      int32 0\n      byte 0\n      string \"\"\n      string \"\"\n   }\n   struct {\n      int32 0\n   }\nmethod return time=1792983401.947441 sender=:1.249 -> destination=:1.752 serial=10 reply_serial=2\n   struct {\n      int32 0\n      int32 0\n      int32 0\n      int32 0\n      int32 0\n      byte 0\n      string \"\"\n      string \"\"\n   }\n   struct {\n      int32 0\n   }\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

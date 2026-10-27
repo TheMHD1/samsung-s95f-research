@@ -1,0 +1,799 @@
+15968-    bb94:	94000000 	bl	0 <printk>
+15969-			bb94: R_AARCH64_CALL26	printk
+15970-    bb98:	a9435bf5 	ldp	x21, x22, [sp, #48]
+15971-    bb9c:	17ffff6a 	b	b944 <m_read_cmd_no_lock.constprop.0+0xa4>
+15972-
+15973:000000000000bba0 <m_send_cmd_with_lock.constprop.0>:
+15974-    bba0:	d10303ff 	sub	sp, sp, #0xc0
+15975-    bba4:	90000003 	adrp	x3, 0 <QDFTcon_GetUSITVersion>
+15976-			bba4: R_AARCH64_ADR_PREL_PG_HI21	.bss
+15977-    bba8:	a9037bfd 	stp	x29, x30, [sp, #48]
+15978-    bbac:	9100c3fd 	add	x29, sp, #0x30
+--
+16171-    be6c:	52800ec1 	mov	w1, #0x76                  	// #118
+16172-    be70:	528000a0 	mov	w0, #0x5                   	// #5
+16173-    be74:	d63f00c0 	blr	x6
+16174-    be78:	2a0003f3 	mov	w19, w0
+16175-    be7c:	17ffffae 	b	bd34 <m_send_cmd_with_lock.constprop.0+0x194>
+16176:    be80:	d2802c80 	mov	x0, #0x164                 	// #356
+16177-    be84:	f2de6000 	movk	x0, #0xf300, lsl #32
+16178-    be88:	eb00029f 	cmp	x20, x0
+16179-    be8c:	54ffeb61 	b.ne	bbf8 <m_send_cmd_with_lock.constprop.0+0x58>  // b.any
+16180-    be90:	94000000 	bl	16ba8 <ft_current_pid>
+16181-			be90: R_AARCH64_CALL26	ft_current_pid
+--
+16528-			c2a8: R_AARCH64_CALL26	printk
+16529-    c2ac:	52800001 	mov	w1, #0x0                   	// #0
+16530-    c2b0:	d2802c00 	mov	x0, #0x160                 	// #352
+16531-    c2b4:	52800022 	mov	w2, #0x1                   	// #1
+16532-    c2b8:	f2de6000 	movk	x0, #0xf300, lsl #32
+16533:    c2bc:	97fffe39 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+16534-    c2c0:	9100f3e1 	add	x1, sp, #0x3c
+16535-    c2c4:	2a0003f5 	mov	w21, w0
+16536-    c2c8:	d2802c00 	mov	x0, #0x160                 	// #352
+16537-    c2cc:	f2de6000 	movk	x0, #0xf300, lsl #32
+16538-    c2d0:	97fff62e 	bl	9b88 <m_read_cmd.constprop.0>
+--
+16761-    c5c4:	0b07039c 	add	w28, w28, w7
+16762-    c5c8:	35001d80 	cbnz	w0, c978 <QDFTcon_SendSrpGain+0x668>
+16763-    c5cc:	2a1c03e1 	mov	w1, w28
+16764-    c5d0:	aa1803e0 	mov	x0, x24
+16765-    c5d4:	52800022 	mov	w2, #0x1                   	// #1
+16766:    c5d8:	97fffd72 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+16767-    c5dc:	d2c00020 	mov	x0, #0x100000000           	// #4294967296
+16768-    c5e0:	8b00035a 	add	x26, x26, x0
+16769-    c5e4:	d2c00080 	mov	x0, #0x400000000           	// #17179869184
+16770-    c5e8:	eb00035f 	cmp	x26, x0
+16771-    c5ec:	54000060 	b.eq	c5f8 <QDFTcon_SendSrpGain+0x2e8>  // b.none
+--
+16815-			c67c: R_AARCH64_CALL26	printk
+16816-    c680:	17ffff44 	b	c390 <QDFTcon_SendSrpGain+0x80>
+16817-    c684:	2a0203e1 	mov	w1, w2
+16818-    c688:	d2de7e00 	mov	x0, #0xf3f000000000        	// #268212117700608
+16819-    c68c:	b90093ff 	str	wzr, [sp, #144]
+16820:    c690:	97fffd44 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+16821-    c694:	aa1603e0 	mov	x0, x22
+16822-    c698:	94000000 	bl	16608 <frc_tcon_pqe_lock>
+16823-			c698: R_AARCH64_CALL26	frc_tcon_pqe_lock
+16824-    c69c:	f94002e3 	ldr	x3, [x23]
+16825-			c69c: R_AARCH64_LDST64_ABS_LO12_NC	tztv_frc_tcon_pqe_ext_cmd
+--
+17215-    cb38:	71000e7f 	cmp	w19, #0x3
+17216-    cb3c:	54000301 	b.ne	cb9c <QDFTcon_t_Tcon_SetTestPattern+0x17c>  // b.any
+17217-    cb40:	52800022 	mov	w2, #0x1                   	// #1
+17218-    cb44:	52800341 	mov	w1, #0x1a                  	// #26
+17219-    cb48:	d2de6060 	mov	x0, #0xf30300000000        	// #267194210451456
+17220:    cb4c:	97fffc15 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17221-    cb50:	d2800020 	mov	x0, #0x1                   	// #1
+17222-    cb54:	2a1603e1 	mov	w1, w22
+17223-    cb58:	52800022 	mov	w2, #0x1                   	// #1
+17224-    cb5c:	f2de6060 	movk	x0, #0xf303, lsl #32
+17225:    cb60:	97fffc10 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17226-    cb64:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+17227-			cb64: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+17228-    cb68:	d2800040 	mov	x0, #0x2                   	// #2
+17229-    cb6c:	2a1603e1 	mov	w1, w22
+17230-    cb70:	52800022 	mov	w2, #0x1                   	// #1
+17231-    cb74:	f2de6060 	movk	x0, #0xf303, lsl #32
+17232:    cb78:	97fffc0a 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17233-    cb7c:	91000294 	add	x20, x20, #0x0
+17234-			cb7c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+17235-    cb80:	d2800060 	mov	x0, #0x3                   	// #3
+17236-    cb84:	2a1603e1 	mov	w1, w22
+17237-    cb88:	52800022 	mov	w2, #0x1                   	// #1
+17238-    cb8c:	f2de6060 	movk	x0, #0xf303, lsl #32
+17239:    cb90:	97fffc04 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17240-    cb94:	17ffffbf 	b	ca90 <QDFTcon_t_Tcon_SetTestPattern+0x70>
+17241-    cb98:	35000a33 	cbnz	w19, ccdc <QDFTcon_t_Tcon_SetTestPattern+0x2bc>
+17242-    cb9c:	52800022 	mov	w2, #0x1                   	// #1
+17243-    cba0:	52800001 	mov	w1, #0x0                   	// #0
+17244-    cba4:	d2de6060 	mov	x0, #0xf30300000000        	// #267194210451456
+17245:    cba8:	97fffbfe 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17246-    cbac:	b9417a80 	ldr	w0, [x20, #376]
+17247-    cbb0:	7100041f 	cmp	w0, #0x1
+17248-    cbb4:	54000880 	b.eq	ccc4 <QDFTcon_t_Tcon_SetTestPattern+0x2a4>  // b.none
+17249-    cbb8:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+17250-			cbb8: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+--
+17342-    cce4:	2a0003e1 	mov	w1, w0
+17343-    cce8:	52800022 	mov	w2, #0x1                   	// #1
+17344-    ccec:	d2de6060 	mov	x0, #0xf30300000000        	// #267194210451456
+17345-    ccf0:	90000014 	adrp	x20, 0 <QDFTcon_GetUSITVersion>
+17346-			ccf0: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x128
+17347:    ccf4:	97fffbab 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17348-    ccf8:	91000294 	add	x20, x20, #0x0
+17349-			ccf8: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x128
+17350-    ccfc:	17ffff65 	b	ca90 <QDFTcon_t_Tcon_SetTestPattern+0x70>
+17351-    cd00:	94000000 	bl	16ba8 <ft_current_pid>
+17352-			cd00: R_AARCH64_CALL26	ft_current_pid
+--
+17503-			cea8: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5e28
+17504-    ceac:	91000000 	add	x0, x0, #0x0
+17505-			ceac: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5e28
+17506-    ceb0:	94000000 	bl	0 <printk>
+17507-			ceb0: R_AARCH64_CALL26	printk
+17508:    ceb4:	d2802c80 	mov	x0, #0x164                 	// #356
+17509-    ceb8:	2a1503e1 	mov	w1, w21
+17510-    cebc:	52800022 	mov	w2, #0x1                   	// #1
+17511-    cec0:	f2de6000 	movk	x0, #0xf300, lsl #32
+17512:    cec4:	97fffb37 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17513-    cec8:	2a0003f4 	mov	w20, w0
+17514-    cecc:	b9014275 	str	w21, [x19, #320]
+17515-    ced0:	1400000c 	b	cf00 <QDFTcon_t_Tcon_SetMute+0x100>
+17516-    ced4:	94000000 	bl	16ba8 <ft_current_pid>
+17517-			ced4: R_AARCH64_CALL26	ft_current_pid
+--
+17574-			cf70: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5e28
+17575-    cf74:	91000000 	add	x0, x0, #0x0
+17576-			cf74: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5e28
+17577-    cf78:	94000000 	bl	0 <printk>
+17578-			cf78: R_AARCH64_CALL26	printk
+17579:    cf7c:	d2802c80 	mov	x0, #0x164                 	// #356
+17580-    cf80:	52800022 	mov	w2, #0x1                   	// #1
+17581-    cf84:	f2de6000 	movk	x0, #0xf300, lsl #32
+17582-    cf88:	52800001 	mov	w1, #0x0                   	// #0
+17583:    cf8c:	97fffb05 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17584-    cf90:	2a0003f4 	mov	w20, w0
+17585-    cf94:	b901427f 	str	wzr, [x19, #320]
+17586-    cf98:	9100c3e1 	add	x1, sp, #0x30
+17587-    cf9c:	52801fe2 	mov	w2, #0xff                  	// #255
+17588:    cfa0:	d2802c80 	mov	x0, #0x164                 	// #356
+17589-    cfa4:	b90033e2 	str	w2, [sp, #48]
+17590-    cfa8:	f2de6000 	movk	x0, #0xf300, lsl #32
+17591-    cfac:	97fff2f7 	bl	9b88 <m_read_cmd.constprop.0>
+17592-    cfb0:	94000000 	bl	16ba8 <ft_current_pid>
+17593-			cfb0: R_AARCH64_CALL26	ft_current_pid
+--
+17619-			cffc: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x5d58
+17620-    d000:	91000000 	add	x0, x0, #0x0
+17621-			d000: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x5d58
+17622-    d004:	94000000 	bl	0 <printk>
+17623-			d004: R_AARCH64_CALL26	printk
+17624:    d008:	d2802c80 	mov	x0, #0x164                 	// #356
+17625-    d00c:	52800022 	mov	w2, #0x1                   	// #1
+17626-    d010:	f2de6000 	movk	x0, #0xf300, lsl #32
+17627-    d014:	52800001 	mov	w1, #0x0                   	// #0
+17628:    d018:	97fffae2 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17629-    d01c:	d2800400 	mov	x0, #0x20                  	// #32
+17630-    d020:	9100d3e1 	add	x1, sp, #0x34
+17631-    d024:	f2de7000 	movk	x0, #0xf380, lsl #32
+17632-    d028:	2906ffff 	stp	wzr, wzr, [sp, #52]
+17633-    d02c:	b9003fff 	str	wzr, [sp, #60]
+--
+17675-    d0b0:	54000180 	b.eq	d0e0 <QDFTcon_GetPowerLevel+0x58>  // b.none
+17676-    d0b4:	d2802e80 	mov	x0, #0x174                 	// #372
+17677-    d0b8:	52800022 	mov	w2, #0x1                   	// #1
+17678-    d0bc:	f2de6000 	movk	x0, #0xf300, lsl #32
+17679-    d0c0:	2a0203e1 	mov	w1, w2
+17680:    d0c4:	97fffab7 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17681-    d0c8:	9100b3e1 	add	x1, sp, #0x2c
+17682-    d0cc:	d28001a0 	mov	x0, #0xd                   	// #13
+17683-    d0d0:	f2de7000 	movk	x0, #0xf380, lsl #32
+17684-    d0d4:	97fff2ad 	bl	9b88 <m_read_cmd.constprop.0>
+17685-    d0d8:	b9402fe1 	ldr	w1, [sp, #44]
+--
+17768-    d1dc:	a94363f7 	ldp	x23, x24, [sp, #48]
+17769-    d1e0:	a9446bf9 	ldp	x25, x26, [sp, #64]
+17770-    d1e4:	aa1303e0 	mov	x0, x19
+17771-    d1e8:	b94002a1 	ldr	w1, [x21]
+17772-    d1ec:	52800022 	mov	w2, #0x1                   	// #1
+17773:    d1f0:	97fffa6c 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17774-    d1f4:	a94153f3 	ldp	x19, x20, [sp, #16]
+17775-    d1f8:	a9425bf5 	ldp	x21, x22, [sp, #32]
+17776-    d1fc:	a8c67bfd 	ldp	x29, x30, [sp], #96
+17777-    d200:	d65f03c0 	ret
+17778-    d204:	f9002bfb 	str	x27, [sp, #80]
+--
+17834-			d2a4: R_AARCH64_CALL26	printk
+17835-    d2a8:	d2803300 	mov	x0, #0x198                 	// #408
+17836-    d2ac:	2a1503e2 	mov	w2, w21
+17837-    d2b0:	2a1303e1 	mov	w1, w19
+17838-    d2b4:	f2de6000 	movk	x0, #0xf300, lsl #32
+17839:    d2b8:	97fffa3a 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+17840-    d2bc:	a94153f3 	ldp	x19, x20, [sp, #16]
+17841-    d2c0:	f94013f5 	ldr	x21, [sp, #32]
+17842-    d2c4:	a8c37bfd 	ldp	x29, x30, [sp], #48
+17843-    d2c8:	d65f03c0 	ret
+17844-    d2cc:	94000000 	bl	16ba8 <ft_current_pid>
+--
+17995-			d47c: R_AARCH64_CALL26	printk
+17996-    d480:	d2803780 	mov	x0, #0x1bc                 	// #444
+17997-    d484:	2a1503e2 	mov	w2, w21
+17998-    d488:	2a1303e1 	mov	w1, w19
+17999-    d48c:	f2de6000 	movk	x0, #0xf300, lsl #32
+18000:    d490:	97fff9c4 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18001-    d494:	a94153f3 	ldp	x19, x20, [sp, #16]
+18002-    d498:	f94013f5 	ldr	x21, [sp, #32]
+18003-    d49c:	a8c37bfd 	ldp	x29, x30, [sp], #48
+18004-    d4a0:	d65f03c0 	ret
+18005-    d4a4:	94000000 	bl	16ba8 <ft_current_pid>
+--
+18149-			d640: R_AARCH64_CALL26	printk
+18150-    d644:	d2802380 	mov	x0, #0x11c                 	// #284
+18151-    d648:	2a1303e1 	mov	w1, w19
+18152-    d64c:	52800022 	mov	w2, #0x1                   	// #1
+18153-    d650:	f2de6000 	movk	x0, #0xf300, lsl #32
+18154:    d654:	97fff953 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18155-    d658:	a94153f3 	ldp	x19, x20, [sp, #16]
+18156-    d65c:	a8c27bfd 	ldp	x29, x30, [sp], #32
+18157-    d660:	d65f03c0 	ret
+18158-    d664:	94000000 	bl	16ba8 <ft_current_pid>
+18159-			d664: R_AARCH64_CALL26	ft_current_pid
+--
+18251-			d76c: R_AARCH64_CALL26	printk
+18252-    d770:	d2802b80 	mov	x0, #0x15c                 	// #348
+18253-    d774:	2a1303e1 	mov	w1, w19
+18254-    d778:	f2de6000 	movk	x0, #0xf300, lsl #32
+18255-    d77c:	52800022 	mov	w2, #0x1                   	// #1
+18256:    d780:	97fff908 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18257-    d784:	a94153f3 	ldp	x19, x20, [sp, #16]
+18258-    d788:	a8c27bfd 	ldp	x29, x30, [sp], #32
+18259-    d78c:	d65f03c0 	ret
+18260-    d790:	94000000 	bl	16ba8 <ft_current_pid>
+18261-			d790: R_AARCH64_CALL26	ft_current_pid
+--
+18307-			d80c: R_AARCH64_CALL26	printk
+18308-    d810:	d2802a00 	mov	x0, #0x150                 	// #336
+18309-    d814:	2a1303e1 	mov	w1, w19
+18310-    d818:	f2de6000 	movk	x0, #0xf300, lsl #32
+18311-    d81c:	52800022 	mov	w2, #0x1                   	// #1
+18312:    d820:	97fff8e0 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18313-    d824:	a94153f3 	ldp	x19, x20, [sp, #16]
+18314-    d828:	a8c27bfd 	ldp	x29, x30, [sp], #32
+18315-    d82c:	d65f03c0 	ret
+18316-    d830:	94000000 	bl	16ba8 <ft_current_pid>
+18317-			d830: R_AARCH64_CALL26	ft_current_pid
+--
+18421-    d960:	d65f03c0 	ret
+18422-    d964:	2a0003e1 	mov	w1, w0
+18423-    d968:	d2803700 	mov	x0, #0x1b8                 	// #440
+18424-    d96c:	f2de6000 	movk	x0, #0xf300, lsl #32
+18425-    d970:	f90013f5 	str	x21, [sp, #32]
+18426:    d974:	97fff88b 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18427-    d978:	2a0003f4 	mov	w20, w0
+18428-    d97c:	94000000 	bl	16ba8 <ft_current_pid>
+18429-			d97c: R_AARCH64_CALL26	ft_current_pid
+18430-    d980:	2a0003f5 	mov	w21, w0
+18431-    d984:	94000000 	bl	16bb8 <ft_current_comm>
+--
+18544-			dac4: R_AARCH64_CALL26	printk
+18545-    dac8:	d2800700 	mov	x0, #0x38                  	// #56
+18546-    dacc:	2a1303e1 	mov	w1, w19
+18547-    dad0:	f2de6000 	movk	x0, #0xf300, lsl #32
+18548-    dad4:	52800022 	mov	w2, #0x1                   	// #1
+18549:    dad8:	97fff832 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18550-    dadc:	a94153f3 	ldp	x19, x20, [sp, #16]
+18551-    dae0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+18552-    dae4:	d65f03c0 	ret
+18553-    dae8:	94000000 	bl	16ba8 <ft_current_pid>
+18554-			dae8: R_AARCH64_CALL26	ft_current_pid
+--
+18643-    dbf8:	d2801780 	mov	x0, #0xbc                  	// #188
+18644-    dbfc:	2a1303e1 	mov	w1, w19
+18645-    dc00:	f2de6000 	movk	x0, #0xf300, lsl #32
+18646-    dc04:	52800022 	mov	w2, #0x1                   	// #1
+18647-    dc08:	b900ba93 	str	w19, [x20, #184]
+18648:    dc0c:	97fff7e5 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18649-    dc10:	a94153f3 	ldp	x19, x20, [sp, #16]
+18650-    dc14:	a8c37bfd 	ldp	x29, x30, [sp], #48
+18651-    dc18:	d65f03c0 	ret
+18652-    dc1c:	f90013f5 	str	x21, [sp, #32]
+18653-    dc20:	b900be93 	str	w19, [x20, #188]
+--
+18769-			dd68: R_AARCH64_CALL26	printk
+18770-    dd6c:	d2802300 	mov	x0, #0x118                 	// #280
+18771-    dd70:	2a1303e1 	mov	w1, w19
+18772-    dd74:	52800022 	mov	w2, #0x1                   	// #1
+18773-    dd78:	f2de6000 	movk	x0, #0xf300, lsl #32
+18774:    dd7c:	97fff789 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18775-    dd80:	a94153f3 	ldp	x19, x20, [sp, #16]
+18776-    dd84:	a8c27bfd 	ldp	x29, x30, [sp], #32
+18777-    dd88:	d65f03c0 	ret
+18778-    dd8c:	94000000 	bl	16ba8 <ft_current_pid>
+18779-			dd8c: R_AARCH64_CALL26	ft_current_pid
+--
+18870-			de90: R_AARCH64_CALL26	printk
+18871-    de94:	d2802280 	mov	x0, #0x114                 	// #276
+18872-    de98:	2a1303e1 	mov	w1, w19
+18873-    de9c:	52800022 	mov	w2, #0x1                   	// #1
+18874-    dea0:	f2de6000 	movk	x0, #0xf300, lsl #32
+18875:    dea4:	97fff73f 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18876-    dea8:	a94153f3 	ldp	x19, x20, [sp, #16]
+18877-    deac:	a8c27bfd 	ldp	x29, x30, [sp], #32
+18878-    deb0:	d65f03c0 	ret
+18879-    deb4:	94000000 	bl	16ba8 <ft_current_pid>
+18880-			deb4: R_AARCH64_CALL26	ft_current_pid
+--
+18971-			dfb8: R_AARCH64_CALL26	printk
+18972-    dfbc:	d2801b80 	mov	x0, #0xdc                  	// #220
+18973-    dfc0:	2a1303e1 	mov	w1, w19
+18974-    dfc4:	f2de6000 	movk	x0, #0xf300, lsl #32
+18975-    dfc8:	52800022 	mov	w2, #0x1                   	// #1
+18976:    dfcc:	97fff6f5 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+18977-    dfd0:	a94153f3 	ldp	x19, x20, [sp, #16]
+18978-    dfd4:	a8c27bfd 	ldp	x29, x30, [sp], #32
+18979-    dfd8:	d65f03c0 	ret
+18980-    dfdc:	94000000 	bl	16ba8 <ft_current_pid>
+18981-			dfdc: R_AARCH64_CALL26	ft_current_pid
+--
+19070-			e0d8: R_AARCH64_CALL26	printk
+19071-    e0dc:	d2801b00 	mov	x0, #0xd8                  	// #216
+19072-    e0e0:	2a1303e1 	mov	w1, w19
+19073-    e0e4:	f2de6000 	movk	x0, #0xf300, lsl #32
+19074-    e0e8:	52800022 	mov	w2, #0x1                   	// #1
+19075:    e0ec:	97fff6ad 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19076-    e0f0:	a94153f3 	ldp	x19, x20, [sp, #16]
+19077-    e0f4:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19078-    e0f8:	d65f03c0 	ret
+19079-    e0fc:	94000000 	bl	16ba8 <ft_current_pid>
+19080-			e0fc: R_AARCH64_CALL26	ft_current_pid
+--
+19170-			e1fc: R_AARCH64_CALL26	printk
+19171-    e200:	d2801a80 	mov	x0, #0xd4                  	// #212
+19172-    e204:	2a1303e1 	mov	w1, w19
+19173-    e208:	52800022 	mov	w2, #0x1                   	// #1
+19174-    e20c:	f2de6000 	movk	x0, #0xf300, lsl #32
+19175:    e210:	97fff664 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19176-    e214:	2a0003f4 	mov	w20, w0
+19177-    e218:	d2802d80 	mov	x0, #0x16c                 	// #364
+19178-    e21c:	2a1303e1 	mov	w1, w19
+19179-    e220:	f2de6000 	movk	x0, #0xf300, lsl #32
+19180-    e224:	52800022 	mov	w2, #0x1                   	// #1
+19181:    e228:	97fff65e 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19182-    e22c:	2a140000 	orr	w0, w0, w20
+19183-    e230:	a94153f3 	ldp	x19, x20, [sp, #16]
+19184-    e234:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19185-    e238:	d65f03c0 	ret
+19186-    e23c:	94000000 	bl	16ba8 <ft_current_pid>
+--
+19277-			e33c: R_AARCH64_CALL26	printk
+19278-    e340:	d2800800 	mov	x0, #0x40                  	// #64
+19279-    e344:	2a1303e1 	mov	w1, w19
+19280-    e348:	f2de6000 	movk	x0, #0xf300, lsl #32
+19281-    e34c:	52800022 	mov	w2, #0x1                   	// #1
+19282:    e350:	97fff614 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19283-    e354:	a94153f3 	ldp	x19, x20, [sp, #16]
+19284-    e358:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19285-    e35c:	d65f03c0 	ret
+19286-    e360:	94000000 	bl	16ba8 <ft_current_pid>
+19287-			e360: R_AARCH64_CALL26	ft_current_pid
+--
+19378-			e464: R_AARCH64_CALL26	printk
+19379-    e468:	d2803200 	mov	x0, #0x190                 	// #400
+19380-    e46c:	2a1303e1 	mov	w1, w19
+19381-    e470:	f2de6000 	movk	x0, #0xf300, lsl #32
+19382-    e474:	52800022 	mov	w2, #0x1                   	// #1
+19383:    e478:	97fff5ca 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19384-    e47c:	a94153f3 	ldp	x19, x20, [sp, #16]
+19385-    e480:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19386-    e484:	d65f03c0 	ret
+19387-    e488:	94000000 	bl	16ba8 <ft_current_pid>
+19388-			e488: R_AARCH64_CALL26	ft_current_pid
+--
+19434-			e504: R_AARCH64_CALL26	printk
+19435-    e508:	d2802800 	mov	x0, #0x140                 	// #320
+19436-    e50c:	2a1303e1 	mov	w1, w19
+19437-    e510:	f2de6000 	movk	x0, #0xf300, lsl #32
+19438-    e514:	52800022 	mov	w2, #0x1                   	// #1
+19439:    e518:	97fff5a2 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19440-    e51c:	a94153f3 	ldp	x19, x20, [sp, #16]
+19441-    e520:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19442-    e524:	d65f03c0 	ret
+19443-    e528:	94000000 	bl	16ba8 <ft_current_pid>
+19444-			e528: R_AARCH64_CALL26	ft_current_pid
+--
+19490-			e5a4: R_AARCH64_CALL26	printk
+19491-    e5a8:	d2802180 	mov	x0, #0x10c                 	// #268
+19492-    e5ac:	2a1303e1 	mov	w1, w19
+19493-    e5b0:	f2de6000 	movk	x0, #0xf300, lsl #32
+19494-    e5b4:	52800022 	mov	w2, #0x1                   	// #1
+19495:    e5b8:	97fff57a 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19496-    e5bc:	a94153f3 	ldp	x19, x20, [sp, #16]
+19497-    e5c0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19498-    e5c4:	d65f03c0 	ret
+19499-    e5c8:	94000000 	bl	16ba8 <ft_current_pid>
+19500-			e5c8: R_AARCH64_CALL26	ft_current_pid
+--
+19546-			e644: R_AARCH64_CALL26	printk
+19547-    e648:	d2802100 	mov	x0, #0x108                 	// #264
+19548-    e64c:	2a1303e1 	mov	w1, w19
+19549-    e650:	f2de6000 	movk	x0, #0xf300, lsl #32
+19550-    e654:	52800022 	mov	w2, #0x1                   	// #1
+19551:    e658:	97fff552 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19552-    e65c:	a94153f3 	ldp	x19, x20, [sp, #16]
+19553-    e660:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19554-    e664:	d65f03c0 	ret
+19555-    e668:	94000000 	bl	16ba8 <ft_current_pid>
+19556-			e668: R_AARCH64_CALL26	ft_current_pid
+--
+19602-			e6e4: R_AARCH64_CALL26	printk
+19603-    e6e8:	d2802080 	mov	x0, #0x104                 	// #260
+19604-    e6ec:	2a1303e1 	mov	w1, w19
+19605-    e6f0:	f2de6000 	movk	x0, #0xf300, lsl #32
+19606-    e6f4:	52800022 	mov	w2, #0x1                   	// #1
+19607:    e6f8:	97fff52a 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19608-    e6fc:	a94153f3 	ldp	x19, x20, [sp, #16]
+19609-    e700:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19610-    e704:	d65f03c0 	ret
+19611-    e708:	94000000 	bl	16ba8 <ft_current_pid>
+19612-			e708: R_AARCH64_CALL26	ft_current_pid
+--
+19658-			e784: R_AARCH64_CALL26	printk
+19659-    e788:	d2801900 	mov	x0, #0xc8                  	// #200
+19660-    e78c:	2a1303e1 	mov	w1, w19
+19661-    e790:	f2de6000 	movk	x0, #0xf300, lsl #32
+19662-    e794:	52800022 	mov	w2, #0x1                   	// #1
+19663:    e798:	97fff502 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19664-    e79c:	a94153f3 	ldp	x19, x20, [sp, #16]
+19665-    e7a0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19666-    e7a4:	d65f03c0 	ret
+19667-    e7a8:	94000000 	bl	16ba8 <ft_current_pid>
+19668-			e7a8: R_AARCH64_CALL26	ft_current_pid
+--
+19761-			e8b4: R_AARCH64_CALL26	printk
+19762-    e8b8:	d2801a00 	mov	x0, #0xd0                  	// #208
+19763-    e8bc:	2a1303e1 	mov	w1, w19
+19764-    e8c0:	f2de6000 	movk	x0, #0xf300, lsl #32
+19765-    e8c4:	52800022 	mov	w2, #0x1                   	// #1
+19766:    e8c8:	97fff4b6 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19767-    e8cc:	a94153f3 	ldp	x19, x20, [sp, #16]
+19768-    e8d0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19769-    e8d4:	d65f03c0 	ret
+19770-    e8d8:	94000000 	bl	16ba8 <ft_current_pid>
+19771-			e8d8: R_AARCH64_CALL26	ft_current_pid
+--
+19889-			ea2c: R_AARCH64_CALL26	printk
+19890-    ea30:	d2801980 	mov	x0, #0xcc                  	// #204
+19891-    ea34:	2a1303e1 	mov	w1, w19
+19892-    ea38:	f2de6000 	movk	x0, #0xf300, lsl #32
+19893-    ea3c:	52800022 	mov	w2, #0x1                   	// #1
+19894:    ea40:	97fff458 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+19895-    ea44:	a94153f3 	ldp	x19, x20, [sp, #16]
+19896-    ea48:	a8c27bfd 	ldp	x29, x30, [sp], #32
+19897-    ea4c:	d65f03c0 	ret
+19898-    ea50:	94000000 	bl	16ba8 <ft_current_pid>
+19899-			ea50: R_AARCH64_CALL26	ft_current_pid
+--
+20017-			eba4: R_AARCH64_CALL26	printk
+20018-    eba8:	d2801880 	mov	x0, #0xc4                  	// #196
+20019-    ebac:	2a1303e1 	mov	w1, w19
+20020-    ebb0:	f2de6000 	movk	x0, #0xf300, lsl #32
+20021-    ebb4:	52800022 	mov	w2, #0x1                   	// #1
+20022:    ebb8:	97fff3fa 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+20023-    ebbc:	a94153f3 	ldp	x19, x20, [sp, #16]
+20024-    ebc0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+20025-    ebc4:	d65f03c0 	ret
+20026-    ebc8:	94000000 	bl	16ba8 <ft_current_pid>
+20027-			ebc8: R_AARCH64_CALL26	ft_current_pid
+--
+20145-			ed24: R_AARCH64_CALL26	printk
+20146-    ed28:	d2801800 	mov	x0, #0xc0                  	// #192
+20147-    ed2c:	2a1303e1 	mov	w1, w19
+20148-    ed30:	f2de6000 	movk	x0, #0xf300, lsl #32
+20149-    ed34:	52800022 	mov	w2, #0x1                   	// #1
+20150:    ed38:	97fff39a 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+20151-    ed3c:	a94153f3 	ldp	x19, x20, [sp, #16]
+20152-    ed40:	a8c27bfd 	ldp	x29, x30, [sp], #32
+20153-    ed44:	d65f03c0 	ret
+20154-    ed48:	94000000 	bl	16ba8 <ft_current_pid>
+20155-			ed48: R_AARCH64_CALL26	ft_current_pid
+--
+20273-			ee9c: R_AARCH64_CALL26	printk
+20274-    eea0:	d2801d00 	mov	x0, #0xe8                  	// #232
+20275-    eea4:	2a1303e1 	mov	w1, w19
+20276-    eea8:	f2de6000 	movk	x0, #0xf300, lsl #32
+20277-    eeac:	52800022 	mov	w2, #0x1                   	// #1
+20278:    eeb0:	97fff33c 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+20279-    eeb4:	a94153f3 	ldp	x19, x20, [sp, #16]
+20280-    eeb8:	a8c27bfd 	ldp	x29, x30, [sp], #32
+20281-    eebc:	d65f03c0 	ret
+20282-    eec0:	94000000 	bl	16ba8 <ft_current_pid>
+20283-			eec0: R_AARCH64_CALL26	ft_current_pid
+--
+20329-			ef3c: R_AARCH64_CALL26	printk
+20330-    ef40:	d2801c80 	mov	x0, #0xe4                  	// #228
+20331-    ef44:	2a1303e1 	mov	w1, w19
+20332-    ef48:	f2de6000 	movk	x0, #0xf300, lsl #32
+20333-    ef4c:	52800022 	mov	w2, #0x1                   	// #1
+20334:    ef50:	97fff314 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+20335-    ef54:	a94153f3 	ldp	x19, x20, [sp, #16]
+20336-    ef58:	a8c27bfd 	ldp	x29, x30, [sp], #32
+20337-    ef5c:	d65f03c0 	ret
+20338-    ef60:	94000000 	bl	16ba8 <ft_current_pid>
+20339-			ef60: R_AARCH64_CALL26	ft_current_pid
+--
+20385-			efdc: R_AARCH64_CALL26	printk
+20386-    efe0:	d2801c00 	mov	x0, #0xe0                  	// #224
+20387-    efe4:	2a1303e1 	mov	w1, w19
+20388-    efe8:	f2de6000 	movk	x0, #0xf300, lsl #32
+20389-    efec:	52800022 	mov	w2, #0x1                   	// #1
+20390:    eff0:	97fff2ec 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+20391-    eff4:	a94153f3 	ldp	x19, x20, [sp, #16]
+20392-    eff8:	a8c27bfd 	ldp	x29, x30, [sp], #32
+20393-    effc:	d65f03c0 	ret
+20394-    f000:	94000000 	bl	16ba8 <ft_current_pid>
+20395-			f000: R_AARCH64_CALL26	ft_current_pid
+--
+20502-			f138: R_AARCH64_CALL26	printk
+20503-    f13c:	d2801e80 	mov	x0, #0xf4                  	// #244
+20504-    f140:	2a1503e2 	mov	w2, w21
+20505-    f144:	2a1503e1 	mov	w1, w21
+20506-    f148:	f2de6000 	movk	x0, #0xf300, lsl #32
+20507:    f14c:	97fff295 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+20508-    f150:	f9401bf7 	ldr	x23, [sp, #48]
+20509-    f154:	17ffffce 	b	f08c <QDFTcon_SetPixelShiftMode+0x54>
+20510-    f158:	94000000 	bl	16ba8 <ft_current_pid>
+20511-			f158: R_AARCH64_CALL26	ft_current_pid
+20512-    f15c:	2a0003f3 	mov	w19, w0
+--
+20578-			f214: R_AARCH64_CALL26	printk
+20579-    f218:	d2800780 	mov	x0, #0x3c                  	// #60
+20580-    f21c:	2a1303e1 	mov	w1, w19
+20581-    f220:	f2de6000 	movk	x0, #0xf300, lsl #32
+20582-    f224:	52800022 	mov	w2, #0x1                   	// #1
+20583:    f228:	97fff25e 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+20584-    f22c:	a94153f3 	ldp	x19, x20, [sp, #16]
+20585-    f230:	a9425bf5 	ldp	x21, x22, [sp, #32]
+20586-    f234:	a8c47bfd 	ldp	x29, x30, [sp], #64
+20587-    f238:	d65f03c0 	ret
+20588-    f23c:	7100267f 	cmp	w19, #0x9
+--
+21103-    f86c:	d37df07b 	lsl	x27, x3, #3
+21104-    f870:	f9418a60 	ldr	x0, [x19, #784]
+21105-    f874:	110006d6 	add	w22, w22, #0x1
+21106-    f878:	b8637821 	ldr	w1, [x1, x3, lsl #2]
+21107-    f87c:	f8637800 	ldr	x0, [x0, x3, lsl #3]
+21108:    f880:	97fff0c8 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+21109-    f884:	b9404660 	ldr	w0, [x19, #68]
+21110-    f888:	34fffdc0 	cbz	w0, f840 <m_register_recovery_noFramerate+0x168>
+21111-    f88c:	94000000 	bl	16ba8 <ft_current_pid>
+21112-			f88c: R_AARCH64_CALL26	ft_current_pid
+21113-    f890:	2a0003fc 	mov	w28, w0
+--
+21599-			fe94: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x79e0
+21600-    fe98:	91000000 	add	x0, x0, #0x0
+21601-			fe98: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x79e0
+21602-    fe9c:	94000000 	bl	0 <printk>
+21603-			fe9c: R_AARCH64_CALL26	printk
+21604:    fea0:	d2802c80 	mov	x0, #0x164                 	// #356
+21605-    fea4:	52800022 	mov	w2, #0x1                   	// #1
+21606-    fea8:	52800001 	mov	w1, #0x0                   	// #0
+21607-    feac:	f2de6000 	movk	x0, #0xf300, lsl #32
+21608:    feb0:	97ffef3c 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+21609-    feb4:	b901427f 	str	wzr, [x19, #320]
+21610-    feb8:	2a170000 	orr	w0, w0, w23
+21611-    febc:	2a150000 	orr	w0, w0, w21
+21612-    fec0:	a9437bfd 	ldp	x29, x30, [sp, #48]
+21613-    fec4:	a94453f3 	ldp	x19, x20, [sp, #64]
+--
+22203-   10574:	94000000 	bl	0 <printk>
+22204-			10574: R_AARCH64_CALL26	printk
+22205-   10578:	52800037 	mov	w23, #0x1                   	// #1
+22206-   1057c:	2a1703e2 	mov	w2, w23
+22207-   10580:	2a1703e1 	mov	w1, w23
+22208:   10584:	d2802c80 	mov	x0, #0x164                 	// #356
+22209-   10588:	f2de6000 	movk	x0, #0xf300, lsl #32
+22210:   1058c:	97ffed85 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+22211-   10590:	2a0003f5 	mov	w21, w0
+22212-   10594:	52800640 	mov	w0, #0x32                  	// #50
+22213-   10598:	94000000 	bl	16b10 <ft_msleep>
+22214-			10598: R_AARCH64_CALL26	ft_msleep
+22215-   1059c:	91014fe1 	add	x1, sp, #0x53
+--
+22244-			105f8: R_AARCH64_CALL26	frc_tcon_lock
+22245-   105fc:	2a1303e1 	mov	w1, w19
+22246-   10600:	d2802c00 	mov	x0, #0x160                 	// #352
+22247-   10604:	52800002 	mov	w2, #0x0                   	// #0
+22248-   10608:	f2de6000 	movk	x0, #0xf300, lsl #32
+22249:   1060c:	97ffed65 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+22250-   10610:	910133e1 	add	x1, sp, #0x4c
+22251-   10614:	2a0003f5 	mov	w21, w0
+22252-   10618:	d2802c00 	mov	x0, #0x160                 	// #352
+22253-   1061c:	f2de6000 	movk	x0, #0xf300, lsl #32
+22254-   10620:	97ffeca0 	bl	b8a0 <m_read_cmd_no_lock.constprop.0>
+--
+22347-			10730: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x7b30
+22348-   10734:	91000000 	add	x0, x0, #0x0
+22349-			10734: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x7b30
+22350-   10738:	94000000 	bl	0 <printk>
+22351-			10738: R_AARCH64_CALL26	printk
+22352:   1073c:	d2802c80 	mov	x0, #0x164                 	// #356
+22353-   10740:	2a1703e2 	mov	w2, w23
+22354-   10744:	52800001 	mov	w1, #0x0                   	// #0
+22355-   10748:	f2de6000 	movk	x0, #0xf300, lsl #32
+22356:   1074c:	97ffed15 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+22357-   10750:	2a0002b5 	orr	w21, w21, w0
+22358-   10754:	17ffffd3 	b	106a0 <m_tcon_set_frame_mode+0x198>
+22359-   10758:	94000000 	bl	16ba8 <ft_current_pid>
+22360-			10758: R_AARCH64_CALL26	ft_current_pid
+22361-   1075c:	2a0003f6 	mov	w22, w0
+--
+22374-			10780: R_AARCH64_CALL26	printk
+22375-   10784:	d2802c00 	mov	x0, #0x160                 	// #352
+22376-   10788:	52800002 	mov	w2, #0x0                   	// #0
+22377-   1078c:	2a1303e1 	mov	w1, w19
+22378-   10790:	f2de6000 	movk	x0, #0xf300, lsl #32
+22379:   10794:	97ffed03 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+22380-   10798:	2a0003f6 	mov	w22, w0
+22381-   1079c:	d2802c00 	mov	x0, #0x160                 	// #352
+22382-   107a0:	910133e1 	add	x1, sp, #0x4c
+22383-   107a4:	f2de6000 	movk	x0, #0xf300, lsl #32
+22384-   107a8:	97ffec3e 	bl	b8a0 <m_read_cmd_no_lock.constprop.0>
+--
+23104-			11008: R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x8010
+23105-   1100c:	91000000 	add	x0, x0, #0x0
+23106-			1100c: R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x8010
+23107-   11010:	94000000 	bl	0 <printk>
+23108-			11010: R_AARCH64_CALL26	printk
+23109:   11014:	d2802c80 	mov	x0, #0x164                 	// #356
+23110-   11018:	52800022 	mov	w2, #0x1                   	// #1
+23111-   1101c:	f2de6000 	movk	x0, #0xf300, lsl #32
+23112-   11020:	52800001 	mov	w1, #0x0                   	// #0
+23113:   11024:	97ffeadf 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+23114-   11028:	b901427f 	str	wzr, [x19, #320]
+23115-   1102c:	17ffffc5 	b	10f40 <QDFTcon_Resume+0x58>
+23116-   11030:	52800020 	mov	w0, #0x1                   	// #1
+23117-   11034:	b9010e7f 	str	wzr, [x19, #268]
+23118-   11038:	97ffe886 	bl	b250 <m_check_tcon_status>
+--
+23644-   116a0:	d2800800 	mov	x0, #0x40                  	// #64
+23645-   116a4:	52800022 	mov	w2, #0x1                   	// #1
+23646-   116a8:	f2de6000 	movk	x0, #0xf300, lsl #32
+23647-   116ac:	52800013 	mov	w19, #0x0                   	// #0
+23648-   116b0:	f2de6015 	movk	x21, #0xf300, lsl #32
+23649:   116b4:	97ffe93b 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+23650-   116b8:	2a000294 	orr	w20, w20, w0
+23651-   116bc:	d503201f 	nop
+23652-   116c0:	2a1303e1 	mov	w1, w19
+23653-   116c4:	52800022 	mov	w2, #0x1                   	// #1
+23654-   116c8:	aa1503e0 	mov	x0, x21
+23655:   116cc:	97ffe935 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+23656-   116d0:	11002a73 	add	w19, w19, #0xa
+23657-   116d4:	2a000294 	orr	w20, w20, w0
+23658-   116d8:	52800140 	mov	w0, #0xa                   	// #10
+23659-   116dc:	94000000 	bl	16b10 <ft_msleep>
+23660-			116dc: R_AARCH64_CALL26	ft_msleep
+--
+23662-   116e4:	54fffee1 	b.ne	116c0 <QDFTcon_EW_QdNpcTest+0xe0>  // b.any
+23663-   116e8:	52800022 	mov	w2, #0x1                   	// #1
+23664-   116ec:	52807fe1 	mov	w1, #0x3ff                 	// #1023
+23665-   116f0:	d2802500 	mov	x0, #0x128                 	// #296
+23666-   116f4:	f2de6000 	movk	x0, #0xf300, lsl #32
+23667:   116f8:	97ffe92a 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+23668-   116fc:	2a000294 	orr	w20, w20, w0
+23669-   11700:	52800140 	mov	w0, #0xa                   	// #10
+23670-   11704:	94000000 	bl	16b10 <ft_msleep>
+23671-			11704: R_AARCH64_CALL26	ft_msleep
+23672-   11708:	52807d00 	mov	w0, #0x3e8                 	// #1000
+--
+23679-   11720:	d2802500 	mov	x0, #0x128                 	// #296
+23680-   11724:	2a010273 	orr	w19, w19, w1
+23681-   11728:	f2de6000 	movk	x0, #0xf300, lsl #32
+23682-   1172c:	52800022 	mov	w2, #0x1                   	// #1
+23683-   11730:	52807fe1 	mov	w1, #0x3ff                 	// #1023
+23684:   11734:	97ffe91b 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+23685-   11738:	b9405fe3 	ldr	w3, [sp, #92]
+23686-   1173c:	2a140274 	orr	w20, w19, w20
+23687-   11740:	2a140014 	orr	w20, w0, w20
+23688-   11744:	7100007f 	cmp	w3, #0x0
+23689-   11748:	540003cc 	b.gt	117c0 <QDFTcon_EW_QdNpcTest+0x1e0>
+--
+23739-   117e8:	52800022 	mov	w2, #0x1                   	// #1
+23740-   117ec:	5400006b 	b.lt	117f8 <QDFTcon_EW_QdNpcTest+0x218>  // b.tstop
+23741-   117f0:	2a0303f3 	mov	w19, w3
+23742-   117f4:	11002877 	add	w23, w3, #0xa
+23743-   117f8:	2a1303e1 	mov	w1, w19
+23744:   117fc:	97ffe8e9 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+23745-   11800:	2a000294 	orr	w20, w20, w0
+23746-   11804:	94000000 	bl	16ba8 <ft_current_pid>
+23747-			11804: R_AARCH64_CALL26	ft_current_pid
+23748-   11808:	2a0003fa 	mov	w26, w0
+23749-   1180c:	94000000 	bl	16bb8 <ft_current_comm>
+--
+24267-			11e20: R_AARCH64_CALL26	printk
+24268-   11e24:	d2802c00 	mov	x0, #0x160                 	// #352
+24269-   11e28:	52800022 	mov	w2, #0x1                   	// #1
+24270-   11e2c:	f2de6000 	movk	x0, #0xf300, lsl #32
+24271-   11e30:	52800001 	mov	w1, #0x0                   	// #0
+24272:   11e34:	97ffe75b 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+24273-   11e38:	97ffe8f2 	bl	c200 <m_tcon_check_frame_mode.constprop.0>
+24274-   11e3c:	9134a2b7 	add	x23, x21, #0xd28
+24275-   11e40:	52803e80 	mov	w0, #0x1f4                 	// #500
+24276-   11e44:	94000000 	bl	16b10 <ft_msleep>
+24277-			11e44: R_AARCH64_CALL26	ft_msleep
+--
+24294-   11e74:	97ffe2ef 	bl	aa30 <m_get_el_sensing_status>
+24295-   11e78:	2a1903e2 	mov	w2, w25
+24296-   11e7c:	2a1903e1 	mov	w1, w25
+24297-   11e80:	d2803400 	mov	x0, #0x1a0                 	// #416
+24298-   11e84:	f2de6000 	movk	x0, #0xf300, lsl #32
+24299:   11e88:	97ffe746 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+24300-   11e8c:	2a0003f6 	mov	w22, w0
+24301-   11e90:	9101b3e0 	add	x0, sp, #0x6c
+24302-   11e94:	97ffe2e7 	bl	aa30 <m_get_el_sensing_status>
+24303-   11e98:	94000000 	bl	16ba8 <ft_current_pid>
+24304-			11e98: R_AARCH64_CALL26	ft_current_pid
+--
+24375-			11f70: R_AARCH64_CALL26	printk
+24376-   11f74:	d2802c00 	mov	x0, #0x160                 	// #352
+24377-   11f78:	2a1403e2 	mov	w2, w20
+24378-   11f7c:	52800001 	mov	w1, #0x0                   	// #0
+24379-   11f80:	f2de6000 	movk	x0, #0xf300, lsl #32
+24380:   11f84:	97ffe707 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+24381-   11f88:	17ffffac 	b	11e38 <QDFTcon_SetElSensing+0xc0>
+24382-   11f8c:	90000015 	adrp	x21, 0 <QDFTcon_GetUSITVersion>
+24383-			11f8c: R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1228
+24384-   11f90:	910002b5 	add	x21, x21, #0x0
+24385-			11f90: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1228
+--
+24439-   1202c:	910002b5 	add	x21, x21, #0x0
+24440-			1202c: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1228
+24441-   12030:	b901067f 	str	wzr, [x19, #260]
+24442-   12034:	52800079 	mov	w25, #0x3                   	// #3
+24443-   12038:	b9010e7f 	str	wzr, [x19, #268]
+24444:   1203c:	97ffe6d9 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+24445-   12040:	2a0003f6 	mov	w22, w0
+24446-   12044:	94000000 	bl	16ba8 <ft_current_pid>
+24447-			12044: R_AARCH64_CALL26	ft_current_pid
+24448-   12048:	2a0003f7 	mov	w23, w0
+24449-   1204c:	94000000 	bl	16bb8 <ft_current_comm>
+--
+26424-			13768: R_AARCH64_CALL26	printk
+26425-   1376c:	d2802c00 	mov	x0, #0x160                 	// #352
+26426-   13770:	52800022 	mov	w2, #0x1                   	// #1
+26427-   13774:	f2de6000 	movk	x0, #0xf300, lsl #32
+26428-   13778:	52800001 	mov	w1, #0x0                   	// #0
+26429:   1377c:	97ffe109 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+26430-   13780:	39464260 	ldrb	w0, [x19, #400]
+26431-   13784:	34000080 	cbz	w0, 13794 <QDFTcon_SetOffSensing+0x104>
+26432-   13788:	90000016 	adrp	x22, 0 <tztv_gpio_set_value>
+26433-			13788: R_AARCH64_ADR_PREL_PG_HI21	tztv_gpio_set_value
+26434-   1378c:	f94002c0 	ldr	x0, [x22]
+--
+26456-			137c8: R_AARCH64_CALL26	printk
+26457-   137cc:	2a1903e2 	mov	w2, w25
+26458-   137d0:	2a1903e1 	mov	w1, w25
+26459-   137d4:	d2803000 	mov	x0, #0x180                 	// #384
+26460-   137d8:	f2de6000 	movk	x0, #0xf300, lsl #32
+26461:   137dc:	97ffe0f1 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+26462-   137e0:	2a0003f6 	mov	w22, w0
+26463-   137e4:	94000000 	bl	16ba8 <ft_current_pid>
+26464-			137e4: R_AARCH64_CALL26	ft_current_pid
+26465-   137e8:	2a0003f8 	mov	w24, w0
+26466-   137ec:	94000000 	bl	16bb8 <ft_current_comm>
+--
+26529-			138a4: R_AARCH64_CALL26	printk
+26530-   138a8:	d2802c00 	mov	x0, #0x160                 	// #352
+26531-   138ac:	2a1403e2 	mov	w2, w20
+26532-   138b0:	52800001 	mov	w1, #0x0                   	// #0
+26533-   138b4:	f2de6000 	movk	x0, #0xf300, lsl #32
+26534:   138b8:	97ffe0ba 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+26535-   138bc:	17ffffb1 	b	13780 <QDFTcon_SetOffSensing+0xf0>
+26536-   138c0:	94000000 	bl	16ba8 <ft_current_pid>
+26537-			138c0: R_AARCH64_CALL26	ft_current_pid
+26538-   138c4:	2a0003f5 	mov	w21, w0
+26539-   138c8:	94000000 	bl	16bb8 <ft_current_comm>
+--
+26594-   13964:	910002b5 	add	x21, x21, #0x0
+26595-			13964: R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1228
+26596-   13968:	b901027f 	str	wzr, [x19, #256]
+26597-   1396c:	52800079 	mov	w25, #0x3                   	// #3
+26598-   13970:	b9010e7f 	str	wzr, [x19, #268]
+26599:   13974:	97ffe08b 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+26600-   13978:	2a0003f6 	mov	w22, w0
+26601-   1397c:	94000000 	bl	16ba8 <ft_current_pid>
+26602-			1397c: R_AARCH64_CALL26	ft_current_pid
+26603-   13980:	2a0003f7 	mov	w23, w0
+26604-   13984:	94000000 	bl	16bb8 <ft_current_comm>
+--
+29674-   15a14:	f940cbe2 	ldr	x2, [sp, #400]
+29675-   15a18:	92407f40 	and	x0, x26, #0xffffffff
+29676-   15a1c:	2a1c03e1 	mov	w1, w28
+29677-   15a20:	aa028000 	orr	x0, x0, x2, lsl #32
+29678-   15a24:	52800022 	mov	w2, #0x1                   	// #1
+29679:   15a28:	97ffd85e 	bl	bba0 <m_send_cmd_with_lock.constprop.0>
+29680-   15a2c:	17fff902 	b	13e34 <QDFTcon_Tcon_Debug+0x204>
+29681-   15a30:	b901b3ff 	str	wzr, [sp, #432]
+29682-   15a34:	94000000 	bl	16ba8 <ft_current_pid>
+29683-			15a34: R_AARCH64_CALL26	ft_current_pid
+29684-   15a38:	2a0003fb 	mov	w27, w0

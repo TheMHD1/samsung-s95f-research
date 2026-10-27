@@ -1,0 +1,91 @@
+{
+  "entries": {
+    "retained": 739,
+    "written": 739
+  },
+  "event_counts": {
+    "i2c_read": 3,
+    "i2c_reply": 3,
+    "i2c_result": 4,
+    "i2c_write": 5,
+    "sys_enter": 362,
+    "sys_exit": 362
+  },
+  "i2c_transactions": [
+    {
+      "addr_observed": "0x76",
+      "bus": 5,
+      "command_bytes": "f3-01-00-00-00-00",
+      "direction": "transport-specific",
+      "pid": 1013,
+      "responses": [
+        {
+          "bytes": "00-00-81-04",
+          "event": "i2c_reply",
+          "time": 8988.809589
+        }
+      ],
+      "task": "AVEMonDIM",
+      "time": 8988.809234
+    },
+    {
+      "addr_observed": "0x76",
+      "bus": 5,
+      "command_bytes": "f3-00-00-00-01-74",
+      "direction": "transport-specific",
+      "pid": 1013,
+      "responses": [
+        {
+          "bytes": "00-00-00-01",
+          "event": "i2c_write",
+          "time": 8988.809591
+        }
+      ],
+      "task": "AVEMonDIM",
+      "time": 8988.809591
+    },
+    {
+      "addr_observed": "0x76",
+      "bus": 5,
+      "command_bytes": "f3-01-00-00-00-00",
+      "direction": "transport-specific",
+      "pid": 1013,
+      "responses": [
+        {
+          "bytes": "00-00-69-04",
+          "event": "i2c_reply",
+          "time": 8988.810259
+        }
+      ],
+      "task": "AVEMonDIM",
+      "time": 8988.809909
+    },
+    {
+      "addr_observed": "0x76",
+      "bus": 5,
+      "command_bytes": "f3-80-00-00-00-0d",
+      "direction": "read",
+      "pid": 1013,
+      "responses": [
+        {
+          "bytes": "00-00-00-01",
+          "event": "i2c_reply",
+          "time": 8988.810609
+        }
+      ],
+      "task": "AVEMonDIM",
+      "time": 8988.810261
+    }
+  ],
+  "ioctl_counts": {
+    "fd21:0xc0086626": 360,
+    "fd22:0xc010749f": 1,
+    "fd9:0xaf01": 1
+  },
+  "qualification": "No fresh physical-screen confirmation during sleeping-owner capture; no generated I2C requests. Tracepoints observe existing kernel traffic; no emitted-light measurement. Transport-specific direction is not inferred from names alone.",
+  "time_range": [
+    8987.941916,
+    8989.927061
+  ],
+  "trace": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/passive-black-i2c.trace"
+}

@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho SSB_REGISTRATION_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nawk '$1==\"sdp_pqe_frc\" {print}' /proc/modules\nif test -d /sys/module/sdp_pqe_frc; then\n echo MODULE_SYSFS_PRESENT\n for n in initstate refcnt; do\n  if test -r /sys/module/sdp_pqe_frc/$n; then echo \"$n\"; cat /sys/module/sdp_pqe_frc/$n; fi\n done\n if test -d /sys/module/sdp_pqe_frc/drivers; then ls -l /sys/module/sdp_pqe_frc/drivers; fi\nelse\n echo MODULE_SYSFS_ABSENT\nfi\nfor p in /dev/ssb* /sys/class/usbmisc/ssb* /sys/bus/usb/drivers/*ssb*; do\n if test -e \"$p\"; then echo PRESENT; ls -ld \"$p\"; fi\ndone\necho USB_CACHED_DEVICE_METADATA\nfor d in /sys/bus/usb/devices/*; do\n if test -r \"$d/idVendor\" && test -r \"$d/idProduct\"; then\n  echo \"USB_DEVICE=$d\"\n  for n in idVendor idProduct product manufacturer bcdDevice; do\n   if test -r \"$d/$n\"; then echo \"$n\"; cat \"$d/$n\"; fi\n  done\n  if test -L \"$d/driver\"; then echo DRIVER; readlink -f \"$d/driver\"; fi\n fi\ndone\necho SSB_REGISTRATION_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "created_utc": "2026-10-26T23:56:15.081261+00:00",
+  "mode": "module/sysfs/USB cached descriptor metadata only; no opens/control/register",
+  "physical_state": "unobserved"
+}

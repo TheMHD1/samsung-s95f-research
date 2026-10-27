@@ -1,0 +1,6 @@
+{
+  "command": "set -eu\necho QD_STRINGS_START\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nif command -v strings >/dev/null 2>&1; then\n for p in /factory_peq/tcon_data/QD/*.bin; do\n  test -f \"$p\"\n  test ! -L \"$p\"\n  test \"$(wc -c < \"$p\")\" = 5242880\n  echo \"FILE=$p\"\n  strings -a -t x \"$p\" | awk 'index($0,\"F77ABU2D20\") || index($0,\"RHEA_M_TCON_FW\") || index($0,\"RT Protect\") || index($0,\"RTOS Ver\") || index($0,\"TconFw\") {n++; if(n<=20) print substr($0,1,256)} END {print \"MARKER_MATCHES\",n+0}'\n done\nelse\n echo STRINGS_TOOL_ABSENT\nfi\necho QD_STRINGS_END\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\n",
+  "mode": "bounded literal scan of existing data assets only",
+  "physical_state": "unobserved",
+  "time": "2026-10-26T23:27:26.752552+00:00"
+}

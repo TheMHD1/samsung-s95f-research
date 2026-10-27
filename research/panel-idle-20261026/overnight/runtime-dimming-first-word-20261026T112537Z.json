@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "test \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000 || exit 31\ntest \"$(pidof avocd)\" = 706 || exit 32\ndate -u\ncat /proc/uptime\nawk 'index($0,\"libave.so\") {print; tv_tail=5; next} tv_tail>0 {print;tv_tail--}' /proc/706/maps\nod -An -t x4 -j 4145142252 -N 4 /proc/706/mem\n",
+      "exit_code": 1,
+      "stderr": "od: cannot skip past end of combined input\n",
+      "stdout": "Mon Oct 26 11:25:38 UTC 2026\n35547.08 132609.73\nf6b77000-f7103000 r-xp 00000000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nf7103000-f7113000 ---p 0058c000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nf7113000-f711b000 r--p 0058c000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nf711b000-f7125000 rw-p 00594000 b3:1b 445                                /prd/usr/lib/libave.so.0.1\nf7125000-f7139000 rw-p 00000000 00:00 0 \nf7139000-f7186000 r-xp 00000000 b3:1b 258                                /prd/usr/lib/libecs-tv.so.0.1\nf7186000-f7196000 ---p 0004d000 b3:1b 258                                /prd/usr/lib/libecs-tv.so.0.1\nf7196000-f7197000 r--p 0004d000 b3:1b 258                                /prd/usr/lib/libecs-tv.so.0.1\nf7197000-f7198000 rw-p 0004e000 b3:1b 258                                /prd/usr/lib/libecs-tv.so.0.1\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

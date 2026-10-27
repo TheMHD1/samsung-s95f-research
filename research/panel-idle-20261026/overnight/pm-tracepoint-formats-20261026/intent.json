@@ -1,0 +1,6 @@
+{
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_START'\ndate -u +%s\ncat /proc/uptime\nfor event in power/device_pm_callback_start power/device_pm_callback_end power/suspend_resume rpm/rpm_resume rpm/rpm_suspend rpm/rpm_return_int; do\n echo \"@@ FORMAT $event\"\n f=/sys/kernel/debug/tracing/events/$event/format\n [ -f \"$f\" ] || exit 70\n cat \"$f\"\n echo '@@ END_FORMAT'\ndone\necho '@@ GLOBAL_TRACE_STATE'\ncat /sys/kernel/debug/tracing/tracing_on /sys/kernel/debug/tracing/current_tracer\necho '@@ BOOT_END'\ncat /proc/sys/kernel/random/boot_id\necho '@@ TIME_END'\ndate -u +%s\ncat /proc/uptime\n",
+  "command_sha256": "8bd9fbc5597d78f2748325e38782b9197c5b02655718389d624b3ab07fc6a889",
+  "purpose": "Read six exact existing PM/RPM tracepoint format files and globaltracebaseline; no trace enable/disable, no display control/callback/load. Physical panel unobserved.",
+  "started_utc": "2026-10-26T19:44:42.145542+00:00"
+}

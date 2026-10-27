@@ -1,0 +1,6 @@
+{
+  "actions": "one passive kernel-log retrieval; no queries to TCON/GPIO or display controls",
+  "command": "set -euo pipefail\necho LOG_START; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\ndmesg | awk '/QDFTcon_SetQdTconPowerControl|m_set_power_control|QDFTcon_GetErrDetStatus|err detect gpio|QD_TCON_OFF|panel dpms:/ {if(length($0)>500)t++;a[n%64]=substr($0,1,500);n++} END{start=n>64?n-64:0;for(i=start;i<n;i++)print a[i%64];print \"RETAINED_MATCH_COUNT\",n+0;print \"LONG_LINES_TRUNCATED\",t+0}'\necho LOG_END; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\n",
+  "created_utc": "2026-10-26T22:53:49.503242+00:00",
+  "physical_state": "unobserved; no owner Apps reply"
+}

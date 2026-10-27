@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho AVOC_IDENTITY\nreadlink -f /proc/706/exe\ncat /proc/706/stat\necho AVOC_BACKEND_MAPS\nawk '$NF == \"/prd/usr/lib/libhdmi-input-control-impl-sec.so\" || $NF == \"/prd/usr/lib/libhdmi-control-impl-sec.so\" { print }' /proc/706/maps\necho INPUT_BACKEND_IDENTITY\ntest -f /prd/usr/lib/libhdmi-input-control-impl-sec.so\ntest ! -L /prd/usr/lib/libhdmi-input-control-impl-sec.so\nstat -c '%s %F %a %u' /prd/usr/lib/libhdmi-input-control-impl-sec.so\nsha256sum /prd/usr/lib/libhdmi-input-control-impl-sec.so\necho CONTROL_BACKEND_IDENTITY\ntest -f /prd/usr/lib/libhdmi-control-impl-sec.so\ntest ! -L /prd/usr/lib/libhdmi-control-impl-sec.so\nstat -c '%s %F %a %u' /prd/usr/lib/libhdmi-control-impl-sec.so\nsha256sum /prd/usr/lib/libhdmi-control-impl-sec.so\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\n",
+      "exit_code": 1,
+      "stderr": "",
+      "stdout": "BOOT_START\n00000000-0000-4000-8000-000000000000\nTIME_START\n1793048690\n70299.40 263139.26\nAVOC_IDENTITY\n/usr/bin/avocd\n706 (avocd) S 1 642 642 0 -1 4194624 422751 0 7761 0 352067 114216 0 0 20 0 23 0 603 204062720 2316 18446744073709551615 65536 1387296 4291230352 0 0 0 0 4096 16384 0 0 0 17 0 0 0 47 0 0 1608924 1733396 34242560 4291231407 4291231425 4291231425 4291231721 0\nAVOC_BACKEND_MAPS\nINPUT_BACKEND_IDENTITY\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

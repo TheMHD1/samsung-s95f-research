@@ -1,0 +1,41 @@
+Curated offline static notes for maintenance-ipc-client.md — 2026-10-26
+This is not verbatim reproducer stdout; the verified reproducer prints its own
+hash/symbol/add-PC evidence and exits PASS.
+No TV, network, D-Bus, or service command was used.
+
+$ sha256sum binaries/libdeviced.so.1.0.3 binaries/deviced
+ea3ddbe08dbad2eb3d969d0df434be23afe69eb00921a7969191646e2d1bcb1a  binaries/libdeviced.so.1.0.3
+2f58aacf9bf073f27ab4f49a54f07abd2bf4536ada3f00dec90110a8e56f9cc2  binaries/deviced
+
+$ readelf -Ws binaries/libdeviced.so.1.0.3 (selected .dynsym)
+oled_is_burn_in_protection_in_progress  444a492c 436 FUNC GLOBAL DEFAULT
+qd_display_request_off_sensing           444a46c0  24 FUNC GLOBAL DEFAULT
+qd_display_request_el_sensing            444a46d8 596 FUNC GLOBAL DEFAULT
+qd_display_request_off_sensing_with_mode 444a450c 436 FUNC GLOBAL DEFAULT
+
+$ readelf -Ws binaries/deviced (selected .symtab)
+gdbus_request_el_sensing                       0005bf34 392 FUNC LOCAL DEFAULT
+el_sensing_request_start                       00073944  84 FUNC GLOBAL DEFAULT
+_ZN9ELSensing25pixelRefreshRequestByUserEv     00073d50 236 FUNC GLOBAL DEFAULT
+_ZN9ELSensing24clearPixelRefreshRequestEv      00073e3c 148 FUNC GLOBAL DEFAULT
+_ZN9ELSensing19onPowerOffRequestedEPi          000754bc 396 FUNC GLOBAL DEFAULT
+
+Mapped ARM facts (instruction spans end at declared $d pools):
+  gdbus_request_el_sensing 0x5bf34..0x5c084:
+    support check; parses one integer; only 1 reaches
+    vconf_set_int("db/sysman/el_sensing_poweroff", 1); returns result variant.
+    There is no direct call to el_sensing_request_start (0x73944).
+  qd_display_request_el_sensing(1): GVariant("(i)",1), synchronous D-Bus.
+    resolved add-PC tuple: org.tizen.system.deviced /
+    /Org/Tizen/System/DeviceD/Display /
+    org.tizen.system.deviced.display / RequestELSensing.
+  qd_display_request_el_sensing(0), 0x444a481c:
+    device_power_request_poweroff(0x4000002a).
+  ELSensing::onPowerOffRequested:
+    0x754cc -> pixelRefreshRequestByUser 0x73d50
+    nonzero request joins common route only if getPowerOffType() != 6;
+    zero request may join via passedRunCycle at 0x755f8, also if type != 6.
+    0x755d8 -> clearPixelRefreshRequest 0x73e3c
+    0x755e8 -> stores 0x4000002a through supplied reason pointer.
+  shared helper 0x444a5548:
+    g_dbus_connection_call_sync, flags NONE, timeout -1.

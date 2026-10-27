@@ -1,0 +1,168 @@
+
+Guard exit: 0
+{"uid": 0, "euid": 0, "smack": "User", "system_files_unchanged": true, "staging_cleaned": true}
+CONFIGTOOLS
+
+ Usage:
+   vconftool set [set-options] <key name> <value>
+   vconftool get [get-options] <key name>
+   vconftool unset <key name>
+
+ set-options:
+   -t, --type=int|bool|double|string   Type of key
+   -u, --uid=UID                       User ID (for compatibility, ignored)
+   -g, --gid=GID                       Gourp ID (for compatibility, ignored)
+   -i, --install                       Install memory type key
+   -s, --smack=LABEL                   Set a SMACK label
+   -f, --force                         Overwrite by force
+
+   ex)
+     vconftool set -t string db/testapp/key1 "This is test"
+     vconftool set -t int -i memory/testapp/status -1
+
+ get-options:
+   -r, --recursive                     Retrieve all keys having the given prefix
+
+   ex)
+     vconftool get db/testapp/key1
+     vconftool get -r db/testapp
+
+STARTUP_SCRIPTS
+-rw-r--r-- 1 owner root 1828 2024-09-06 01:01 /etc/profile
+lrwxrwxrwx 1 owner root   16 2025-11-17 12:53 /sbin/reboot -> ../bin/systemctl
+
+/etc/systemd/system:
+total 0
+drwxr-xr-x 1 owner root 2 2026-07-14 07:07 basic.target.wants
+drwxr-xr-x 1 owner root 9 2026-07-14 07:06 multi-user.target.wants
+drwxr-xr-x 1 owner root 1 2026-07-14 06:58 sockets.target.wants
+drwxr-xr-x 1 owner root 4 2026-07-14 07:07 starter.target.wants
+drwxr-xr-x 1 owner root 9 2026-07-14 07:08 sysinit.target.wants
+drwxr-xr-x 1 owner root 6 2026-07-14 07:06 vdtizen-bootseq-delayed.target.wants
+drwxr-xr-x 1 owner root 1 2026-07-14 07:04 vdtizen-bootseq-idle.target.wants
+
+/opt/usr/share/systemd/system:
+total 36
+-rw------- 1 owner root 24 2026-10-25 19:31 com.samsung.tv.AICompanionAgent
+-rw------- 1 owner root 24 2026-10-25 19:31 com.samsung.tv.bixby-prov
+-rw------- 1 owner root 24 2026-10-25 19:31 com.samsung.tv.farfieldvoice
+-rw------- 1 owner root 24 2026-10-25 19:31 com.samsung.tv.ghdaemon
+-rw------- 1 owner root 24 2026-10-25 19:31 com.samsung.tv.ondevice-voice
+-rw------- 1 owner root 24 2026-10-25 19:31 com.samsung.tv.voiceid-service
+-rw------- 1 owner root 24 2026-10-25 19:31 com.samsung.tv.wakeupless
+-rw------- 1 owner root 24 2026-10-25 19:31 pisa-service
+-rw------- 1 owner root 24 2026-10-25 19:31 samsunghealth-service-tv
+HOME_KEYS
+HOMEFILES
+/opt/usr/apps/com.samsung.tv.AICompanionAgent/res/credentials
+/opt/usr/apps/com.samsung.tv.AICompanionUI/res/img_ai_home_2k
+/opt/usr/apps/com.samsung.tv.AICompanionUI/res/img_ai_home_4k
+/opt/usr/apps/com.samsung.tv.AICompanionUILauncher/res/credentials
+/opt/usr/apps/com.samsung.tv.CSAccount/res/RecommendEmailList.json
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/SmartThings.VirtualHome.dll
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeApp
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeApp.dll
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeApp.runtimeconfig.json
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeCore.dll
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeCore.pdb
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeResources.dll
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeResources.pdb
+/opt/usr/apps/com.samsung.tv.SmartThingsApp/bin/VirtualHomeResources.xml
+/opt/usr/apps/com.samsung.tv.adplayer/bin/Tizen.TV.Service.AdAgent.Ex.dll
+/opt/usr/apps/com.samsung.tv.coba.adagent
+/opt/usr/apps/com.samsung.tv.coba.edenview
+/opt/usr/apps/com.samsung.tv.coba.edenview/Com.Samsung.TV.CoBA.Edenview.deps.json
+/opt/usr/apps/com.samsung.tv.coba.homeversion
+/opt/usr/apps/com.samsung.tv.coba.homeversion/HomeVersion.deps.json
+/opt/usr/apps/com.samsung.tv.coba.homeversion/bin/HomeVersion.dll
+/opt/usr/apps/com.samsung.tv.coba.newhome
+/opt/usr/apps/com.samsung.tv.coba.newhome/Com.Samsung.TV.CoBA.NewHome.deps.json
+/opt/usr/apps/com.samsung.tv.gamehome
+/opt/usr/apps/com.samsung.tv.gamehome/com.samsung.tv.gamehome.deps.json
+/opt/usr/apps/com.samsung.tv.home.art
+/opt/usr/apps/com.samsung.tv.home.art/HomeArt.deps.json
+/opt/usr/apps/com.samsung.tv.home.art/bin/HomeArt
+/opt/usr/apps/com.samsung.tv.home.art/bin/HomeArt.dll
+/opt/usr/apps/com.samsung.tv.home.art/bin/HomeArt.pdb
+/opt/usr/apps/com.samsung.tv.home.art/bin/HomeArt.runtimeconfig.json
+/opt/usr/apps/com.samsung.tv.home.game
+/opt/usr/apps/com.samsung.tv.home.game/HomeGame.deps.json
+/opt/usr/apps/com.samsung.tv.home.game/bin/HomeGame
+/opt/usr/apps/com.samsung.tv.home.game/bin/HomeGame.dll
+/opt/usr/apps/com.samsung.tv.home.game/bin/HomeGame.pdb
+/opt/usr/apps/com.samsung.tv.home.game/bin/HomeGame.runtimeconfig.json
+/opt/usr/apps/com.samsung.tv.home.media
+/opt/usr/apps/com.samsung.tv.home.media/HomeMedia.deps.json
+/opt/usr/apps/com.samsung.tv.home.media/bin/HomeMedia
+/opt/usr/apps/com.samsung.tv.home.media/bin/HomeMedia.dll
+/opt/usr/apps/com.samsung.tv.home.media/bin/HomeMedia.pdb
+/opt/usr/apps/com.samsung.tv.home.media/bin/HomeMedia.runtimeconfig.json
+/opt/usr/apps/com.samsung.tv.home.sidebar
+/opt/usr/apps/com.samsung.tv.home.sidebar/bin/HomeSidebar
+/opt/usr/apps/com.samsung.tv.home.sidebar/bin/HomeSidebar.dll
+/opt/usr/apps/com.samsung.tv.home.sidebar/bin/HomeSidebar.pdb
+/opt/usr/apps/com.samsung.tv.home.sidebar/bin/HomeSidebar.runtimeconfig.json
+/opt/usr/apps/com.samsung.tv.mybixby/res/credentials
+/opt/usr/apps/com.samsung.tv.pisa-service/bin/adagent-service
+/opt/usr/apps/com.samsung.tv.utterance-recommender-service
+/opt/usr/apps/com.samsung.tv.utterance-recommender-service/bin/utterance-recommender-app
+/opt/usr/apps/com.samsung.tv.utterance-recommender-service/bin/utterance-recommender-core
+/opt/usr/apps/ieme/plugin/com.microsoft.playready.recommendation.so
+/opt/usr/apps/org.tizen.art-app/res/home_i_icon_mode_art_selected.svg
+/opt/usr/apps/org.tizen.voice-app/res/credentials
+CURRENT_APPS
+	 appId (PID)
+	  com.samsung.tv.csfs (457)
+	  org.tizen.tv-viewer (447)
+	  org.tizen.volume-app (437)
+	  org.tizen.litewebappservice (672)
+	  com.samsung.tv.home.sidebar (1113)
+	  com.samsung.tv.home.media (1191)
+	  org.tizen.welcome-mode (1421)
+	  org.tizen.ssoservice (1462)
+	  com.samsung.tv.content-tiles-provider (1629)
+	  com.samsung.tv.contentservicemanager (1630)
+	  com.samsung.tv.aoc-enabler (1813)
+	  comss (1840)
+	  com.samsung.tizen.mcf-agent (1863)
+	  com.samsung.tv.MultiControl-Service (2374)
+	  com.samsung.tv.vd-sc-client-service (2403)
+	  com.samsung.tv.iot-hub-control (2421)
+	  com.samsung.tv.lightweight-node-service (2457)
+	  com.samsung.tizen.hrs-agent.storage (2683)
+	  com.samsung.tizen.smartthings-client (2686)
+	  com.samsung.tizen.samsung-cloud (3022)
+	  com.samsung.tv.passthru-service (3110)
+	  com.samsung.tv.cis-api-service-app (3517)
+	  HEPsqFNie0.tvplusstandalone (3579)
+	  com.samsung.tv.quicklaunch (3617)
+	  com.samsung.tv.preview-updater (3680)
+	  org.tizen.easysetup-daemon (3688)
+	  com.samsung.tizen.smartthings-thing (3773)
+	  com.samsung.tv.mde-framework (3913)
+	  org.tizen.function-osd (3801)
+	  org.tizen.tts-engine-neural (4346)
+	  com.samsung.tv.aov-dashboard (4353)
+	  com.samsung.tv.smartthingsfind-daemon (4377)
+	  org.tizen.ics-service (4385)
+	  com.samsung.tv.waapp-contents-provider (4410)
+	  com.samsung.tv.tap-service-agent (4648)
+	  com.samsung.tv.ai-discovery-service (4649)
+	  com.samsung.tv.tvsensor-iot-service (4685)
+	  dmr_service_app (4710)
+	  com.samsung.tv.aria-video (4908)
+	  com.samsung.tv.aisound-app (4932)
+	  com.samsung.tv.buds-scanner (4956)
+	  com.samsung.tv.vif (5021)
+	  com.samsung.tv.cis (5040)
+	  com.samsung.tv.cobalt-yt (5138)
+	  org.tizen.menu (5168)
+	  org.tizen.browser (5173)
+	  org.tizen.autofilld (5256)
+	  com.samsung.tizen.samsung-pass-agent (5385)
+	  org.tizen.chromium-efl.wrt-service (5831)
+	  com.samsung.tv.airplay-app-2 (6138)
+	  org.tizen.ScreenMirroring-app-tv (6201)
+	  com.samsung.tv.multiscreen (7687)
+	  acm-watcher (9041)
+

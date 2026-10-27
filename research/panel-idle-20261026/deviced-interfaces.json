@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "date -u\ncat /proc/uptime\ndbus-send --system --print-reply --dest=org.tizen.system.deviced /Org/Tizen org.freedesktop.DBus.Introspectable.Introspect 2>&1\nls /opt/usr/data/ /opt/usr/data/power/ /opt/usr/data/deviced/ 2>/dev/null\nls /opt/share/ /opt/etc/ 2>/dev/null\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Mon Oct 26 02:10:56 UTC 2026\n2265.48 8243.01\nmethod return time=1792980656.459023 sender=:1.34 -> destination=:1.643 serial=510 reply_serial=2\n   string \"<!DOCTYPE node PUBLIC \"-//freedesktop//DTD D-BUS Object Introspection 1.0//EN\"\n                      \"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd\">\n<!-- GDBus 2.80.5 -->\n<node>\n  <node name=\"System\"/>\n</node>\n\"\n/opt/usr/data/:\naifw\naifw-conf\naifw-core\ndapi-provider\ndownload_cache\ndownload-provider\nmcf-agent-launch\nmmfw-camcorder\nncnn-aifw-service\nnetwork\nnpu-control\n/opt/etc/:\ndisable_dlogutil\ndlog.conf\ndotnet_flag.ini\nduid-gadget\ndump.d\nenc_private_key.pem\nep-power-manager\nexports\nfkp\nget_top_process.sh\nHyperUART_IP_Addr\nira_encrypt.sh\nira_vlog_dump_for_external.sh\nira_vlog_dump_for_woc.sh\nlocaltime\nmultimedia\noqckeydecrypt.sh\np2p\nparseinfo.sh\npasswd\npublic_key.pem\nresolv.conf\nshadow\nskel\nssl\nssp\nsystemd\ntizenid\n\n/opt/share/:\napplications\naskuser_disable\nca-certificates\ncert-svc\ncom.samsung.tv.CSAccount\ncomss\ncontents-ott-detector-service\ncontents-recognition-service\ncontents-ui-detector-service\ndisplay-capture-service\nfactory-data\nfeedback\nfonts\nicons\nicu_tzdata\nloaders\norg.tizen.ep-hotel-factory\norg.tizen.factory\npackages\nsecurestorage\nsecurity-config\nsignatures\nsso-menu\nwae\nwebappservice\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

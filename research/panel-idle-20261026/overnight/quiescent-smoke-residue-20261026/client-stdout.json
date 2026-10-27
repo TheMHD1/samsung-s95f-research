@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\necho BOOT_START\nboot=$(cat /proc/sys/kernel/random/boot_id)\necho \"$boot\"\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000 || exit 61\necho TIME_START\ndate -u +%s\ncat /proc/uptime\necho GLOBAL_START\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\nstatus=0\nfor p in /sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-qpm-smoke-20261026t204819 /sys/kernel/debug/tracing/instances/researcher-pm-onset-qpm-smoke-20261026t204819 /tmp/researcher-observed-quiescent-pm-onset-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-quiescent-pm-onset-stage-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-pm-onset-20261026/qpm-smoke-20261026t204819 /tmp/researcher-observed-pm-onset-stage-20261026/qpm-smoke-20261026t204819; do\n if test -e \"$p\" || test -L \"$p\"; then printf 'PRESENT %s\n' \"$p\"; status=1; else printf 'ABSENT %s\n' \"$p\"; fi\ndone\necho GLOBAL_END\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\necho BOOT_END\ncat /proc/sys/kernel/random/boot_id\necho TIME_END\ndate -u +%s\ncat /proc/uptime\nexit \"$status\"\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "BOOT_START\n00000000-0000-4000-8000-000000000000\nTIME_START\n1793048061\n69670.76 260764.25\nGLOBAL_START\n0\nnop\nABSENT /sys/kernel/debug/tracing/instances/researcher-quiescent-pm-onset-qpm-smoke-20261026t204819\nABSENT /sys/kernel/debug/tracing/instances/researcher-pm-onset-qpm-smoke-20261026t204819\nABSENT /tmp/researcher-observed-quiescent-pm-onset-20261026/qpm-smoke-20261026t204819\nABSENT /tmp/researcher-observed-quiescent-pm-onset-stage-20261026/qpm-smoke-20261026t204819\nABSENT /tmp/researcher-observed-pm-onset-20261026/qpm-smoke-20261026t204819\nABSENT /tmp/researcher-observed-pm-onset-stage-20261026/qpm-smoke-20261026t204819\nGLOBAL_END\n0\nnop\nBOOT_END\n00000000-0000-4000-8000-000000000000\nTIME_END\n1793048061\n69670.77 260764.27\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

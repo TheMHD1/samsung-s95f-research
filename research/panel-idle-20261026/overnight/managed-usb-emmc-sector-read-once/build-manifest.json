@@ -1,0 +1,62 @@
+{
+  "acceptance_scope": "Exactcounts/cleanup only; eMMCleafstatusignored, nofreshness/currentexecutableclaim.",
+  "checks": [
+    {
+      "args": [],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"dryRun\":true,\"targetOperations\":0,\"address\":\"0x0\",\"operation\":\"opaque-emmc-sector-IN\",\"headerHex\":\"030200000000000000020000\",\"inputLength\":512,\"timeoutMs\":2000,\"interfaceNumber\":2}\n"
+    },
+    {
+      "args": [
+        "--self-test"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"selfTestsPassed\":26,\"targetOperations\":0}\n"
+    },
+    {
+      "args": [
+        "--execute"
+      ],
+      "exit_code": 64,
+      "stderr": "",
+      "stdout": "REFUSED_ARM32_ABI\n"
+    },
+    {
+      "args": [
+        "--unknown"
+      ],
+      "exit_code": 63,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "files": {
+    "ManagedUsbEmmcSectorReadOnce.csproj": {
+      "sha256": "05893d224110307cdce9838c9620aba3ed1326901288ad105279cfc9eed3f187",
+      "size": 353
+    },
+    "Program.cs": {
+      "sha256": "b4e400c973fc5c6c7737a0c6e21fe291c9320d57403e86968d0c6c5180293e49",
+      "size": 16821
+    },
+    "bin/Release/net6.0/ManagedUsbEmmcSectorReadOnce.deps.json": {
+      "sha256": "bf24e0b2bb3b9aeac60af10f0674541d494fa2ad1695e33c6f8129405d1888c4",
+      "size": 454
+    },
+    "bin/Release/net6.0/ManagedUsbEmmcSectorReadOnce.dll": {
+      "sha256": "e9bbdc35dd867c941c19da8394dff900c8b461428587c460a745a909fef2dd7e",
+      "size": 29184
+    },
+    "bin/Release/net6.0/ManagedUsbEmmcSectorReadOnce.runtimeconfig.json": {
+      "sha256": "aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3",
+      "size": 242
+    }
+  },
+  "fixed_address": "0x0",
+  "fixed_length": 512,
+  "fixed_target": "0x203",
+  "header_hex": "030200000000000000020000",
+  "schema": "usb-fixed-emmc-sector-read-build-v1"
+}

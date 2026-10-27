@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ncat /proc/uptime\nset +e\n/usr/bin/input_keyevent Right down\nkey_down_status=$?\nsleep 0.15\n/usr/bin/input_keyevent Right up\nkey_up_status=$?\necho KEY_DOWN_EXIT=$key_down_status KEY_UP_EXIT=$key_up_status\nsleep 0.5\nvconftool get memory/eden/current_tab\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "160601.23 597503.94\nKEY_DOWN_EXIT=0 KEY_UP_EXIT=0\nmemory/eden/current_tab, value = d/ug.tab@Live (String)\n160601.99 597506.48\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

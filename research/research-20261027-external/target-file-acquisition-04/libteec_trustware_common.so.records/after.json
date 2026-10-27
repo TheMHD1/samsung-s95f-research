@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest -f /usr/lib/libteec_trustware_common.so\ntest -r /usr/lib/libteec_trustware_common.so\ntest \"$(wc -c < /usr/lib/libteec_trustware_common.so)\" -eq 244580\nsha256sum /usr/lib/libteec_trustware_common.so\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "353104729c40d6f1eff4f07b96f8a14466dd98efddb21a9cb7d14752351dd139  /usr/lib/libteec_trustware_common.so\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

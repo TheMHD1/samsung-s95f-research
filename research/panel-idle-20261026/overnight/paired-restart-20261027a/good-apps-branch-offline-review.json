@@ -1,0 +1,249 @@
+{
+  "branch_validator_passed": true,
+  "original_record_accepted": false,
+  "original_rejection": "status transport validator rejected expected dd diagnostics before branch-specific validator ran",
+  "original_sha256": "5a7e26f80d63fcaebc62f14deb462f4c35243c73d81e372abef1acab1c3a9d5b",
+  "physical_state": "owner just reported working Apps; exact physical timestamp not supplied",
+  "schema": "paired-working-branch-offline-review-v1",
+  "summary": {
+    "accepted": true,
+    "atomic": false,
+    "ave_bias": "0xf6b77000",
+    "backend": {
+      "class": "DimmingBackendRoseMQD",
+      "object": "0xf7203630",
+      "slot_target": "0xf6d3d275",
+      "typed": true,
+      "vptr": "0xf711852c"
+    },
+    "branch_state": {
+      "auto_power_off_count": 0,
+      "available": true,
+      "class_guard": "QDDimming",
+      "condition_0038_aligned_word": 256,
+      "condition_0038_low_byte": 0,
+      "current_branch_inferred": false,
+      "floor_00a4": 0,
+      "gain_autodim_02a4_02a8": [
+        1024,
+        0
+      ],
+      "inner_0000": 89,
+      "model_0188_control_018c": [
+        0,
+        4294967295
+      ],
+      "product_0450": 0,
+      "sources_00f8_00fc": [
+        100,
+        17
+      ],
+      "weight_0088": 102,
+      "weight_0098": 43
+    },
+    "concurrent_daemon_changes_excluded": false,
+    "decoded": {
+      "backend_cache": {
+        "address": "0xf7122958",
+        "words": [
+          207
+        ]
+      },
+      "qd_auto_power_off_count": {
+        "address": "0xf7135420",
+        "words": [
+          0
+        ]
+      },
+      "qd_branch_condition_0038": {
+        "address": "0xf6389610",
+        "words": [
+          256
+        ]
+      },
+      "qd_branch_floor_00a4": {
+        "address": "0xf638967c",
+        "words": [
+          0
+        ]
+      },
+      "qd_branch_gain_autodim_02a4_02a8": {
+        "address": "0xf638987c",
+        "words": [
+          1024,
+          0
+        ]
+      },
+      "qd_branch_inner_0000": {
+        "address": "0xf63895d8",
+        "words": [
+          89
+        ]
+      },
+      "qd_branch_model_0188_control_018c": {
+        "address": "0xf6389760",
+        "words": [
+          0,
+          4294967295
+        ]
+      },
+      "qd_branch_product_0450": {
+        "address": "0xf6389a28",
+        "words": [
+          0
+        ]
+      },
+      "qd_branch_sources_00f8_00fc": {
+        "address": "0xf63896d0",
+        "words": [
+          100,
+          17
+        ]
+      },
+      "qd_branch_weight_0088": {
+        "address": "0xf6389660",
+        "words": [
+          102
+        ]
+      },
+      "qd_branch_weight_0098": {
+        "address": "0xf6389670",
+        "words": [
+          43
+        ]
+      },
+      "qd_outer_header": {
+        "address": "0xf7203698",
+        "words": [
+          4145111784,
+          4130903512,
+          4145244592,
+          4145239576,
+          4146083376,
+          4146083344,
+          1
+        ]
+      },
+      "qd_weber_policy": {
+        "address": "0xf6389a30",
+        "words": [
+          1023,
+          24,
+          1,
+          2,
+          980,
+          990,
+          5,
+          2,
+          9,
+          5,
+          200,
+          300
+        ]
+      },
+      "qd_working_duty": {
+        "address": "0xf6389680",
+        "words": [
+          207,
+          207
+        ]
+      },
+      "ve_ai_genre": {
+        "address": "0xf63cf05c",
+        "words": [
+          0
+        ]
+      },
+      "ve_color_booster": {
+        "address": "0xf63d7628",
+        "words": [
+          56636
+        ]
+      },
+      "ve_config_1858_1868": {
+        "address": "0xf638b4b0",
+        "words": [
+          16,
+          15,
+          14,
+          13,
+          4294967295
+        ]
+      },
+      "ve_dlsr_class": {
+        "address": "0xf6389d08",
+        "words": [
+          1
+        ]
+      },
+      "ve_gsr": {
+        "address": "0xf63d74b0",
+        "words": [
+          0
+        ]
+      },
+      "ve_gsr_enable": {
+        "address": "0xf63cef74",
+        "words": [
+          0
+        ]
+      },
+      "ve_hdr_brightness": {
+        "address": "0xf6389d44",
+        "words": [
+          1
+        ]
+      },
+      "weber_gain": {
+        "address": "0xf712494c",
+        "words": [
+          1023
+        ]
+      },
+      "weber_target_count": {
+        "address": "0xf71366d0",
+        "words": [
+          1023,
+          0
+        ]
+      }
+    },
+    "identity": {
+      "boot_id": "[private-identity-or-secret-omitted]",
+      "exe": "/usr/bin/avocd",
+      "pid": 706,
+      "start_ticks": 603
+    },
+    "limitations": [
+      "The reads are sequential and non-atomic; equal endpoint pointers do not exclude changes away and back.",
+      "The branch fields are not a simultaneous state and this reader does not infer a current branch.",
+      "Integer fields have no inferred physical unit; software values do not prove transport, panel application, or physical light.",
+      "Base-QDDimming branch fields and its AutoPowerOff static are omitted unless the exact base class vptr is guarded.",
+      "No backend cache is read unless the QD/backend vptr pair is exactly allowlisted."
+    ],
+    "memory_bytes_requested": 292,
+    "physical_state": "unobserved",
+    "physical_state_inferred_from_software": false,
+    "qd": {
+      "class": "QDDimming",
+      "initialized_byte": 1,
+      "inner": "0xf63895d8",
+      "object": "0xf7203698",
+      "vptr": "0xf71162e8"
+    },
+    "timestamps": {
+      "uptime_end": 83984.41,
+      "uptime_start": 83983.62,
+      "utc_end": 1793062375,
+      "utc_start": 1793062374
+    },
+    "video_enhancer": {
+      "class": "RoseMVideoEnhancer",
+      "dlsr_state": "0xf6389c58",
+      "dlsr_state_aliases_object_state": true,
+      "object": "0xf71291a0",
+      "state": "0xf6389c58",
+      "vptr": "0xf7113bf8"
+    }
+  }
+}

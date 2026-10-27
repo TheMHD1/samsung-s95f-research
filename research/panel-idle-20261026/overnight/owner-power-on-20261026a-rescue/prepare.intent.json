@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -euo pipefail\numask 077\nboot=$(cat /proc/sys/kernel/random/boot_id)\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000\nO=/tmp/researcher-observed-quiescent-pm-onset-20261026/owner-power-on-20261026a\nR=/tmp/researcher-owner-power-on-rescue-20261026a\ntest ! -L \"$O\"; test -d \"$O\"; test \"$(stat -c '%u:%a' \"$O\")\" = 0:700\ntest ! -e \"$R\"; test ! -L \"$R\"; mkdir -m 700 \"$R\"\necho \"BOOT $boot\"\nfor f in trace meta.txt samples.txt sample-errors.txt artifacts.txt fds.txt vlog-after.txt; do\n test ! -L \"$O/$f\"; test -f \"$O/$f\"; test \"$(stat -c '%u:%a' \"$O/$f\")\" = 0:600\n n=$(stat -c '%s' \"$O/$f\"); test \"$n\" -gt 0; test \"$n\" -le 134217728\n h=$(sha256sum \"$O/$f\"); h=${h%% *}\n (ulimit -f 131072; gzip -1 -c \"$O/$f\" >\"$R/$f.gz\")\n chmod 600 \"$R/$f.gz\"\n test \"$(stat -c '%s' \"$O/$f\")\" = \"$n\"\n after=$(sha256sum \"$O/$f\"); test \"${after%% *}\" = \"$h\"\n cn=$(stat -c '%s' \"$R/$f.gz\"); ch=$(sha256sum \"$R/$f.gz\"); ch=${ch%% *}\n printf 'FILE %s %s %s %s %s\n' \"$f\" \"$n\" \"$h\" \"$cn\" \"$ch\"\ndone\necho COMPLETE_EXISTING_FAILED_CAPTURE_ONLY\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -euo pipefail\numask 077\nboot=$(cat /proc/sys/kernel/random/boot_id)\ntest \"$boot\" = 00000000-0000-4000-8000-000000000000\nO=/tmp/researcher-observed-quiescent-pm-onset-20261026/owner-power-on-20261026a\nR=/tmp/researcher-owner-power-on-rescue-20261026a\ntest ! -L \"$O\"; test -d \"$O\"; test \"$(stat -c '%u:%a' \"$O\")\" = 0:700\ntest ! -e \"$R\"; test ! -L \"$R\"; mkdir -m 700 \"$R\"\necho \"BOOT $boot\"\nfor f in trace meta.txt samples.txt sample-errors.txt artifacts.txt fds.txt vlog-after.txt; do\n test ! -L \"$O/$f\"; test -f \"$O/$f\"; test \"$(stat -c '%u:%a' \"$O/$f\")\" = 0:600\n n=$(stat -c '%s' \"$O/$f\"); test \"$n\" -gt 0; test \"$n\" -le 134217728\n h=$(sha256sum \"$O/$f\"); h=${h%% *}\n (ulimit -f 131072; gzip -1 -c \"$O/$f\" >\"$R/$f.gz\")\n chmod 600 \"$R/$f.gz\"\n test \"$(stat -c '%s' \"$O/$f\")\" = \"$n\"\n after=$(sha256sum \"$O/$f\"); test \"${after%% *}\" = \"$h\"\n cn=$(stat -c '%s' \"$R/$f.gz\"); ch=$(sha256sum \"$R/$f.gz\"); ch=${ch%% *}\n printf 'FILE %s %s %s %s %s\n' \"$f\" \"$n\" \"$h\" \"$cn\" \"$ch\"\ndone\necho COMPLETE_EXISTING_FAILED_CAPTURE_ONLY\n",
+  "command_sha256": "300013cbdb53b2226ccb99a1f0c1db5defab508223f656ba0a4774dd1a5b4937",
+  "retry": false,
+  "started_utc": "2026-10-26T21:56:04.019517+00:00"
+}

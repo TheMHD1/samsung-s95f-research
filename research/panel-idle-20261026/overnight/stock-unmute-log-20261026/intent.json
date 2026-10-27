@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "python3",
+    "${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py",
+    "root",
+    "--persistent-only",
+    "--timeout",
+    "25",
+    "--command",
+    "set -euo pipefail\necho '@@ BOOT_START'\nb=$(cat /proc/sys/kernel/random/boot_id); echo \"$b\"; test \"$b\" = 00000000-0000-4000-8000-000000000000\necho '@@ TIME_START'; date -u +%s; cat /proc/uptime\necho '@@ FILTERED_LOG_72717_72723'\n/usr/bin/vlogutil -v kerneltime -s --start-from=72717 --end-to=72723 | awk '/[Mm]ute|[Pp][Vv][Cc][Cc]|QD_TCON_OFF|ERR DET|RT Protect|TCON ERR|Tcon Power|Set Suspend Flag|sensing|Sensing/ {print}'\necho '@@ TIME_END'; date -u +%s; cat /proc/uptime\necho '@@ BOOT_END'; cat /proc/sys/kernel/random/boot_id\necho '@@ COMPLETE_FILTERED_LOG_ONLY'\n"
+  ],
+  "client_sha256": "3a92e02003ce51d2faeace231191f6f0c73731f2bfca9caa196e05b195b439a5",
+  "command": "set -euo pipefail\necho '@@ BOOT_START'\nb=$(cat /proc/sys/kernel/random/boot_id); echo \"$b\"; test \"$b\" = 00000000-0000-4000-8000-000000000000\necho '@@ TIME_START'; date -u +%s; cat /proc/uptime\necho '@@ FILTERED_LOG_72717_72723'\n/usr/bin/vlogutil -v kerneltime -s --start-from=72717 --end-to=72723 | awk '/[Mm]ute|[Pp][Vv][Cc][Cc]|QD_TCON_OFF|ERR DET|RT Protect|TCON ERR|Tcon Power|Set Suspend Flag|sensing|Sensing/ {print}'\necho '@@ TIME_END'; date -u +%s; cat /proc/uptime\necho '@@ BOOT_END'; cat /proc/sys/kernel/random/boot_id\necho '@@ COMPLETE_FILTERED_LOG_ONLY'\n",
+  "command_sha256": "bf1d989809afe9e39433bbf8969e2b2b231d00d1717d344e671f717df01b4fdb",
+  "physical_state": "unobserved",
+  "purpose": "Read one stock event format and global baseline; no trace enable or control.",
+  "retry": false,
+  "started_utc": "2026-10-26T21:46:11.313855+00:00"
+}

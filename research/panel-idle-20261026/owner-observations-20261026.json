@@ -1,0 +1,78 @@
+[
+  {
+    "details": "Owner reports pre-existing impact damage: irregular black spot a few centimetres across and a one-pixel-wide vertical black line above it. Blackouts predate root; sparse menus worsen them. Initially reported movies stable; later clarified occasional brief Ugoos picture/audio pauses.",
+    "observation": "Pre-existing damage",
+    "time_basis": "owner history; not a new physical measurement"
+  },
+  {
+    "artifact": "factory-ss-trial/",
+    "details": "Owner: picture still off ever since I rebooted the TV. No picture recovery during the 7->0 trial.",
+    "observation": "Factory scalar trial negative"
+  },
+  {
+    "artifact": "populated-home-recovery.json",
+    "details": "Owner hears live TV audio after Home restoration while physical panel remains black.",
+    "observation": "Audio without picture"
+  },
+  {
+    "details": "Owner saw For You briefly, then physical picture disappeared while TV/audio stayed on; happened twice. Third time navigated quickly to full Apps and picture stayed on.",
+    "native_picture_on_uptimes": [
+      6186.123,
+      6198.505,
+      6211.463
+    ],
+    "observation": "Three wake sequence",
+    "qualification": "Times are aligned retrospectively to the three captured stock standby/wake cycles; no exact owner button/picture timestamps."
+  },
+  {
+    "artifact": "visible-compositor.json, visible.png",
+    "details": "Owner confirms screen stays visible even with screensaver active after full Apps.",
+    "observation": "Visible moving screensaver"
+  },
+  {
+    "artifact": "paired-capture/apps-visible-control.json",
+    "details": "Owner selected Full Apps page is visible in response to request to dismiss saver and leave full Apps; matched stock screenshot has native full Apps catalog.",
+    "native_capture_uptime": 7206.74,
+    "observation": "Controlled Apps baseline"
+  },
+  {
+    "artifacts": [
+      "paired-capture/black-after-live-b0.json",
+      "paired-capture/black-volume-b1.json"
+    ],
+    "details": "Owner triggered blackout by going to Live; could not recover by navigating blindly to Apps. Subsequently explicitly confirmed physical screen remained black throughout B0/B1 screenshot and volume press, while audio/menu clicks continued.",
+    "observation": "Controlled post-Live blackout"
+  },
+  {
+    "artifact": "frender-recovery.json",
+    "details": "After enlightenment_info -frender all, owner explicitly answered Still completely black.",
+    "observation": "One-shot compositor redraw negative"
+  },
+  {
+    "artifacts": [
+      "hwc-trial/actual-restored.json",
+      "hwc-prevention/"
+    ],
+    "details": "After actual readback deactive1 confirmed client-composition fallback, owner explicitly answered Still completely black. Normal state later restored and verified deactive0 using CLI1. Prevention across a power cycle is a separate pending test.",
+    "observation": "HWC fallback did not recover already-black panel"
+  },
+  {
+    "details": "Owner: okay it opened for you and fully turned off the panel but voice still on. Owner is going to sleep and unavailable for remote control/physical reports; explicitly asks offline/kernel/factory/machine-code tracing and diagnosis for next day.",
+    "observation": "Latest wake For You black, audio remained",
+    "qualification": "Power-cycle and physical blackout timing relative to HWC fallback expiry not specified. Do not label proven fallback-prevention failure or actual electrical panel power-off from this physical report alone."
+  },
+  {
+    "details": "Ugoos movies almost always work, with occasional one or two brief dark intervals and audio pause then recovery; Live TV worse. Settings over a full menu can trigger repeated flicker until populated Apps. Empty-menu blackout lasting roughly more than three seconds usually stays black. This is owner-estimated timing, not a measured threshold. Physical impact left an irregular few-cm black spot and a one-pixel-wide vertical line above it; full-screen blackout is the priority.",
+    "observation": "Expanded owner account before overnight diagnosis",
+    "qualification": "No timed Ugoos AV incident has been captured. Historical chain is Ugoos through JBL Bar 1300X to TV; audio pause cannot be attributed to the TV without synchronized evidence."
+  },
+  {
+    "artifacts": [
+      "ff5e6f2ecbe8450095379a9311f2b529.jpg",
+      "c4203dbaa5f24283868583dec537f0ee.jpg"
+    ],
+    "details": "Owner explicitly states damaged patch is not bigger than a thumb. Two supplied screen photos show a localized black patch meeting the lower panel edge and a narrow dark vertical line extending upward, with surrounding pixels lit. One-pixel width remains owner report, not resolved from camera image. Repetitive fine stripes/moiré should not be mistaken for additional damaged columns.",
+    "observation": "Owner size correction and damage photos",
+    "qualification": "Do not infer present panel recovery, capture time, precise physical size or fault mechanism from upload alone."
+  }
+]
