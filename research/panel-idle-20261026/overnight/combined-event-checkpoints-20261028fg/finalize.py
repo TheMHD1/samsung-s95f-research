@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+"""Author-only derived metadata generation; no transport import or operation."""
+from pathlib import Path
+import hashlib,json,re,types
+P=Path(__file__).resolve().parent;B=P.parent
+sha=lambda b:hashlib.sha256(b).hexdigest()
+def write(p,v):p.write_text(json.dumps(v,sort_keys=True,indent=2)+'\n')
+inputs=['rtp-quiescent-checkpoints-20261028er/'+n for n in ['Program.cs','NativeBinding.cs','OnsetKey.cs','ScoreCheckpoints.cs','ReceiptMain.cs','run-once.py','prepare-readiness.py','deployment-manifest.json']]+['reader-wake-checkpoints-20261028fc/'+n for n in ['run-once.py','wake-check.py','test-runner.py','deployment-manifest.json']]+['fault-event-logging-options-20261028et/'+n for n in ['README.md','audit.py','source-audit.json','input-pins.json']]
+inputs+=['selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin','wake-qualified-onset-trial-20261028fe/capture-analysis/decoded.json']+[str(p.relative_to(B))for p in sorted((B/'wake-qualified-onset-trial-20261028fe/capture-01').glob('retained-*-*-cycle*-??-?.bin'))if p.name.startswith(('retained-00-trigger_baseline-cycle001','retained-02-post_fault-cycle046'))and p.name.endswith(('-R.bin','-M.bin','-C.bin'))]
+write(P/'input-pins.json',{'schema':'fg-input-pins-v1','files':[{'path':n,'bytes':len((B/n).read_bytes()),'sha256':sha((B/n).read_bytes())}for n in inputs]})
+write(P/'budget.json',{'schema':'fg-budget-v1','wholeNativeCooperativeUs':40000000,'bulkTimeoutUs':2000000,'pairBudgetUs':4000000,'cleanupPairs':6,'cleanupMarginUs':2000000,'cleanupReserveUs':26000000,'keyJoinReserveUs':7000000,'optionalPairAdmissionRemainingUs':37000000,'armAdmissionRemainingUs':38000000,'controlPairsMax':12,'observationDurationUs':2000000,'periodUs':25000,'rowsMax':56,'rowBytes':58,'rootSeconds':45,'hostSeconds':75,'commandCap':8192,'rootResponseCap':65536,'structuredReceiptCap':24576,'stdoutCap':16384,'stderrCap':2048,'ringSidecarBytes':15372,'ringSidecarCount':2,'targetOperationsPerformed':0})
+files=['Protocol.cs','Engine.cs','NativeBinding.cs','OnsetKey.cs','ScoreCheckpoints.cs','ReceiptMain.cs','HostTests.cs','CombinedEventCheckpoints.csproj','NuGet.Config','native-tests.json','fixture.json']+['bin/Release/net6.0/CombinedEventCheckpoints'+s for s in ['.dll','.deps.json','.runtimeconfig.json']]
+write(P/'host-build-checkpoint.json',{'schema':'fg-host-checkpoint-v1','targetOperations':0,'nativeQualification':json.loads((P/'native-tests.json').read_bytes()),'files':{n:{'bytes':len((P/n).read_bytes()),'sha256':sha((P/n).read_bytes())}for n in files}})
+p=P/'run-once.py';s=p.read_text();s=re.sub("PARSER_SHA = '[0-9a-f]{64}'","PARSER_SHA = '"+sha((P/'parse-result.py').read_bytes())+"'",s);s=re.sub("CHECKPOINT_SHA = '[0-9a-f]{64}'","CHECKPOINT_SHA = '"+sha((P/'host-build-checkpoint.json').read_bytes())+"'",s);p.write_text(s)
+m=types.ModuleType('fg_wrapper');m.__file__=str(p);exec(compile(s,str(p),'exec'),m.__dict__);manifest,_=m.build_manifest();(P/'deployment-manifest.json').write_bytes(m.manifest_bytes(manifest))
+files=sorted([p for p in (P/'freeze-history/initial-3907ea57').glob('*')if p.is_file()]+[p for p in P.iterdir()if p.is_file()and p.name!='source-inventory.json']+[P/n for n in files if n.startswith('bin/')])
+write(P/'source-inventory.json',{'schema':'fg-source-inventory-v1','targetOperations':0,'files':[{'path':str(p.relative_to(P)),'bytes':p.stat().st_size,'sha256':sha(p.read_bytes())}for p in files]})

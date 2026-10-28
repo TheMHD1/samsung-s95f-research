@@ -1,0 +1,56 @@
+{
+  "changes": [
+    {
+      "file": "Engine.cs",
+      "new": "c[7]<=1&&c[8]<=4&&(!initial||c[8]==3)",
+      "old": "c[7]<=1&&c[8]==3"
+    },
+    {
+      "file": "Engine.cs",
+      "new": "end==RtState.Clean&&x.Current.Windows[1].Buffer[56]==1&&x.Current.Windows[2].Buffer[8]==3",
+      "old": "end==RtState.Clean&&x.Current.Windows[1].Buffer[56]==1"
+    },
+    {
+      "file": "Engine.cs",
+      "new": "InitialNotCleanOrScanOneOrC8Three",
+      "old": "InitialNotCleanOrScanOne"
+    },
+    {
+      "file": "Engine.cs",
+      "new": "else x.Restore=\"observed-zero-unverified\";",
+      "old": "else x.Restore=\"already-zero-no-write\";"
+    },
+    {
+      "file": "Engine.cs",
+      "new": "LoggerR(after,0);x.Restore=gate==1?\"readback-zero\":\"already-zero-no-write\";",
+      "old": "LoggerR(after,0);if(gate==1)x.Restore=\"readback-zero\";"
+    },
+    {
+      "file": "parse-result.py",
+      "new": "[half(c,0),half(c,2),half(c,4),c[6]]==[2160,1920,2880,92]and c[7]<=1 and c[8]in [0,1,2,3,4]and(not initial or c[8]==3)",
+      "old": "[half(c,0),half(c,2),half(c,4),c[6],c[8]]==[2160,1920,2880,92,3]and c[7]<=1"
+    },
+    {
+      "file": "run-once.py",
+      "new": "if mode=='native':\n            record.update(native_invocations_status='terminal_receipt_retained',target_operations_status='native_receipt_unparsed',nativeReceipt={'bytes':len(receipt_raw),'sha256':sha(receipt_raw)})\n        record[tag+'Terminal']=terminal;record[tag+'DiagnosticStdout']",
+      "old": "record[tag+'Terminal']=terminal;record[tag+'DiagnosticStdout']"
+    },
+    {
+      "file": "run-once.py",
+      "new": "native_raw=run('native');native,rows,interpretation=parser.parse_native(native_raw.decode('utf8'));save(output/'interpretation.json',interpretation)\n    # Retain the primary semantic outcome before any ring completeness check or further root call.\n    # Ready/released/closed describes lifecycle; it cannot promote a refused observation.\n    primary={'schema':'fn-primary-native-outcome-v1','accepted':native['accepted'],'protocolAccepted':interpretation['protocolAccepted'],'terminalKnownPhase':interpretation['terminalKnownPhase'],'phase':native['phase'],'bindingQualified':native['bindingQualified'],'released':native['released'],'closed':native['closed'],'terminal':native['terminal'],'error':native.get('error'),'cleanupError':native.get('cleanupError'),'keyError':native.get('keyError'),'loggerRestore':native['restore'],'loggerMayRemain':native['loggerMayRemain'],'nativeExitCode':record['nativeTerminal']['exit_code'],'receiptSha256':sha(native_raw)}\n    save(output/'primary-native-outcome.json',primary)\n    record.update(native_invocations_status='one_completed',target_operations=native['headers'],target_operations_status='native_accepted_pending_sidecars'if native['accepted']else'native_refused',nativeOutcome=primary,loggerPayloads=native['writes']);save(record_path,record)\n    if native['accepted']is not True or record['nativeTerminal']['exit_code']!=0:\n        result=dict(primary,schema='fn-combined-event-wrapper-result-v1',accepted=False,protocolAccepted=False,cleanup='retained',cleanup_required=True,keyExposureQualified=False,manifestSha256=sha(reviewed_manifest),readinessSha256=sha(readiness_raw),nativeInvocations=1,retries=0,thresholdWrites=0)\n        save(output/'result.json',result)\n        need(False,'original native refusal preserved: '+str(primary['error']or primary['cleanupError']or primary['keyError']or primary['terminal']))\n    need(str(native['device'])==identity['devnum'],'device binding')",
+      "old": "native_raw=run('native');native,rows,interpretation=parser.parse_native(native_raw.decode('utf8'));save(output/'interpretation.json',interpretation)\n    need(str(native['device'])==identity['devnum'],'device binding')"
+    },
+    {
+      "file": "prepare-readiness.py",
+      "new": "combined-event-successor-20261028fn/run-once.py",
+      "old": "combined-event-checkpoints-20261028fn/run-once.py"
+    },
+    {
+      "file": "run-once.py",
+      "new": "'test-key-exposure.py','key-exposure-revision.json','qualify-context.py','successor-delta.json']",
+      "old": "'test-key-exposure.py','key-exposure-revision.json']"
+    }
+  ],
+  "familyRename": "FG/fg -> FN/fn; CombinedEventCheckpoints -> CombinedEventSuccessor; retain fg-stockevent-checkpoints-v1 row schema",
+  "schema": "fn-explicit-production-delta-v1"
+}

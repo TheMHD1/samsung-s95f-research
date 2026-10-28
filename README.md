@@ -20,6 +20,8 @@ This repository preserves the substantive work performed during the investigatio
 
 The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY-AF077FLLV2H** and Linux **5.4.261**. A separate board marking identifies a regional QN77S95FAFXZA assembly. Those observations do not make other firmware or hardware revisions equivalent.
 
+**Additive logging and reconciliation cutoff:** the original combined logger refusal remains rejected despite its known terminal phase. A separate fixed logger1→0 readback and final software-Clean40/logger0/N0 validation are independently replayed; Clean was already sampled before the logger write. [Read the source, tooling and sixth-fixture guide](docs/logging-refusal-restoration-20261028.md). FK and FN are host-qualified only at this cutoff; FO/FP and live mutable CURRENT are excluded. No optical recovery or permanent fix is established.
+
 ## Start here
 
 | Topic | Entry point |
@@ -33,6 +35,7 @@ The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY
 | Firmware / SWU / TEE research | [Authenticated extraction and kernel/DTB findings](docs/firmware-extraction-20261028.md), [External research](research/research-20261027-external/README.md), [SWU applicability](research/research-20261027-external/reports/swu-target-applicability.md) |
 | Firmware evidence graph and investigation playbook | [Current guide](docs/firmware-evidence-guide-20261028.md), [machine graph](research/panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/graph-with-dh-onset-02.json) |
 | Recovery case study | [Recovery boundaries](docs/recovery.md), [retained recovery runbook](research/RECOVER-PANEL.md) |
+| Logging/refusal/restoration and fixed current cutoff | [Logging guide](docs/logging-refusal-restoration-20261028.md), [sixth fixture](fixtures/logger-refusal-restoration.json) |
 | Snapshot status and unresolved work | [Status and gaps](docs/status-and-gaps.md), [historical checkpoint](research/CURRENT-INVESTIGATION.md) |
 | Provenance, coverage, omissions and licensing | [Publication policy](docs/publication.md), [source lineage](docs/source-lineage.md), [licenses](LICENSE.md), [manifest summary](manifests/export-summary.json) |
 

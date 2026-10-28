@@ -37,3 +37,8 @@ The separate [finite-limit contrast](finite-limit-contrast-20261028.md) adds `py
 The [reference-refresh guide](reference-refresh-20261028.md) lists four original pure-model suites for selector edges, two-event copy counting, table arithmetic/lifetime and mock coordination. `tests/test_refresh_models.py` runs them from the public tree in normal and optimized Python without private acquisition inputs or a target adapter. Source-audit and actual-capture replay scripts retain their original private-input requirements; successful public model tests do not establish runtime call coverage.
 
 The [reference-event guide](reference-events-20261028.md) adds two pure host-model suites to the publication tests: EK single-lane design ownership/phase boundaries and EQ stock gate/trainer controls. They run normally and with `-O` without OEM images or a target adapter. Their passing models do not qualify a deployed writer. Actual-capture analyzers retain private input dependencies and are not claimed to replay from the public tree.
+
+
+## Sixth refusal/restoration scientific fixture
+
+Run `python3 tools/verify_logger_reconciliation.py` and its `python3 -O` equivalent. This verifier consumes only the public fixture and imports no target tooling. It reproduces the original rejected/knownReady state, complete unpublished Quiescent set, checked logger1→0 and final Clean40/logger0/N0. The [guide](logging-refusal-restoration-20261028.md) documents typed projections and limits. Its generator requires explicitly supplied private inputs, intentionally absent from a public clone.

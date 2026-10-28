@@ -1,0 +1,348 @@
+{
+  "accepted": true,
+  "actualIdentity65Mock": {
+    "acceptedAndRefusedCases": 2,
+    "commands": 85,
+    "identitySourceSha256": "6e4658af3ed641005add1e9ac516107ea42a49d99e9b8463a909ee1f3a2376d2",
+    "maxCommandBytes": 7944,
+    "targetOperations": 0
+  },
+  "checks": 827,
+  "frozenPins": {
+    "bin/Release/net6.0/CombinedEventSuccessor.dll": "1628ccfc09d761707a0241e9e3b66a03b85a85470dbef4c93d6758bd634ad9b2",
+    "deployment-manifest.json": "44ddd0699a59329ced1290a0570e791672004b4aa7875e4d203ad0621bc0f7ce",
+    "parse-result.py": "d222a8830f222bd0643b2e86bf4b47e2397258cd6cdae62e0b93141b2be7d78d",
+    "qualification.json": "4c7d9e054547c7d8c0936e6259b2f57aa3797ac8f26b0a2c183c6d2039784df6",
+    "run-once.py": "85fbe055b5b9b2331b68c0710d7814d5ceee599b2649b70104dfb37bcd5e8cf0",
+    "source-inventory.json": "cda3b1936cab9127ab221e08c588c9e11ecb3628938b0dfd8da84daeec39afc3"
+  },
+  "inputFiles": 50,
+  "inventoryFiles": 44,
+  "limitation": "Host qualification and source-equivalence only; sampled producer/key/UI/physical activity is not established.",
+  "native": {
+    "maxControlPairs": 12,
+    "maxReceiptBytes": 18273,
+    "maxRows": 56,
+    "selfTestsPassed": 3549,
+    "sidecarBytes": 15372,
+    "targetOperations": 0
+  },
+  "networkOperations": 0,
+  "rootCalls": 0,
+  "schema": "fn-independent-review-validation-v1",
+  "suites": {
+    "qualify-context.py": {
+      "admission": "prearm and first full clean baseline remain3; later observation and fresh cleanup positive0..4 only; other context/phase/clock guards retained",
+      "checks": 53,
+      "contextCpu": "0x20000bc8",
+      "fhCurrentC": {
+        "bytes": 16,
+        "c7": 1,
+        "c8": 0,
+        "sha256": "7e9ae5eaa6ee9ad74ff067ae024ca0e37ddf55e256a1a0f096e6179daf3ac63d"
+      },
+      "fhReceipt": {
+        "bytes": 11643,
+        "path": "combined-event-trial-20261028fh/capture-01/native.receipt.json",
+        "sha256": "8594423361a5123a6fa250b003795dd454bfda1cf9dab4a58ba8b193fbad8239"
+      },
+      "flReportSha256": "804cf3e296660bc398d14061eadc8ff2db62c2621a67ad74c43fee1e4a44b083",
+      "globalDomainComplete": false,
+      "loggerBus": "0x47012406",
+      "loggerCpu": "0x20012406",
+      "positiveRuntimeValues": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "prearmAndFirstBaselineC8": 3,
+      "schema": "fn-context-qualification-v1",
+      "sourceSemantics": "derived MULTI/AP_EXCO byte0 independent from byte3d8; runtime clear and four setter direct callers yield positive0..4; callback copies to C8; no bounded return-to3",
+      "targetOperations": 0
+    },
+    "qualify-scan.py": {
+      "actualInputs": [
+        {
+          "bytes": 256,
+          "path": "wake-qualified-onset-trial-20261028fe/capture-01/retained-00-trigger_baseline-cycle001-00-R.bin",
+          "sha256": "eac00ff4ff6defbffcf2e0bbf6e2cd300d7f5765c5755bb605c74d6c3d6aae7d"
+        },
+        {
+          "bytes": 68,
+          "path": "wake-qualified-onset-trial-20261028fe/capture-01/retained-00-trigger_baseline-cycle001-01-M.bin",
+          "sha256": "7feaef6a687c1b439d17d386e390d88b5274918750fb438f3b1e0fbf3df51852"
+        },
+        {
+          "bytes": 16,
+          "path": "wake-qualified-onset-trial-20261028fe/capture-01/retained-00-trigger_baseline-cycle001-02-C.bin",
+          "sha256": "c9bc21efabc33dc5c687f230ecf321722552c99518957cc37b833c7aaaf9c2b0"
+        },
+        {
+          "bytes": 256,
+          "path": "wake-qualified-onset-trial-20261028fe/capture-01/retained-02-post_fault-cycle046-06-R.bin",
+          "sha256": "8621bfc04375787f11e8c31740a27b641c7ee672451685333e38fdd44ab25bb0"
+        },
+        {
+          "bytes": 68,
+          "path": "wake-qualified-onset-trial-20261028fe/capture-01/retained-02-post_fault-cycle046-00-M.bin",
+          "sha256": "d7ba7023cb16bf4606f04a7c9443cf11191482eb781f8141b10163bfbba533cf"
+        },
+        {
+          "bytes": 16,
+          "path": "wake-qualified-onset-trial-20261028fe/capture-01/retained-02-post_fault-cycle046-01-C.bin",
+          "sha256": "2efca8a0f734277a3df0351751a2ec11d33d20423983381f5068299289fc308a"
+        }
+      ],
+      "actualSamples": [
+        {
+          "aa": 0,
+          "ac": 2,
+          "role": "baseline",
+          "root": 536936448,
+          "rt": [
+            0,
+            0,
+            1
+          ],
+          "scan": 1
+        },
+        {
+          "aa": 0,
+          "ac": 2,
+          "role": "fault",
+          "root": 536936448,
+          "rt": [
+            1,
+            4097,
+            0
+          ],
+          "scan": 0
+        }
+      ],
+      "admission": "prearm and first complete clean baseline scan1; later observations and fresh cleanup finite scan0or1, never other values",
+      "anchors": [
+        {
+          "bytesSha256": "03cebb89bb726ee45bed2133298acb685d3b2077a4bda173e879e1b980660111",
+          "fileOffset": 312402,
+          "va": 49746
+        },
+        {
+          "bytesSha256": "1c53ab465a2f888f6d3fc1a7f2ed604f2b81f96366f58231acb2913e14fca151",
+          "fileOffset": 312408,
+          "va": 49752
+        },
+        {
+          "bytesSha256": "119b43468ccb9378c1d4b901d40f4d772147e6b2122e7ee39ef6930942f1c8cf",
+          "fileOffset": 312412,
+          "va": 49756
+        },
+        {
+          "bytesSha256": "fdf29bbe173d32d884cb77829e2fcf54a20650ddebabcf9132cce0456bf9e4be",
+          "fileOffset": 312414,
+          "va": 49758
+        },
+        {
+          "bytesSha256": "8c0e4ed1d0667f60c52c3cdc43e01aec868b140e8c3485e2aada52b5e40859fc",
+          "fileOffset": 312418,
+          "va": 49762
+        },
+        {
+          "bytesSha256": "19a5220be3b0a0a811b8de0540dc6b56338288fdb4ae5c3d0a35ca1c5125f3b1",
+          "fileOffset": 312420,
+          "va": 49764
+        },
+        {
+          "bytesSha256": "1ba2b8dedc90e6ed83306fbd5b7c5ebf5b1f063e6183a612174621da9a8605e6",
+          "fileOffset": 312422,
+          "va": 49766
+        },
+        {
+          "bytesSha256": "8c0e4ed1d0667f60c52c3cdc43e01aec868b140e8c3485e2aada52b5e40859fc",
+          "fileOffset": 312426,
+          "va": 49770
+        },
+        {
+          "bytesSha256": "1c972398125398a3665f212930758ae9518a8c948adbccca6753f11525730591",
+          "fileOffset": 312428,
+          "va": 49772
+        },
+        {
+          "bytesSha256": "260fec2056d7e4bb1b8ca16084b7c0c53b0ef5519d515e02bbcb613273f1e4aa",
+          "fileOffset": 312430,
+          "va": 49774
+        },
+        {
+          "bytesSha256": "abd8e3f1bc51d83739e9dc5c7c9879cb812e524c079cc5de4542b4322e5c1696",
+          "fileOffset": 312432,
+          "va": 49776
+        },
+        {
+          "bytesSha256": "9d2e0be5ad6a503264e4bdb661d67f6dfaefcc70012123534cb4c039abbf443e",
+          "fileOffset": 312434,
+          "va": 49778
+        },
+        {
+          "bytesSha256": "474f2af47544e9c7ce4338cabd43c5ca1c26432b7300ce387406157ea433891f",
+          "fileOffset": 312438,
+          "va": 49782
+        },
+        {
+          "bytesSha256": "103aa04cb80c90a990e4ae3e30c8152a17f49e12d8b9b2c99ece03a26ced299f",
+          "fileOffset": 312440,
+          "va": 49784
+        },
+        {
+          "bytesSha256": "9d2e0be5ad6a503264e4bdb661d67f6dfaefcc70012123534cb4c039abbf443e",
+          "fileOffset": 312442,
+          "va": 49786
+        },
+        {
+          "bytesSha256": "cebb4b41bd69d7f6facf12583caad98c5f8cde3022da70603506bb9f14e52620",
+          "fileOffset": 312556,
+          "va": 49900
+        },
+        {
+          "bytesSha256": "2ebda59f7471828bf2703fc26623ea63bc843b7b1f27bf91d5b30eac7f3d3482",
+          "fileOffset": 312304,
+          "va": 49648
+        },
+        {
+          "bytesSha256": "2ebda59f7471828bf2703fc26623ea63bc843b7b1f27bf91d5b30eac7f3d3482",
+          "fileOffset": 312312,
+          "va": 49656
+        },
+        {
+          "bytesSha256": "2ebda59f7471828bf2703fc26623ea63bc843b7b1f27bf91d5b30eac7f3d3482",
+          "fileOffset": 312320,
+          "va": 49664
+        }
+      ],
+      "checks": 44,
+      "schema": "fn-scan-qualification-v1",
+      "sourceAssetSha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0",
+      "sourceByteSha256": "8d9de1850d88656ef7433bbb014423abd241f797352fd0a5a3d449bd84ccd4ac",
+      "sourceMapping": "image1 VA +0x40200 = selected file offset",
+      "sourceRange": [
+        49744,
+        49904
+      ],
+      "sourceSemantics": "c250 stores1 iff its sampled stop==0 and ordinarygate==1, else0; separate scheduling is not atomic with host reads",
+      "targetOperations": 0
+    },
+    "test-host.py": {
+      "checks": 1376,
+      "maxCommandBytes": 7928,
+      "maxRootResponseBytes": 58848,
+      "receiptBytes": 15256,
+      "shellCommands": 556,
+      "sidecarResponseUpperBound": 21000,
+      "targetOperations": 0
+    },
+    "test-key-exposure.py": {
+      "cases": 8,
+      "checks": 54,
+      "qualifierUnchanged": true,
+      "schema": "fn-key-exposure-tests-v1",
+      "targetOperations": 0
+    },
+    "verify-source.py": {
+      "explicitProductionDeltaCount": 10,
+      "fcWakeUnchanged": true,
+      "legacy58ByteRowSchemaUnchanged": true,
+      "pendingPairClockWriteBindingAccountingUnchanged": true,
+      "productionFiles": [
+        {
+          "changedLines": 2,
+          "diffSha256": "d9d6c0661f697e9d2317edc94cf7ddc62e59175f6f6b08c00353c0949b6c8cf7",
+          "file": "Protocol.cs",
+          "parentSha256": "636467128c831f3a8b5a85d8ed7f27615d3c49a0c7cf3e086e5b40107c8dc664",
+          "successorSha256": "93296ffa5c178cae0c533f53395f022f69d87929521dc90da714dbf05c7d2113"
+        },
+        {
+          "changedLines": 10,
+          "diffSha256": "a0b71cf5877982ce5a4bfefa697e98fa039052d3c5885a8744ad99697fb3f4cc",
+          "file": "Engine.cs",
+          "parentSha256": "5e7fe187aa038797aa851c544e4a437032bcd14754d336d0afa490ce2d25e113",
+          "successorSha256": "b1570ac8c71db3962990c64fdfa9c621f57cf6de1a2d885b52e5973c8e98ce07"
+        },
+        {
+          "changedLines": 0,
+          "diffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "NativeBinding.cs",
+          "parentSha256": "7b7e78141c8de13ea773f2a6f9ee292fe1cd445e3d06447f0e935905fbc27435",
+          "successorSha256": "7b7e78141c8de13ea773f2a6f9ee292fe1cd445e3d06447f0e935905fbc27435"
+        },
+        {
+          "changedLines": 0,
+          "diffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "OnsetKey.cs",
+          "parentSha256": "1e73ad1f8bd9ee38842294fe6ff2df3c2cdcbd32989e1681f60813741fbd537d",
+          "successorSha256": "1e73ad1f8bd9ee38842294fe6ff2df3c2cdcbd32989e1681f60813741fbd537d"
+        },
+        {
+          "changedLines": 0,
+          "diffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "ScoreCheckpoints.cs",
+          "parentSha256": "37c54eed9c898053b04de92ced094c7f2de711c9bd270ab22f0ed5c36b7d6056",
+          "successorSha256": "37c54eed9c898053b04de92ced094c7f2de711c9bd270ab22f0ed5c36b7d6056"
+        },
+        {
+          "changedLines": 4,
+          "diffSha256": "3f10633349804cf4f5e2314a7cf48d3c1d6336738f17e38098d2568bcffc69ed",
+          "file": "ReceiptMain.cs",
+          "parentSha256": "8bd903da630ccfd506d9f68cfce1d45fa33298d912cd1babe334bd34197427fa",
+          "successorSha256": "50e6b1802ae9438375c2e7849f3a829006112570df3f2a5ee27752de6d4b65df"
+        },
+        {
+          "changedLines": 2,
+          "diffSha256": "130f208b5bae0a71ec6a6423b797d0dbbbdcc22f7818207cecc1f56f480465a5",
+          "file": "CombinedEventSuccessor.csproj",
+          "parentSha256": "c0e4cc3383dbef915a81b463c538480350abc97425b8ed83f70fe8d20edfbac3",
+          "successorSha256": "b624f656223478dc9ca59ff5df747083ea6df59dce6571549a43699a6260870b"
+        },
+        {
+          "changedLines": 0,
+          "diffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "NuGet.Config",
+          "parentSha256": "9508cae5f76364f56e80eb97cb16493977243cf38e5cca6284e3d74f83b20a2c",
+          "successorSha256": "9508cae5f76364f56e80eb97cb16493977243cf38e5cca6284e3d74f83b20a2c"
+        },
+        {
+          "changedLines": 6,
+          "diffSha256": "4020374f8bc3174be1c0f243943a045ca5dc7b5b556a0d23ad45ec158c4dee84",
+          "file": "parse-result.py",
+          "parentSha256": "d776145c877abe43a12601fcc54531d98225e378b8298f6822abbfd5600667c1",
+          "successorSha256": "d222a8830f222bd0643b2e86bf4b47e2397258cd6cdae62e0b93141b2be7d78d"
+        },
+        {
+          "changedLines": 41,
+          "diffSha256": "684a49fda86d46da9ef3a0677f617f997c202faf1d6dbede5f3b8f4b5813464b",
+          "file": "run-once.py",
+          "parentSha256": "00831c4b81238103ebc52f5903061b61f0d8ddeccb95d73a53aa0afd6554c517",
+          "successorSha256": "85fbe055b5b9b2331b68c0710d7814d5ceee599b2649b70104dfb37bcd5e8cf0"
+        },
+        {
+          "changedLines": 12,
+          "diffSha256": "8ffe7d875a74947d48eb920b4175c0f41c08dbfe33e11b30934ef77bc6194134",
+          "file": "prepare-readiness.py",
+          "parentSha256": "ac064bb7bfca9c277d2026b2bc3aa407df4f6580b3e86163f99165016eecb4ef",
+          "successorSha256": "bd5ab800d312e3fccd42f907ade84a66dbe59a36ff4e6738a1a4aa4dde0f96fb"
+        },
+        {
+          "changedLines": 0,
+          "diffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "wake-check.py",
+          "parentSha256": "8eed8a0192304a57e0356b8960a82e18cf8e4eddf81de82301833479e7bd7574",
+          "successorSha256": "8eed8a0192304a57e0356b8960a82e18cf8e4eddf81de82301833479e7bd7574"
+        }
+      ],
+      "schema": "fn-source-equivalence-v1",
+      "sourceChecks": 35,
+      "targetOperations": 0
+    }
+  },
+  "targetOperations": 0,
+  "wroteOnlyReviews": true
+}

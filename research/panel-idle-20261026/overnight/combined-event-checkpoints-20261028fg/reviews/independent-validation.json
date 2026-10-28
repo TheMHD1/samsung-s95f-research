@@ -1,0 +1,138 @@
+{
+  "authorSourceEdited": false,
+  "decision": "PASS",
+  "finalLimits": [
+    "Host/source/mock qualification only; no FG target invocation was performed by reviewer.",
+    "Budget is cooperative; ambiguous transfers, clock loss, source/context drift, process death or timeout can retain unresolved logger/stage state.",
+    "Captured R/M/C and ring fields are sequential and do not exclude intervening stock writers, wrap or other ring consumers.",
+    "Exposure qualification is successful down-call timing before a later optional read, not UI consumption or causality.",
+    "No selected-A/FP instruction, physical picture, whole-code identity, persistent fix or root cause proof."
+  ],
+  "frozenInventoryFilesVerified": 48,
+  "initialNativeCheckpointFilesUnchanged": 14,
+  "manifestRegeneratedByteExact": true,
+  "nativeHostSelfTest": {
+    "maxControlPairs": 12,
+    "maxReceiptBytes": 18273,
+    "maxRows": 56,
+    "selfTestsPassed": 3512,
+    "sidecarBytes": 15372,
+    "targetOperations": 0
+  },
+  "nativeSelfTestScope": "Executed independently on host before host-only qualifier repin; all 14 native checkpoint files were subsequently proven byte-identical.",
+  "networkOperations": 0,
+  "normalOptimizedByteExact": {
+    "independent": true,
+    "qualifier": true,
+    "scan": true,
+    "source": true,
+    "wrapper": true
+  },
+  "pins": {
+    "hostCheckpointSha256": "21562221556c3bf872bc8106d23bc8291712a3aff2ed85d0893f708654d35ba9",
+    "manifestSha256": "31dfad807c0978e99d8314e7bc14802c1494ff73691bd3ebde5548d20cf5fdb4",
+    "nativeDllSha256": "cc6cab08fdacad6bac8a4a4d5343dc60f53e9cd5f444e71181ef2e5a3f52abbe",
+    "parserSha256": "d776145c877abe43a12601fcc54531d98225e378b8298f6822abbfd5600667c1",
+    "sourceInventorySha256": "c433f7151c5ab31b53abf34eb21689db006e2bae0fcfff52562ac947d44ffe20",
+    "wrapperSha256": "00831c4b81238103ebc52f5903061b61f0d8ddeccb95d73a53aa0afd6554c517"
+  },
+  "results": {
+    "final-qualifier-normal": {
+      "cases": 8,
+      "checks": 69,
+      "initialManifestPreserved": true,
+      "nativeDllUnchanged": true,
+      "schema": "fg-key-exposure-tests-v1",
+      "targetOperations": 0
+    },
+    "final-qualifier-optimized": {
+      "cases": 8,
+      "checks": 69,
+      "initialManifestPreserved": true,
+      "nativeDllUnchanged": true,
+      "schema": "fg-key-exposure-tests-v1",
+      "targetOperations": 0
+    },
+    "final-source-normal": {
+      "sourceChecks": 26,
+      "targetOperations": 0
+    },
+    "final-source-optimized": {
+      "sourceChecks": 26,
+      "targetOperations": 0
+    },
+    "final-wrapper-normal": {
+      "checks": 1145,
+      "maxCommandBytes": 7972,
+      "maxRootResponseBytes": 58848,
+      "receiptBytes": 15256,
+      "shellCommands": 460,
+      "sidecarResponseUpperBound": 21000,
+      "targetOperations": 0
+    },
+    "final-wrapper-optimized": {
+      "checks": 1145,
+      "maxCommandBytes": 7972,
+      "maxRootResponseBytes": 58848,
+      "receiptBytes": 15256,
+      "shellCommands": 460,
+      "sidecarResponseUpperBound": 21000,
+      "targetOperations": 0
+    },
+    "independent-normal": {
+      "actualSavedIdentitySyntheticMaxCommandBytes": 7988,
+      "independentChecks": 49,
+      "networkOperations": 0,
+      "rootCalls": 0,
+      "targetOperations": 0
+    },
+    "independent-optimized": {
+      "actualSavedIdentitySyntheticMaxCommandBytes": 7988,
+      "independentChecks": 49,
+      "networkOperations": 0,
+      "rootCalls": 0,
+      "targetOperations": 0
+    }
+  },
+  "rootCalls": 0,
+  "scan": {
+    "checks": 44,
+    "outputPath": "private/scan-output.json",
+    "outputSha256": "575f2e5503d33d3d72c2ec7a04468d9ee0e5e15ee38c65416201b99aaeec3d41"
+  },
+  "schema": "fg-independent-integration-validation-v1",
+  "sourceReview": {
+    "acceptedHeaderRequiresOneMatchingPayloadDespiteClockError": true,
+    "cleanupAdmissionUs": 26000000,
+    "controlPairsMaximum": 12,
+    "exclusiveStageFiles": 11,
+    "fixedLoggerAddress": "0x47012406",
+    "fixedLoggerHeaderHex": "020100000624014702000000",
+    "fixedPayloadsHex": [
+      "0100",
+      "0000"
+    ],
+    "freshRestoreOrder": [
+      "M",
+      "C",
+      "R",
+      "write-if-one",
+      "R",
+      "Ring"
+    ],
+    "initialCleanScanRequired": 1,
+    "keyJoinReserveUs": 7000000,
+    "keyQualifierExcludesCleanupR": true,
+    "keyQualifierSeparateFromProtocolAcceptance": true,
+    "knownPhaseAlreadyZeroIsNotAttributedToProcessRestore": true,
+    "laterScanDomain": [
+      0,
+      1
+    ],
+    "nativeProductionAbi": "ARM32 little-endian 16-byte USB bulk struct, inherited owned-FD usbfs binding",
+    "threshold": 40,
+    "unknownPhaseStopsNewHeadersAndFurtherWrapperRootRequests": true,
+    "wholeCooperativeNativeUs": 40000000
+  },
+  "targetOperations": 0
+}

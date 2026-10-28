@@ -62,3 +62,8 @@ The separate [sampled-code checkpoint](code-fingerprint-20261028.md) connects fr
 ## Reference refresh and observability
 
 The [source and observation guide](reference-refresh-20261028.md) links completed lane-table writer/lifetime models, full-byte selector and distinct mirror provenance, two-event reference copying, warm unchanged40 control, the reviewed54-byte logger and its preserved already-faulted refusal. The completed separate fault/recovery replay remains distinct from a new onset or prevention result. Pure models reproduce from the public clone; raw identity-bearing captures remain private.
+
+
+## Logging and lifecycle instrumentation
+
+Use the [logging/refusal/restoration guide](logging-refusal-restoration-20261028.md) for FC–FN sources, independent reviews and the sixth public fixture. It links strict wake/admission, rejected combined logging, source correction, restore-only maintenance and the internal TCON reader prototype. This is part of the broader access, firmware, kernel, controller and instrumentation archive.

@@ -1,0 +1,41 @@
+# Independent FK single-read review
+
+Decision: **PASS for the frozen host-only source/native/parser prototype.** No implementation blocker was found within its fixed single-read contract. This is not a deployed or transport-qualified probe. There is no root adapter or deployment manifest in FK; `host-build-checkpoint.json` pins the three managed payload files, and `source-inventory.json` pins18 authored files and outputs. A later adapter remains a separate integration boundary.
+
+The reviewed inventory is `b59247fb9344d5ded74869a7dad1a1d5fdde5f1b73431bb882eb65a3081d3c2c`; DLL is `3abfbbde0045f268073f45d557c63103c3c93a2d4906182e453c1303e5e0cbc0`; Program source is `f0b49d1f6f5b02d0f3bafd7690b2f453508e1f2637038e379a8366609823b6df`; parser is `79b8b027891a9fdbaeeda1ba2d1bedc2cdbb3ad469b726c23ad3032207a1e43a`. All18 inventory entries and11 input pins match and remain unchanged.
+
+## Acquisition and ABI
+
+Production accepts only the fixed `--execute` entry point, and first requires little-endian ARM32 with4-byte pointers and root UID/EUID. The default is dry. Host `--self-test`/`--fixture` operate only on FakeOps. The x64 `--execute` refusal is before any libc or target-path operation. No caller-controlled path, length, count, flags or mode reaches acquisition.
+
+The receipt stage is fixed and checked through native statx with TYPE/MODE/UID/INO masks0x10b, requiring nonsymlink root-owned0700 directory. The fixed receipt is created exclusively0600 with nofollow before target acquisition. These are separate operations, with the documented privileged-path race boundary. The private receipt contains full raw bytes and must not be published directly. Output failures/crashes may leave an incomplete receipt and have no replay or cleanup logic in FK.
+
+The actual read allocation is exactly4096 bytes. All bytes are initialized/touched with0xa5; the Observation, bracket storage and pin exist before driver open. Acquisition calls `open` once, then direct libc `read(fd,pinnedPointer,4096)` at most once, and attempts `close` once in finally after a real acquired FD. No managed input stream introduces a larger or repeated read. Hashing/base64/receipt output occur after driver close. The only FileStream is the separate ordinary receipt output.
+
+ARM32 libc ABI is coherent: open/close FD and flags are32-bit ints, mode unsigned32, read size_t is UIntPtr and ssize_t/pointer return is IntPtr with native signed conversion. O_CLOEXEC0x80000 and ARM O_NOFOLLOW0x8000 give target open0x88000; receipt additionally uses O_WRONLY/O_CREAT/O_EXCL and0600. Retained libc ELF32 little-endian ARM and open/read/close/getuid/geteuid/statx symbols are present, including statx GLIBC_2.28. Kernel `sdp_tcon.ko` is AArch64, a separate ABI domain; this is compatible syscall use, not an assumption that the module itself is ARM32. Source existence is not live loaded-libc instruction attestation.
+
+All six timestamp failures are exercised. Failure after open still reaches close; failed open/read-before timestamps suppress read; close timestamps cannot suppress the close attempt. Read/open/close exceptions or errno/count failures are retained and refuse acceptance. A close EINTR is never retried. Ordered nonnegative brackets, read count0..4096, successful close, no masks/errors and correct lifecycle are required for acceptance. There is no timeout thread or forced signal. Blocking syscalls or process death can prevent return/finally; no duration, rollback or completed-close guarantee is asserted.
+
+## Driver and runtime evidence
+
+Independent source checks match four qualified module spans, the fops read relocation to `.text+0x61b0`, open relocation to `simple_open`, and `__arch_copy_to_user` call at+0x62f8. Instruction anchors match the unsigned16-bit header, small-length branch, requested-count branch and payload+4 address. The driver module SHA256 is `9b7c1cb8e2bb8d11e5465a41fa402e71bd8d15a5dabd6b3d76de98a7a42549ee`.
+
+The source bug makes small requests unsuitable: for L=header+1<=4095 it does not clamp to the supplied count. At a fresh open's initial position0, allocating and requesting4096 bounds both branches to at most4096, with source endpoint at most mapping+4100 inside the128KiB region. Native tests exhaust all65536 header values; independent checks reproduce the boundary cases and bind the underlying source bytes. Only the first direct read is qualified. No repeated read, seek, arbitrary fd/path, init, ACK, ioctl, mmap or log-enable operation is introduced.
+
+FD's bounded read-body analysis finds only stack/file-position stores; tiny tryuse/disuse helpers are not hidden runtime-PM transitions in those exact spans. This does not establish every hardware-side read effect. The source ignores copy_to_user's residual: a positive count may accompany partially untouched allocation bytes. Prefill/pinning reduce ordinary copy-fault exposure but do not repair that defect. Receipt acceptance therefore expressly does not attest copied bytes, producer atomicity/freshness or complete logs.
+
+FJ's one saved authenticated root response matches its decoded transport JSON and metadata file. It positively records debugfs mounted, the fixed node existing, `sdp_tcon` listed Live, and exact audited on-disk module size/hash. Its command obtains metadata, not debugfs payload. This does not attest loaded instructions or continuous existence since the sample. The internal TCON/FRC shared log has no established producer bridge to the external RTP comparison, and no physical-light observation is supplied.
+
+## Parser and byte budget
+
+The parser bounds bytes before JSON decoding, rejects duplicate/non-JSON/extra fields, fixes path/count/limits, checks typed lifecycle/results/errno/masks/brackets, verifies canonical base64 plus whole4096-byte allocation and returned-prefix hashes, and recomputes acceptance. Zero/short returns are valid bounded syscall outcomes, without a completeness conclusion. Refused acquisitions remain false and cannot be promoted by trusting the receipt's accepted flag. It is an offline content verifier, not transport/file-owner provenance by itself.
+
+The synthetic native receipt is6477 bytes including newline. The structural maximum6657 bytes uses fixed field/string shapes, longest signed64-bit result values, six longest monotonic values and bounded masks/errno. The raw4096-byte buffer always encodes to5464 ASCII base64 characters; hashes are fixed64-character ASCII. `UnsafeRelaxedJsonEscaping` prevents '+' expansion to six-byte escapes. The native all-plus fixture checks this encoder property. No OEM text is inserted directly as an unbounded JSON string. The inclusive16384 cap has ample margin, and parser input is capped before parsing. There is no shell/root envelope to qualify in this package.
+
+## Reproduction and integration boundary
+
+Independent host reproduction passed **131289 native assertions across27 cases**, **106 host checks normally and with `-O`**, including51 malformed receipt variants, and **111 additional checks normally and with `-O`**, including20 accepted-receipt mutations. Normal/optimized JSON outputs match byte-for-byte. All18 frozen files and11 retained inputs remain unchanged. No source rebuild, target, real root adapter, network or OEM execution was performed. Host test scripts invoke only their managed FakeOps native DLL, ordinary readelf and the x64 ABI refusal.
+
+Before actual use, a separately reviewed adapter must bind the exact payload/checkpoint/source pins; fresh runtime/module/path/boot metadata; ordinary private-stage creation; one invocation; terminal status and exclusive semantic receipt separate from diagnostic stdout; receipt extent/hash/count/parser checks; and exact ordinary-file inventory/cleanup. Missing/ambiguous termination or incomplete receipt must retain evidence and must not trigger another special read. No foreground timeout should be represented as proof that the kernel read or close completed. FK's source and tests provide no such adapter, retry, recovery or cleanup claims.
+
+No causal, event-absence, actual-FP, external-RTP, whole-loaded-image or optical claim follows from this prototype. These are explicit boundaries of what the source/data can establish, rather than an implementation blocker to the fixed host-only contract.

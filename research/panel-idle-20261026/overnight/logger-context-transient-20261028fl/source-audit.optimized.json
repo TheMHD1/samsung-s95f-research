@@ -1,0 +1,171 @@
+{
+  "all_indirect_writers_excluded": false,
+  "checks": 103,
+  "context_field_cpu": "0x20000bc8",
+  "cross_core_source_cpu": "0x200158a8",
+  "executable_modifications": 0,
+  "failed_live_cycle_cause_proven": false,
+  "finite_transient_witness": {
+    "c7": 1,
+    "c8": 0,
+    "derived0": 0,
+    "derived3d8": 1,
+    "logger": 1,
+    "root": 536936448
+  },
+  "fresh_arm_or_readiness_widening_supported": false,
+  "global_value_domain_complete": false,
+  "image1_immediate_offset_census": [
+    {
+      "mnemonic": "strb.w",
+      "operands": "r0, [r5, #0x6c8]",
+      "va": "0x3958"
+    },
+    {
+      "mnemonic": "ldrb.w",
+      "operands": "r0, [r5, #0x6c8]",
+      "va": "0x3a12"
+    },
+    {
+      "mnemonic": "ldrb.w",
+      "operands": "r0, [r0, #0x6c8]",
+      "va": "0x18c9e"
+    }
+  ],
+  "mapped_source": "0x450158a8",
+  "positive_stock_values": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "restore_conditions": "Fresh binding, HeaderReady phase, exact root/mode/geometry/profile and known logger0or1 without upper-bit drift; fixed original00 halfword only; observed final readback required. C8zero is a known stock transient and alone does not identify context replacement.",
+  "schema": "fl-c8-source-transient-v1",
+  "setter_direct_callers": [
+    "0x329f8",
+    "0x32a0c",
+    "0x32a2e",
+    "0x32ab6"
+  ],
+  "source_object": [
+    "MULTI",
+    "AP_EXCO"
+  ],
+  "source_spans": [
+    {
+      "end_exclusive": "0x395c",
+      "file_offset": "0x43ae8",
+      "image": 1,
+      "role": "callback/getters",
+      "sha256": "a4b5dcfe2e770b2e4fd1d1f5acc7577e15ba91ece1d145ff4454783568e48e44",
+      "va": "0x38e8"
+    },
+    {
+      "end_exclusive": "0x1bcc4",
+      "file_offset": "0x5bd74",
+      "image": 1,
+      "role": "mapper/lookup",
+      "sha256": "76fd6c68991c423de43a224642797c5a9442c16917d2e635158a96a9f694584b",
+      "va": "0x1bb74"
+    },
+    {
+      "end_exclusive": "0x1bd48",
+      "file_offset": "0x5bec4",
+      "image": 1,
+      "role": "pointer binding",
+      "sha256": "344accecffd7cff7fb1e7e56ec85778bfa99a9b12646223f34a84e43fb49288b",
+      "va": "0x1bcc4"
+    },
+    {
+      "end_exclusive": "0xe774",
+      "file_offset": "0xe96c",
+      "image": 0,
+      "role": "derived getter",
+      "sha256": "a971931ca704d394dc4e3ea628440af003c9773be24beb079d5a66a08fefcfc0",
+      "va": "0xe76c"
+    },
+    {
+      "end_exclusive": "0x3278c",
+      "file_offset": "0x32964",
+      "image": 0,
+      "role": "ordinary clear",
+      "sha256": "72158e527dbbadfae0da05ae0d9c6cb71dfe9b74d0f989a3fabd6982f30c2139",
+      "va": "0x32764"
+    },
+    {
+      "end_exclusive": "0x327c4",
+      "file_offset": "0x32990",
+      "image": 0,
+      "role": "callback return clear",
+      "sha256": "4266b1794e4c22d13c2d44e33627094693719f508937aa9baa8976a11f52e938",
+      "va": "0x32790"
+    },
+    {
+      "end_exclusive": "0x32ac8",
+      "file_offset": "0x32bce",
+      "image": 0,
+      "role": "control decision and clear",
+      "sha256": "85b842155f9881c6d0bf8e25a71ca51bd442ce5e28b3b6f3bb0681e80e716cd3",
+      "va": "0x329ce"
+    },
+    {
+      "end_exclusive": "0x328a4",
+      "file_offset": "0x32a6c",
+      "image": 0,
+      "role": "setter",
+      "sha256": "ccaae391eab8d2cda5b01f181a99308fb799ba9e93923251f3fb29a841616a9d",
+      "va": "0x3286c"
+    },
+    {
+      "end_exclusive": "0x33468",
+      "file_offset": "0x335a8",
+      "image": 0,
+      "role": "startup clear",
+      "sha256": "d0e5c3d63a9691982e8a1d475d05260392a4b6298095baef2c5d97369f4646f7",
+      "va": "0x333a8"
+    },
+    {
+      "end_exclusive": "0x3149c",
+      "file_offset": "0x31658",
+      "image": 0,
+      "role": "third clear caller prefix",
+      "sha256": "bc1ac27f80fb029cf4a884b928ab663c24556f19ef93aacba108acdd3a905a77",
+      "va": "0x31458"
+    },
+    {
+      "end_exclusive": "0x3a20",
+      "file_offset": "0x43c12",
+      "image": 1,
+      "role": "first direct consumer",
+      "sha256": "ae42987761b959d9fa9eeb7e89e6bf4db7971654eb90f272d861c8f4281fcd03",
+      "va": "0x3a12"
+    },
+    {
+      "end_exclusive": "0x18cda",
+      "file_offset": "0x58e94",
+      "image": 1,
+      "role": "second direct consumer",
+      "sha256": "2d4c18c7f439b3e2b2000ca704dc00da89c9ac06b06f35cba1048048ed5e7dae",
+      "va": "0x18c94"
+    },
+    {
+      "end_exclusive": "0x1b948",
+      "file_offset": "0x5bac8",
+      "image": 1,
+      "role": "stock sink",
+      "sha256": "67c168a05c5abd9fe7c167f6601ff9b895da7e528b8c8f7168a0c4ab3ce64928",
+      "va": "0x1b8c8"
+    }
+  ],
+  "source_supports_restore_only_c8_zero": true,
+  "stock_runtime_zero_clear": "image0VA0x32780",
+  "target_network_root_operations": 0,
+  "zero_clear_direct_callers": [
+    "0x31486",
+    "0x327bc",
+    "0x32aa0"
+  ],
+  "zero_clear_other_writes": "derived+0x26, derived+0x2a..+0x2f, image0-local callback slot0x20000e70; no derived+0x3d8 or image1-root logger write in this bounded body",
+  "zero_requires_reset": false
+}

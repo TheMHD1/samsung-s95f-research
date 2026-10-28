@@ -1,0 +1,266 @@
+{
+  "base_plus_a0000_producer_identified": false,
+  "bounded_other_scans": [
+    {
+      "bytes": 3661824,
+      "exact_anchor_matches": {},
+      "id": "seret"
+    },
+    {
+      "bytes": 8380416,
+      "exact_anchor_matches": {},
+      "id": "secos"
+    },
+    {
+      "bytes": 3137536,
+      "exact_anchor_matches": {},
+      "id": "secos_drv"
+    },
+    {
+      "bytes": 166400,
+      "exact_anchor_matches": {},
+      "id": "ddr_init"
+    },
+    {
+      "bytes": 11786752,
+      "exact_anchor_matches": {},
+      "id": "kernel"
+    },
+    {
+      "bytes": 5242880,
+      "exact_anchor_matches": {},
+      "id": "selected_external"
+    }
+  ],
+  "checks": 207,
+  "corpora": [
+    {
+      "exact_anchor_matches": [],
+      "id": "pltf_regular_tree",
+      "manifest_sha256": "e57d77023c11b9d80901f699317ddbaade4b7786d2a9b39841dac34dd964f478",
+      "other_entries_skipped": 0,
+      "regular_bytes": 2316227025,
+      "regular_files": 57038,
+      "symlinks_skipped": 3369
+    },
+    {
+      "exact_anchor_matches": [],
+      "id": "prd_regular_tree",
+      "manifest_sha256": "ffad7efc221c61fa45e4f67f4784f574389c88404fdfcd7b893472d84a9bf500",
+      "other_entries_skipped": 0,
+      "regular_bytes": 119602453,
+      "regular_files": 912,
+      "symlinks_skipped": 210
+    }
+  ],
+  "external_image1_bridge_identified": false,
+  "external_image1_proxy_excluded": false,
+  "mailbox": {
+    "arithmetic_examples": [
+      {
+        "boot_low32": "0x0",
+        "buffer_relative": "0x0",
+        "dma": "0x0",
+        "mailbox_low32": "0x20000",
+        "message_pointer_low32": "0x20000"
+      },
+      {
+        "boot_low32": "0x0",
+        "buffer_relative": "0x4",
+        "dma": "0x0",
+        "mailbox_low32": "0x20000",
+        "message_pointer_low32": "0x20004"
+      },
+      {
+        "boot_low32": "0x0",
+        "buffer_relative": "0x3fffc",
+        "dma": "0x0",
+        "mailbox_low32": "0x20000",
+        "message_pointer_low32": "0x5fffc"
+      },
+      {
+        "boot_low32": "0xffffffff",
+        "buffer_relative": "0x0",
+        "dma": "0xffffffff",
+        "mailbox_low32": "0x1ffff",
+        "message_pointer_low32": "0x1ffff"
+      },
+      {
+        "boot_low32": "0xffffffff",
+        "buffer_relative": "0x4",
+        "dma": "0xffffffff",
+        "mailbox_low32": "0x1ffff",
+        "message_pointer_low32": "0x20003"
+      },
+      {
+        "boot_low32": "0xffffffff",
+        "buffer_relative": "0x3fffc",
+        "dma": "0xffffffff",
+        "mailbox_low32": "0x1ffff",
+        "message_pointer_low32": "0x5fffb"
+      },
+      {
+        "boot_low32": "0x5fe00000",
+        "buffer_relative": "0x0",
+        "dma": "0x15fe00000",
+        "mailbox_low32": "0x5fe20000",
+        "message_pointer_low32": "0x5fe20000"
+      },
+      {
+        "boot_low32": "0x5fe00000",
+        "buffer_relative": "0x4",
+        "dma": "0x15fe00000",
+        "mailbox_low32": "0x5fe20000",
+        "message_pointer_low32": "0x5fe20004"
+      },
+      {
+        "boot_low32": "0x5fe00000",
+        "buffer_relative": "0x3fffc",
+        "dma": "0x15fe00000",
+        "mailbox_low32": "0x5fe20000",
+        "message_pointer_low32": "0x5fe5fffc"
+      },
+      {
+        "boot_low32": "0x2030405",
+        "buffer_relative": "0x0",
+        "dma": "0xabcdef0102030405",
+        "mailbox_low32": "0x2050405",
+        "message_pointer_low32": "0x2050405"
+      },
+      {
+        "boot_low32": "0x2030405",
+        "buffer_relative": "0x4",
+        "dma": "0xabcdef0102030405",
+        "mailbox_low32": "0x2050405",
+        "message_pointer_low32": "0x2050409"
+      },
+      {
+        "boot_low32": "0x2030405",
+        "buffer_relative": "0x3fffc",
+        "dma": "0xabcdef0102030405",
+        "mailbox_low32": "0x2050405",
+        "message_pointer_low32": "0x2090401"
+      }
+    ],
+    "candidate_dtb_resources": {
+      "msgbox-rx": [
+        10290176,
+        68
+      ],
+      "msgbox-tx": [
+        10290304,
+        68
+      ],
+      "tcon-bif-reg": [
+        9240576,
+        720
+      ],
+      "tcon-conf": [
+        10290720,
+        12
+      ],
+      "tcon-reg": [
+        8716288,
+        16384
+      ],
+      "tcon_indirect_async": [
+        10290388,
+        8
+      ],
+      "vx1-reg": [
+        9371648,
+        21504
+      ]
+    },
+    "candidate_physical_equals_dma_proven": false,
+    "length_write": ".text+0x7848..0x7854, TX+0xc",
+    "mailbox_dma_add": ".text.unlikely+0x78c low32(DMA+0x20000)",
+    "pointer_write": ".text+0x7834..0x7844, TX+8",
+    "probe_dma_load": ".text.unlikely+0x77c -> .data+0x2f8",
+    "saved_low32_dma": ".data+0xe7c",
+    "send_function": ".text+0x7670",
+    "trigger": ".text+0x7860..0x7870, TX+0x40, 1<<channel"
+  },
+  "receiver_image_identified": false,
+  "receiver_instruction_coordinates_identified": false,
+  "retained_log": {
+    "banner": "RHEA_M_TCON_FW_20250103_1715",
+    "historical_not_current": true,
+    "image_info_field": "F77ABU2D20"
+  },
+  "schema": "fi-tcon-receiver-boundary-v1",
+  "search_limit": "Exact-anchor results cover pinned regular-file roots/raw bodies only; compressed, encrypted, runtime-loaded and absent images remain unresolved.",
+  "shared_info_layout": [
+    {
+      "bytes": "0x20000",
+      "device_pointer": "0x390",
+      "resource_offset": "0x0"
+    },
+    {
+      "bytes": "0x40000",
+      "device_pointer": "0x368",
+      "resource_offset": "0x20000"
+    },
+    {
+      "bytes": "0x20000",
+      "device_pointer": "0x378",
+      "resource_offset": "0xa0000"
+    },
+    {
+      "bytes": "0x30000",
+      "device_pointer": "0x370",
+      "resource_offset": "0xc0000"
+    }
+  ],
+  "source_spans": [
+    {
+      "domain": "sdp_tcon.ko:.text",
+      "end_exclusive": "0xcfc",
+      "sha256": "7330b4be09e4dd77023497be3d65b547422ddf05d95e43a16ee5100f3e751403",
+      "start": "0xc84"
+    },
+    {
+      "domain": "sdp_tcon.ko:.text",
+      "end_exclusive": "0x2e3c",
+      "sha256": "88a15cb9f7e122a834757c7b7c43c9598213875f41cd9b1dc58ca9b41a3aadb9",
+      "start": "0x2af0"
+    },
+    {
+      "domain": "sdp_tcon.ko:.text.unlikely",
+      "end_exclusive": "0x2d8",
+      "sha256": "2d77d40e230e49f8da4f9da176226ddf8847d1fad255c3a343cbcf3f2646a8df",
+      "start": "0x228"
+    },
+    {
+      "domain": "sdp_tcon.ko:.text.unlikely",
+      "end_exclusive": "0x794",
+      "sha256": "e63b13baa8ae7e2ed9dc35c31ec51f0528fbf676823b5ee757c013257bea1880",
+      "start": "0x76c"
+    },
+    {
+      "domain": "sdp_tcon.ko:.text",
+      "end_exclusive": "0x75e8",
+      "sha256": "9ff03856d45928d099cd923f1b586b7c664bf74c41ef1e13db42469c305a555b",
+      "start": "0x7560"
+    },
+    {
+      "domain": "sdp_tcon.ko:.text",
+      "end_exclusive": "0x79dc",
+      "sha256": "4cbcaebdb61ece701255ffe86629656b11c40a83b6c80820b14f82b48e51b33d",
+      "start": "0x7670"
+    },
+    {
+      "domain": "sdp_tcon.ko:.text",
+      "end_exclusive": "0x7b00",
+      "sha256": "bec410032d2440598bb8026d117c9828f2cde7eb291df0d9e537f27d72dc4870",
+      "start": "0x79e0"
+    },
+    {
+      "domain": "sdp_tcon.ko:.text",
+      "end_exclusive": "0xceb4",
+      "sha256": "adb3d71e163ce8725ec5cfb61ff15a2336994d6d8377cb80c888f73702253168",
+      "start": "0xcd80"
+    }
+  ],
+  "target_network_root_operations": 0
+}

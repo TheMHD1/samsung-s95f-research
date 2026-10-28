@@ -1,0 +1,116 @@
+{
+  "initialFreezeHistory": "freeze-history/initial-3907ea57",
+  "inputProofs": [
+    {
+      "path": "native-tests.json",
+      "sha256": "920c1f7cbb54d5172c642641420454912bf0719e0098956c3ec588bd2f11c0c4"
+    },
+    {
+      "path": "source-checks.normal.json",
+      "sha256": "2edcb622dd46ec21efd86136e4a5ca7bdc59c8341dd7945d38ba4597c118eb23"
+    },
+    {
+      "path": "source-checks.optimized.json",
+      "sha256": "2edcb622dd46ec21efd86136e4a5ca7bdc59c8341dd7945d38ba4597c118eb23"
+    },
+    {
+      "path": "host-validation.normal.json",
+      "sha256": "37adc272d6e68e48234ca65b9c461d07b71b70f59cde937897dc9ad0d844e3ba"
+    },
+    {
+      "path": "host-validation.optimized.json",
+      "sha256": "37adc272d6e68e48234ca65b9c461d07b71b70f59cde937897dc9ad0d844e3ba"
+    },
+    {
+      "path": "scan-qualification.normal.json",
+      "sha256": "575f2e5503d33d3d72c2ec7a04468d9ee0e5e15ee38c65416201b99aaeec3d41"
+    },
+    {
+      "path": "scan-qualification.optimized.json",
+      "sha256": "575f2e5503d33d3d72c2ec7a04468d9ee0e5e15ee38c65416201b99aaeec3d41"
+    },
+    {
+      "path": "key-exposure-tests.normal.json",
+      "sha256": "79f1789d841d172b31baf80b7bf6d312ef3bbb4e3f8f3f2c202f582fa886b4e5"
+    },
+    {
+      "path": "key-exposure-tests.optimized.json",
+      "sha256": "79f1789d841d172b31baf80b7bf6d312ef3bbb4e3f8f3f2c202f582fa886b4e5"
+    }
+  ],
+  "keyExposureNormal": {
+    "cases": 8,
+    "checks": 69,
+    "initialManifestPreserved": true,
+    "nativeDllUnchanged": true,
+    "schema": "fg-key-exposure-tests-v1",
+    "targetOperations": 0
+  },
+  "keyExposureOptimized": {
+    "cases": 8,
+    "checks": 69,
+    "initialManifestPreserved": true,
+    "nativeDllUnchanged": true,
+    "schema": "fg-key-exposure-tests-v1",
+    "targetOperations": 0
+  },
+  "limitations": [
+    "cooperative budget is not hard rollback under blocked syscalls, dead clock, process death, or host timeout",
+    "fresh R/M/C reads and logger RMW are not atomic; stock upper-bit changes after the final R are not excluded",
+    "stock event argument is not executing PC/LR or actual FP/selected-A proof",
+    "native logger changes are a new instrumentation family, threshold fixed40",
+    "cached Apps/noSaver and key receipts do not establish UI consumption/destination/physical state",
+    "protocol/restoration acceptance alone does not qualify key exposure; successful down must precede a later optional R header"
+  ],
+  "limits": {
+    "bulkMilliseconds": 2000,
+    "cleanupReserveUs": 26000000,
+    "hostSeconds": 75,
+    "keyJoinReserveUs": 7000000,
+    "rootCommandCap": 8192,
+    "rootResponseCap": 65536,
+    "rootSeconds": 45,
+    "structuredReceiptCap": 24576,
+    "wholeNativeCooperativeUs": 40000000
+  },
+  "native": {
+    "maxControlPairs": 12,
+    "maxReceiptBytes": 18273,
+    "maxRows": 56,
+    "selfTestsPassed": 3512,
+    "sidecarBytes": 15372,
+    "targetOperations": 0
+  },
+  "nativeBuildErrors": 0,
+  "nativeBuildWarnings": 0,
+  "nativeDllUnchangedSha256": "cc6cab08fdacad6bac8a4a4d5343dc60f53e9cd5f444e71181ef2e5a3f52abbe",
+  "noTargetDeployment": true,
+  "normalOptimizedIdentical": true,
+  "revision": "late_key_scientific_qualification_separate_from_protocol",
+  "scanQualificationChecks": 44,
+  "schema": "fg-host-qualification-v1",
+  "source": {
+    "sourceChecks": 26,
+    "targetOperations": 0
+  },
+  "status": "frozen_host_prototype_pending_independent_review",
+  "targetOperations": 0,
+  "wrapperNormal": {
+    "checks": 1145,
+    "maxCommandBytes": 7972,
+    "maxRootResponseBytes": 58848,
+    "receiptBytes": 15256,
+    "shellCommands": 460,
+    "sidecarResponseUpperBound": 21000,
+    "targetOperations": 0
+  },
+  "wrapperOptimized": {
+    "checks": 1145,
+    "maxCommandBytes": 7972,
+    "maxRootResponseBytes": 58848,
+    "receiptBytes": 15256,
+    "shellCommands": 460,
+    "sidecarResponseUpperBound": 21000,
+    "targetOperations": 0
+  }
+}
