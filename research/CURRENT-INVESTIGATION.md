@@ -6,6 +6,55 @@ pending-firmware statements in the preserved historical body. It records
 completed observations and the coordinator's current experiment boundary;
 it does not authorize replay of historical device commands.
 
+## Instrumentation source checkpoint — 2026-10-28 04:09 UTC
+
+The [actual four-site code-read replay](panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/live-analysis/README.md)
+is now frozen:770 checks passed in normal and optimized Python, including
+byte-exact mock replay of all27 recorded root commands and saved outputs.
+The latest target operation remains this accepted4-header/8-bulk code read;
+there is no pending claim, target job or installed hook.
+
+The [startup/allocator audit](panel-idle-20261026/overnight/controller-scratch-rollback-20261028dz/README.md)
+maps existing owners and rejects the image0 expanding heap or an unreserved
+image1 gap as assumed logger scratch. Its21 startup scatter rows initialize
+data, without proving instruction reload after MODE2. Code-write rollback
+therefore remains unresolved despite successful stock panel recoveries.
+
+The new [lane-gate source qualification](panel-idle-20261026/overnight/rtp-lane-gate-qualification-20261028ea/README.md)
+identifies existing primary low-bit and secondary-byte eligibility checks
+before all four ordinary comparator calls. Its91 source checks and6220
+independent review checks pass in both Python modes. These gates grant local
+permission only when the loop reaches a lane; an earlier comparator can exit
+the loop. A proposed204-byte table
+read covers the same68 lanes as the existing reference windows. EB is being
+built offline to retain these tables with references and record context; no
+table read or change has occurred. This is a narrower diagnostic route, with
+table writers, historical execution and physical mapping still unresolved.
+
+No threshold or code modification remains enabled from these experiments.
+The verified original40 data state predates the non-writing code probe; Apps
+is still the last cached UI selection. No unattended optical output is claimed.
+The next sanitized publication is staged separately from moving EB work.
+
+## Live code checkpoint — 2026-10-28 03:59 UTC
+
+The new fixed read-only probe matched all four16-byte image1 code windows at
+the proposed predicate, selected-pointer, tuple-formatter and fault-setter
+logger sites. It completed4 headers/8 bulks, ReadyForHeader, release/close and
+exact stage removal. There were no writes, keys, resets, retries or persistent
+tasks. See the [actual code-read findings](panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/findings.md).
+This verifies64 sampled bytes through the source-qualified code-bank aliases;
+it does not attest the whole running image, actual instruction fetch or safe
+executable replacement. Owned scratch, installation/removal and independent
+rollback are the next source questions. No execution hook is installed.
+
+The original limit40 was verified immediately before this non-writing probe;
+Apps remains the last cached selection, with no unattended optical claim.
+Completed DM/DP/DT/DV research and three standalone scientific fixtures are
+now published at [commit982b07d](https://github.com/TheMHD1/samsung-s95f-research/commit/982b07d57632740efc749a355fc840ffdaf92905).
+That release excludes this newer DX/DY probe, whose independent capture replay
+and next publication checkpoint are being prepared separately.
+
 ## Completed comparison checkpoint — 2026-10-28 03:47 UTC
 
 The first actual **40→200→40** volatile-limit experiment completed, including

@@ -2,7 +2,7 @@
 
 This catalog lists retained authored Markdown reports in this exact snapshot. Consult the disposition manifest for source, tests, traces and withheld inputs. Historical reports retain their original stage limits; later results explicitly supersede earlier pending status.
 
-Retained Markdown documents: 833.
+Retained Markdown documents: 842.
 
 - [Samsung S95F: current investigation](../research/CURRENT-INVESTIGATION.md)
 - [Samsung S95F panel-blackout reverse engineering](../research/README.md)
@@ -89,6 +89,7 @@ Retained Markdown documents: 833.
 - [Selector-1 code-write diagnostic readiness](../research/panel-idle-20261026/overnight/code-write-readiness-20261027r/code-write-readiness.md)
 - [Independent review of selector-1 code-write readiness](../research/panel-idle-20261026/overnight/code-write-readiness-20261027r/independent-review.md)
 - [Controller fault follow-up: recovery predicates, assets and shared log](../research/panel-idle-20261026/overnight/controller-fault-followup-20261026.md)
+- [Controller memory ownership and reset rollback audit](../research/panel-idle-20261026/overnight/controller-scratch-rollback-20261028dz/README.md)
 - [Fresh host and retained-controller state](../research/panel-idle-20261026/overnight/current-host-health-20261027v/findings.md)
 - [Independent ordinary trace reviews and corrections](../research/panel-idle-20261026/overnight/current-host-health-20261027v/ordinary-trace-reviews.md)
 - [AP_EXCO helper-input provenance](../research/panel-idle-20261026/overnight/current-host-health-20261027v/s-before-review-correction.md)
@@ -220,6 +221,12 @@ Retained Markdown documents: 833.
 - [Acquired kernel and Samsung runtime-use mechanism](../research/panel-idle-20261026/overnight/kernel-runtime-pm-findings.md)
 - [`libteec.so` ordinary-file copy: independent runtime audit](../research/panel-idle-20261026/overnight/libteec-copy-20261027a/runtime-audit.md)
 - [Lifecycle and observer review — parent-preserved mailbox record](../research/panel-idle-20261026/overnight/lifecycle-observer-independent-review.md)
+- [DX fixed sampled-code fingerprint reader](../research/panel-idle-20261026/overnight/live-code-fingerprint-20261028dx/README-wrapper.md)
+- [independent-fingerprint-review.md](../research/panel-idle-20261026/overnight/live-code-fingerprint-20261028dx/reviews/independent-fingerprint-review.md)
+- [Actual live code fingerprint at the proposed checkpoint sites](../research/panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/findings.md)
+- [first-read-phase.md](../research/panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/first-read-phase.md)
+- [README.md](../research/panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/live-analysis/README.md)
+- [Live code fingerprint: bounded coordinator plan](../research/panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/plan.md)
 - [Managed fixed Apps-key launch helper](../research/panel-idle-20261026/overnight/managed-apps-key-launch-20261027bj/README.md)
 - [Independent review — managed ERR_DET cdev metadata probe](../research/panel-idle-20261026/overnight/managed-errpin-cdev/independent-review.md)
 - [Independent review — one-shot ERR_DET cdev input reader](../research/panel-idle-20261026/overnight/managed-errpin-cdev/input-independent-review.md)
@@ -440,6 +447,8 @@ Retained Markdown documents: 833.
 - [Actual RTP fault: record values match the later bottom reference](../research/panel-idle-20261026/overnight/rtp-fixed-reference-capture-20261028dt/live-fault-analysis/README.md)
 - [Independent DT fixed-reference reader review](../research/panel-idle-20261026/overnight/rtp-fixed-reference-capture-20261028dt/reviews/independent-reference-reader-review.md)
 - [Fixed RTP reference qualification — DR](../research/panel-idle-20261026/overnight/rtp-fixed-reference-qualification-20261028dr/README.md)
+- [Existing per-lane eligibility gates before the RTP comparator](../research/panel-idle-20261026/overnight/rtp-lane-gate-qualification-20261028ea/README.md)
+- [independent-source-review.md](../research/panel-idle-20261026/overnight/rtp-lane-gate-qualification-20261028ea/reviews/independent-source-review.md)
 - [Passive RTP event observer: feasibility and minimum finite design](../research/panel-idle-20261026/overnight/rtp-observer-feasibility-20261027u/rtp-observer-feasibility.md)
 - [Independent review of I/J ordinary-source traces](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/independent-i-j-review.md)
 - [Independent root review of packed-buffer origin](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/root-review.md)

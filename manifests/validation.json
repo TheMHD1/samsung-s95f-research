@@ -23,7 +23,12 @@
     "platform_original_driver_accepted": false,
     "platform_reconciled_native_receipt": true
   },
-  "limitations": "No target activity in publication checks. Scientific subsets do not reauthenticate private transport/readiness. All original refusals and separate recovery remain. Accepted reversible RAM-field set/restore is not causal prevention: clean80 at200/max26 and clean80 at restored40/max24, no sampled >40 witness. OEM/private inputs and moving DX excluded. Historical fixed-A branch/record epoch, physical picture and permanent fix remain unproved.",
+  "git_index_check": {
+    "command": "python3 tools/verify_public.py --check-git",
+    "required_before_push": true,
+    "scope": "All release files must be indexed with exact manifest/file/blob bytes; worktree cleanliness alone is insufficient."
+  },
+  "limitations": "No target activity in publication. Three existing scientific fixtures unchanged. DX/DY establish four sampled read/payload correspondences only. Active fetch, whole image, writable scratch, executable write/cache/install/rollback, historical branch, live lane-table values and physical output remain unqualified. DV prevention remains inconclusive. Raw code payloads/identity metadata, moving EB/ED and all EC except its sealed trainer-gate correction excluded. Git packaging correction adds34 previously audited manifest-listed logs missed by the prior Git ignore; prior commits are not rewritten.",
   "public_cb_fixture": {
     "checks_normal": 211,
     "checks_optimized": 211,
@@ -34,13 +39,13 @@
   },
   "publication_unittests": {
     "normal_and_optimized_python": true,
-    "passed": 28,
-    "scope": "Export/privacy/license and CB plus three distinct RTP fixture semantic/corruption/privacy regressions"
+    "passed": 32,
+    "scope": "Previous28 publication/fixture checks plus four Git-index regressions: ignored log despite clean worktree, exact index success, stale staged bytes and unmanifested indexed file"
   },
   "retained_python_syntax": {
-    "files_verified": 7277,
+    "files_verified": 7331,
     "findings": 0,
-    "scope": "See verification.json generated against the sealed export; ast.parse only, no target execution"
+    "scope": "See verification.json for this sealed export; ast.parse only, no target execution"
   },
   "rtp_fixtures": {
     "dp40_dm": {
@@ -183,6 +188,34 @@
     "checks_optimized": 3788,
     "pinned_inputs": 338,
     "scope": "Retained private-evidence replay already performed independently; fresh public clone reproduces the explicitly whitelisted subsets only."
+  },
+  "sampled_code_and_static_audits": {
+    "dx_fake_checks": 724,
+    "dx_target_operations_in_fake_selftest": 0,
+    "dy_actual_capture_replay": {
+      "analysis_inventory_sha256": "36ffce91b84aab7b7756504bcb82cc5952863a9f2b0db0b77ab18e9deca16b08",
+      "checks_normal": 770,
+      "checks_optimized": 770,
+      "negative_cases": 97,
+      "pinned_inputs": 94
+    },
+    "dz": {
+      "checks_normal": 1046,
+      "checks_optimized": 1046,
+      "image1_scratch_qualified": false,
+      "instruction_rollback_qualified": false
+    },
+    "ea": {
+      "decoded_branch_cases": 6192,
+      "independent_checks_normal": 6220,
+      "independent_checks_optimized": 6220,
+      "live_table_observed": false,
+      "local_permission_conditional_on_lane_reached": true,
+      "read_proposal_bytes": 204,
+      "source_checks_normal": 91,
+      "source_checks_optimized": 91
+    },
+    "scope": "Recorded frozen workstream validations; their original acquisition inputs are withheld. Publication does not execute retained target tooling."
   },
   "schema": "s95f-public-validation-v1",
   "swu_host_mock": {

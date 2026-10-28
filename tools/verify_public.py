@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 
 PATTERNS = {
     'private-ipv4': re.compile(r'(?<![\w.])(?:192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3})(?![\w.])'),
@@ -49,9 +50,43 @@ def verify(root: Path):
         elif p.is_file() and str(p.relative_to(root)) not in seen:errors.append({'kind':'unmanifested','path':str(p.relative_to(root))})
     return {'schema':'s95f-public-verification-v1','scope':'Offline hash, privacy-pattern, file-type and syntax inspection; no target activity. Pattern scanning is supplemented by human review and is not a proof that arbitrary secrets cannot exist.','verified_public_files':len(seen),'dispositions':dict(counts),'errors':errors,'historical_python_syntax_findings':syntax}
 
+
+def verify_git_manifest(root: Path):
+    """Check release membership and exact staged bytes, including ignored logs."""
+    release=json.loads((root/'manifests/release-files.json').read_text())
+    rows={row['path']:row for row in release['files']}
+    expected=set(rows)|{'manifests/release-files.json'}
+    errors=[];index={}
+    try:
+        process=subprocess.run(['git','-C',str(root),'ls-files','--stage','-z'],capture_output=True,timeout=30,check=True)
+    except (OSError,subprocess.SubprocessError):
+        return {'schema':'s95f-git-index-verification-v1','expected_files':len(expected),'indexed_files':0,'errors':[{'kind':'git-index-unavailable'}]}
+    for record in process.stdout.split(b'\0'):
+        if not record:continue
+        metadata,path=record.split(b'\t',1)
+        mode,oid,stage=metadata.decode('ascii').split()
+        name=path.decode('utf-8')
+        if stage!='0':errors.append({'kind':'unmerged-index-stage','path':name});continue
+        index[name]=(mode,oid)
+    for name in sorted(expected-index.keys()):errors.append({'kind':'missing-from-git-index','path':name})
+    for name in sorted(index.keys()-expected):errors.append({'kind':'unmanifested-git-index-file','path':name})
+    for name in sorted(expected&index.keys()):
+        mode,oid=index[name];path=root/name
+        if mode!='100644':errors.append({'kind':'unexpected-git-mode','path':name})
+        if path.is_symlink()or not path.is_file():errors.append({'kind':'missing-or-symlink-index-file','path':name});continue
+        data=path.read_bytes();row=rows.get(name)
+        if row and (len(data)!=row['bytes']or hashlib.sha256(data).hexdigest()!=row['sha256']):
+            errors.append({'kind':'release-bytes-mismatch','path':name})
+        if len(oid)not in (40,64):errors.append({'kind':'unsupported-git-object-format','path':name});continue
+        digest=hashlib.sha1()if len(oid)==40 else hashlib.sha256()
+        digest.update(b'blob '+str(len(data)).encode('ascii')+b'\0');digest.update(data)
+        if digest.hexdigest()!=oid:errors.append({'kind':'git-index-bytes-mismatch','path':name})
+    return {'schema':'s95f-git-index-verification-v1','scope':'Manifest membership, mode and exact staged blob bytes; clean worktree alone is insufficient. No commit, network or target operation.','expected_files':len(expected),'indexed_files':len(index),'errors':errors}
+
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);ap.add_argument('--report',type=Path)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);ap.add_argument('--report',type=Path);ap.add_argument('--check-git',action='store_true',help='Also verify every release file and exact blob bytes against the Git index')
     args=ap.parse_args();result=verify(args.root.resolve())
+    if args.check_git:result['git_index']=verify_git_manifest(args.root.resolve())
     if args.report:args.report.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))
-    raise SystemExit(bool(result['errors']))
+    raise SystemExit(bool(result['errors']or result.get('git_index',{}).get('errors')))

@@ -1,0 +1,72 @@
+{
+  "blockingFindings": [],
+  "hostOnly": true,
+  "runs": [
+    {
+      "argv": [
+        "python3",
+        "audit.py",
+        "--check"
+      ],
+      "result": {
+        "accepted": true,
+        "plannedInputBytes": 204,
+        "sourceChecks": 91,
+        "sourceSha256": "3c2c97c78ed4d944f5ca182ac5b773d1c04b9f47c8daa0ec6f0ebb765268ea63",
+        "targetOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "audit.py",
+        "--check"
+      ],
+      "result": {
+        "accepted": true,
+        "plannedInputBytes": 204,
+        "sourceChecks": 91,
+        "sourceSha256": "3c2c97c78ed4d944f5ca182ac5b773d1c04b9f47c8daa0ec6f0ebb765268ea63",
+        "targetOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "reviews/independent-checks.py"
+      ],
+      "result": {
+        "accepted": true,
+        "actualInstructionBranchCases": 6192,
+        "actualMasksObserved": false,
+        "checks": 6220,
+        "liveGateBodyAttested": false,
+        "proposedHeaders": 2,
+        "proposedInputBytes": 204,
+        "targetRootNetworkOperations": 0,
+        "writeQualified": false
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "reviews/independent-checks.py"
+      ],
+      "result": {
+        "accepted": true,
+        "actualInstructionBranchCases": 6192,
+        "actualMasksObserved": false,
+        "checks": 6220,
+        "liveGateBodyAttested": false,
+        "proposedHeaders": 2,
+        "proposedInputBytes": 204,
+        "targetRootNetworkOperations": 0,
+        "writeQualified": false
+      }
+    }
+  ],
+  "schema": "ea-independent-source-review-validation-v1",
+  "targetRootNetworkOperations": 0
+}

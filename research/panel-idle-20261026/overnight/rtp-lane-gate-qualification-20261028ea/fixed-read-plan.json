@@ -1,0 +1,43 @@
+{
+  "firstLane": 568,
+  "guards": [
+    "fresh current M root equals0x20010000",
+    "source geometry and row/channel context retained",
+    "existing reviewed USB ownership/phase/private receipt/cleanup contract",
+    "no dynamic addresses, retry, fallback or target-memory write"
+  ],
+  "helperImplemented": false,
+  "lastLaneInclusive": 635,
+  "limitations": [
+    "Earlier code fingerprint did not sample the gate body atbeb4..bf98.",
+    "Source path and later record consistency do not attest past gate execution.",
+    "Table writers, units, physical mapping and reset restoration remain to be traced.",
+    "No helper, read, modification or prevention result is established here."
+  ],
+  "newBulks": 4,
+  "newHeaders": 2,
+  "newInputBytes": 204,
+  "schema": "ea-fixed-lane-table-read-proposal-v1",
+  "targetOperations": 0,
+  "windows": [
+    {
+      "busAddress": "0x47010470",
+      "bytes": 136,
+      "cpuAddress": "0x20010470",
+      "decode": "68 little-endian halfwords; only low-byte bit0 is tested by this gate",
+      "headerLittleEndianHex": "010100007004014788000000",
+      "name": "root-lane-lowbit-table",
+      "target": "0x101"
+    },
+    {
+      "busAddress": "0x4700cb94",
+      "bytes": 68,
+      "cpuAddress": "0x2000cb94",
+      "decode": "68 bytes; a nonzero value skips unless the source-derived SB override is true",
+      "headerLittleEndianHex": "0101000094cb004744000000",
+      "name": "secondary-lane-byte-table",
+      "target": "0x101"
+    }
+  ],
+  "write": false
+}

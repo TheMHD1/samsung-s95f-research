@@ -1,10 +1,10 @@
 # Offline reproduction
 
-Python 3.10+ and a C11 compiler are sufficient for the publication checks and minimal SWU host mock. The exported research uses other optional packages and .NET SDK versions as declared in its individual projects. Private OEM fixtures and target access are not bundled.
+Python 3.10+, Git and a C11 compiler are sufficient for the publication checks and minimal SWU host mock. The exported research uses other optional packages and .NET SDK versions as declared in its individual projects. Private OEM fixtures and target access are not bundled.
 
 ```sh
 python3 -m unittest discover -s tests -v
-python3 tools/verify_public.py
+python3 tools/verify_public.py --check-git
 python3 tools/verify_onset.py
 python3 -O tools/verify_onset.py
 mkdir -p /tmp/s95f-public-host-test
@@ -16,6 +16,8 @@ cc -std=c11 -Wall -Wextra -Werror -Wpedantic -O1 -g \
 ```
 
 This mock exercises a supplied operation storage layout and a fake backend, command sequence 0/1/2, failure cleanup, output-capacity bounds and plaintext quarantine. It does not load a vendor library, invoke TEEC or contact a trusted application. The legacy `offline_validate.py` in the retained helper directory needs omitted acquisition fixtures, so a fresh clone cannot run its original `make check` in full. No target acceptance is inferred from the C host test.
+
+The optional `--check-git` release check requires a Git clone or staged release checkout. It verifies complete manifest membership and exact staged bytes, including files a global ignore might otherwise hide. An unpacked source archive without Git can run `verify_public.py` without that option, but cannot establish Git packaging completeness.
 
 To inspect a report's lineage, find its `public_path` in `manifests/source-dispositions.json`. `source_sha256` identifies retained pre-redaction bytes; `public_sha256` identifies public bytes. Original hash assertions inside retained scripts refer to the original acquisition and will not necessarily match redacted public artifacts. Do not update those assertions merely to make a live experiment run.
 

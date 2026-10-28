@@ -1,0 +1,527 @@
+IMAGE 0 VA 000284 file 000484 bytes 80: image0 runtime and explicit heap inputs
+000284 push       {r0, r1, r2, r3, r4, lr}
+000286 bl         #0x3c2b6
+00028a ldr        r0, [pc, #0x24]
+00028c ldr        r1, [pc, #0x24]
+00028e bl         #0xcb4
+000292 bl         #0xc74
+000296 movs       r4, r0
+000298 movs       r0, #0
+00029a movs       r1, #0
+00029c bl         #0x3c0f8
+0002a0 adds       r0, r0, #1
+0002a2 str        r0, [r4, #4]
+0002a4 movs       r0, #0
+0002a6 movs       r1, #0
+0002a8 bl         #0x3c124
+0002ac str        r0, [r4, #0xc]
+0002ae pop        {r0, r1, r2, r3, r4, pc}
+0002b0 strh       r0, [r0]
+0002b2 movs       r0, #1
+0002b4 str        r0, [sp]
+0002b6 movs       r0, #1
+0002b8 push       {r4, lr}
+0002ba pop        {r4, pc}
+0002bc ldr.w      sp, [pc, #0xc]
+0002c0 bl         #0x284
+0002c4 bl         #0x39998
+0002c8 bl         #0x1b34
+0002cc movs       r0, r0
+0002ce movs       r0, #2
+0002d0 push       {r0, r1}
+
+IMAGE 0 VA 000c6c file 000e6c bytes 176: image0 allocator globals and initialization
+000c6c ldr        r0, [pc, #0]
+000c6e bx         lr
+000c70 strb       r4, [r5, #0xc]
+000c72 movs       r0, #1
+000c74 ldr        r0, [pc, #0]
+000c76 bx         lr
+000c78 strb       r4, [r0, #0xd]
+000c7a movs       r0, #1
+000c7c ldr        r0, [pc, #0]
+000c7e bx         lr
+000c80 strb       r4, [r4, #0xc]
+000c82 movs       r0, #1
+000c84 bx         lr
+000c86 bx         lr
+000c88 bx         lr
+000c8a bx         lr
+000c8c push       {r3, r4, r5, lr}
+000c8e mov        r4, r0
+000c90 mov        r2, r1
+000c92 movs       r0, #0
+000c94 mov        r1, sp
+000c96 bl         #0x1afa
+000c9a cmp        r0, #0
+000c9c it         eq
+000c9e popeq      {r3, r4, r5, pc}
+000ca0 mov        r2, r0
+000ca2 ldr        r1, [sp]
+000ca4 mov        r0, r4
+000ca6 bl         #0x15a0
+000caa movs       r0, #1
+000cac pop        {r3, r4, r5, pc}
+000cae movs       r0, #1
+000cb0 b.w        #0x1a98
+000cb4 push       {r3, r4, r5, r6, r7, lr}
+000cb6 bl         #0x1ae4
+000cba mov        r5, r0
+000cbc movs       r0, #0
+000cbe mov        r4, r1
+000cc0 movs       r0, #0x10
+000cc2 nop        
+000cc4 mov        r6, r0
+000cc6 adds       r0, r5, r6
+000cc8 cmp        r0, r4
+000cca bls        #0xce8
+000ccc mov        r2, r6
+000cce mov        r1, sp
+000cd0 movs       r0, #0
+000cd2 bl         #0x1afa
+000cd6 movs       r7, r0
+000cd8 it         eq
+000cda bleq       #0x1a98
+000cde ldr        r0, [sp]
+000ce0 cmp        r0, r4
+000ce2 it         ne
+000ce4 movne      r5, r0
+000ce6 adds       r4, r0, r7
+000ce8 bl         #0xc6c
+000cec str        r5, [r0]
+000cee mov        r7, r0
+000cf0 adds       r0, r6, #7
+000cf2 bic        r0, r0, #7
+000cf6 adds       r6, r0, r5
+000cf8 mov        r0, r5
+000cfa bl         #0xd12
+000cfe cmp        r4, r6
+000d00 it         eq
+000d02 popeq      {r3, r4, r5, r6, r7, pc}
+000d04 subs       r2, r4, r6
+000d06 mov        r1, r6
+000d08 ldr        r0, [r7]
+000d0a pop.w      {r3, r4, r5, r6, r7, lr}
+000d0e b.w        #0x15a0
+000d12 movs       r1, #0
+000d14 str        r1, [r0]
+000d16 strd       r1, r0, [r0, #4]
+000d1a bx         lr
+
+IMAGE 0 VA 000378 file 000578 bytes 172: image0 allocation and free-list insertion/coalescing
+000378 push       {r4, r5, r6, lr}
+00037a mov        r6, r0
+00037c bl         #0xc6c
+000380 ldr        r5, [r0]
+000382 add.w      r0, r6, #0xb
+000386 bic        r4, r0, #7
+00038a cmp        r4, r6
+00038c itt        ls
+00038e movls      r0, #0
+000390 popls      {r4, r5, r6, pc}
+000392 mov        r3, r5
+000394 ldr        r2, [r5, #4]
+000396 cbz        r2, #0x3c8
+000398 ldr        r0, [r2]
+00039a cmp        r0, r4
+00039c blo        #0x3c0
+00039e add.w      r1, r4, #8
+0003a2 cmp        r0, r1
+0003a4 itt        lo
+0003a6 ldrlo      r0, [r2, #4]
+0003a8 strlo      r0, [r3, #4]
+0003aa blo        #0x3bc
+0003ac ldr        r1, [r2, #4]
+0003ae adds       r0, r2, r4
+0003b0 str        r1, [r0, #4]
+0003b2 ldr        r1, [r2]
+0003b4 subs       r1, r1, r4
+0003b6 str        r1, [r0]
+0003b8 str        r0, [r3, #4]
+0003ba str        r4, [r2]
+0003bc adds       r0, r2, #4
+0003be pop        {r4, r5, r6, pc}
+0003c0 mov        r3, r2
+0003c2 ldr        r2, [r2, #4]
+0003c4 cmp        r2, #0
+0003c6 bne        #0x398
+0003c8 mov        r1, r4
+0003ca mov        r0, r5
+0003cc bl         #0xc8c
+0003d0 cmp        r0, #0
+0003d2 bne        #0x392
+0003d4 pop        {r4, r5, r6, pc}
+0003d6 push       {r4, r5, r6, lr}
+0003d8 mov        r4, r0
+0003da subs       r5, r0, #4
+0003dc bl         #0xc6c
+0003e0 ldr        r0, [r0]
+0003e2 cmp        r4, #0
+0003e4 ite        ne
+0003e6 ldrne      r4, [r0, #4]
+0003e8 popeq      {r4, r5, r6, pc}
+0003ea cmp        r4, #0
+0003ec it         ne
+0003ee cmpne      r4, r5
+0003f0 itt        lo
+0003f2 movlo      r0, r4
+0003f4 ldrlo      r4, [r4, #4]
+0003f6 blo        #0x3ea
+0003f8 ldr        r1, [r0]
+0003fa adds       r2, r1, r0
+0003fc cmp        r2, r5
+0003fe it         ne
+000400 strne      r5, [r0, #4]
+000402 bne        #0x40c
+000404 ldr        r2, [r5]
+000406 mov        r5, r0
+000408 add        r1, r2
+00040a str        r1, [r0]
+00040c ldr        r0, [r5]
+00040e adds       r1, r0, r5
+000410 cmp        r1, r4
+000412 itt        ne
+000414 strne      r4, [r5, #4]
+000416 popne      {r4, r5, r6, pc}
+000418 ldr        r1, [r4, #4]
+00041a str        r1, [r5, #4]
+00041c ldr        r1, [r4]
+00041e add        r0, r1
+000420 str        r0, [r5]
+000422 pop        {r4, r5, r6, pc}
+
+IMAGE 0 VA 001ae4 file 001ce4 bytes 80: image0 SP-limited heap extension
+001ae4 ldr        r3, [pc, #0x48]
+001ae6 mov        r1, sp
+001ae8 add.w      r2, r0, #0x1000
+001aec cmp        r2, r1
+001aee str        r2, [r3]
+001af0 bhi        #0x1af6
+001af2 mov        r1, r2
+001af4 bx         lr
+001af6 str        r1, [r3]
+001af8 bx         lr
+001afa push       {r4, r5, lr}
+001afc ldr        r5, [pc, #0x30]
+001afe mov        r3, sp
+001b00 sub.w      r3, r3, #0x1000
+001b04 ldr        r4, [r5]
+001b06 add        r2, r4
+001b08 cmp        r2, r3
+001b0a bhi        #0x1b2c
+001b0c subs       r3, r3, r2
+001b0e add.w      r0, r2, #0x1000
+001b12 add.w      r3, r3, r3, lsr #31
+001b16 add.w      r3, r2, r3, asr #1
+001b1a cmp        r0, r3
+001b1c bls        #0x1b20
+001b1e mov        r0, r3
+001b20 adds       r0, r0, #7
+001b22 bic        r2, r0, #7
+001b26 str        r4, [r1]
+001b28 subs       r0, r2, r4
+001b2a str        r2, [r5]
+001b2c pop        {r4, r5, pc}
+001b2e movs       r0, r0
+001b30 lsrs       r0, r1, #0x1d
+001b32 movs       r0, #0
+
+IMAGE 0 VA 02f13c file 02f33c bytes 76: image0 concrete 24-byte allocation caller
+02f13c push.w     {r0, r1, r2, r3, r4, r5, r6, r7, r8, sb, sl, fp, ip, lr}
+02f140 mov        r5, r1
+02f142 mov        r6, r2
+02f144 mov        r7, r3
+02f146 ldrd       sl, fp, [sp, #0x3c]
+02f14a ldr.w      sb, [sp, #0x38]
+02f14e movs       r0, #0x18
+02f150 bl         #0x378
+02f154 mov        r4, r0
+02f156 ldr        r0, [sp]
+02f158 bl         #0x2eacc
+02f15c mov        r8, r0
+02f15e cmp.w      r8, #0
+02f162 beq        #0x2f166
+02f164 cbnz       r4, #0x2f16e
+02f166 movs       r0, #1
+02f168 add        sp, #0x10
+02f16a pop.w      {r4, r5, r6, r7, r8, sb, sl, fp, ip, pc}
+02f16e str        r5, [r4]
+02f170 str        r6, [r4, #4]
+02f172 str        r7, [r4, #8]
+02f174 str.w      sb, [r4, #0xc]
+02f178 str.w      sl, [r4, #0x10]
+02f17c strb.w     fp, [r4, #0x14]
+02f180 str.w      r4, [r8, #0x1c]
+02f184 movs       r0, #1
+02f186 b          #0x2f168
+
+IMAGE 0 VA 000344 file 000544 bytes 36: image0 reset entry and literals
+000344 ldr        r0, [pc, #0x18]
+000346 blx        r0
+000348 ldr        r0, [pc, #0x18]
+00034a bx         r0
+00034c b          #0x34c
+00034e b          #0x34e
+000350 b          #0x350
+000352 b          #0x352
+000354 b          #0x354
+000356 b          #0x356
+000358 b          #0x358
+00035a b          #0x35a
+00035c b          #0x35c
+00035e b          #0x35e
+000360 str        r1, [r3, #0x74]
+000362 movs       r2, r0
+000364 lsls       r1, r0, #5
+000366 movs       r0, r0
+
+IMAGE 0 VA 026758 file 026958 bytes 20: image0 first reset callee CPACR
+026758 ldr        r0, [pc, #0xc]
+02675a ldr        r0, [r0]
+02675c orr        r0, r0, #0xf00000
+026760 ldr        r1, [pc, #4]
+026762 str        r0, [r1]
+026764 bx         lr
+026766 movs       r0, r0
+026768 stc        p0, c14, [r8]
+
+IMAGE 1 VA 000368 file 040568 bytes 36: image1 reset entry and literals
+000368 ldr        r0, [pc, #0x18]
+00036a blx        r0
+00036c ldr        r0, [pc, #0x18]
+00036e bx         r0
+000370 b          #0x370
+000372 b          #0x372
+000374 b          #0x374
+000376 b          #0x376
+000378 b          #0x378
+00037a b          #0x37a
+00037c b          #0x37c
+00037e b          #0x37e
+000380 b          #0x380
+000382 b          #0x382
+000384 bgt        #0x38a
+000386 movs       r0, r0
+000388 lsls       r1, r0, #5
+00038a movs       r0, r0
+
+IMAGE 1 VA 00dc00 file 04de00 bytes 20: image1 first reset callee CPACR
+00dc00 ldr        r0, [pc, #0xc]
+00dc02 ldr        r0, [r0]
+00dc04 orr        r0, r0, #0xf00000
+00dc08 ldr        r1, [pc, #4]
+00dc0a str        r0, [r1]
+00dc0c bx         lr
+00dc0e movs       r0, r0
+00dc10 stc        p0, c14, [r8]
+
+IMAGE 1 VA 000284 file 040484 bytes 60: image1 runtime and stack initialization
+000284 push       {r0, r1, r2, r3, r4, lr}
+000286 bl         #0x1c2d0
+00028a bl         #0x904
+00028e movs       r4, r0
+000290 movs       r0, #0
+000292 movs       r1, #0
+000294 bl         #0x1c268
+000298 adds       r0, r0, #1
+00029a str        r0, [r4, #4]
+00029c movs       r0, #0
+00029e movs       r1, #0
+0002a0 bl         #0x1c294
+0002a4 str        r0, [r4, #0xc]
+0002a6 pop        {r0, r1, r2, r3, r4, pc}
+0002a8 push       {r4, lr}
+0002aa pop        {r4, pc}
+0002ac ldr.w      sp, [pc, #0xc]
+0002b0 bl         #0x284
+0002b4 bl         #0x1ba0c
+0002b8 bl         #0x15c4
+0002bc movs       r0, r0
+0002be movs       r0, #2
+
+IMAGE 1 VA 000904 file 040b04 bytes 16: image1 runtime-state getters
+000904 ldr        r0, [pc, #0]
+000906 bx         lr
+000908 b          #0xbc4
+00090a movs       r0, #0
+00090c ldr        r0, [pc, #0]
+00090e bx         lr
+000910 b          #0xb8c
+000912 movs       r0, #0
+
+IMAGE 1 VA 01c268 file 05c468 bytes 112: image1 startup callees string selection and FPSCR
+01c268 push       {r4, lr}
+01c26a cmp        r1, #0
+01c26c beq        #0x1c284
+01c26e ldrb       r0, [r1]
+01c270 cmp        r0, #0
+01c272 beq        #0x1c284
+01c274 ldr        r0, [pc, #0x14]
+01c276 add        r0, pc
+01c278 bl         #0x89c
+01c27c cmp        r0, #0
+01c27e beq        #0x1c284
+01c280 movs       r0, #0
+01c282 pop        {r4, pc}
+01c284 ldr        r0, [pc, #8]
+01c286 add        r0, pc
+01c288 pop        {r4, pc}
+01c28a movs       r0, r0
+01c28c asrs       r6, r7, #0x12
+01c28e movs       r0, r0
+01c290 asrs       r6, r6, #0x12
+01c292 movs       r0, r0
+01c294 push       {r4, lr}
+01c296 cmp        r1, #0
+01c298 beq        #0x1c2b0
+01c29a ldrb       r0, [r1]
+01c29c cmp        r0, #0
+01c29e beq        #0x1c2b0
+01c2a0 ldr        r0, [pc, #0x14]
+01c2a2 add        r0, pc
+01c2a4 bl         #0x89c
+01c2a8 cmp        r0, #0
+01c2aa beq        #0x1c2b0
+01c2ac movs       r0, #0
+01c2ae pop        {r4, pc}
+01c2b0 ldr        r0, [pc, #8]
+01c2b2 add        r0, pc
+01c2b4 pop        {r4, pc}
+01c2b6 movs       r0, r0
+01c2b8 asrs       r2, r4, #0x16
+01c2ba movs       r0, r0
+01c2bc asrs       r2, r3, #0x16
+01c2be movs       r0, r0
+01c2c0 ldr        r1, [pc, #8]
+01c2c2 mov.w      r0, #0
+01c2c6 b.w        #0x1c2e2
+01c2ca nop        
+01c2cc movs       r0, r0
+01c2ce ldrb       r0, [r7, #0x1f]
+01c2d0 mov.w      r0, #0x3000000
+01c2d4 vmsr       fpscr, r0
+
+IMAGE 1 VA 000140 file 040340 bytes 180: image1 scatter dispatcher and handlers
+000140 bl         #0x148
+000144 bl         #0x2ac
+000148 adr        r0, #0x28
+00014a ldm.w      r0, {sl, fp}
+00014e add        sl, r0
+000150 add        fp, r0
+000152 sub.w      r7, sl, #1
+000156 cmp        sl, fp
+000158 bne        #0x15e
+00015a bl         #0x2ac
+00015e subw       lr, pc, #9
+000162 ldm.w      sl!, {r0, r1, r2, r3}
+000166 tst.w      r3, #1
+00016a it         ne
+00016c subne      r3, r7, r3
+00016e orr        r3, r3, #1
+000172 bx         r3
+000174 bpl        #0x1d8
+000176 movs       r1, r0
+000178 bpl        #0xfc
+00017a movs       r1, r0
+00017c add        r2, r1
+00017e mov.w      ip, #0
+000182 ldrb       r3, [r0], #1
+000186 ands       r4, r3, #7
+00018a it         eq
+00018c ldrbeq     r4, [r0], #1
+000190 asrs       r5, r3, #4
+000192 it         eq
+000194 ldrbeq     r5, [r0], #1
+000198 subs       r4, r4, #1
+00019a beq        #0x1a8
+00019c ldrb       r6, [r0], #1
+0001a0 subs       r4, r4, #1
+0001a2 strb       r6, [r1], #1
+0001a6 bne        #0x19c
+0001a8 tst.w      r3, #8
+0001ac ittt       ne
+0001ae ldrbne     r4, [r0], #1
+0001b2 addne      r5, r5, #2
+0001b4 subne      r4, r1, r4
+0001b6 bne        #0x1cc
+0001b8 subs       r5, r5, #1
+0001ba it         pl
+0001bc strbpl     ip, [r1], #1
+0001c0 bpl        #0x1b8
+0001c2 b          #0x1d0
+0001c4 ldrb       r6, [r4], #1
+0001c8 strb       r6, [r1], #1
+0001cc subs       r5, r5, #1
+0001ce bpl        #0x1c4
+0001d0 cmp        r1, r2
+0001d2 blo        #0x182
+0001d4 bx         lr
+0001d6 movs       r0, r0
+0001d8 movs       r3, #0
+0001da movs       r4, #0
+0001dc movs       r5, #0
+0001de movs       r6, #0
+0001e0 subs       r2, #0x10
+0001e2 it         hs
+0001e4 stmhs      r1!, {r3, r4, r5, r6}
+0001e6 bhi        #0x1e0
+0001e8 lsls       r2, r2, #0x1d
+0001ea it         hs
+0001ec stmhs      r1!, {r4, r5}
+0001ee it         mi
+0001f0 strmi      r3, [r1]
+0001f2 bx         lr
+
+IMAGE 1 VA 00bd58 file 04bf58 bytes 16: image1 unpacker stack frame
+00bd58 push.w     {r0, r1, r2, r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00bd5c subw       sp, sp, #0xf1c
+00bd60 mov        sl, r2
+00bd62 mov        r6, r3
+00bd64 bl         #0x38f4
+
+IMAGE 0 VA 02c598 file 02c798 bytes 92: AIRCR read is priority comparison, not reset
+02c598 push.w     {r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
+02c59c mov        r4, r0
+02c59e mov        r5, r1
+02c5a0 cmp        r4, r5
+02c5a2 bne        #0x2c5ac
+02c5a4 movs       r0, #0
+02c5a6 add        sp, #0x10
+02c5a8 pop.w      {r4, r5, r6, r7, r8, pc}
+02c5ac nop        
+02c5ae ldr        r0, [pc, #0x40]
+02c5b0 ldr        r0, [r0]
+02c5b2 ubfx       r6, r0, #8, #3
+02c5b6 nop        
+02c5b8 sxtb       r0, r4
+02c5ba bl         #0x1b1b0
+02c5be mov        r7, r0
+02c5c0 sxtb       r0, r5
+02c5c2 bl         #0x1b1b0
+02c5c6 mov        r8, r0
+02c5c8 add        r3, sp, #8
+02c5ca add        r2, sp, #0xc
+02c5cc mov        r1, r6
+02c5ce mov        r0, r7
+02c5d0 bl         #0x1b03c
+02c5d4 mov        r3, sp
+02c5d6 add        r2, sp, #4
+02c5d8 mov        r1, r6
+02c5da mov        r0, r8
+02c5dc bl         #0x1b03c
+02c5e0 ldr        r1, [sp, #4]
+02c5e2 ldr        r0, [sp, #0xc]
+02c5e4 cmp        r0, r1
+02c5e6 bhs        #0x2c5ec
+02c5e8 movs       r0, #1
+02c5ea b          #0x2c5a6
+02c5ec movs       r0, #0
+02c5ee b          #0x2c5a6
+02c5f0 stc        p0, c14, [ip, #-0]
+
+IMAGE 1 VA 00096a file 040b6a bytes 8: raw 2001e000 word is instructions, not stack-limit literal
+00096a str        r1, [r4]
+00096c b          #0x970
+00096e movs       r0, #1
+000970 cmp        r0, r5
+
