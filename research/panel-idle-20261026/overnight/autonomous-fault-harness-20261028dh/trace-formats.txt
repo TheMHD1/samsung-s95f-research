@@ -1,0 +1,100 @@
+BOOT
+00000000-0000-4000-8000-000000000000
+FORMAT gpio/gpio_value
+name: gpio_value
+ID: 286
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:unsigned gpio;	offset:8;	size:4;	signed:0;
+	field:int get;	offset:12;	size:4;	signed:1;
+	field:int value;	offset:16;	size:4;	signed:1;
+
+print fmt: "%u %3s %d", REC->gpio, REC->get ? "get" : "set", REC->value
+FORMAT gpio/gpio_direction
+name: gpio_direction
+ID: 287
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:unsigned gpio;	offset:8;	size:4;	signed:0;
+	field:int in;	offset:12;	size:4;	signed:1;
+	field:int err;	offset:16;	size:4;	signed:1;
+
+print fmt: "%u %3s (%d)", REC->gpio, REC->in ? "in" : "out", REC->err
+FORMAT irq/irq_handler_entry
+name: irq_handler_entry
+ID: 36
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int irq;	offset:8;	size:4;	signed:1;
+	field:__data_loc char[] name;	offset:12;	size:4;	signed:0;
+
+print fmt: "irq=%d name=%s", REC->irq, __get_str(name)
+FORMAT irq/irq_handler_exit
+name: irq_handler_exit
+ID: 35
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:int irq;	offset:8;	size:4;	signed:1;
+	field:int ret;	offset:12;	size:4;	signed:1;
+
+print fmt: "irq=%d ret=%s", REC->irq, REC->ret ? "handled" : "unhandled"
+FORMAT raw_syscalls/sys_enter
+name: sys_enter
+ID: 22
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:long id;	offset:8;	size:8;	signed:1;
+	field:unsigned long args[6];	offset:16;	size:48;	signed:0;
+
+print fmt: "NR %ld (%lx, %lx, %lx, %lx, %lx, %lx)", REC->id, REC->args[0], REC->args[1], REC->args[2], REC->args[3], REC->args[4], REC->args[5]
+FORMAT raw_syscalls/sys_exit
+name: sys_exit
+ID: 21
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:long id;	offset:8;	size:8;	signed:1;
+	field:long ret;	offset:16;	size:8;	signed:1;
+
+print fmt: "NR %ld = %ld", REC->id, REC->ret
+FORMAT power/suspend_resume
+name: suspend_resume
+ID: 119
+format:
+	field:unsigned short common_type;	offset:0;	size:2;	signed:0;
+	field:unsigned char common_flags;	offset:2;	size:1;	signed:0;
+	field:unsigned char common_preempt_count;	offset:3;	size:1;	signed:0;
+	field:int common_pid;	offset:4;	size:4;	signed:1;
+
+	field:const char * action;	offset:8;	size:8;	signed:0;
+	field:int val;	offset:16;	size:4;	signed:1;
+	field:bool start;	offset:20;	size:1;	signed:0;
+
+print fmt: "%s[%u] %s", REC->action, (unsigned int)REC->val, (REC->start)?"begin":"end"
+CURRENT_GLOBAL
+0
+nop
+X

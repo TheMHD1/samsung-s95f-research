@@ -1,14 +1,14 @@
 {
   "schema": "s95f-public-validation-v1",
   "publication_unittests": {
-    "passed": 13,
+    "passed": 17,
     "normal_and_optimized_python": true,
-    "scope": "Transform/omission/privacy regressions and public onset fixture; nested/moved sensitive input no-read/no-hash/no-size checks; OEM source/filesystem/acquisition exclusion and inventory metadata redaction."
+    "scope": "Transform/omission/privacy regressions, private filename-key inventories, upstream MIT notice and public CB fixture"
   },
   "retained_python_syntax": {
     "findings": 0,
     "scope": "All exported Python files parsed with ast.parse; no target execution",
-    "files_verified": 6162
+    "files_verified": 6544
   },
   "swu_host_mock": {
     "passed": true,
@@ -16,7 +16,7 @@
     "cases": "3 golden frames; 8 failure stages; 2 output-size-mutation successes; 3 count overflows; 2 input rejections; canaries and cleanup",
     "target_calls": 0
   },
-  "limitations": "Publication checks run offline. Actual nine-section outcomes are read from retained fixed trial results and source reports, not rerun. Platform original driver rejected GC/status interleaving; explicit offline reconciliation accepted one unique receipt without TEEC reinvocation. Authenticated metadata/signatures are relative to the pinned installed key; full policy/applicability, independent OEM certificate chain, runtime/live-tree identity and blackout causality remain open. DB/DC and private/OEM inputs excluded.",
+  "limitations": "Offline publication checks; no target activity. Actual DH outcomes retain accepted controller subrecords versus rejected enclosing first workflow, separate accepted continuation, accepted80-cycle Apps control and accepted second workflow. Physical visibility unobserved and permanent prevention unestablished. Original firmware platform driver rejection/offline receipt reconciliation remains. OEM/private inputs, DJ and unfinished DF analysis excluded.",
   "public_cb_fixture": {
     "checks_normal": 211,
     "checks_optimized": 211,
@@ -31,5 +31,22 @@
     "platform_original_driver_accepted": false,
     "platform_reconciled_native_receipt": true,
     "native_reinvoked": false
+  },
+  "evidence_guide": {
+    "initial_graph_nodes": 98,
+    "initial_graph_edges": 119,
+    "latest_graph_nodes": 105,
+    "latest_graph_edges": 130,
+    "original_authored_refs": 17,
+    "dg_normal_unittest_cases": 6,
+    "dg_optimized_unittest_cases": 6,
+    "source_files_verified_unchanged": 382,
+    "dh_frozen_checkpoint_sha256": "76377fc1a66d6901ab9274a29e4a249228beee2f44b423474534c380695f33d0",
+    "apps_control_clean_cycles": 80,
+    "new_physical_state": "unobserved",
+    "first_parent_workflow_accepted": false,
+    "second_parent_workflow_accepted": true,
+    "stock_mode2_requests": 3,
+    "volatile_threshold_writes": 0
   }
 }

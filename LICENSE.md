@@ -9,6 +9,8 @@ This is a mixed research archive, not a blanket license grant over Samsung firmw
 * Instruction excerpts, symbol names, interface descriptions and source-derived observations document interoperability research. No rights in Samsung or other vendors' software are claimed. Whole OEM binaries and whole-library mechanical disassemblies are omitted.
 * Upstream GPL, Apache, MIT, CC and unknown-license projects are linked with pinned lineage. Their source archives and checkouts are not bundled merely because they were used during research. Refer to the upstream license and per-file notices before reusing derivative code.
 
+The completed VDFS reader patch derives from pinned MIT `gtors/vdfs-unpack`. Its [upstream notice](research/panel-idle-20261026/overnight/vdfs-reader-research-20261028dc/LICENSE.upstream-MIT) is retained beside the patch; it is not replaced by this project grant. The GPL VDFS format reference and each Cargo dependency keep their own terms, recorded in the reader provenance. The upstream checkout and extracted OEM filesystems are excluded.
+
 ## MIT License for original project software contributions
 
 Copyright (c) 2026 TheMHD1

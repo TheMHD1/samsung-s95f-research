@@ -6,6 +6,8 @@ This repository preserves the substantive work performed during the investigatio
 
 **2026-10-28 firmware update:** the exact main firmware metadata is authenticated, its complete recognized wire tree is reconciled with the numeric directory, and all nine main sections have passed extraction validation. The final platform output was accepted through explicit offline receipt reconciliation after the original driver rejected interleaved GC/status text; that rejection remains recorded. Read the [firmware extraction update](docs/firmware-extraction-20261028.md) and [phase index](research/panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/README.md). Original source, tests and derived reports are included; OEM/decrypted files, private plans/configuration and actual secret fixtures are excluded. No firmware was installed and the blackout cause remains unresolved.
 
+**2026-10-28 evidence-guide update:** completed contained filesystem readers, display/AVE and cross-core RTP source maps, an evidence graph and autonomous software-onset records are now linked in the [firmware evidence guide](docs/firmware-evidence-guide-20261028.md). Accepted controller subrecords, rejected enclosing workflows and separate recovery remain distinct. Physical visibility is unobserved for new unattended trials.
+
 The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY-AF077FLLV2H** and Linux **5.4.261**. A separate board marking identifies a regional QN77S95FAFXZA assembly. Those observations do not make other firmware or hardware revisions equivalent.
 
 ## Start here
@@ -19,6 +21,7 @@ The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY
 | Controller reverse engineering | [Detailed RE index](research/panel-idle-20261026/overnight/RE-INDEX.md), [TCON findings](research/panel-idle-20261026/tcon-research/findings.md) |
 | New accepted capture and offline fixture | [Evidence update](docs/update-20261028.md), [scientific fixture](fixtures/onset-cb.json), [offline verifier](tools/verify_onset.py) |
 | Firmware / SWU / TEE research | [Authenticated extraction and kernel/DTB findings](docs/firmware-extraction-20261028.md), [External research](research/research-20261027-external/README.md), [SWU applicability](research/research-20261027-external/reports/swu-target-applicability.md) |
+| Firmware evidence graph and investigation playbook | [Current guide](docs/firmware-evidence-guide-20261028.md), [machine graph](research/panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/graph-with-dh-onset-02.json) |
 | Recovery case study | [Recovery boundaries](docs/recovery.md), [retained recovery runbook](research/RECOVER-PANEL.md) |
 | Snapshot status and unresolved work | [Status and gaps](docs/status-and-gaps.md), [historical checkpoint](research/CURRENT-INVESTIGATION.md) |
 | Provenance, coverage, omissions and licensing | [Publication policy](docs/publication.md), [source lineage](docs/source-lineage.md), [licenses](LICENSE.md), [manifest summary](manifests/export-summary.json) |

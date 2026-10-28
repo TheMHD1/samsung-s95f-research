@@ -1,0 +1,174 @@
+--- BX/Program.cs
++++ DF/Program.cs
+@@ -34,10 +34,12 @@
+     static readonly WindowSpec C = Spec("C", 0x47000bc0, 16);
+     static readonly WindowSpec H = Spec("H", 0x4700d0e0, 96);
+     static readonly WindowSpec L = Spec("L", 0x47010f00, 64);
+-    static readonly WindowSpec[] CycleSpecs = { R, M, C, H, L, R };
+-    static readonly WindowSpec[] RestSpecs = { M, C, H, L, R };
+-    static readonly WindowSpec[] PostSpecs = { M, C, H, L, R };
+-    static readonly WindowSpec[] AllSpecs = { R, M, C, H, L };
++    static readonly WindowSpec P = Spec("P", 0x47000490, 16);
++    static readonly WindowSpec N = Spec("N", 0x4700ba28, 36);
++    static readonly WindowSpec[] CycleSpecs = { R, M, C, P, N, H, L, R };
++    static readonly WindowSpec[] RestSpecs = { M, C, P, N, H, L, R };
++    static readonly WindowSpec[] PostSpecs = { M, C, P, N, H, L, R };
++    static readonly WindowSpec[] AllSpecs = { R, M, C, P, N, H, L };
+     static WindowSpec? FindHeader(byte[] data)
+     {
+         foreach (WindowSpec spec in AllSpecs) if (spec.Header.AsSpan().SequenceEqual(data)) return spec;
+@@ -93,8 +95,8 @@
+ 
+     sealed class Capture
+     {
+-        public readonly WindowCapture[] Windows = new WindowCapture[6];
+-        public readonly TransferRecord[] Transfers = new TransferRecord[12];
++        public readonly WindowCapture[] Windows = new WindowCapture[8];
++        public readonly TransferRecord[] Transfers = new TransferRecord[16];
+         public int TransferCount;
+         public int WindowCount;
+         public int CycleIndex;
+@@ -396,7 +398,7 @@
+                     {
+                         result.TerminalReason = post == PairResult.Deadline ? "PostFaultDeadline" : post.ToString(); break;
+                     }
+-                    RtState final = ClassifyRt(buffers.PostFault.Windows[4].Buffer);
++                    RtState final = ClassifyRt(buffers.PostFault.Windows[6].Buffer);
+                     if (final != RtState.Faulted) { result.TerminalReason = "PostFaultRtChanged"; break; }
+                     result.TerminalReason = cycleIndex == 1 ? "AlreadyFaulted" : "TransitionCaptured";
+                     terminalSuccess = true; stop = true; continue;
+@@ -409,7 +411,7 @@
+                     result.TerminalReason = rest == PairResult.Deadline ? "TimeLimit" : rest.ToString();
+                     terminalSuccess = rest == PairResult.Deadline; break;
+                 }
+-                RtState endState = ClassifyRt(buffers.Current.Windows[5].Buffer);
++                RtState endState = ClassifyRt(buffers.Current.Windows[7].Buffer);
+                 if (endState == RtState.Faulted)
+                 {
+                     result.OnsetObserved = true; buffers.Transition.CopyFrom(buffers.Current, "transition"); buffers.Current.Clear();
+@@ -419,7 +421,7 @@
+                     {
+                         result.TerminalReason = post == PairResult.Deadline ? "PostFaultDeadline" : post.ToString(); break;
+                     }
+-                    if (ClassifyRt(buffers.PostFault.Windows[4].Buffer) != RtState.Faulted)
++                    if (ClassifyRt(buffers.PostFault.Windows[6].Buffer) != RtState.Faulted)
+                     { result.TerminalReason = "PostFaultRtChanged"; break; }
+                     result.TerminalReason = "TransitionCaptured"; terminalSuccess = true; stop = true; continue;
+                 }
+@@ -660,7 +662,7 @@
+         FakeOps within = new(); within.RtStates.AddRange(new[] { RtState.Clean, RtState.Faulted, RtState.Faulted });
+         Outcome withinResult = RunCase(within, new() { DurationUs = 10_000_000, MaxCycles = 5, PeriodUs = 10 });
+         Need(withinResult.Accepted && withinResult.TerminalReason == "TransitionCaptured" && withinResult.OnsetObserved && withinResult.Retained.Count == 2, "within transition");
+-        Need(withinResult.Retained[0].Role == "transition" && withinResult.Retained[0].Windows.Count == 6 && withinResult.Retained[1].Windows.Count == 5, "within retained sets");
++        Need(withinResult.Retained[0].Role == "transition" && withinResult.Retained[0].Windows.Count == 8 && withinResult.Retained[1].Windows.Count == 7, "within retained sets");
+ 
+         FakeOps between = new(); between.RtStates.AddRange(new[] { RtState.Clean, RtState.Clean, RtState.Faulted, RtState.Faulted });
+         Outcome betweenResult = RunCase(between, new() { DurationUs = 10_000_000, MaxCycles = 5, PeriodUs = 10 });
+@@ -670,8 +672,8 @@
+         // a later full cycle that transitions at R-end, and one full post set.
+         FakeOps maximum = new(); maximum.RtStates.AddRange(new[] { RtState.Clean, RtState.Clean, RtState.Clean, RtState.Faulted, RtState.Faulted });
+         Outcome maximumResult = RunCase(maximum, new() { DurationUs = 10_000_000, MaxCycles = 5, PeriodUs = 10 });
+-        Need(maximumResult.Accepted && maximumResult.Retained.Count == 3 && maximumResult.Retained[0].Windows.Count == 6 &&
+-            maximumResult.Retained[1].Windows.Count == 6 && maximumResult.Retained[2].Windows.Count == 5, "maximum retained success");
++        Need(maximumResult.Accepted && maximumResult.Retained.Count == 3 && maximumResult.Retained[0].Windows.Count == 8 &&
++            maximumResult.Retained[1].Windows.Count == 8 && maximumResult.Retained[2].Windows.Count == 7, "maximum retained success");
+ 
+         FakeOps already = new(); already.RtStates.AddRange(new[] { RtState.Faulted, RtState.Faulted });
+         Outcome alreadyResult = RunCase(already, one);
+@@ -681,7 +683,7 @@
+         Outcome unexpectedResult = RunCase(unexpected, one);
+         Need(!unexpectedResult.Accepted && unexpectedResult.TerminalReason == "UnexpectedInitialRt" && unexpected.BulkTransfers() == 2, "unexpected initial");
+ 
+-        for (int bulk = 0; bulk < 12; bulk++)
++        for (int bulk = 0; bulk < 16; bulk++)
+         {
+             foreach (bool throws in new[] { false, true })
+             {
+@@ -693,7 +695,7 @@
+             }
+         }
+ 
+-        for (int bulk = 12; bulk < 22; bulk++)
++        for (int bulk = 16; bulk < 30; bulk++)
+         {
+             foreach (bool throws in new[] { false, true })
+             {
+@@ -719,7 +721,7 @@
+ 
+         FakeClock postDeadlineClock = new(); FakeOps postDeadlineOps = new() { AdvanceUs = 70_000 };
+         postDeadlineOps.RtStates.AddRange(new[] { RtState.Clean, RtState.Faulted });
+-        Outcome postDeadline = RunCase(postDeadlineOps, new() { DurationUs = 900_000, MaxCycles = 5, PeriodUs = 10 }, postDeadlineClock);
++        Outcome postDeadline = RunCase(postDeadlineOps, new() { DurationUs = 1_200_000, MaxCycles = 5, PeriodUs = 10 }, postDeadlineClock);
+         Need(!postDeadline.Accepted && postDeadline.TerminalReason == "PostFaultDeadline" && postDeadline.ProtocolPhase == "ReadyForHeader" &&
+             postDeadline.Retained.Exists(x => x.Role == "post-fault"), "post deadline partial");
+ 
+@@ -754,7 +756,8 @@
+         Need(Convert.ToHexString(M.Header) == "01010000A004004744000000", "M header");
+         Need(Convert.ToHexString(C.Header) == "01010000C00B004710000000", "C header");
+         Need(Convert.ToHexString(H.Header) == "01010000E0D0004760000000", "H header");
+-        Need(Convert.ToHexString(L.Header) == "01010000000F014740000000", "L header"); tests += 5;
++        Need(Convert.ToHexString(L.Header) == "01010000000F014740000000", "L header"); Need(Convert.ToHexString(P.Header) == "010100009004004710000000", "P header");
++        Need(Convert.ToHexString(N.Header) == "0101000028BA004724000000", "N header"); tests += 7;
+ 
+         foreach (int length in new[] { 0, 115, 116 })
+         {
+@@ -781,22 +784,15 @@
+         if (args.Length == 0)
+         {
+             Console.WriteLine(JsonSerializer.Serialize(new { schema = "managed-usb-rt-synchronized-key-dry-v1", intervention = "one Left down/up after first complete clean cycle", dryRun = true,
+-                targetOperations = 0, target = "0x101", cycle = new[] { "R", "M", "C", "H", "L", "R" },
+-                addresses = new[] { "0x47012400/256", "0x470004a0/68", "0x47000bc0/16", "0x4700d0e0/96", "0x47010f00/64" },
++                targetOperations = 0, target = "0x101", cycle = new[] { "R", "M", "C", "P", "N", "H", "L", "R" },
++                addresses = new[] { "0x47012400/256", "0x470004a0/68", "0x47000bc0/16", "0x47000490/16", "0x4700ba28/36", "0x4700d0e0/96", "0x47010f00/64" },
+                 durationMs = 20000, maxCycles = 80, nominalPeriodMs = 250, timeoutMs = TimeoutMs,
+                 interfaceNumber = 2, writes = 0, retries = 0, outputLimitBytes = OutputLimit }));
+             return 0;
+         }
+         if (args.Length == 1 && args[0] == "--self-test") return SelfTest();
+         if (args.Length == 1 && args[0] == "--key-self-test") return KeySelfTest();
+-        if (!(args.Length == 1 && args[0] == "--execute")) return 63;
+-        if (!RealOps.AbiReady) { Console.WriteLine("REFUSED_ARM32_ABI"); return 64; }
+-        Outcome outcome = Run(new RealOps(), new RealClock(), new Config(), new OneLeft(new RealKeyOps()));
+-        outcome.ObservationAccepted = outcome.Accepted;
+-        outcome.Accepted = outcome.Accepted && outcome.Intervention != null && outcome.Intervention.Completed && outcome.Intervention.Error == null;
+-        string json = Serialize(outcome);
+-        if (System.Text.Encoding.UTF8.GetByteCount(json) > OutputLimit) return 65;
+-        Console.WriteLine(json);
+-        return outcome.Accepted ? 0 : 1;
++        Console.WriteLine("DF_HOST_ONLY_CANDIDATE_NO_EXECUTION_ENTRYPOINT");
++        return 63;
+     }
+ }
+--- BX/OnsetKey.cs
++++ DF/OnsetKey.cs
+@@ -165,7 +165,7 @@
+         public void Start(IClock clock)
+         {
+             Starts++; State.Attempted = true; State.ArmedUs = clock.NowUs();
+-            Need(Ops!.BulkTransfers() == 12, "trigger must follow complete first cycle");
++            Need(Ops!.BulkTransfers() == 16, "trigger must follow complete first cycle");
+             if (FailStart) throw new IOException("schedule failed");
+         }
+         public void Finish() { Finishes++; if (FailFinish) throw new IOException("join failed"); State.Completed = State.Attempted; }
+@@ -225,7 +225,7 @@
+             Need(action.Starts == (armed ? 1 : 0) && action.Finishes == 1, "exact trigger/cleanup count");
+             Need(result.Retained.Exists(c => c.Role == "trigger-baseline") == armed, "trigger baseline retention");
+             if (armed) Need(result.Retained.Find(c => c.Role == "trigger-baseline")!.CycleIndex == 1, "baseline frozen cycle1");
+-            if (failure == "start") Need(ops.BulkTransfers() == 12 && result.ProtocolPhase == "ReadyForHeader" && !result.Accepted, "schedule failure no extra header");
++            if (failure == "start") Need(ops.BulkTransfers() == 16 && result.ProtocolPhase == "ReadyForHeader" && !result.Accepted, "schedule failure no extra header");
+             if (failure == "finish") Need(!result.Accepted && result.ProtocolPhase == "ReadyForHeader", "join failure rejected");
+             Need(!result.Opened || result.Closed, "close after action failure");
+             Need(!result.Claimed || result.Released, "release after action failure"); tests++;
+@@ -250,9 +250,9 @@
+             BlockingKeyOps keyOps = new(); OneLeft key = new(keyOps); int whilePending = 0;
+             if (fault) usb.RtStates.AddRange(new[] { RtState.Clean, RtState.Clean, RtState.Faulted, RtState.Faulted });
+             usb.OnBulk = (index, input) => {
+-                if (index == 12) Need(keyOps.DownPending.Wait(1000), "worker scheduled before subsequent cycle");
+-                if (index >= 12 && !keyOps.ReleaseDown.IsSet) whilePending++;
+-                if ((!fault && index == 36) || (fault && index == 22)) keyOps.ReleaseDown.Set();
++                if (index == 16) Need(keyOps.DownPending.Wait(1000), "worker scheduled before subsequent cycle");
++                if (index >= 16 && !keyOps.ReleaseDown.IsSet) whilePending++;
++                if ((!fault && index == 48) || (fault && index == 30)) keyOps.ReleaseDown.Set();
+             };
+             Outcome observed = Run(usb, clock, new Config { MaxCycles = 5, PeriodUs = 10 }, key);
+             Need(observed.Accepted && whilePending >= 10 && keyOps.Downs == 1 && keyOps.Ups == 1 &&

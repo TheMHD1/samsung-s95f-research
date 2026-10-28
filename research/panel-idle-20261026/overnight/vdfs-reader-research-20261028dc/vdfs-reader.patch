@@ -1,0 +1,531 @@
+diff --git a/src/decompress.rs b/src/decompress.rs
+index 66b42b0..2f277f9 100644
+--- a/src/decompress.rs
++++ b/src/decompress.rs
+@@ -40,34 +40,20 @@ fn detect_compr_type(magic: &[u8]) -> Option<ComprType> {
+     }
+ }
+ 
+-fn decompress_with(data: &[u8], ctype: ComprType) -> Result<Vec<u8>> {
+-    match ctype {
+-        ComprType::Zlib => {
+-            let mut decoder = flate2::read::ZlibDecoder::new(data);
+-            let mut output = Vec::new();
+-            std::io::Read::read_to_end(&mut decoder, &mut output)
+-                .context("zlib decompression failed")?;
+-            Ok(output)
+-        }
+-        ComprType::Gzip => {
+-            let mut decoder = flate2::read::GzDecoder::new(data);
+-            let mut output = Vec::new();
+-            std::io::Read::read_to_end(&mut decoder, &mut output)
+-                .context("gzip decompression failed")?;
+-            Ok(output)
+-        }
+-        ComprType::Zstd => {
+-            let mut decoder = zstd::stream::read::Decoder::new(data)
+-                .context("zstd decoder init failed")?;
+-            let mut output = Vec::new();
+-            std::io::Read::read_to_end(&mut decoder, &mut output)
+-                .context("zstd decompression failed")?;
+-            Ok(output)
+-        }
+-        ComprType::Lzo => {
+-            bail!("LZO decompression is not supported by this build");
+-        }
+-    }
++const MAX_FILE_BYTES: usize = 512 * 1024 * 1024;
++fn decompress_with(data: &[u8], ctype: ComprType, limit: usize) -> Result<Vec<u8>> {
++    use std::io::Read;
++    if limit > MAX_FILE_BYTES { bail!("decompressed file exceeds policy limit"); }
++    let decoder: Box<dyn Read + '_> = match ctype {
++        ComprType::Zlib => Box::new(flate2::read::ZlibDecoder::new(data)),
++        ComprType::Gzip => Box::new(flate2::read::GzDecoder::new(data)),
++        ComprType::Zstd => Box::new(zstd::stream::read::Decoder::new(data)?),
++        ComprType::Lzo => bail!("LZO decompression is not supported by this build"),
++    };
++    let mut result = Vec::new();
++    decoder.take(limit as u64 + 1).read_to_end(&mut result)?;
++    if result.len() != limit { bail!("decompressed chunk length {} != expected {}", result.len(), limit); }
++    Ok(result)
+ }
+ 
+ /// True if the 4 descriptor-magic bytes form a valid compressed descriptor:
+@@ -81,29 +67,61 @@ fn valid_comp_descr_magic(m: &[u8; 4]) -> bool {
+ /// trailer), and is identified by its 3-char compression name plus a sane
+ /// layout version. Returns the byte offset of the descriptor start.
+ fn find_descriptor(data: &[u8]) -> Option<usize> {
+-    let name_ok = |c: usize| -> bool {
+-        if c + 12 > data.len() {
+-            return false;
+-        }
+-        matches!(&data[c + 9..c + 12], b"Zip" | b"Gzp" | b"Lzo" | b"Zst")
+-    };
+-    let layout_ok = |c: usize| -> bool {
+-        if c + 16 > data.len() {
+-            return false;
+-        }
+-        let v = u16::from_le_bytes([data[c + 14], data[c + 15]]);
+-        v == VDFS4_COMPR_LAYOUT_VER_05 || v == VDFS4_COMPR_LAYOUT_VER_06
+-    };
++    let at = data.len().checked_sub(VDFS4_COMPR_FILE_DESC_LEN_06)?;
++    if !matches!(&data[at+9..at+12], b"Zip" | b"Gzp" | b"Lzo" | b"Zst") ||
++       u16::from_le_bytes([data[at+14],data[at+15]]) != VDFS4_COMPR_LAYOUT_VER_06 { return None; }
++    Some(at)
++}
+ 
+-    for &size in &[VDFS4_COMPR_FILE_DESC_LEN_06, VDFS4_COMPR_FILE_DESC_LEN_05] {
+-        if data.len() >= size {
+-            let c = data.len() - size;
+-            if name_ok(c) && layout_ok(c) {
+-                return Some(c);
+-            }
+-        }
++// Linux crc32_le(seed=0), without final xor. Standard CRC APIs use a
++// complemented external seed/result, hence both complements here.
++fn linux_crc(data: &[u8]) -> u32 {
++    let mut h=crc32fast::Hasher::new_with_initial(u32::MAX);
++    h.update(data); !h.finalize()
++}
++
++pub fn decompress_blob(data: &[u8]) -> Result<Vec<u8>> {
++    let at=find_descriptor(data).context("missing supported layout06 descriptor")?;
++    let d: Vdfs4CompFileDescr=unsafe { std::ptr::read_unaligned(data[at..].as_ptr() as *const Vdfs4CompFileDescr) };
++    if !valid_comp_descr_magic(&d.magic) { bail!("descriptor magic"); }
++    let kind=detect_compr_type(&d.magic).context("compression type")?;
++    let count=d.extents_num as usize;
++    let expected=usize::try_from(d.unpacked_size)?;
++    let log_chunk_size=d.log_chunk_size;
++    if expected>MAX_FILE_BYTES || !(12..=24).contains(&log_chunk_size) { bail!("file/chunk policy bound"); }
++    let chunk_size=1usize << d.log_chunk_size;
++    if count != expected.div_ceil(chunk_size) { bail!("descriptor chunk count does not cover exact unpacked length"); }
++    let hash_len=match d.magic[0] { b'C'=>0usize,b'I'=>16,b'H'=>20,b'h'=>32,_=>bail!("descriptor auth prefix") };
++    let sig_len=match d.sign_type { 0=>0usize,1=>128,2=>256,_=>bail!("descriptor signature type") };
++    // Primary driver inode.c: compressed extents precede per-extent+table
++    // hashes and RSA signature; the descriptor itself remains at the tail.
++    let auth_len=if hash_len==0 {0} else {hash_len.checked_mul(count+1).and_then(|n| n.checked_add(sig_len)).context("auth size overflow")?};
++    let table_len=count.checked_mul(16).context("extent table overflow")?;
++    let table_at=at.checked_sub(auth_len).and_then(|n| n.checked_sub(table_len)).context("truncated extent/auth table")?;
++    let mut crc_bytes=data[table_at..].to_vec();
++    let crc_at=at-table_at+24;
++    crc_bytes[crc_at..crc_at+4].fill(0);
++    if linux_crc(&crc_bytes)!=d.crc { bail!("compressed metadata CRC mismatch"); }
++    let mut result=Vec::new();
++    for i in 0..count {
++        let pos=table_at+i*16;
++        let e: Vdfs4CompExtent=unsafe {std::ptr::read_unaligned(data[pos..].as_ptr() as *const Vdfs4CompExtent)};
++        // First two bytes are XT or profiling priority; they do not change
++        // the start/length/flags fields. Unknown flags are refused.
++        if e.flags & !VDFS4_CHUNK_FLAG_UNCOMPR !=0 { bail!("unsupported chunk flags"); }
++        let start=usize::try_from(e.start)?;
++        let end=start.checked_add(e.len_bytes as usize).context("chunk end overflow")?;
++        if start>=end || end>table_at { bail!("compressed extent exceeds data region"); }
++        let n=chunk_size.min(expected-result.len());
++        if e.flags & VDFS4_CHUNK_FLAG_UNCOMPR !=0 {
++            if end-start!=n { bail!("uncompressed chunk length mismatch"); }
++            result.extend_from_slice(&data[start..end]);
++        } else { result.extend_from_slice(&decompress_with(&data[start..end],kind,n)?); }
+     }
+-    None
++    if result.len()!=expected { bail!("file length mismatch"); }
++    // Metadata CRC and lengths are checked; file RSA/per-chunk hashes are
++    // deliberately NOT reported as authenticated by this reader.
++    Ok(result)
+ }
+ 
+ pub fn decompress_file(
+@@ -121,9 +139,8 @@ pub fn decompress_file(
+         let comp_size = fork.data[3] as usize;
+         let end = (4 + comp_size).min(fork.data.len());
+         let compressed = &fork.data[4..end];
+-        let result = decompress_with(compressed, ctype)?;
+-        let file_size = fork.size_in_bytes as usize;
+-        return Ok(result.into_iter().take(file_size).collect());
++        let file_size = usize::try_from(fork.size_in_bytes)?;
++        return decompress_with(compressed, ctype, file_size);
+     }
+ 
+     // Extent-based compressed file. fork.size_in_bytes holds the COMPRESSED
+@@ -137,76 +154,23 @@ pub fn decompress_file(
+     }
+     let data = extents_read_data(reader, &extents, 0, comp_total)?;
+ 
+-    let descr_offset = match find_descriptor(&data) {
+-        Some(o) => o,
+-        None => {
+-            let n = data.len();
+-            let tail = &data[n.saturating_sub(48)..];
+-            eprintln!(
+-                "DBG descr-not-found len={} tail={:?}",
+-                n, tail
+-            );
+-            bail!("Could not locate compressed file descriptor");
+-        }
+-    };
+-    let descr: Vdfs4CompFileDescr = unsafe {
+-        std::ptr::read_unaligned(data[descr_offset..].as_ptr() as *const Vdfs4CompFileDescr)
+-    };
+-
+-    if !valid_comp_descr_magic(&descr.magic) {
+-        bail!("Invalid compressed file descriptor magic: {:?}", descr.magic);
+-    }
+-
+-    let ctype = detect_compr_type(&descr.magic)
+-        .context("unknown compression type in descriptor")?;
+-
+-    // Samsung-specific "hZip"/"hGzp"/... descriptor: the reference tool
+-    // rejects these (magic[0] must be 'C' or 'I') and their extent table is
+-    // not in the reference layout. Empirically the whole region before the
+-    // descriptor is a single compression stream yielding the full file
+-    // (its decompressed length matches the descriptor's unpacked_size).
+-    if descr.magic[0] == b'h' {
+-        let region = &data[..descr_offset];
+-        return decompress_with(region, ctype)
+-            .with_context(|| format!("hZip single-stream inflate (len={})", region.len()));
+-    }
+-
+-    let comp_extents_count = descr.extents_num as usize;
+-    let extent_struct_size = std::mem::size_of::<Vdfs4CompExtent>();
+-
+-    // The compressed chunks live at the front of the blob; the comp_extent
+-    // table is contiguous immediately *before* the descriptor (at the tail).
+-    let table_offset = descr_offset.saturating_sub(comp_extents_count * extent_struct_size);
+-
+-    // Decompress every chunk and concatenate. The reference tool does not
+-    // trust unpacked_size for sizing -- it simply writes each chunk's full
+-    // decompressed output -- so we do the same.
+-    let mut result = Vec::new();
+-    let mut off = table_offset;
+-    let mut read = 0usize;
+-    while read < comp_extents_count && off + extent_struct_size <= descr_offset {
+-        let comp_ext: Vdfs4CompExtent = unsafe {
+-            std::ptr::read_unaligned(data[off..].as_ptr() as *const Vdfs4CompExtent)
+-        };
+-        off += extent_struct_size;
+-        read += 1;
+-
+-        let chunk_len = comp_ext.len_bytes as usize;
+-        if chunk_len == 0 {
+-            continue;
+-        }
+-        let start = comp_ext.start as usize;
+-        let chunk_end = (start + chunk_len).min(data.len());
+-
+-        if comp_ext.flags & VDFS4_CHUNK_FLAG_UNCOMPR != 0 {
+-            result.extend_from_slice(&data[start..chunk_end]);
+-        } else {
+-            let chunk = &data[start..chunk_end];
+-            let decompressed = decompress_with(chunk, ctype)
+-                .with_context(|| format!("decompressing chunk #{} (start={} len={})", read, start, chunk_len))?;
+-            result.extend_from_slice(&decompressed);
+-        }
+-    }
++    decompress_blob(&data)
++}
+ 
+-    Ok(result)
++#[cfg(test)]
++mod tests {
++ use super::*; use std::io::Write;
++ fn blob(prefix:u8,sign:u8)->(Vec<u8>,Vec<u8>) {
++  let chunks=[vec![65u8;4096],vec![66u8;23]];let expected=chunks.concat();let mut raw=Vec::new();let mut entries=Vec::new();
++  for c in &chunks {let start=raw.len() as u64;let mut z=flate2::write::ZlibEncoder::new(Vec::new(),flate2::Compression::default());z.write_all(c).unwrap();let bytes=z.finish().unwrap();entries.extend_from_slice(b"XT");entries.extend_from_slice(&0u16.to_le_bytes());entries.extend_from_slice(&(bytes.len() as u32).to_le_bytes());entries.extend_from_slice(&start.to_le_bytes());raw.extend(bytes);}
++  let table=raw.len();raw.extend(entries);let hashes=match prefix{b'I'=>16,b'H'=>20,b'h'=>32,_=>0};if hashes!=0{raw.extend(vec![0x5a;hashes*3]);raw.extend(vec![0;match sign{1=>128,2=>256,_=>0}]);}
++  raw.extend([0;7]);raw.push(sign);raw.push(prefix);raw.extend_from_slice(b"Zip");raw.extend_from_slice(&2u16.to_le_bytes());raw.extend_from_slice(&6u16.to_le_bytes());raw.extend_from_slice(&(expected.len() as u64).to_le_bytes());raw.extend_from_slice(&0u32.to_le_bytes());raw.extend_from_slice(&12u32.to_le_bytes());raw.extend([0;8]);let crc=linux_crc(&raw[table..]);let n=raw.len();raw[n-16..n-12].copy_from_slice(&crc.to_le_bytes());(raw,expected)
++ }
++ #[test] fn crc_seed(){assert_eq!(linux_crc(b"123456789"),0x2dfd2d88);}
++ #[test] fn chunks_and_auth_trailer(){for prefix in [b'C',b'I',b'H',b'h']{for sign in [0,1,2]{let (raw,expected)=blob(prefix,sign);assert_eq!(decompress_blob(&raw).unwrap(),expected);}}}
++ #[test] fn metadata_crc_reject(){let(mut r,_)=blob(b'h',2);let n=r.len();r[n-16]^=1;assert!(decompress_blob(&r).is_err());}
++ #[test] fn truncated_reject(){let(r,_)=blob(b'h',2);for n in [0,16,39,r.len()-1]{assert!(decompress_blob(&r[..n]).is_err());}}
++ #[test] fn chunk_length_reject(){let(mut r,_)=blob(b'h',2);r[0]^=1;assert!(decompress_blob(&r).is_err());}
++ #[test] fn bounded_inflate(){let data=vec![1;4097];let mut z=flate2::write::ZlibEncoder::new(Vec::new(),flate2::Compression::default());z.write_all(&data).unwrap();assert!(decompress_with(&z.finish().unwrap(),ComprType::Zlib,4096).is_err());}
++ #[test] fn lzo_explicit_reject(){assert!(decompress_with(&[],ComprType::Lzo,16).is_err());}
+ }
+diff --git a/src/extents.rs b/src/extents.rs
+index 892fe84..007e718 100644
+--- a/src/extents.rs
++++ b/src/extents.rs
+@@ -124,7 +124,7 @@ pub fn extents_read_data(
+ 
+         let block_start = read_from / reader.sbi.block_size as u64;
+         let block_count =
+-            (to_read + reader.sbi.block_size as u64 - 1) / reader.sbi.block_size as u64;
++            ((read_from % reader.sbi.block_size as u64) + to_read + reader.sbi.block_size as u64 - 1) / reader.sbi.block_size as u64;
+         let data = reader.read_extent_data(&Vdfs4Extent {
+             begin: block_start,
+             length: block_count,
+diff --git a/src/main.rs b/src/main.rs
+index 1f3ab40..7c43d27 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -21,6 +21,9 @@ struct Cli {
+ 
+     #[arg(short = 'o', long = "output")]
+     output: Option<PathBuf>,
++
++    #[arg(long)]
++    catalog_only: bool,
+ }
+ 
+ fn main() -> Result<()> {
+@@ -46,7 +49,7 @@ fn main() -> Result<()> {
+     println!("  Case insensitive: {}", reader.sbi.case_insensitive);
+ 
+     println!("Extracting to: {}", output_dir.display());
+-    unpacker::unpack_filesystem(&reader, &output_dir)?;
++    unpacker::unpack_filesystem(&reader, &output_dir, args.catalog_only)?;
+ 
+     println!("Done!");
+     Ok(())
+diff --git a/src/superblock.rs b/src/superblock.rs
+index b261b4d..47eb1cf 100644
+--- a/src/superblock.rs
++++ b/src/superblock.rs
+@@ -47,8 +47,8 @@ pub fn read_superblock(data: &[u8]) -> Result<SuperblockInfo> {
+         bail!("Unsupported layout version: {}", ver);
+     }
+ 
+-    if sb.image_crc32_present != 0 {
+-        let calculated = crc32fast::hash(&data[sb_offset..sb_offset + SECTOR_SIZE - 4]);
++    {
++        let calculated = linux_crc(&data[sb_offset..sb_offset + SECTOR_SIZE - 4]);
+         let sb_checksum = sb.checksum;
+         if calculated != sb_checksum {
+             bail!(
+@@ -79,8 +79,8 @@ pub fn read_superblock(data: &[u8]) -> Result<SuperblockInfo> {
+             .context("Failed to read extended superblock")?
+     };
+ 
+-    if sb.image_crc32_present != 0 {
+-        let exsb_calc = crc32fast::hash(&data[exsb_offset..exsb_offset + exsb_size - 4]);
++    {
++        let exsb_calc = linux_crc(&data[exsb_offset..exsb_offset + exsb_size - 4]);
+         let exsb_checksum = exsb.checksum;
+         if exsb_calc != exsb_checksum {
+             bail!(
+@@ -110,3 +110,5 @@ pub fn read_superblock(data: &[u8]) -> Result<SuperblockInfo> {
+ 
+     Ok(info)
+ }
++
++fn linux_crc(data:&[u8])->u32 {let mut h=crc32fast::Hasher::new_with_initial(u32::MAX);h.update(data);!h.finalize()}
+diff --git a/src/unpacker.rs b/src/unpacker.rs
+index 366771c..3fc8405 100644
+--- a/src/unpacker.rs
++++ b/src/unpacker.rs
+@@ -1,4 +1,4 @@
+-use anyhow::{Context, Result};
++use anyhow::{bail, Context, Result};
+ use std::collections::{HashMap, HashSet};
+ use std::fs;
+ use std::os::unix::fs::symlink;
+@@ -15,9 +15,28 @@ use crate::extents::{
+ };
+ use crate::reader::ImageReader;
+ 
++#[derive(Default)]
++struct Stats { files:u64, links:u64, dirs:u64, errors:u64, bytes:u64 }
++fn safe_name(rec:&[u8])->Result<String> {
++    if rec.len()<CATTREE_KEY_NAME_OFF {bail!("short catalog name record");}
++    let name=std::str::from_utf8(cattree_key_name(rec)).context("non-UTF8 catalog name")?;
++    if name.is_empty() || name=="." || name==".." || name.contains('/') || name.contains('\0') { bail!("unsafe catalog name"); }
++    Ok(name.to_owned())
++}
++fn inventory(rec:&[u8], path:&Path) {
++    let key=cattree_key_key_len(rec);
++    let mut size=0; let mut mode=0; let mut flags=0;
++    if rec.len().saturating_sub(key)>=std::mem::size_of::<Vdfs4CatalogFileRecord>() {
++        let value:Vdfs4CatalogFileRecord=unsafe{std::ptr::read_unaligned(rec[key..].as_ptr() as *const Vdfs4CatalogFileRecord)};
++        size=value.fork.size_in_bytes; mode=value.common.file_mode; flags=value.common.flags;
++    }
++    let hex=path.to_string_lossy().as_bytes().iter().map(|b|format!("{:02x}",b)).collect::<String>();
++    println!("CATALOG\t{}\t{}\t{}\t{}\t{}\t{}",cattree_key_record_type(rec),cattree_key_object_id(rec),mode,size,(flags&VDFS4_COMPRESSED_FILE!=0) as u8,hex);
++}
++
+ type OverflowMap = HashMap<u64, Vec<(u64, Vdfs4Extent)>>;
+ 
+-pub fn unpack_filesystem(reader: &ImageReader, output_dir: &Path) -> Result<()> {
++pub fn unpack_filesystem(reader: &ImageReader, output_dir: &Path, catalog_only:bool) -> Result<()> {
+     let cat_tree = open_cat_tree(reader)?;
+ 
+     fs::create_dir_all(output_dir)
+@@ -42,6 +61,7 @@ pub fn unpack_filesystem(reader: &ImageReader, output_dir: &Path) -> Result<()>
+         Err(_) => HashMap::new(),
+     };
+ 
++    let mut stats=Stats::default();
+     process_directory(
+         reader,
+         &cat_tree,
+@@ -49,9 +69,10 @@ pub fn unpack_filesystem(reader: &ImageReader, output_dir: &Path) -> Result<()>
+         &overflow,
+         VDFS4_ROOTDIR_OBJ_ID,
+         output_dir,
+-        &mut HashSet::new(),
++        &mut HashSet::new(), &mut stats, catalog_only,
+     )?;
+-
++    println!("VDFS_RESULT catalog_only={} catalog_records={} files={} links={} dirs={} bytes={} errors={} file_authentication_validated=0",catalog_only as u8,all_records.len(),stats.files,stats.links,stats.dirs,stats.bytes,stats.errors);
++    if stats.errors!=0 { bail!("{} extraction failures",stats.errors); }
+     Ok(())
+ }
+ 
+@@ -62,7 +83,7 @@ fn process_directory(
+     overflow: &OverflowMap,
+     dir_id: u64,
+     output_path: &Path,
+-    visited: &mut HashSet<u64>,
++    visited: &mut HashSet<u64>, stats:&mut Stats, catalog_only:bool,
+ ) -> Result<()> {
+     if !visited.insert(dir_id) {
+         return Ok(());
+@@ -73,20 +94,24 @@ fn process_directory(
+ 
+     for child_rec in children {
+         let record_type = cattree_key_record_type(&child_rec);
+-        let name = cattree_key_name_str(&child_rec).to_string();
++        let name = safe_name(&child_rec)?;
++        if catalog_only { inventory(&child_rec,&output_path.join(&name)); }
+ 
+         match record_type {
+             VDFS4_CATALOG_FOLDER_RECORD => {
+                 let object_id = cattree_key_object_id(&child_rec);
+                 let child_path = output_path.join(&name);
++                stats.dirs+=1;
++                if !catalog_only {
+                 if child_path.is_file() {
+                     fs::remove_file(&child_path)
+                         .with_context(|| format!("remove conflicting file: {}", child_path.display()))?;
+                 }
+                 fs::create_dir_all(&child_path)
+                     .with_context(|| format!("Failed to create dir: {}", child_path.display()))?;
++                }
+                 process_directory(
+-                    reader, cat_tree, by_object, overflow, object_id, &child_path, visited,
++                    reader, cat_tree, by_object, overflow, object_id, &child_path, visited, stats, catalog_only,
+                 )?;
+             }
+             VDFS4_CATALOG_FILE_RECORD => {
+@@ -94,18 +119,33 @@ fn process_directory(
+                 let key_len = cattree_key_key_len(&child_rec);
+                 let value_data = &child_rec[key_len..];
+                 let child_path = output_path.join(&name);
++                stats.files+=1;
++                if catalog_only { continue; }
+                 if let Err(e) = extract_file(reader, overflow, object_id, value_data, &child_path) {
++                    stats.errors+=1;
+                     eprintln!("EXTRACT-FAIL {}: {:#}", child_path.display(), e);
++                } else {
++                    let meta=fs::symlink_metadata(&child_path)?;
++                    if meta.is_file() {stats.bytes=stats.bytes.checked_add(meta.len()).context("output bytes overflow")?;}
++                    if stats.bytes>16*1024*1024*1024 {bail!("aggregate output policy bound");}
+                 }
+             }
+             VDFS4_CATALOG_ILINK_RECORD | VDFS4_CATALOG_HLINK_RECORD => {
++                stats.links+=1;
++                if catalog_only {continue;}
+                 if let Err(e) =
+                     resolve_and_extract(reader, by_object, overflow, &child_rec, output_path)
+                 {
++                    stats.errors+=1;
+                     eprintln!("LINK-FAIL {}: {:#}", name, e);
++                } else {
++                    let meta=fs::symlink_metadata(output_path.join(&name))?;
++                    if meta.is_file() {stats.bytes=stats.bytes.checked_add(meta.len()).context("output bytes overflow")?;}
++                    if stats.bytes>16*1024*1024*1024 {bail!("aggregate output policy bound");}
+                 }
+             }
+             _ => {
++                stats.errors+=1;
+                 eprintln!("Skipping unknown record type {} for {}", record_type, name);
+             }
+         }
+@@ -122,7 +162,7 @@ fn resolve_and_extract(
+     output_path: &Path,
+ ) -> Result<()> {
+     let link_object = cattree_key_object_id(link_rec);
+-    let name = cattree_key_name_str(link_rec).to_string();
++    let name = safe_name(link_rec)?;
+     let child_path = output_path.join(&name);
+ 
+     // The link's object_id field is the target file's object_id. Look it up in
+@@ -149,11 +189,11 @@ fn resolve_and_extract(
+                     fs::create_dir_all(&child_path)
+                         .with_context(|| format!("Failed to create dir: {}", child_path.display()))?;
+                 }
+-                _ => {}
++                _ => bail!("unsupported link target type"),
+             }
+         }
+         None => {
+-            eprintln!("Could not resolve link {} (obj={})", name, link_object);
++            bail!("Could not resolve link {} (obj={})", name, link_object);
+         }
+     }
+ 
+@@ -168,8 +208,7 @@ fn extract_file(
+     output_path: &Path,
+ ) -> Result<()> {
+     if value_data.len() < std::mem::size_of::<Vdfs4CatalogFileRecord>() {
+-        fs::write(output_path, b"").with_context(|| format!("write (empty) failed: {}", output_path.display()))?;
+-        return Ok(());
++        bail!("short file record");
+     }
+ 
+     let file_rec: Vdfs4CatalogFileRecord = unsafe {
+@@ -180,6 +219,7 @@ fn extract_file(
+     let flags = file_rec.common.flags;
+     let file_mode = file_rec.common.file_mode;
+     let file_size = fork.size_in_bytes;
++    if file_size>512*1024*1024 {bail!("file policy bound");}
+ 
+     // Symbolic link: the target path is stored inline (fast symlink) or in
+     // extents (page symlink). Extract it as an actual symlink so that
+@@ -200,7 +240,8 @@ fn extract_file(
+ 
+         let target = if fork.total_blocks_count == 0 {
+             let inline = fork.inline_data();
+-            let len = (file_size as usize).min(inline.len());
++            let len=usize::try_from(file_size)?;
++            if len>inline.len() {bail!("inline symlink too long");}
+             String::from_utf8_lossy(&inline[..len]).to_string()
+         } else {
+             let extents = extents_resolve_fork(&fork, file_size, overflow, object_id)?;
+@@ -229,7 +270,7 @@ fn extract_file(
+                 "Skipping file {}: path already exists as a non-empty directory",
+                 output_path.display()
+             );
+-            return Ok(());
++            bail!("conflicting non-empty directory");
+         }
+     } else if output_path.is_file() {
+         fs::remove_file(output_path)
+@@ -242,7 +283,8 @@ fn extract_file(
+             .with_context(|| format!("write (compressed) failed: {}", output_path.display()))?;
+     } else if fork.total_blocks_count == 0 {
+         let inline = fork.inline_data();
+-        let len = (file_size as usize).min(inline.len());
++        let len=usize::try_from(file_size)?;
++        if len>inline.len() {bail!("inline file too long");}
+         fs::write(output_path, &inline[..len])
+             .with_context(|| format!("write (inline) failed: {}", output_path.display()))?;
+     } else {
+@@ -252,6 +294,7 @@ fn extract_file(
+             .with_context(|| format!("write (extents) failed: {}", output_path.display()))?;
+     }
+ 
++    if !crate::decompress::is_compressed_file(flags) && fs::metadata(output_path)?.len()!=file_size {bail!("uncompressed output length mismatch");}
+     Ok(())
+ }
+ 
+@@ -261,3 +304,10 @@ fn is_dir_empty(path: &Path) -> bool {
+         Err(_) => false,
+     }
+ }
++
++#[cfg(test)] mod path_tests {
++ use super::*;
++ fn rec(n:&[u8])->Vec<u8>{let mut r=vec![0;CATTREE_KEY_NAME_OFF];r[CATTREE_KEY_NAME_LEN_OFF]=n.len() as u8;r.extend_from_slice(n);r}
++ #[test] fn safe_component(){assert_eq!(safe_name(&rec(b"normal.so")).unwrap(),"normal.so");}
++ #[test] fn reject_escape(){for n in [b"".as_slice(),b".",b"..",b"/etc/passwd",b"a/b",b"a\0b",&[255]]{assert!(safe_name(&rec(n)).is_err());}}
++}

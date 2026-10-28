@@ -1,0 +1,156 @@
+BOOT
+00000000-0000-4000-8000-000000000000
+UPTIME
+173511.38 644734.31
+TRACE_RELEVANT
+power:gpu_frequency
+raw_syscalls:sys_exit
+raw_syscalls:sys_enter
+irq:softirq_raise
+irq:softirq_exit
+irq:softirq_entry
+irq:irq_handler_exit
+irq:irq_handler_entry
+power:dev_pm_qos_remove_request
+power:dev_pm_qos_update_request
+power:dev_pm_qos_add_request
+power:pm_qos_update_flags
+power:pm_qos_update_target
+power:pm_qos_update_request_timeout
+power:pm_qos_remove_request
+power:pm_qos_update_request
+power:pm_qos_add_request
+power:power_domain_target
+power:clock_set_rate
+power:clock_disable
+power:clock_enable
+power:wakeup_source_deactivate
+power:wakeup_source_activate
+power:suspend_resume
+power:device_pm_callback_end
+power:device_pm_callback_start
+power:cpu_frequency_limits
+power:cpu_frequency
+power:pstate_sample
+power:powernv_throttle
+power:cpu_idle
+gpio:gpio_value
+gpio:gpio_direction
+drm:drm_vblank_event_delivered
+drm:drm_vblank_event_queued
+drm:drm_vblank_event
+v4l2:vb2_v4l2_qbuf
+v4l2:vb2_v4l2_dqbuf
+v4l2:vb2_v4l2_buf_queue
+v4l2:vb2_v4l2_buf_done
+v4l2:v4l2_qbuf
+v4l2:v4l2_dqbuf
+TRACE_INSTANCES
+drwxr-x--- 2 owner root 0 2026-10-27 17:18 /sys/kernel/debug/tracing/instances
+READERS
+/usr/bin/dlogutil
+/usr/bin/vlogutil
+/usr/bin/journalctl
+AVOC_PID
+706
+IRQ_COUNTS
+           CPU0       CPU1       CPU2       CPU3       					( last /  max ) [   entry    |    exit    ]
+  3:  200297450  189001718  181614633  152763478     GIC-0  27 Level      arch_timer    (   2us/4000us) [173511.4203s| +    4552ns]
+                                                                                                        [173511.4220s| +    2238ns]
+                                                                                                        [173511.4214s| +    6250ns]
+                                                                                                        [173511.4201s| +    8410ns]
+ 12:          0          0          0          0     GIC-0 167 Level      190a00.serial (   0us/   0us)
+ 13:          0          0          0          0     GIC-0 166 Level      190a00.serial (   0us/   0us)
+ 16:          0          0        573          0     GIC-0 148 Level      550f00.serial (   3us/  13us) [160097.4148s| +    3009ns]
+ 17:          0          0       2376          0     GIC-0 145 Level      550f00.serial (   4us/  29us) [160097.4832s| +    4553ns]
+ 18:          0          0          1          0     GIC-0 149 Level      551000.serial (   1us/   1us) [     0.0841s| +    1081ns]
+ 19:          1          0          0          0     GIC-0 146 Level      551000.serial (   7us/   7us) [     0.0841s| +    7099ns]
+ 20:          0          0          0          0     GIC-0  42 Level      sdp-ehci-hcd: (   0us/   0us)
+ 21:          1          0          0          0     GIC-0  43 Level      sdp-ohci-hcd: (  19us/  19us) [     1.4560s| +   19522ns]
+ 22:          6          0          0          0     GIC-0 177 Level      sdp-ehci-hcd: (   5us/   7us) [    19.4760s| +    5247ns]
+ 23:        203          0          0          0     GIC-0 178 Level      sdp-ohci-hcd: (   9us/  52us) [    28.3620s| +    9722ns]
+ 24:   19376038          0          0          0     GIC-0 180 Level      sdp-xhci-hcd: (  11us/ 109us) [173511.4200s| +   11111ns]
+ 25:       6630          0          0          0     GIC-0 179 Level      sdp-xhci-hcd: (   7us/  66us) [167744.5296s| +    7871ns]
+ 26:          0          0          0          0     GIC-0 181 Level      sdp-xhci-hcd: (   0us/   0us)
+ 27:          0          0   29219379          0     GIC-0 156 Level      100000.mmc    (   1us/  74us) [173511.3953s| +    1080ns]
+ 28:          0          1          0          0     GIC-0 154 Level      120000.emac   (   2us/   2us) [     2.4788s| +    2469ns]
+ 29:     137293          0          0          0     GIC-0 155 Level      300000.unzip  (   7us/  59us) [173495.0974s| +    7948ns]
+ 30:          0          0      67666          0     GIC-0  35 Level      9c0400.msgbox (  10us/  66us) [173510.2454s| +   10340ns]
+ 31:          1          0          0          0     GIC-0  36 Level      9c0500.mcctrl (  10us/  10us) [     0.0552s| +   10108ns]
+ 32:          0          0          0          0     GIC-0  38 Level      9c1300.mcirb  (   0us/   0us)
+ 33:          0          0          0          0     GIC-0  39 Level      9c1400.mcirs  (   0us/   0us)
+ 34:          0          0          0          0     GIC-0 141 Level      550b00.ssp    (   0us/   0us)
+ 36:          0          0          0    7323134     GIC-0 128 Level      550000.i2c    (   5us/  69us) [173511.2282s| +    5401ns]
+ 37:          0          0          0    7323118     GIC-0 129 Level      550100.i2c    (   5us/  74us) [173511.3202s| +    5555ns]
+ 38:          0          0          0      10684     GIC-0 131 Level      550300.i2c    (   5us/  14us) [160096.2300s| +    5787ns]
+ 39:          0          0          0  164750943     GIC-0 132 Level      550400.i2c    (   5us/  86us) [173511.4154s| +    5247ns]
+ 40:          0          0          0    1424829     GIC-0 133 Level      550500.i2c    (   6us/  68us) [173509.9726s| +    6713ns]
+ 41:          0          0          0          0     GIC-0 134 Level      550600.i2c    (   0us/   0us)
+ 42:          0          0          0          0     GIC-0 135 Level      550700.i2c    (   0us/   0us)
+ 43:          0          0          0          0     GIC-0 136 Level      550800.i2c    (   0us/   0us)
+ 44:          0          0          0 1272387267     GIC-0 137 Level      550900.i2c    (   6us/ 100us) [173511.4194s| +    6404ns]
+ 45:          0          0          0  276524964     GIC-0 138 Level      550a00.i2c    (   5us/  83us) [173511.3882s| +    5324ns]
+ 51:          0          0          0          0     GIC-0  32 Level      sdp-extin     (   0us/   0us)
+ 52:          0          0          0          0     GIC-0  33 Level      sdp-extin     (   0us/   0us)
+ 53:     577672          0          0          0     GIC-0  74 Level      5060000.hdmi  (  30us/ 110us) [160096.0643s| +   30401ns]
+ 67:          0          0          0          0     GIC-0  88 Level      5060000.hdmi  (   0us/   0us)
+ 69:          0          0          0          0     GIC-0  65 Level      800000.sdp_dv (   0us/   0us)
+ 70:    9006917          0          0          0     GIC-0  49 Level      a40000.sdp_mf (   7us/  59us) [ 91624.1552s| +    7793ns]
+ 71:          0          0          0          0     GIC-0  47 Level      a90000.sdp_he (   0us/   0us)
+ 72:          0          0          0          0     GIC-0  48 Level      sdp-jpeg      (   0us/   0us)
+ 73:          0          0          0          0     GIC-0  57 Level      sdp-tsd       (   0us/   0us)
+ 76:          0          0          0          0     GIC-0  53 Level      sdp-alpd      (   0us/   0us)
+ 77:    5034004          0          0          0     GIC-0  63 Level      sdp_dp_sysi   (   6us/  64us) [160096.0513s| +    6790ns]
+ 78:   12905909          0          0          0     GIC-0  64 Level      sdp_dp_syso   (  15us/ 107us) [173511.4181s| +   15123ns]
+ 79:          0          0          0          0     GIC-0  62 Level      sdp_dp_apgp   (   0us/   0us)
+ 80:         23   10373798          0          0     GIC-0  69 Edge       FRC_MC_VSYNC  (   3us/  64us) [173511.4182s| +    3163ns]
+ 81:         26   10287207          0          0     GIC-0  68 Edge       FRC_VA        (   9us/  85us) [173511.4214s| +    9336ns]
+ 82:   10373853          0          0          0     GIC-0  67 Edge       FRC_PRETEST   (   4us/  72us) [173511.4189s| +    4707ns]
+ 83:          0          0          0          0     GIC-0  70 Edge       FRC_FMT_VSYNC (   1us/   1us) [     0.6590s| +    1003ns]
+ 84:         31          0          0          0     GIC-0 174 Edge       tcon_msgbox   (   3us/   8us) [159923.4065s| +    3241ns]
+ 85:          1          0          0          0     GIC-0  93 Level      600000.srp    (   4us/   4us) [     1.2096s| +    4938ns]
+ 86:          1          0          0          0     GIC-0  94 Level      600000.srp    (   4us/   4us) [     1.2427s| +    4166ns]
+ 87:          1          0          0          0     GIC-0  95 Level      600000.srp    (   4us/   4us) [     1.2694s| +    4784ns]
+ 88:          1          0          0          0     GIC-0  96 Level      600000.srp    (   6us/   6us) [     1.2780s| +    6328ns]
+ 89:         11          0          0          0     GIC-0  89 Level      5b20000.cm7   (   3us/   5us) [ 90545.4319s| +    3472ns]
+ 90:          4          0          0          0     GIC-0  90 Level      5b20000.cm7   (   0us/   7us) [     1.2026s| +     694ns]
+ 91:   31272149          0          0          0     GIC-0  58 Level      gfx           (  13us/  85us) [173511.4187s| +   13194ns]
+ 92:          0          0          0          0     GIC-0  59 Level      gfx_afbc      (   0us/   0us)
+ 93:   30568580          0          0          0     GIC-0  91 Level      ga            (   0us/  71us) [160096.0608s| +     849ns]
+ 94:    1711402          0          0          0     GIC-0  92 Level      ga            (   2us/  51us) [160095.9017s| +    2160ns]
+ 95:   31371451          0          0          0     GIC-0  72 Level      sdp_gpu       (   2us/  85us) [173511.4223s| +    2701ns]
+ 96:          0          0          0          0     GIC-0  73 Level      sdp_gpu       (   0us/   0us)
+ 97:         11          0          0          0     GIC-0  71 Level      sdp_gpu       (   6us/   7us) [     1.4771s| +    6790ns]
+ 98:          0    7920097          0          0     GIC-0 111 Level      triv2         (  93us/ 561us) [160096.0682s| +   93055ns]
+ 99:          0     404598          0          0     GIC-0 112 Level      triv2         (  47us/ 270us) [160096.0272s| +   47145ns]
+100:          0          0          0          0     GIC-0 245 Level      ras:cluster   (   0us/   0us)
+101:          0          0          0          0     GIC-0 250 Level      ras:cluster   (   0us/   0us)
+102:          0          0          0          0     GIC-0 246 Level      ras:core@0    (   0us/   0us)
+103:          0          0          0          0     GIC-0 251 Level      ras:core@0    (   0us/   0us)
+104:          0          0          0          0     GIC-0 247 Level      ras:core@1    (   0us/   0us)
+105:          0          0          0          0     GIC-0 252 Level      ras:core@1    (   0us/   0us)
+106:          0          0          0          0     GIC-0 248 Level      ras:core@2    (   0us/   0us)
+107:          0          0          0          0     GIC-0 253 Level      ras:core@2    (   0us/   0us)
+108:          0          0          0          0     GIC-0 249 Level      ras:core@3    (   0us/   0us)
+109:          0          0          0          0     GIC-0 254 Level      ras:core@3    (   0us/   0us)
+110:    2863573          0          0          0     GIC-0  45 Level      irqaio        (  10us/ 109us) [173511.4194s| +   10263ns]
+111:       1101          0          0          0     GIC-0  44 Level      irqae         (  11us/  32us) [170585.1902s| +   11497ns]
+113:         28          0          0          0     GIC-0 115 Level      sdp-ehci-hcd: (   1us/  10us) [     1.8202s| +    1852ns]
+114:         30          0          0          0     GIC-0 117 Level      sdp-ehci-hcd: (   2us/  11us) [     1.8746s| +    2392ns]
+IPI0: 122699646  159498932  167280160   89378651       Rescheduling interrupts
+IPI1:    296828     286417     138884     265178       Function call interrupts
+IPI2:         0          0          0          0       CPU stop interrupts
+IPI3:         0          0          0          0       CPU stop (for crash dump) interrupts
+IPI4:         0          0          0          0       Timer broadcast interrupts
+IPI5:     36922      17264      15985      17799       IRQ work interrupts
+IPI6:         0          0          0          0       CPU wake-up interrupts
+Err:          0
+-----------------------------------------------------------------------------
+Accumulated Time
+   CPU0 : 1435.185362s
+   CPU1 : 1260.384873s
+   CPU2 :  629.152333s
+   CPU3 : 8135.217020s
+=============================================================================
+UPTIME_END
+173511.42 644734.42

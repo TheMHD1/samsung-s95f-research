@@ -1,0 +1,4676 @@
+{
+  "contributions": [
+    {
+      "edges": 26,
+      "hash_semantics": "original_retained_report_bytes",
+      "nodes": 34,
+      "normalization": "Kinds normalized; confidence labels removed; OEM/private source refs replaced with graph/report provenance; public asset identity anchors retained.",
+      "owner": "de",
+      "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+      "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+    },
+    {
+      "edges": 11,
+      "hash_semantics": "original_retained_report_bytes",
+      "nodes": 14,
+      "normalization": "Kinds normalized; confidence labels removed; OEM/private source refs replaced with graph/report provenance; public asset identity anchors retained.",
+      "owner": "df",
+      "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+      "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+    }
+  ],
+  "edges": [
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Observed results",
+          "path": "panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/phase-report.md",
+          "sha256": "9b1442c52cbd2cdfac8d87a8f652ba7b3d0ee3309598f01a3845e98f467d2ce7"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "asset.main_firmware",
+      "id": "edge.1",
+      "limitations": [],
+      "observation_class": "host_validation",
+      "relation": "contains_validated_section",
+      "to": "asset.kernel"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Observed results",
+          "path": "panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/phase-report.md",
+          "sha256": "9b1442c52cbd2cdfac8d87a8f652ba7b3d0ee3309598f01a3845e98f467d2ce7"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "asset.main_firmware",
+      "id": "edge.2",
+      "limitations": [],
+      "observation_class": "host_validation",
+      "relation": "contains_validated_section",
+      "to": "asset.dtb_bundle"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Board selection and exact DTB scope",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "asset.dtb_bundle",
+      "id": "edge.3",
+      "limitations": [],
+      "relation": "matches_runtime_dtsversion_candidate",
+      "to": "asset.board_candidate"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Candidate board TCON GPIO bindings",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "asset.board_candidate",
+      "id": "edge.4",
+      "limitations": [],
+      "relation": "maps_property",
+      "to": "interface.errdet"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Candidate board TCON GPIO bindings",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "asset.board_candidate",
+      "id": "edge.5",
+      "limitations": [],
+      "relation": "maps_properties",
+      "to": "interface.pmic"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "MMIO and MCU/logging distinctions",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "asset.board_candidate",
+      "id": "edge.6",
+      "limitations": [],
+      "relation": "distinguishes_resource_domains",
+      "to": "interface.micom"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Exact active comparison",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "asset.qd.selected",
+      "id": "edge.7",
+      "limitations": [],
+      "relation": "contains",
+      "to": "function.rtp_predicate"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Common setter0xc1e0",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "asset.qd.selected",
+      "id": "edge.8",
+      "limitations": [],
+      "relation": "contains",
+      "to": "function.fault_setter"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "ac=2 therefore ordinary mode1",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "function.rtp_predicate",
+      "id": "edge.9",
+      "limitations": [],
+      "relation": "selects_comparison",
+      "to": "state.mode1"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "cmp r7,fp; ble clean; event736 edge",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "function.rtp_predicate",
+      "id": "edge.10",
+      "limitations": [],
+      "relation": "calls_on_low16_score_gt_limit",
+      "to": "function.fault_setter"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "root+0x2400/0x240a/0x240e",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "function.fault_setter",
+      "id": "edge.11",
+      "limitations": [],
+      "relation": "writes_tuple",
+      "to": "state.fault"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "final clean R and first fault R",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "state.clean",
+      "id": "edge.12",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "sampled_transition",
+      "to": "state.fault"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Observed values",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "interface.root_windows",
+      "id": "edge.13",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "carries_sequential_samples",
+      "to": "observation.cb_operands"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "3→7 bucket and44>40",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "observation.cb_operands",
+      "id": "edge.14",
+      "limitations": [],
+      "relation": "supports_under_running_source_assumptions",
+      "to": "hypothesis.rtp736"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "250294us",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "observation.cb_bracket",
+      "id": "edge.15",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "brackets_software_transition",
+      "to": "state.fault"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "owner then reported panel went dark",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "state.fault",
+      "id": "edge.16",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "relation": "cooccurs_in_trial_context",
+      "to": "observation.cb_dark"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "no exact physical timestamp",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "state.fault",
+      "id": "edge.17",
+      "limitations": [],
+      "relation": "does_not_close",
+      "to": "gap.electrical"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "one Left, five clean cycles, cycle6fault",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "action.menu_sequence",
+      "id": "edge.18",
+      "limitations": [
+        "No key causality claim"
+      ],
+      "observation_class": "native_capture",
+      "relation": "precedes_sampled_fault",
+      "to": "state.fault"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "panel is back on on apps",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "action.apps_mode2",
+      "id": "edge.19",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "relation": "precedes_reported_visibility",
+      "to": "observation.cb_recovery"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "top-level accepted=false",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "observation.cb_recovery",
+      "id": "edge.20",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "does_not_rehabilitate",
+      "to": "observation.cb_rejected_recovery"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "one operation41/mode2, no post-reset key",
+          "path": "panel-idle-20261026/overnight/full-confirmation-20261027bw/findings.md",
+          "sha256": "532f052d9b03cc2c16cf10844fff47c3270b5f71811ef1885f64a858e0f4a1e3"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "action.apps_mode2",
+      "id": "edge.21",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "relation": "has_operational_prior_control",
+      "to": "observation.bw_recovery"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "packed-buffer provenance",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "interface.aperture",
+      "id": "edge.22",
+      "limitations": [],
+      "relation": "supplies_descriptor_selected_copies",
+      "to": "interface.packed_ring"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "What contributes to score",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "interface.packed_ring",
+      "id": "edge.23",
+      "limitations": [],
+      "relation": "feeds_packed_lane_count_chain",
+      "to": "function.rtp_predicate"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "must not be identified as this RTP source",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "interface.prepd_image0",
+      "id": "edge.24",
+      "limitations": [],
+      "relation": "unproven_bridge",
+      "to": "interface.packed_ring"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "physical meaning aperture still unproved",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "interface.aperture",
+      "id": "edge.25",
+      "limitations": [],
+      "relation": "leaves_physical_source_unknown",
+      "to": "gap.producer"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "smallest missing count window",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "interface.count_window",
+      "id": "edge.26",
+      "limitations": [],
+      "relation": "would_discriminate_count_vs_ID_saturation",
+      "to": "hypothesis.rtp736"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "A/B pointers494/498",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "interface.pointer_window",
+      "id": "edge.27",
+      "limitations": [],
+      "relation": "would_narrow_selected_input_branch",
+      "to": "gap.producer"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "full live executable hash/alias proof absent",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "asset.qd.selected",
+      "id": "edge.28",
+      "limitations": [],
+      "relation": "does_not_establish_executing_identity",
+      "to": "gap.running_identity"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "not confined to empty Home pages",
+          "path": "panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md",
+          "sha256": "a7a2029d7bc3228202a574fe020fbc184e3445fc75ad9ee5484727ff94687c0a"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "case.hdmi_fail_A",
+      "id": "edge.29",
+      "limitations": [],
+      "relation": "shares_persistent_black_phenotype_not_proved_mechanism",
+      "to": "case.native_sparse"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Owner-observed problem: same playing content behind UgoosHome",
+          "path": "panel-idle-20261026/overnight/ordinary-fault-model-20261027.md",
+          "sha256": "fa815c47aa3e7911e2bf9805515c83affcf373e6e63d08503616577cc60e07ea"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "case.hdmi_fail_A",
+      "id": "edge.30",
+      "limitations": [],
+      "relation": "paired_home_control_weakens",
+      "to": "hypothesis.format_only"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "not confined to empty Home pages",
+          "path": "panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md",
+          "sha256": "a7a2029d7bc3228202a574fe020fbc184e3445fc75ad9ee5484727ff94687c0a"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "case.hdmi_fail_B",
+      "id": "edge.31",
+      "limitations": [],
+      "relation": "shares_persistent_black_phenotype_not_proved_mechanism",
+      "to": "case.native_sparse"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Owner-observed problem: same playing content behind UgoosHome",
+          "path": "panel-idle-20261026/overnight/ordinary-fault-model-20261027.md",
+          "sha256": "fa815c47aa3e7911e2bf9805515c83affcf373e6e63d08503616577cc60e07ea"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "case.hdmi_fail_B",
+      "id": "edge.32",
+      "limitations": [],
+      "relation": "paired_home_control_weakens",
+      "to": "hypothesis.format_only"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "working controls span formats",
+          "path": "panel-idle-20261026/overnight/owner-control-clarifications-20261027.md",
+          "sha256": "ad48994706209595e368e460b27c19d05b98039438f5b2a780d3b241a60ee2ac"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "case.working_movies",
+      "id": "edge.33",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "relation": "negative_case",
+      "to": "hypothesis.format_only"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "CLEAR_AVMUTE visible menu and QD_TCON_OFF good+black",
+          "path": "panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md",
+          "sha256": "a7a2029d7bc3228202a574fe020fbc184e3445fc75ad9ee5484727ff94687c0a"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "case.visible_apps",
+      "id": "edge.34",
+      "limitations": [
+        "CLEAR_AVMUTE raw trace rejected; owner timing uncalibrated; adjacent QD_TCON_OFF sample is not an exact electrical event counterexample"
+      ],
+      "observation_class": "native_capture",
+      "relation": "weakens_as_marker",
+      "to": "hypothesis.mute_only"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "separate incidents",
+          "path": "panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md",
+          "sha256": "d80db221d9aef6d371989c178efa260488ad080325133cb3b635f74022bec371"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "case.rare_av_pause",
+      "id": "edge.35",
+      "limitations": [],
+      "relation": "must_remain_distinct",
+      "to": "case.native_sparse"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "compositor-to-light equivalence directly falsified",
+          "path": "panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md",
+          "sha256": "d80db221d9aef6d371989c178efa260488ad080325133cb3b635f74022bec371"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "observation.screenshot_counterexample",
+      "id": "edge.36",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "relation": "negative_case",
+      "to": "hypothesis.screenshot_light"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "bucket is OR history; clearing does not prevent comparator",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md",
+          "sha256": "7e5c149db0498d6d9efc619795792364a68f3ea967ed3ae16a0e152f0a24560a"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "negative.bucket_clear",
+      "id": "edge.37",
+      "limitations": [],
+      "relation": "rejects_bucket_as_equivalent_prevention",
+      "to": "hypothesis.limit200"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "electrical safety not proved",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md",
+          "sha256": "7e5c149db0498d6d9efc619795792364a68f3ea967ed3ae16a0e152f0a24560a"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "hypothesis.limit200",
+      "id": "edge.38",
+      "limitations": [],
+      "relation": "does_not_establish_safety_or_rootcause",
+      "to": "gap.electrical"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/0; ELF link VA 0x17b56e",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN9QDDimming15t_vSyncCallBackEv",
+      "id": "de:e001",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_ZN9QDDimming16m_SetSceneDetectEv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/1; ELF link VA 0x17b580",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN9QDDimming15t_vSyncCallBackEv",
+      "id": "de:e002",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_ZN9QDDimming16m_SetScreenSaverEv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/2; ELF link VA 0x1c85d2",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN21DimmingBackendRoseMQDC2Ev",
+      "id": "de:e003",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_ZN21DimmingBackendRoseMQD12t_GetNPCDataEv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/3; ELF link VA 0x1c73de",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN21DimmingBackendRoseMQD11t_SetNpcLutEP17BackendQdNpcLut_t",
+      "id": "de:e004",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z28ave_tcon_api_send_onecommandyPj"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/4; ELF link VA 0x1c62b4",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN21DimmingBackendRoseMQD16t_Set2DFinalDutyEP22BackendGd2DFinalDuty_t",
+      "id": "de:e005",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z28ave_tcon_api_send_onecommandyPj"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/5; ELF link VA 0x1c63fe",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN21DimmingBackendRoseMQD17t_SetQdSeneDetectEP22BackendQdSceneDetect_t",
+      "id": "de:e006",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z17ave_frc_write_i2cjj"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/6; ELF link VA 0x26977a",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_Z39ave_tcon_monitor_ddr_pmic_check_qd_oledv",
+      "id": "de:e007",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z29ave_tcon_qd_set_power_controli"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/7; ELF link VA 0x269b26",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_Z39ave_tcon_monitor_ddr_pmic_check_qd_oledv",
+      "id": "de:e008",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z29ave_tcon_qd_set_power_controli"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/8; ELF link VA 0x269018",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_Z28ave_tcon_qd_err_detect_checkv",
+      "id": "de:e009",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z26ave_tcon_get_err_det_faultPi"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/9; ELF link VA 0x25d18e",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_Z27ave_tcon_get_err_det_statusPi",
+      "id": "de:e010",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z10tcon_ioctlmPv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/10; ELF link VA 0x25d046",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_Z26ave_tcon_get_err_det_faultPi",
+      "id": "de:e011",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z10tcon_ioctlmPv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/11; ELF link VA 0x25c308",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_Z29ave_tcon_qd_set_power_controli",
+      "id": "de:e012",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z10tcon_ioctlmPv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/12; ELF link VA 0x284200",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:ave_api_do_update",
+      "id": "de:e013",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z22ave_tcon_api_do_updateiPKcmi"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/13; ELF link VA 0x28437a",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:ave_api_do_update_decryption",
+      "id": "de:e014",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z29ave_tcon_api_do_update_bufferiPKhii"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/14; ELF link VA 0x2853dc",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:ave_api_all_update_done",
+      "id": "de:e015",
+      "limitations": [],
+      "relation": "calls via relocation-resolved PLT",
+      "to": "de:_Z28ave_tcon_api_all_update_donev"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/15; ELF link VA 0x1797a0",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN9QDDimming16m_SetSceneDetectEv",
+      "id": "de:e016",
+      "limitations": [
+        "Static table relocation0x5a159c. Live backend vptr not sampled."
+      ],
+      "relation": "virtual dispatch through slot0x70 when RoseMQD vtable active",
+      "to": "de:_ZN21DimmingBackendRoseMQD17t_SetQdSeneDetectEP22BackendQdSceneDetect_t"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/16; ELF link VA 0x179836",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN9QDDimming16m_SetSceneDetectEv",
+      "id": "de:e017",
+      "limitations": [
+        "Static table relocation0x5a1680. Live backend vptr not sampled."
+      ],
+      "relation": "virtual dispatch through slot0x154 when RoseMQD vtable active",
+      "to": "de:_ZN21DimmingBackendRoseMQD11t_SetNpcLutEP17BackendQdNpcLut_t"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/17; ELF link VA 0x1c8018",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:_ZN21DimmingBackendRoseMQD12t_GetNPCDataEv",
+      "id": "de:e018",
+      "limitations": [],
+      "relation": "opens exact resource pathname",
+      "to": "de:npc-resource"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/18; ELF link VA 0x1c7444",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:log:npc-change",
+      "id": "de:e019",
+      "limitations": [],
+      "relation": "emits numeric buffer/priority/tag in evidence.loggers",
+      "to": "de:__dlog_print"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/19; ELF link VA 0x1c75a0",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:log:npc-addresses",
+      "id": "de:e020",
+      "limitations": [],
+      "relation": "emits numeric buffer/priority/tag in evidence.loggers",
+      "to": "de:__dlog_print"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/20; ELF link VA 0x1c764a",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:log:npc-repeat",
+      "id": "de:e021",
+      "limitations": [],
+      "relation": "emits numeric buffer/priority/tag in evidence.loggers",
+      "to": "de:__dlog_print"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/21; ELF link VA 0x1c63f2",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:log:scene-screenprotect-change",
+      "id": "de:e022",
+      "limitations": [],
+      "relation": "emits numeric buffer/priority/tag in evidence.loggers",
+      "to": "de:__dlog_print"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/22; ELF link VA 0x432e25a2",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:__dlog_print",
+      "id": "de:e023",
+      "limitations": [],
+      "relation": "checks producer-side priority/tag acceptance",
+      "to": "de:vlog_is_allowed"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/23; ELF link VA 0x432e25d8",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:__dlog_print",
+      "id": "de:e024",
+      "limitations": [],
+      "relation": "writes allowed produced message to VLOG",
+      "to": "de:vlog_write"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/24; exact whole-file SHA-256 comparison",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "de:_ZN21DimmingBackendRoseMQD17t_SetQdSeneDetectEP22BackendQdSceneDetect_t",
+      "id": "de:e025",
+      "limitations": [
+        "Do not equate ScreenProtect label with AP_EXCO SLG mode."
+      ],
+      "relation": "possible downstream semantic connection; register/field mapping unresolved",
+      "to": "de:ap-exco"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/25; exact whole-file SHA-256 comparison",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "de:content-route",
+      "id": "de:e026",
+      "limitations": [
+        "Mechanism existence does not prove fault cause."
+      ],
+      "relation": "requires broader explanation than Home selection",
+      "to": "de:home-only"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.1",
+      "id": "de.asset.1.contains.64",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:__dlog_print"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.1",
+      "id": "de.asset.1.contains.65",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:vlog_is_allowed"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.1",
+      "id": "de.asset.1.contains.66",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:vlog_write"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.2",
+      "id": "de.asset.2.contains.67",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:npc-resource"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.68",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN9QDDimming15t_vSyncCallBackEv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.69",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN9QDDimming16m_SetSceneDetectEv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.70",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN9QDDimming16m_SetScreenSaverEv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.71",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN21DimmingBackendRoseMQDC2Ev"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.72",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN21DimmingBackendRoseMQD12t_GetNPCDataEv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.73",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN21DimmingBackendRoseMQD11t_SetNpcLutEP17BackendQdNpcLut_t"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.74",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z28ave_tcon_api_send_onecommandyPj"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.75",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN21DimmingBackendRoseMQD16t_Set2DFinalDutyEP22BackendGd2DFinalDuty_t"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.76",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_ZN21DimmingBackendRoseMQD17t_SetQdSeneDetectEP22BackendQdSceneDetect_t"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.77",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z17ave_frc_write_i2cjj"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.78",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z39ave_tcon_monitor_ddr_pmic_check_qd_oledv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.79",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z29ave_tcon_qd_set_power_controli"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.80",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z28ave_tcon_qd_err_detect_checkv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.81",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z26ave_tcon_get_err_det_faultPi"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.82",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z27ave_tcon_get_err_det_statusPi"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.83",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z10tcon_ioctlmPv"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.84",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:ave_api_do_update"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.85",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z22ave_tcon_api_do_updateiPKcmi"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.86",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:ave_api_do_update_decryption"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.87",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z29ave_tcon_api_do_update_bufferiPKhii"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.88",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:ave_api_all_update_done"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.89",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:_Z28ave_tcon_api_all_update_donev"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.90",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:log:npc-change"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.91",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:log:npc-addresses"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.92",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:log:npc-repeat"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.93",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:log:npc-usb-repeat"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "node source_refs exact artifact hash/offset",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de.asset.3",
+      "id": "de.asset.3.contains.94",
+      "limitations": [],
+      "relation": "contains_static_anchor",
+      "to": "de:log:scene-screenprotect-change"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/0; image1VA3934;18ae8..18b3c",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.exco",
+      "id": "df.e1",
+      "limitations": [
+        "Register semantic labels do not identify physical writer"
+      ],
+      "relation": "determines_source_arithmetic",
+      "to": "df.aperture"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/1; image1VA334;18b3c",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.aperture",
+      "id": "df.e2",
+      "limitations": [],
+      "relation": "copied_by_CPU_0xb60_bytes_per_slot",
+      "to": "df.ring"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/2; image1VA18ce0;b80c..b81e",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.ring",
+      "id": "df.e3",
+      "limitations": [],
+      "relation": "selected_and_published",
+      "to": "df.pointer"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/3; image1VA1c12c",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.pointer",
+      "id": "df.e4",
+      "limitations": [
+        "Pointer slots are not final fixed-A argument"
+      ],
+      "relation": "B_payload_can_refresh_fixed_A",
+      "to": "df.fixedA"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/4; image1VAb832..b87a",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.contextflag",
+      "id": "df.e5",
+      "limitations": [
+        "Requires B header+6, geometry and counter; C+7 alone insufficient"
+      ],
+      "relation": "conditions_fixed_A_selection",
+      "to": "df.fixedA"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/5; last-clean/post-fault R,H,C,M,L",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "df.cb",
+      "id": "df.e6",
+      "limitations": [
+        "Exact event736 not observed; delayed history means nonunique trace"
+      ],
+      "relation": "sampled_values_compatible_with_threshold_fault_path",
+      "to": "df.threshold"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/6; captures baseline,last-clean,post-fault",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "df.cb",
+      "id": "df.e7",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "observed_score_and_bucket_changes",
+      "to": "df.threshold"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/7; Positive dataflow and remaining physical gap",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "df.hwproducer",
+      "id": "df.e8",
+      "limitations": [
+        "Do not equate image0 0x584109a4 table"
+      ],
+      "relation": "writes_aperture",
+      "to": "df.aperture"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/8; WindowSpec P,N; capacities8/16",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.logger",
+      "id": "df.e9",
+      "limitations": [
+        "No target qualification or execution entrypoint"
+      ],
+      "relation": "adds_fixed_read_only_sample",
+      "to": "df.nwindow"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/9; What the accepted CB capture supports",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "df.negative",
+      "id": "df.e10",
+      "limitations": [
+        "Content/pipeline-specific alternatives remain open"
+      ],
+      "relation": "weakens_global_threshold_or_blanket_disable_fix",
+      "to": "df.threshold"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/edges/10; image1VA1bcde..1bce8;38e8;394e..3952",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Frozen contribution findings and qualification",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.apexco",
+      "id": "df.e11",
+      "limitations": [
+        "Upstream byte writer and meaning unknown"
+      ],
+      "relation": "resolved_pointer_plus_0x3d8_mirrored_to_C_plus_7",
+      "to": "df.contextflag"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "data+e6 bit0 OR u16+2fc",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.slg_data",
+      "id": "edge.107",
+      "limitations": [],
+      "relation": "supplies_boolean_operands",
+      "to": "df.slg_writer"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "image0VA2fb60..2fb76; file=VA+0x200",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.slg_writer",
+      "id": "edge.108",
+      "limitations": [],
+      "relation": "writes_boolean",
+      "to": "df.slg_context"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "mode0 SRAM+0x25000000; image1 resolver; context+3d8",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.slg_context",
+      "id": "edge.109",
+      "limitations": [],
+      "relation": "remote_resource_alias_then_mirror_to_C_plus7",
+      "to": "df.contextflag"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "C+7 derived from AP_EXCO SLG",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.contextflag",
+      "id": "edge.110",
+      "limitations": [],
+      "relation": "selects_alternate_limit_and_fixed_A_branch",
+      "to": "state.mode1"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "DF resolves AP_EXCO selected directory to context; Linux upstream field writer unclosed",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "de:ap-exco",
+      "id": "edge.111",
+      "limitations": [],
+      "relation": "names_same_cross_core_boundary",
+      "to": "df.slg_context"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "FRC writes are distinct source facts; propagation to AP_EXCO data+e6/+2fc not established",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "de:_ZN21DimmingBackendRoseMQD17t_SetQdSeneDetectEP22BackendQdSceneDetect_t",
+      "id": "edge.112",
+      "limitations": [],
+      "relation": "unproved_register_to_field_bridge",
+      "to": "df.slg_data"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "bad60bca selected official factory package identity",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.package",
+      "id": "edge.113",
+      "limitations": [],
+      "relation": "same_distributed_asset_identity",
+      "to": "asset.qd.selected"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "positive cross-core source bridge; exact live writer timing still absent",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "df.contextflag",
+      "id": "edge.114",
+      "limitations": [],
+      "relation": "narrows_selector_source_not_physical_producer",
+      "to": "hypothesis.rtp736"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Cycle R/M/C/P/N/H/L/R; fixed N address and36-byte length",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/capture/README-wrapper.md",
+          "sha256": "2011e5c921588998993dc49a63b2294c9f4c98f9df564e0049c121a643e7613d"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.capture8",
+      "id": "edge.115",
+      "limitations": [],
+      "relation": "implements_fixed_exact_length_read",
+      "to": "interface.count_window"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "P fixed16-byte request; no pointer dereference",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/capture/README-wrapper.md",
+          "sha256": "2011e5c921588998993dc49a63b2294c9f4c98f9df564e0049c121a643e7613d"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.capture8",
+      "id": "edge.116",
+      "limitations": [],
+      "relation": "implements_fixed_exact_length_read",
+      "to": "interface.pointer_window"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Failing and working content/composition controls must all be explained",
+          "path": "panel-idle-20261026/overnight/owner-control-clarifications-20261027.md",
+          "sha256": "ad48994706209595e368e460b27c19d05b98039438f5b2a780d3b241a60ee2ac"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "case.hdmi_fail_A",
+      "id": "edge.117",
+      "limitations": [],
+      "relation": "constrains_candidate_explanation",
+      "to": "de:content-route"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Failing and working content/composition controls must all be explained",
+          "path": "panel-idle-20261026/overnight/owner-control-clarifications-20261027.md",
+          "sha256": "ad48994706209595e368e460b27c19d05b98039438f5b2a780d3b241a60ee2ac"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "case.hdmi_fail_B",
+      "id": "edge.118",
+      "limitations": [],
+      "relation": "constrains_candidate_explanation",
+      "to": "de:content-route"
+    },
+    {
+      "evidence_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "Failing and working content/composition controls must all be explained",
+          "path": "panel-idle-20261026/overnight/owner-control-clarifications-20261027.md",
+          "sha256": "ad48994706209595e368e460b27c19d05b98039438f5b2a780d3b241a60ee2ac"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "case.working_movies",
+      "id": "edge.119",
+      "limitations": [],
+      "relation": "constrains_candidate_explanation",
+      "to": "de:content-route"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Layered actual DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.onset01",
+      "id": "dh.edge1",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "observes_software_transition",
+      "to": "state.fault"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Layered actual DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.onset01",
+      "id": "dh.edge2",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "qualifies_first_fixed_PN_reply_lengths_in_this_trial",
+      "to": "df.capture8"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Layered actual DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.onset01",
+      "id": "dh.edge3",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "does_not_rehabilitate_enclosing_rejection",
+      "to": "dh.workflow01"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Layered actual DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.recovery01",
+      "id": "dh.edge4",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "preserves_original_rejection",
+      "to": "dh.workflow01"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Layered actual DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "dh.recovery01",
+      "id": "dh.edge5",
+      "limitations": [],
+      "relation": "does_not_prove_optical_recovery",
+      "to": "gap.electrical"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Frozen layered DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.control01",
+      "id": "dh.e21",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "observes_finite_clean_control",
+      "to": "state.clean"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Frozen layered DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.control01",
+      "id": "dh.e22",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "same_USB_instance_without_intervening_reset",
+      "to": "dh.onset02"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Frozen layered DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.onset02",
+      "id": "dh.e23",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "observes_software_transition",
+      "to": "state.fault"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Frozen layered DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.onset02",
+      "id": "dh.e24",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "has_accepted_enclosing_workflow",
+      "to": "dh.workflow02"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Frozen layered DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "dh.workflow02",
+      "id": "dh.e25",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "records_separate_native_recovery",
+      "to": "dh.recovery02"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Frozen layered DH outcomes",
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "dh.recovery02",
+      "id": "dh.e26",
+      "limitations": [],
+      "relation": "does_not_prove_emitted_light",
+      "to": "gap.electrical"
+    }
+  ],
+  "extension": {
+    "addendum": "DH onset01, distinct accepted capture / rejected workflow / separate accepted native recovery",
+    "base_graph_sha256": "9163943fc40e904921ee89859a2f7a5e8279c25f3030216410e7b000c19ef116",
+    "original_base_unchanged": true,
+    "second_trial_proof": "dh-onset-02-source-proof.json",
+    "source_snapshots_unchanged": true
+  },
+  "hash_semantics": "Source refs pin original retained report bytes; redacted public bytes may differ. OEM identity pins identify assets, not running code.",
+  "nodes": [
+    {
+      "availability": "OEM bytes withheld",
+      "id": "asset.main_firmware",
+      "kind": "asset",
+      "label": "Exact main 0090-1301.0 package; nine validated originals",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/phase-report.md",
+          "sha256": "9b1442c52cbd2cdfac8d87a8f652ba7b3d0ee3309598f01a3845e98f467d2ce7"
+        }
+      ]
+    },
+    {
+      "availability": "OEM bytes withheld",
+      "id": "asset.kernel",
+      "identity_scope": "Matches earlier stored boot-slot declared kernel; executing text unqualified",
+      "kind": "asset",
+      "label": "Extracted ARM64 Linux5.4.261 stored kernel",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ]
+    },
+    {
+      "availability": "OEM bytes withheld",
+      "id": "asset.dtb_bundle",
+      "kind": "asset",
+      "label": "Ten bounded FDTs",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ]
+    },
+    {
+      "id": "asset.board_candidate",
+      "kind": "asset",
+      "label": "Tree1: runtime dtsversion candidate",
+      "limitations": [
+        "Bootargs differ: boot patching observed; not complete live-tree proof"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ]
+    },
+    {
+      "availability": "OEM bytes withheld",
+      "id": "asset.qd.selected",
+      "identity": {
+        "scope": "distributed selected asset; not whole running executable identity",
+        "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+      },
+      "kind": "asset",
+      "label": "Selected F_RSM1_BN9659934B_COMMON profile",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "address": "0x1e68",
+      "address_domain": "selected-image1 Thumb VA",
+      "file_offset": "0x42068",
+      "id": "function.rtp_predicate",
+      "kind": "function",
+      "label": "Mode-selected history/aggregate comparison",
+      "limitations": [
+        "File offset=VA+0x40200; running-code/alias assumption explicit"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "address": "0xc1e0",
+      "address_domain": "selected-image1 Thumb VA",
+      "file_offset": "0x4c3e0",
+      "id": "function.fault_setter",
+      "kind": "function",
+      "label": "Common stop/fault/gate setter",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "alternate_limit": 40,
+        "alternate_selector": 1,
+        "flags_aa": 0,
+        "flags_ac": 2,
+        "normal_limit": 200
+      },
+      "id": "state.mode1",
+      "kind": "state",
+      "label": "CB selected mode1; alternate finite limit40",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "id": "state.clean",
+      "kind": "state",
+      "label": "RT tuple stop0 / fault0 / ordinaryGate1",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "id": "state.fault",
+      "kind": "state",
+      "label": "RT tuple stop1 / fault0x1001 / ordinaryGate0",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "id": "observation.cb_operands",
+      "kind": "observation",
+      "label": "CB score0→38→44; action bucket0→3→7",
+      "limitations": [
+        "Post M/C/H/L follow first fault R; not atomic event operands"
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "outer_end_us": 167671260439,
+        "outer_start_us": 167671010145
+      },
+      "id": "observation.cb_bracket",
+      "kind": "observation",
+      "label": "250294us conservative clean/fault R bracket",
+      "limitations": [
+        "Conditional reply freshness; not physical-light timestamp or compositor/key causality"
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "id": "observation.cb_dark",
+      "kind": "observation",
+      "label": "Owner reports panel went dark after onset capture",
+      "limitations": [
+        "No exact native physical timestamp"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "id": "observation.cb_recovery",
+      "kind": "observation",
+      "label": "Owner reports Apps visible after separate stockMODE2",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "id": "observation.cb_rejected_recovery",
+      "kind": "observation",
+      "label": "Recovery wrapper rejected proc-exit race; native rc0/ioctl0/close0, cleanup confirmed",
+      "limitations": [
+        "Physical recovery does not rehabilitate rejected wrapper"
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "execution_owner": "parent coordinator only",
+      "id": "action.menu_sequence",
+      "kind": "action",
+      "label": "Apps header → Up Up → Left → cachedLive",
+      "limitations": [
+        "CB synchronized recorder itself sent one Left only; header preparation was separate; cached page is not light"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "execution_owner": "parent coordinator only",
+      "id": "action.apps_mode2",
+      "kind": "action",
+      "label": "Normal Right→Apps, then one unchanged stockoperation41/mode2",
+      "limitations": [
+        "Separate phase/identity/public-state guards; no automatic retry or post-reset key"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md",
+          "sha256": "7c829f06583156da540b8f0ead298fe3e9b772c791681e9f97b8ecd6aa50a8a1"
+        }
+      ]
+    },
+    {
+      "id": "observation.bw_recovery",
+      "kind": "observation",
+      "label": "BW operational ForYou→Apps+MODE2: owner visible, kernelstatus0",
+      "limitations": [
+        "Kernel status and physical report separate; not raw MCU RT tuple"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/full-confirmation-20261027bw/findings.md",
+          "sha256": "532f052d9b03cc2c16cf10844fff47c3270b5f71811ef1885f64a858e0f4a1e3"
+        }
+      ]
+    },
+    {
+      "address_domain": "captured controller bus",
+      "attributes": {
+        "C": "0x47000bc0/16",
+        "H": "0x4700d0e0/96",
+        "L": "0x47010f00/64",
+        "M": "0x470004a0/68",
+        "R": "0x47012400/256"
+      },
+      "id": "interface.root_windows",
+      "kind": "interface",
+      "label": "R/M/C/H/L fixed controller windows",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "address": "0x4700ba28",
+      "address_domain": "controller bus",
+      "id": "interface.count_window",
+      "kind": "interface",
+      "label": "Fixed36B IDs/current-count capture candidate",
+      "limitations": [
+        "First new device reply requires exact36-byte validation; complete live-image identity remains unproved"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/capture/README-wrapper.md",
+          "sha256": "2011e5c921588998993dc49a63b2294c9f4c98f9df564e0049c121a643e7613d"
+        }
+      ],
+      "status": "source-qualified and independently host-reviewed; target outcome not asserted by this snapshot"
+    },
+    {
+      "address": "0x47000490",
+      "address_domain": "controller bus",
+      "id": "interface.pointer_window",
+      "kind": "interface",
+      "label": "Fixed16B A/B pointer capture candidate",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/capture/README-wrapper.md",
+          "sha256": "2011e5c921588998993dc49a63b2294c9f4c98f9df564e0049c121a643e7613d"
+        }
+      ],
+      "status": "source-qualified and independently host-reviewed; not executed by DG"
+    },
+    {
+      "address": "0x20253002",
+      "address_domain": "selected-image1 CPU data",
+      "attributes": {
+        "stride": "0xb68"
+      },
+      "id": "interface.packed_ring",
+      "kind": "interface",
+      "label": "Three-slot RTP ring",
+      "limitations": [
+        "Physical producer/units unresolved"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "address": "0x60000000",
+      "address_domain": "selected-image1 address space; physical semantics unknown",
+      "id": "interface.aperture",
+      "kind": "interface",
+      "label": "Descriptor-selected0x60000000 aperture copies",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "address": "0x584109a4",
+      "address_domain": "image0 source domain",
+      "id": "interface.prepd_image0",
+      "kind": "interface",
+      "label": "Separate unresolved PrePD source0x584109a4",
+      "limitations": [
+        "No proved dataflow bridge to image1 RTP"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "id": "gap.producer",
+      "kind": "gap",
+      "label": "Physical/dataflow producer and units remain unresolved",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "id": "gap.running_identity",
+      "kind": "gap",
+      "label": "Whole executing image and bus/CPU alias not proved",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "id": "gap.electrical",
+      "kind": "gap",
+      "label": "Software latch→electrical suppression→emitted light edge unresolved",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md",
+          "sha256": "a7a2029d7bc3228202a574fe020fbc184e3445fc75ad9ee5484727ff94687c0a"
+        }
+      ]
+    },
+    {
+      "id": "hypothesis.rtp736",
+      "kind": "hypothesis",
+      "label": "CB path consistent with event736 mode1 aggregate crossing",
+      "limitations": [
+        "CB did not log event736 itself; competing transient/indirect/different-code writers not excluded"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "id": "hypothesis.format_only",
+      "kind": "hypothesis",
+      "label": "A codec/HDR/framerate label alone explains failures",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/owner-control-clarifications-20261027.md",
+          "sha256": "ad48994706209595e368e460b27c19d05b98039438f5b2a780d3b241a60ee2ac"
+        }
+      ],
+      "status": "weakened by controls"
+    },
+    {
+      "id": "hypothesis.mute_only",
+      "kind": "hypothesis",
+      "label": "CLEAR_AVMUTE or QD_TCON_OFF alone explains black",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md",
+          "sha256": "a7a2029d7bc3228202a574fe020fbc184e3445fc75ad9ee5484727ff94687c0a"
+        }
+      ],
+      "status": "weakened by visible counterexamples"
+    },
+    {
+      "id": "case.native_sparse",
+      "kind": "case",
+      "label": "Sparse Live/ForYou persistent black while audio continues",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/ugoos-overlay-paired-control-20261027.md",
+          "sha256": "d9381f4b5ae0b6bc649c56cae62a4a6e1d76ea03ab6d7b76bc062cda4dd8b14d"
+        }
+      ]
+    },
+    {
+      "id": "case.hdmi_fail_A",
+      "kind": "case",
+      "label": "HDMI failureA fullscreen; same playback behind UgoosHome can remain visible after restart",
+      "limitations": [
+        "Same playback is not bit-identical final HDMI composition; exact historical HDMI format unknown"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/ordinary-fault-model-20261027.md",
+          "sha256": "fa815c47aa3e7911e2bf9805515c83affcf373e6e63d08503616577cc60e07ea"
+        }
+      ]
+    },
+    {
+      "id": "case.hdmi_fail_B",
+      "kind": "case",
+      "label": "HDMI failureB fullscreen; same-playback Home control",
+      "limitations": [
+        "Private titles intentionally replaced with stable case IDs"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/ordinary-fault-model-20261027.md",
+          "sha256": "fa815c47aa3e7911e2bf9805515c83affcf373e6e63d08503616577cc60e07ea"
+        }
+      ]
+    },
+    {
+      "id": "case.working_movies",
+      "kind": "case",
+      "label": "Owner-confirmed working movie/series controls across formats",
+      "limitations": [
+        "Server played flags are not physical proof; no contemporaneous HDMI mode for every title"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/owner-control-clarifications-20261027.md",
+          "sha256": "ad48994706209595e368e460b27c19d05b98039438f5b2a780d3b241a60ee2ac"
+        }
+      ]
+    },
+    {
+      "id": "case.visible_apps",
+      "kind": "case",
+      "label": "Populated Apps/screensaver visible control",
+      "limitations": [],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/ugoos-overlay-paired-control-20261027.md",
+          "sha256": "d9381f4b5ae0b6bc649c56cae62a4a6e1d76ea03ab6d7b76bc062cda4dd8b14d"
+        }
+      ]
+    },
+    {
+      "id": "case.rare_av_pause",
+      "kind": "case",
+      "label": "Rare brief recovering picture loss, sometimes audio pause",
+      "limitations": [
+        "Separate uncaptured symptom group; not automatically same persistent fault"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md",
+          "sha256": "d80db221d9aef6d371989c178efa260488ad080325133cb3b635f74022bec371"
+        }
+      ]
+    },
+    {
+      "address_domain": "candidate DT GPIO controller/line; not global Linux GPIO number",
+      "id": "interface.errdet",
+      "kind": "interface",
+      "label": "ERR_DET candidate gpio15 line5",
+      "limitations": [
+        "Raw flags not proved electrical assertion polarity; getter may request/direction/read/free"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ]
+    },
+    {
+      "id": "interface.pmic",
+      "kind": "interface",
+      "label": "PMIC/VDD/sync candidate bank15 inputs",
+      "limitations": [
+        "Static wiring candidate, no current levels"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ]
+    },
+    {
+      "id": "interface.micom",
+      "kind": "interface",
+      "label": "Micom control/messagebox distinct from TCON mailbox",
+      "limitations": [
+        "Block identity not external OLED-controller protocol identity; version getter actively transacts"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md",
+          "sha256": "ca6bad84541a5feb99a5dfd75c0880bf84c3db8f1987e2e902d648065690875e"
+        }
+      ]
+    },
+    {
+      "id": "hypothesis.limit200",
+      "kind": "hypothesis",
+      "label": "Deferred finite40→200 RAM comparison experiment",
+      "limitations": [
+        "Couples record-ID bound; electrical safety and score>200 possible; no arbitrary write or proved reset restoration"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md",
+          "sha256": "7e5c149db0498d6d9efc619795792364a68f3ea967ed3ae16a0e152f0a24560a"
+        }
+      ],
+      "status": "not implemented; technical qualification incomplete"
+    },
+    {
+      "id": "hypothesis.screenshot_light",
+      "kind": "hypothesis",
+      "label": "Nonblack compositor screenshot proves emitted light",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md",
+          "sha256": "d80db221d9aef6d371989c178efa260488ad080325133cb3b635f74022bec371"
+        }
+      ],
+      "status": "falsified in B0/B1 context"
+    },
+    {
+      "id": "observation.screenshot_counterexample",
+      "kind": "observation",
+      "label": "Nonblack Apps compositor capture while owner confirms panel black throughout B0/B1",
+      "limitations": [
+        "Host composition and emitted light are separate; no electrical measurement"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md",
+          "sha256": "d80db221d9aef6d371989c178efa260488ad080325133cb3b635f74022bec371"
+        }
+      ]
+    },
+    {
+      "id": "negative.bucket_clear",
+      "kind": "configuration",
+      "label": "Action bucket+0x2486 is accumulated output, not comparator enable",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md",
+          "sha256": "dbfd6ae4d1737880a5b7c8fbd33676c6c9f1de9242fbd6b4b0fccb3f1f5bce40"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1553244,
+          "address_domain": "ELF link VA",
+          "file_offset": 1553244,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN9QDDimming15t_vSyncCallBackEv",
+      "kind": "function",
+      "label": "_ZN9QDDimming15t_vSyncCallBackEv",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/0",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1545680,
+          "address_domain": "ELF link VA",
+          "file_offset": 1545680,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN9QDDimming16m_SetSceneDetectEv",
+      "kind": "function",
+      "label": "_ZN9QDDimming16m_SetSceneDetectEv",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/1",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1552900,
+          "address_domain": "ELF link VA",
+          "file_offset": 1552900,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN9QDDimming16m_SetScreenSaverEv",
+      "kind": "function",
+      "label": "_ZN9QDDimming16m_SetScreenSaverEv",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/2",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1869216,
+          "address_domain": "ELF link VA",
+          "file_offset": 1869216,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN21DimmingBackendRoseMQDC2Ev",
+      "kind": "function",
+      "label": "_ZN21DimmingBackendRoseMQDC2Ev",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/3",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1867580,
+          "address_domain": "ELF link VA",
+          "file_offset": 1867580,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN21DimmingBackendRoseMQD12t_GetNPCDataEv",
+      "kind": "function",
+      "label": "_ZN21DimmingBackendRoseMQD12t_GetNPCDataEv",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/4",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1864412,
+          "address_domain": "ELF link VA",
+          "file_offset": 1864412,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN21DimmingBackendRoseMQD11t_SetNpcLutEP17BackendQdNpcLut_t",
+      "kind": "function",
+      "label": "_ZN21DimmingBackendRoseMQD11t_SetNpcLutEP17BackendQdNpcLut_t",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/5",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2431448,
+          "address_domain": "ELF link VA",
+          "file_offset": 2431448,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z28ave_tcon_api_send_onecommandyPj",
+      "kind": "function",
+      "label": "_Z28ave_tcon_api_send_onecommandyPj",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/6",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1860212,
+          "address_domain": "ELF link VA",
+          "file_offset": 1860212,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN21DimmingBackendRoseMQD16t_Set2DFinalDutyEP22BackendGd2DFinalDuty_t",
+      "kind": "function",
+      "label": "_ZN21DimmingBackendRoseMQD16t_Set2DFinalDutyEP22BackendGd2DFinalDuty_t",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/7",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1860464,
+          "address_domain": "ELF link VA",
+          "file_offset": 1860464,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_ZN21DimmingBackendRoseMQD17t_SetQdSeneDetectEP22BackendQdSceneDetect_t",
+      "kind": "function",
+      "label": "_ZN21DimmingBackendRoseMQD17t_SetQdSeneDetectEP22BackendQdSceneDetect_t",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/8",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2375092,
+          "address_domain": "ELF link VA",
+          "file_offset": 2375092,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z17ave_frc_write_i2cjj",
+      "kind": "function",
+      "label": "_Z17ave_frc_write_i2cjj",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/9",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2528764,
+          "address_domain": "ELF link VA",
+          "file_offset": 2528764,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z39ave_tcon_monitor_ddr_pmic_check_qd_oledv",
+      "kind": "function",
+      "label": "_Z39ave_tcon_monitor_ddr_pmic_check_qd_oledv",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/10",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2474720,
+          "address_domain": "ELF link VA",
+          "file_offset": 2474720,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z29ave_tcon_qd_set_power_controli",
+      "kind": "function",
+      "label": "_Z29ave_tcon_qd_set_power_controli",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/11",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2527228,
+          "address_domain": "ELF link VA",
+          "file_offset": 2527228,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z28ave_tcon_qd_err_detect_checkv",
+      "kind": "function",
+      "label": "_Z28ave_tcon_qd_err_detect_checkv",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/12",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2478108,
+          "address_domain": "ELF link VA",
+          "file_offset": 2478108,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z26ave_tcon_get_err_det_faultPi",
+      "kind": "function",
+      "label": "_Z26ave_tcon_get_err_det_faultPi",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/13",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2478436,
+          "address_domain": "ELF link VA",
+          "file_offset": 2478436,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z27ave_tcon_get_err_det_statusPi",
+      "kind": "function",
+      "label": "_Z27ave_tcon_get_err_det_statusPi",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/14",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2807856,
+          "address_domain": "ELF link VA",
+          "file_offset": 2807856,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z10tcon_ioctlmPv",
+      "kind": "function",
+      "label": "_Z10tcon_ioctlmPv",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/15",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2638216,
+          "address_domain": "ELF link VA",
+          "file_offset": 2638216,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:ave_api_do_update",
+      "kind": "function",
+      "label": "ave_api_do_update",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/16",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2466644,
+          "address_domain": "ELF link VA",
+          "file_offset": 2466644,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z22ave_tcon_api_do_updateiPKcmi",
+      "kind": "function",
+      "label": "_Z22ave_tcon_api_do_updateiPKcmi",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/17",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2638596,
+          "address_domain": "ELF link VA",
+          "file_offset": 2638596,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:ave_api_do_update_decryption",
+      "kind": "function",
+      "label": "ave_api_do_update_decryption",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/18",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2467040,
+          "address_domain": "ELF link VA",
+          "file_offset": 2467040,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z29ave_tcon_api_do_update_bufferiPKhii",
+      "kind": "function",
+      "label": "_Z29ave_tcon_api_do_update_bufferiPKhii",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/19",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2642840,
+          "address_domain": "ELF link VA",
+          "file_offset": 2642840,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:ave_api_all_update_done",
+      "kind": "function",
+      "label": "ave_api_all_update_done",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/20",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 2469020,
+          "address_domain": "ELF link VA",
+          "file_offset": 2469020,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:_Z28ave_tcon_api_all_update_donev",
+      "kind": "function",
+      "label": "_Z28ave_tcon_api_all_update_donev",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/21",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "LUT_NPC_Point.json",
+          "object_sha256": "e13048126ad19d6890ef8c862abacc682645de4bf8131f9f97a05dc3baef3ce3"
+        }
+      ],
+      "id": "de:npc-resource",
+      "kind": "asset",
+      "label": "LUT_NPC_Point.json",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/22",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1864772,
+          "address_domain": "ELF link VA",
+          "file_offset": 1864772,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:log:npc-change",
+      "kind": "interface",
+      "label": "npc-change",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/23",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1127097580,
+          "address_domain": "ELF link VA",
+          "file_offset": 9452,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libdlog.so.0.0.0",
+          "object_sha256": "9549f8819ffd46a1b299b4e5eea480e6d392f04619b47a0c0177b364c45aeb94"
+        }
+      ],
+      "id": "de:__dlog_print",
+      "kind": "function",
+      "label": "__dlog_print",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/24",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1865120,
+          "address_domain": "ELF link VA",
+          "file_offset": 1865120,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:log:npc-addresses",
+      "kind": "interface",
+      "label": "npc-addresses",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/25",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1865290,
+          "address_domain": "ELF link VA",
+          "file_offset": 1865290,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:log:npc-repeat",
+      "kind": "interface",
+      "label": "npc-repeat",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/26",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1865348,
+          "address_domain": "ELF link VA",
+          "file_offset": 1865348,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:log:npc-usb-repeat",
+      "kind": "interface",
+      "label": "npc-usb-repeat",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/27",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1860594,
+          "address_domain": "ELF link VA",
+          "file_offset": 1860594,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libave.so.0.1",
+          "object_sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+        }
+      ],
+      "id": "de:log:scene-screenprotect-change",
+      "kind": "interface",
+      "label": "scene-screenprotect-change",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/28",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1127094104,
+          "address_domain": "ELF link VA",
+          "file_offset": 5976,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libdlog.so.0.0.0",
+          "object_sha256": "9549f8819ffd46a1b299b4e5eea480e6d392f04619b47a0c0177b364c45aeb94"
+        }
+      ],
+      "id": "de:vlog_is_allowed",
+      "kind": "function",
+      "label": "vlog_is_allowed",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/29",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": 1127093164,
+          "address_domain": "ELF link VA",
+          "file_offset": 5036,
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "libdlog.so.0.0.0",
+          "object_sha256": "9549f8819ffd46a1b299b4e5eea480e6d392f04619b47a0c0177b364c45aeb94"
+        }
+      ],
+      "id": "de:vlog_write",
+      "kind": "function",
+      "label": "vlog_write",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/30",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "id": "de:ap-exco",
+      "kind": "interface",
+      "label": "AP_EXCO data -> image0 mode byte -> image1 C+7",
+      "limitations": [
+        "DF owns proven cross-core edge. No proven Linux scene-field link yet."
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/31",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "id": "de:home-only",
+      "kind": "hypothesis",
+      "label": "Home-tab-only blackout explanation",
+      "limitations": [
+        "A complete explanation must also account for failing fullscreen HDMI content and working movie/control content."
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/32",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "id": "de:content-route",
+      "kind": "interface",
+      "label": "Source/content-sensitive dimming and scene command route",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/33",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "id": "de.asset.1",
+      "identity": {
+        "scope": "exact packaged/retained asset",
+        "sha256": "9549f8819ffd46a1b299b4e5eea480e6d392f04619b47a0c0177b364c45aeb94"
+      },
+      "kind": "asset",
+      "label": "PLTF:/usr/lib/libdlog.so.0.0.0",
+      "limitations": [
+        "OEM bytes withheld; live current mapping/backend identity separately qualified."
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "id": "de.asset.2",
+      "identity": {
+        "scope": "exact packaged/retained asset",
+        "sha256": "e13048126ad19d6890ef8c862abacc682645de4bf8131f9f97a05dc3baef3ce3"
+      },
+      "kind": "asset",
+      "label": "PRD:/usr/bin/ave/pq/LUT_NPC_Point.json",
+      "limitations": [
+        "OEM bytes withheld; live current mapping/backend identity separately qualified."
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "id": "de.asset.3",
+      "identity": {
+        "scope": "exact packaged/retained asset",
+        "sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+      },
+      "kind": "asset",
+      "label": "PRD:/usr/lib/libave.so.0.1",
+      "limitations": [
+        "OEM bytes withheld; live current mapping/backend identity separately qualified."
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/evidence-graph.json",
+          "sha256": "c6b75d288ef9925058a2213e818125281a78226a7f92ff2663848860143caa2b"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md",
+          "sha256": "3f822503dee3cd9c3a60049bfe015e36bc5aa68bcaf8b689cf9cade62bf605e5"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.package",
+      "kind": "asset",
+      "label": "Official selected QD package byte-identical to retained source",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/0",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0x3934",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x43b34",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.exco",
+      "kind": "interface",
+      "label": "EXCO descriptor root0x58601408",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/1",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0x18aec",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x58cec",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.aperture",
+      "kind": "interface",
+      "label": "Source aperture0x60000000, physical writer unknown",
+      "limitations": [
+        "Physical units and writer unknown"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/2",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0x18ae8",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x58ce8",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.ring",
+      "kind": "state",
+      "label": "CPU0x20253002 three-slot packed RTP ring",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/3",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0xb7ec",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x4b9ec",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.pointer",
+      "kind": "state",
+      "label": "Dynamic A/B slot pointers CPU0x494/498",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/4",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0x1c12c",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x5c32c",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.fixedA",
+      "kind": "state",
+      "label": "Optional fixed A payload15000/15f10",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/5",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0x394a",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x43b4a",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.contextflag",
+      "kind": "state",
+      "label": "C+7 from runtime_context+0x3d8",
+      "limitations": [
+        "Upstream writer/meaning not identified"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/6",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0x1e68",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x42068",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.threshold",
+      "kind": "function",
+      "label": "Mode1 delayed aggregate score compared to alternate40",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/7",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "id": "df.cb",
+      "kind": "observation",
+      "label": "CB sampled A0 0→38→44; bucket0→3→7; software fault",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/8",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0xc708",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x4c908",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.nwindow",
+      "kind": "interface",
+      "label": "Proposed N source counts and ordinal counters",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/9",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "id": "df.logger",
+      "kind": "evidence",
+      "label": "Host-only P/N capture fork",
+      "limitations": [
+        "Initial frozen host-only prototype; separate later capture/ contains deployable eight-window candidate."
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/10",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.hwproducer",
+      "kind": "gap",
+      "label": "Aperture physical producer/validity/cadence unknown",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/11",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "id": "df.negative",
+      "kind": "observation",
+      "label": "Working titles/movies/saver/fullApps and Ugoos Home constrain explanation",
+      "limitations": [
+        "User/parent reports; physical time and complete negative-case matrix not independently instrumented here"
+      ],
+      "observation_class": "owner_report",
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/12",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "asset_anchors": [
+        {
+          "address": "0x1bcde",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x5bede",
+          "identity_scope": "packaged/retained asset; not executing-image attestation",
+          "object_name": "F_RSM1_BN9659934B_COMMON.bin",
+          "object_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ],
+      "id": "df.apexco",
+      "kind": "interface",
+      "label": "AP_EXCO named resource resolved at initialization",
+      "limitations": [
+        "Resource API naming does not establish physical signal semantics"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "locator": "/nodes/13",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/evidence-graph.json",
+          "sha256": "75c53eb65c654c135c9b94fbcd67ff3ea409f9d472a6557a3a63ab9c15e4db41"
+        },
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "address": "0x2000ff14",
+      "address_domain": "selected-image0 CPU data",
+      "id": "df.slg_data",
+      "kind": "configuration",
+      "label": "Image0 AP_EXCO data+0xe6 bit0 OR uint16+0x2fc",
+      "limitations": [
+        "Upstream writers and physical meaning unresolved; whole liveimage0 identity unproved"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ]
+    },
+    {
+      "address": "0x2fb44",
+      "address_domain": "selected-image0 Thumb VA",
+      "attributes": {
+        "expression": "context[0x3d8] = ((data.u8(0xe6)&1) | data.u16(0x2fc)) != 0",
+        "write_range": "0x2fb60..0x2fb76"
+      },
+      "file_offset": "0x2fd44",
+      "id": "df.slg_writer",
+      "kind": "function",
+      "label": "Image0 derives SLG boolean into remote AP_EXCO context",
+      "limitations": [],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ]
+    },
+    {
+      "address": "0x20015c80",
+      "address_domain": "selected-image0 CPU data",
+      "attributes": {
+        "image1_remote_alias": "0x45015c80",
+        "resource_context": "0x200158a8"
+      },
+      "id": "df.slg_context",
+      "kind": "state",
+      "label": "Image0 context+0x3d8 / image1 remote alias0x45015c80",
+      "limitations": [
+        "SLG short source label only; no expansion or electrical effect inferred"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ]
+    },
+    {
+      "id": "df.capture8",
+      "kind": "evidence",
+      "label": "Separately frozen eight-window executable candidate",
+      "limitations": [
+        "Initial df.logger graph node is a different earlier host-only prototype; independent integration review in DG/reviews; target outcome not asserted here"
+      ],
+      "source_refs": [
+        {
+          "hash_semantics": "original_retained_report_bytes",
+          "path": "panel-idle-20261026/overnight/firmware-rtp-producer-20261028df/capture/README-wrapper.md",
+          "sha256": "2011e5c921588998993dc49a63b2294c9f4c98f9df564e0049c121a643e7613d"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "bracket_end_us": 174229804026,
+        "bracket_start_us": 174229552106,
+        "bulk": 80,
+        "clean_cycles": 4,
+        "headers": 40,
+        "transition_cycle": 5
+      },
+      "id": "dh.onset01",
+      "kind": "observation",
+      "label": "Accepted DH controller software onset with first P/N exact replies",
+      "limitations": [
+        "Layered acceptance preserved; physical state unobserved; key causality not established."
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "accepted": false
+      },
+      "id": "dh.workflow01",
+      "kind": "observation",
+      "label": "Rejected enclosing DH workflow; Apps navigation failed, MODE2 withheld",
+      "limitations": [
+        "Layered acceptance preserved; physical state unobserved; key causality not established."
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "original_trial_remains_rejected": true,
+        "physical_state": "unobserved"
+      },
+      "id": "dh.recovery01",
+      "kind": "observation",
+      "label": "Separate accepted MODE2 continuation; kernel return zero only",
+      "limitations": [
+        "Layered acceptance preserved; physical state unobserved; key causality not established."
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-01.md",
+          "sha256": "9c864603c659cf289feed96b72c013a419f847e7d9f80ef1014fd4385f489646"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "bulk": 960,
+        "cycles": 80,
+        "headers": 480,
+        "terminal": "TimeLimit"
+      },
+      "id": "dh.control01",
+      "kind": "observation",
+      "label": "Accepted no-key Apps80-cycle clean control on USB57",
+      "limitations": [
+        "Finite software observation; emitted light unobserved."
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "bracket_end_us": 174596471445,
+        "bracket_start_us": 174596221111,
+        "bulk": 80,
+        "clean_cycles": 4,
+        "fault_cycle": 5,
+        "headers": 40
+      },
+      "id": "dh.onset02",
+      "kind": "observation",
+      "label": "Second accepted DH controller onset after same-instance control",
+      "limitations": [
+        "Finite software observation; emitted light unobserved."
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "accepted": true,
+        "first_workflow_accepted": false
+      },
+      "id": "dh.workflow02",
+      "kind": "observation",
+      "label": "Second parent workflow accepted; first remains rejected",
+      "limitations": [
+        "Finite software observation; emitted light unobserved."
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ]
+    },
+    {
+      "attributes": {
+        "accepted": true,
+        "physical_state": "unobserved"
+      },
+      "id": "dh.recovery02",
+      "kind": "observation",
+      "label": "Separate second-trial stockMODE2 native completion and cleanup",
+      "limitations": [
+        "Finite software observation; emitted light unobserved."
+      ],
+      "observation_class": "native_capture",
+      "source_refs": [
+        {
+          "path": "panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md",
+          "sha256": "b40ef9acae1d7d2bc0c75c33b37c8c03414dfdeb7de3d192e30f2054a2d7e2c8"
+        }
+      ]
+    }
+  ],
+  "schema": "s95f-evidence-graph-v1",
+  "scope": "Offline graph; evidence classes are provenance, not probability. No executable instructions or private values."
+}

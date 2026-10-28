@@ -1,0 +1,220 @@
+{
+  "edges": [
+    {
+      "evidence_refs": [
+        {
+          "locator": "First helper and composite writer",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.upstream.first",
+      "id": "df.upstream.first-context",
+      "limitations": [
+        "Table physical writer/units/cadence unknown."
+      ],
+      "relation": "e6_bit0_feeds",
+      "to": "df.upstream.context"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Second helper and composite writer",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.upstream.second",
+      "id": "df.upstream.second-context",
+      "limitations": [
+        "Masked-off branches can retain old bits."
+      ],
+      "relation": "2fc_nonzero_feeds",
+      "to": "df.upstream.context"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Second helper and upstream frame-mode negative",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.upstream.frame",
+      "id": "df.upstream.frame-second",
+      "limitations": [
+        "Only operative when mask bit0 enabled."
+      ],
+      "relation": "compared_by_mask_bit0",
+      "to": "df.upstream.second"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "AP_AG92 writer and comparison",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.upstream.AG",
+      "id": "df.upstream.AG-second",
+      "limitations": [
+        "No physical brightness/gain units established."
+      ],
+      "relation": "compared_by_mask_bit0",
+      "to": "df.upstream.second"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Packaged and W enable/mask fields",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "df.upstream.Wmask",
+      "id": "df.upstream.W-frame",
+      "limitations": [
+        "W is prior late snapshot, not continuous later runtime evidence."
+      ],
+      "observation_class": "native_capture",
+      "relation": "weakens_frame_mode_only_explanation",
+      "to": "df.upstream.frame"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Cross-core AP_EXCO resolver +3d8 read",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.upstream.context",
+      "id": "df.upstream.context-image1",
+      "limitations": [
+        "Source lineage differs from full runtime identity."
+      ],
+      "relation": "cross_core_lookup_translation_mirrors",
+      "to": "df.upstream.image1selector"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "df.upstream.first",
+      "kind": "function",
+      "label": "First AP_EXCO table-tail/debounce helper",
+      "limitations": [
+        "Static selected source; full running instruction identity is not attested."
+      ],
+      "source_refs": [
+        {
+          "address": "0x2f5d8",
+          "address_domain": "selected-image0-linked-code",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ]
+    },
+    {
+      "id": "df.upstream.second",
+      "kind": "function",
+      "label": "Second AP_EXCO independently masked selector helper",
+      "limitations": [
+        "Static selected source; full running instruction identity is not attested."
+      ],
+      "source_refs": [
+        {
+          "address": "0x2f980",
+          "address_domain": "selected-image0-linked-code",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ]
+    },
+    {
+      "id": "df.upstream.context",
+      "kind": "function",
+      "label": "AP_EXCO context+3d8 composite selector",
+      "limitations": [
+        "Static selected source; full running instruction identity is not attested."
+      ],
+      "source_refs": [
+        {
+          "address": "0x2fb44",
+          "address_domain": "selected-image0-linked-code",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ]
+    },
+    {
+      "id": "df.upstream.frame",
+      "kind": "state",
+      "label": "AP frame-mode field+37a via F300:160",
+      "limitations": [
+        "Static selected source; full running instruction identity is not attested."
+      ],
+      "source_refs": [
+        {
+          "address": "0x2555c",
+          "address_domain": "selected-image0-linked-code",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ]
+    },
+    {
+      "id": "df.upstream.AG",
+      "kind": "state",
+      "label": "AP_AG+92 selected table element",
+      "limitations": [
+        "Static selected source; full running instruction identity is not attested."
+      ],
+      "source_refs": [
+        {
+          "address": "0x256c",
+          "address_domain": "selected-image0-linked-code",
+          "path": "firmware-rtp-producer-20261028df/source-upstream/README.md",
+          "sha256": "523889d969075225f2a93af233f0662f8a8030d2ce78c5c8b48fe7f84a1ccecf"
+        }
+      ]
+    },
+    {
+      "id": "df.upstream.Wmask",
+      "kind": "observation",
+      "label": "Packaged initializer and prior W sample mask2 disable frame bit0 branch",
+      "limitations": [
+        "Prior W sample is not contemporaneous with CB/DH onsets."
+      ],
+      "source_refs": [
+        {
+          "path": "firmware-rtp-producer-20261028df/source-upstream/byte-verification.json",
+          "sha256": "a6bc5cb73683d86b7b1bc227d29cdda882fe6f0ac0a20226ca54b7a57e3d82e2"
+        }
+      ]
+    },
+    {
+      "id": "df.upstream.image1selector",
+      "kind": "state",
+      "label": "Image1 C+7 mirror permits alternate fixed-A selection",
+      "limitations": [
+        "Permissive condition; insufficient alone to trigger fault."
+      ],
+      "source_refs": [
+        {
+          "address": "0x3952",
+          "address_domain": "selected-image1-linked-code",
+          "path": "firmware-rtp-producer-20261028df/cross-core-slg-addendum.md",
+          "sha256": "1ed94fee25b523dcb9ecc6e3cf6ec1af5d84e06c4551c9e68549f9a5436ef64c"
+        }
+      ]
+    }
+  ],
+  "schema": "research-evidence-graph-contribution-v1"
+}

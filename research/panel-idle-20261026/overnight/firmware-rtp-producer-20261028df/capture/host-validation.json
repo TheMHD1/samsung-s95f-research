@@ -1,0 +1,110 @@
+{
+  "date_UTC": "2026-10-28T01:50:30.675586+00:00",
+  "deployment_manifest_sha256": "ace348b57b15d27feca2bb67b88c4663535c2c72754b2cbb9ac51c88a3cc85c2",
+  "network_calls": 0,
+  "root_calls": 0,
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "test-parse-result.py"
+      ],
+      "result": {
+        "checks": 132,
+        "frozen_fixtures": 4,
+        "network_calls": 0,
+        "parent_parser_sha256": "acc9f37f3586dc1066a31ec853d739da127fc2afb704fe7202f14a1cc170f0af",
+        "rejected_mutations": 84,
+        "root_calls": 0,
+        "schema": "synchronized-key-parser-tests-v1",
+        "target_operations": 0
+      },
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "test-runner.py"
+      ],
+      "result": {
+        "checks": 1344,
+        "fakeNativeInvocationsOnly": true,
+        "maxCommandBytes": 7098,
+        "schema": "synchronized-onset-wrapper-host-tests-v1",
+        "shellsSyntaxChecked": 399,
+        "targetOperations": 0
+      },
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-O",
+        "test-parse-result.py"
+      ],
+      "result": {
+        "checks": 132,
+        "frozen_fixtures": 4,
+        "network_calls": 0,
+        "parent_parser_sha256": "acc9f37f3586dc1066a31ec853d739da127fc2afb704fe7202f14a1cc170f0af",
+        "rejected_mutations": 84,
+        "root_calls": 0,
+        "schema": "synchronized-key-parser-tests-v1",
+        "target_operations": 0
+      },
+      "returncode": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-O",
+        "test-runner.py"
+      ],
+      "result": {
+        "checks": 1344,
+        "fakeNativeInvocationsOnly": true,
+        "maxCommandBytes": 7098,
+        "schema": "synchronized-onset-wrapper-host-tests-v1",
+        "shellsSyntaxChecked": 399,
+        "targetOperations": 0
+      },
+      "returncode": 0
+    },
+    {
+      "command": [
+        "dotnet",
+        "SynchronizedOnset.dll",
+        "--self-test"
+      ],
+      "result": {
+        "maxTestOutputBytes": 12998,
+        "selfTestsPassed": 93,
+        "targetOperations": 0
+      },
+      "returncode": 0
+    },
+    {
+      "command": [
+        "dotnet",
+        "SynchronizedOnset.dll",
+        "--key-self-test"
+      ],
+      "result": {
+        "keyTestsPassed": 22,
+        "maxTestOutputBytes": 17751,
+        "targetOperations": 0
+      },
+      "returncode": 0
+    }
+  ],
+  "schema": "df-eight-window-host-validation-v1",
+  "target_operations": 0,
+  "x64_execute_guard": {
+    "message": "REFUSED_ARM32_ABI",
+    "returncode": 64
+  }
+}

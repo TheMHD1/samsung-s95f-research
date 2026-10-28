@@ -1,0 +1,389 @@
+{
+  "edges": [
+    {
+      "evidence_refs": [
+        {
+          "locator": "image1VA3934;18ae8..18b3c",
+          "path": "rtp-packed-buffer-origin-20261027l/rtp-packed-buffer-origin.py",
+          "sha256": "abab487ebbedfcaee5934a96530103318c9da6f6864152bca1961297a4351706"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.exco",
+      "id": "df.e1",
+      "limitations": [
+        "Register semantic labels do not identify physical writer"
+      ],
+      "relation": "determines_source_arithmetic",
+      "to": "df.aperture"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "image1VA334;18b3c",
+          "path": "rtp-packed-buffer-origin-20261027l/rtp-packed-buffer-origin.py",
+          "sha256": "abab487ebbedfcaee5934a96530103318c9da6f6864152bca1961297a4351706"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.aperture",
+      "id": "df.e2",
+      "limitations": [],
+      "relation": "copied_by_CPU_0xb60_bytes_per_slot",
+      "to": "df.ring"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "image1VA18ce0;b80c..b81e",
+          "path": "rtp-packed-buffer-origin-20261027l/rtp-packed-buffer-origin.py",
+          "sha256": "abab487ebbedfcaee5934a96530103318c9da6f6864152bca1961297a4351706"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.ring",
+      "id": "df.e3",
+      "limitations": [],
+      "relation": "selected_and_published",
+      "to": "df.pointer"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "image1VA1c12c",
+          "path": "rtp-packed-buffer-origin-20261027l/rtp-packed-buffer-origin.py",
+          "sha256": "abab487ebbedfcaee5934a96530103318c9da6f6864152bca1961297a4351706"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.pointer",
+      "id": "df.e4",
+      "limitations": [
+        "Pointer slots are not final fixed-A argument"
+      ],
+      "relation": "B_payload_can_refresh_fixed_A",
+      "to": "df.fixedA"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "image1VAb832..b87a",
+          "path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+          "sha256": "98327b5cb11adabd2bc5b71fafd5d956f5fa1765b895a567ec8e32059ecaeb68"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.contextflag",
+      "id": "df.e5",
+      "limitations": [
+        "Requires B header+6, geometry and counter; C+7 alone insufficient"
+      ],
+      "relation": "conditions_fixed_A_selection",
+      "to": "df.fixedA"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "last-clean/post-fault R,H,C,M,L",
+          "path": "onset-trial-20261028cb/operand-analysis/decoded-operands.json",
+          "sha256": "8ad02d29951d953a73243fd0b2ef8866738df256e9cb79ca981aadb717551caa"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "df.cb",
+      "id": "df.e6",
+      "limitations": [
+        "Exact event736 not observed; delayed history means nonunique trace"
+      ],
+      "relation": "sampled_values_compatible_with_threshold_fault_path",
+      "to": "df.threshold"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "captures baseline,last-clean,post-fault",
+          "path": "onset-trial-20261028cb/operand-analysis/decoded-operands.json",
+          "sha256": "8ad02d29951d953a73243fd0b2ef8866738df256e9cb79ca981aadb717551caa"
+        }
+      ],
+      "evidence_type": "observed",
+      "from": "df.cb",
+      "id": "df.e7",
+      "limitations": [],
+      "observation_class": "native_capture",
+      "relation": "observed_score_and_bucket_changes",
+      "to": "df.threshold"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "Positive dataflow and remaining physical gap",
+          "path": "firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "unknown",
+      "from": "df.hwproducer",
+      "id": "df.e8",
+      "limitations": [
+        "Do not equate image0 0x584109a4 table"
+      ],
+      "relation": "writes_aperture",
+      "to": "df.aperture"
+    },
+    {
+      "evidence_refs": [
+        {
+          "omitted": "private-reference-metadata"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.logger",
+      "id": "df.e9",
+      "limitations": [
+        "No target qualification or execution entrypoint"
+      ],
+      "relation": "adds_fixed_read_only_sample",
+      "to": "df.nwindow"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "What the accepted CB capture supports",
+          "path": "firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ],
+      "evidence_type": "inferred",
+      "from": "df.negative",
+      "id": "df.e10",
+      "limitations": [
+        "Content/pipeline-specific alternatives remain open"
+      ],
+      "relation": "weakens_global_threshold_or_blanket_disable_fix",
+      "to": "df.threshold"
+    },
+    {
+      "evidence_refs": [
+        {
+          "locator": "image1VA1bcde..1bce8;38e8;394e..3952",
+          "path": "firmware-rtp-producer-20261028df/ap-exco-binding-disassembly.txt",
+          "sha256": "7adfc16575d84fdd9e454f1e8e159ad8472b398c4a8d44784366f2dca8d4afa4"
+        }
+      ],
+      "evidence_type": "static",
+      "from": "df.apexco",
+      "id": "df.e11",
+      "limitations": [
+        "Upstream byte writer and meaning unknown"
+      ],
+      "relation": "resolved_pointer_plus_0x3d8_mirrored_to_C_plus_7",
+      "to": "df.contextflag"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "df.package",
+      "kind": "file",
+      "label": "Official selected QD package byte-identical to retained source",
+      "limitations": [],
+      "source_refs": [
+        {
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.exco",
+      "kind": "interface",
+      "label": "EXCO descriptor root0x58601408",
+      "limitations": [],
+      "source_refs": [
+        {
+          "address": "0x3934",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x43b34",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.aperture",
+      "kind": "interface",
+      "label": "Source aperture0x60000000, physical writer unknown",
+      "limitations": [
+        "Physical units and writer unknown"
+      ],
+      "source_refs": [
+        {
+          "address": "0x18aec",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x58cec",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.ring",
+      "kind": "state",
+      "label": "CPU0x20253002 three-slot packed RTP ring",
+      "limitations": [],
+      "source_refs": [
+        {
+          "address": "0x18ae8",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x58ce8",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.pointer",
+      "kind": "state",
+      "label": "Dynamic A/B slot pointers CPU0x494/498",
+      "limitations": [],
+      "source_refs": [
+        {
+          "address": "0xb7ec",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x4b9ec",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.fixedA",
+      "kind": "state",
+      "label": "Optional fixed A payload15000/15f10",
+      "limitations": [],
+      "source_refs": [
+        {
+          "address": "0x1c12c",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x5c32c",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.contextflag",
+      "kind": "state",
+      "label": "C+7 from runtime_context+0x3d8",
+      "limitations": [
+        "Upstream writer/meaning not identified"
+      ],
+      "source_refs": [
+        {
+          "address": "0x394a",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x43b4a",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.threshold",
+      "kind": "function",
+      "label": "Mode1 delayed aggregate score compared to alternate40",
+      "limitations": [],
+      "source_refs": [
+        {
+          "address": "0x1e68",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x42068",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.cb",
+      "kind": "observation",
+      "label": "CB sampled A0 0→38→44; bucket0→3→7; software fault",
+      "limitations": [],
+      "source_refs": [
+        {
+          "path": "onset-trial-20261028cb/operand-analysis/decoded-operands.json",
+          "sha256": "8ad02d29951d953a73243fd0b2ef8866738df256e9cb79ca981aadb717551caa"
+        }
+      ]
+    },
+    {
+      "id": "df.nwindow",
+      "kind": "interface",
+      "label": "Proposed N source counts and ordinal counters",
+      "limitations": [],
+      "source_refs": [
+        {
+          "address": "0xc708",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x4c908",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.logger",
+      "kind": "tool",
+      "label": "Host-only P/N capture fork",
+      "limitations": [],
+      "source_refs": [
+        {
+          "omitted": "private-reference-metadata"
+        }
+      ]
+    },
+    {
+      "id": "df.hwproducer",
+      "kind": "unknown",
+      "label": "Aperture physical producer/validity/cadence unknown",
+      "limitations": [],
+      "source_refs": [
+        {
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    },
+    {
+      "id": "df.negative",
+      "kind": "observation",
+      "label": "Working titles/movies/saver/fullApps and Ugoos Home constrain explanation",
+      "limitations": [
+        "User/parent reports; physical time and complete negative-case matrix not independently instrumented here"
+      ],
+      "source_refs": [
+        {
+          "path": "firmware-rtp-producer-20261028df/README.md",
+          "sha256": "a7871a28e46fa0c026c678f7c2b5a31d4671655e45613f2ffe71977a60e2c71b"
+        }
+      ]
+    },
+    {
+      "id": "df.apexco",
+      "kind": "interface",
+      "label": "AP_EXCO named resource resolved at initialization",
+      "limitations": [
+        "Resource API naming does not establish physical signal semantics"
+      ],
+      "source_refs": [
+        {
+          "address": "0x1bcde",
+          "address_domain": "image1_linked_VA",
+          "file_offset": "0x5bede",
+          "path": "selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+          "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+        }
+      ]
+    }
+  ],
+  "schema": "dg-evidence-contribution-v1"
+}

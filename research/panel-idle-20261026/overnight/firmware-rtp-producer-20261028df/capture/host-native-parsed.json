@@ -1,0 +1,259 @@
+{
+  "baselineDuplicatesCountedCycle": true,
+  "captures": [
+    {
+      "cycle": 1,
+      "first_us": 0,
+      "last_us": 1600,
+      "role": "trigger-baseline",
+      "rt_states": [
+        "Clean",
+        "Clean"
+      ],
+      "window_count": 8
+    },
+    {
+      "cycle": 1,
+      "first_us": 0,
+      "last_us": 1600,
+      "role": "last-clean",
+      "rt_states": [
+        "Clean",
+        "Clean"
+      ],
+      "window_count": 8
+    },
+    {
+      "cycle": 2,
+      "first_us": 250000,
+      "last_us": 251600,
+      "role": "transition",
+      "rt_states": [
+        "Clean",
+        "Faulted"
+      ],
+      "window_count": 8
+    },
+    {
+      "cycle": 2,
+      "first_us": 251600,
+      "last_us": 253000,
+      "role": "post-fault",
+      "rt_states": [
+        "Faulted"
+      ],
+      "window_count": 7
+    }
+  ],
+  "gcDiagnosticLines": 0,
+  "globalCounters": {
+    "bulkTransfers": 46,
+    "cleanCyclesCompleted": 1,
+    "cleanCyclesDiscarded": 0,
+    "cyclesStarted": 2,
+    "headersSent": 23,
+    "inputsCompleted": 23
+  },
+  "globalCountersAdjusted": false,
+  "keyCausalityEstablished": false,
+  "nativeAccepted": true,
+  "observationAccepted": true,
+  "observationWindow": {
+    "completedRPairOverlappingOrAfterDownBegins": true,
+    "downBeginsBeforeOrAtLastReadCompletion": true,
+    "keyWithinObservedWindow": true,
+    "lastCompletedReadDataAfterUs": 253000
+  },
+  "ordering": {
+    "classification": "retained_clean_and_fault_reads_after_down_return",
+    "firstFaultRead": {
+      "afterUs": 251600,
+      "beforeUs": 251400,
+      "classification": "Faulted",
+      "cycleIndex": 2,
+      "role": "transition"
+    },
+    "firstFaultReadVsDown": "strictly_after",
+    "keyCausalityEstablished": false,
+    "latestCleanRead": {
+      "afterUs": 250200,
+      "beforeUs": 250000,
+      "classification": "Clean",
+      "cycleIndex": 2,
+      "role": "transition"
+    },
+    "scope": "full OUT-before/IN-after USB brackets, conditional on reply freshness; key call/return is not UI consumption; no physical-light timestamp",
+    "softwareTransitionBracket": {
+      "afterUs": 251600,
+      "beforeUs": 250000
+    },
+    "transitionBracketVsDown": "strictly_after"
+  },
+  "parentParserSha256": "acc9f37f3586dc1066a31ec853d739da127fc2afb704fe7202f14a1cc170f0af",
+  "physicalPictureObserved": false,
+  "rawFiles": [
+    {
+      "bytes": 256,
+      "name": "retained-00-trigger_baseline-cycle001-00-R.bin",
+      "sha256": "f92f8e0e1cc0247abbd881c5dd10673e9c3dc0f36ce5a2774f0b8a05e7c9f084"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-00-trigger_baseline-cycle001-01-M.bin",
+      "sha256": "18dcacb5d9a63b7fb761b256cca3c2bfe59de4c5502d8eb55676d6d9955a90ed"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-trigger_baseline-cycle001-02-C.bin",
+      "sha256": "d4f376ea1200f6ee38e9d24177b882cf10532899277b7eb4b6e68fa13eeaf5fe"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-trigger_baseline-cycle001-03-P.bin",
+      "sha256": "f8cdb6d5200483a31120aec5dbf7ffb6c1c8cd39605cc6f983099f87f78dbc5d"
+    },
+    {
+      "bytes": 36,
+      "name": "retained-00-trigger_baseline-cycle001-04-N.bin",
+      "sha256": "5f05cbb41c5f077409251a643442b9ef38077f95ddc9c6a6f5ac0bce73ec5b46"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-00-trigger_baseline-cycle001-05-H.bin",
+      "sha256": "ad536af371f36b06cca701374d461ace6d15c9c676cc27226e0f07f3168b8277"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-00-trigger_baseline-cycle001-06-L.bin",
+      "sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-trigger_baseline-cycle001-07-R.bin",
+      "sha256": "f92f8e0e1cc0247abbd881c5dd10673e9c3dc0f36ce5a2774f0b8a05e7c9f084"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-last_clean-cycle001-00-R.bin",
+      "sha256": "f92f8e0e1cc0247abbd881c5dd10673e9c3dc0f36ce5a2774f0b8a05e7c9f084"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-00-last_clean-cycle001-01-M.bin",
+      "sha256": "18dcacb5d9a63b7fb761b256cca3c2bfe59de4c5502d8eb55676d6d9955a90ed"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-last_clean-cycle001-02-C.bin",
+      "sha256": "d4f376ea1200f6ee38e9d24177b882cf10532899277b7eb4b6e68fa13eeaf5fe"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-last_clean-cycle001-03-P.bin",
+      "sha256": "f8cdb6d5200483a31120aec5dbf7ffb6c1c8cd39605cc6f983099f87f78dbc5d"
+    },
+    {
+      "bytes": 36,
+      "name": "retained-00-last_clean-cycle001-04-N.bin",
+      "sha256": "5f05cbb41c5f077409251a643442b9ef38077f95ddc9c6a6f5ac0bce73ec5b46"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-00-last_clean-cycle001-05-H.bin",
+      "sha256": "ad536af371f36b06cca701374d461ace6d15c9c676cc27226e0f07f3168b8277"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-00-last_clean-cycle001-06-L.bin",
+      "sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-last_clean-cycle001-07-R.bin",
+      "sha256": "f92f8e0e1cc0247abbd881c5dd10673e9c3dc0f36ce5a2774f0b8a05e7c9f084"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-01-transition-cycle002-00-R.bin",
+      "sha256": "f92f8e0e1cc0247abbd881c5dd10673e9c3dc0f36ce5a2774f0b8a05e7c9f084"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-01-transition-cycle002-01-M.bin",
+      "sha256": "18dcacb5d9a63b7fb761b256cca3c2bfe59de4c5502d8eb55676d6d9955a90ed"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-01-transition-cycle002-02-C.bin",
+      "sha256": "d4f376ea1200f6ee38e9d24177b882cf10532899277b7eb4b6e68fa13eeaf5fe"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-01-transition-cycle002-03-P.bin",
+      "sha256": "f8cdb6d5200483a31120aec5dbf7ffb6c1c8cd39605cc6f983099f87f78dbc5d"
+    },
+    {
+      "bytes": 36,
+      "name": "retained-01-transition-cycle002-04-N.bin",
+      "sha256": "5f05cbb41c5f077409251a643442b9ef38077f95ddc9c6a6f5ac0bce73ec5b46"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-01-transition-cycle002-05-H.bin",
+      "sha256": "ad536af371f36b06cca701374d461ace6d15c9c676cc27226e0f07f3168b8277"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-01-transition-cycle002-06-L.bin",
+      "sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-01-transition-cycle002-07-R.bin",
+      "sha256": "5e83f69dee5aba4b2469b3a085fe7b156ec9e3f3f56cc872bb3d7a232f85d77a"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-02-post_fault-cycle002-00-M.bin",
+      "sha256": "18dcacb5d9a63b7fb761b256cca3c2bfe59de4c5502d8eb55676d6d9955a90ed"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-02-post_fault-cycle002-01-C.bin",
+      "sha256": "d4f376ea1200f6ee38e9d24177b882cf10532899277b7eb4b6e68fa13eeaf5fe"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-02-post_fault-cycle002-02-P.bin",
+      "sha256": "f8cdb6d5200483a31120aec5dbf7ffb6c1c8cd39605cc6f983099f87f78dbc5d"
+    },
+    {
+      "bytes": 36,
+      "name": "retained-02-post_fault-cycle002-03-N.bin",
+      "sha256": "5f05cbb41c5f077409251a643442b9ef38077f95ddc9c6a6f5ac0bce73ec5b46"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-02-post_fault-cycle002-04-H.bin",
+      "sha256": "ad536af371f36b06cca701374d461ace6d15c9c676cc27226e0f07f3168b8277"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-02-post_fault-cycle002-05-L.bin",
+      "sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-02-post_fault-cycle002-06-R.bin",
+      "sha256": "5e83f69dee5aba4b2469b3a085fe7b156ec9e3f3f56cc872bb3d7a232f85d77a"
+    }
+  ],
+  "schema": "synchronized-key-parsed-result-v1",
+  "softwareOnsetObserved": true,
+  "transportAccepted": true,
+  "trialQualificationScope": "clean cycle-one trigger, successful down/up workflow and completed R coverage at/after Down begins; causality not established",
+  "trialQualified": true,
+  "trialRejectionReasons": [],
+  "uiReceiptObserved": false,
+  "workflowAttempts": 1
+}

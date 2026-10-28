@@ -2,7 +2,8 @@
 """Offline public export. Reads an explicitly supplied evidence root; never contacts a TV.
 
 This is a reproducible release transform, not a credential scanner for arbitrary data.
-Every input gets a disposition and SHA-256; exported bytes get a separate hash.
+Every input gets a disposition; hashes are included where privacy policy permits.
+Exported bytes get a separate hash.
 """
 from __future__ import annotations
 import argparse
@@ -15,7 +16,7 @@ import shutil
 import stat
 from datetime import datetime, timezone
 
-VERSION = '2026-10-28.2'
+VERSION = '2026-10-28.3'
 BUILD_PARTS = {'.git', '__pycache__', '.pytest_cache', 'node_modules', 'venv', 'bin', 'obj', 'dotnet10', 'sdk', 'framework', 'installer-data', 'installer-beta', 'installer-source', 'tizentube-source', 'untethered-source'}
 BINARY_EXTS = {'.dll','.so','.ko','.exe','.pdb','.bin','.img','.msd','.elf','.range','.wgt','.zip','.tgz','.tar','.gz','.xz','.zst','.nupkg','.deb','.pdf','.png','.jpg','.jpeg','.rgba','.pyc','.dat','.db','.sqlite','.woff','.ttf','.a','.o','.pem','.p12','.pfx','.crt','.key'}
 TEXT_EXTS = {'.md','.py','.sh','.cs','.csproj','.c','.h','.cjs','.js','.json','.jsonl','.txt','.disasm','.summary','.stdout','.stderr','.log','.trace','.dts','.dtsi','.xml','.yml','.yaml','.toml','.lock','.config','.intent','.svg','.patch','.diff','.csv','.tsv','.service','.socket','.rules','.conf','.props','.targets','.sln','.il'}
@@ -115,7 +116,7 @@ def disposition(rel: Path, data: bytes, upstream_roots: list[Path], *, input_siz
     if '.full.disasm' in low or rel.name in {'sdp_drm.disasm','sdp_frc.disasm','sdp_tcon.disasm','rosem_frc.disasm'} or ('.il.txt' in low and len(data)>200_000): return 'omit','whole-library-mechanical-disassembly'
     if (len(data) if input_size is None else input_size)>8_000_000: return 'omit','bulk-acquisition-not-authored-analysis'
     if b'\0' in data: return 'omit','non-text-acquisition'
-    if suffix not in TEXT_EXTS and rel.name not in {'Makefile','LICENSE','NOTICE','NOTICE.md','.gitignore','hosts.block','.python-version'}: return 'omit','unsupported-acquisition-or-runtime-format'
+    if suffix not in TEXT_EXTS and rel.name not in {'Makefile','LICENSE','LICENSE.upstream-MIT','NOTICE','NOTICE.md','.gitignore','hosts.block','.python-version'}: return 'omit','unsupported-acquisition-or-runtime-format'
     try: text=data.decode('utf-8')
     except UnicodeDecodeError: return 'omit','non-utf8-acquisition'
     if suffix=='.json':
@@ -134,11 +135,19 @@ def scrub_json(obj, redact):
                                         restricted_path_reason(Path(reference))):
             return {'omitted': 'private-reference-metadata'}
         result={}
+        private_reference_count=0
         for k,v in obj.items():
+            # Inventories also use filenames as dictionary keys. Dropping just
+            # path-field rows leaves their private names/sizes/digests behind.
+            if restricted_path_reason(Path(k)):
+                private_reference_count+=1
+                continue
             if SECRET_KEY.match(k) or k.lower() in {'userid','user_id','accountid','account_id','deviceid','device_id','title','series','seriesname','episode','season','lastplayeddate','last_played','last_played_utc','item_id','itemid','sessionid','session_id','nonce','nonce_hex','salt','salt8','salt_bytes','signature256','signature_bytes','rsa_signature_bytes'}:result[redact(k)]='[private-identity-or-secret-omitted]'
             elif k in {'transport_stdout','transport_stderr'}:continue
             elif k in {'base64','data_base64','raw_base64','raw_b64','payload_base64','bytes_base64'}:result[k]='[encoded-payload-omitted]'
             else:result[redact(k)]=scrub_json(v,redact)
+        if private_reference_count:
+            result['_public_export_omitted_private_reference_count']=private_reference_count
         return result
     if isinstance(obj,list):return [scrub_json(v,redact) for v in obj]
     if isinstance(obj,str):return redact(obj)
@@ -165,7 +174,8 @@ def extract_observations(obj, redact):
         if key not in seen:unique.append(r);seen.add(key)
     return {'schema':'public-scientific-observations-v1','notice':'Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.','observations':unique}
 
-def export(root: Path, dest: Path, deferred_fragments: tuple[str, ...] = ()):
+def export(root: Path, dest: Path, deferred_fragments: tuple[str, ...] = (),
+           allowed_source_ids: frozenset[str] | None = None, source_scope_sha256: str | None = None):
     root=root.resolve();dest=dest.resolve()
     if root==dest or root in dest.parents:raise ValueError('destination must be outside evidence root')
     out=dest/'research'
@@ -191,9 +201,20 @@ def export(root: Path, dest: Path, deferred_fragments: tuple[str, ...] = ()):
             totals['omit_files']+=1;totals['omit_source_bytes']+=f.lstat().st_size
             if f.is_symlink():totals['symlink_files']+=1
             continue
-        if any(fragment in rel.as_posix() for fragment in deferred_fragments):
-            rows.append({'source_id':source_id,'disposition':'omit','reason':'in-progress-outside-public-snapshot','bytes':f.lstat().st_size,'hash_withheld':'In-progress workstream excluded from this snapshot; no input bytes read.'})
-            totals['omit_files']+=1;totals['omit_source_bytes']+=f.lstat().st_size
+        outside_scope=allowed_source_ids is not None and source_id not in allowed_source_ids
+        if outside_scope or any(fragment in rel.as_posix() for fragment in deferred_fragments):
+            row={'source_id':source_id,'disposition':'omit','reason':'outside-explicit-source-snapshot' if outside_scope else 'in-progress-outside-public-snapshot','hash_withheld':'Input excluded from the selected source snapshot; no input content read.'}
+            # An explicitly deferred editor/build output can disappear after
+            # enumeration. Preserve its omission without opening it or claiming
+            # a zero size; it is outside the selected source snapshot.
+            try:
+                row['bytes']=f.lstat().st_size
+                totals['omit_source_bytes']+=row['bytes']
+            except FileNotFoundError:
+                row['size_unavailable']='Entry disappeared after enumeration; input content was not read.'
+                totals['disappeared_deferred_files']+=1
+            rows.append(row)
+            totals['omit_files']+=1
             if f.is_symlink():totals['symlink_files']+=1
             continue
         if f.is_symlink():
@@ -240,7 +261,7 @@ def export(root: Path, dest: Path, deferred_fragments: tuple[str, ...] = ()):
         rows.append(row)
     totals['regular_input_files']=len(rows)-totals['symlink_files']
     totals['total_input_entries']=len(rows)
-    manifest={'schema':'s95f-public-dispositions-v1','exporter_version':VERSION,'scope':'All regular files and symlinks enumerated under the retained Samsung research root; original private paths and withheld filenames are intentionally absent. Explicitly deferred in-progress workstreams are inventoried without reading their bytes.','enumeration_started_utc':started,'export_completed_utc':datetime.now(timezone.utc).isoformat(),'deferred_name_fragments':list(deferred_fragments),'totals':dict(totals),'exported_by_original_workstream':dict(topics),'changed_exports':changed,'records':rows}
+    manifest={'schema':'s95f-public-dispositions-v1','exporter_version':VERSION,'scope':'All regular files and symlinks enumerated under the retained Samsung research root; original private paths and withheld filenames are intentionally absent. Explicitly deferred/out-of-scope inputs are inventoried without reading their content.','enumeration_started_utc':started,'export_completed_utc':datetime.now(timezone.utc).isoformat(),'deferred_name_fragments':list(deferred_fragments),'source_id_scope_sha256':source_scope_sha256,'totals':dict(totals),'exported_by_original_workstream':dict(topics),'changed_exports':changed,'records':rows}
     dump(dest/'manifests/source-dispositions.json',manifest)
     dump(dest/'manifests/omissions.json',{'schema':'s95f-omissions-v1','counts_by_reason':dict(Counter(r['reason'] for r in rows if r['disposition']=='omit')),'records':[r for r in rows if r['disposition']=='omit']})
     dump(dest/'manifests/export-summary.json',{k:v for k,v in manifest.items() if k!='records'})
@@ -250,7 +271,15 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--source',type=Path,required=True);parser.add_argument('--destination',type=Path,required=True)
     parser.add_argument('--private-redactions',type=Path,help='Optional private label/filename-alias JSON; never copied into the release')
     parser.add_argument('--defer-name-fragment',action='append',default=[],help='Inventory but do not read an explicitly in-progress relative-path fragment')
+    parser.add_argument('--source-id-allowlist',type=Path,help='Optional frozen source-ID selection JSON; unlisted new inputs are omitted before content reads')
     args=parser.parse_args()
     if args.private_redactions:
         config=json.loads(args.private_redactions.read_text());MEDIA_TITLES=config.get('labels',[]);NAME_REPLACEMENTS=config.get('names',[])
-    export(args.source,args.destination,tuple(args.defer_name_fragment))
+    allowed=None;scope_sha=None
+    if args.source_id_allowlist:
+        raw=args.source_id_allowlist.read_bytes();scope_sha=sha(raw);scope=json.loads(raw)
+        ids=scope.get('source_ids')
+        if scope.get('schema')!='s95f-source-id-allowlist-v1' or type(ids) is not list or len(ids)>500000 or any(type(x) is not str or re.fullmatch('[0-9a-f]{64}',x) is None for x in ids) or len(set(ids))!=len(ids):
+            raise ValueError('invalid source-ID selection')
+        allowed=frozenset(ids)
+    export(args.source,args.destination,tuple(args.defer_name_fragment),allowed,scope_sha)

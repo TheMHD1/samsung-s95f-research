@@ -1,0 +1,48 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(id -u)\" = 0\ntest -c /dev/tztv_tcon\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f 1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\numask 077\nmkdir /tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(id -u)\" = 0\ntest -c /dev/tztv_tcon\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f 1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nprintf %s [encoded-payload-omitted] >/tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2/DeadlineMode2.dll.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(id -u)\" = 0\ntest -c /dev/tztv_tcon\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f 1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nprintf %s [encoded-payload-omitted] >>/tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2/DeadlineMode2.dll.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(id -u)\" = 0\ntest -c /dev/tztv_tcon\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f 1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nprintf %s [encoded-payload-omitted] >/tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2/DeadlineMode2.deps.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(id -u)\" = 0\ntest -c /dev/tztv_tcon\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f 1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\nprintf %s [encoded-payload-omitted] >/tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2/DeadlineMode2.runtimeconfig.json.b64\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ntest \"$(id -u)\" = 0\ntest -c /dev/tztv_tcon\ntest \"$(sha256sum /usr/bin/dotnet | cut -d \" \" -f 1)\" = e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310\ncd /tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2\ntest \"$(sha256sum /tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2/DeadlineMode2.dll | cut -d \" \" -f 1)\" = 1b466d8303769951945988dd8b31734b1374bad6a81a4d9f4d5c2f86bb08d7a6\ntest \"$(sha256sum /tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2/DeadlineMode2.deps.json | cut -d \" \" -f 1)\" = 63198b9825c02373c7bb827f6ad786a5fb2718064ace822bfd0134d8505da0a4\ntest \"$(sha256sum /tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2/DeadlineMode2.runtimeconfig.json | cut -d \" \" -f 1)\" = aeb46a15366e38511c192ccf65312442c64e8753b3c16fd2ca0b4cb34a5c59f3\nrm -- DeadlineMode2.dll DeadlineMode2.deps.json DeadlineMode2.runtimeconfig.json receipt.txt native.stdout native.stderr\ncd /\nrmdir /tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2\ntest ! -e /tmp/s95f-mode2-4c2b3f46b1f146cfaa43a0838f6d40e2\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

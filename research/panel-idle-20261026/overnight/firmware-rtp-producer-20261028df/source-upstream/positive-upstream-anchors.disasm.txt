@@ -1,0 +1,90 @@
+
+IMAGE0 AP_AG_table_writer, VA0x256c..0x25d4 FILE=VA+0x200
+0000256c 70b5         push     {r4, r5, r6, lr}
+0000256e 0cf077f8     bl       #0xe660
+00002572 0446         mov      r4, r0
+00002574 1148         ldr      r0, [pc, #0x44]
+00002576 0068         ldr      r0, [r0]
+00002578 e0b1         cbz      r0, #0x25b4
+0000257a 1048         ldr      r0, [pc, #0x40]
+0000257c 0088         ldrh     r0, [r0]
+0000257e 401e         subs     r0, r0, #1
+00002580 85b2         uxth     r5, r0
+00002582 202d         cmp      r5, #0x20
+00002584 16da         bge      #0x25b4
+00002586 04f14600     add.w    r0, r4, #0x46
+0000258a 30f81500     ldrh.w   r0, [r0, r5, lsl #1]
+0000258e 24f8920f     strh     r0, [r4, #0x92]!
+00002592 e580         strh     r5, [r4, #6]
+00002594 0a48         ldr      r0, [pc, #0x28]
+00002596 0088         ldrh     r0, [r0]
+00002598 2082         strh     r0, [r4, #0x10]
+0000259a 0a48         ldr      r0, [pc, #0x28]
+0000259c 0088         ldrh     r0, [r0]
+0000259e e081         strh     r0, [r4, #0xe]
+000025a0 0948         ldr      r0, [pc, #0x24]
+000025a2 0088         ldrh     r0, [r0]
+000025a4 2081         strh     r0, [r4, #8]
+000025a6 0948         ldr      r0, [pc, #0x24]
+000025a8 0088         ldrh     r0, [r0]
+000025aa 6081         strh     r0, [r4, #0xa]
+000025ac 0848         ldr      r0, [pc, #0x20]
+000025ae 0088         ldrh     r0, [r0]
+000025b0 a081         strh     r0, [r4, #0xc]
+000025b2 923c         subs     r4, #0x92
+000025b4 0220         movs     r0, #2
+000025b6 25f0fdfc     bl       #0x27fb4
+000025ba 70bd         pop      {r4, r5, r6, pc}
+000025bc bc07         lsls     r4, r7, #0x1e
+000025be 0020         movs     r0, #0
+000025c0 c007         lsls     r0, r0, #0x1f
+000025c2 0020         movs     r0, #0
+000025c4 c407         lsls     r4, r0, #0x1f
+000025c6 0020         movs     r0, #0
+000025c8 c807         lsls     r0, r1, #0x1f
+000025ca 0020         movs     r0, #0
+000025cc ca07         lsls     r2, r1, #0x1f
+000025ce 0020         movs     r0, #0
+000025d0 cc07         lsls     r4, r1, #0x1f
+000025d2 0020         movs     r0, #0
+
+IMAGE0 AP_AG_getter, VA0xe660..0xe668 FILE=VA+0x200
+0000e660 0048         ldr      r0, [pc, #0]
+0000e662 7047         bx       lr
+0000e664 5cdc         bgt      #0xe720
+0000e666 0020         movs     r0, #0
+
+IMAGE0 AP_getter, VA0xe670..0xe678 FILE=VA+0x200
+0000e670 0048         ldr      r0, [pc, #0]
+0000e672 7047         bx       lr
+0000e674 e0f0         .byte    0xe0, 0xf0
+0000e676 0020         movs     r0, #0
+
+IMAGE0 AP_mode_setter, VA0x2555c..0x255a0 FILE=VA+0x200
+0002555c 70b5         push     {r4, r5, r6, lr}
+0002555e 0546         mov      r5, r0
+00025560 e9f786f8     bl       #0xe670
+00025564 0446         mov      r4, r0
+00025566 b4f87a03     ldrh.w   r0, [r4, #0x37a]
+0002556a b4f87c13     ldrh.w   r1, [r4, #0x37c]
+0002556e 8842         cmp      r0, r1
+00025570 12d1         bne      #0x25598
+00025572 b4f87a03     ldrh.w   r0, [r4, #0x37a]
+00025576 b4f87e13     ldrh.w   r1, [r4, #0x37e]
+0002557a 8842         cmp      r0, r1
+0002557c 0cd1         bne      #0x25598
+0002557e b4f87a03     ldrh.w   r0, [r4, #0x37a]
+00025582 a842         cmp      r0, r5
+00025584 08d0         beq      #0x25598
+00025586 032d         cmp      r5, #3
+00025588 05da         bge      #0x25596
+0002558a a4f87a53     strh.w   r5, [r4, #0x37a]
+0002558e 0120         movs     r0, #1
+00025590 0249         ldr      r1, [pc, #8]
+00025592 0870         strb     r0, [r1]
+00025594 00e0         b        #0x25598
+00025596 00bf         nop      
+00025598 70bd         pop      {r4, r5, r6, pc}
+0002559a 0000         movs     r0, r0
+0002559c e808         lsrs     r0, r5, #3
+0002559e 0020         movs     r0, #0

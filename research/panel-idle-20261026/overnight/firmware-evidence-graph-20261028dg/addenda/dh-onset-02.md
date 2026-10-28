@@ -1,0 +1,13 @@
+# DH onset02: same-instance clean Apps control and accepted workflow
+
+This is a second additive actual-observation record. DG's initial graph and first-onset extension remain unchanged. Source is the central coordinator's frozen DH README and phase-outcomes checkpoint; DG performed no target operation. New physical state remains unobserved, with no owner response required.
+
+After the separate first-onset recovery continuation, the frozen no-key passive observer completed80 clean Apps cycles,480 read requests/960 bulk transfers, terminal TimeLimit, exact ReadyForHeader/release/close and STAGE_ABSENT. It sent no key and observed no software onset in the bounded20-second control. This is an accepted finite software control on post-recovery USB57, not proof that Apps never fails or that light was emitted.
+
+The next fixed DF one-Left observation used that same instance with no intervening reset. It again retained four complete clean cycles and a fault at cycle5 R-start:40 read requests/80 bulk transfers, strict capture qualification and cleanup. Its conservative R bracket was174596221111..174596471445us, width250334us. The parent workflow for this second trial is accepted. Cached Live was followed by recorded normal Right-to-Apps/public checks and one separate accepted stock MODE2 request/cleanup. Final cached Apps is recorded; kernel/native request completion does not prove optical recovery.
+
+The original first workflow remains rejected, its child controller capture remains accepted, and its separate recovery continuation remains accepted. The second accepted workflow does not retroactively change any of those outcomes. DH issued three stock MODE2 requests total: initial baseline, first continuation and second recovery. No volatile threshold write, protection toggle, flash or kernel patch occurred. DH's frozen report calls for a new discriminating observation or intervention before another identical baseline fault trial.
+
+P16/N36 replies are now observed in accepted fixed captures. Interpret their ordering under the actual sequential transfer timestamps; neither pointer context nor a post-fault count alone proves the final fixed-A argument or the causal producer. The Linux FRC→AP_EXCO field bridge, physical aperture producer, complete executing-image identity and electrical/light edge remain unresolved in the graph.
+
+The extended machine graph adds the finite clean control, accepted second capture/workflow and separate native recovery, retaining unknown optical edges. Exact original source pins are in `dh-onset-02-source-proof.json`. The workbench's original snapshot inventory remains frozen; this addendum has its own inventory.

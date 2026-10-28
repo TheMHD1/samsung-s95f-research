@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\numask 077\necho 0 >/sys/kernel/debug/tracing/instances/s95f_dh_831b1d12daf449728a7d5f5bfae6d4c9/tracing_on\nmkdir /tmp/s95f-trace-831b1d12daf449728a7d5f5bfae6d4c9\ncat /sys/kernel/debug/tracing/instances/s95f_dh_831b1d12daf449728a7d5f5bfae6d4c9/trace >/tmp/s95f-trace-831b1d12daf449728a7d5f5bfae6d4c9/trace.txt\necho TRACE_BYTES\nwc -c </tmp/s95f-trace-831b1d12daf449728a7d5f5bfae6d4c9/trace.txt\necho TRACE_SHA\nsha256sum /tmp/s95f-trace-831b1d12daf449728a7d5f5bfae6d4c9/trace.txt\necho STATS\nfor statfile in /sys/kernel/debug/tracing/instances/s95f_dh_831b1d12daf449728a7d5f5bfae6d4c9/per_cpu/cpu*/stats; do echo \"$statfile\"; cat \"$statfile\"; done\necho GLOBAL_AFTER\ncat /sys/kernel/debug/tracing/tracing_on\ncat /sys/kernel/debug/tracing/current_tracer\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "TRACE_BYTES\n1557\nTRACE_SHA\n21fb573195a7862fd11c20582540326c734f0a127c1a29606c2749e0163d26d4  /tmp/s95f-trace-831b1d12daf449728a7d5f5bfae6d4c9/trace.txt\nSTATS\n/sys/kernel/debug/tracing/instances/s95f_dh_831b1d12daf449728a7d5f5bfae6d4c9/per_cpu/cpu0/stats\nentries: 0\noverrun: 0\ncommit overrun: 0\nbytes: 0\noldest event ts: 13632723600.363753\nnow ts: 174597.749283\ndropped events: 0\nread events: 0\n/sys/kernel/debug/tracing/instances/s95f_dh_831b1d12daf449728a7d5f5bfae6d4c9/per_cpu/cpu1/stats\nentries: 0\noverrun: 0\ncommit overrun: 0\nbytes: 0\noldest event ts: 18377802585.803002\nnow ts: 174597.750383\ndropped events: 0\nread events: 0\n/sys/kernel/debug/tracing/instances/s95f_dh_831b1d12daf449728a7d5f5bfae6d4c9/per_cpu/cpu2/stats\nentries: 10\noverrun: 0\ncommit overrun: 0\nbytes: 304\noldest event ts: 174590.460158\nnow ts: 174597.751383\ndropped events: 0\nread events: 0\n/sys/kernel/debug/tracing/instances/s95f_dh_831b1d12daf449728a7d5f5bfae6d4c9/per_cpu/cpu3/stats\nentries: 0\noverrun: 0\ncommit overrun: 0\nbytes: 0\noldest event ts: 18377802585.803002\nnow ts: 174597.752683\ndropped events: 0\nread events: 0\nGLOBAL_AFTER\n0\nnop\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

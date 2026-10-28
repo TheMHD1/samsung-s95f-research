@@ -1,0 +1,228 @@
+{
+  "baselineDuplicatesCountedCycle": true,
+  "bulkTransfers": 80,
+  "captures": [
+    {
+      "cycle": 1,
+      "first_us": 174595472384,
+      "last_us": 174595478607,
+      "role": "trigger-baseline",
+      "rt_states": [
+        "Clean",
+        "Clean"
+      ],
+      "window_count": 8
+    },
+    {
+      "cycle": 4,
+      "first_us": 174596220499,
+      "last_us": 174596221183,
+      "role": "last-clean",
+      "rt_states": [
+        "Clean",
+        "Clean"
+      ],
+      "window_count": 8
+    },
+    {
+      "cycle": 5,
+      "first_us": 174596471309,
+      "last_us": 174596471445,
+      "role": "transition",
+      "rt_states": [
+        "Faulted"
+      ],
+      "window_count": 1
+    },
+    {
+      "cycle": 5,
+      "first_us": 174596471680,
+      "last_us": 174596472267,
+      "role": "post-fault",
+      "rt_states": [
+        "Faulted"
+      ],
+      "window_count": 7
+    }
+  ],
+  "cleanCyclesCompleted": 4,
+  "cleanCyclesDiscarded": 3,
+  "cleanup": "STAGE_ABSENT",
+  "cyclesStarted": 5,
+  "endpointQueueProof": false,
+  "gcDiagnosticLines": 4,
+  "globalCountersAdjusted": false,
+  "headersSent": 40,
+  "identitySnapshotsAtomic": false,
+  "keyCausalityEstablished": false,
+  "manifestSha256": "ace348b57b15d27feca2bb67b88c4663535c2c72754b2cbb9ac51c88a3cc85c2",
+  "nativeAccepted": true,
+  "nativeInvocations": 1,
+  "observationAccepted": true,
+  "observationWindow": {
+    "completedRPairOverlappingOrAfterDownBegins": true,
+    "downBeginsBeforeOrAtLastReadCompletion": true,
+    "keyWithinObservedWindow": true,
+    "lastCompletedReadDataAfterUs": 174596472267
+  },
+  "ordering": {
+    "classification": "retained_clean_and_fault_reads_after_down_return",
+    "firstFaultRead": {
+      "afterUs": 174596471445,
+      "beforeUs": 174596471309,
+      "classification": "Faulted",
+      "cycleIndex": 5,
+      "role": "transition"
+    },
+    "firstFaultReadVsDown": "strictly_after",
+    "keyCausalityEstablished": false,
+    "latestCleanRead": {
+      "afterUs": 174596221183,
+      "beforeUs": 174596221111,
+      "classification": "Clean",
+      "cycleIndex": 4,
+      "role": "last-clean"
+    },
+    "scope": "full OUT-before/IN-after USB brackets, conditional on reply freshness; key call/return is not UI consumption; no physical-light timestamp",
+    "softwareTransitionBracket": {
+      "afterUs": 174596471445,
+      "beforeUs": 174596221111
+    },
+    "transitionBracketVsDown": "strictly_after"
+  },
+  "physicalPictureObserved": false,
+  "rawFiles": [
+    {
+      "bytes": 256,
+      "name": "retained-00-trigger_baseline-cycle001-00-R.bin",
+      "sha256": "b39bc09b7c64de8a7a4920f9c080f1c9266f8f0ac32ed97ad823b725cde99ff1"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-00-trigger_baseline-cycle001-01-M.bin",
+      "sha256": "8a8b59d2f21748c610c2cddfe2e078f11b216e1dc47201fec304a7ee5c6a901d"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-trigger_baseline-cycle001-02-C.bin",
+      "sha256": "c9bc21efabc33dc5c687f230ecf321722552c99518957cc37b833c7aaaf9c2b0"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-trigger_baseline-cycle001-03-P.bin",
+      "sha256": "df878784bb28c577424fb024378add2a1558d48a67d3e4795cb3db3fd23f8ba8"
+    },
+    {
+      "bytes": 36,
+      "name": "retained-00-trigger_baseline-cycle001-04-N.bin",
+      "sha256": "6db65fd59fd356f6729140571b5bcd6bb3b83492a16e1bf0a3884442fc3c8a0e"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-00-trigger_baseline-cycle001-05-H.bin",
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-00-trigger_baseline-cycle001-06-L.bin",
+      "sha256": "1c765230a37ab77fbb809bea53c314408ed87c52572cae6b37461c3818d441ce"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-trigger_baseline-cycle001-07-R.bin",
+      "sha256": "b39bc09b7c64de8a7a4920f9c080f1c9266f8f0ac32ed97ad823b725cde99ff1"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-last_clean-cycle004-00-R.bin",
+      "sha256": "1fe5d9db0c98ba2bc35eb88b474796cf7ec2679b194593ee8042513b7cfc2e62"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-00-last_clean-cycle004-01-M.bin",
+      "sha256": "b63e06459389e4c4d2fc8ebe5a8a033c2a31260e4c6a2472b993c5cedefb88c0"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-last_clean-cycle004-02-C.bin",
+      "sha256": "2efca8a0f734277a3df0351751a2ec11d33d20423983381f5068299289fc308a"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-last_clean-cycle004-03-P.bin",
+      "sha256": "e84dca85b6f118ee823d67624d74e4761fbb13b30afbc6f1829a7bf94ee494eb"
+    },
+    {
+      "bytes": 36,
+      "name": "retained-00-last_clean-cycle004-04-N.bin",
+      "sha256": "a0afd5084025afafa665fbd79576b64ac1880229369fb1428f5618e234c5ddbe"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-00-last_clean-cycle004-05-H.bin",
+      "sha256": "c3de514d3895ddd6c1c7a100fb8575400a471f371f7e6896cf9cbd186c191eeb"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-00-last_clean-cycle004-06-L.bin",
+      "sha256": "89ed8e7d405487b84118afd94823bf981a8d547deeae62a81d5800ba0bc51060"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-last_clean-cycle004-07-R.bin",
+      "sha256": "1fe5d9db0c98ba2bc35eb88b474796cf7ec2679b194593ee8042513b7cfc2e62"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-01-transition-cycle005-00-R.bin",
+      "sha256": "42c0e9dc9c82e1069e53a1c1b711c40e60308dae55e43d8b6dd0fb30114ad0dd"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-02-post_fault-cycle005-00-M.bin",
+      "sha256": "fc27d8e4c62cd802b43db9172f7507ccf4ed93d0c6e1aad1e9c067e1181a8d2a"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-02-post_fault-cycle005-01-C.bin",
+      "sha256": "2efca8a0f734277a3df0351751a2ec11d33d20423983381f5068299289fc308a"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-02-post_fault-cycle005-02-P.bin",
+      "sha256": "e43cc7b666a9a5877971794473814e38c200bcc9817d03e2b6a2463548c7c94f"
+    },
+    {
+      "bytes": 36,
+      "name": "retained-02-post_fault-cycle005-03-N.bin",
+      "sha256": "ed4be5c06dd4784778dfd5f0fdb656d4ec2d3efcfaea9f0171be8940ad6aaa23"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-02-post_fault-cycle005-04-H.bin",
+      "sha256": "f7a7fe45add11cc6cb8791532dda2b9d88b0f795d14a935047797e32e0fd66d3"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-02-post_fault-cycle005-05-L.bin",
+      "sha256": "9334369389ba0a5609e9e8deb89d98a34322829828f1e8bd2f8b73c8fd154d49"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-02-post_fault-cycle005-06-R.bin",
+      "sha256": "42c0e9dc9c82e1069e53a1c1b711c40e60308dae55e43d8b6dd0fb30114ad0dd"
+    }
+  ],
+  "readinessSha256": "5558988619f4d5a28d97e4451daf3b3f1158dc64846dab4750c1cf1d64f33817",
+  "retries": 0,
+  "schema": "df-synchronized-onset-wrapper-result-v1",
+  "softwareOnsetObserved": true,
+  "terminalReason": "TransitionCaptured",
+  "transportAccepted": true,
+  "trialQualificationScope": "clean cycle-one trigger, successful down/up workflow and completed R coverage at/after Down begins; causality not established",
+  "trialQualified": true,
+  "trialRejectionReasons": [],
+  "uiReceiptObserved": false,
+  "workflowAttempts": 1,
+  "wrapperUiOperations": 0
+}

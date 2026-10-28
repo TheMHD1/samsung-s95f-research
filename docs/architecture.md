@@ -35,3 +35,7 @@ The detailed instruction excerpts, symbol maps, reproducers and independent revi
 ## Authenticated extraction architecture
 
 The [CZ phase index](../research/panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/README.md) maps official acquisition, authenticated OUIT metadata, per-section ciphertext RSA, bounded native streaming, pinned TLS quarantine, and original-byte validation. [The final update](firmware-extraction-20261028.md) records all nine actual results and the platform rejected-driver/offline-reconciled-receipt distinction. The kernel/DTB findings remain stored-image and candidate-board evidence, not executing-text/live-tree identity or a blackout root cause.
+
+## Content-sensitive source and evidence graph
+
+The [integrated firmware guide](firmware-evidence-guide-20261028.md) connects exact AVE scene/NPC dispatch and controller sends to the separately proven image0 AP_EXCO selector bridge. The FRC-to-AP_EXCO data-field edge and physical RTP aperture producer remain unknown. The [machine graph](../research/panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/graph-with-dh-onset-02.json) preserves address domains, original source hashes, static/inferred/unknown distinctions and negative controls. Packaged identity, actual controller observation and emitted light remain separate layers.

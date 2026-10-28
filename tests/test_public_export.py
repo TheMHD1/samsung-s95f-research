@@ -36,6 +36,19 @@ class ExportChecks(unittest.TestCase):
         self.assertEqual(m.disposition(Path('study/function-proof.disasm'),b'245934: add r0, r1',[])[0],'export')
         self.assertEqual(m.disposition(Path('study/vendor.full.disasm'),b'245934: add r0, r1',[])[0],'omit')
         self.assertEqual(m.disposition(Path('study/vendor.bin'),b'abc',[])[0],'omit')
+    def test_completed_reader_license_preserved_without_private_source_tree(self):
+        notice=b'MIT License\nCopyright upstream author\n'
+        self.assertEqual(m.disposition(Path('reader/LICENSE.upstream-MIT'),notice,[])[0],'export')
+        self.assertEqual(m.disposition(Path('reader/private/LICENSE.upstream-MIT'),notice,[])[0],'omit')
+        self.assertEqual(m.disposition(Path('reader/LICENSE.unrecognized'),notice,[])[0],'omit')
+    def test_private_filename_mapping_keys_withhold_names_sizes_and_hashes(self):
+        source={'files':{'private/tls-config.json':{'bytes':270,'sha256':'a'*64},'section-plan.bin':{'bytes':72,'sha256':'b'*64},'Program.cs':{'bytes':17,'sha256':'c'*64}},'nested':{'work/PRIVATE/secret.txt':'secret-digest'}}
+        got=m.scrub_json(source,lambda x:x)
+        text=json.dumps(got)
+        for private in ['tls-config.json','section-plan.bin','secret.txt','secret-digest','a'*64,'b'*64]:self.assertNotIn(private,text)
+        self.assertEqual(got['files']['Program.cs'],source['files']['Program.cs'])
+        self.assertEqual(got['files']['_public_export_omitted_private_reference_count'],2)
+        self.assertEqual(got['nested']['_public_export_omitted_private_reference_count'],1)
     def test_json_keys_are_redacted_and_technical_values_preserved(self):
         with tempfile.TemporaryDirectory() as d:
             obj={'/home/alice/a':{'token':'REAL_SECRET','count':56,'title':'private viewing title','paramTypes':0x01010d0d}}
@@ -89,6 +102,36 @@ class ExportChecks(unittest.TestCase):
             self.assertEqual(row['bytes'],10)
             self.assertNotIn('source_sha256',row)
             self.assertNotIn('public_path',row)
+    def test_disappearing_deferred_input_stays_omitted_without_read(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)/'input';dest=Path(d)/'public';root.mkdir();dest.mkdir()
+            (root/'draft-work.md').write_text('not frozen')
+            original=Path.lstat
+            def vanished(path,*args,**kwargs):
+                if path.name=='draft-work.md':raise FileNotFoundError('simulated editor rename')
+                return original(path,*args,**kwargs)
+            with patch.object(Path,'lstat',vanished),patch.object(Path,'read_bytes',side_effect=AssertionError('deferred read')):
+                m.export(root,dest,('draft-work',))
+            manifest=json.loads((dest/'manifests/source-dispositions.json').read_text());row=manifest['records'][0]
+            self.assertEqual(row['reason'],'in-progress-outside-public-snapshot');self.assertIn('size_unavailable',row)
+            for key in ['bytes','source_sha256','public_path']:self.assertNotIn(key,row)
+            self.assertEqual(manifest['totals']['disappeared_deferred_files'],1)
+    def test_explicit_frozen_source_selection_excludes_future_files_before_read(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)/'input';dest=Path(d)/'public';root.mkdir();dest.mkdir()
+            (root/'stable.md').write_text('known source');(root/'future.md').write_text('moving source')
+            original=Path.read_bytes
+            def guarded(path):
+                if path.name=='future.md':raise AssertionError('unselected source read')
+                return original(path)
+            selected=frozenset({m.sha(b'stable.md')})
+            with patch.object(Path,'read_bytes',guarded):m.export(root,dest,(),selected,'f'*64)
+            manifest=json.loads((dest/'manifests/source-dispositions.json').read_text());rows=manifest['records']
+            self.assertEqual(manifest['source_id_scope_sha256'],'f'*64)
+            self.assertEqual((dest/'research/stable.md').read_text(),'known source')
+            unknown=next(x for x in rows if x['source_id']==m.sha(b'future.md'))
+            self.assertEqual(unknown['reason'],'outside-explicit-source-snapshot')
+            for key in ['source_sha256','public_path','public_sha256']:self.assertNotIn(key,unknown)
     def test_nested_private_and_moved_sensitive_records_never_read_or_hashed(self):
         names = ['study/private/parsed.json', 'study/Private/tls.json',
                  'study/section-descriptors.json', 'study/parsed-header.json',
