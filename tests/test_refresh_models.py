@@ -31,4 +31,15 @@ class RefreshModels(unittest.TestCase):
         r=self.run_model('rtp-cold-control-design-20261028ef','test_coordinator.py')
         self.assertEqual((r['liveCalls'],r['networkCalls'],r['targetBindingsPresent']),(0,0,False))
 
+    def test_single_lane_design_preserves_other_bits_and_stops_after_unknown(self):
+        r=self.run_model('single-lane-diagnostic-design-20261028ek','test_state_model.py')
+        self.assertTrue(r['accepted']);self.assertTrue(r['stateModelOnly'])
+        self.assertFalse(r['continuousWriterQuiescenceProven'])
+        self.assertEqual((r['targetOperations'],r['networkOperations']),(0,0))
+
+    def test_stock_gate_off_is_distinct_from_fault_and_writer_controls(self):
+        r=self.run_model('writer-control-origin-20261028eq','test_state_model.py')
+        self.assertEqual(r['checksPassed'],66)
+        self.assertFalse(r['completeStateMachineProven']);self.assertEqual(r['targetOperations'],0)
+
 if __name__=='__main__':unittest.main()

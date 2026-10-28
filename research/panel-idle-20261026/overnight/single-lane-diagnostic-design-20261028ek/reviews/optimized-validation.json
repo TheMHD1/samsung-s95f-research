@@ -1,0 +1,81 @@
+{
+  "mode": "optimized",
+  "runs": [
+    {
+      "result": {
+        "accepted": true,
+        "checks": 114,
+        "fingerprintProposalWindows": 5,
+        "helperImplemented": false,
+        "readyForImplementation": false,
+        "targetOperations": 0
+      },
+      "returnCode": 0,
+      "script": "verify_sources.py"
+    },
+    {
+      "result": {
+        "accepted": true,
+        "checks": 131189,
+        "continuousWriterQuiescenceProven": false,
+        "networkOperations": 0,
+        "stateModelOnly": true,
+        "targetOperations": 0
+      },
+      "returnCode": 0,
+      "script": "test_state_model.py"
+    },
+    {
+      "result": {
+        "accepted": true,
+        "checks": 517,
+        "completeWriterExclusionProven": false,
+        "frozenInventorySha256": "caca76ba6a9dfe3bee8df33d198e38c836710abff7e65470393840ab063ef0f8",
+        "helperOrDeploymentQualified": false,
+        "inputPinsVerified": 45,
+        "instructionAnchorsVerified": 32,
+        "modelLimitationsExercised": [
+          "indistinguishable-ABA",
+          "one-write-budget-not-modeled",
+          "generic-readback-value-not-bound"
+        ],
+        "networkOperations": 0,
+        "protocolSourceImage": "selected image0, file=VA+0x200",
+        "protocolSourceSpans": [
+          {
+            "bytes": 22,
+            "sha256": "56e01148a61d5ef5f7d80eedc04d3bd63e304f16aff6f108a8ca25c76b6ea9e8",
+            "va": "0x29284"
+          },
+          {
+            "bytes": 36,
+            "sha256": "94dad0474c5202d24d0dd57b2cc87c764380a6d901034d635eeca127cc192b8c",
+            "va": "0x2912a"
+          },
+          {
+            "bytes": 62,
+            "sha256": "2d3fbd78ee0370945dc18cf3a2cfa8e3b58b9d455c0d6be3bdff93117670359d",
+            "va": "0x7fce"
+          },
+          {
+            "bytes": 38,
+            "sha256": "926faf46c42afed8e6238f18af15b0e2e735b9cf842b8750e73696499ced1497",
+            "va": "0x2ac86"
+          },
+          {
+            "bytes": 4,
+            "sha256": "4ac1d78afe5af09c84460602c78dc57f39cf918034c3366bd3f14758876efd4c",
+            "va": "0x296e"
+          }
+        ],
+        "schema": "ek-independent-host-review-checks-v1",
+        "sourcePacketAndModelConsistent": true,
+        "targetOperations": 0,
+        "unknownPhaseReentryQualified": false
+      },
+      "returnCode": 0,
+      "script": "reviews/independent-checks.py"
+    }
+  ],
+  "schema": "ek-independent-run-v1"
+}

@@ -1,0 +1,246 @@
+{
+  "accepted": true,
+  "checks": 118,
+  "frozenFilesVerified": 44,
+  "frozenPins": {
+    "bin/Release/net6.0/DenseRefreshCheckpoints.dll": "ce1918d9aae89d5a0529482c529bac1a99381c6ebe32f2305b4a345499bafc2a",
+    "deployment-manifest.json": "83382d9a55271194480cb17d777a0d45737128f3dd849228b9517c3d2284c522",
+    "host-build-checkpoint.json": "f57c882db57db0207bb2ee2899cb36d26e5d9ba0ec08c67fe5568fb17d6c6d4c",
+    "parse-result.py": "cfa98869b725ce86d9bab876e7a59c554f690b75f77e17e22de035b214cdc49c",
+    "run-once.py": "01b5937f625e45516d435e6093cef47aebde9cbf1380e997173f238eab9e9308",
+    "source-inventory.json": "57f39a8f4041944d4cb2515b03c25fabedcc6b5de37206d65bbeb23306ee8be2"
+  },
+  "nativeHostOnly": [
+    {
+      "stdoutSha256": "e8db6e207b6e0d4b99708bf34462142d3081f70187d151bf645067312208dc9c",
+      "summary": {
+        "maxTestOutputBytes": 13120,
+        "selfTestsPassed": 93,
+        "targetOperations": 0
+      },
+      "switch": "--self-test"
+    },
+    {
+      "stdoutSha256": "b375e29e030998c71c78b6ac7da4dc1987a3c05f1af87a1f672123b095ba39d1",
+      "summary": {
+        "keyTestsPassed": 22,
+        "maxTestOutputBytes": 17787,
+        "targetOperations": 0
+      },
+      "switch": "--key-self-test"
+    },
+    {
+      "stdoutSha256": "abe33e54787e45ab516ad22febd7aeae54098cd963d18b00ace4730172950acb",
+      "summary": {
+        "checkpointTestsPassed": 46,
+        "maxCheckpoints": 60,
+        "maxTestOutputBytes": 24255,
+        "recordBytes": 54,
+        "targetOperations": 0
+      },
+      "switch": "--checkpoint-self-test"
+    },
+    {
+      "bulks": 960,
+      "bytes": 14383,
+      "cycleCap": 60,
+      "fakeSpanUs": 1500000,
+      "headers": 480,
+      "sha256": "734960228c000f9eec3b958f162a4037c7e12f1f23b8adf003576fc6a8d29e4d",
+      "switch": "--checkpoint-fixture-clean"
+    }
+  ],
+  "networkCalls": 0,
+  "outputOnlyReviews": true,
+  "realRootAdapterImported": false,
+  "schema": "em-independent-host-review-v1",
+  "sourceDeltaScope": "exactEHdefaults/schema/prefix/pins;allnativebinding/readpair/run/keyunchanged",
+  "targetCalls": 0,
+  "temporaryDirectoryOverride": "testreadiness hardcoded scratch redirected into owned reviews/tmp;testlogic unchanged",
+  "tests": [
+    {
+      "optimized": false,
+      "returncode": 0,
+      "stdoutSha256": "9c80bd075031328f40ff2314332610be02629e02e3845fee17af7cfdd4447462",
+      "summary": {
+        "checksPassed": 54,
+        "lineage": {
+          "actualRateGuaranteed": false,
+          "checkpointBytes": 54,
+          "cooperativeDurationUs": 2000000,
+          "historicalRefreshSequenceObserved": false,
+          "hostTimeoutSeconds": 75,
+          "independentReviewPending": true,
+          "keyPathChanged": false,
+          "maximumCheckpoints": 60,
+          "nativeProcessAlarmImplemented": false,
+          "networkOperations": 0,
+          "newReads": 0,
+          "nominalMaximumCycleStartSpanUs": 1475000,
+          "parentEhInventorySha256": "38ae37ba3e64c516d0e9aa5d2e811d7c6d85e0164f6a155e3bb93ff0990991fd",
+          "parentEhManifestSha256": "d0059b32e4e3d99a398a3763934e8927cd2967126c6d1ad9e76d8bf069f3059e",
+          "perBulkTimeoutMs": 2000,
+          "physicalPictureObserved": false,
+          "readMapChanged": false,
+          "readinessBuilderParentSha256": "c846e3a8f95ed2e7d8ebf14eb0e08195c3fa14b7406940efd404bccceebded53",
+          "requestedPeriodUs": 25000,
+          "rootTimeoutSeconds": 45,
+          "schema": "em-dense-refresh-source-lineage-v1",
+          "serviceTimeOrKeySchedulingCanReduceCoverage": true,
+          "targetOperations": 0,
+          "transportAndRunChanged": false,
+          "writes": 0
+        },
+        "schema": "em-dense-refresh-source-verification-v1",
+        "targetOperations": 0
+      },
+      "test": "verify_source.py"
+    },
+    {
+      "optimized": false,
+      "returncode": 0,
+      "stdoutSha256": "a1cfe1b394ffc02fa55c6dde01372e73697c2feb74bf1836743687e4f97aa37a",
+      "summary": {
+        "checksPassed": 457,
+        "fixtureKinds": [
+          "clean",
+          "full",
+          "partial"
+        ],
+        "maximumFixtureBytes": 22397,
+        "targetOperations": 0
+      },
+      "test": "test-parse-result.py"
+    },
+    {
+      "optimized": false,
+      "returncode": 0,
+      "stdoutSha256": "2953d291060abaf1bb0cf46c3912175755d49e400c4ae3f4e2065bfdab49a2ae",
+      "summary": {
+        "checksPassed": 1268,
+        "commandsSyntaxChecked": 401,
+        "maximumCommandBytes": 7916,
+        "targetOperations": 0
+      },
+      "test": "test-runner.py"
+    },
+    {
+      "optimized": false,
+      "returncode": 0,
+      "stdoutSha256": "51767f5f0ec2fad6b8ee4309ba1d9723b6795e7bb087f7d905764a8589fc0c67",
+      "summary": {
+        "actualTargetSamplingRateGuaranteed": false,
+        "checksPassed": 204,
+        "fakeHStartSpanUs": 1475000,
+        "fakeNativeSpanUs": 1500000,
+        "schema": "em-cadence-validation-v1",
+        "targetOperations": 0
+      },
+      "test": "test-timing.py"
+    },
+    {
+      "optimized": false,
+      "returncode": 0,
+      "stdoutSha256": "212803a1b72e18f24cbc227e02c7578cb5782c6a1ed24c63ecdf623bf755d6be",
+      "summary": {
+        "checksPassed": 17,
+        "mockCachedCalls": 1,
+        "schema": "em-readiness-host-validation-v1",
+        "targetOperations": 0
+      },
+      "test": "test-readiness.py"
+    },
+    {
+      "optimized": true,
+      "returncode": 0,
+      "stdoutSha256": "9c80bd075031328f40ff2314332610be02629e02e3845fee17af7cfdd4447462",
+      "summary": {
+        "checksPassed": 54,
+        "lineage": {
+          "actualRateGuaranteed": false,
+          "checkpointBytes": 54,
+          "cooperativeDurationUs": 2000000,
+          "historicalRefreshSequenceObserved": false,
+          "hostTimeoutSeconds": 75,
+          "independentReviewPending": true,
+          "keyPathChanged": false,
+          "maximumCheckpoints": 60,
+          "nativeProcessAlarmImplemented": false,
+          "networkOperations": 0,
+          "newReads": 0,
+          "nominalMaximumCycleStartSpanUs": 1475000,
+          "parentEhInventorySha256": "38ae37ba3e64c516d0e9aa5d2e811d7c6d85e0164f6a155e3bb93ff0990991fd",
+          "parentEhManifestSha256": "d0059b32e4e3d99a398a3763934e8927cd2967126c6d1ad9e76d8bf069f3059e",
+          "perBulkTimeoutMs": 2000,
+          "physicalPictureObserved": false,
+          "readMapChanged": false,
+          "readinessBuilderParentSha256": "c846e3a8f95ed2e7d8ebf14eb0e08195c3fa14b7406940efd404bccceebded53",
+          "requestedPeriodUs": 25000,
+          "rootTimeoutSeconds": 45,
+          "schema": "em-dense-refresh-source-lineage-v1",
+          "serviceTimeOrKeySchedulingCanReduceCoverage": true,
+          "targetOperations": 0,
+          "transportAndRunChanged": false,
+          "writes": 0
+        },
+        "schema": "em-dense-refresh-source-verification-v1",
+        "targetOperations": 0
+      },
+      "test": "verify_source.py"
+    },
+    {
+      "optimized": true,
+      "returncode": 0,
+      "stdoutSha256": "a1cfe1b394ffc02fa55c6dde01372e73697c2feb74bf1836743687e4f97aa37a",
+      "summary": {
+        "checksPassed": 457,
+        "fixtureKinds": [
+          "clean",
+          "full",
+          "partial"
+        ],
+        "maximumFixtureBytes": 22397,
+        "targetOperations": 0
+      },
+      "test": "test-parse-result.py"
+    },
+    {
+      "optimized": true,
+      "returncode": 0,
+      "stdoutSha256": "2953d291060abaf1bb0cf46c3912175755d49e400c4ae3f4e2065bfdab49a2ae",
+      "summary": {
+        "checksPassed": 1268,
+        "commandsSyntaxChecked": 401,
+        "maximumCommandBytes": 7916,
+        "targetOperations": 0
+      },
+      "test": "test-runner.py"
+    },
+    {
+      "optimized": true,
+      "returncode": 0,
+      "stdoutSha256": "51767f5f0ec2fad6b8ee4309ba1d9723b6795e7bb087f7d905764a8589fc0c67",
+      "summary": {
+        "actualTargetSamplingRateGuaranteed": false,
+        "checksPassed": 204,
+        "fakeHStartSpanUs": 1475000,
+        "fakeNativeSpanUs": 1500000,
+        "schema": "em-cadence-validation-v1",
+        "targetOperations": 0
+      },
+      "test": "test-timing.py"
+    },
+    {
+      "optimized": true,
+      "returncode": 0,
+      "stdoutSha256": "5fa3b5cfe686674bd6feed903aa542234a5c3cac234d5e92f929cc2b79dfc0d6",
+      "summary": {
+        "checksPassed": 17,
+        "mockCachedCalls": 1,
+        "schema": "em-readiness-host-validation-v1",
+        "targetOperations": 0
+      },
+      "test": "test-readiness.py"
+    }
+  ]
+}

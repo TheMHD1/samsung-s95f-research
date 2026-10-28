@@ -14,6 +14,8 @@ This repository preserves the substantive work performed during the investigatio
 
 **Additive reference-refresh checkpoint:** source models now trace C+7 copies, separate mirrors, two-event reference refresh and lane-table lifetimes. A warm unchanged40 control stayed clean; the later EH reader refused an already-faulted first R before sending Left. Read the [reference-refresh and observability guide](docs/reference-refresh-20261028.md). Neither result is a prevention fix or complete call-coverage trace.
 
+**Additive reference-event checkpoint:** the dense reader now preserves exact ordinary-gate-off intervals as Quiescent rather than relabeling them Clean. An accepted ES observation captures selector/counter changes through seed 1→2→0, followed by a software fault: last compact H40 and later post-fault H48 at unchanged limit40. The rejected EO collector, separate late fault/recovery, five sampled code/literal matches and unimplemented finite logging design retain their individual scopes. Read the [reference-event and diagnostic guide](docs/reference-events-20261028.md). No causal prevention, lane-mask modification, installed hook or physical-output claim follows.
+
 The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY-AF077FLLV2H** and Linux **5.4.261**. A separate board marking identifies a regional QN77S95FAFXZA assembly. Those observations do not make other firmware or hardware revisions equivalent.
 
 ## Start here

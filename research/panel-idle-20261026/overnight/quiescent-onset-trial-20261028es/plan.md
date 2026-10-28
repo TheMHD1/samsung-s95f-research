@@ -1,0 +1,9 @@
+# Quiescent-continuation onset test
+
+Use the independently reviewed ER reader to follow the specific gate-off state that ended EO. Keep the original40 alternate threshold and ordinary oneLeft workflow. Require a full clean initial observation before the key; subsequent recognized Quiescent samples remain distinctly classified. Native record58bytes/cap56/requested25ms/cooperative2s. No controller data/code/configuration write, flash, boot, kernel replacement, mask or protection modification.
+
+Latest predecessor before preparation is EP's accepted5/10 fixedsourcefingerprint on USB62, following EO's accepted oneMODE2/newinstanceproof and clean40 EB recovery-validation. Parent must bind fresh cached identity/census and current closed-world header lineage. All targetcalls serialized. Private static Linux trace is separate and not mapped onto native time without calibration.
+
+Prepare normal Apps/header with frozen DK; EBbaseline must be acceptedclean40; run ER once; strict offline admission binds parser/manifest/wrapperresult/rawinventory and allsampledlimits40; take separate EBpost after a qualifiedclosednative boundary. Changed softwarestate between accepted ER and later EB is a reported observation, not silently forced to equal the earlier endpoint. A postfault outside the ERwindow is not claimed as an ERonset. No later header follows an unknown/short/ambiguousUSB phase or unclassifiedrefusal.
+
+If a separatelyaccepted EB captures stablefault1/4097/0 at40, use the reviewed stockrecoveryguard only after normal Apps preparation/publicchecks; do not use Quiescent alone as the recoverycondition. Re-enumeration needs new cachedidentity/lifecycleproof and separatevalidation. Preserve all originalaccepted/rejectedresults and failedpreparationattempts. No physicalpictureclaim without observation.
