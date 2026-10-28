@@ -45,3 +45,8 @@ The [external gaps register](../research/research-20261027-external/GAPS-AND-EXP
 The initial release's source cutoff was **2026-10-27 23:34:25 UTC**. It remains immutable at its [original commit](https://github.com/TheMHD1/samsung-s95f-research/tree/e8a8b1170b712ab3114e3235318b32b4b3817679), including its separately added [BX preflight/ARM-flag report](post-cutoff-swu-trial.md). The new snapshot does not rewrite that release's audit or earlier failed outcomes. Current enumeration/export timestamps and explicitly deferred scope are recorded in `manifests/export-summary.json`; [release history](../manifests/release-history.json) preserves both releases' accounting.
 
 The [firmware evidence guide](firmware-evidence-guide-20261028.md) is the current source/logging and next-experiment entry point. Positive AP_EXCO selector provenance does not close the Linux FRC-to-field bridge, physical packed-sample producer or electrical suppression edge. Autonomous software classifications do not require an owner response.
+
+
+## Fixed matched-wake contrast cutoff
+
+The [GJ contrast](matched-wake-contrast-20261028.md) observed200 maxH36/no>40 witness and a later40 software fault atH48 with paired736. No actual FP, executing PC, reference-epoch equivalence or optical prevention is established. Final stock recovery validates Clean40/logger0/current counts0 while retaining ordinal52 and populated columns. GN identifies1c0c8 as RAM status-OR, preserving GD history and unresolved alias/consumer boundaries. HDMI-specific external profile and supervised no-key arm-marker qualification remain prospective. This fixed historical boundary excludes mutable CURRENT and later work.

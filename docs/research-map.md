@@ -71,3 +71,8 @@ Use the [logging/refusal/restoration guide](logging-refusal-restoration-20261028
 ## Wake-window logging and domain separation
 
 Start with the [wake/fault logging guide](wake-fault-logging-20261028.md): internal kernel/TCON versus external-controller evidence, FO/FS completed acquisitions, FW's prearm refusal, GC's clean control, GF's captured onset and separate stock recovery. Two bounded fixtures reproduce scientific fields without original private transport or OEM code. The [fixed GI cutoff](../research/panel-idle-20261026/overnight/publication-wake-fault-cutoff-20261028gi/CURRENT-WAKE-FAULT-CUTOFF.md) states the final software boundary and remaining blind spots.
+
+
+## Matched wake contrast and remaining HDMI boundary
+
+The [latest finite contrast guide](matched-wake-contrast-20261028.md) connects GG/GH source and reviews, GJ's completed200/40 comparison and stock recovery, GK planning, GL HDMI recorder gaps and GN's explicit correction of the GD helper label. Its ninth offline fixture retains honest Quiescent counts and ordinal52; the previous eight fixtures remain unchanged. This is broader platform RE evidence, not a demonstrated physical fix.

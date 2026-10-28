@@ -1,0 +1,9 @@
+# Fixed historical status: matched wake contrast cutoff
+
+Completed GJ: fixed40→200 set,56-row200 recorder (55Clean+1Quiescent; Hmax36), separate guarded200→40 restore,27-row40 recorder (25Clean+1Quiescent+1Faulted; H40→H48 and paired736), separate40 stock recovery and final16-pair validation. No stock initialization occurred at200; GH was not used. Two stock MODE2 calls occurred at40 across the complete GJ preparation/recovery sequence.
+
+Final validation: stable full R clean0/0/1, limit40/logger0; sourceOperating4, AA0/AC1, source counts0 and ordinal5=52. X/Y48 nonzero halfwords each, RGB26, B22, Diff0. This is not universal diagnostic RAM clearing. Final cached Apps+saver+CSFS is not optical evidence. GN closes the direct helper body, while unknown flag readers, dynamic buffer producers/aliases and reference/input epochs remain open. No claim of threshold prevention, whole-firmware independence or a physical repair is established.
+
+Next diagnostic design: first qualify actual HDMI AVOC/status and external-RTP profile at read-only endpoints. Neither prior internal0x10 nor FN AA0/AC2/root/profile proves an applicable HDMI profile. Prospective no-key recording and a supervised host-visible arm marker remain new, unqualified routes. This fixed status deliberately excludes later work and mutable CURRENT.
+
+Label qualification: retained GJ full R endpoints and logger-control R have global selectorR+0x10=4. Image1 global4 selects formatter category1 atbcb2/bcb6/bcb8→bcd0/bcd2→c5d0; AA0/AC2 independently selects predicate argument1 atbfda/bfdc. Frozen “mode1” shorthand refers to this RTP dispatch/context axis, not globalR16=1. FA exactprofile pinsR16=4 and FN does not requireglobal1. Compact rows omitR16; no continuous or executing-argument proof follows. Historical source/report bytes are preserved.

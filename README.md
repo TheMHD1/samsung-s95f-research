@@ -1,7 +1,7 @@
 # Samsung S95F reverse-engineering workbench
 
 
-The latest fixed [wake-window logging update](docs/wake-fault-logging-20261028.md) adds completed FO–GF sources/reviews and two public scientific projections: GC ends77rows76Clean+1Quiescent with Hmax36; GF captures CleanH40→FaultH48 with a newly paired stock736event and zero wrapper keys. The separate checked stock recovery ends Clean40/logger0/N0 and cached Apps+saver; physical light and an actual FP/caller remain unobserved. Earlier logging cutoffs below retain their historical scope; GG/GH and mutable CURRENT remain outside this release.
+The latest fixed [matched-wake contrast](docs/matched-wake-contrast-20261028.md) adds completed GG/GH/GJ/GK/GL/GN source and reviews plus a ninth typed scientific fixture:200 ends55Clean+1Quiescent/Hmax36 without a>40 witness; restored40 captures25Clean+1Quiescent+1Faulted/H48 and new paired736 text. This finite association does not isolate comparator threshold from publication capacity or prove optical prevention. Retained globalR16=4 coexists with source-conditional RTP category1; historical “mode1” shorthand does not mean global1. GN explicitly corrects the historical1c0c8 “hardware action” shorthand to a RAM status-OR helper. Final separate software validation is Clean40/logger0/current counts0 with ordinal52 and populated columns; HDMI profile/no-key-marker qualification remains open. Earlier cutoffs below retain their historical scopes.
 
 An experimental research corpus for the Samsung S95F / Tizen platform: access and host-assisted persistence, UI and application control, firmware formats, kernel and display architecture, external controller protocols, hardware attribution, and bounded instrumentation.
 

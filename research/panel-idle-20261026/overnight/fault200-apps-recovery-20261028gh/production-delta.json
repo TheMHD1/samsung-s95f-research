@@ -1,0 +1,251 @@
+{
+  "cachedContextAfter": "Apps+noSaver+CSFS",
+  "cachedContextBefore": "Live+saver+CSFS",
+  "files": [
+    {
+      "base": "live-saver-init-adapter-20261028ge/run-once.py",
+      "hunks": [
+        {
+          "new": "\"\"\"One GH Fault200 Apps MODE2 prerequisite experiment; dry default, no UI keys.\"\"\"\n",
+          "old": "\"\"\"One GE Live+saver MODE2 prerequisite experiment; dry default, no UI keys.\"\"\"\n",
+          "oldEnd": 2,
+          "oldStart": 1
+        },
+        {
+          "new": "SOURCE_NAMES=['run-once.py','helper.py','policy.py','admit-fault.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','build-host.sh','finalize.py','input-pins.json','production-delta.json','test-fixture.py','fixture-provenance.json']\n",
+          "old": "SOURCE_NAMES=['run-once.py','helper.py','policy.py','admit-fault.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','build-host.sh','finalize.py','input-pins.json','production-delta.json']\n",
+          "oldEnd": 8,
+          "oldStart": 7
+        },
+        {
+          "new": " helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'gh_manifest_helper');payload=helper.contract()\n",
+          "old": " helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'ge_manifest_helper');payload=helper.contract()\n",
+          "oldEnd": 21,
+          "oldStart": 20
+        },
+        {
+          "new": " return {'schema':'gh-fault200-apps-recovery-manifest-v1','sources':sources,'nativePayloads':{name:{'bytes':len(raw),'sha256':sha(raw)}for name,raw in payload.items()},'operation':41,'mode':2,'nativeDeadlineSeconds':12,'nativeInvocationsMaximum':1,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'nativeReceiptCap':8192,'nativeStderrCap':4096,'cachedContext':'Apps+noSaver+CSFS','sourceAlternateLimit':200,'mode2Under200ProfileEmpiricallyQualified':False,'restoresLimit40Proven':False,'finalQueryToSubmitMaxNs':1000000000,'readinessSchema':'gh-fault200-apps-recovery-readiness-decision-v1','physicalPictureObserved':False,'newInstanceAndFreshEbAreParentPostconditions':True},payload\n",
+          "old": " return {'schema':'ge-live-saver-init-manifest-v1','sources':sources,'nativePayloads':{name:{'bytes':len(raw),'sha256':sha(raw)}for name,raw in payload.items()},'operation':41,'mode':2,'nativeDeadlineSeconds':12,'nativeInvocationsMaximum':1,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'nativeReceiptCap':8192,'nativeStderrCap':4096,'cachedContext':'Live+saver+CSFS','finalQueryToSubmitMaxNs':1000000000,'readinessSchema':'ge-live-saver-init-readiness-decision-v1','physicalPictureObserved':False,'newInstanceAndFreshEbAreParentPostconditions':True},payload\n",
+          "oldEnd": 23,
+          "oldStart": 22
+        },
+        {
+          "new": "    need(value['schema'] == 'gh-fault200-apps-recovery-readiness-decision-v1' and value['accepted'] is True,\n",
+          "old": "    need(value['schema'] == 'ge-live-saver-init-readiness-decision-v1' and value['accepted'] is True,\n",
+          "oldEnd": 53,
+          "oldStart": 52
+        },
+        {
+          "new": " policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'gh_metadata_policy');return policy.wrapper().metadata_body(*args,**kwargs)\n",
+          "old": " policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'ge_metadata_policy');return policy.wrapper().metadata_body(*args,**kwargs)\n",
+          "oldEnd": 85,
+          "oldStart": 84
+        },
+        {
+          "new": " policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'gh_metadata_policy');return policy.wrapper().parse_metadata(*args,**kwargs)\n",
+          "old": " policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'ge_metadata_policy');return policy.wrapper().parse_metadata(*args,**kwargs)\n",
+          "oldEnd": 87,
+          "oldStart": 86
+        },
+        {
+          "new": " policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'gh_fixed_policy')\n helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'gh_fixed_helper')\n gates=load(BV,BV_SHA,'gh_public_gates')\n result={'schema':'gh-fault200-apps-recovery-result-v1','accepted':False,'sourceFaultAdmitted':True,'nativeInvocations':0,'nativeTerminalAccepted':False,'helperCleanupConfirmed':False,'postCachedContextQualified':False,'newInstanceQualified':False,'freshEbBaselineQualified':False,'initializationPrerequisiteQualified':False,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'mode2Under200ProfileEmpiricallyQualified':False,'restoresLimit40Proven':False,'manifestSha256':sha(manifest_raw),'readinessSha256':sha(readiness_raw)}\n record={'schema':'gh-initial-context-v1','calls':[]};record_path=output/'initial-root.json'\n",
+          "old": " policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'ge_fixed_policy')\n helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'ge_fixed_helper')\n gates=load(BV,BV_SHA,'ge_public_gates')\n result={'schema':'ge-live-saver-init-result-v1','accepted':False,'sourceFaultAdmitted':True,'nativeInvocations':0,'nativeTerminalAccepted':False,'helperCleanupConfirmed':False,'postCachedContextQualified':False,'newInstanceQualified':False,'freshEbBaselineQualified':False,'initializationPrerequisiteQualified':False,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'manifestSha256':sha(manifest_raw),'readinessSha256':sha(readiness_raw)}\n record={'schema':'ge-initial-context-v1','calls':[]};record_path=output/'initial-root.json'\n",
+          "oldEnd": 98,
+          "oldStart": 93
+        },
+        {
+          "new": "  policy.identity_checkpoint(adapter,record,record_path,output,readiness['identity'],'GH_INITIAL_READY')\n",
+          "old": "  policy.identity_checkpoint(adapter,record,record_path,output,readiness['identity'],'GE_INITIAL_READY')\n",
+          "oldEnd": 100,
+          "oldStart": 99
+        },
+        {
+          "new": "  post_record={'schema':'gh-post-context-v1','calls':[]}\n",
+          "old": "  post_record={'schema':'ge-post-context-v1','calls':[]}\n",
+          "oldEnd": 105,
+          "oldStart": 104
+        },
+        {
+          "new": "  print(json.dumps({'schema':'gh-fault200-apps-recovery-dry-v1','targetOperations':0,'nativeInvocations':0,'plannedNativeMaximum':1,'operation':41,'mode':2,'nativeDeadlineSeconds':12,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'wrapperUiOperations':0,'vendorReads':0,'thresholdWrites':0,'automaticRetries':0,'fault200AppsPremiseNotEstablished':True,'parentPostconditionsRequired':True}));return\n",
+          "old": "  print(json.dumps({'schema':'ge-live-saver-init-dry-v1','targetOperations':0,'nativeInvocations':0,'plannedNativeMaximum':1,'operation':41,'mode':2,'nativeDeadlineSeconds':12,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'wrapperUiOperations':0,'vendorReads':0,'thresholdWrites':0,'automaticRetries':0,'liveSaverPremiseNotEstablished':True,'parentPostconditionsRequired':True}));return\n",
+          "oldEnd": 125,
+          "oldStart": 124
+        },
+        {
+          "new": " admit=load(HERE/'admit-fault.py',sha((HERE/'admit-fault.py').read_bytes()),'gh_source_admission')\n",
+          "old": " admit=load(HERE/'admit-fault.py',sha((HERE/'admit-fault.py').read_bytes()),'ge_source_admission')\n",
+          "oldEnd": 134,
+          "oldStart": 133
+        },
+        {
+          "new": " adapter=load(ROOT,ROOT_SHA,'gh_fixed_root')\n",
+          "old": " adapter=load(ROOT,ROOT_SHA,'ge_fixed_root')\n",
+          "oldEnd": 137,
+          "oldStart": 136
+        }
+      ],
+      "output": "run-once.py"
+    },
+    {
+      "base": "live-saver-init-adapter-20261028ge/helper.py",
+      "hunks": [
+        {
+          "new": "POLICY_SHA = '0013cc4d6ef09237d33cdb0027baa25850432a7ef6011d7833dba305d6503df0'\n",
+          "old": "POLICY_SHA = 'a8930454d12991eb4c8896ded2ffb2dccf28ab6d9681342482ccda2854383948'\n",
+          "oldEnd": 26,
+          "oldStart": 25
+        },
+        {
+          "new": "    policy = load(HERE / 'policy.py', POLICY_SHA, 'gh_fixed_policy')\n    gates = load(BASE / 'recovery-quickpath-20261027bv/recover.py', BV_SHA, 'gh_public_gates')\n",
+          "old": "    policy = load(HERE / 'policy.py', POLICY_SHA, 'ge_fixed_policy')\n    gates = load(BASE / 'recovery-quickpath-20261027bv/recover.py', BV_SHA, 'ge_public_gates')\n",
+          "oldEnd": 87,
+          "oldStart": 85
+        },
+        {
+          "new": "    record = {'schema': 'gh-deadline-stock-mode2-run-v1', 'remote_private_directory': remote,\n",
+          "old": "    record = {'schema': 'ge-deadline-stock-mode2-run-v1', 'remote_private_directory': remote,\n",
+          "oldEnd": 89,
+          "oldStart": 88
+        },
+        {
+          "new": "    policy.identity_checkpoint(adapter, record, root_path, output, identity, 'GH_BEFORE_NATIVE')\n",
+          "old": "    policy.identity_checkpoint(adapter, record, root_path, output, identity, 'GE_BEFORE_NATIVE')\n",
+          "oldEnd": 96,
+          "oldStart": 95
+        },
+        {
+          "new": "    policy.save(output / 'helper-terminal.json', {'schema':'gh-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':False,'physicalPictureObserved':False})\n",
+          "old": "    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':False,'physicalPictureObserved':False})\n",
+          "oldEnd": 135,
+          "oldStart": 134
+        },
+        {
+          "new": "    policy.save(output / 'helper-terminal.json', {'schema':'gh-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':True,'classification':parsed['classification'],'physicalPictureObserved':False})\n",
+          "old": "    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':True,'classification':parsed['classification'],'physicalPictureObserved':False})\n",
+          "oldEnd": 139,
+          "oldStart": 138
+        },
+        {
+          "new": "    result = {'schema': 'gh-deadline-stock-mode2-result-v1', 'accepted': True,\n",
+          "old": "    result = {'schema': 'ge-deadline-stock-mode2-result-v1', 'accepted': True,\n",
+          "oldEnd": 145,
+          "oldStart": 144
+        }
+      ],
+      "output": "helper.py"
+    },
+    {
+      "base": "live-saver-init-adapter-20261028ge/policy.py",
+      "hunks": [
+        {
+          "new": "\"\"\"GH fixed Fault200 Apps cached/public admission support; no input or vendor operation.\"\"\"\n",
+          "old": "\"\"\"GE fixed cached/public admission support; no input or vendor operation.\"\"\"\n",
+          "oldEnd": 2,
+          "oldStart": 1
+        },
+        {
+          "new": "def wrapper():return load(EB/'run-once.py',EB_WRAPPER_SHA,'gh_eb_wrapper')\n",
+          "old": "def wrapper():return load(EB/'run-once.py',EB_WRAPPER_SHA,'ge_eb_wrapper')\n",
+          "oldEnd": 19,
+          "oldStart": 18
+        },
+        {
+          "new": " need(tabs==['memory/eden/current_tab, value = d/apps.tab (String)'],'exactly one canonical Apps row')\n",
+          "old": " need(tabs==['memory/eden/current_tab, value = d/ug.tab@Live (String)'],'exactly one canonical Live row')\n",
+          "oldEnd": 31,
+          "oldStart": 30
+        },
+        {
+          "new": " need(not saver and csfs,'cached Apps+noSaver+CSFS required')\n return {'cachedTab':'d/apps.tab','screensaverWindowsPresent':saver,'csfsWindowPresent':csfs,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}\n",
+          "old": " need(saver and csfs,'cached Live+saver+CSFS required')\n return {'cachedTab':'d/ug.tab@Live','screensaverWindowsPresent':saver,'csfsWindowPresent':csfs,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}\n",
+          "oldEnd": 35,
+          "oldStart": 33
+        },
+        {
+          "new": " checkpoint={'schema':'gh-cached-apps-v1','queryBeforeHostMonotonicNs':before,'queryReturnedHostMonotonicNs':after,'responseSha256':sha(text.encode()),'summary':summary,'wrapperUiOperations':0}\n",
+          "old": " checkpoint={'schema':'ge-cached-live-saver-v1','queryBeforeHostMonotonicNs':before,'queryReturnedHostMonotonicNs':after,'responseSha256':sha(text.encode()),'summary':summary,'wrapperUiOperations':0}\n",
+          "oldEnd": 41,
+          "oldStart": 40
+        }
+      ],
+      "output": "policy.py"
+    },
+    {
+      "base": "live-saver-init-adapter-20261028ge/admit-fault.py",
+      "hunks": [
+        {
+          "new": "spec=importlib.util.spec_from_file_location('gh_admission_policy',HERE/'policy.py');policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)\n",
+          "old": "spec=importlib.util.spec_from_file_location('ge_admission_policy',HERE/'policy.py');policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)\n",
+          "oldEnd": 7,
+          "oldStart": 6
+        },
+        {
+          "new": " w=policy.wrapper();p=policy.load(policy.EB/'parse-result.py',policy.EB_PARSER_SHA,'gh_eb_parser')\n",
+          "old": " w=policy.wrapper();p=policy.load(policy.EB/'parse-result.py',policy.EB_PARSER_SHA,'ge_eb_parser')\n",
+          "oldEnd": 14,
+          "oldStart": 13
+        },
+        {
+          "new": " need(start==end and [struct.unpack_from('<H',start,i)[0]for i in [0,6,10,14,0xc4]]==[1,0,0x1001,0,200],'stable full fault200/logger0 source')\n",
+          "old": " need(start==end and [struct.unpack_from('<H',start,i)[0]for i in [0,6,10,14,0xc4]]==[1,0,0x1001,0,40],'stable full fault40/logger0 source')\n",
+          "oldEnd": 30,
+          "oldStart": 29
+        },
+        {
+          "new": " return {'schema':'gh-source-fault-admission-v1','accepted':True,'capture':str(capture),'resultSha256':result_digest,'files':pins,'sameInstance':True,'exactRootCommandsReplayed':len(calls),'headers':16,'bulks':32,'stableFault200Logger0':True,'phase':'ReadyForHeader','released':True,'closed':True,'cleanup':'STAGE_ABSENT','endpointQueueProof':False,'physicalPictureObserved':False}\n",
+          "old": " return {'schema':'ge-source-fault-admission-v1','accepted':True,'capture':str(capture),'resultSha256':result_digest,'files':pins,'sameInstance':True,'exactRootCommandsReplayed':len(calls),'headers':16,'bulks':32,'stableFault40Logger0':True,'phase':'ReadyForHeader','released':True,'closed':True,'cleanup':'STAGE_ABSENT','endpointQueueProof':False,'physicalPictureObserved':False}\n",
+          "oldEnd": 50,
+          "oldStart": 49
+        }
+      ],
+      "output": "admit-fault.py"
+    },
+    {
+      "base": "live-saver-init-adapter-20261028ge/prepare-readiness.py",
+      "hunks": [
+        {
+          "new": "\"\"\"Dry-default GH cached identity/census decision; no wake or preparation action.\"\"\"\n",
+          "old": "\"\"\"Dry-default GE cached identity/census decision; no wake or preparation action.\"\"\"\n",
+          "oldEnd": 2,
+          "oldStart": 1
+        },
+        {
+          "new": "WRAPPERS={'gh':('fault200-apps-recovery-20261028gh/run-once.py','gh-fault200-apps-recovery-readiness-decision-v1')}\n",
+          "old": "WRAPPERS={'ge':('live-saver-init-adapter-20261028ge/run-once.py','ge-live-saver-init-readiness-decision-v1')}\n",
+          "oldEnd": 14,
+          "oldStart": 13
+        },
+        {
+          "new": " wrapper=load(B/relative,args.wrapper_sha256,'gh_readiness_wrapper')\n",
+          "old": " wrapper=load(B/relative,args.wrapper_sha256,'ge_readiness_wrapper')\n",
+          "oldEnd": 32,
+          "oldStart": 31
+        },
+        {
+          "new": " if sha(manifest_raw)!=args.manifest_sha256 or manifest_raw!=(HERE/'deployment-manifest.json').read_bytes():raise ValueError('sealed GH manifest')\n",
+          "old": " if sha(manifest_raw)!=args.manifest_sha256 or manifest_raw!=(HERE/'deployment-manifest.json').read_bytes():raise ValueError('sealed GE manifest')\n",
+          "oldEnd": 34,
+          "oldStart": 33
+        },
+        {
+          "new": " with tempfile.TemporaryDirectory(prefix='gh-local-decision-',dir=scratch)as td:\n",
+          "old": " with tempfile.TemporaryDirectory(prefix='ge-local-decision-',dir=scratch)as td:\n",
+          "oldEnd": 50,
+          "oldStart": 49
+        },
+        {
+          "new": " root=load(ROOT,ROOT_SHA,'gh_readiness_root');record={'schema':'gh-fresh-cached-readiness-v1','calls':[]}\n text=root.root('set -eu\\n'+wrapper.metadata_body(identity,'GH_CURRENT_READY'),record,args.output/'metadata-root.json')\n (args.output/'metadata.txt').write_text(text);census=wrapper.parse_metadata(text,'GH_CURRENT_READY')\n",
+          "old": " root=load(ROOT,ROOT_SHA,'ge_readiness_root');record={'schema':'ge-fresh-cached-readiness-v1','calls':[]}\n text=root.root('set -eu\\n'+wrapper.metadata_body(identity,'GE_CURRENT_READY'),record,args.output/'metadata-root.json')\n (args.output/'metadata.txt').write_text(text);census=wrapper.parse_metadata(text,'GE_CURRENT_READY')\n",
+          "oldEnd": 57,
+          "oldStart": 54
+        }
+      ],
+      "output": "prepare-readiness.py"
+    }
+  ],
+  "nativeChanges": 0,
+  "schema": "gh-production-delta-v1",
+  "sourceLimitAfter": 200,
+  "sourceLimitBefore": 40,
+  "uiOperations": 0
+}

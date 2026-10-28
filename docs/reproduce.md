@@ -46,3 +46,7 @@ Run `python3 tools/verify_logger_reconciliation.py` and its `python3 -O` equival
 ## Wake-window scientific projections
 
 The [GC/GF guide](wake-fault-logging-20261028.md) documents two additional offline fixtures. Run `python3 -B tools/verify_wake_onset.py --fixture fixtures/wake-gc.json` and the same command with `fixtures/wake-gf.json`. The verifier removes dynamic pointers, binds50retained scientific bytes per row to selected full windows, and distinguishes Clean/Quiescent/Faulted. Original authenticated receipts, raw ring backing and emulator/OEM instruction inputs remain private; the fixture does not claim to reproduce them.
+
+## Ninth matched-wake comparison fixture
+
+Run `python3 -B tools/verify_matched_wake_contrast.py --fixture fixtures/matched-wake-contrast.json` and repeat with `python3 -O -B`. The [guide](matched-wake-contrast-20261028.md) explains the50-byte pointer-free projection, typed endpoint-candidate log records, finite200/40 association and populated final diagnostics. No original authenticated receipt, OEM instruction or runtime identity is required. The source-dependent generator needs explicitly supplied withheld private inputs; public verification does not pretend those originals are available.

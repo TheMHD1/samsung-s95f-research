@@ -1,0 +1,273 @@
+--- GE/run-once.py
++++ GH/run-once.py
+@@ -1,11 +1,11 @@
+ #!/usr/bin/env python3
+-"""One GE Live+saver MODE2 prerequisite experiment; dry default, no UI keys."""
++"""One GH Fault200 Apps MODE2 prerequisite experiment; dry default, no UI keys."""
+ import argparse,hashlib,json,re,time,types
+ from pathlib import Path
+ HERE=Path(__file__).resolve().parent;B=HERE.parent
+ ROOT=B/'managed-ui-tab-launch/root-with-margin.py';ROOT_SHA='bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a'
+ BV=B/'recovery-quickpath-20261027bv/recover.py';BV_SHA='4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f'
+-SOURCE_NAMES=['run-once.py','helper.py','policy.py','admit-fault.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','build-host.sh','finalize.py','input-pins.json','production-delta.json']
++SOURCE_NAMES=['run-once.py','helper.py','policy.py','admit-fault.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','build-host.sh','finalize.py','input-pins.json','production-delta.json','test-fixture.py','fixture-provenance.json']
+ sha=lambda b:hashlib.sha256(b).hexdigest()
+ def need(v,s):
+  if not v:raise ValueError(s)
+@@ -18,9 +18,9 @@
+  pins=json.loads((HERE/'input-pins.json').read_bytes())['files']
+  for row in pins:
+   raw=(B/row['path']).read_bytes();need(len(raw)==row['bytes']and sha(raw)==row['sha256'],'frozen source dependency')
+- helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'ge_manifest_helper');payload=helper.contract()
++ helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'gh_manifest_helper');payload=helper.contract()
+  sources={name:{'bytes':len((HERE/name).read_bytes()),'sha256':sha((HERE/name).read_bytes())}for name in SOURCE_NAMES}
+- return {'schema':'ge-live-saver-init-manifest-v1','sources':sources,'nativePayloads':{name:{'bytes':len(raw),'sha256':sha(raw)}for name,raw in payload.items()},'operation':41,'mode':2,'nativeDeadlineSeconds':12,'nativeInvocationsMaximum':1,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'nativeReceiptCap':8192,'nativeStderrCap':4096,'cachedContext':'Live+saver+CSFS','finalQueryToSubmitMaxNs':1000000000,'readinessSchema':'ge-live-saver-init-readiness-decision-v1','physicalPictureObserved':False,'newInstanceAndFreshEbAreParentPostconditions':True},payload
++ return {'schema':'gh-fault200-apps-recovery-manifest-v1','sources':sources,'nativePayloads':{name:{'bytes':len(raw),'sha256':sha(raw)}for name,raw in payload.items()},'operation':41,'mode':2,'nativeDeadlineSeconds':12,'nativeInvocationsMaximum':1,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'nativeReceiptCap':8192,'nativeStderrCap':4096,'cachedContext':'Apps+noSaver+CSFS','sourceAlternateLimit':200,'mode2Under200ProfileEmpiricallyQualified':False,'restoresLimit40Proven':False,'finalQueryToSubmitMaxNs':1000000000,'readinessSchema':'gh-fault200-apps-recovery-readiness-decision-v1','physicalPictureObserved':False,'newInstanceAndFreshEbAreParentPostconditions':True},payload
+ 
+ def manifest_bytes(value):return (json.dumps(value,sort_keys=True,separators=(',',':'))+'\n').encode()
+ 
+@@ -50,7 +50,7 @@
+     value = strict_json(raw)
+     need(type(value) is dict and set(value) == {'schema', 'accepted', 'identity', 'interfaceUnbound',
+          'noHolders', 'closedWorldVendorOutLineage', 'evidence', 'endpointQueueProof'}, 'readiness exact fields')
+-    need(value['schema'] == 'ge-live-saver-init-readiness-decision-v1' and value['accepted'] is True,
++    need(value['schema'] == 'gh-fault200-apps-recovery-readiness-decision-v1' and value['accepted'] is True,
+          'readiness accepted decision')
+     need(value['interfaceUnbound'] is True and value['noHolders'] is True and
+          value['endpointQueueProof'] is False, 'readiness metadata/premise distinction')
+@@ -82,27 +82,27 @@
+     return value, raw
+ 
+ def metadata_body(*args,**kwargs):
+- policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'ge_metadata_policy');return policy.wrapper().metadata_body(*args,**kwargs)
++ policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'gh_metadata_policy');return policy.wrapper().metadata_body(*args,**kwargs)
+ def parse_metadata(*args,**kwargs):
+- policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'ge_metadata_policy');return policy.wrapper().parse_metadata(*args,**kwargs)
++ policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'gh_metadata_policy');return policy.wrapper().parse_metadata(*args,**kwargs)
+ 
+ def execute(output,readiness,readiness_raw,manifest_raw,payload,admission,adapter,clock=time.monotonic_ns):
+  need(output.is_absolute()and not output.exists()and not output.is_symlink(),'fresh absolute output')
+  output.mkdir(mode=0o700)
+  for name,raw in [('readiness-decision.json',readiness_raw),('reviewed-manifest.json',manifest_raw)]: (output/name).write_bytes(raw)
+  save(output/'source-fault-admission.json',admission)
+- policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'ge_fixed_policy')
+- helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'ge_fixed_helper')
+- gates=load(BV,BV_SHA,'ge_public_gates')
+- result={'schema':'ge-live-saver-init-result-v1','accepted':False,'sourceFaultAdmitted':True,'nativeInvocations':0,'nativeTerminalAccepted':False,'helperCleanupConfirmed':False,'postCachedContextQualified':False,'newInstanceQualified':False,'freshEbBaselineQualified':False,'initializationPrerequisiteQualified':False,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'manifestSha256':sha(manifest_raw),'readinessSha256':sha(readiness_raw)}
+- record={'schema':'ge-initial-context-v1','calls':[]};record_path=output/'initial-root.json'
++ policy=load(HERE/'policy.py',sha((HERE/'policy.py').read_bytes()),'gh_fixed_policy')
++ helper=load(HERE/'helper.py',sha((HERE/'helper.py').read_bytes()),'gh_fixed_helper')
++ gates=load(BV,BV_SHA,'gh_public_gates')
++ result={'schema':'gh-fault200-apps-recovery-result-v1','accepted':False,'sourceFaultAdmitted':True,'nativeInvocations':0,'nativeTerminalAccepted':False,'helperCleanupConfirmed':False,'postCachedContextQualified':False,'newInstanceQualified':False,'freshEbBaselineQualified':False,'initializationPrerequisiteQualified':False,'wrapperUiOperations':0,'automaticRetries':0,'thresholdWrites':0,'vendorReads':0,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'mode2Under200ProfileEmpiricallyQualified':False,'restoresLimit40Proven':False,'manifestSha256':sha(manifest_raw),'readinessSha256':sha(readiness_raw)}
++ record={'schema':'gh-initial-context-v1','calls':[]};record_path=output/'initial-root.json'
+  try:
+-  policy.identity_checkpoint(adapter,record,record_path,output,readiness['identity'],'GE_INITIAL_READY')
++  policy.identity_checkpoint(adapter,record,record_path,output,readiness['identity'],'GH_INITIAL_READY')
+   result['initialCachedContext']=policy.snapshot(adapter,record,record_path,output,'initial',clock)
+   public=output/'initial-public';public.mkdir(mode=0o700);gates.public_gate(public,adapter_module=adapter)
+   recovery=helper.execute(output/'mode2',payload,adapter,readiness['identity'],clock)
+   result.update(nativeInvocations=1,nativeTerminalAccepted=recovery['accepted'],helperCleanupConfirmed=recovery['cleanup_confirmed'],helperResult=recovery)
+-  post_record={'schema':'ge-post-context-v1','calls':[]}
++  post_record={'schema':'gh-post-context-v1','calls':[]}
+   result['postCachedContext']=policy.snapshot(adapter,post_record,output/'post-root.json',output,'post',clock)
+   result.update(postCachedContextQualified=True,accepted=True)
+  except Exception as error:
+@@ -122,7 +122,7 @@
+  cli=argparse.ArgumentParser(description=__doc__);cli.add_argument('--execute',action='store_true');cli.add_argument('--print-manifest',action='store_true');cli.add_argument('--manifest-sha256');cli.add_argument('--capture',type=Path);cli.add_argument('--capture-result-sha256');cli.add_argument('--readiness',type=Path);cli.add_argument('--readiness-sha256');cli.add_argument('--output',type=Path);args=cli.parse_args()
+  need(not(args.execute and args.print_manifest),'one mode')
+  if not args.execute and not args.print_manifest:
+-  print(json.dumps({'schema':'ge-live-saver-init-dry-v1','targetOperations':0,'nativeInvocations':0,'plannedNativeMaximum':1,'operation':41,'mode':2,'nativeDeadlineSeconds':12,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'wrapperUiOperations':0,'vendorReads':0,'thresholdWrites':0,'automaticRetries':0,'liveSaverPremiseNotEstablished':True,'parentPostconditionsRequired':True}));return
++  print(json.dumps({'schema':'gh-fault200-apps-recovery-dry-v1','targetOperations':0,'nativeInvocations':0,'plannedNativeMaximum':1,'operation':41,'mode':2,'nativeDeadlineSeconds':12,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'wrapperUiOperations':0,'vendorReads':0,'thresholdWrites':0,'automaticRetries':0,'fault200AppsPremiseNotEstablished':True,'parentPostconditionsRequired':True}));return
+  manifest,payload=build_manifest();raw=manifest_bytes(manifest)
+  if args.print_manifest:print(raw.decode(),end='');return
+  need(args.manifest_sha256==sha(raw),'reviewed manifest exact pin')
+@@ -131,10 +131,10 @@
+  readiness,ready_raw=load_readiness(args.readiness,args.readiness_sha256)
+  for row in readiness['evidence']:
+   path=Path(row['path']);need(path.is_absolute()and not path.is_symlink()and path.is_file()and sha(path.read_bytes())==row['sha256'],'current readiness evidence bytes')
+- admit=load(HERE/'admit-fault.py',sha((HERE/'admit-fault.py').read_bytes()),'ge_source_admission')
++ admit=load(HERE/'admit-fault.py',sha((HERE/'admit-fault.py').read_bytes()),'gh_source_admission')
+  admission=admit.admit(args.capture,args.capture_result_sha256,readiness['identity'])
+  # All local source/phase/receipt admissions precede loading the real root transport.
+- adapter=load(ROOT,ROOT_SHA,'ge_fixed_root')
++ adapter=load(ROOT,ROOT_SHA,'gh_fixed_root')
+  need(adapter.REMOTE_TIMEOUT_SECONDS==45 and adapter.HOST_TIMEOUT_SECONDS==75 and adapter.MAX_COMMAND==8192 and adapter.MAX_RESPONSE==65536,'root bounds')
+  result=execute(args.output,readiness,ready_raw,raw,payload,admission,adapter)
+  print(json.dumps(result))
+--- GE/helper.py
++++ GH/helper.py
+@@ -23,7 +23,7 @@
+ DOTNET_SHA = 'e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310'
+ NAMES = ('DeadlineMode2.dll', 'DeadlineMode2.deps.json', 'DeadlineMode2.runtimeconfig.json')
+ 
+-POLICY_SHA = 'a8930454d12991eb4c8896ded2ffb2dccf28ab6d9681342482ccda2854383948'
++POLICY_SHA = '0013cc4d6ef09237d33cdb0027baa25850432a7ef6011d7833dba305d6503df0'
+ BV_SHA = '4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f'
+ 
+ def need(ok, message):
+@@ -83,17 +83,17 @@
+     output.mkdir(mode=0o700)
+     stock = load(STOCK, STOCK_SHA, 'deadline_stock_parser')
+     stock.contract()
+-    policy = load(HERE / 'policy.py', POLICY_SHA, 'ge_fixed_policy')
+-    gates = load(BASE / 'recovery-quickpath-20261027bv/recover.py', BV_SHA, 'ge_public_gates')
++    policy = load(HERE / 'policy.py', POLICY_SHA, 'gh_fixed_policy')
++    gates = load(BASE / 'recovery-quickpath-20261027bv/recover.py', BV_SHA, 'gh_public_gates')
+     remote = '/tmp/s95f-mode2-' + uuid.uuid4().hex
+-    record = {'schema': 'ge-deadline-stock-mode2-run-v1', 'remote_private_directory': remote,
++    record = {'schema': 'gh-deadline-stock-mode2-run-v1', 'remote_private_directory': remote,
+               'accepted': False, 'physical_state': 'unobserved', 'max_requests': 1,
+               'automatic_retries': 0, 'calls': []}
+     record.update(nativeInvocations=0, nativeInvocationStatus='not_submitted', wrapperUiOperations=0)
+     root_path = output / 'root.json'
+     for command in render_stage(remote, payloads):
+         adapter.root(command, record, root_path)
+-    policy.identity_checkpoint(adapter, record, root_path, output, identity, 'GE_BEFORE_NATIVE')
++    policy.identity_checkpoint(adapter, record, root_path, output, identity, 'GH_BEFORE_NATIVE')
+     public = output / 'pre-native-public'; public.mkdir(mode=0o700)
+     gates.public_gate(public, adapter_module=adapter)
+     checkpoint = policy.snapshot(adapter, record, root_path, output, 'pre-native', clock)
+@@ -132,17 +132,17 @@
+     stderr = framed.split('NATIVE_STDERR_BASE64\n', 1)[1].split('AFTER\n', 1)[0]
+     err = base64.b64decode(''.join(stderr.split()), validate=True)
+     (output / 'native.stderr').write_bytes(err)
+-    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':False,'physicalPictureObserved':False})
++    policy.save(output / 'helper-terminal.json', {'schema':'gh-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':False,'physicalPictureObserved':False})
+     need(rc == 0, 'helper exit ' + str(rc) + '; no retry')
+     need(err == b'', 'native stderr; no retry')
+     parsed = parse_receipt(receipt.decode('utf-8'), stock)
+-    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':True,'classification':parsed['classification'],'physicalPictureObserved':False})
++    policy.save(output / 'helper-terminal.json', {'schema':'gh-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':True,'classification':parsed['classification'],'physicalPictureObserved':False})
+     # Foreground invocation has returned: no racy /proc/PID/stat success premise.
+     cleanup = guard() + f'cd {remote}\n' + hashes
+     cleanup += 'rm -- ' + ' '.join(shlex.quote(name) for name in (*NAMES, 'receipt.txt', 'native.stdout', 'native.stderr')) + '\n'
+     cleanup += f'cd /\nrmdir {remote}\ntest ! -e {remote}\n'
+     adapter.root(cleanup, record, root_path)
+-    result = {'schema': 'ge-deadline-stock-mode2-result-v1', 'accepted': True,
++    result = {'schema': 'gh-deadline-stock-mode2-result-v1', 'accepted': True,
+               'helper_exit': rc, 'cleanup_confirmed': True, 'request_count': 1,
+               'classification': parsed['classification'], 'physical_state': 'unobserved',
+               'recovery_inferred': False, 'power_action_acknowledged': False,
+--- GE/policy.py
++++ GH/policy.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""GE fixed cached/public admission support; no input or vendor operation."""
++"""GH fixed Fault200 Apps cached/public admission support; no input or vendor operation."""
+ import base64,hashlib,json,re,types
+ from decimal import Decimal
+ from pathlib import Path
+@@ -16,7 +16,7 @@
+ def load(path,pin,name):
+  raw=path.read_bytes();need(sha(raw)==pin,'pinned source '+name)
+  m=types.ModuleType(name);m.__file__=str(path);exec(compile(raw,str(path),'exec'),m.__dict__);return m
+-def wrapper():return load(EB/'run-once.py',EB_WRAPPER_SHA,'ge_eb_wrapper')
++def wrapper():return load(EB/'run-once.py',EB_WRAPPER_SHA,'gh_eb_wrapper')
+ def stamp(clock):
+  t=clock();need(type(t)is int and t>=0,'host monotonic integer');return t
+ def snapshot_command():
+@@ -28,17 +28,17 @@
+  need(re.fullmatch(uptime,lines[1])is not None and re.fullmatch(uptime,lines[-1])is not None,'boot uptime brackets')
+  need(Decimal(lines[-1].split()[0])>=Decimal(lines[1].split()[0]),'uptime ordering')
+  tabs=[v for v in lines if v.startswith('memory/eden/current_tab')]
+- need(tabs==['memory/eden/current_tab, value = d/ug.tab@Live (String)'],'exactly one canonical Live row')
++ need(tabs==['memory/eden/current_tab, value = d/apps.tab (String)'],'exactly one canonical Apps row')
+  saver=any(v in text for v in ['ScreenSaver.dll','ScreenSaverContent.dll'])
+  csfs='/opt/usr/apps/com.samsung.tv.csfs/bin/csfs.dll'in text
+- need(saver and csfs,'cached Live+saver+CSFS required')
+- return {'cachedTab':'d/ug.tab@Live','screensaverWindowsPresent':saver,'csfsWindowPresent':csfs,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}
++ need(not saver and csfs,'cached Apps+noSaver+CSFS required')
++ return {'cachedTab':'d/apps.tab','screensaverWindowsPresent':saver,'csfsWindowPresent':csfs,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}
+ def snapshot(adapter,record,record_path,output,label,clock):
+  before=stamp(clock);command=snapshot_command();(output/(label+'-command.txt')).write_text(command)
+  text=adapter.root(command,record,record_path)
+  need(type(text)is str and len(text.encode())<=MAX_RESPONSE,'bounded cached reply');(output/(label+'-response.txt')).write_text(text)
+  after=stamp(clock);need(before<=after,'query clock ordering');summary=parse_snapshot(text)
+- checkpoint={'schema':'ge-cached-live-saver-v1','queryBeforeHostMonotonicNs':before,'queryReturnedHostMonotonicNs':after,'responseSha256':sha(text.encode()),'summary':summary,'wrapperUiOperations':0}
++ checkpoint={'schema':'gh-cached-apps-v1','queryBeforeHostMonotonicNs':before,'queryReturnedHostMonotonicNs':after,'responseSha256':sha(text.encode()),'summary':summary,'wrapperUiOperations':0}
+  save(output/(label+'-checkpoint.json'),checkpoint);return checkpoint
+ def dispatch(checkpoint,clock):
+  now=stamp(clock);after=checkpoint['queryReturnedHostMonotonicNs'];need(type(after)is int and 0<=now-after<=AGE_NS,'final query return to native submission age')
+--- GE/admit-fault.py
++++ GH/admit-fault.py
+@@ -4,14 +4,14 @@
+ from pathlib import Path
+ import importlib.util
+ HERE=Path(__file__).resolve().parent
+-spec=importlib.util.spec_from_file_location('ge_admission_policy',HERE/'policy.py');policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
++spec=importlib.util.spec_from_file_location('gh_admission_policy',HERE/'policy.py');policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
+ need=policy.need;sha=policy.sha
+ 
+ def admit(capture,result_digest,identity):
+  need(capture.is_absolute()and capture.is_dir()and not capture.is_symlink(),'ordinary absolute source capture')
+  files=sorted(capture.iterdir());need(1<=len(files)<=128 and all(f.is_file()and not f.is_symlink()and f.stat().st_size<=2097152 for f in files),'bounded ordinary capture files')
+  pins=[{'name':f.name,'bytes':f.stat().st_size,'sha256':sha(f.read_bytes())}for f in files]
+- w=policy.wrapper();p=policy.load(policy.EB/'parse-result.py',policy.EB_PARSER_SHA,'ge_eb_parser')
++ w=policy.wrapper();p=policy.load(policy.EB/'parse-result.py',policy.EB_PARSER_SHA,'gh_eb_parser')
+  need(re.fullmatch('[0-9a-f]{64}',result_digest or '')and sha((capture/'result.json').read_bytes())==result_digest,'explicit source result pin')
+  manifest,payload=w.build_manifest();manifest_raw=w.manifest_bytes(manifest)
+  need(sha(manifest_raw)==policy.EB_MANIFEST_SHA and (capture/'reviewed-manifest.json').read_bytes()==manifest_raw,'exact EB family/manifest')
+@@ -27,7 +27,7 @@
+  need(len(raws)==16 and result['rawFiles']==record['retained_raw_files']==inventory,'exact 16 raw inventory')
+  for n,raw,h in raws:need((capture/n).read_bytes()==raw and sha(raw)==h,'native/raw binding '+n)
+  start=(capture/'start-R.bin').read_bytes();end=(capture/'end-R.bin').read_bytes()
+- need(start==end and [struct.unpack_from('<H',start,i)[0]for i in [0,6,10,14,0xc4]]==[1,0,0x1001,0,40],'stable full fault40/logger0 source')
++ need(start==end and [struct.unpack_from('<H',start,i)[0]for i in [0,6,10,14,0xc4]]==[1,0,0x1001,0,200],'stable full fault200/logger0 source')
+  need(q==w.strict_json((capture/'interpretation.json').read_bytes()),'exact native interpretation')
+  calls=record['calls'];need(type(calls)is list and 1<=len(calls)<=128,'bounded source call ledger')
+  for call in calls:policy.call_stdout(call)
+@@ -47,4 +47,4 @@
+   for f in output.iterdir():need(f.read_bytes()==(capture/f.name).read_bytes(),'every saved artifact byte-exact '+f.name)
+  # No target action was used by the replay; pins rechecked after consumption.
+  need(pins==[{'name':f.name,'bytes':f.stat().st_size,'sha256':sha(f.read_bytes())}for f in files],'source unchanged during admission')
+- return {'schema':'ge-source-fault-admission-v1','accepted':True,'capture':str(capture),'resultSha256':result_digest,'files':pins,'sameInstance':True,'exactRootCommandsReplayed':len(calls),'headers':16,'bulks':32,'stableFault40Logger0':True,'phase':'ReadyForHeader','released':True,'closed':True,'cleanup':'STAGE_ABSENT','endpointQueueProof':False,'physicalPictureObserved':False}
++ return {'schema':'gh-source-fault-admission-v1','accepted':True,'capture':str(capture),'resultSha256':result_digest,'files':pins,'sameInstance':True,'exactRootCommandsReplayed':len(calls),'headers':16,'bulks':32,'stableFault200Logger0':True,'phase':'ReadyForHeader','released':True,'closed':True,'cleanup':'STAGE_ABSENT','endpointQueueProof':False,'physicalPictureObserved':False}
+--- GE/prepare-readiness.py
++++ GH/prepare-readiness.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Dry-default GE cached identity/census decision; no wake or preparation action."""
++"""Dry-default GH cached identity/census decision; no wake or preparation action."""
+ import argparse
+ import hashlib
+ import importlib.util
+@@ -11,7 +11,7 @@
+ B=HERE.parent
+ ROOT=B/'managed-ui-tab-launch/root-with-margin.py'
+ ROOT_SHA='bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a'
+-WRAPPERS={'ge':('live-saver-init-adapter-20261028ge/run-once.py','ge-live-saver-init-readiness-decision-v1')}
++WRAPPERS={'gh':('fault200-apps-recovery-20261028gh/run-once.py','gh-fault200-apps-recovery-readiness-decision-v1')}
+ def sha(raw):return hashlib.sha256(raw).hexdigest()
+ def load(path,digest,name):
+  raw=path.read_bytes()
+@@ -29,9 +29,9 @@
+  cli.add_argument('--evidence',action='append',default=[],type=Path)
+  cli.add_argument('--output',required=True,type=Path)
+  args=cli.parse_args();relative,schema=WRAPPERS[args.wrapper]
+- wrapper=load(B/relative,args.wrapper_sha256,'ge_readiness_wrapper')
++ wrapper=load(B/relative,args.wrapper_sha256,'gh_readiness_wrapper')
+  manifest,_=wrapper.build_manifest();manifest_raw=wrapper.manifest_bytes(manifest)
+- if sha(manifest_raw)!=args.manifest_sha256 or manifest_raw!=(HERE/'deployment-manifest.json').read_bytes():raise ValueError('sealed GE manifest')
++ if sha(manifest_raw)!=args.manifest_sha256 or manifest_raw!=(HERE/'deployment-manifest.json').read_bytes():raise ValueError('sealed GH manifest')
+  if not args.output.is_absolute()or args.output.exists()or args.output.is_symlink():raise ValueError('fresh absolute output')
+  paths=[args.phase_note,args.identity,*args.evidence]
+  if len(paths)>30 or len(set(paths))!=len(paths):raise ValueError('bounded distinct evidence with two fresh slots')
+@@ -47,14 +47,14 @@
+   'evidence':evidence,'endpointQueueProof':False}
+  # Reuse exact wrapper admission before any root import/command construction.
+  scratch=HERE/'host-environment/tmp';scratch.mkdir(parents=True,exist_ok=True)
+- with tempfile.TemporaryDirectory(prefix='ge-local-decision-',dir=scratch)as td:
++ with tempfile.TemporaryDirectory(prefix='gh-local-decision-',dir=scratch)as td:
+   local=Path(td)/'decision.json';raw=(json.dumps(candidate,indent=2,sort_keys=True)+'\n').encode();local.write_bytes(raw);wrapper.load_readiness(local,sha(raw))
+  if not args.execute:
+   print(json.dumps({'mode':'dry','manifestSha256':args.manifest_sha256,'targetOperations':0,'cachedMetadataQueries':0,'wrapperUiOperations':0,'preparationPerformed':False}));return
+  args.output.mkdir(mode=0o700)
+- root=load(ROOT,ROOT_SHA,'ge_readiness_root');record={'schema':'ge-fresh-cached-readiness-v1','calls':[]}
+- text=root.root('set -eu\n'+wrapper.metadata_body(identity,'GE_CURRENT_READY'),record,args.output/'metadata-root.json')
+- (args.output/'metadata.txt').write_text(text);census=wrapper.parse_metadata(text,'GE_CURRENT_READY')
++ root=load(ROOT,ROOT_SHA,'gh_readiness_root');record={'schema':'gh-fresh-cached-readiness-v1','calls':[]}
++ text=root.root('set -eu\n'+wrapper.metadata_body(identity,'GH_CURRENT_READY'),record,args.output/'metadata-root.json')
++ (args.output/'metadata.txt').write_text(text);census=wrapper.parse_metadata(text,'GH_CURRENT_READY')
+  (args.output/'census-summary.json').write_text(json.dumps(census,indent=2)+'\n')
+  for name in ['metadata.txt','census-summary.json']:
+   path=args.output/name;candidate['evidence'].append({'path':str(path),'sha256':sha(path.read_bytes())})

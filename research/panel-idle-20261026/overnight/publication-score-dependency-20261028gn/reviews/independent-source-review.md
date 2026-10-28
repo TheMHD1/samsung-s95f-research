@@ -1,0 +1,31 @@
+# GN independent correction and dependency review
+
+**PASS for this bounded host-only source correction. No blocking discrepancy found.** GN correctly replaces the historical GD/design shorthand “hardware action” at image1 VA `1c0c8` with a RAM status-OR helper. This review does not amend frozen GD or establish score/reference independence, an electrical effect, a physical outcome or target execution.
+
+The reviewed author seal is `source-inventory.json` SHA256 `f154d57f2be5eae4caad70a544df853c14334b245640ad5fb78eead0344f96d3`. README SHA256 is `8acd4cd9a3f36f03c599a326050c61c826c055237d97486b1e069a66d145e1ce`; `source-audit.json` is `e712c8080f1c6cf19b424fe3e0c386a2a06a7dd12595b0cc4ed50ab8e9a14736`. All seven inventoried author files were verified unchanged. The selected package is 5,242,880 bytes, SHA256 `bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0`; image1 FILE = VA + `40200`, unlike image0. A package pin is source identity, not execution or whole-image attestation.
+
+## Instruction findings
+
+- `1c0c8..1c12c` saves mode/mask, calls the real getter `38fc`, then conditionally ORs a halfword at root+`2486` (mode1), +`2488` (mode2), or +`248c` (modes4/6). Other modes do not store status in this function. The getter dereferences the mutable pointer cell CPU`200004e0`; for the reviewed guarded RAM root this is a RAM update. The complete closure has no direct MMIO operation or direct H/count/reference/record-array store, and no hidden indirect call. Stack writes are separate. Unknown root changes, status readers and downstream effects remain outside this conclusion.
+- Predicate `202a..203a` compares low16 H with selected FP, takes the no-fault return on `<=`, and on `>` calls `1c0c8(mode,4)` **before** `c1e0(736)`. The common setter's direct callees are `38fc`, `1b8c8`, `1b8c8`; it does not call `1c0c8`. It separately stores stop1, ordinary gate0 and fault`1001` at root+`2400/240e/240a`. Two formatter/logger calls do not prove two fault decisions or an actual caller from an event number alone.
+- Formatter `c63c/c63e/c640` supplies mask2. Its earlier print-budget bypass still reaches that call. The unsigned ordinal comparison at `c602/c604` admits `ordinal <= bound`; the separate capacity comparison at `c64c/c650` permits the five halfword record stores only for `ordinal < 512`. Stable bound200 therefore admits indices0..200 within that recovered capacity. This is a finite indexing fact, not a global safety proof.
+- The publication saturation path `c604→c6de→c708` skips status2/record publication/ordinal increment but reaches the same current-count increment `c718` and lane update `c72e` or `c736`. Earlier B qualification can skip the whole path; the conclusion is conditional on reaching it. Raising c4 can still add logging, status stores, records and elapsed work.
+- `c738..c792` bypasses a different publication-driven check when root+`249e==1`. Otherwise saturation can adjust ordinal after `35a4`, or call status4 then the common setter with event824. Thus it would be incorrect to claim global publication/fault independence. The sampled aggregate profile's `249e==1` bypass is a configuration fact, not an all-configurations theorem.
+
+## Remaining dependency boundary
+
+GN correctly retains positive lane-state flow through `bbdc..bc1e` and CPU`2020a788/2020a000`, and later T helpers `c8a0/2740` or `ca10` using CPU`2020be20` and root+`24d4/24d6`. Those helpers update their own lane counters and root+`f04`. The inspected predicate/T slices identify no direct read of status+`2486/2488/248c` or the five publication arrays. This local absence does not close computed aliases, other consumers, mutable roots, scheduling or cross-core paths.
+
+The root-base table store `b912` is a different positive dependency: under CPU`200004a2==1` and root+`246e==1`, it stores `u8(CPU2000c95c[i]) + 2*u16(CPU2000ba4c[i])` to `root[2*i]`. The nearby X/Y/RGB clears are distinct stores, not proof of a comparison's reference epoch. Dispatcher calls to `18ce0` at `b80e/b818` and unpacker calls at `b84c/b874/b88a` leave dynamic-buffer production, aliasing and cross-core ownership unresolved. Logger `1b8c8`, busywait `35a4` and other executing images remain outside GN's closure.
+
+Accordingly, the GJ observations remain an association: sampled max H36 at200 and H48/fault at40, with history/configuration differences. They contain no clean200 score>40 witness or actual FP-register/caller observation. This correction removes an unsupported direct-hardware label; it does not turn that comparison into a causal prevention result.
+
+## Independent verification
+
+`verify-independent.py` reads the retained package in place and never invokes transport, target code, a build/finalizer, root, USB or network. Both normal and optimized runs reproduce the author's sealed 3850-check audit: 74 external pins, 17 spans, 92 decisive instructions, 20 literals and 128 real-helper/root-getter cases. No callee stubs are used in that helper audit.
+
+The reviewer additionally checks instruction ordering/callees and runs 36 finite publication-tail cases in isolated Unicorn using the actual selected instructions and actual helper/getter. Entry is explicitly after the earlier B qualification, with detail-print budget already >=4; the logger is not reached. Cases cover modes1/4/6, both lane branches, ordinal/bound pairs40/40,41/40,41/200,200/200,201/200 and512/512. They verify both common count/lane updates, admitted-only status2/ordinal increment, exact five record-store destinations/values and the independent512 bound.
+
+Three additional nonaggregate-tail cases execute the real helper and real setter, with only `35a4` and `1b8c8` explicitly stubbed. They distinguish aggregate bypass, nonaggregate event824 and nonaggregate ordinal adjustment. This is bounded path qualification, not firmware-loop equivalence. Reviewer normal/optimized results are byte-identical: **3012 explicit reviewer checks**, 36 publication cases and3 nonaggregate cases. Validation SHA256 is `0487184f76eb721ea2e4135fe97f68747d968951653e6e35257ff21c0b78fa45`.
+
+All outputs and the review inventory are confined to `GN/reviews/`. No OEM raw bytes were duplicated. Historical artifacts and all frozen author files remain unchanged. The review author performed zero target/root/network operations.

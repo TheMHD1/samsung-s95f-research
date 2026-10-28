@@ -1,0 +1,1 @@
+Initial host-only lifecycle regex required USB disconnect directly after usb7-1 and refused Samsung instrumentation-prefix lines. Corrected match permits the intervening usbcore/function prefix, matching retained positive disconnect and enumeration timestamps. Original identity acquisition was unchanged; no repeat target read was performed.
