@@ -1,0 +1,117 @@
+{
+  "blockingFindings": [],
+  "hostOnly": true,
+  "manifestSha256": "e7df47861e25aca4df6fc18e82b646a53eada192451b9b16383c5b31a9f44a11",
+  "runs": [
+    {
+      "argv": [
+        "dotnet",
+        "bin/Release/net6.0/RecordCapture.dll",
+        "--self-test"
+      ],
+      "result": {
+        "selfTestsPassed": 2071,
+        "targetOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "verify_source.py"
+      ],
+      "result": {
+        "accepted": true,
+        "allOriginal14WindowsPreserved": true,
+        "checksPassed": 72,
+        "controllerByteIdenticalDT": true,
+        "fixedReadPairs": 16,
+        "historicalGateExecutionProven": false,
+        "nativeBindingByteIdenticalDT": true,
+        "targetOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "verify_source.py"
+      ],
+      "result": {
+        "accepted": true,
+        "allOriginal14WindowsPreserved": true,
+        "checksPassed": 72,
+        "controllerByteIdenticalDT": true,
+        "fixedReadPairs": 16,
+        "historicalGateExecutionProven": false,
+        "nativeBindingByteIdenticalDT": true,
+        "targetOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "test-runner.py"
+      ],
+      "result": {
+        "checksPassed": 1534,
+        "commandsSyntaxChecked": 280,
+        "maximumCommandBytes": 7696,
+        "targetOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "test-runner.py"
+      ],
+      "result": {
+        "checksPassed": 1534,
+        "commandsSyntaxChecked": 280,
+        "maximumCommandBytes": 7696,
+        "targetOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "reviews/independent-checks.py"
+      ],
+      "result": {
+        "accepted": true,
+        "actualComparatorCallProven": false,
+        "checks": 3483,
+        "inventoryFiles": 30,
+        "localEligibilityOnly": true,
+        "manifestSha256": "e7df47861e25aca4df6fc18e82b646a53eada192451b9b16383c5b31a9f44a11",
+        "payloadBytes": 56459,
+        "rawBytes": 1608,
+        "syntheticDecoderContexts": 48,
+        "syntheticLaneRowsChecked": 3264,
+        "targetRootNetworkOperations": 0
+      }
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "reviews/independent-checks.py"
+      ],
+      "result": {
+        "accepted": true,
+        "actualComparatorCallProven": false,
+        "checks": 3483,
+        "inventoryFiles": 30,
+        "localEligibilityOnly": true,
+        "manifestSha256": "e7df47861e25aca4df6fc18e82b646a53eada192451b9b16383c5b31a9f44a11",
+        "payloadBytes": 56459,
+        "rawBytes": 1608,
+        "syntheticDecoderContexts": 48,
+        "syntheticLaneRowsChecked": 3264,
+        "targetRootNetworkOperations": 0
+      }
+    }
+  ],
+  "schema": "eb-independent-review-validation-v1",
+  "targetRootNetworkOperations": 0
+}

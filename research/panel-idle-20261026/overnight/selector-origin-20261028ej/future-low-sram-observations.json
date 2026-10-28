@@ -1,0 +1,92 @@
+{
+  "existingWindowFields": [
+    {
+      "bytes": 1,
+      "cpu": "0x20000bc7",
+      "field": "selectorC7",
+      "offset": 7,
+      "window": "C"
+    },
+    {
+      "bytes": 2,
+      "cpu": "0x2001240c",
+      "field": "configuredDelay",
+      "offset": 12,
+      "unitQualified": false,
+      "window": "R"
+    },
+    {
+      "bytes": 2,
+      "cpu": "0x200124ca",
+      "field": "refreshSourceMirror",
+      "offset": 202,
+      "window": "R"
+    },
+    {
+      "bytes": 2,
+      "cpu": "0x200004c2",
+      "field": "referenceSelectorMirror",
+      "offset": 34,
+      "window": "M"
+    },
+    {
+      "bytes": 2,
+      "cpu": "0x200004c4",
+      "field": "referenceRefreshCounter",
+      "offset": 36,
+      "window": "M"
+    }
+  ],
+  "futureMinimalCandidate": {
+    "busStart": "0x47000468",
+    "bytes": 8,
+    "cpuStart": "0x20000468",
+    "fields": [
+      {
+        "meaning": "configured delay copied from root240c halfword",
+        "offset": 0,
+        "type": "u32le"
+      },
+      {
+        "meaning": "registered Thumb callback; selected initializer supplies0x18c95",
+        "offset": 4,
+        "type": "u32le"
+      }
+    ],
+    "pendingSeparateReaderReview": true,
+    "runtimeValuesObserved": false,
+    "sourceOwnership": "image1 initialized static SRAM row0, below0x200004f8"
+  },
+  "helperCreated": false,
+  "implemented": false,
+  "limitations": [
+    "no new MMIO read is proposed",
+    "no header/target operation is packaged",
+    "table contents and counters are non-atomic samples, not execution trace",
+    "a source-proved ordinary SRAM interval does not prove current runtime identity",
+    "no EH frozen logger change",
+    "no provider indirect pointer or persisted/high-bank route is followed"
+  ],
+  "optionalDistinctLowSramFields": [
+    {
+      "bus": "0x47000460",
+      "bytes": 1,
+      "cpu": "0x20000460",
+      "meaning": "active flag sampled after callback"
+    },
+    {
+      "bus": "0x47000470",
+      "bytes": 1,
+      "cpu": "0x20000470",
+      "meaning": "callback-table index; overlaps next word beyond first configured slot"
+    },
+    {
+      "bus": "0x4700045d",
+      "bytes": 1,
+      "cpu": "0x2000045d",
+      "meaning": "separate selector byte mirror used by1976c"
+    }
+  ],
+  "schema": "ej-future-low-sram-observations-v1",
+  "targetCalls": 0
+}

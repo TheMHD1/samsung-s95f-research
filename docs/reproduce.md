@@ -28,3 +28,8 @@ The firmware acquisition/inspection tools under `research/firmware-acquisition-2
 ## Bounded RTP scientific fixtures
 
 `python3 tools/verify_rtp.py` reproduces the first unchanged-limit40 DP score and DM record observations. `python3 tools/verify_reference_rtp.py` verifies the separate later DT baseline/onset/fault reference comparison. `python3 tools/verify_limit_rtp.py` checks the distinct reversible set200/restore40 experiment and its two clean observations. All work from a fresh clone without original firmware, authentication or device tooling. Their raw subsets contain only bounded controller arrays, compact checkpoints, monotonic scientific times and source provenance; original transport/readiness acceptance is not reauthenticated. Repeat with `python3 -O` and run `python3 -m unittest discover -s tests -v` for damaged-evidence and privacy-schema refusals. Read the [scope and findings](rtp-records-20261028.md) before interpreting a match as historical branch execution, physical causation or prevention.
+
+
+## Pure reference-refresh models
+
+The [reference-refresh guide](reference-refresh-20261028.md) lists four original pure-model suites for selector edges, two-event copy counting, table arithmetic/lifetime and mock coordination. `tests/test_refresh_models.py` runs them from the public tree in normal and optimized Python without private acquisition inputs or a target adapter. Source-audit and actual-capture replay scripts retain their original private-input requirements; successful public model tests do not establish runtime call coverage.

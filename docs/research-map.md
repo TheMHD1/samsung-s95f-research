@@ -57,3 +57,8 @@ See the [current integrated guide](firmware-evidence-guide-20261028.md) for DE d
 The [record/score guide](rtp-records-20261028.md) links completed DO native-binding diagnostics, DM/DP observations, DR packed12 qualification, DT fixed-reference comparison, DS host hook design, DU profile model, DV reversible-limit comparison and DW code-alias qualification. Two separate public fixtures retain their distinct last-clean scores38 and28, both later42. A third retains accepted set/restore with80 clean cycles at200 and80 clean cycles after restoring40; no score above40 occurred at200, so prevention is inconclusive. The archived DJ/DL/DN refusals and cleanup remain visible.
 
 The separate [sampled-code checkpoint](code-fingerprint-20261028.md) connects frozen DX source/review and the accepted DY read to DW's address conversion and DS's proposed logging sites. Four16-byte live payload hashes matched. Frozen DZ narrows memory/rollback constraints, and independently reviewed EA qualifies existing lane gates and a read-only204-byte proposal. Raw payloads, device/binding metadata and moving EB/EC work are excluded. Active fetch, whole-image identity and executable-write/hook safety remain unqualified.
+
+
+## Reference refresh and observability
+
+The [source and observation guide](reference-refresh-20261028.md) links completed lane-table writer/lifetime models, full-byte selector and distinct mirror provenance, two-event reference copying, warm unchanged40 control, the reviewed54-byte logger and its preserved already-faulted refusal. The completed separate fault/recovery replay remains distinct from a new onset or prevention result. Pure models reproduce from the public clone; raw identity-bearing captures remain private.

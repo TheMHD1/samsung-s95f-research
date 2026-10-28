@@ -6,6 +6,143 @@ pending-firmware statements in the preserved historical body. It records
 completed observations and the coordinator's current experiment boundary;
 it does not authorize replay of historical device commands.
 
+## Recovered logging checkpoint — 2026-10-28 04:59 UTC
+
+The initial-fault refusal has been reconciled without changing its outcome.
+The [frozen refusal analysis](panel-idle-20261026/overnight/refresh-checkpoint-trial-20261028ei/refusal-analysis/README.md)
+passes6797 checks in each Python mode, reproduces36 original commands and
+all artifacts, and verifies eight exact completed read pairs. The separate
+[cleanup helper](panel-idle-20261026/overnight/refresh-checkpoint-trial-20261028ei/cleanup-reviews/implementation-report.md)
+passed229 mock checks in both modes; actual cleanup removed exactly the
+nine owned stage files, with zero additional vendor transfers/UI/resets.
+The original wrapper refusal and its input records remain unchanged.
+
+A fresh EB fault snapshot then completed16 read pairs and exact cleanup.
+All68 primary words/secondary bytes are still zero. It retains41
+coordinate-bearing records and the sampled reference windows, but current
+N source counts are0; this is not a proven current valid prefix or an onset
+capture. Independent table/reference replay is being frozen separately.
+
+The [separately reviewed EB recovery guard](panel-idle-20261026/overnight/refresh-checkpoint-trial-20261028ei/recovery-reviews/independent-recovery-review.md)
+then passed fresh public checks and issued exactly one stock MODE2. Its
+structured result is accepted. Retained same-boot USB60 disconnect followed
+by new enumeration61 and unchanged descriptors establish the new instance;
+no instruction reload or all-domain reset is inferred. The first host
+lifecycle-format check failed on Samsung's inserted SDU/vendor text, and
+readiness refused missing evidence before a root request. The corrected
+explicit log-order check succeeded, with no extra MODE2.
+
+**Latest controller validation is accepted EB16/32 on USB61:** both R
+snapshots are identical clean0/0/1 at original40, mode-1 latch0, N0, both
+sampled eligibility tables zero, and both104-byte reference windows zero.
+ReadyForHeader, release/close and exact stage removal are verified. Apps is
+still the last cached selection from the recovery; no physical-picture
+confirmation is claimed. No capture process, controller modification,
+threshold/mask change or temporary target stage remains enabled/pending.
+No kernel, boot, code, persistent-root or flash change was installed.
+
+The [selector-origin audit](panel-idle-20261026/overnight/selector-origin-20261028ej/README.md)
+now connects the AP_EXCO-derived C7 copy through the finite rearmed callback
+sequence and distinguishes mirror45d from4c2. The sampled configured delay
+is200, with no recovered units/frequency. This transition occurs in both
+faulting and nonfaulting runs. EG's seed1/two-boundary-event logic and EH's
+new intermediate taps are logging targets, not an established cause.
+The [EF coordinator](panel-idle-20261026/overnight/rtp-cold-control-design-20261028ef/README.md)
+is a pure mocked design with no live binding; native/lifecycle clocks need
+qualification before a future real adapter. Future directional/wake and
+denser logging questions remain in EI's next-instrumentation.md. A bounded
+single-lane diagnostic is being designed offline; no write helper or lane
+exclusion has run.
+
+The completed EC/EB/ED/EE/EF/EG/EH/EJ and frozen EI source/analysis/review
+batch is being sanitized for public publication. The verified published
+HEAD remains63815757b1b9478e6ab2cec21076f0513388c7e8 until the next push is
+independently verified. This entry is sealed for that publication; later
+results must use additive checkpoints. The investigation goal is active
+and no permanent prevention fix or physical hardware repair is claimed.
+
+## First EH attempt — 2026-10-28 04:46 UTC
+
+The [expanded checkpoint reader](panel-idle-20261026/overnight/rtp-refresh-checkpoints-20261028eh/implementation-report.md)
+is frozen and independently reviewed:54-byte rows, at most60 cycles,15s
+cooperative observation, original eight reads/one-Left workflow. The worst
+exercised receipt is24250 bytes including newline,326 below the fixed cap.
+Its native transport remains unchanged; there is no new process alarm,
+instruction patch, controller write or persistent hook. The EI offline
+handoff guard passed147 normal/optimized checks after its boolean/float
+counter-type defect was corrected and preserved in the review history.
+
+**The actual EI/onset-01 attempt stopped because the first R was already
+faulted.** Native retained8 complete read pairs/16 bulks: initial R and seven
+post-fault windows. It reports ReadyForHeader, released/closed, no retries,
+no key attempted and zero compact checkpoints. Post R is1/0x1001/0 at40;
+H A0 is42. Post C7/mirror4c2/refresh4c4 and trainer4a2 are all0. N ordinal0
+is41 with current source counts0. These are later latched/current samples,
+not the missing onset or historical reference-selection proof. Cached Apps
+preparation had succeeded before the attempt, but that does not establish
+when the fault latched or that the physical display was on.
+
+Native observationAccepted is true while accepted is false: the intended
+clean-start synchronized key trial was not possible. Native exit1 correctly
+stopped the wrapper before its success parser, raw export, post census or
+stage cleanup. No wrapper result.json exists. The automatic pair did not
+submit its admission, EB follow-up, Apps return or recovery stages. Original
+wrapper refusal/evidence and its private stage remain preserved. No further
+target operation has occurred at this checkpoint. Host-only independent
+refusal classification and a separately reviewed exact-stage cleanup are
+being prepared before any fresh controller request or guarded recovery.
+
+This supersedes the healthy/last-operation statements below. It is a new
+fault observation, not a successful prevention experiment or an optical
+observation. Original40 remains the sampled controller limit.
+
+## Refresh logging checkpoint — 2026-10-28 04:34 UTC
+
+The [first actual lane-table read](panel-idle-20261026/overnight/rtp-lane-gate-trial-20261028ed/live-analysis/README.md)
+completed16 headers/32 bulks, clean40 and exact cleanup. All68 primary
+halfwords and68 secondary bytes were zero; they locally admit the sampled
+lanes without proving historical comparator execution. Independent normal
+and optimized replay passed904 checks, including28 byte-exact root commands.
+The [writer audit](panel-idle-20261026/overnight/rtp-lane-table-writers-20261028ec/README.md)
+shows primary upper bits are counter-derived owned data, and distinguishes
+trainer4a2 from category selector4aa. No eligibility bit was changed.
+
+The newer EE warm Apps-to-Live control completed80 clean checkpoints at
+unchanged40, maximum sampled score24. Its later16-header/32-bulk table read
+was also clean40 with both sampled tables still zero. The native last-DP to
+first-EB gap was216.406480 seconds; this is not an immediate/atomic post-fault
+capture. N and X/Y/RGB were zero, while retained B/Diff and reference values
+changed from ED. The control did not reproduce a fault and establishes no
+prevention effect. Independent EE analysis is now frozen with2604 checks in both Python modes,
+225 pinned inputs and66 byte-exact mock root commands.
+
+The [new reference-refresh audit](panel-idle-20261026/overnight/reference-refresh-control-20261028eg/README.md)
+identifies a logging gap: selector transitions seed CPU4c4, and two qualifying
+boundary events can consume the reference-copy sequence without a recovered
+requirement for one top and one bottom event. Actual event order and a stale
+buffer fault cause remain unproved. Ten retained boundary samples have
+counter0 in both faulting and nonfaulting runs. EH is being built offline to
+retain intermediate counters, writer controls and existing dynamic-pointer
+samples from the same eight read windows. Its54-byte records require a
+separately labeled60-cycle/15-second cap to fit the original receipt limit;
+no enlarged receipt bound or target instruction patch is authorized here.
+A separate pure-host EF state machine is being built for initialization and
+analysis-free capture sequencing, with measured timing and ambiguity stops.
+
+The latest controller operation was the accepted EE post-table read; normal
+UI preparation then selected Apps. No later root job, vendor operation,
+threshold/mask/code write, persistent task or physical-picture confirmation
+is pending or claimed. Original40 remains the last controller readback.
+The Linux/USB identity is unchanged from the preceding completed sequence.
+
+Sanitized DX/DY/DZ/EA plus the sealed trainer correction are now published at
+[commit6381575](https://github.com/TheMHD1/samsung-s95f-research/commit/63815757b1b9478e6ab2cec21076f0513388c7e8).
+The coordinator independently verified remote HEAD, clean worktree, all7331
+research files and exact Git-index membership/bytes for7386 release files.
+This release also corrects34 audited logs omitted by the previous global Git
+ignore rule, preserving the earlier history. Moving EB/ED/EE/EG/EH and the
+rest of EC are not yet in that public checkpoint. The goal remains active.
+
 ## Instrumentation source checkpoint — 2026-10-28 04:09 UTC
 
 The [actual four-site code-read replay](panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/live-analysis/README.md)

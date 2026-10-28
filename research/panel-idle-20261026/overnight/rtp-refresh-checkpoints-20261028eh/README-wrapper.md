@@ -1,0 +1,32 @@
+# EH intermediate reference-refresh checkpoints
+
+EH is an additive host-built candidate for one centrally coordinated synchronized observation. It preserves frozen DP's R,M,C,P,N,H,L,R order, exact seven address/length definitions, NativeBinding.cs, ReadPair, ReadSet, Run and OnsetKey.cs. All appended values come from windows already read. No new controller request, data write, key call, reset, retry, firmware hook or arbitrary address option is added. Parent coordination and independent artifact review precede any live use; this implementation task performed no target, root or network operation.
+
+The observation is deliberately shorter than DP: a cooperative15-second budget, at most60 complete checkpoint rows,250ms nominal period and2-second per-bulk timeout. Binding qualification still precedes the observation clock. A sent header retains its original pending-IN obligation and partial/failure context. The inherited wrapper keeps root45s/host75s limits. There is **no native40-second process alarm** in frozen DP or EH. These budgets do not promise60 completed cycles or a15-second wall-clock process termination.
+
+A preallocated60×54-byte buffer stores one row only after all eight reads/sixteen transfers complete. The original34-byte prefix is unchanged: classification nibbles, C+7, first/end R+0xc4, H+4/u32, H+28/u16, H+40/fouru16, N+0/u32, full H-pair relative before/after microseconds, and M+0x2a/u16. The new schema is `eh-refresh-checkpoints-v1`; count0..60, recordBytes54, canonical Base64 and SHA256 cover exactly count×54 bytes. Rows are implicit cycles1..count, with no duplicated trigger baseline or fabricated incomplete-cycle row.
+
+The appended20 bytes are little-endian and preserve exact source coordinates:
+
+| Row offset | Type | Already-read source | Host label |
+|---|---|---|---|
+|34|u16|M+2, CPU200004a2|mCpu4a2U16: trainer gate source field|
+|36|u16|M+4, CPU200004a4|mCpu4a4U16: trainer aggregate source field|
+|38|u16|M+0x22, CPU200004c2|mCpu4c2U16: selector mirror|
+|40|u16|M+0x24, CPU200004c4|mCpu4c4U16: reference-refresh counter|
+|42|u16|**end R**, raw+0x60, root+0x2460|endRRoot2460U16|
+|44|u16|**end R**, raw+0x6e, root+0x246e|endRRoot246eU16|
+|46|u32|P+4, CPU20000494|capturedDynamicAPointerU32|
+|50|u32|P+8, CPU20000498|capturedDynamicBPointerU32|
+
+M begins CPU200004a0, P begins CPU20000490. The existing CPU/bus window mapping remains unchanged. Source audit EG pins context getter38f4/literal38f8→CPU20000500; context+0x6c7 is CPU20000bc7. Dispatcher stores to494/498 use literals b894/b898;1c12c uses B-pointer literal1c1a4→498. c250's selector edge and refresh logic use4c2/4c4. The trainer predicate is4a2==1, separate from4aa category dispatch. The selected package/source identity and EG ranges are pinned in source-lineage.json/source-validation.json; EH adds no broader running-image attestation.
+
+Each M/P/end-R field is a sequential sample from an earlier or later read in that cycle, with no shared atomic sampling time. Only the original H full request/reply bracket is retained compactly. Captured pointer words prove neither pointed-to bytes, alias, header, epoch nor the active comparator branch. The refresh seed1 requires two qualifying boundary events; source alone does not require different top/bottom buffers.250ms polling may miss the whole sequence. Boundary zeros do not recover lost counter history. This is a measurement extension, not a fault-cause or prevention result.
+
+The strict decoder validates the new exact schema/count/extent/hash and uses the inherited strict transport/key parser with only budget bounds narrowed to15s/60. Maximum accepted completed-cycle/postfault counters are487 headers,974 bulks. It recomputes every byte, including all appended bytes, against each retained complete raw cycle; earlier discarded cycles remain compact source samples. It preserves H/N semantics and no exact R/per-tap timestamps are invented. Host interpretation metadata lies outside the native receipt cap.
+
+The private native receipt remains exclusive0600 within a fresh0700 `/tmp/researcher-eh-<32hex>` stage. Stdout is opaque diagnostic data, never repaired into semantic JSON. `UnsafeRelaxedJsonEscaping` preserves Base64 size while JSON control/quote escaping remains valid; errors retain the inherited128-serialized-byte bound. Successful/late-failing captures retain the same compact bindingQualified flag; full binding audit remains preheader-refusal only. Ambiguous invocation/receipt/cleanup failure preserves evidence and never automatically retries or recovers.
+
+Native adversarial host tests exercise60 complete cycles, the60th-cycle fault, every one of16 incomplete-pair failure positions, and14 late postfault exceptions with maximum19-digit timestamps and duplicated escaped key errors. Worst serialized receipt is24249 bytes plus one newline=24250, leaving326 bytes under24576. No native per-row expanded metadata was added. Meaningful decoder checks independently cycle-code each source, distinguish end-R from start-R, compare every original34-byte prefix to frozen DP's host golden fixture, and mutate all appended retained fields. The wrapper tests use mocked root responses plus an actual host-only exclusive-file fake selftest; shell commands are syntax/size checked and all target call counters remain zero.
+
+Build uses the existing .NET6.0.428 SDK with cleared NuGet sources, task-owned DOTNET_CLI_HOME/TMPDIR and no SDK copy/network. The managed DLL is host-built for the unchanged ARM32 native binding. This does not qualify target execution. Source verification, decoder and wrapper suites run normally and with Python `-O`. Frozen deployment/source inventories identify the reviewable artifacts; host-environment/, obj/, caches and review scratch are outside that inventory.

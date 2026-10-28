@@ -1,0 +1,84 @@
+{
+  "actionSources": {
+    "apps_before_initialization": {
+      "path": "recovery-quickpath-20261027bv/recover.py",
+      "sha256": "4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f"
+    },
+    "bounded_apps_header_preparation": {
+      "path": "volatile-limit-trial-20261028dk/prepare-score-header-v2.py",
+      "sha256": "fa4ae5558b008f62bd17494e3a6c3feff71ff4065cdef2cbdc4f32b379dd017b"
+    },
+    "fresh_dp_readiness": {
+      "path": "volatile-limit-trial-20261028dk/prepare-current-readiness.py",
+      "sha256": "d44f72e440eed198aa022be2c27fa9029a29b388eddbb811d0db220819600c89"
+    },
+    "fresh_eb_baseline_readiness": {
+      "path": "rtp-lane-gate-trial-20261028ed/prepare-readiness.py",
+      "sha256": "08bcdcbc039567a7506b1f6da4856737fd2ed324ed00596be83f33a2db1ed90f"
+    },
+    "fresh_eb_post_readiness": {
+      "path": "rtp-lane-gate-trial-20261028ed/prepare-readiness.py",
+      "sha256": "08bcdcbc039567a7506b1f6da4856737fd2ed324ed00596be83f33a2db1ed90f"
+    },
+    "fresh_identity_after_initialization": {
+      "path": "autonomous-fault-harness-20261028dh/prepare-onset.py",
+      "sha256": "d658a618d9ce844c63dd293c9e6ef1c1ee65f0bce865bd77de6b5c100c77b7bc"
+    },
+    "fresh_identity_after_recovery": {
+      "path": "autonomous-fault-harness-20261028dh/prepare-onset.py",
+      "sha256": "d658a618d9ce844c63dd293c9e6ef1c1ee65f0bce865bd77de6b5c100c77b7bc"
+    },
+    "one_apps_return": {
+      "path": "recovery-quickpath-20261027bv/recover.py",
+      "sha256": "4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f"
+    },
+    "one_dp_80cycle_max_left_workflow": {
+      "path": "rtp-score-checkpoints-20261028dp/run-once.py",
+      "sha256": "b5ffead96df686dcd7b0aade5e38d8afa76b2af6512e2f6c9df4d0acb0351b53"
+    },
+    "one_eb_baseline": {
+      "path": "rtp-lane-gate-capture-20261028eb/run-once.py",
+      "sha256": "886bdc05bb8eb5a255443f95a964f2bae947fc758b18ea0e4893f42c3e4ad9a8"
+    },
+    "one_eb_post": {
+      "path": "rtp-lane-gate-capture-20261028eb/run-once.py",
+      "sha256": "886bdc05bb8eb5a255443f95a964f2bae947fc758b18ea0e4893f42c3e4ad9a8"
+    },
+    "one_stock_mode2_initialization": {
+      "path": "autonomous-fault-harness-20261028dh/run-deadline-mode2.py",
+      "sha256": "a838433923e0a6bce7a8c6b3ef810c2d4703d3a5a1061f436f93d4c7e63c5551"
+    },
+    "one_stock_mode2_recovery": {
+      "path": "autonomous-fault-harness-20261028dh/run-deadline-mode2.py",
+      "sha256": "a838433923e0a6bce7a8c6b3ef810c2d4703d3a5a1061f436f93d4c7e63c5551"
+    },
+    "public_reject_checks_before_initialization": {
+      "path": "recovery-quickpath-20261027bv/recover.py",
+      "sha256": "4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f"
+    },
+    "public_reject_checks_before_recovery": {
+      "path": "recovery-quickpath-20261027bv/recover.py",
+      "sha256": "4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f"
+    }
+  },
+  "controllerWrites": 0,
+  "dpInvocationsMaximum": 1,
+  "dpReadHeadersMaximum": 647,
+  "ebInvocationsMaximum": 2,
+  "ebReadHeadersEach": 16,
+  "entryPoints": [
+    "initialize",
+    "observe"
+  ],
+  "initializationMode2Maximum": 1,
+  "liveAdapterPresent": false,
+  "qualifiedFaultRecoveryMode2Maximum": 1,
+  "referenceScriptsMustNotBeInvokedAsHardcodedMain": true,
+  "schema": "ef-fixed-source-plan-v1",
+  "sourceSetSha256": "2d19bc57d0a83e1f6d7e7d0155cc5ba165eb3021b876076f0b7122f61e01b6ce",
+  "targetMicrosecondQualityCeilings": {
+    "baselineToDp": 30000000,
+    "dpToPost": 30000000,
+    "enumerationToBaseline": 180000000
+  }
+}

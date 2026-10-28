@@ -12,6 +12,8 @@ This repository preserves the substantive work performed during the investigatio
 
 **Additive sampled-code checkpoint:** one fixed read-only probe matched four16-byte code fingerprints at the proposed execution-log sites. Read the [fingerprint scope and remaining gaps](docs/code-fingerprint-20261028.md). These64 sampled bytes qualify neither whole-image identity, active instruction fetch, writable logger memory nor safe hook installation. Raw OEM code payloads are excluded, and no execution hook was deployed.
 
+**Additive reference-refresh checkpoint:** source models now trace C+7 copies, separate mirrors, two-event reference refresh and lane-table lifetimes. A warm unchanged40 control stayed clean; the later EH reader refused an already-faulted first R before sending Left. Read the [reference-refresh and observability guide](docs/reference-refresh-20261028.md). Neither result is a prevention fix or complete call-coverage trace.
+
 The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY-AF077FLLV2H** and Linux **5.4.261**. A separate board marking identifies a regional QN77S95FAFXZA assembly. Those observations do not make other firmware or hardware revisions equivalent.
 
 ## Start here
