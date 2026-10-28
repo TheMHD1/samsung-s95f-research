@@ -1,0 +1,1 @@
+Latest vendor predecessor is accepted EX/raised-01/post-tables EB16/32, bothR clean0/0/1 at200, ReadyForHeader/released/closed/STAGE_ABSENT on same-bootUSB63. Only ordinary wake/navigation/Apps-header preparation followed. No known other vendor actor or pending transaction. Separate fixedFArestore200to40, no retry or automaticMODE2. Closed-world premise, not physical queue proof.

@@ -1,0 +1,49 @@
+{
+  "actual_diagnostic": {
+    "accepted": true,
+    "limitation": "DO did not retain filesystem device numbers; DQ adds independent followed and canonical st_dev major/minor equality at runtime.",
+    "managed_resolved_alias": "/bus/usb/drivers/usbfs",
+    "native_follow_directory_inode": 23111,
+    "post_kernel_driver": {
+      "errno": 0,
+      "name": "usbfs",
+      "return": 0
+    },
+    "pre_kernel_driver": {
+      "errno": 61,
+      "name": null,
+      "return": -1
+    },
+    "receipt_sha256": "c220cf64479d69a5f87714880e590ded84ae427b6c94bc4c5756b93b2a130a37",
+    "vendor_bulk": 0,
+    "vendor_control": 0,
+    "vendor_headers": 0
+  },
+  "kernel_getdriver": {
+    "bytes": 260,
+    "cached_kernel_state_only": true,
+    "interface": 2,
+    "request": "0x41045508"
+  },
+  "limitations": [
+    "Sequential metadata snapshots are not atomic.",
+    "Same-version upstream is not complete Samsung vendor kernel attestation.",
+    "Local successful same-FD claim is required independently of driver metadata."
+  ],
+  "schema": "dq-binding-source-proof-v1",
+  "statx_layout": {
+    "bytes": 256,
+    "dev_major_offset": 136,
+    "dev_minor_offset": 140,
+    "inode_offset": 32,
+    "mask_offset": 0,
+    "mode_offset": 28,
+    "note": "st_dev identifies filesystem containing driver directory; not st_rdev of USB node.",
+    "required_mask": "0x103"
+  },
+  "target_operations": 0,
+  "upstream_abi_proof": {
+    "path": "usb-owned-claim-diagnostic-20261028do/upstream-linux/abi-proof.json",
+    "sha256": "9e26e4bfc2282990f21b9642ce8bbd57d401a653aa3f7878f37826a75d75cc71"
+  }
+}

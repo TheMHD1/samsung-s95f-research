@@ -32,6 +32,8 @@ The firmware acquisition/inspection tools under `research/firmware-acquisition-2
 
 ## Pure reference-refresh models
 
+The separate [finite-limit contrast](finite-limit-contrast-20261028.md) adds `python3 tools/verify_raised_contrast.py` and its optimized equivalent. This fifth fixture independently checks projected56-row200/40 observations, retained full context, exact set/restore R comparisons and a later explicit40 fault snapshot. It deliberately omits dynamic pointers and all operational identities. Mutation tests reject hidden intermediate limit drift, quiescent-to-clean relabeling, witness loss, incompatible retained context and extra observed R changes. The first four scientific fixtures are unchanged.
+
 The [reference-refresh guide](reference-refresh-20261028.md) lists four original pure-model suites for selector edges, two-event copy counting, table arithmetic/lifetime and mock coordination. `tests/test_refresh_models.py` runs them from the public tree in normal and optimized Python without private acquisition inputs or a target adapter. Source-audit and actual-capture replay scripts retain their original private-input requirements; successful public model tests do not establish runtime call coverage.
 
 The [reference-event guide](reference-events-20261028.md) adds two pure host-model suites to the publication tests: EK single-lane design ownership/phase boundaries and EQ stock gate/trainer controls. They run normally and with `-O` without OEM images or a target adapter. Their passing models do not qualify a deployed writer. Actual-capture analyzers retain private input dependencies and are not claimed to replay from the public tree.

@@ -1,0 +1,63 @@
+{
+  "changed": [
+    "fixed200 classifier before every RT state",
+    "both decoder classification bindings",
+    "all compact/retained limit admission",
+    "unique derivative schemas/stage/assembly/pins",
+    "offline contextual witness, not extra native taps"
+  ],
+  "hostOnly": true,
+  "implementationApprovedByParent": true,
+  "legs": [
+    {
+      "expectedLimit": 40,
+      "id": "control40",
+      "reader": "ER plus ES40 admission"
+    },
+    {
+      "id": "set200",
+      "requires": "fresh unchanged DU/model/profile admission; no fault/scan0",
+      "writer": "frozen DV set40to200"
+    },
+    {
+      "id": "observe200",
+      "positiveWitness": "Clean/Clean Hlow16>40 C7=1 endRca=1; retained mode1 context reported separately",
+      "reader": "EY fixed200 derivative",
+      "requires": "accepted set/readback and fresh bounded readiness"
+    },
+    {
+      "faultAlternative": "separately reviewed EW fixed200 fault recovery; fresh identity/readback; no assumed resulting limit",
+      "id": "restore40",
+      "writer": "frozen DV restore200to40 only if clean and fully admitted"
+    },
+    {
+      "id": "rechallenge40",
+      "reader": "ER plus ES40 admission",
+      "requires": "fresh verified40 and full clean trigger baseline"
+    }
+  ],
+  "schema": "ev-design-dependencies-v1",
+  "targetOperations": 0,
+  "unchanged": [
+    "NativeBinding",
+    "OnsetKey",
+    "ReadPair",
+    "ReadSet",
+    "Run state machine except classifier call result",
+    "fixed eight read map",
+    "58-byte packing",
+    "56 cycles",
+    "2-second cooperative deadline",
+    "25ms requested period",
+    "bulk/root/host budgets",
+    "exclusive receipt and bounded output",
+    "no retries"
+  ],
+  "unknowns": [
+    "actual comparator branch and FP",
+    "UI consumption/destination",
+    "sampling misses and sequential non-atomic context",
+    "safe recovery admission if fault200",
+    "full writer profile freshness at planned execution"
+  ]
+}

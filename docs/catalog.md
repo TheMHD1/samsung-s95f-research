@@ -2,7 +2,7 @@
 
 This catalog lists retained authored Markdown reports in this exact snapshot. Consult the disposition manifest for source, tests, traces and withheld inputs. Historical reports retain their original stage limits; later results explicitly supersede earlier pending status.
 
-Retained Markdown documents: 903.
+Retained Markdown documents: 920.
 
 - [Samsung S95F: current investigation](../research/CURRENT-INVESTIGATION.md)
 - [Samsung S95F panel-blackout reverse engineering](../research/README.md)
@@ -236,6 +236,17 @@ Retained Markdown documents: 903.
 - [post-phase.md](../research/panel-idle-20261026/overnight/lane-gate-onset-20261028ee/post-phase.md)
 - [`libteec.so` ordinary-file copy: independent runtime audit](../research/panel-idle-20261026/overnight/libteec-copy-20261027a/runtime-audit.md)
 - [Lifecycle and observer review — parent-preserved mailbox record](../research/panel-idle-20261026/overnight/lifecycle-observer-independent-review.md)
+- [Finite 40 → 200 → 40 comparison: design checkpoint](../research/panel-idle-20261026/overnight/limit-rechallenge-design-20261028ev/README.md)
+- [Alternate-limit200 rechallenge options](../research/panel-idle-20261026/overnight/limit-rechallenge-options-20261028eu/README.md)
+- [Bounded limit200 fault recovery review and additive guard](../research/panel-idle-20261026/overnight/limit-rechallenge-recovery-review-20261028ew/README.md)
+- [explicit-control-phase.md](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/explicit-control-phase.md)
+- [Volatile limit experiment: a discriminating software witness](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/findings.md)
+- [Revisit the volatile alternate limit with the Quiescent-aware recorder](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/plan.md)
+- [First raised-limit exposure: independent offline replay](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/raised-analysis/README.md)
+- [EX recovery and clean validation](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/recovery-analysis/README.md)
+- [Raised-limit restoration and original-limit controls](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/restoration-control-analysis/README.md)
+- [restore-phase.md](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/restore-phase.md)
+- [Independent EX raised-limit coordinator review](../research/panel-idle-20261026/overnight/limit-rechallenge-trial-20261028ex/reviews/coordinator-review/README.md)
 - [DX fixed sampled-code fingerprint reader](../research/panel-idle-20261026/overnight/live-code-fingerprint-20261028dx/README-wrapper.md)
 - [independent-fingerprint-review.md](../research/panel-idle-20261026/overnight/live-code-fingerprint-20261028dx/reviews/independent-fingerprint-review.md)
 - [Actual live code fingerprint at the proposed checkpoint sites](../research/panel-idle-20261026/overnight/live-code-fingerprint-trial-20261028dy/findings.md)
@@ -438,6 +449,7 @@ Retained Markdown documents: 903.
 - [Quiescent PM observer capacity assessment](../research/panel-idle-20261026/overnight/quiescent-pm-capacity-assessment.md)
 - [Independent audit: namespace-corrected quiescent-PM home smoke](../research/panel-idle-20261026/overnight/quiescent-pm-home-smoke-runtime-audit.md)
 - [Independent audit of the bounded-quiescence PM smoke](../research/panel-idle-20261026/overnight/quiescent-pm-smoke-runtime-audit.md)
+- [Pre-native ordinary-wake checkpoint: design only](../research/panel-idle-20261026/overnight/reader-wake-window-design-20261028fb/README.md)
 - [Future first-header phase after the recovered BI replay](../research/panel-idle-20261026/overnight/recovered-replay-phase-audit-20261027bs/phase-review.md)
 - [Recovery evidence gap and bounded next diagnostic plan](../research/panel-idle-20261026/overnight/recovery-evidence-gap-20261027bp/plan-review.md)
 - [Apps-selected panel recovery quick path](../research/panel-idle-20261026/overnight/recovery-quickpath-20261027bv/README.md)
@@ -493,6 +505,8 @@ Retained Markdown documents: 903.
 - [ED table-read-01: independent offline replay](../research/panel-idle-20261026/overnight/rtp-lane-gate-trial-20261028ed/live-analysis/README.md)
 - [First lane-gate data capture: coordinator plan](../research/panel-idle-20261026/overnight/rtp-lane-gate-trial-20261028ed/plan.md)
 - [Lane-table writers, publication and lifetime](../research/panel-idle-20261026/overnight/rtp-lane-table-writers-20261028ec/README.md)
+- [Fixed-200 read-only checkpoint recorder (EY)](../research/panel-idle-20261026/overnight/rtp-limit200-checkpoints-20261028ey/README-wrapper.md)
+- [Independent EY fixed200 reader review](../research/panel-idle-20261026/overnight/rtp-limit200-checkpoints-20261028ey/reviews/independent-reader-review.md)
 - [Passive RTP event observer: feasibility and minimum finite design](../research/panel-idle-20261026/overnight/rtp-observer-feasibility-20261027u/rtp-observer-feasibility.md)
 - [Independent review of I/J ordinary-source traces](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/independent-i-j-review.md)
 - [Independent root review of packed-buffer origin](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/root-review.md)
@@ -528,6 +542,9 @@ Retained Markdown documents: 903.
 - [Independent runtime audit: `sdp_pqe_frc.ko` provider candidate copy](../research/panel-idle-20261026/overnight/sdp-pqe-frc-provider-copy-20261026a/runtime-audit.md)
 - [SDP register-path follow-up and combined-observer smoke](../research/panel-idle-20261026/overnight/sdp-register-path-and-observer-smoke-progress.md)
 - [Selected QD profile ordinary-file copy: independent runtime audit](../research/panel-idle-20261026/overnight/selected-qd-profile-copy-20261027b/runtime-audit.md)
+- [Selectively refreshed endpoint admission](../research/panel-idle-20261026/overnight/selective-endpoint-limit-design-20261028ez/README.md)
+- [FA selective-endpoint fixed volatile-limit writer](../research/panel-idle-20261026/overnight/selective-endpoint-limit-writer-20261028fa/README-wrapper.md)
+- [FA independent writer review](../research/panel-idle-20261026/overnight/selective-endpoint-limit-writer-20261028fa/reviews/independent-writer-review.md)
 - [Image1 selector origin, consumers and refresh scheduling](../research/panel-idle-20261026/overnight/selector-origin-20261028ej/README.md)
 - [Independent runtime audit of the short captures — 2026-10-27](../research/panel-idle-20261026/overnight/short-baseline-runtime-audit-20261027.md)
 - [EK: fixed single-lane volatile diagnostic design](../research/panel-idle-20261026/overnight/single-lane-diagnostic-design-20261028ek/README.md)

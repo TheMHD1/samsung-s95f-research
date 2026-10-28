@@ -1,0 +1,75 @@
+{
+  "actualCommandLengths": {
+    "ER": 7866,
+    "EY": 7844,
+    "cap": 8192
+  },
+  "designOnly": true,
+  "finiteCases": [
+    {
+      "case": "wake accepted; cached Apps/noSaver/CSFS",
+      "nativeSubmissions": 1
+    },
+    {
+      "case": "wake ambiguous or failed",
+      "keyRetries": 0,
+      "nativeSubmissions": 0
+    },
+    {
+      "case": "wrong or duplicate tab",
+      "nativeSubmissions": 0,
+      "navigationRepairKeys": 0
+    },
+    {
+      "case": "saver after10 snapshots",
+      "nativeSubmissions": 0
+    },
+    {
+      "case": "accepted final snapshot but host dispatch gap exceeded",
+      "nativeSubmissions": 0
+    },
+    {
+      "case": "native request ambiguous",
+      "nextAction": "retain evidence; central classification only; no retry/reset/new headers"
+    }
+  ],
+  "guaranteesNotEstablished": [
+    "continuous noSaver",
+    "header focus",
+    "Left consumed by UI",
+    "Apps to Live destination",
+    "emitted light",
+    "shared clock mapping",
+    "remote start latency bound from host submit"
+  ],
+  "nativeStagePrefix": "/tmp/researcher-er-",
+  "networkOperations": 0,
+  "plannedNativeKeyWorkflows": 1,
+  "plannedWrapperKeyChildren": 2,
+  "plannedWrapperUiWorkflows": 1,
+  "preferredIntegration": "explicit additive wrapper stage, no root command interception",
+  "readyForImplementationApproval": true,
+  "schema": "fb-reader-wake-window-design-v1",
+  "sequence": [
+    "pin/readiness admission",
+    "PRE_READY",
+    "stage exact three payloads",
+    "receipt selftest and strict93/22/79 admission",
+    "BEFORE_INVOKE_READY full census",
+    "wake intent",
+    "one fixed VOLUP down/up",
+    "at most10 cached Apps/noSaver/CSFS snapshots with250ms between unsuccessful observations",
+    "record host gap <=proposed1s",
+    "submit unchanged guarded native command",
+    "original parser/postcensus/integrity/cleanup"
+  ],
+  "settle": {
+    "maxSnapshots": 10,
+    "perCallHostSeconds": 75,
+    "perCallRemoteSeconds": 45,
+    "proposedHostCooperativeBudgetSeconds": 10,
+    "scheduledSleepMs": 250
+  },
+  "targetOperations": 0,
+  "unchangedNativeFamily": "ER"
+}
