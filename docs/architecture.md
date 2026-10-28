@@ -30,3 +30,8 @@ The arrows identify researched call or transport relationships. They do not prov
 | Header decode | First record `[1,2,1,2]`; full-byte parameter types; metadata-only commands 0 / 1 / 2 | No command-3 capture fallback belongs in the isolated metadata helper |
 
 The detailed instruction excerpts, symbol maps, reproducers and independent reviews remain in the [research tree](research-map.md). See the [evidence rules](evidence-and-methods.md) before applying a map from stored firmware to a live image.
+
+
+## Authenticated extraction architecture
+
+The [CZ phase index](../research/panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/README.md) maps official acquisition, authenticated OUIT metadata, per-section ciphertext RSA, bounded native streaming, pinned TLS quarantine, and original-byte validation. [The final update](firmware-extraction-20261028.md) records all nine actual results and the platform rejected-driver/offline-reconciled-receipt distinction. The kernel/DTB findings remain stored-image and candidate-board evidence, not executing-text/live-tree identity or a blackout root cause.

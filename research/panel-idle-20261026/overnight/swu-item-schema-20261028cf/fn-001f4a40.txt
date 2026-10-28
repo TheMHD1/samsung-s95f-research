@@ -1,0 +1,42 @@
+EXIDX RANGE 001f4a40..001f4a98; input 001f4a40; may contain multiple functions and literal pools
+001f4a40 124a       ldr        r2, [pc, #0x48] ; literal[001f4a8c]=002d55b6
+001f4a42 134b       ldr        r3, [pc, #0x4c] ; literal[001f4a90]=00004e04 ; GOT?=00000000
+001f4a44 10b5       push       {r4, lr}
+001f4a46 7a44       add        r2, pc
+001f4a48 0446       mov        r4, r0
+001f4a4a 8969       ldr        r1, [r1, #0x18]
+001f4a4c 84b0       sub        sp, #0x10
+001f4a4e d358       ldr        r3, [r2, r3]
+001f4a50 01a8       add        r0, sp, #4
+001f4a52 1b68       ldr        r3, [r3]
+001f4a54 0393       str        r3, [sp, #0xc]
+001f4a56 4ff00003   mov.w      r3, #0
+001f4a5a 0b68       ldr        r3, [r1]
+001f4a5c db68       ldr        r3, [r3, #0xc]
+001f4a5e 9847       blx        r3
+001f4a60 019b       ldr        r3, [sp, #4]
+001f4a62 1bb1       cbz        r3, #0x1f4a6c
+001f4a64 1a68       ldr        r2, [r3]
+001f4a66 52f8142c   ldr        r2, [r2, #-0x14]
+001f4a6a 1344       add        r3, r2
+001f4a6c 2360       str        r3, [r4]
+001f4a6e 094a       ldr        r2, [pc, #0x24] ; literal[001f4a94]=002d5588
+001f4a70 029b       ldr        r3, [sp, #8]
+001f4a72 6360       str        r3, [r4, #4]
+001f4a74 7a44       add        r2, pc
+001f4a76 064b       ldr        r3, [pc, #0x18] ; literal[001f4a90]=00004e04 ; GOT?=00000000
+001f4a78 d358       ldr        r3, [r2, r3]
+001f4a7a 1a68       ldr        r2, [r3]
+001f4a7c 039b       ldr        r3, [sp, #0xc]
+001f4a7e 5a40       eors       r2, r3
+001f4a80 02d1       bne        #0x1f4a88
+001f4a82 2046       mov        r0, r4
+001f4a84 04b0       add        sp, #0x10
+001f4a86 10bd       pop        {r4, pc}
+001f4a88 62f632e8   blx        #0x56af0 ; __stack_chk_fail
+001f4a8c b655       strb       r6, [r6, r6]
+001f4a8e 2d00       movs       r5, r5
+001f4a90 044e       ldr        r6, [pc, #0x10] ; literal[001f4aa4]=f6c46800
+001f4a92 0000       movs       r0, r0
+001f4a94 8855       strb       r0, [r1, r6]
+001f4a96 2d00       movs       r5, r5

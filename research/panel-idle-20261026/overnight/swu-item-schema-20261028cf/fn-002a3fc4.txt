@@ -1,0 +1,52 @@
+EXIDX RANGE 002a3fc4..002a4030; input 002a3fc4; may contain multiple functions and literal pools
+002a3fc4 174a       ldr        r2, [pc, #0x5c] ; literal[002a4024]=00226034
+002a3fc6 184b       ldr        r3, [pc, #0x60] ; literal[002a4028]=00004e04 ; GOT?=00000000
+002a3fc8 7a44       add        r2, pc
+002a3fca 30b5       push       {r4, r5, lr}
+002a3fcc 0c46       mov        r4, r1
+002a3fce 83b0       sub        sp, #0xc
+002a3fd0 0546       mov        r5, r0
+002a3fd2 d358       ldr        r3, [r2, r3]
+002a3fd4 1b68       ldr        r3, [r3]
+002a3fd6 0193       str        r3, [sp, #4]
+002a3fd8 4ff00003   mov.w      r3, #0
+002a3fdc fcf7e0fb   bl         #0x2a07a0
+002a3fe0 2368       ldr        r3, [r4]
+002a3fe2 2046       mov        r0, r4
+002a3fe4 9b68       ldr        r3, [r3, #8]
+002a3fe6 9847       blx        r3
+002a3fe8 88b1       cbz        r0, #0x2a400e
+002a3fea e969       ldr        r1, [r5, #0x1c]
+002a3fec 2046       mov        r0, r4
+002a3fee 2368       ldr        r3, [r4]
+002a3ff0 0422       movs       r2, #4
+002a3ff2 0091       str        r1, [sp]
+002a3ff4 6946       mov        r1, sp
+002a3ff6 db68       ldr        r3, [r3, #0xc]
+002a3ff8 9847       blx        r3
+002a3ffa 0c4a       ldr        r2, [pc, #0x30] ; literal[002a402c]=00225ffe
+002a3ffc 0a4b       ldr        r3, [pc, #0x28] ; literal[002a4028]=00004e04 ; GOT?=00000000
+002a3ffe 7a44       add        r2, pc
+002a4000 d358       ldr        r3, [r2, r3]
+002a4002 1a68       ldr        r2, [r3]
+002a4004 019b       ldr        r3, [sp, #4]
+002a4006 5a40       eors       r2, r3
+002a4008 0ad1       bne        #0x2a4020
+002a400a 03b0       add        sp, #0xc
+002a400c 30bd       pop        {r4, r5, pc}
+002a400e 2368       ldr        r3, [r4]
+002a4010 2046       mov        r0, r4
+002a4012 0422       movs       r2, #4
+002a4014 6946       mov        r1, sp
+002a4016 db68       ldr        r3, [r3, #0xc]
+002a4018 9847       blx        r3
+002a401a 009b       ldr        r3, [sp]
+002a401c eb61       str        r3, [r5, #0x1c]
+002a401e ece7       b          #0x2a3ffa
+002a4020 b2f566ed   blx        #0x56af0 ; __stack_chk_fail
+002a4024 3460       str        r4, [r6]
+002a4026 2200       movs       r2, r4
+002a4028 044e       ldr        r6, [pc, #0x10] ; literal[002a403c]=f5b44479
+002a402a 0000       movs       r0, r0
+002a402c fe5f       ldrsh      r6, [r7, r7]
+002a402e 2200       movs       r2, r4

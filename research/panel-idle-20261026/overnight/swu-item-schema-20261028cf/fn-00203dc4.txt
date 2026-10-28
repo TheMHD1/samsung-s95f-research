@@ -1,0 +1,128 @@
+EXIDX RANGE 00203dc4..00203f04; input 00203dc4; may contain multiple functions and literal pools
+00203dc4 454a       ldr        r2, [pc, #0x114] ; literal[00203edc]=002c6230
+00203dc6 464b       ldr        r3, [pc, #0x118] ; literal[00203ee0]=00004e04 ; GOT?=00000000
+00203dc8 2de9f04d   push.w     {r4, r5, r6, r7, r8, sl, fp, lr}
+00203dcc 7a44       add        r2, pc
+00203dce 0d46       mov        r5, r1
+00203dd0 4968       ldr        r1, [r1, #4]
+00203dd2 84b0       sub        sp, #0x10
+00203dd4 d358       ldr        r3, [r2, r3]
+00203dd6 0646       mov        r6, r0
+00203dd8 2a7c       ldrb       r2, [r5, #0x10]
+00203dda 1b68       ldr        r3, [r3]
+00203ddc 0393       str        r3, [sp, #0xc]
+00203dde 4ff00003   mov.w      r3, #0
+00203de2 0b68       ldr        r3, [r1]
+00203de4 3f4f       ldr        r7, [pc, #0xfc] ; literal[00203ee4]=002c6214
+00203de6 db69       ldr        r3, [r3, #0x1c]
+00203de8 7f44       add        r7, pc
+00203dea 002a       cmp        r2, #0
+00203dec 46d0       beq        #0x203e7c
+00203dee 0022       movs       r2, #0
+00203df0 01a8       add        r0, sp, #4
+00203df2 9847       blx        r3
+00203df4 2b7c       ldrb       r3, [r5, #0x10]
+00203df6 002b       cmp        r3, #0
+00203df8 5cd0       beq        #0x203eb4
+00203dfa 4020       movs       r0, #0x40
+00203dfc 53f63ee8   blx        #0x56e7c ; _Znwj
+00203e00 0446       mov        r4, r0
+00203e02 394a       ldr        r2, [pc, #0xe4] ; literal[00203ee8]=0000186c ; GOT?=004b2f98
+00203e04 0120       movs       r0, #1
+00203e06 394b       ldr        r3, [pc, #0xe4] ; literal[00203eec]=00004044 ; GOT?=004b2a48
+00203e08 a046       mov        r8, r4
+00203e0a 0199       ldr        r1, [sp, #4]
+00203e0c c4e90100   strd       r0, r0, [r4, #4]
+00203e10 4ff0000c   mov.w      ip, #0
+00203e14 0298       ldr        r0, [sp, #8]
+00203e16 ba58       ldr        r2, [r7, r2]
+00203e18 cdf804c0   str.w      ip, [sp, #4]
+00203e1c 0832       adds       r2, #8
+00203e1e cdf808c0   str.w      ip, [sp, #8]
+00203e22 48f8102b   str        r2, [r8], #0x10
+00203e26 fb58       ldr        r3, [r7, r3]
+00203e28 d5e906ab   ldrd       sl, fp, [r5, #0x18]
+00203e2c 03f12802   add.w      r2, r3, #0x28
+00203e30 c4e90710   strd       r1, r0, [r4, #0x1c]
+00203e34 2261       str        r2, [r4, #0x10]
+00203e36 03f16c02   add.w      r2, r3, #0x6c
+00203e3a 8433       adds       r3, #0x84
+00203e3c c4e90523   strd       r2, r3, [r4, #0x14]
+00203e40 68b3       cbz        r0, #0x203e9e
+00203e42 2b4b       ldr        r3, [pc, #0xac] ; literal[00203ef0]=00004a20 ; GOT?=00000000
+00203e44 fb58       ldr        r3, [r7, r3]
+00203e46 33b3       cbz        r3, #0x203e96
+00203e48 031d       adds       r3, r0, #4
+00203e4a d3e8ef2f   ldaex      r2, [r3]
+00203e4e 0132       adds       r2, #1
+00203e50 c3e8e12f   stlex      r1, r2, [r3]
+00203e54 0029       cmp        r1, #0
+00203e56 f8d1       bne        #0x203e4a
+00203e58 c0ef1000   vmov.i32   d16, #0
+00203e5c 0023       movs       r3, #0
+00203e5e c4e90cab   strd       sl, fp, [r4, #0x30]
+00203e62 84f83830   strb.w     r3, [r4, #0x38]
+00203e66 c4ed0a0b   vstr       d16, [r4, #0x28]
+00203e6a 79f6e7fc   bl         #0x7d83c
+00203e6e 0298       ldr        r0, [sp, #8]
+00203e70 c6e90084   strd       r8, r4, [r6]
+00203e74 18b1       cbz        r0, #0x203e7e
+00203e76 79f6e1fc   bl         #0x7d83c
+00203e7a 00e0       b          #0x203e7e
+00203e7c 9847       blx        r3
+00203e7e 1d4a       ldr        r2, [pc, #0x74] ; literal[00203ef4]=002c617a
+00203e80 174b       ldr        r3, [pc, #0x5c] ; literal[00203ee0]=00004e04 ; GOT?=00000000
+00203e82 7a44       add        r2, pc
+00203e84 d358       ldr        r3, [r2, r3]
+00203e86 1a68       ldr        r2, [r3]
+00203e88 039b       ldr        r3, [sp, #0xc]
+00203e8a 5a40       eors       r2, r3
+00203e8c 1dd1       bne        #0x203eca
+00203e8e 3046       mov        r0, r6
+00203e90 04b0       add        sp, #0x10
+00203e92 bde8f08d   pop.w      {r4, r5, r6, r7, r8, sl, fp, pc}
+00203e96 4368       ldr        r3, [r0, #4]
+00203e98 0133       adds       r3, #1
+00203e9a 4360       str        r3, [r0, #4]
+00203e9c dce7       b          #0x203e58
+00203e9e c0ef1000   vmov.i32   d16, #0
+00203ea2 c4e90cab   strd       sl, fp, [r4, #0x30]
+00203ea6 84f83800   strb.w     r0, [r4, #0x38]
+00203eaa c6e90084   strd       r8, r4, [r6]
+00203eae c4ed0a0b   vstr       d16, [r4, #0x28]
+00203eb2 e4e7       b          #0x203e7e
+00203eb4 104a       ldr        r2, [pc, #0x40] ; literal[00203ef8]=0017699a
+00203eb6 40f2f743   movw       r3, #0x4f7
+00203eba 1049       ldr        r1, [pc, #0x40] ; literal[00203efc]=001d6008
+00203ebc 1048       ldr        r0, [pc, #0x40] ; literal[00203f00]=00176a76
+00203ebe 7a44       add        r2, pc
+00203ec0 7944       add        r1, pc
+00203ec2 7844       add        r0, pc
+00203ec4 73f1dafd   bl         #0x377a7c
+00203ec8 97e7       b          #0x203dfa
+00203eca 52f612ee   blx        #0x56af0 ; __stack_chk_fail
+00203ece 0298       ldr        r0, [sp, #8]
+00203ed0 08b1       cbz        r0, #0x203ed6
+00203ed2 79f6b3fc   bl         #0x7d83c
+00203ed6 53f6faea   blx        #0x574cc ; __cxa_end_cleanup
+00203eda 00bf       nop        
+00203edc 3062       str        r0, [r6, #0x20]
+00203ede 2c00       movs       r4, r5
+00203ee0 044e       ldr        r6, [pc, #0x10] ; literal[00203ef4]=002c617a
+00203ee2 0000       movs       r0, r0
+00203ee4 1462       str        r4, [r2, #0x20]
+00203ee6 2c00       movs       r4, r5
+00203ee8 6c18       adds       r4, r5, r1
+00203eea 0000       movs       r0, r0
+00203eec 4440       eors       r4, r0
+00203eee 0000       movs       r0, r0
+00203ef0 204a       ldr        r2, [pc, #0x80] ; literal[00203f74]=f103c607
+00203ef2 0000       movs       r0, r0
+00203ef4 7a61       str        r2, [r7, #0x14]
+00203ef6 2c00       movs       r4, r5
+00203ef8 9a69       ldr        r2, [r3, #0x18]
+00203efa 1700       movs       r7, r2
+00203efc 0860       str        r0, [r1]
+00203efe 1d00       movs       r5, r3
+00203f00 766a       ldr        r6, [r6, #0x24]
+00203f02 1700       movs       r7, r2

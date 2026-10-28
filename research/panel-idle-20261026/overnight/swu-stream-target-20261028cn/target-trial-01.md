@@ -1,0 +1,5 @@
+# Actual kernel decryption — PASS
+
+The single foreground CN invocation decrypted uImage item1002 over the pinned, nonce-authenticated TLS bulk channel. Command0 once, 182 updates, command2 once; 188 identity/selector guards. All 11892544 ciphertext/raw bytes were accounted for. Strict sixteen-byte PKCS7 removal produces 11892528 original bytes whose tag18 CRC matches authenticated metadata. Full input ciphertext RSA validation was established independently. Native elapsed5906ms, cleanup flags all pass, zero backend exceptions or uncertain ownership; host server accepted one connection and one raw completion. Exact target stage removed, 33 root calls, one native invocation, zero retries. No TV plaintext storage, firmware installation, controller USB or UI/power action.
+
+Host file identification: U-Boot legacy uImage, Linux5.4.261 ARM64, declared uncompressed payload11786752 bytes, plus appended data. Independent header/data CRC and comparison analysis are recorded separately in firmware-kernel-analysis-20261028cs. Original output and plaintext hashes remain private.

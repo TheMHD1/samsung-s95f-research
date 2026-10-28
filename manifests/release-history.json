@@ -44,7 +44,35 @@
         "BZ bounded installed-service sequence",
         "official full encrypted firmware acquisition"
       ],
-      "scope_notes": "Live authentication/integration/schema CC/CE/CF work is not included. No OEM ZIP/MSD bytes, private credentials/transport or decrypted SWU output are published."
+      "scope_notes": "Live authentication/integration/schema CC/CE/CF work is not included. No OEM ZIP/MSD bytes, private credentials/transport or decrypted SWU output are published.",
+      "commit": "98bc9f5c6044192f7f52049a1331d74cd06f6db6"
+    },
+    {
+      "snapshot_id": "firmware-main-complete-20261028",
+      "enumeration_started_utc": "2026-10-28T01:29:18.764692+00:00",
+      "export_completed_utc": "2026-10-28T01:30:18.223801+00:00",
+      "exporter_version": "2026-10-28.2",
+      "source_dispositions_sha256": "5f60665bc4d1cde6cbae036376575bd20b691d50d443e6758dd3aa58d0c33df2",
+      "research_files": 6162,
+      "research_bytes": 90840742,
+      "source_entries": 83925,
+      "source_regular_files": 80342,
+      "source_symlinks": 3583,
+      "omitted_inputs": 77763,
+      "explicitly_deferred_inputs": 17,
+      "deferred_name_fragments": [
+        "20261028db",
+        "20261028dc"
+      ],
+      "completed_workstreams": [
+        "Authenticated CE header and CF source-backed schema/parameters",
+        "Nine main firmware sections extracted with ciphertext RSA, strict padding and original-byte CRC",
+        "CR UEP and CX quoting failures retained",
+        "Platform original driver rejected; unique native receipt and GC framing explicitly reconciled offline without TEEC reinvocation",
+        "Offline kernel and candidate-board DTB analysis",
+        "Nested-private export exclusion and regression tests"
+      ],
+      "scope_notes": "OEM/decrypted bytes, nested private metadata/configuration and raw transport omitted. DB/DC in progress excluded. No firmware installation or demonstrated blackout fix."
     }
   ]
 }

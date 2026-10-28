@@ -1,0 +1,103 @@
+EXIDX RANGE 00357054..00357174; input 00357054; may contain multiple functions and literal pools
+00357054 38b5       push       {r3, r4, r5, lr}
+00357056 00f10802   add.w      r2, r0, #8
+0035705a 0446       mov        r4, r0
+0035705c 0260       str        r2, [r0]
+0035705e 4ff00003   mov.w      r3, #0
+00357062 d1e90112   ldrd       r1, r2, [r1, #4]
+00357066 0a44       add        r2, r1
+00357068 36f580f8   bl         #0x8d16c
+0035706c 2046       mov        r0, r4
+0035706e 38bd       pop        {r3, r4, r5, pc}
+00357070 38b5       push       {r3, r4, r5, lr}
+00357072 00f10802   add.w      r2, r0, #8
+00357076 0446       mov        r4, r0
+00357078 0260       str        r2, [r0]
+0035707a 4ff00003   mov.w      r3, #0
+0035707e d1e90812   ldrd       r1, r2, [r1, #0x20]
+00357082 0a44       add        r2, r1
+00357084 36f572f8   bl         #0x8d16c
+00357088 2046       mov        r0, r4
+0035708a 38bd       pop        {r3, r4, r5, pc}
+0035708c 38b5       push       {r3, r4, r5, lr}
+0035708e 00f10802   add.w      r2, r0, #8
+00357092 0446       mov        r4, r0
+00357094 0260       str        r2, [r0]
+00357096 4ff00003   mov.w      r3, #0
+0035709a d1e90e12   ldrd       r1, r2, [r1, #0x38]
+0035709e 0a44       add        r2, r1
+003570a0 36f564f8   bl         #0x8d16c
+003570a4 2046       mov        r0, r4
+003570a6 38bd       pop        {r3, r4, r5, pc}
+003570a8 38b5       push       {r3, r4, r5, lr}
+003570aa 00f10802   add.w      r2, r0, #8
+003570ae 0446       mov        r4, r0
+003570b0 0260       str        r2, [r0]
+003570b2 4ff00003   mov.w      r3, #0
+003570b6 d1e91412   ldrd       r1, r2, [r1, #0x50]
+003570ba 0a44       add        r2, r1
+003570bc 36f556f8   bl         #0x8d16c
+003570c0 2046       mov        r0, r4
+003570c2 38bd       pop        {r3, r4, r5, pc}
+003570c4 38b5       push       {r3, r4, r5, lr}
+003570c6 0446       mov        r4, r0
+003570c8 90f8cc20   ldrb.w     r2, [r0, #0xcc]
+003570cc 0b78       ldrb       r3, [r1]
+003570ce 62b1       cbz        r2, #0x3570ea
+003570d0 f3b9       cbnz       r3, #0x357110
+003570d2 d0f8d000   ldr.w      r0, [r0, #0xd0]
+003570d6 04f1d803   add.w      r3, r4, #0xd8
+003570da 9842       cmp        r0, r3
+003570dc 01d0       beq        #0x3570e2
+003570de fff488ee   blx        #0x56df0 ; _ZdlPv
+003570e2 0023       movs       r3, #0
+003570e4 84f8cc30   strb.w     r3, [r4, #0xcc]
+003570e8 38bd       pop        {r3, r4, r5, pc}
+003570ea 002b       cmp        r3, #0
+003570ec fcd0       beq        #0x3570e8
+003570ee 00f1d803   add.w      r3, r0, #0xd8
+003570f2 c0f8d030   str.w      r3, [r0, #0xd0]
+003570f6 4ff00003   mov.w      r3, #0
+003570fa d030       adds       r0, #0xd0
+003570fc d1e90125   ldrd       r2, r5, [r1, #4]
+00357100 1146       mov        r1, r2
+00357102 2a44       add        r2, r5
+00357104 36f532f8   bl         #0x8d16c
+00357108 0123       movs       r3, #1
+0035710a 84f8cc30   strb.w     r3, [r4, #0xcc]
+0035710e 38bd       pop        {r3, r4, r5, pc}
+00357110 bde83840   pop.w      {r3, r4, r5, lr}
+00357114 0431       adds       r1, #4
+00357116 d030       adds       r0, #0xd0
+00357118 00f59abb   b.w        #0x57850 ; _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_
+0035711c 38b5       push       {r3, r4, r5, lr}
+0035711e 0446       mov        r4, r0
+00357120 90f8b020   ldrb.w     r2, [r0, #0xb0]
+00357124 0b78       ldrb       r3, [r1]
+00357126 62b1       cbz        r2, #0x357142
+00357128 f3b9       cbnz       r3, #0x357168
+0035712a d0f8b400   ldr.w      r0, [r0, #0xb4]
+0035712e 04f1bc03   add.w      r3, r4, #0xbc
+00357132 9842       cmp        r0, r3
+00357134 01d0       beq        #0x35713a
+00357136 fff45cee   blx        #0x56df0 ; _ZdlPv
+0035713a 0023       movs       r3, #0
+0035713c 84f8b030   strb.w     r3, [r4, #0xb0]
+00357140 38bd       pop        {r3, r4, r5, pc}
+00357142 002b       cmp        r3, #0
+00357144 fcd0       beq        #0x357140
+00357146 00f1bc03   add.w      r3, r0, #0xbc
+0035714a c0f8b430   str.w      r3, [r0, #0xb4]
+0035714e 4ff00003   mov.w      r3, #0
+00357152 b430       adds       r0, #0xb4
+00357154 d1e90125   ldrd       r2, r5, [r1, #4]
+00357158 1146       mov        r1, r2
+0035715a 2a44       add        r2, r5
+0035715c 36f506f8   bl         #0x8d16c
+00357160 0123       movs       r3, #1
+00357162 84f8b030   strb.w     r3, [r4, #0xb0]
+00357166 38bd       pop        {r3, r4, r5, pc}
+00357168 bde83840   pop.w      {r3, r4, r5, lr}
+0035716c 0431       adds       r1, #4
+0035716e b430       adds       r0, #0xb4
+00357170 00f56ebb   b.w        #0x57850 ; _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_

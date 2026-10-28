@@ -19,15 +19,19 @@ rg --files research | rg '(reproduce|test|review|findings|disasm)'
 
 ## Firmware, SWU and trusted execution
 
+* [Completed nine-section extraction and failure/reconciliation chronology](firmware-extraction-20261028.md), [CZ phase architecture/index](../research/panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/README.md).
+
 * [External research index](../research/research-20261027-external/README.md), [target acquisition boundary](../research/research-20261027-external/TARGET-ACQUISITION.md), [gaps and experiments](../research/research-20261027-external/GAPS-AND-EXPERIMENTS.md).
 * [SWU target applicability](../research/research-20261027-external/reports/swu-target-applicability.md), [independent ABI and helper audit](../research/research-20261027-external/reviews/swu-independent-review.md).
 * `research/research-20261027-external/sources/swu-target-applicability/`: authored ABI inspection, offline plans and input manifests. Vendor library bytes are omitted.
 * `research/research-20261027-external/sources/minimal-swu-helper/`: isolated commands 0/1/2 prototype, mock backend and tests. [Host reproduction](reproduce.md) describes what is runnable without private inputs.
 * Adapter/runner source, host tests and actual outcome reports under `swu-metadata-adapter-20261027bx/`, `swu-metadata-adapter-20261027by/` and `swu-metadata-adapter-20261027bz/`. [The evidence update](update-20261028.md) connects the failed preflight/loader diagnostics to the bounded BZ service sequence without inferring validated metadata.
 * [Complete official encrypted firmware acquisition](../research/firmware-acquisition-20261028/acquisition-report.md): reusable acquisition/clear-directory inspection source, provenance, archive/member/section hashes and malformed-input tests. OEM ZIP/MSD bytes are omitted.
-* Authored SWU header-validation function traces, byte anchors and framing models under `swu-header-validation-20261027bx/`. In-progress authentication/integration/schema work is explicitly deferred from the current snapshot.
+* Authored SWU header-validation function traces, byte anchors and framing models under `swu-header-validation-20261027bx/`. CC/CE/CF authentication/integration/schema source is now included as a separate completed phase. The ongoing DB/DC filesystem investigations remain explicitly deferred.
 
 ## Kernel, platform and hardware
+
+* [Decrypted kernel and candidate-board DTB analysis](../research/panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md): exact stored-kernel equality, bounded ten-tree parsing, candidate wiring and boot-patching limits.
 
 * [Detailed reverse-engineering index](../research/panel-idle-20261026/overnight/RE-INDEX.md).
 * `research/panel-idle-20261026/tcon-research/`: kernel power/PM, HDMI, FRC/QDF, GPIO, pinctrl, USB/SSB, firmware address-domain and controller analyses. Includes annotated instruction excerpts and their reproducers.

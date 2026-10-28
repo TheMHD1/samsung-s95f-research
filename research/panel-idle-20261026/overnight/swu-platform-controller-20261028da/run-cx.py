@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+"""Central one-shot kernel extraction, private TLS output, no firmware install."""
+import argparse,base64,hashlib,importlib.util,json,os,re,shlex,sys,threading,time
+from pathlib import Path
+import extraction
+HERE=Path(__file__).resolve().parent;B=HERE.parent
+TARGET=B/'swu-platform-target-20261028cx';TRANSPORT=B/'swu-stream-transport-20261028cj';PRIVATE=TARGET/'private'
+ADAPTER=B/'swu-stream-root-20261028cp/root-with-margin.py';ADAPTER_SHA='be9c5362fa40b52be2b824e6cc3e11013bdaafd44b1710f010bbccebac2bdc55'
+BOOT='00000000-0000-4000-8000-000000000000';DOTNET_SHA='e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310'
+STAGE='/tmp/swu-stream-20261028cx';ITEM=1001
+PAYLOAD={n:TARGET/'bin/Release/net6.0'/n for n in ['SwuStreamTarget.dll','SwuStreamTarget.deps.json','SwuStreamTarget.runtimeconfig.json']}
+PAYLOAD.update({n:TARGET/'private'/n for n in ['section-plan.bin','tls-config.json']})
+def need(ok,why):
+ if not ok:raise ValueError(why)
+def sha(b):return hashlib.sha256(b).hexdigest()
+def save(p,obj):p.write_text(json.dumps(obj,indent=2,sort_keys=True)+'\n');p.chmod(0o600)
+def load(path,name):
+ spec=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(spec);sys.modules[name]=m;spec.loader.exec_module(m);return m
+def manifest():
+ r=extraction.section(ITEM);need(PAYLOAD['section-plan.bin'].read_bytes()==extraction.binary_plan(r),'binary schema plan binding')
+ paths=[Path(__file__),HERE/'extraction.py',ADAPTER,TRANSPORT/'section_server.py']+list(TARGET.glob('*.cs'))+list(TARGET.glob('*.csproj'))+[TARGET/'NuGet.Config']+list(PAYLOAD.values())+[B/'swu-prepared-inline-job-20261028cw/job.py']+[PRIVATE/n for n in ['server-key.pem','server-cert.pem','connection-private.json','listener-port.json']]
+ need(sha(ADAPTER.read_bytes())==ADAPTER_SHA,'root adapter drift')
+ return {'schema':'swu-platform-stream-deployment-v1','section':ITEM,'boot':BOOT,'stage':STAGE,'files':{str(p):{'bytes':p.stat().st_size,'sha256':sha(p.read_bytes())} for p in sorted(set(paths))},'scope':'One decrypt-only kernel item over certificate-pinned nonce-authenticated TLS.1700sec native1750supervisor1800host,1600channel. No firmware installation or UI/panel operations; no retries.'}
+def guard():return f'set -eu\ntest "$(cat /proc/sys/kernel/random/boot_id)" = {BOOT}\ntest "$(sha256sum /usr/bin/dotnet | cut -d " " -f1)" = {DOTNET_SHA}\n'
+def stage_guard():return f'test ! -L {STAGE}\ntest -d {STAGE}\ntest "$(stat -c "%u:%g:%a" {STAGE})" = 0:0:700\n'
+def exact(names):
+ s=stage_guard()
+ for n in sorted(names):
+  remote=STAGE+'/'+n;s+=f'test ! -L {remote}\ntest -f {remote}\ntest "$(stat -c "%u:%g:%a" {remote})" = 0:0:600\n'
+  if n in PAYLOAD:
+   data=PAYLOAD[n].read_bytes();s+=f'test "$(wc -c < {remote})" = {len(data)}\ntest "$(sha256sum {remote} | cut -d " " -f1)" = {sha(data)}\n'
+ s+='count=0\n'+f'for path in {STAGE}/* {STAGE}/.[!.]* {STAGE}/..?*; do\n'+'[ -e "$path" ] || [ -L "$path" ] || continue\n'+f'case "${{path##*/}}" in {"|".join(sorted(names))}) count=$((count+1));; *) exit 91;; esac\ndone\ntest "$count" = {len(names)}\n';return s
+def parse_native(text):
+ m=re.fullmatch(r'RUN_EXIT=([0-9]+)\nSTDOUT_BEGIN\n(.*?)STDOUT_END\nSTDERR_BEGIN\n(.*?)STDERR_END\n',text,re.S);need(m is not None,'native framing unknown, never retry')
+ rows=[s for s in m[2].splitlines() if not s.startswith('[GC_INFO]')];need(int(m[1])==0 and m[3]=='' and len(rows)==1 and rows[0].startswith('SWU_STREAM_RAW '),'native rejected, never retry')
+ parts=rows[0].split()[1:];need(len(parts)==len(set(p.split('=',1)[0] for p in parts)),'duplicate native field');f=dict(p.split('=',1) for p in parts)
+ expected={'accepted':'1','first_failure':'None','code':'0x00000000','origin':'0xffffffff','calls0':'1','updates':'22209','finals':'1','cipher':'1455423504','raw':'1455423504','confirmed':'1455423504','eof':'1','digest':'1','closed':'1','released':'3','finalized':'1','wiped':'1','raw_complete':'1','guards':'22215','cleanup_failures':'0','first_cleanup':'None','backend_exception':'0','ownership_uncertain':'0','payload_validated':'0','firmware_written':'0'}
+ need(set(f)==set(expected)|{'elapsed_ms'},'native field set');need(all(f[k]==v for k,v in expected.items()) and f['elapsed_ms'].isdigit() and int(f['elapsed_ms'])<1700000,'native counters/deadline');return f
+def execute(out,digest):
+ os.umask(0o077);mp=HERE/'deployment-cx.json';need(sha(mp.read_bytes())==digest and json.loads(mp.read_text())==manifest(),'deployment drift');need(out.is_absolute() and not out.exists(),'fresh private output')
+ out.mkdir(parents=True,mode=0o700);(out/'runner-at-run.py').write_bytes(Path(__file__).read_bytes());(out/'deployment.json').write_bytes(mp.read_bytes())
+ r=extraction.section(ITEM);root=load(ADAPTER,'co_fixed_root');record={'schema':'swu-platform-stream-run-v1','calls':[],'invocations':0,'retries':0,'target_operation_state':'not_dispatched'}
+ def call(cmd,label):save(out/'record.json',record);text=root.root(cmd,record,out/(label+'.json'));save(out/'record.json',record);return text
+ need(call(guard()+exact(PAYLOAD),'reconciled-fixed-staging')=='','reconciled payload identity')
+ job=load(B/'swu-prepared-inline-job-20261028cw/job.py','cu_fixed_job')
+ spec=job.JobSpec(stage=STAGE,dll='SwuStreamTarget.dll',boot=BOOT,dotnet_sha256=DOTNET_SHA,payloads=tuple(job.Payload(n,p.stat().st_size,sha(p.read_bytes())) for n,p in sorted(PAYLOAD.items())),native_seconds=1700,supervisor_seconds=1750,host_seconds=1800,io_seconds=10)
+ spec.validate();job.launch_command(spec) # enforce8192 before any native intent
+ server=load(TRANSPORT/'section_server.py','cu_tls_server');client=json.loads(PAYLOAD['tls-config.json'].read_text());connection=json.loads((PRIVATE/'connection-private.json').read_text());need(client['certificate_sha256']==connection['certificate_sha256'] and client['nonce_hex']==connection['nonce_hex'] and client['total_timeout_seconds']==1600,'private connection binding')
+ ready=threading.Event();state={}
+ def notify(info):state['ready']=info;ready.set()
+ def serve():
+  try:
+   config=server.ServerConfig(source_path='${S95F_EVIDENCE_ROOT}/firmware-acquisition-20261028/T-RSMFAKUC-0090-upgrade.msd',source_offset=r['offset'],cipher_bytes=r['cipher_bytes'],cipher_sha256=r['cipher_sha256'],maximum_output_bytes=r['cipher_bytes'],certificate_path=str(PRIVATE/'server-cert.pem'),private_key_path=str(PRIVATE/'server-key.pem'),nonce=bytes.fromhex(client['nonce_hex']),output_directory=str(out/'transport'),bind_ipv4=client['server_ipv4'],port=client['server_port'],io_timeout_seconds=10,total_timeout_seconds=1600)
+   state['server_result']=server.serve(config,notify);save(out/'transport-result.json',state['server_result'])
+  except Exception:state['host_server_exception']=True
+  finally:ready.set()
+ evidence=out/'job';evidence.mkdir(mode=0o700)
+ with job.guarded_access(Path('${S95F_EVIDENCE_ROOT}/root-access/s95f-access.py')) as access:
+  original_exec=access.exec;job_calls=[]
+  def audited_exec(command):
+   item={'command':command,'submitted':True,'response_unknown':True};job_calls.append(item);save(out/'job-calls.json',job_calls)
+   try:text=original_exec(command)
+   except BaseException as error:
+    item.update(error_type=type(error).__name__,last_response=getattr(access,'last_response',None));save(out/'job-calls.json',job_calls);raise
+   item.update(response_unknown=False,stdout=text);save(out/'job-calls.json',job_calls);return text
+  access.exec=audited_exec
+  need(access.exec(guard()+exact(PAYLOAD))=='','locked payload preflight')
+  thread=threading.Thread(target=serve,name='fixed-platform-tls',daemon=True);thread.start();need(ready.wait(8) and state.get('ready')=={'host':client['server_ipv4'],'port':client['server_port']},'host listener unavailable before invoke; stage retained')
+  record.update(invocations=1,target_operation_state='inflight_or_unknown');save(out/'record.json',record)
+  terminal=job.run(access,spec,evidence)
+  need(terminal.get('transport_completed') is True and terminal.get('exit_code')==0 and terminal.get('deadline') is False and terminal.get('job_terminal_confirmed') is True,'native job rejected, never retry')
+  text=access.exec(job.collect_command(spec));(out/'job-diagnostic.txt').write_text(text)
+  m=re.fullmatch(r'STDOUT_BEGIN\n(.*?)STDOUT_END\nSTDERR_BEGIN\n(.*?)STDERR_END\nSUPERVISOR_ERROR_BEGIN\n(.*?)SUPERVISOR_ERROR_END\n',text,re.S);need(m is not None and m[2]=='' and m[3]=='','native collection framing')
+  framed='RUN_EXIT=0\nSTDOUT_BEGIN\n'+m[1]+'STDOUT_END\nSTDERR_BEGIN\nSTDERR_END\n';fields=parse_native(framed);(out/'diagnostic.txt').write_text(framed)
+  thread.join(2);need(not thread.is_alive(),'server completion unknown')
+  sr=state.get('server_result',{});need(sr.get('status')=='raw_complete' and sr.get('raw_complete') is True and sr.get('error_code')==0 and sr.get('cipher_bytes')==r['cipher_bytes'] and sr.get('raw_bytes')==r['cipher_bytes'] and sr.get('connections_accepted')==1,'server completion rejected')
+  record['target_operation_state']='completed_raw';save(out/'record.json',record)
+  result=extraction.validate_and_copy(out/'transport/raw-complete.bin',out/'platform.img',r);result.update(accepted=True,native=fields,source_trial=out.name,firmware_written=False,retries=0);save(out/'result.json',result)
+  need(access.exec(job.cleanup_command(spec))=='JOB_REMOVED\n','job cleanup unknown')
+  cmd=guard()+exact(PAYLOAD)+'rm -- '+' '.join(shlex.quote(STAGE+'/'+n) for n in sorted(PAYLOAD))+f'\nrmdir -- {STAGE}\ntest ! -e {STAGE}\ntest ! -L {STAGE}\nprintf "STAGE_REMOVED\\n"\n';need(access.exec(cmd)=='STAGE_REMOVED\n','stage cleanup unknown');save(out/'cleanup.json',{'stage_removed':True,'job_removed':True,'staging_calls':len(record['calls']),'job_calls':len(job_calls)})
+ print(json.dumps({'accepted':True,'section':ITEM,'original_bytes':result['bytes'],'strict_padding_validated':True,'original_crc_validated':True,'elapsed_ms':int(fields['elapsed_ms']),'firmware_written':False}))
+
+def main():
+ p=argparse.ArgumentParser();p.add_argument('--write-manifest',action='store_true');p.add_argument('--execute',action='store_true');p.add_argument('--manifest-sha256');p.add_argument('--output',type=Path);a=p.parse_args()
+ if a.write_manifest:need(not a.execute,'exclusive mode');save(HERE/'deployment-cx.json',manifest());print(sha((HERE/'deployment-cx.json').read_bytes()));return
+ if a.execute:need(a.output is not None and a.manifest_sha256 is not None,'execution anchors');execute(a.output,a.manifest_sha256)
+ else:print(json.dumps({'dry':True,'section':ITEM,'files':len(manifest()['files'])}))
+if __name__=='__main__':main()

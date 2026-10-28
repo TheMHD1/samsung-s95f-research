@@ -1,0 +1,71 @@
+EXIDX RANGE 0029fd4c..0029fdf4; input 0029fda0; may contain multiple functions and literal pools
+0029fd4c 70b5       push       {r4, r5, r6, lr}
+0029fd4e 0023       movs       r3, #0
+0029fd50 0e46       mov        r6, r1
+0029fd52 d1e90725   ldrd       r2, r5, [r1, #0x1c]
+0029fd56 0446       mov        r4, r0
+0029fd58 0360       str        r3, [r0]
+0029fd5a ad1a       subs       r5, r5, r2
+0029fd5c c0e90133   strd       r3, r3, [r0, #4]
+0029fd60 9d42       cmp        r5, r3
+0029fd62 19d0       beq        #0x29fd98
+0029fd64 1adb       blt        #0x29fd9c
+0029fd66 2846       mov        r0, r5
+0029fd68 b7f588e8   blx        #0x56e7c ; _Znwj
+0029fd6c 0346       mov        r3, r0
+0029fd6e 1d44       add        r5, r3
+0029fd70 2360       str        r3, [r4]
+0029fd72 c4e90135   strd       r3, r5, [r4, #4]
+0029fd76 d6e90715   ldrd       r1, r5, [r6, #0x1c]
+0029fd7a 6d1a       subs       r5, r5, r1
+0029fd7c 03d1       bne        #0x29fd86
+0029fd7e 2b44       add        r3, r5
+0029fd80 6360       str        r3, [r4, #4]
+0029fd82 2046       mov        r0, r4
+0029fd84 70bd       pop        {r4, r5, r6, pc}
+0029fd86 2a46       mov        r2, r5
+0029fd88 1846       mov        r0, r3
+0029fd8a b7f552e8   blx        #0x56e30 ; memmove
+0029fd8e 0346       mov        r3, r0
+0029fd90 2b44       add        r3, r5
+0029fd92 6360       str        r3, [r4, #4]
+0029fd94 2046       mov        r0, r4
+0029fd96 70bd       pop        {r4, r5, r6, pc}
+0029fd98 2b46       mov        r3, r5
+0029fd9a e8e7       b          #0x29fd6e
+0029fd9c b7f560ee   blx        #0x57a60 ; _ZSt17__throw_bad_allocv
+0029fda0 70b5       push       {r4, r5, r6, lr}
+0029fda2 0023       movs       r3, #0
+0029fda4 0e46       mov        r6, r1
+0029fda6 d1e90a25   ldrd       r2, r5, [r1, #0x28]
+0029fdaa 0446       mov        r4, r0
+0029fdac 0360       str        r3, [r0]
+0029fdae ad1a       subs       r5, r5, r2
+0029fdb0 c0e90133   strd       r3, r3, [r0, #4]
+0029fdb4 9d42       cmp        r5, r3
+0029fdb6 19d0       beq        #0x29fdec
+0029fdb8 1adb       blt        #0x29fdf0
+0029fdba 2846       mov        r0, r5
+0029fdbc b7f55ee8   blx        #0x56e7c ; _Znwj
+0029fdc0 0346       mov        r3, r0
+0029fdc2 1d44       add        r5, r3
+0029fdc4 2360       str        r3, [r4]
+0029fdc6 c4e90135   strd       r3, r5, [r4, #4]
+0029fdca d6e90a15   ldrd       r1, r5, [r6, #0x28]
+0029fdce 6d1a       subs       r5, r5, r1
+0029fdd0 03d1       bne        #0x29fdda
+0029fdd2 2b44       add        r3, r5
+0029fdd4 6360       str        r3, [r4, #4]
+0029fdd6 2046       mov        r0, r4
+0029fdd8 70bd       pop        {r4, r5, r6, pc}
+0029fdda 2a46       mov        r2, r5
+0029fddc 1846       mov        r0, r3
+0029fdde b7f528e8   blx        #0x56e30 ; memmove
+0029fde2 0346       mov        r3, r0
+0029fde4 2b44       add        r3, r5
+0029fde6 6360       str        r3, [r4, #4]
+0029fde8 2046       mov        r0, r4
+0029fdea 70bd       pop        {r4, r5, r6, pc}
+0029fdec 2b46       mov        r3, r5
+0029fdee e8e7       b          #0x29fdc2
+0029fdf0 b7f536ee   blx        #0x57a60 ; _ZSt17__throw_bad_allocv

@@ -1,0 +1,71 @@
+EXIDX RANGE 0029cf14..0029cfb4; input 0029cf74; may contain multiple functions and literal pools
+0029cf14 214a       ldr        r2, [pc, #0x84] ; literal[0029cf9c]=0022d0e2
+0029cf16 30b5       push       {r4, r5, lr}
+0029cf18 214b       ldr        r3, [pc, #0x84] ; literal[0029cfa0]=00004e04 ; GOT?=00000000
+0029cf1a 7a44       add        r2, pc
+0029cf1c c568       ldr        r5, [r0, #0xc]
+0029cf1e 83b0       sub        sp, #0xc
+0029cf20 d358       ldr        r3, [r2, r3]
+0029cf22 1b68       ldr        r3, [r3]
+0029cf24 0193       str        r3, [sp, #4]
+0029cf26 4ff00003   mov.w      r3, #0
+0029cf2a f5b1       cbz        r5, #0x29cf6a
+0029cf2c 0846       mov        r0, r1
+0029cf2e 05f053f9   bl         #0x2a21d8
+0029cf32 0446       mov        r4, r0
+0029cf34 0820       movs       r0, #8
+0029cf36 b9f5a2ef   blx        #0x56e7c ; _Znwj
+0029cf3a 2146       mov        r1, r4
+0029cf3c 0446       mov        r4, r0
+0029cf3e bcf041fb   bl         #0x3595c4
+0029cf42 2846       mov        r0, r5
+0029cf44 6946       mov        r1, sp
+0029cf46 0094       str        r4, [sp]
+0029cf48 baf036f8   bl         #0x356fb8
+0029cf4c 0098       ldr        r0, [sp]
+0029cf4e 10b1       cbz        r0, #0x29cf56
+0029cf50 0368       ldr        r3, [r0]
+0029cf52 5b68       ldr        r3, [r3, #4]
+0029cf54 9847       blx        r3
+0029cf56 134a       ldr        r2, [pc, #0x4c] ; literal[0029cfa4]=0022d0a2
+0029cf58 114b       ldr        r3, [pc, #0x44] ; literal[0029cfa0]=00004e04 ; GOT?=00000000
+0029cf5a 7a44       add        r2, pc
+0029cf5c d358       ldr        r3, [r2, r3]
+0029cf5e 1a68       ldr        r2, [r3]
+0029cf60 019b       ldr        r3, [sp, #4]
+0029cf62 5a40       eors       r2, r3
+0029cf64 0ad1       bne        #0x29cf7c
+0029cf66 03b0       add        sp, #0xc
+0029cf68 30bd       pop        {r4, r5, pc}
+0029cf6a 0f4a       ldr        r2, [pc, #0x3c] ; literal[0029cfa8]=0016c452
+0029cf6c c523       movs       r3, #0xc5
+0029cf6e 0f49       ldr        r1, [pc, #0x3c] ; literal[0029cfac]=0016c5c4
+0029cf70 0f48       ldr        r0, [pc, #0x3c] ; literal[0029cfb0]=0016c53a
+0029cf72 7a44       add        r2, pc
+0029cf74 7944       add        r1, pc
+0029cf76 7844       add        r0, pc
+0029cf78 daf004ff   bl         #0x377d84
+0029cf7c b9f5b8ed   blx        #0x56af0 ; __stack_chk_fail
+0029cf80 0098       ldr        r0, [sp]
+0029cf82 10b1       cbz        r0, #0x29cf8a
+0029cf84 0368       ldr        r3, [r0]
+0029cf86 5b68       ldr        r3, [r3, #4]
+0029cf88 9847       blx        r3
+0029cf8a baf5a0ea   blx        #0x574cc ; __cxa_end_cleanup
+0029cf8e 2046       mov        r0, r4
+0029cf90 0821       movs       r1, #8
+0029cf92 b9f592ee   blx        #0x56cb8 ; _ZdlPvj
+0029cf96 baf59aea   blx        #0x574cc ; __cxa_end_cleanup
+0029cf9a 00bf       nop        
+0029cf9c e2d0       beq        #0x29cf64
+0029cf9e 2200       movs       r2, r4
+0029cfa0 044e       ldr        r6, [pc, #0x10] ; literal[0029cfb4]=0004f1a0
+0029cfa2 0000       movs       r0, r0
+0029cfa4 a2d0       beq        #0x29ceec
+0029cfa6 2200       movs       r2, r4
+0029cfa8 52c4       stm        r4!, {r1, r4, r6}
+0029cfaa 1600       movs       r6, r2
+0029cfac c4c5       stm        r5!, {r2, r6, r7}
+0029cfae 1600       movs       r6, r2
+0029cfb0 3ac5       stm        r5!, {r1, r3, r4, r5}
+0029cfb2 1600       movs       r6, r2

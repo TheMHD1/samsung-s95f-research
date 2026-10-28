@@ -1,722 +1,751 @@
-# Full retained report catalog
+# Research document catalog
 
-718 Markdown reports are retained. Source code, JSON observations, instruction traces and other artifacts are also indexed in `manifests/source-dispositions.json`. Superseded and rejected work remains part of the corpus.
+This catalog lists the retained authored Markdown reports in this exact snapshot. Refer to the disposition manifest for source, tests, traces and intentionally withheld inputs. Historical reports retain their original stage limits; later result reports explicitly supersede earlier pending status.
 
-- [Samsung S95F: current investigation](../research/CURRENT-INVESTIGATION.md) — `CURRENT-INVESTIGATION.md`
-- [Samsung S95F panel-blackout reverse engineering](../research/README.md) — `README.md`
-- [Apps-selected panel recovery](../research/RECOVER-PANEL.md) — `RECOVER-PANEL.md`
-- [acquisition-report](../research/firmware-acquisition-20261028/acquisition-report.md) — `firmware-acquisition-20261028/acquisition-report.md`
-- [Content-dependent blackout investigation](../research/panel-idle-20261026/apps-route/content-dependent-blackout-investigation.md) — `panel-idle-20261026/apps-route/content-dependent-blackout-investigation.md`
-- [Enlightenment post-composition recovery probes — static client audit](../research/panel-idle-20261026/apps-route/enlightenment-recovery-probe.md) — `panel-idle-20261026/apps-route/enlightenment-recovery-probe.md`
-- [Home render, AVOC, and screen-saver call graph (static audit)](../research/panel-idle-20261026/apps-route/home-render-and-avoc-callgraph.md) — `panel-idle-20261026/apps-route/home-render-and-avoc-callgraph.md`
-- [Screen Saver Brightness: attended scalar test](../research/panel-idle-20261026/factory-ss-trial/README.md) — `panel-idle-20261026/factory-ss-trial/README.md`
-- [Apps-only Home renderer audit](../research/panel-idle-20261026/home-audit/findings.md) — `panel-idle-20261026/home-audit/findings.md`
-- [Runtime HWC prevention trial — 2026-10-26](../research/panel-idle-20261026/hwc-prevention/README.md) — `panel-idle-20261026/hwc-prevention/README.md`
-- [Idle-path assessment — 2026-10-26](../research/panel-idle-20261026/idle-research/assessment.md) — `panel-idle-20261026/idle-research/assessment.md`
-- [Preserved managed-bridge IL evidence](../research/panel-idle-20261026/idle-research/common-mute-il-audit.md) — `panel-idle-20261026/idle-research/common-mute-il-audit.md`
-- [Factory service: Screen Saver Brightness (offline analysis)](../research/panel-idle-20261026/idle-research/factory-screen-saver-brightness.md) — `panel-idle-20261026/idle-research/factory-screen-saver-brightness.md`
-- [Menu Pixel Refresh / Screen Optimization UI](../research/panel-idle-20261026/idle-research/menu-screen-optimization.md) — `panel-idle-20261026/idle-research/menu-screen-optimization.md`
-- [Raw native NewHome bridge evidence](../research/panel-idle-20261026/idle-research/newhome-native-bridge-disasm.md) — `panel-idle-20261026/idle-research/newhome-native-bridge-disasm.md`
-- [NewHome argument bridge: proven registration and boolean route](../research/panel-idle-20261026/idle-research/newhome-ui-native-arguments.md) — `panel-idle-20261026/idle-research/newhome-ui-native-arguments.md`
-- [Overnight AVE/HWC findings (offline, no TV actions)](../research/panel-idle-20261026/idle-research/overnight-ave-hwc-findings.md) — `panel-idle-20261026/idle-research/overnight-ave-hwc-findings.md`
-- [AVOC native panel-mute controller — recovered state and reset paths](../research/panel-idle-20261026/idle-research/overnight-avocd-controller.md) — `panel-idle-20261026/idle-research/overnight-avocd-controller.md`
-- [Full-Home AV mute versus panel-emission path](../research/panel-idle-20261026/idle-research/overnight-mute-output-chain.md) — `panel-idle-20261026/idle-research/overnight-mute-output-chain.md`
-- [Settings overlay / Full Home path (static CSFS audit)](../research/panel-idle-20261026/idle-research/overnight-overlay-path.md) — `panel-idle-20261026/idle-research/overnight-overlay-path.md`
-- [Self Diagnosis resource candidate — bounded follow-up](../research/panel-idle-20261026/idle-research/selfdiagnosis-optimization-candidate.md) — `panel-idle-20261026/idle-research/selfdiagnosis-optimization-candidate.md`
-- [Stock notification cancellation contract for the forced off-sensing warning](../research/panel-idle-20261026/idle-research/stock-notification-cancellation-contract.md) — `panel-idle-20261026/idle-research/stock-notification-cancellation-contract.md`
-- [`tv-viewer` automatic QD sensing notification path](../research/panel-idle-20261026/idle-research/tv-viewer-automatic-sensing-notification.md) — `panel-idle-20261026/idle-research/tv-viewer-automatic-sensing-notification.md`
-- [`tv-viewer` forced off-sensing expiry flow](../research/panel-idle-20261026/idle-research/tv-viewer-off-sensing-timeout-flow.md) — `panel-idle-20261026/idle-research/tv-viewer-off-sensing-timeout-flow.md`
-- [Automatic Screen Optimization warning: exact installed text located](../research/panel-idle-20261026/idle-research/tv-viewer-optimization-resource-match.md) — `panel-idle-20261026/idle-research/tv-viewer-optimization-resource-match.md`
-- [S95F reverse-engineering evidence index — October26 overnight](../research/panel-idle-20261026/overnight/RE-INDEX.md) — `panel-idle-20261026/overnight/RE-INDEX.md`
-- [Corrected AP_EXCO callback-source read address review](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/address-review.md) — `panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/address-review.md`
-- [Corrected callback-source read: pointer and numeric fields corroborated](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/capture-findings.md) — `panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/capture-findings.md`
-- [Independent checkpoint review: O–R callback provenance block](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/checkpoint-review.md) — `panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/checkpoint-review.md`
-- [AP_EXCO callback-source capture runtime review](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/runtime-review.md) — `panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/runtime-review.md`
-- [Fixed AP_EXCO callback-source read](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/source-checkpoint/README.md) — `panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/source-checkpoint/README.md`
-- [Managed AP_EXCO callback-source reader: independent source review](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/source-review.md) — `panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/source-review.md`
-- [Corrected AP_EXCO direct-caller provenance](../research/panel-idle-20261026/overnight/ap-exco-caller-provenance-20261027q/ap-exco-caller-provenance.md) — `panel-idle-20261026/overnight/ap-exco-caller-provenance-20261027q/ap-exco-caller-provenance.md`
-- [Independent review: corrected AP_EXCO caller provenance](../research/panel-idle-20261026/overnight/ap-exco-caller-provenance-20261027q/independent-review.md) — `panel-idle-20261026/overnight/ap-exco-caller-provenance-20261027q/independent-review.md`
-- [Corrected AP_EXCO derived-object provenance](../research/panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/ap-exco-derived-object-provenance.md) — `panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/ap-exco-derived-object-provenance.md`
-- [Independent review of derived AP_EXCO object provenance](../research/panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/independent-review.md) — `panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/independent-review.md`
-- [Closure of independent P ordering finding](../research/panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/review-closure.md) — `panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/review-closure.md`
-- [AP_EXCO helper-input provenance](../research/panel-idle-20261026/overnight/ap-exco-helper-inputs-20261027s/ap-exco-helper-inputs.md) — `panel-idle-20261026/overnight/ap-exco-helper-inputs-20261027s/ap-exco-helper-inputs.md`
-- [W fixed ordinary-input read: independent address review](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/address-review.md) — `panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/address-review.md`
-- [W captured aggregate interpretation](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/aggregate-interpretation.md) — `panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/aggregate-interpretation.md`
-- [W live ordinary-input snapshot](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/capture-findings.md) — `panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/capture-findings.md`
-- [AP_EXCO ordinary-input snapshot plan (offline)](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/read-plan.md) — `panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/read-plan.md`
-- [Managed USB AP_EXCO input snapshot](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/source-checkpoint/README.md) — `panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/source-checkpoint/README.md`
-- [W source/build review before execution](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/source-review.md) — `panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/source-review.md`
-- [AE independent review](../research/panel-idle-20261026/overnight/ap-exco-reference-delta-20261027ae/independent-review.md) — `panel-idle-20261026/overnight/ap-exco-reference-delta-20261027ae/independent-review.md`
-- [Captured ordinary state versus two stored references](../research/panel-idle-20261026/overnight/ap-exco-reference-delta-20261027ae/reference-delta.md) — `panel-idle-20261026/overnight/ap-exco-reference-delta-20261027ae/reference-delta.md`
-- [AP_EXCO fixed-source read address review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/address-review.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/address-review.md`
-- [Fixed source capture: accepted transport, rejected pointer binding](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/capture-findings.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/capture-findings.md`
-- [Independent H–M checkpoint review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/checkpoint-review.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/checkpoint-review.md`
-- [AP_EXCO pointer-layout follow-up](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/pointer-layout-followup.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/pointer-layout-followup.md`
-- [AP_EXCO source capture: independent runtime review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/runtime-review.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/runtime-review.md`
-- [Fixed AP_EXCO source read](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-checkpoint/README.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-checkpoint/README.md`
-- [Additive correction: AP_EXCO callback source lineage](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-lineage-erratum.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-lineage-erratum.md`
-- [Managed AP_EXCO source reader: independent offline source review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-review.md) — `panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-review.md`
-- [Y source-trace independent review closure](../research/panel-idle-20261026/overnight/ap-table-source-20261027y/review-closure.md) — `panel-idle-20261026/overnight/ap-table-source-20261027y/review-closure.md`
-- [Fixed aggregate-table source trace](../research/panel-idle-20261026/overnight/ap-table-source-20261027y/table-source-trace.md) — `panel-idle-20261026/overnight/ap-table-source-20261027y/table-source-trace.md`
-- [Owner Apps-to-ForYou transition: retained evidence analysis](../research/panel-idle-20261026/overnight/apps-foryou-transition-analysis-20261027.md) — `panel-idle-20261026/overnight/apps-foryou-transition-analysis-20261027.md`
-- [One ordinary Apps-key request with no confirmed foreground transition](../research/panel-idle-20261026/overnight/apps-key-trial-20261027bm/findings.md) — `panel-idle-20261026/overnight/apps-key-trial-20261027bm/findings.md`
-- [BU Apps-selected physical recovery](../research/panel-idle-20261026/overnight/apps-selected-panel-recovery-20261027bu/findings.md) — `panel-idle-20261026/overnight/apps-selected-panel-recovery-20261027bu/findings.md`
-- [Automatic Screen Optimization: reconstructed path and remaining repair boundary](../research/panel-idle-20261026/overnight/automatic-optimization-end-to-end.md) — `panel-idle-20261026/overnight/automatic-optimization-end-to-end.md`
-- [Live backend, corrected storage route, and onset-capture preparation](../research/panel-idle-20261026/overnight/backend-storage-and-onset-preparation.md) — `panel-idle-20261026/overnight/backend-storage-and-onset-preparation.md`
-- [Independent review: live backend and factory storage continuation](../research/panel-idle-20261026/overnight/backend-storage-independent-review.md) — `panel-idle-20261026/overnight/backend-storage-independent-review.md`
-- [Independent review: budgeted 180-second HDMI onset collector](../research/panel-idle-20261026/overnight/budgeted-onset-independent-review.md) — `panel-idle-20261026/overnight/budgeted-onset-independent-review.md`
-- [Request replay and branch-state follow-up](../research/panel-idle-20261026/overnight/cache-replay-and-branch-state-progress.md) — `panel-idle-20261026/overnight/cache-replay-and-branch-state-progress.md`
-- [Request-replay follow-up review and corrections](../research/panel-idle-20261026/overnight/cache-replay-followup-review.md) — `panel-idle-20261026/overnight/cache-replay-followup-review.md`
-- [Descriptor 8: packaged initializer and callback argument](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/descriptor-identity.md) — `panel-idle-20261026/overnight/callback-lifecycle-20261027bc/descriptor-identity.md`
-- [Callback identity and the dependency of ordinary re-enable on dispatch](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/findings.md) — `panel-idle-20261026/overnight/callback-lifecycle-20261027bc/findings.md`
-- [Bounded review and corrections](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/independent-review.md) — `panel-idle-20261026/overnight/callback-lifecycle-20261027bc/independent-review.md`
-- [Descriptor-8 callback lifecycle and bounded re-enable edge](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/reenable-trace.md) — `panel-idle-20261026/overnight/callback-lifecycle-20261027bc/reenable-trace.md`
-- [Offline QD I²C analysis of the 90-second capacity capture](../research/panel-idle-20261026/overnight/capacity-20261026t1648.onset/offline-qd-i2c-analysis.md) — `panel-idle-20261026/overnight/capacity-20261026t1648.onset/offline-qd-i2c-analysis.md`
-- [Candidate code-window fingerprints: three exact matches](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/capture-findings.md) — `panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/capture-findings.md`
-- [Independent N checkpoint review](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/checkpoint-review.md) — `panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/checkpoint-review.md`
-- [Image-1 low-linked-address code-map qualification follow-up](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/code-map-qualified-followup.md) — `panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/code-map-qualified-followup.md`
-- [Managed selector-1 code-fingerprint reader: independent source review](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/reader-source-review.md) — `panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/reader-source-review.md`
-- [Code-fingerprint capture runtime review](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/runtime-review.md) — `panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/runtime-review.md`
-- [Managed USB code fingerprint reader](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/source-checkpoint/README.md) — `panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/source-checkpoint/README.md`
-- [Fixed selector-1 code-window reader](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/source-checkpoint/source-note.md) — `panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/source-checkpoint/source-note.md`
-- [Selector-1 code-write diagnostic readiness](../research/panel-idle-20261026/overnight/code-write-readiness-20261027r/code-write-readiness.md) — `panel-idle-20261026/overnight/code-write-readiness-20261027r/code-write-readiness.md`
-- [Independent review of selector-1 code-write readiness](../research/panel-idle-20261026/overnight/code-write-readiness-20261027r/independent-review.md) — `panel-idle-20261026/overnight/code-write-readiness-20261027r/independent-review.md`
-- [Controller fault follow-up: recovery predicates, assets and shared log](../research/panel-idle-20261026/overnight/controller-fault-followup-20261026.md) — `panel-idle-20261026/overnight/controller-fault-followup-20261026.md`
-- [Fresh host and retained-controller state](../research/panel-idle-20261026/overnight/current-host-health-20261027v/findings.md) — `panel-idle-20261026/overnight/current-host-health-20261027v/findings.md`
-- [Independent ordinary trace reviews and corrections](../research/panel-idle-20261026/overnight/current-host-health-20261027v/ordinary-trace-reviews.md) — `panel-idle-20261026/overnight/current-host-health-20261027v/ordinary-trace-reviews.md`
-- [AP_EXCO helper-input provenance](../research/panel-idle-20261026/overnight/current-host-health-20261027v/s-before-review-correction.md) — `panel-idle-20261026/overnight/current-host-health-20261027v/s-before-review-correction.md`
-- [S95F blackout: low-level investigation, 2026-10-26](../research/panel-idle-20261026/overnight/diagnosis-20261026.md) — `panel-idle-20261026/overnight/diagnosis-20261026.md`
-- [Panel blackout: evidence and unresolved links](../research/panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md) — `panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md`
-- [Independent ERR_DET input sample: actual result](../research/panel-idle-20261026/overnight/errdet-direct-actual-result-20261026.md) — `panel-idle-20261026/overnight/errdet-direct-actual-result-20261026.md`
-- [Existing read-only route to executing image-1 identity](../research/panel-idle-20261026/overnight/executing-code-diagnostic-route-20261027h/executing-code-diagnostic-route.md) — `panel-idle-20261026/overnight/executing-code-diagnostic-route-20261027h/executing-code-diagnostic-route.md`
-- [Independent H/K offline review](../research/panel-idle-20261026/overnight/executing-code-diagnostic-route-20261027h/independent-review.md) — `panel-idle-20261026/overnight/executing-code-diagnostic-route-20261027h/independent-review.md`
-- [Live controller identity and CPU/DMA namespace investigation](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/README.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/README.md`
-- [D5 current-vs-active fault-path coordinates](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/current-fault-path.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/current-fault-path.md`
-- [D5 independent review record](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/independent-review-record.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/independent-review-record.md`
-- [Packaged persisted-log producer and bounded recovery map](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/persisted-log-storage-trace.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/persisted-log-storage-trace.md`
-- [Controller live identity, state and internal logs — 2026-10-27](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/progress.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/progress.md`
-- [Reverse-engineering map and evidence boundaries](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/reverse-engineering-map.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/reverse-engineering-map.md`
-- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/secondary-event-log-buffer.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/secondary-event-log-buffer.md`
-- [Secondary logger volatile-arm protocol](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/secondary-logger-arm-protocol.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/secondary-logger-arm-protocol.md`
-- [Volatile image-1 event-logger instrumentation review](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/volatile-logger-review.md) — `panel-idle-20261026/overnight/executing-image-identity-20261027e/volatile-logger-review.md`
-- [Live diagnosis-backend identity: bounded pointer capture](../research/panel-idle-20261026/overnight/factory-backend-runtime.md) — `panel-idle-20261026/overnight/factory-backend-runtime.md`
-- [Independent review record: factory, notification and ARM32 probe](../research/panel-idle-20261026/overnight/factory-notification-abi-independent-review.md) — `panel-idle-20261026/overnight/factory-notification-abi-independent-review.md`
-- [Finite onset capture work, 2026-10-27](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/README.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/README.md`
-- [Control-v2 launch lineage audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v2-launch-lineage.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v2-launch-lineage.md`
-- [Independent review: control-v2 launch lineage](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v2-lineage-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v2-lineage-review.md`
-- [Control v3 launch-receipt escape diagnosis](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-escape-diagnosis.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-escape-diagnosis.md`
-- [Independent review: control-v3 launch receipt and terminal retrieval](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-receipt-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-receipt-review.md`
-- [Independent control-v3 runtime audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-runtime-audit.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-runtime-audit.md`
-- [Controller clean-state options after the ambiguous onset launch](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/controller-clean-state-options.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/controller-clean-state-options.md`
-- [Independent diagnostic-followup manifest review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/diagnostic-followup-manifest-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/diagnostic-followup-manifest-review.md`
-- [Bounded public code-map search follow-up](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/external-code-map-search-followup.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/external-code-map-search-followup.md`
-- [Independent D7 fault-capture freeze review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-capture-manifest-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-capture-manifest-review.md`
-- [Retained numeric context after the V6 RTP fault](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-after-v6-findings.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-after-v6-findings.md`
-- [Independent runtime review: fault-context read after V6](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-after-v6-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-after-v6-review.md`
-- [Prospective fixed fault-context read at `0x47010f00`](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-read-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-read-plan.md`
-- [Current two-window retained-statistic read plan](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-two-window-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-two-window-plan.md`
-- [V6: recorded RTP fault transition on the Samsung S95F](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-incident-v6.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-incident-v6.md`
-- [Independent framing-wrapper review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/framing-wrapper-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/framing-wrapper-review.md`
-- [Image-1 executable bus-address qualification](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/image1-code-bus-qualification.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/image1-code-bus-qualification.md`
-- [Independent launcher-qualification runtime review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/launcher-qualification-runtime-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/launcher-qualification-runtime-review.md`
-- [Detached launcher qualification](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/launcher-qualification.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/launcher-qualification.md`
-- [Fixed ordinary selector-window capture plan](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/mode-selector-two-window-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/mode-selector-two-window-plan.md`
-- [Qualified onset wrapper: actual offline test coverage](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-test-coverage.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-test-coverage.md`
-- [V4: unattended Apps-to-For-You technical capture](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v4-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v4-plan.md`
-- [Independent onset-v4 runtime audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v4-runtime-audit.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v4-runtime-audit.md`
-- [V5: repeat technical trigger after dismissing screensaver](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v5-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v5-plan.md`
-- [Independent onset-v5/v6 runtime audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v5-v6-runtime-audit.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v5-v6-runtime-audit.md`
-- [onset-v6-plan](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v6-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v6-plan.md`
-- [Decision for one corrected finite control run](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-control-execution-decision.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-control-execution-decision.md`
-- [Qualified supervisor port plan](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-supervisor-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-supervisor-plan.md`
-- [Independent review: qualified detached onset wrapper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-wrapper-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-wrapper-review.md`
-- [Independent review: fixed RT fault-context reader](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rt-fault-context-reader-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rt-fault-context-reader-review.md`
-- [Independent source review: fixed RTP mode-window reader](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rt-mode-reader-source-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rt-mode-reader-source-review.md`
-- [Independent review: RTP event 736 predicate and prospective context windows](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-736-predicate-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-736-predicate-review.md`
-- [RTP event-736 ordinary predicate and diagnostic state](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-736-predicate.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-736-predicate.md`
-- [V6 `rtp_act_736`: captured setter and host-wire boundary](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-act-736-trace.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-act-736-trace.md`
-- [RTP alternate-threshold source-context provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-alternate-source-context.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-alternate-source-context.md`
-- [RTP alternate-selector local 16-byte layout](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-alternate-window-layout.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-alternate-window-layout.md`
-- [RTP incident record format and packed-input provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-incident-record-format.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-incident-record-format.md`
-- [Independent qualification review: image-1 RTP mode RAM reads](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-mode-ram-read-qualification.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-mode-ram-read-qualification.md`
-- [RTP ordinary mode-selector provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-mode-selection-provenance.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-mode-selection-provenance.md`
-- [Offline trace of `(RTP)Frame end`, `(RTP:NORMAL)(365)`, and `t(1)`](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-normal-log-trace.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-normal-log-trace.md`
-- [RTP ordinary predicate: observable, latched, and missing event-time state](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-observable-vs-latched-plan.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-observable-vs-latched-plan.md`
-- [Correction to the frozen packed-source selector interpretation](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-packed-source-address-erratum.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-packed-source-address-erratum.md`
-- [Ordinary scan gating and the limits of late samples](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-post-fault-ordinary-gating.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-post-fault-ordinary-gating.md`
-- [RTP score-input provenance: qualifying counts, not difference amplitude](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-score-input-provenance.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-score-input-provenance.md`
-- [RTP selector consistency after V6](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-selector-consistency-after-v6.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-selector-consistency-after-v6.md`
-- [Independent review: RTP score-input provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/score-input-provenance-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/score-input-provenance-review.md`
-- [Independent selector-consistency review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-consistency-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-consistency-review.md`
-- [Later selector capture: nonzero alternate byte and NORMAL-compatible mode](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-context-after-v6-findings.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-context-after-v6-findings.md`
-- [Independent runtime review: selector/context read after V6](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-context-after-v6-review.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-context-after-v6-review.md`
-- [Fixed RT fault-context reader (offline candidate)](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-fault-context/README.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-fault-context/README.md`
-- [Fixed late RTP mode-window reader (offline candidate)](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-mode-selector/README.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-mode-selector/README.md`
-- [Managed fixed UI-tab launch helper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-ui-tab-launch/README.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-ui-tab-launch/README.md`
-- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-usb-secondary-logger-onset-framing/README-native.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-usb-secondary-logger-onset-framing/README-native.md`
-- [Qualified detached onset wrapper: receipt framing correction](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-usb-secondary-logger-onset-framing/README-qualified.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-usb-secondary-logger-onset-framing/README-qualified.md`
-- [Qualified detached onset wrapper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/qualified-predecessor/README-qualified.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/qualified-predecessor/README-qualified.md`
-- [Independent audit of the corrected Apps AppControl run](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-apps-runtime-audit.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-apps-runtime-audit.md`
-- [Managed fixed UI-tab launch helper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-rejected-missing-logbuild/helper/README.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-rejected-missing-logbuild/helper/README.md`
-- [Fixed normal-UI tab sender](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-rejected-missing-logbuild/ui-tab-launch.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-rejected-missing-logbuild/ui-tab-launch.md`
-- [`switch_page` consumption trace](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-switch-page-consumption-trace.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-switch-page-consumption-trace.md`
-- [Fixed normal-UI tab sender](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-tab-launch.md) — `panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-tab-launch.md`
-- [Firmware identity and acquisition work log](../research/panel-idle-20261026/overnight/firmware-fingerprint-20261027d/README.md) — `panel-idle-20261026/overnight/firmware-fingerprint-20261027d/README.md`
-- [Independent review retained by root](../research/panel-idle-20261026/overnight/firmware-fingerprint-20261027d/independent-review-record.md) — `panel-idle-20261026/overnight/firmware-fingerprint-20261027d/independent-review-record.md`
-- [Stored firmware differs from the selected package](../research/panel-idle-20261026/overnight/firmware-fingerprint-20261027d/progress.md) — `panel-idle-20261026/overnight/firmware-fingerprint-20261027d/progress.md`
-- [Firmware/profile investigation, 2026-10-27](../research/panel-idle-20261026/overnight/firmware-profile-progress-20261027.md) — `panel-idle-20261026/overnight/firmware-profile-progress-20261027.md`
-- [BX fixed-tab pixel intervention candidate](../research/panel-idle-20261026/overnight/fixed-tab-pattern-20261027bx/README.md) — `panel-idle-20261026/overnight/fixed-tab-pattern-20261027bx/README.md`
-- [BW: full For You / Apps recovery confirmation](../research/panel-idle-20261026/overnight/full-confirmation-20261027bw/findings.md) — `panel-idle-20261026/overnight/full-confirmation-20261027bw/findings.md`
-- [Independent ERR_DET GPIO route: current evidence](../research/panel-idle-20261026/overnight/gpio-direct-route-progress.md) — `panel-idle-20261026/overnight/gpio-direct-route-progress.md`
-- [Hardware and HDMI investigation, 2026-10-26](../research/panel-idle-20261026/overnight/hardware-hdmi-evidence.md) — `panel-idle-20261026/overnight/hardware-hdmi-evidence.md`
-- [Independent audit: HDMI backend metadata and copies](../research/panel-idle-20261026/overnight/hdmi-backend-acquisition-audit.md) — `panel-idle-20261026/overnight/hdmi-backend-acquisition-audit.md`
-- [HDMI-control binding reader offline review notes](../research/panel-idle-20261026/overnight/hdmi-control-binding-reader-review.md) — `panel-idle-20261026/overnight/hdmi-control-binding-reader-review.md`
-- [HDMI control backend binding reader: prepared, not run](../research/panel-idle-20261026/overnight/hdmi-control-binding-reader-status.md) — `panel-idle-20261026/overnight/hdmi-control-binding-reader-status.md`
-- [Independent parent review of the longer HDMI recorder](../research/panel-idle-20261026/overnight/hdmi-long-parent-review-20261027.md) — `panel-idle-20261026/overnight/hdmi-long-parent-review-20261027.md`
-- [HDMI onset: bounded long-window design review](../research/panel-idle-20261026/overnight/hdmi-long-window-design-20261027.md) — `panel-idle-20261026/overnight/hdmi-long-window-design-20261027.md`
-- [Historical raw common-status zero](../research/panel-idle-20261026/overnight/historical-common-status-20261027at/historical-zero.md) — `panel-idle-20261026/overnight/historical-common-status-20261027at/historical-zero.md`
-- [Independent review closure](../research/panel-idle-20261026/overnight/historical-common-status-20261027at/review-closure.md) — `panel-idle-20261026/overnight/historical-common-status-20261027at/review-closure.md`
-- [Historical TCON ERR DET 0x10: exact-build decode](../research/panel-idle-20261026/overnight/historical-errdet-decode.md) — `panel-idle-20261026/overnight/historical-errdet-decode.md`
-- [Independent Home/output review and correction record](../research/panel-idle-20261026/overnight/home-output-independent-review.md) — `panel-idle-20261026/overnight/home-output-independent-review.md`
-- [Independent review closure](../research/panel-idle-20261026/overnight/host-status-lifetime-20261027as/review-closure.md) — `panel-idle-20261026/overnight/host-status-lifetime-20261027as/review-closure.md`
-- [Host selector-8 status-field lifetime](../research/panel-idle-20261026/overnight/host-status-lifetime-20261027as/status-lifetime.md) — `panel-idle-20261026/overnight/host-status-lifetime-20261027as/status-lifetime.md`
-- [Physical-blackout incident comparison](../research/panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md) — `panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md`
-- [Incident comparison review closure](../research/panel-idle-20261026/overnight/incident-separation-20261027z/review-closure.md) — `panel-idle-20261026/overnight/incident-separation-20261027z/review-closure.md`
-- [Native ABI availability probe — execution denied](../research/panel-idle-20261026/overnight/kernel-abi-probe/README.md) — `panel-idle-20261026/overnight/kernel-abi-probe/README.md`
-- [Kernel BPF/perf observer feasibility — exact-image boundary](../research/panel-idle-20261026/overnight/kernel-bpf-presence.md) — `panel-idle-20261026/overnight/kernel-bpf-presence.md`
-- [Acquired kernel and Samsung runtime-use mechanism](../research/panel-idle-20261026/overnight/kernel-runtime-pm-findings.md) — `panel-idle-20261026/overnight/kernel-runtime-pm-findings.md`
-- [`libteec.so` ordinary-file copy: independent runtime audit](../research/panel-idle-20261026/overnight/libteec-copy-20261027a/runtime-audit.md) — `panel-idle-20261026/overnight/libteec-copy-20261027a/runtime-audit.md`
-- [Lifecycle and observer review — parent-preserved mailbox record](../research/panel-idle-20261026/overnight/lifecycle-observer-independent-review.md) — `panel-idle-20261026/overnight/lifecycle-observer-independent-review.md`
-- [Managed fixed Apps-key launch helper](../research/panel-idle-20261026/overnight/managed-apps-key-launch-20261027bj/README.md) — `panel-idle-20261026/overnight/managed-apps-key-launch-20261027bj/README.md`
-- [Independent review — managed ERR_DET cdev metadata probe](../research/panel-idle-20261026/overnight/managed-errpin-cdev/independent-review.md) — `panel-idle-20261026/overnight/managed-errpin-cdev/independent-review.md`
-- [Independent review — one-shot ERR_DET cdev input reader](../research/panel-idle-20261026/overnight/managed-errpin-cdev/input-independent-review.md) — `panel-idle-20261026/overnight/managed-errpin-cdev/input-independent-review.md`
-- [Independent runtime audit — one-shot ERR_DET GPIO input](../research/panel-idle-20261026/overnight/managed-errpin-cdev/input-runtime-audit.md) — `panel-idle-20261026/overnight/managed-errpin-cdev/input-runtime-audit.md`
-- [Independent runtime audit — ERR_DET cdev metadata probe](../research/panel-idle-20261026/overnight/managed-errpin-cdev/runtime-audit.md) — `panel-idle-20261026/overnight/managed-errpin-cdev/runtime-audit.md`
-- [ARM32 kernel-observation interface probe through the stock CLR](../research/panel-idle-20261026/overnight/managed-kernel-abi-probe/README.md) — `panel-idle-20261026/overnight/managed-kernel-abi-probe/README.md`
-- [Managed TCON selector-0x128 read helper](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/README.md) — `panel-idle-20261026/overnight/managed-tcon-duty-read/README.md`
-- [Independent review of the fixed selector-0x128 read helper](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/independent-review.md) — `panel-idle-20261026/overnight/managed-tcon-duty-read/independent-review.md`
-- [Independent review: fixed selector-0x128 duty-read runner v2](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/independent-runner-review-v2.md) — `panel-idle-20261026/overnight/managed-tcon-duty-read/independent-runner-review-v2.md`
-- [Duty-read runner preparation review](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/runner-review.md) — `panel-idle-20261026/overnight/managed-tcon-duty-read/runner-review.md`
-- [Independent review: managed ERR_DET GPIO query](../research/panel-idle-20261026/overnight/managed-tcon-gpio-read/independent-review.md) — `panel-idle-20261026/overnight/managed-tcon-gpio-read/independent-review.md`
-- [Parent-preserved independent runtime audit: GPIO query a](../research/panel-idle-20261026/overnight/managed-tcon-gpio-read/runtime-audit.md) — `panel-idle-20261026/overnight/managed-tcon-gpio-read/runtime-audit.md`
-- [Managed QD TCON power-cycle-once helper](../research/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/README.md) — `panel-idle-20261026/overnight/managed-tcon-power-cycle-once/README.md`
-- [Independent offline review: fixed MODE2 power-cycle helper](../research/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/independent-review.md) — `panel-idle-20261026/overnight/managed-tcon-power-cycle-once/independent-review.md`
-- [One-shot stock MODE2 recovery experiment plan](../research/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/recovery-experiment-plan.md) — `panel-idle-20261026/overnight/managed-tcon-power-cycle-once/recovery-experiment-plan.md`
-- [Independent review: managed TCON status read](../research/panel-idle-20261026/overnight/managed-tcon-status-read/independent-review.md) — `panel-idle-20261026/overnight/managed-tcon-status-read/independent-review.md`
-- [Independent review: managed TCON status read](../research/panel-idle-20261026/overnight/managed-tcon-status-read/rejected-file-guard-b/independent-review.md) — `panel-idle-20261026/overnight/managed-tcon-status-read/rejected-file-guard-b/independent-review.md`
-- [Independent review: managed TCON status read](../research/panel-idle-20261026/overnight/managed-tcon-status-read/rejected-preflight-a/independent-review.md) — `panel-idle-20261026/overnight/managed-tcon-status-read/rejected-preflight-a/independent-review.md`
-- [Managed fixed UI-tab launch helper](../research/panel-idle-20261026/overnight/managed-ui-tab-launch/README.md) — `panel-idle-20261026/overnight/managed-ui-tab-launch/README.md`
-- [Fixed AP_EXCO callback-source read](../research/panel-idle-20261026/overnight/managed-usb-ap-exco-callback-read/README.md) — `panel-idle-20261026/overnight/managed-usb-ap-exco-callback-read/README.md`
-- [Managed USB AP_EXCO input snapshot](../research/panel-idle-20261026/overnight/managed-usb-ap-exco-input-snapshot/README.md) — `panel-idle-20261026/overnight/managed-usb-ap-exco-input-snapshot/README.md`
-- [Fixed AP_EXCO source read](../research/panel-idle-20261026/overnight/managed-usb-ap-exco-source-read/README.md) — `panel-idle-20261026/overnight/managed-usb-ap-exco-source-read/README.md`
-- [Managed USB code fingerprint reader](../research/panel-idle-20261026/overnight/managed-usb-code-fingerprint-read/README.md) — `panel-idle-20261026/overnight/managed-usb-code-fingerprint-read/README.md`
-- [Fixed selector-1 code-window reader](../research/panel-idle-20261026/overnight/managed-usb-code-fingerprint-read/source-note.md) — `panel-idle-20261026/overnight/managed-usb-code-fingerprint-read/source-note.md`
-- [Fixed common error-guard and selector reader](../research/panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/README.md`
-- [Offline reset reference for the fixed window](../research/panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/common-error-guard-reset-reference.md) — `panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/common-error-guard-reset-reference.md`
-- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/derivation-diff.md) — `panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/derivation-diff.md`
-- [Fixed current-callback-table DMA-alias reader](../research/panel-idle-20261026/overnight/managed-usb-current-callbacks-alias-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-current-callbacks-alias-read-once/README.md`
-- [Fixed current-callback-table reader](../research/panel-idle-20261026/overnight/managed-usb-current-callbacks-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-current-callbacks-read-once/README.md`
-- [Fixed controller descriptor-memory read](../research/panel-idle-20261026/overnight/managed-usb-descriptor-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-descriptor-read-once/README.md`
-- [Fixed descriptor reader, sysfs streaming revision](../research/panel-idle-20261026/overnight/managed-usb-descriptor-read-once-v2/README.md) — `panel-idle-20261026/overnight/managed-usb-descriptor-read-once-v2/README.md`
-- [Bounded read-only eMMC backup helper](../research/panel-idle-20261026/overnight/managed-usb-emmc-backup-bounded/README.md) — `panel-idle-20261026/overnight/managed-usb-emmc-backup-bounded/README.md`
-- [Fixed 32 KiB storage-read boundary probe](../research/panel-idle-20261026/overnight/managed-usb-emmc-backup-probe-32768/README.md) — `panel-idle-20261026/overnight/managed-usb-emmc-backup-probe-32768/README.md`
-- [Fixed read-only eMMC sector probe](../research/panel-idle-20261026/overnight/managed-usb-emmc-sector-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-emmc-sector-read-once/README.md`
-- [Fixed main-controller event-log reader](../research/panel-idle-20261026/overnight/managed-usb-main-event-log-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-main-event-log-read-once/README.md`
-- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-main-event-log-read-once/derivation-diff.md) — `panel-idle-20261026/overnight/managed-usb-main-event-log-read-once/derivation-diff.md`
-- [Fixed main-log index and status-flag reader](../research/panel-idle-20261026/overnight/managed-usb-main-log-index-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-main-log-index-read-once/README.md`
-- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-main-log-index-read-once/derivation-diff.md) — `panel-idle-20261026/overnight/managed-usb-main-log-index-read-once/derivation-diff.md`
-- [Managed fixed NPC_AP divisor reader](../research/panel-idle-20261026/overnight/managed-usb-npc-ap-divisor-read/README.md) — `panel-idle-20261026/overnight/managed-usb-npc-ap-divisor-read/README.md`
-- [Stopped partial directory](../research/panel-idle-20261026/overnight/managed-usb-ordinary-onset-observer/STOPPED.md) — `panel-idle-20261026/overnight/managed-usb-ordinary-onset-observer/STOPPED.md`
-- [Fixed 256-byte RT block read](../research/panel-idle-20261026/overnight/managed-usb-rt-block-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-rt-block-read-once/README.md`
-- [Finite RT block recorder](../research/panel-idle-20261026/overnight/managed-usb-rt-block-sampler/README.md) — `panel-idle-20261026/overnight/managed-usb-rt-block-sampler/README.md`
-- [Fixed RT fault-context reader (offline candidate)](../research/panel-idle-20261026/overnight/managed-usb-rt-fault-context-read/README.md) — `panel-idle-20261026/overnight/managed-usb-rt-fault-context-read/README.md`
-- [Fixed late RTP mode-window reader (offline candidate)](../research/panel-idle-20261026/overnight/managed-usb-rt-mode-read/README.md) — `panel-idle-20261026/overnight/managed-usb-rt-mode-read/README.md`
-- [Managed USB RTP passive observer — native candidate](../research/panel-idle-20261026/overnight/managed-usb-rt-passive-observer/README-native.md) — `panel-idle-20261026/overnight/managed-usb-rt-passive-observer/README-native.md`
-- [RTP passive observer — reviewed host-wrapper candidate](../research/panel-idle-20261026/overnight/managed-usb-rt-passive-observer/README-wrapper.md) — `panel-idle-20261026/overnight/managed-usb-rt-passive-observer/README-wrapper.md`
-- [Experimental fixed RT-prefix read](../research/panel-idle-20261026/overnight/managed-usb-rt-prefix-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-rt-prefix-read-once/README.md`
-- [Fixed secondary-controller event-log reader](../research/panel-idle-20261026/overnight/managed-usb-secondary-event-log-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-secondary-event-log-read-once/README.md`
-- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/managed-usb-secondary-event-log-read-once/secondary-event-log-buffer.md) — `panel-idle-20261026/overnight/managed-usb-secondary-event-log-read-once/secondary-event-log-buffer.md`
-- [Fixed secondary event-log header reader](../research/panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/README.md`
-- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/derivation-diff.md) — `panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/derivation-diff.md`
-- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/evidence-report.md) — `panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/evidence-report.md`
-- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset/README-native.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-onset/README-native.md`
-- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-framing/README-native.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-framing/README-native.md`
-- [Qualified detached onset wrapper: receipt framing correction](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-framing/README-qualified.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-framing/README-qualified.md`
-- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-qualified/README-native.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-qualified/README-native.md`
-- [Qualified detached onset wrapper](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-qualified/README-qualified.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-qualified/README-qualified.md`
-- [Fixed secondary logger smoke qualification](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/README.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/README.md`
-- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/secondary-event-log-buffer.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/secondary-event-log-buffer.md`
-- [Secondary logger volatile-arm protocol](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/secondary-logger-arm-protocol.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/secondary-logger-arm-protocol.md`
-- [Volatile image-1 event-logger instrumentation review](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/volatile-logger-review.md) — `panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/volatile-logger-review.md`
-- [Fixed secondary-root and gate reader](../research/panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/README.md`
-- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/derivation-diff.md) — `panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/derivation-diff.md`
-- [Image-1 secondary-root initializer prediction](../research/panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/secondary-root-initializer.md) — `panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/secondary-root-initializer.md`
-- [Managed USB SSB one-shot read](../research/panel-idle-20261026/overnight/managed-usb-ssb-read-once/README.md) — `panel-idle-20261026/overnight/managed-usb-ssb-read-once/README.md`
-- [Independent runtime audit: bounded TCON MICOM log read](../research/panel-idle-20261026/overnight/micom-log-read-20261026b/runtime-audit.md) — `panel-idle-20261026/overnight/micom-log-read-20261026b/runtime-audit.md`
-- [AZ: controller-output attribution and ordinary command mapping](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/findings.md) — `panel-idle-20261026/overnight/mmio-block-attribution-20261027az/findings.md`
-- [Ordinary selected-image usage of the four emergency-path MMIO blocks](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/ordinary-io-usage.md) — `panel-idle-20261026/overnight/mmio-block-attribution-20261027az/ordinary-io-usage.md`
-- [Selected-image ordinary mute receiver and fixed register blocks](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/ordinary-mute-receiver.md) — `panel-idle-20261026/overnight/mmio-block-attribution-20261027az/ordinary-mute-receiver.md`
-- [Primary-source assessment of the `0x4013....` output boundary](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/primary-map-assessment.md) — `panel-idle-20261026/overnight/mmio-block-attribution-20261027az/primary-map-assessment.md`
-- [Monitor provenance and FRC lifecycle: reviewed progress](../research/panel-idle-20261026/overnight/monitor-and-frc-reviewed-progress.md) — `panel-idle-20261026/overnight/monitor-and-frc-reviewed-progress.md`
-- [Current-boot QD monitor-latch / physical-picture timeline](../research/panel-idle-20261026/overnight/monitor-latch-physical-timeline.md) — `panel-idle-20261026/overnight/monitor-latch-physical-timeline.md`
-- [BA: staged mute application and a fault-teardown connection](../research/panel-idle-20261026/overnight/mute-request-consumer-20261027ba/findings.md) — `panel-idle-20261026/overnight/mute-request-consumer-20261027ba/findings.md`
-- [Derived Failmode request consumer and fixed-register apply path](../research/panel-idle-20261026/overnight/mute-request-consumer-20261027ba/staged-consumer.md) — `panel-idle-20261026/overnight/mute-request-consumer-20261027ba/staged-consumer.md`
-- [Historical navigation archive](../research/panel-idle-20261026/overnight/navigation-archive-20261027ah/README.md) — `panel-idle-20261026/overnight/navigation-archive-20261027ah/README.md`
-- [Samsung S95F: current investigation entry point](../research/panel-idle-20261026/overnight/navigation-archive-20261027ah/current-before-restructure.md) — `panel-idle-20261026/overnight/navigation-archive-20261027ah/current-before-restructure.md`
-- [Navigation restructuring review](../research/panel-idle-20261026/overnight/navigation-archive-20261027ah/navigation-review.md) — `panel-idle-20261026/overnight/navigation-archive-20261027ah/navigation-review.md`
-- [Next observed session: discriminate entry, gate state, and recovery](../research/panel-idle-20261026/overnight/next-observed-session.md) — `panel-idle-20261026/overnight/next-observed-session.md`
-- [Notification, factory receiver and ARM32 availability follow-up](../research/panel-idle-20261026/overnight/notification-factory-and-compat-abi-followup.md) — `panel-idle-20261026/overnight/notification-factory-and-compat-abi-followup.md`
-- [NPC_AP divisor provenance](../research/panel-idle-20261026/overnight/npc-ap-divisor-provenance-20261027af/divisor-provenance.md) — `panel-idle-20261026/overnight/npc-ap-divisor-provenance-20261027af/divisor-provenance.md`
-- [AF independent review closure](../research/panel-idle-20261026/overnight/npc-ap-divisor-provenance-20261027af/review-closure.md) — `panel-idle-20261026/overnight/npc-ap-divisor-provenance-20261027af/review-closure.md`
-- [AK actual divisor snapshot](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/capture-findings.md) — `panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/capture-findings.md`
-- [AK arithmetic and scope review](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/comparison-review.md) — `panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/comparison-review.md`
-- [AK closer ordinary snapshot: independent runtime review](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/ordinary-runtime-review.md) — `panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/ordinary-runtime-review.md`
-- [NPC_AP divisor snapshot read plan](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/read-plan.md) — `panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/read-plan.md`
-- [AK divisor-read runtime review](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/runtime-review.md) — `panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/runtime-review.md`
-- [AK source/build review before target execution](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/source-review.md) — `panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/source-review.md`
-- [NPC_AP floating-input provenance](../research/panel-idle-20261026/overnight/npc-ap-floating-inputs-20261027ai/floating-inputs.md) — `panel-idle-20261026/overnight/npc-ap-floating-inputs-20261027ai/floating-inputs.md`
-- [AI independent review closure](../research/panel-idle-20261026/overnight/npc-ap-floating-inputs-20261027ai/review-closure.md) — `panel-idle-20261026/overnight/npc-ap-floating-inputs-20261027ai/review-closure.md`
-- [NPC_AP interpolation lookup math](../research/panel-idle-20261026/overnight/npc-ap-interpolation-lookup-20261027aq/lookup-math.md) — `panel-idle-20261026/overnight/npc-ap-interpolation-lookup-20261027aq/lookup-math.md`
-- [Independent review closure](../research/panel-idle-20261026/overnight/npc-ap-interpolation-lookup-20261027aq/review-closure.md) — `panel-idle-20261026/overnight/npc-ap-interpolation-lookup-20261027aq/review-closure.md`
-- [NPC_AP low-field passive-read qualification](../research/panel-idle-20261026/overnight/npc-ap-read-qualification-20261027aj/read-qualification.md) — `panel-idle-20261026/overnight/npc-ap-read-qualification-20261027aj/read-qualification.md`
-- [AJ independent review closure](../research/panel-idle-20261026/overnight/npc-ap-read-qualification-20261027aj/review-closure.md) — `panel-idle-20261026/overnight/npc-ap-read-qualification-20261027aj/review-closure.md`
-- [AM independent review closure](../research/panel-idle-20261026/overnight/npc-ap-writer-math-20261027am/review-closure.md) — `panel-idle-20261026/overnight/npc-ap-writer-math-20261027am/review-closure.md`
-- [NPC_AP divisor writer math](../research/panel-idle-20261026/overnight/npc-ap-writer-math-20261027am/writer-math.md) — `panel-idle-20261026/overnight/npc-ap-writer-math-20261027am/writer-math.md`
-- [Two cap-helper arrays: enclosing NPC package record](../research/panel-idle-20261026/overnight/npc-cap-record-20261027ag/cap-record.md) — `panel-idle-20261026/overnight/npc-cap-record-20261027ag/cap-record.md`
-- [AG independent review](../research/panel-idle-20261026/overnight/npc-cap-record-20261027ag/independent-review.md) — `panel-idle-20261026/overnight/npc-cap-record-20261027ag/independent-review.md`
-- [Historical NPC_AP and F3 evidence inventory](../research/panel-idle-20261026/overnight/npc-historical-evidence-20261027ao/historical-inventory.md) — `panel-idle-20261026/overnight/npc-historical-evidence-20261027ao/historical-inventory.md`
-- [Independent review closure](../research/panel-idle-20261026/overnight/numeric-transform-20261027ap/review-closure.md) — `panel-idle-20261026/overnight/numeric-transform-20261027ap/review-closure.md`
-- [Image-0 `0x2dbd0` numeric transform](../research/panel-idle-20261026/overnight/numeric-transform-20261027ap/transform-math.md) — `panel-idle-20261026/overnight/numeric-transform-20261027ap/transform-math.md`
-- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-design.md) — `panel-idle-20261026/overnight/observed-branch-onset-design.md`
-- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-reviewed-3aa5c94/observed-branch-onset-design.md) — `panel-idle-20261026/overnight/observed-branch-onset-reviewed-3aa5c94/observed-branch-onset-design.md`
-- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-reviewed-49f4e5c/observed-branch-onset-design.md) — `panel-idle-20261026/overnight/observed-branch-onset-reviewed-49f4e5c/observed-branch-onset-design.md`
-- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-reviewed-cf70750/observed-branch-onset-design.md) — `panel-idle-20261026/overnight/observed-branch-onset-reviewed-cf70750/observed-branch-onset-design.md`
-- [Budgeted 180-second HDMI collector: offline implementation review](../research/panel-idle-20261026/overnight/observed-hdmi-budgeted-onset-review.md) — `panel-idle-20261026/overnight/observed-hdmi-budgeted-onset-review.md`
-- [Runtime-PM idle tracepoint addendum](../research/panel-idle-20261026/overnight/observed-pm-rejected-eabe5bde/pm-rpm-idle-extension-addendum.md) — `panel-idle-20261026/overnight/observed-pm-rejected-eabe5bde/pm-rpm-idle-extension-addendum.md`
-- [Bounded trace pre-roll for observed onset capture](../research/panel-idle-20261026/overnight/observed-preroll-onset-design.md) — `panel-idle-20261026/overnight/observed-preroll-onset-design.md`
-- [Bounded trace pre-roll for observed onset capture](../research/panel-idle-20261026/overnight/observed-preroll-onset-reviewed-355d98b/observed-preroll-onset-design.md) — `panel-idle-20261026/overnight/observed-preroll-onset-reviewed-355d98b/observed-preroll-onset-design.md`
-- [Bounded numeric-54 quiescence retry addendum](../research/panel-idle-20261026/overnight/observed-quiescent-pm-rejected-ee4ee2b/pm-prestart-quiescence-addendum.md) — `panel-idle-20261026/overnight/observed-quiescent-pm-rejected-ee4ee2b/pm-prestart-quiescence-addendum.md`
-- [Ninety-second passive capture: incomplete, not a fault diagnosis](../research/panel-idle-20261026/overnight/onset-capacity-90s-result.md) — `panel-idle-20261026/overnight/onset-capacity-90s-result.md`
-- [Combined observed onset capture: requirements from independent review](../research/panel-idle-20261026/overnight/onset-capture-requirements.md) — `panel-idle-20261026/overnight/onset-capture-requirements.md`
-- [Combined onset observer: review findings and deployment boundary](../research/panel-idle-20261026/overnight/onset-capture-review.md) — `panel-idle-20261026/overnight/onset-capture-review.md`
-- [Passive post-END-drain smoke: technically accepted, physically unobserved](../research/panel-idle-20261026/overnight/onset-drain-smoke-accepted.md) — `panel-idle-20261026/overnight/onset-drain-smoke-accepted.md`
-- [Onset observer validation: current continuation](../research/panel-idle-20261026/overnight/onset-observer-validation-progress.md) — `panel-idle-20261026/overnight/onset-observer-validation-progress.md`
-- [CA first-header readiness premise for one synchronized onset trial](../research/panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision-v2.md) — `panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision-v2.md`
-- [CA first-header readiness premise for one synchronized onset trial](../research/panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision.md) — `panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision.md`
-- [Command-string smoke: real data acquired, qualification failed](../research/panel-idle-20261026/overnight/onset-second-smoke-partial-result.md) — `panel-idle-20261026/overnight/onset-second-smoke-partial-result.md`
-- [First live onset smoke: unsigned-script launch rejection](../research/panel-idle-20261026/overnight/onset-smoke-uep-launch-failure.md) — `panel-idle-20261026/overnight/onset-smoke-uep-launch-failure.md`
-- [Bounded synchronized-onset runner](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/README-wrapper.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/README-wrapper.md`
-- [BX: synchronized normal-key onset candidate](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/README.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/README.md`
-- [Optional passive enumeration monitor: central coordination plan](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/passive-enumeration-monitor.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/passive-enumeration-monitor.md`
-- [Independent implementation review by SWU adapter author](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/adapter-author-implementation-review.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/adapter-author-implementation-review.md`
-- [Independent onset synchronization design review](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-design-review.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-design-review.md`
-- [Independent synchronized-onset wrapper review](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-wrapper-review.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-wrapper-review.md`
-- [Synchronized result parser contract and host verification](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/parse-result-contract.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/parse-result-contract.md`
-- [Accepted short instrumentation smoke](../research/panel-idle-20261026/overnight/onset-third-smoke-accepted.md) — `panel-idle-20261026/overnight/onset-third-smoke-accepted.md`
-- [Onset capture: thread lineage and actual kernel metadata](../research/panel-idle-20261026/overnight/onset-thread-following-assessment.md) — `panel-idle-20261026/overnight/onset-thread-following-assessment.md`
-- [CB: synchronized software onset with owner-confirmed blackout and recovery](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md`
-- [CB operands: mode 1, selected threshold 40, score 0 → 38 → 44](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md`
-- [Source qualification of a reversible mode1 limit experiment](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md`
-- [Independent CB synchronized-onset capture review](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/reviews/independent-capture-review.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/reviews/independent-capture-review.md`
-- [Ordinary-condition sensitivity: what the divisor finding changes](../research/panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/condition-sensitivity.md) — `panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/condition-sensitivity.md`
-- [AN independent review](../research/panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/review-closure.md) — `panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/review-closure.md`
-- [Current ordinary-controller fault model — 2026-10-27](../research/panel-idle-20261026/overnight/ordinary-fault-model-20261027.md) — `panel-idle-20261026/overnight/ordinary-fault-model-20261027.md`
-- [AA independent review](../research/panel-idle-20261026/overnight/ordinary-invocation-20261027aa/independent-review.md) — `panel-idle-20261026/overnight/ordinary-invocation-20261027aa/independent-review.md`
-- [Ordinary aggregate updater: indirect invocation and timing boundary](../research/panel-idle-20261026/overnight/ordinary-invocation-20261027aa/invocation-findings.md) — `panel-idle-20261026/overnight/ordinary-invocation-20261027aa/invocation-findings.md`
-- [AL combined-recorder attempt status](../research/panel-idle-20261026/overnight/ordinary-onset-observer-20261027al/attempt-status.md) — `panel-idle-20261026/overnight/ordinary-onset-observer-20261027al/attempt-status.md`
-- [Owner clarification of working controls and rare recovering losses](../research/panel-idle-20261026/overnight/owner-control-clarifications-20261027.md) — `panel-idle-20261026/overnight/owner-control-clarifications-20261027.md`
-- [BH owner-paired recovery and recurrence](../research/panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/findings.md) — `panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/findings.md`
-- [BH lower-lifecycle and guarded post-X review](../research/panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/lifecycle-review.md) — `panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/lifecycle-review.md`
-- [BH four-observation audit](../research/panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/x-review.md) — `panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/x-review.md`
-- [Offline log analysis of `owner-power-on-20261026a`](../research/panel-idle-20261026/overnight/owner-power-on-log-analysis.md) — `panel-idle-20261026/overnight/owner-power-on-log-analysis.md`
-- [Independent audit of the failed-capture rescue](../research/panel-idle-20261026/overnight/owner-power-on-rescue-audit.md) — `panel-idle-20261026/overnight/owner-power-on-rescue-audit.md`
-- [Rescued owner-power-on capture: bounded offline state analysis](../research/panel-idle-20261026/overnight/owner-power-on-state-analysis.md) — `panel-idle-20261026/overnight/owner-power-on-state-analysis.md`
-- [Owner progress update: reverse engineering and remaining fault attribution](../research/panel-idle-20261026/overnight/owner-progress-status-20261026.md) — `panel-idle-20261026/overnight/owner-progress-status-20261026.md`
-- [BI second owner-confirmed recovery and recorder hard stop](../research/panel-idle-20261026/overnight/owner-repeat-recovery-20261027bi/findings.md) — `panel-idle-20261026/overnight/owner-repeat-recovery-20261027bi/findings.md`
-- [BI lower-lifecycle, recorder-integrity, and delayed-read review](../research/panel-idle-20261026/overnight/owner-repeat-recovery-20261027bi/lifecycle-review.md) — `panel-idle-20261026/overnight/owner-repeat-recovery-20261027bi/lifecycle-review.md`
-- [BT operational recovery with For You selected](../research/panel-idle-20261026/overnight/owner-requested-panel-recovery-20261027bt/findings.md) — `panel-idle-20261026/overnight/owner-requested-panel-recovery-20261027bt/findings.md`
-- [Independent audit: paired For You black-state fault reads](../research/panel-idle-20261026/overnight/paired-fault-status-runtime-audit-20261027.md) — `panel-idle-20261026/overnight/paired-fault-status-runtime-audit-20261027.md`
-- [Paired ordinary-restart capture review — 2026-10-27](../research/panel-idle-20261026/overnight/paired-restart-capture-review-20261027.md) — `panel-idle-20261026/overnight/paired-restart-capture-review-20261027.md`
-- [Working Apps control and paired-fault capture, 2026-10-27](../research/panel-idle-20261026/overnight/paired-restart-progress-20261027.md) — `panel-idle-20261026/overnight/paired-restart-progress-20261027.md`
-- [Independent audit of the incomplete PM idle smoke](../research/panel-idle-20261026/overnight/pm-idle-smoke-runtime-audit.md) — `panel-idle-20261026/overnight/pm-idle-smoke-runtime-audit.md`
-- [Bounded numeric-54 quiescence retry addendum](../research/panel-idle-20261026/overnight/pm-prestart-quiescence-addendum.md) — `panel-idle-20261026/overnight/pm-prestart-quiescence-addendum.md`
-- [PM observer pre-start quiescence review](../research/panel-idle-20261026/overnight/pm-prestart-quiescence-review.md) — `panel-idle-20261026/overnight/pm-prestart-quiescence-review.md`
-- [Runtime-PM idle tracepoint addendum](../research/panel-idle-20261026/overnight/pm-rpm-idle-extension-addendum.md) — `panel-idle-20261026/overnight/pm-rpm-idle-extension-addendum.md`
-- [Passive PM/RPM trace extension for a future onset observer](../research/panel-idle-20261026/overnight/pm-rpm-onset-extension-design.md) — `panel-idle-20261026/overnight/pm-rpm-onset-extension-design.md`
-- [Independent policy review and corrections, October26](../research/panel-idle-20261026/overnight/policy-independent-review.md) — `panel-idle-20261026/overnight/policy-independent-review.md`
-- [Independent audit: post-wake branch snapshots](../research/panel-idle-20261026/overnight/post-wake-branch-audit.md) — `panel-idle-20261026/overnight/post-wake-branch-audit.md`
-- [Power sequence and physical timeline: independent review record](../research/panel-idle-20261026/overnight/power-notification-independent-review.md) — `panel-idle-20261026/overnight/power-notification-independent-review.md`
-- [Expanded branch baseline: parent-preserved independent audit](../research/panel-idle-20261026/overnight/pqe-branch-baseline-independent-review.md) — `panel-idle-20261026/overnight/pqe-branch-baseline-independent-review.md`
-- [Independent review: base QDDimming final-duty analysis](../research/panel-idle-20261026/overnight/pqe-final-duty-independent-review.md) — `panel-idle-20261026/overnight/pqe-final-duty-independent-review.md`
-- [PQE policy and Home-exit investigation](../research/panel-idle-20261026/overnight/pqe-policy-and-home-exit-progress.md) — `panel-idle-20261026/overnight/pqe-policy-and-home-exit-progress.md`
-- [PQE policy baseline: independent review](../research/panel-idle-20261026/overnight/pqe-policy-baseline-independent-review.md) — `panel-idle-20261026/overnight/pqe-policy-baseline-independent-review.md`
-- [Passive policy baseline: actual results](../research/panel-idle-20261026/overnight/pqe-policy-baseline-runtime-results.md) — `panel-idle-20261026/overnight/pqe-policy-baseline-runtime-results.md`
-- [PQE policy follow-up: independent review](../research/panel-idle-20261026/overnight/pqe-policy-followup-independent-review.md) — `panel-idle-20261026/overnight/pqe-policy-followup-independent-review.md`
-- [`Pre-PD` companion consumers](../research/panel-idle-20261026/overnight/pre-pd-companion-consumers-20261027ac/companion-consumers.md) — `panel-idle-20261026/overnight/pre-pd-companion-consumers-20261027ac/companion-consumers.md`
-- [AC independent review closure](../research/panel-idle-20261026/overnight/pre-pd-companion-consumers-20261027ac/review-closure.md) — `panel-idle-20261026/overnight/pre-pd-companion-consumers-20261027ac/review-closure.md`
-- [Pre-PD exact cross-image reference census](../research/panel-idle-20261026/overnight/pre-pd-cross-image-20261027ad/cross-image-census.md) — `panel-idle-20261026/overnight/pre-pd-cross-image-20261027ad/cross-image-census.md`
-- [AD independent review closure](../research/panel-idle-20261026/overnight/pre-pd-cross-image-20261027ad/review-closure.md) — `panel-idle-20261026/overnight/pre-pd-cross-image-20261027ad/review-closure.md`
-- [AB independent review](../research/panel-idle-20261026/overnight/pre-pd-stored-values-20261027ab/independent-review.md) — `panel-idle-20261026/overnight/pre-pd-stored-values-20261027ab/independent-review.md`
-- [Pre-PD stored values and the remaining runtime source gap](../research/panel-idle-20261026/overnight/pre-pd-stored-values-20261027ab/stored-values.md) — `panel-idle-20261026/overnight/pre-pd-stored-values-20261027ab/stored-values.md`
-- [AX: source freshness, host logs, and firmware experiment readiness](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/findings.md) — `panel-idle-20261026/overnight/prepd-source-followup-20261027ax/findings.md`
-- [Flash/recovery evidence gap](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/flash-recovery-gap.md) — `panel-idle-20261026/overnight/prepd-source-followup-20261027ax/flash-recovery-gap.md`
-- [Host DRM histogram comparison across the stock MODE2 lifecycle](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/host-histogram-reset-comparison.md) — `panel-idle-20261026/overnight/prepd-source-followup-20261027ax/host-histogram-reset-comparison.md`
-- [Independent review of the AX Pre-PD and host-histogram follow-up](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/independent-review.md) — `panel-idle-20261026/overnight/prepd-source-followup-20261027ax/independent-review.md`
-- [Pre-PD header/control consumer follow-up](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/prepd-control-consumers.md) — `panel-idle-20261026/overnight/prepd-source-followup-20261027ax/prepd-control-consumers.md`
-- [Reviewed pre-roll observer: first accepted passive TV smoke](../research/panel-idle-20261026/overnight/preroll-observer-runtime-progress.md) — `panel-idle-20261026/overnight/preroll-observer-runtime-progress.md`
-- [One unchanged primary-log read after the mute-consumer reconstruction](../research/panel-idle-20261026/overnight/primary-log-followup-20261027bb/findings.md) — `panel-idle-20261026/overnight/primary-log-followup-20261027bb/findings.md`
-- [Reuse assessment for one unchanged primary event-log read](../research/panel-idle-20261026/overnight/primary-log-followup-20261027bb/reuse-assessment.md) — `panel-idle-20261026/overnight/primary-log-followup-20261027bb/reuse-assessment.md`
-- [Private HDMI control roots and expanded passive capture audit](../research/panel-idle-20261026/overnight/private-control-and-quiescence-progress.md) — `panel-idle-20261026/overnight/private-control-and-quiescence-progress.md`
-- [Independent audit: private HDMI library acquisition](../research/panel-idle-20261026/overnight/private-hdmi-library-acquisition-audit.md) — `panel-idle-20261026/overnight/private-hdmi-library-acquisition-audit.md`
-- [Private HDMI resume and OCIF availability follow-up](../research/panel-idle-20261026/overnight/private-resume-and-ocif-progress.md) — `panel-idle-20261026/overnight/private-resume-and-ocif-progress.md`
-- [Public display architecture context — 2026-10-27](../research/panel-idle-20261026/overnight/public-architecture-context-20261027.md) — `panel-idle-20261026/overnight/public-architecture-context-20261027.md`
-- [What the retained evidence can establish about QD command gates](../research/panel-idle-20261026/overnight/qd-gate-evidence-constraints.md) — `panel-idle-20261026/overnight/qd-gate-evidence-constraints.md`
-- [Offline QD command evidence decoder](../research/panel-idle-20261026/overnight/qd-trace-decoder.md) — `panel-idle-20261026/overnight/qd-trace-decoder.md`
-- [Independent review of transport, mute writers and offline decoder](../research/panel-idle-20261026/overnight/qd-transport-independent-review.md) — `panel-idle-20261026/overnight/qd-transport-independent-review.md`
-- [Quiescent PM observer capacity assessment](../research/panel-idle-20261026/overnight/quiescent-pm-capacity-assessment.md) — `panel-idle-20261026/overnight/quiescent-pm-capacity-assessment.md`
-- [Independent audit: namespace-corrected quiescent-PM home smoke](../research/panel-idle-20261026/overnight/quiescent-pm-home-smoke-runtime-audit.md) — `panel-idle-20261026/overnight/quiescent-pm-home-smoke-runtime-audit.md`
-- [Independent audit of the bounded-quiescence PM smoke](../research/panel-idle-20261026/overnight/quiescent-pm-smoke-runtime-audit.md) — `panel-idle-20261026/overnight/quiescent-pm-smoke-runtime-audit.md`
-- [Future first-header phase after the recovered BI replay](../research/panel-idle-20261026/overnight/recovered-replay-phase-audit-20261027bs/phase-review.md) — `panel-idle-20261026/overnight/recovered-replay-phase-audit-20261027bs/phase-review.md`
-- [Recovery evidence gap and bounded next diagnostic plan](../research/panel-idle-20261026/overnight/recovery-evidence-gap-20261027bp/plan-review.md) — `panel-idle-20261026/overnight/recovery-evidence-gap-20261027bp/plan-review.md`
-- [Apps-selected panel recovery quick path](../research/panel-idle-20261026/overnight/recovery-quickpath-20261027bv/README.md) — `panel-idle-20261026/overnight/recovery-quickpath-20261027bv/README.md`
-- [Observed recovery sequence](../research/panel-idle-20261026/overnight/recovery-quickpath-20261027bv/VALIDATED-SEQUENCE.md) — `panel-idle-20261026/overnight/recovery-quickpath-20261027bv/VALIDATED-SEQUENCE.md`
-- [Independent review of the AY restore-integrity audit](../research/panel-idle-20261026/overnight/restore-integrity-20261027ay/independent-review.md) — `panel-idle-20261026/overnight/restore-integrity-20261027ay/independent-review.md`
-- [SSB restore-integrity audit](../research/panel-idle-20261026/overnight/restore-integrity-20261027ay/restore-integrity.md) — `panel-idle-20261026/overnight/restore-integrity-20261027ay/restore-integrity.md`
-- [Additional RT-input scheduling edge, with producer still unresolved](../research/panel-idle-20261026/overnight/rt-input-producer-gap-20261027bq/source-review.md) — `panel-idle-20261026/overnight/rt-input-producer-gap-20261027bq/source-review.md`
-- [Bounded RT-memory onset recording work, 2026-10-27](../research/panel-idle-20261026/overnight/rt-onset-memory-20261027c/README.md) — `panel-idle-20261026/overnight/rt-onset-memory-20261027c/README.md`
-- [Parent-retained independent review findings](../research/panel-idle-20261026/overnight/rt-onset-memory-20261027c/independent-review-record.md) — `panel-idle-20261026/overnight/rt-onset-memory-20261027c/independent-review-record.md`
-- [RT recorder qualification and a different storage header](../research/panel-idle-20261026/overnight/rt-onset-memory-20261027c/progress.md) — `panel-idle-20261026/overnight/rt-onset-memory-20261027c/progress.md`
-- [X analysis review closure](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/analysis-review-closure.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/analysis-review-closure.md`
-- [Independent S–X checkpoint audit](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/checkpoint-review.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/checkpoint-review.md`
-- [Passive observer: native candidate review](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/native-review.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/native-review.md`
-- [X retained-state decode](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/retained-state-findings.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/retained-state-findings.md`
-- [X passive observer: independent runtime audit](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/runtime-review.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/runtime-review.md`
-- [Managed USB RTP passive observer — native candidate](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/source-checkpoint/README-native.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/source-checkpoint/README-native.md`
-- [RTP passive observer — reviewed host-wrapper candidate](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/source-checkpoint/README-wrapper.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/source-checkpoint/README-wrapper.md`
-- [Passive observer host-wrapper review before one run](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/wrapper-review.md) — `panel-idle-20261026/overnight/rt-passive-observer-20261027x/wrapper-review.md`
-- [Fresh passive RT observation after the source-lifecycle analysis](../research/panel-idle-20261026/overnight/rt-state-refresh-20261027bd/findings.md) — `panel-idle-20261026/overnight/rt-state-refresh-20261027bd/findings.md`
-- [Independent replay of the unchanged passive-observer run](../research/panel-idle-20261026/overnight/rt-state-refresh-20261027bd/independent-review.md) — `panel-idle-20261026/overnight/rt-state-refresh-20261027bd/independent-review.md`
-- [Controller diagnostics follow-up, 2026-10-27](../research/panel-idle-20261026/overnight/rt-telemetry-followup-20261027b/README.md) — `panel-idle-20261026/overnight/rt-telemetry-followup-20261027b/README.md`
-- [Live protection-state memory access, 2026-10-27](../research/panel-idle-20261026/overnight/rt-telemetry-followup-20261027b/controller-memory-access-progress.md) — `panel-idle-20261026/overnight/rt-telemetry-followup-20261027b/controller-memory-access-progress.md`
-- [RTP event action causality: latch, emergency action, and output boundary](../research/panel-idle-20261026/overnight/rtp-action-causality-20261027t/rtp-action-causality.md) — `panel-idle-20261026/overnight/rtp-action-causality-20261027t/rtp-action-causality.md`
-- [AP_EXCO alternate-pair runtime-writer provenance](../research/panel-idle-20261026/overnight/rtp-alternate-runtime-origin-20261027j/rtp-alternate-runtime-origin.md) — `panel-idle-20261026/overnight/rtp-alternate-runtime-origin-20261027j/rtp-alternate-runtime-origin.md`
-- [AP_EXCO baseline versus the saved candidate context](../research/panel-idle-20261026/overnight/rtp-baseline-live-comparison-20261027k/README.md) — `panel-idle-20261026/overnight/rtp-baseline-live-comparison-20261027k/README.md`
-- [Passive RTP event observer: feasibility and minimum finite design](../research/panel-idle-20261026/overnight/rtp-observer-feasibility-20261027u/rtp-observer-feasibility.md) — `panel-idle-20261026/overnight/rtp-observer-feasibility-20261027u/rtp-observer-feasibility.md`
-- [Independent review of I/J ordinary-source traces](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/independent-i-j-review.md) — `panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/independent-i-j-review.md`
-- [Independent root review of packed-buffer origin](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/root-review.md) — `panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/root-review.md`
-- [RTP packed-buffer origin: selected image 1](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/rtp-packed-buffer-origin.md) — `panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/rtp-packed-buffer-origin.md`
-- [Closure of independent input-block naming finding](../research/panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/review-closure.md) — `panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/review-closure.md`
-- [RTP ordinary scan-input origin](../research/panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/rtp-scan-input-origin.md) — `panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/rtp-scan-input-origin.md`
-- [Self-review of RTP scan-input origin trace](../research/panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/self-review.md) — `panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/self-review.md`
-- [Independent runtime/control review — mailbox record](../research/panel-idle-20261026/overnight/runtime-control-independent-review.md) — `panel-idle-20261026/overnight/runtime-control-independent-review.md`
-- [Runtime maintenance state and actual QD output backend](../research/panel-idle-20261026/overnight/runtime-control-state.md) — `panel-idle-20261026/overnight/runtime-control-state.md`
-- [Read-only runtime QD dimming baseline — 2026-10-26](../research/panel-idle-20261026/overnight/runtime-dimming-baseline.md) — `panel-idle-20261026/overnight/runtime-dimming-baseline.md`
-- [Actual QD monitor counters and repeatable runtime reader](../research/panel-idle-20261026/overnight/runtime-monitor-baseline.md) — `panel-idle-20261026/overnight/runtime-monitor-baseline.md`
-- [Independent runtime audit: `sdp_pqe_frc.ko` provider candidate copy](../research/panel-idle-20261026/overnight/sdp-pqe-frc-provider-copy-20261026a/runtime-audit.md) — `panel-idle-20261026/overnight/sdp-pqe-frc-provider-copy-20261026a/runtime-audit.md`
-- [SDP register-path follow-up and combined-observer smoke](../research/panel-idle-20261026/overnight/sdp-register-path-and-observer-smoke-progress.md) — `panel-idle-20261026/overnight/sdp-register-path-and-observer-smoke-progress.md`
-- [Selected QD profile ordinary-file copy: independent runtime audit](../research/panel-idle-20261026/overnight/selected-qd-profile-copy-20261027b/runtime-audit.md) — `panel-idle-20261026/overnight/selected-qd-profile-copy-20261027b/runtime-audit.md`
-- [Independent runtime audit of the short captures — 2026-10-27](../research/panel-idle-20261026/overnight/short-baseline-runtime-audit-20261027.md) — `panel-idle-20261026/overnight/short-baseline-runtime-audit-20261027.md`
-- [Investigation while the owner sleeps — 27 October 2026](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/README.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/README.md`
-- [AVEMon all-syscall V3 runtime audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-all-syscalls-20261027c-runtime-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-all-syscalls-20261027c-runtime-audit.md`
-- [Independent review: AVEMon all-syscall checkpoint](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-independent-review.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-independent-review.md`
-- [AVEMon all-syscall checkpoint: rejected first attempt](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-rejection-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-rejection-audit.md`
-- [AVEMon all-syscall V2: rejected before trace export](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-v2-runtime-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-v2-runtime-audit.md`
-- [Independent review: AVEMon all-syscall V3](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-v3-independent-review.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-v3-independent-review.md`
-- [Controller-duty read and nearby runtime-state audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/controller-duty-runtime-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/controller-duty-runtime-audit.md`
-- [Stock reset result and next discriminating tests](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/diagnostic-next-tests.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/diagnostic-next-tests.md`
-- [Parser design note: duplicate AVOC syscall-enter isolation](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/duplicate-avoc-parser-design.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/duplicate-avoc-parser-design.md`
-- [Independent re-review: stock MODE2 orchestrator, revision 3](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-orchestrator-independent-rereview.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-orchestrator-independent-rereview.md`
-- [Independent review: stock MODE2 experiment orchestrator](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-orchestrator-independent-review.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-orchestrator-independent-review.md`
-- [Runtime audit: rejected MODE2 paired sequence](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-sequence-runtime-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-sequence-runtime-audit.md`
-- [Reset-coupled USB `04e8:2001` identity and logging boundary](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/reset-coupled-usb-identity-provenance.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/reset-coupled-usb-identity-provenance.md`
-- [Five-second SDP checkpoint: runtime audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sdp-checkpoint-runtime-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/sdp-checkpoint-runtime-audit.md`
-- [Independent review: sleep evidence-index generator](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-evidence-index-independent-review.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-evidence-index-independent-review.md`
-- [Published sleep-evidence manifest: independent post-snapshot audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-evidence-publication-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-evidence-publication-audit.md`
-- [Independent review: Mode-2 result summaries](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-result-summary-independent-review.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-result-summary-independent-review.md`
-- [Stock MODE2 transport audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/stock-mode2-transport-audit.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/stock-mode2-transport-audit.md`
-- [Independent review: USB/AP_RTP logical-reader route](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/usb-rt-reader-independent-review.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/usb-rt-reader-independent-review.md`
-- [Addendum: correction to the USB/AP_RTP reader review](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/usb-rt-reader-review-acknowledgement.md) — `panel-idle-20261026/overnight/sleep-investigation-20261027a/usb-rt-reader-review-acknowledgement.md`
-- [BI stock `F3:01` error propagation](../research/panel-idle-20261026/overnight/stock-error-propagation-20261027bo/driver-error-review.md) — `panel-idle-20261026/overnight/stock-error-propagation-20261027bo/driver-error-review.md`
-- [Read-only maintenance preflight discovery for a possible stock MODE2 test](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/maintenance-preflight.md) — `panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/maintenance-preflight.md`
-- [Practical decision for one stock-lifecycle RT test](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/practical-test-decision.md) — `panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/practical-test-decision.md`
-- [Stock MODE2 followed by the unchanged X observer: readiness review](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/readiness-review.md) — `panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/readiness-review.md`
-- [Selector `F3:0x160` in the stock MODE2 tail](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/selector-160.md) — `panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/selector-160.md`
-- [Vendor-header readiness after a stock lifecycle](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/vendor-ready-boundary.md) — `panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/vendor-ready-boundary.md`
-- [Independent audit of the stock RT lifecycle trial](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/baseline-and-lifecycle-audit.md) — `panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/baseline-and-lifecycle-audit.md`
-- [Independent consistency review of the final AV findings](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/final-findings-review.md) — `panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/final-findings-review.md`
-- [AV: stock controller lifecycle followed by a clean RT sample](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/findings.md) — `panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/findings.md`
-- [AV host-orchestration review](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/orchestration-review.md) — `panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/orchestration-review.md`
-- [Independent review of the delayed post-lifecycle X observation](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/post-x-independent-review.md) — `panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/post-x-independent-review.md`
-- [MODE2 reset-domain provenance for the mapped RT object](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/reset-domain-provenance.md) — `panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/reset-domain-provenance.md`
-- [AW: the post-lifecycle state includes a changed ordinary diagnostic input](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/findings.md) — `panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/findings.md`
-- [Independent review of the ordinary-input delta reproducer](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/ordinary-input-delta-review.md) — `panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/ordinary-input-delta-review.md`
-- [Independent assessment and runtime audit of the late W input snapshot](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/post-lifecycle-input-read-assessment.md) — `panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/post-lifecycle-input-read-assessment.md`
-- [AV pre/post RT-state delta](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/rt-state-delta.md) — `panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/rt-state-delta.md`
-- [Selector and score-state delta across the stock lifecycle](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/selector-state-delta.md) — `panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/selector-state-delta.md`
-- [Independent runtime audit: one stock unmute-zero](../research/panel-idle-20261026/overnight/stock-unmute-once-runtime-audit.md) — `panel-idle-20261026/overnight/stock-unmute-once-runtime-audit.md`
-- [validation-readiness](../research/panel-idle-20261026/overnight/swu-header-validation-20261027bx/validation-readiness.md) — `panel-idle-20261026/overnight/swu-header-validation-20261027bx/validation-readiness.md`
-- [Fixed SWU metadata adapter: implementation and readiness](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/adapter-readiness.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/adapter-readiness.md`
-- [Independent SWU metadata adapter review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/reviews/content-author-review.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/reviews/content-author-review.md`
-- [Target preflight refusal isolated by a file-only diagnostic](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-preflight-diagnostic.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-preflight-diagnostic.md`
-- [First target attempt: preflight refusal, no TEE sequence](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-trial-01.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-trial-01.md`
-- [adapter-readiness](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/adapter-readiness.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/adapter-readiness.md`
-- [Independent BY compatibility and orchestration review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/reviews/publication-agent-review.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/reviews/publication-agent-review.md`
-- [BY first target attempt: preflight passed, selector binding refused](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/target-trial-01.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/target-trial-01.md`
-- [adapter-readiness](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/adapter-readiness.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/adapter-readiness.md`
-- [Independent BZ library binding review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/reviews/independent-binding-review.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/reviews/independent-binding-review.md`
-- [BZ first target attempt: fixed decryption sequence completed](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/target-trial-01.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/target-trial-01.md`
-- [Fixed-file preflight diagnostic source audit](../research/panel-idle-20261026/overnight/swu-preflight-diagnostic-20261027bx/source-audit.md) — `panel-idle-20261026/overnight/swu-preflight-diagnostic-20261027bx/source-audit.md`
-- [source-audit](../research/panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/source-audit.md) — `panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/source-audit.md`
-- [BY loader-only target diagnostic](../research/panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/target-trial-01.md) — `panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/target-trial-01.md`
-- [Actual ERR_DET GPIO query: 2026-10-26](../research/panel-idle-20261026/overnight/tcon-gpio-actual-result-20261026.md) — `panel-idle-20261026/overnight/tcon-gpio-actual-result-20261026.md`
-- [Actual TCON error-status result: 2026-10-26](../research/panel-idle-20261026/overnight/tcon-status-actual-result-20261026.md) — `panel-idle-20261026/overnight/tcon-status-actual-result-20261026.md`
-- [Ugoos PROGRAM_A Farm comparison against PROGRAM_04 failure](../research/panel-idle-20261026/overnight/ugoos-PROGRAM_A-comparison-20261027.md) — `panel-idle-20261026/overnight/ugoos-PROGRAM_A-comparison-20261027.md`
-- [Ugoos media-path comparison: PROGRAM_04 and PROGRAM_A's Farm](../research/panel-idle-20261026/overnight/ugoos-media-comparison-20261027.md) — `panel-idle-20261026/overnight/ugoos-media-comparison-20261027.md`
-- [Ugoos movie transition: rejected-capture salvage analysis](../research/panel-idle-20261026/overnight/ugoos-movie-transition-analysis-20261027.md) — `panel-idle-20261026/overnight/ugoos-movie-transition-analysis-20261027.md`
-- [Overlay/fullscreen paired-control evidence note](../research/panel-idle-20261026/overnight/ugoos-overlay-paired-control-20261027.md) — `panel-idle-20261026/overnight/ugoos-overlay-paired-control-20261027.md`
-- [PROGRAM_B current-session observation — 20261027a](../research/panel-idle-20261026/overnight/ugoos-program_b-actual-session-20261027a.md) — `panel-idle-20261026/overnight/ugoos-program_b-actual-session-20261027a.md`
-- [PROGRAM_B current-session observation — 20261027b](../research/panel-idle-20261026/overnight/ugoos-program_b-actual-session-20261027b.md) — `panel-idle-20261026/overnight/ugoos-program_b-actual-session-20261027b.md`
-- [Ugoos PROGRAM_B comparison](../research/panel-idle-20261026/overnight/ugoos-program_b-comparison-20261027.md) — `panel-idle-20261026/overnight/ugoos-program_b-comparison-20261027.md`
-- [Jellyfin administrative-route recovery for the program_b observation](../research/panel-idle-20261026/overnight/ugoos-program_b-route-recovery-20261027.md) — `panel-idle-20261026/overnight/ugoos-program_b-route-recovery-20261027.md`
-- [PROGRAM_B EPISODE_REDACTED session-verification plan](../research/panel-idle-20261026/overnight/ugoos-program_b-session-20261027.md) — `panel-idle-20261026/overnight/ugoos-program_b-session-20261027.md`
-- [researcher Jellyfin history and Continue Watching comparison](../research/panel-idle-20261026/overnight/ugoos-researcher-history-comparison-20261027.md) — `panel-idle-20261026/overnight/ugoos-researcher-history-comparison-20261027.md`
-- [researcher two-week Jellyfin controls and diagnostic exceptions](../research/panel-idle-20261026/overnight/ugoos-researcher-two-week-controls-20261027.md) — `panel-idle-20261026/overnight/ugoos-researcher-two-week-controls-20261027.md`
-- [Source opening-frame luminance check](../research/panel-idle-20261026/overnight/ugoos-source-luminance-comparison-20261027.md) — `panel-idle-20261026/overnight/ugoos-source-luminance-comparison-20261027.md`
-- [Apps request while screensaver remains foreground](../research/panel-idle-20261026/overnight/ui-focus-analysis-20261027bk/findings.md) — `panel-idle-20261026/overnight/ui-focus-analysis-20261027bk/findings.md`
-- [Normal UI navigation runner](../research/panel-idle-20261026/overnight/ui-navigation-20261027br/README.md) — `panel-idle-20261026/overnight/ui-navigation-20261027br/README.md`
-- [Existing UI log snapshot: request windows not retained](../research/panel-idle-20261026/overnight/ui-receiver-logs-20261027bn/findings.md) — `panel-idle-20261026/overnight/ui-receiver-logs-20261027bn/findings.md`
-- [RT fault-to-emergency causal gap audit](../research/panel-idle-20261026/overnight/unattended-test-assessment-20261027ar/causal-gap-audit.md) — `panel-idle-20261026/overnight/unattended-test-assessment-20261027ar/causal-gap-audit.md`
-- [Unattended reuse assessment for the X passive observer](../research/panel-idle-20261026/overnight/unattended-test-assessment-20261027ar/review.md) — `panel-idle-20261026/overnight/unattended-test-assessment-20261027ar/review.md`
-- [Current readiness of the stock unmute-zero capture](../research/panel-idle-20261026/overnight/unmute-zero-current-readiness-review.md) — `panel-idle-20261026/overnight/unmute-zero-current-readiness-review.md`
-- [Independent review — upstream AutoDim, PM lock, and maintenance IPC contracts](../research/panel-idle-20261026/overnight/upstream-contract-independent-review.md) — `panel-idle-20261026/overnight/upstream-contract-independent-review.md`
-- [Installed vlog time-window and format contract](../research/panel-idle-20261026/overnight/vlog-capture-contract.md) — `panel-idle-20261026/overnight/vlog-capture-contract.md`
-- [Volatile controller logger: verified finite test](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/README.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/README.md`
-- [Offline architecture review: finite secondary logger qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/architecture-review.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/architecture-review.md`
-- [Blocked combined-call wrapper revision](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/README.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/README.md`
-- [Volatile logger qualification — offline build](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/d6/README.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/d6/README.md`
-- [Offline architecture review: finite secondary logger qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/d6/architecture-review.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/d6/architecture-review.md`
-- [Fixed secondary logger smoke qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/helper/README.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/helper/README.md`
-- [Independent runtime review](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/independent-runtime-review.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/independent-runtime-review.md`
-- [Bounded trace of the newly captured `t(10)` record](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/new-log-format-trace.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/new-log-format-trace.md`
-- [Controller diagnostic logger: actual qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/progress.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/progress.md`
-- [Finite logging qualification: review decisions](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/review-history.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/review-history.md`
-- [Fixed secondary logger smoke qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/README.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/README.md`
-- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/secondary-event-log-buffer.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/secondary-event-log-buffer.md`
-- [Secondary logger volatile-arm protocol](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/secondary-logger-arm-protocol.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/secondary-logger-arm-protocol.md`
-- [Volatile image-1 event-logger instrumentation review](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/volatile-logger-review.md) — `panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/volatile-logger-review.md`
-- [App-control off-sensing notification producer](../research/panel-idle-20261026/tcon-research/app-control-off-sensing-producer.md) — `panel-idle-20261026/tcon-research/app-control-off-sensing-producer.md`
-- [AVE static-dimming policy path (offline exact-build analysis)](../research/panel-idle-20261026/tcon-research/ave-screen-saver-api.md) — `panel-idle-20261026/tcon-research/ave-screen-saver-api.md`
-- [AVOC `SetPanelMute`: bounded output-gate analysis (offline)](../research/panel-idle-20261026/tcon-research/avoc-panel-mute-path.md) — `panel-idle-20261026/tcon-research/avoc-panel-mute-path.md`
-- [Content/static-dimming vs. actual panel-power path](../research/panel-idle-20261026/tcon-research/content-static-power-path.md) — `panel-idle-20261026/tcon-research/content-static-power-path.md`
-- [Independent review: controller follow-up predicates and CAD route split](../research/panel-idle-20261026/tcon-research/controller-followup-independent-review.md) — `panel-idle-20261026/tcon-research/controller-followup-independent-review.md`
-- [`deviced` EL / Screen Optimization policy — offline map](../research/panel-idle-20261026/tcon-research/deviced-el-sensing-policy.md) — `panel-idle-20261026/tcon-research/deviced-el-sensing-policy.md`
-- [Off-sensing popup signal boundary](../research/panel-idle-20261026/tcon-research/deviced-off-sensing-notification-trigger.md) — `panel-idle-20261026/tcon-research/deviced-off-sensing-notification-trigger.md`
-- [`deviced` off-sensing policy path](../research/panel-idle-20261026/tcon-research/deviced-off-sensing-policy.md) — `panel-idle-20261026/tcon-research/deviced-off-sensing-policy.md`
-- [Daemon power-state and EL background-lock contract](../research/panel-idle-20261026/tcon-research/deviced-power-state-contract.md) — `panel-idle-20261026/tcon-research/deviced-power-state-contract.md`
-- [Read-only `deviced` EL/off-sensing observer map](../research/panel-idle-20261026/tcon-research/deviced-runtime-observer-map.md) — `panel-idle-20261026/tcon-research/deviced-runtime-observer-map.md`
-- [Base RoseM DLSR-class route: conditional PQ-index policy, not a panel-power path](../research/panel-idle-20261026/tcon-research/dlsr-class-pq-route.md) — `panel-idle-20261026/tcon-research/dlsr-class-pq-route.md`
-- [DRM histogram logging: provenance and limits](../research/panel-idle-20261026/tcon-research/drm-histogram-logging-provenance.md) — `panel-idle-20261026/tcon-research/drm-histogram-logging-provenance.md`
-- [ERR_DET GPIO character-device ABI and side-effect boundary](../research/panel-idle-20261026/tcon-research/errdet-gpio-cdev-abi.md) — `panel-idle-20261026/tcon-research/errdet-gpio-cdev-abi.md`
-- [Factory Low Power Mode Level — exact offline mapping](../research/panel-idle-20261026/tcon-research/factory-low-power-mode-level.md) — `panel-idle-20261026/tcon-research/factory-low-power-mode-level.md`
-- [UID `0x506e` factory readback and storage boundary](../research/panel-idle-20261026/tcon-research/factory-off-sensing-storage-readback.md) — `panel-idle-20261026/tcon-research/factory-off-sensing-storage-readback.md`
-- [Factory “Offsensing TEST Period” — bounded static audit](../research/panel-idle-20261026/tcon-research/factory-off-sensing-test-period.md) — `panel-idle-20261026/tcon-research/factory-off-sensing-test-period.md`
-- [UID `0x506e` factory setter: transmit target audit](../research/panel-idle-20261026/tcon-research/factory-off-sensing-transmit-target.md) — `panel-idle-20261026/tcon-research/factory-off-sensing-transmit-target.md`
-- [Factory screen-saver brightness path (exact module analysis)](../research/panel-idle-20261026/tcon-research/factory-ss-brightness-path.md) — `panel-idle-20261026/tcon-research/factory-ss-brightness-path.md`
-- [TCON reset analysis — 2026-10-26](../research/panel-idle-20261026/tcon-research/findings.md) — `panel-idle-20261026/tcon-research/findings.md`
-- [RoseMQD FRC duty-write leg](../research/panel-idle-20261026/tcon-research/frc-duty-write-recovery.md) — `panel-idle-20261026/tcon-research/frc-duty-write-recovery.md`
-- [FRC extension bridge to SDP register access](../research/panel-idle-20261026/tcon-research/frc-extension-and-sdp-register-path.md) — `panel-idle-20261026/tcon-research/frc-extension-and-sdp-register-path.md`
-- [FRC ioctl `0xc0086626`: fixed 8-byte read ABI](../research/panel-idle-20261026/tcon-research/frc-ioctl-6626-analysis.md) — `panel-idle-20261026/tcon-research/frc-ioctl-6626-analysis.md`
-- [GSR-from-NPU to RoseM PQ-data edge — independent bounded review](../research/panel-idle-20261026/tcon-research/gsr-npu-pq-edge-review.md) — `panel-idle-20261026/tcon-research/gsr-npu-pq-edge-review.md`
-- [HDMI input backend loader and callback-table boundary](../research/panel-idle-20261026/tcon-research/hdmi-backend-binding.md) — `panel-idle-20261026/tcon-research/hdmi-backend-binding.md`
-- [HDMI `CLEAR_AVMUTE` loop boundary](../research/panel-idle-20261026/tcon-research/hdmi-clear-avmute-loop-boundary.md) — `panel-idle-20261026/tcon-research/hdmi-clear-avmute-loop-boundary.md`
-- [Exact HDMI control implementation: DPMS notification reaches a cached byte](../research/panel-idle-20261026/tcon-research/hdmi-control-dpms-chain.md) — `panel-idle-20261026/tcon-research/hdmi-control-dpms-chain.md`
-- [Exact `libhdmi-control` CID boundary](../research/panel-idle-20261026/tcon-research/hdmi-control-library-producers.md) — `panel-idle-20261026/tcon-research/hdmi-control-library-producers.md`
-- [HDMI DPMS cached-byte suspend policy](../research/panel-idle-20261026/tcon-research/hdmi-dpms-suspend-policy.md) — `panel-idle-20261026/tcon-research/hdmi-dpms-suspend-policy.md`
-- [Samsung HDMI input implementation: callback table and bounded control paths](../research/panel-idle-20261026/tcon-research/hdmi-input-implementation.md) — `panel-idle-20261026/tcon-research/hdmi-input-implementation.md`
-- [HDMI input handle and kernel-control boundary](../research/panel-idle-20261026/tcon-research/hdmi-input-kernel-control-boundary.md) — `panel-idle-20261026/tcon-research/hdmi-input-kernel-control-boundary.md`
-- [HDMI-control power callbacks and DPMS notification gates](../research/panel-idle-20261026/tcon-research/hdmi-library-power-callbacks.md) — `panel-idle-20261026/tcon-research/hdmi-library-power-callbacks.md`
-- [Stock trace messages around a private HDMI power-management caller](../research/panel-idle-20261026/tcon-research/hdmi-private-power-log-markers.md) — `panel-idle-20261026/tcon-research/hdmi-private-power-log-markers.md`
-- [HDMI resume registration and private dispatch](../research/panel-idle-20261026/tcon-research/hdmi-private-resume-dispatch.md) — `panel-idle-20261026/tcon-research/hdmi-private-resume-dispatch.md`
-- [Historical ERR_DET recovery timing and latch boundary](../research/panel-idle-20261026/tcon-research/historical-fault-recovery-timing.md) — `panel-idle-20261026/tcon-research/historical-fault-recovery-timing.md`
-- [QDF static-dimming path — offline module analysis](../research/panel-idle-20261026/tcon-research/kernel/qdf-static-dimming-analysis.md) — `panel-idle-20261026/tcon-research/kernel/qdf-static-dimming-analysis.md`
-- [Exact acquired-Image GPIO persistence helper](../research/panel-idle-20261026/tcon-research/kernel-gpio-transitory-exact.md) — `panel-idle-20261026/tcon-research/kernel-gpio-transitory-exact.md`
-- [Retained-kernel dynamic instrumentation capability audit](../research/panel-idle-20261026/tcon-research/kernel-instrumentation-capability-audit-20261027.md) — `panel-idle-20261026/tcon-research/kernel-instrumentation-capability-audit-20261027.md`
-- [Installed `libteec.so`: ARM32 ABI and TrustWare backend boundary](../research/panel-idle-20261026/tcon-research/libteec-installed-abi.md) — `panel-idle-20261026/tcon-research/libteec-installed-abi.md`
-- [S95F bounded display-lock trial](../research/panel-idle-20261026/tcon-research/lock-trial/README.md) — `panel-idle-20261026/tcon-research/lock-trial/README.md`
-- [Maintenance IPC client versus executed EL sensing](../research/panel-idle-20261026/tcon-research/maintenance-ipc-client.md) — `panel-idle-20261026/tcon-research/maintenance-ipc-client.md`
-- [QD monitor input provenance: sampled GPIO, return code, and cached health](../research/panel-idle-20261026/tcon-research/monitor-input-status-provenance.md) — `panel-idle-20261026/tcon-research/monitor-input-status-provenance.md`
-- [QD monitor-latch rearm: offline safety and reachability review](../research/panel-idle-20261026/tcon-research/monitor-rearm-experiment-review.md) — `panel-idle-20261026/tcon-research/monitor-rearm-experiment-review.md`
-- [QD OLED monitor task cadence and `qd_tcon_off` rearm boundary](../research/panel-idle-20261026/tcon-research/monitor-task-cadence.md) — `panel-idle-20261026/tcon-research/monitor-task-cadence.md`
-- [NewHome / FSAV path into AVE — offline trace](../research/panel-idle-20261026/tcon-research/newhome-ave-path.md) — `panel-idle-20261026/tcon-research/newhome-ave-path.md`
-- [Deferred Home-exit restoration in the Rosem output driver](../research/panel-idle-20261026/tcon-research/newhome-exit-restore-path.md) — `panel-idle-20261026/tcon-research/newhome-exit-restore-path.md`
-- [NewHome FRC ioctl to Rosem output policy](../research/panel-idle-20261026/tcon-research/newhome-frc-output-policy.md) — `panel-idle-20261026/tcon-research/newhome-frc-output-policy.md`
-- [NewHome → QD dimming policy: resolved vtable path and content boundary](../research/panel-idle-20261026/tcon-research/newhome-qd-dimming-policy.md) — `panel-idle-20261026/tcon-research/newhome-qd-dimming-policy.md`
-- [Rosem NewHome TCON frame-rate backend](../research/panel-idle-20261026/tcon-research/newhome-tcon-vfreq-backend.md) — `panel-idle-20261026/tcon-research/newhome-tcon-vfreq-backend.md`
-- [Normal panel reinitialization route (offline evidence)](../research/panel-idle-20261026/tcon-research/normal-reinit-route.md) — `panel-idle-20261026/tcon-research/normal-reinit-route.md`
-- [OCIF AckPolling is a one-byte zero write, not a read](../research/panel-idle-20261026/tcon-research/ocif-ack-polling.md) — `panel-idle-20261026/tcon-research/ocif-ack-polling.md`
-- [OCIF cached-lock byte: static producers and lifecycle paths](../research/panel-idle-20261026/tcon-research/ocif-cache-producer.md) — `panel-idle-20261026/tcon-research/ocif-cache-producer.md`
-- [UID `0x506e` / value `6`: off-sensing route coverage](../research/panel-idle-20261026/tcon-research/off-sensing-disable-route-coverage.md) — `panel-idle-20261026/tcon-research/off-sensing-disable-route-coverage.md`
-- [FRC output policy: freeze, dormant, patterns, clocks, and UI-content boundary](../research/panel-idle-20261026/tcon-research/overnight-frc-output-policy.md) — `panel-idle-20261026/tcon-research/overnight-frc-output-policy.md`
-- [Device-tree GPIOs: exact driver chain and safe observation boundary](../research/panel-idle-20261026/tcon-research/overnight-gpio-dt-driver-chain.md) — `panel-idle-20261026/tcon-research/overnight-gpio-dt-driver-chain.md`
-- [AVOC panel-mute route: exact QD unmute-gate analysis](../research/panel-idle-20261026/tcon-research/overnight-panel-mute-gates.md) — `panel-idle-20261026/tcon-research/overnight-panel-mute-gates.md`
-- [Passive post-onset I²C capture: exact decoding](../research/panel-idle-20261026/tcon-research/overnight-passive-black-i2c-decode.md) — `panel-idle-20261026/tcon-research/overnight-passive-black-i2c-decode.md`
-- [Physical-black topology and host-visible link analysis](../research/panel-idle-20261026/tcon-research/overnight-physical-topology.md) — `panel-idle-20261026/tcon-research/overnight-physical-topology.md`
-- [Overnight QDF/FRC reverse engineering — policy, wire path, and safe evidence](../research/panel-idle-20261026/tcon-research/overnight-qdf-wire-and-policy.md) — `panel-idle-20261026/tcon-research/overnight-qdf-wire-and-policy.md`
-- [Retained wake `QdSsBrightness=0`: bounded upstream route](../research/panel-idle-20261026/tcon-research/owner-wake-ssbrightness-upstream.md) — `panel-idle-20261026/tcon-research/owner-wake-ssbrightness-upstream.md`
-- [PM lock expiry → notifier 20 — bounded static trace](../research/panel-idle-20261026/tcon-research/pm-lock-expiry-notifier.md) — `panel-idle-20261026/tcon-research/pm-lock-expiry-notifier.md`
-- [PQE query-event userspace consumer — bounded offline analysis](../research/panel-idle-20261026/tcon-research/pqe-event-userspace-consumer.md) — `panel-idle-20261026/tcon-research/pqe-event-userspace-consumer.md`
-- [PQE kernel event records returned by `QUERY_EVENT`](../research/panel-idle-20261026/tcon-research/pqe-kernel-event-records.md) — `panel-idle-20261026/tcon-research/pqe-kernel-event-records.md`
-- [PQE event query: recurring -11 is queue-empty, not a panel-off error](../research/panel-idle-20261026/tcon-research/pqe-query-event-analysis.md) — `panel-idle-20261026/tcon-research/pqe-query-event-analysis.md`
-- [Copied-userspace census for private HDMI suspend/resume controls](../research/panel-idle-20261026/tcon-research/private-hdmi-control-producers.md) — `panel-idle-20261026/tcon-research/private-hdmi-control-producers.md`
-- [Static invocation roots for private HDMI power helpers](../research/panel-idle-20261026/tcon-research/private-hdmi-invocation-roots.md) — `panel-idle-20261026/tcon-research/private-hdmi-invocation-roots.md`
-- [Private PM can advance software state without confirming resume success](../research/panel-idle-20261026/tcon-research/private-rpm-state-outcomes.md) — `panel-idle-20261026/tcon-research/private-rpm-state-outcomes.md`
-- [Active QDDimming-base duty path — bounded static audit](../research/panel-idle-20261026/tcon-research/qd-active-base-duty-path.md) — `panel-idle-20261026/tcon-research/qd-active-base-duty-path.md`
-- [QD AutoDim upstream route — static audit](../research/panel-idle-20261026/tcon-research/qd-autodim-upstream.md) — `panel-idle-20261026/tcon-research/qd-autodim-upstream.md`
-- [QDF "cache dump" surface: static safety finding](../research/panel-idle-20261026/tcon-research/qd-cache-dump-surface.md) — `panel-idle-20261026/tcon-research/qd-cache-dump-surface.md`
-- [QD CAD assets and extension-command 9: exact consumer boundary](../research/panel-idle-20261026/tcon-research/qd-cad-command9-consumer.md) — `panel-idle-20261026/tcon-research/qd-cad-command9-consumer.md`
-- [Independent review: QD CAD `tcon_ex_proc` provider](../research/panel-idle-20261026/tcon-research/qd-cad-provider-independent-review.md) — `panel-idle-20261026/tcon-research/qd-cad-provider-independent-review.md`
-- [QD CAD `tcon_ex_proc` provider and 5 MiB consumer boundary](../research/panel-idle-20261026/tcon-research/qd-cad-tcon-ex-proc-provider.md) — `panel-idle-20261026/tcon-research/qd-cad-tcon-ex-proc-provider.md`
-- [Exact QD command-gate reference](../research/panel-idle-20261026/tcon-research/qd-command-gate-reference.md) — `panel-idle-20261026/tcon-research/qd-command-gate-reference.md`
-- [QD command-skip lifecycle](../research/panel-idle-20261026/tcon-research/qd-command-skip-lifecycle.md) — `panel-idle-20261026/tcon-research/qd-command-skip-lifecycle.md`
-- [QD command transport: mute-zero observability limits](../research/panel-idle-20261026/tcon-research/qd-command-transport-failure.md) — `panel-idle-20261026/tcon-research/qd-command-transport-failure.md`
-- [Independent review: QD configuration `AP_RTP` load table](../research/panel-idle-20261026/tcon-research/qd-config-rtp-table-independent-review.md) — `panel-idle-20261026/tcon-research/qd-config-rtp-table-independent-review.md`
-- [Selected controller profile: positive AP_RTP load binding](../research/panel-idle-20261026/tcon-research/qd-config-rtp-table-load.md) — `panel-idle-20261026/tcon-research/qd-config-rtp-table-load.md`
-- [QDMNT content/duty path: a brightness ramp is distinct from panel power](../research/panel-idle-20261026/tcon-research/qd-content-duty-policy.md) — `panel-idle-20261026/tcon-research/qd-content-duty-policy.md`
-- [Content-dependent panel-protection mechanisms: primary-source boundary](../research/panel-idle-20261026/tcon-research/qd-content-protection-primary-research.md) — `panel-idle-20261026/tcon-research/qd-content-protection-primary-research.md`
-- [F3:80 controller fault-telemetry getter audit](../research/panel-idle-20261026/tcon-research/qd-controller-fault-telemetry-getters.md) — `panel-idle-20261026/tcon-research/qd-controller-fault-telemetry-getters.md`
-- [`F3:0x128` controller boundary — static profile result](../research/panel-idle-20261026/tcon-research/qd-controller-final-duty-rt-boundary.md) — `panel-idle-20261026/tcon-research/qd-controller-final-duty-rt-boundary.md`
-- [QD current ERR_DET GPIO read: ABI and side-effect boundary](../research/panel-idle-20261026/tcon-research/qd-current-fault-gpio-read-abi.md) — `panel-idle-20261026/tcon-research/qd-current-fault-gpio-read-abi.md`
-- [QDF debug input transport and fixed-exit path](../research/panel-idle-20261026/tcon-research/qd-debug-input-transport.md) — `panel-idle-20261026/tcon-research/qd-debug-input-transport.md`
-- [QD display-state query: result acknowledgement is a side effect](../research/panel-idle-20261026/tcon-research/qd-display-state-query-contract.md) — `panel-idle-20261026/tcon-research/qd-display-state-query-contract.md`
-- [QD packaged-image selector-`0x10` emergency-loop sequence](../research/panel-idle-20261026/tcon-research/qd-emergency-loop-output-sequence.md) — `panel-idle-20261026/tcon-research/qd-emergency-loop-output-sequence.md`
-- [QD ERR-DET status word: bit interpretation and monitor boundary](../research/panel-idle-20261026/tcon-research/qd-error-status-bit-interpretation.md) — `panel-idle-20261026/tcon-research/qd-error-status-bit-interpretation.md`
-- [QD TCON error-status read: ABI and side-effect boundary](../research/panel-idle-20261026/tcon-research/qd-error-status-read-abi.md) — `panel-idle-20261026/tcon-research/qd-error-status-read-abi.md`
-- [F3:00 read census: fixed-root fields and RT boundary](../research/panel-idle-20261026/tcon-research/qd-f300-read-rt-telemetry-census-20261027.md) — `panel-idle-20261026/tcon-research/qd-f300-read-rt-telemetry-census-20261027.md`
-- [Independent review: F300 staged-write gate provenance](../research/panel-idle-20261026/tcon-research/qd-f300-write-gate-independent-review.md) — `panel-idle-20261026/tcon-research/qd-f300-write-gate-independent-review.md`
-- [F300 staged-scalar write gates and their recovered producers](../research/panel-idle-20261026/tcon-research/qd-f300-write-gate-provenance.md) — `panel-idle-20261026/tcon-research/qd-f300-write-gate-provenance.md`
-- [Image-0 `F3 00 ... 0x128` payload path](../research/panel-idle-20261026/tcon-research/qd-f300-write-payload-dispatch.md) — `panel-idle-20261026/tcon-research/qd-f300-write-payload-dispatch.md`
-- [Selector `09` latch producer and object-provenance boundary](../research/panel-idle-20261026/tcon-research/qd-f38009-latch-producer.md) — `panel-idle-20261026/tcon-research/qd-f38009-latch-producer.md`
-- [`F3:80:...:09` stock telemetry / consumption audit](../research/panel-idle-20261026/tcon-research/qd-f38009-stock-telemetry.md) — `panel-idle-20261026/tcon-research/qd-f38009-stock-telemetry.md`
-- [Selected-profile F7 action-helper semantics](../research/panel-idle-20261026/tcon-research/qd-f7-action-semantics-20261027.md) — `panel-idle-20261026/tcon-research/qd-f7-action-semantics-20261027.md`
-- [QD fault next-discriminator corpus audit](../research/panel-idle-20261026/tcon-research/qd-fault-next-discriminator-audit.md) — `panel-idle-20261026/tcon-research/qd-fault-next-discriminator-audit.md`
-- [Final consumers of the selected F3:0x128 scalar](../research/panel-idle-20261026/tcon-research/qd-final-duty-application-callers.md) — `panel-idle-20261026/tcon-research/qd-final-duty-application-callers.md`
-- [Base QDDimming final-duty branch and immediate RoseMQD backend](../research/panel-idle-20261026/tcon-research/qd-final-duty-branch-analysis.md) — `panel-idle-20261026/tcon-research/qd-final-duty-branch-analysis.md`
-- [Consumers of controller `F3:0x128` staged field](../research/panel-idle-20261026/tcon-research/qd-final-duty-controller-consumers.md) — `panel-idle-20261026/tcon-research/qd-final-duty-controller-consumers.md`
-- [QD TCON firmware acquisition map](../research/panel-idle-20261026/tcon-research/qd-firmware-acquisition-map.md) — `panel-idle-20261026/tcon-research/qd-firmware-acquisition-map.md`
-- [QD firmware load-address correction, 2026-10-27](../research/panel-idle-20261026/tcon-research/qd-firmware-load-address-erratum.md) — `panel-idle-20261026/tcon-research/qd-firmware-load-address-erratum.md`
-- [QDF firmware resolver: exact paths and bounded acquisition plan](../research/panel-idle-20261026/tcon-research/qd-firmware-resolver-exact-paths-prior-command9-inference-631e2e9e.md) — `panel-idle-20261026/tcon-research/qd-firmware-resolver-exact-paths-prior-command9-inference-631e2e9e.md`
-- [QDF firmware resolver: exact paths and bounded acquisition plan](../research/panel-idle-20261026/tcon-research/qd-firmware-resolver-exact-paths.md) — `panel-idle-20261026/tcon-research/qd-firmware-resolver-exact-paths.md`
-- [QDF Mode 2 versus stock PM reset routes](../research/panel-idle-20261026/tcon-research/qd-full-reset-versus-mode2.md) — `panel-idle-20261026/tcon-research/qd-full-reset-versus-mode2.md`
-- [QD monitor / QDF function-logging plan — bounded offline design](../research/panel-idle-20261026/tcon-research/qd-function-logging-plan-20261027.md) — `panel-idle-20261026/tcon-research/qd-function-logging-plan-20261027.md`
-- [QD generic one-command read ABI](../research/panel-idle-20261026/tcon-research/qd-generic-read-command-abi.md) — `panel-idle-20261026/tcon-research/qd-generic-read-command-abi.md`
-- [Independent review: QD generic one-command read ABI](../research/panel-idle-20261026/tcon-research/qd-generic-read-command-independent-review.md) — `panel-idle-20261026/tcon-research/qd-generic-read-command-independent-review.md`
-- [Selected-profile I2C response-family census](../research/panel-idle-20261026/tcon-research/qd-i2c-read-command-family-census-20261027.md) — `panel-idle-20261026/tcon-research/qd-i2c-read-command-family-census-20261027.md`
-- [`mixer_sys_disable_vblank`: controller boundary](../research/panel-idle-20261026/tcon-research/qd-idle-vblank-controller-boundary.md) — `panel-idle-20261026/tcon-research/qd-idle-vblank-controller-boundary.md`
-- [QD image-1 context initialization and corrected load mapping](../research/panel-idle-20261026/tcon-research/qd-image1-context-initialization.md) — `panel-idle-20261026/tcon-research/qd-image1-context-initialization.md`
-- [QD kernel F3:0x128 request cache and recovery replay](../research/panel-idle-20261026/tcon-research/qd-kernel-output-replay.md) — `panel-idle-20261026/tcon-research/qd-kernel-output-replay.md`
-- [QD packaged-image live RT-protection candidates](../research/panel-idle-20261026/tcon-research/qd-live-rt-protection-candidates.md) — `panel-idle-20261026/tcon-research/qd-live-rt-protection-candidates.md`
-- [What the stock Mode-2 sequence can clear in reported QD state](../research/panel-idle-20261026/tcon-research/qd-mode2-reported-fault-clear-semantics.md) — `panel-idle-20261026/tcon-research/qd-mode2-reported-fault-clear-semantics.md`
-- [QD monitor: exact recovery predicates](../research/panel-idle-20261026/tcon-research/qd-monitor-exact-recovery-predicates.md) — `panel-idle-20261026/tcon-research/qd-monitor-exact-recovery-predicates.md`
-- [QD monitor lifecycle caller boundary](../research/panel-idle-20261026/tcon-research/qd-monitor-lifecycle-callers.md) — `panel-idle-20261026/tcon-research/qd-monitor-lifecycle-callers.md`
-- [QD monitor runtime-state map](../research/panel-idle-20261026/tcon-research/qd-monitor-runtime-map.md) — `panel-idle-20261026/tcon-research/qd-monitor-runtime-map.md`
-- [QD mute/frame-mode concurrency audit](../research/panel-idle-20261026/tcon-research/qd-mute-concurrency.md) — `panel-idle-20261026/tcon-research/qd-mute-concurrency.md`
-- [QDF mute readback: exact command correction and rescued wire evidence](../research/panel-idle-20261026/tcon-research/qd-mute-readback-wire-correction.md) — `panel-idle-20261026/tcon-research/qd-mute-readback-wire-correction.md`
-- [QD panel-mute writer map (offline, bounded)](../research/panel-idle-20261026/tcon-research/qd-mute-writer-map.md) — `panel-idle-20261026/tcon-research/qd-mute-writer-map.md`
-- [One-command send buffer: caller value is copied in, not copied back](../research/panel-idle-20261026/tcon-research/qd-onecommand-buffer-dataflow.md) — `panel-idle-20261026/tcon-research/qd-onecommand-buffer-dataflow.md`
-- [QDF power-control hardware sequence](../research/panel-idle-20261026/tcon-research/qd-power-control-hardware-sequence.md) — `panel-idle-20261026/tcon-research/qd-power-control-hardware-sequence.md`
-- [Independent review: QD power-control userspace ABI](../research/panel-idle-20261026/tcon-research/qd-power-control-userspace-abi-independent-review.md) — `panel-idle-20261026/tcon-research/qd-power-control-userspace-abi-independent-review.md`
-- [QD panel power-control ABI and recovery limits](../research/panel-idle-20261026/tcon-research/qd-power-control-userspace-abi.md) — `panel-idle-20261026/tcon-research/qd-power-control-userspace-abi.md`
-- [Packaged QD selector `0x0d` ratio producer](../research/panel-idle-20261026/tcon-research/qd-power-level-ratio-producer.md) — `panel-idle-20261026/tcon-research/qd-power-level-ratio-producer.md`
-- [Selected-profile `F7` read boundary](../research/panel-idle-20261026/tcon-research/qd-profile-f7-read-boundary.md) — `panel-idle-20261026/tcon-research/qd-profile-f7-read-boundary.md`
-- [QD profile FW/MD identity producer](../research/panel-idle-20261026/tcon-research/qd-profile-fw-identity-producer.md) — `panel-idle-20261026/tcon-research/qd-profile-fw-identity-producer.md`
-- [Selected-profile open-register read route and RT-state boundary](../research/panel-idle-20261026/tcon-research/qd-profile-open-register-read-route.md) — `panel-idle-20261026/tcon-research/qd-profile-open-register-read-route.md`
-- [Selected-profile read-only selectors for RT state](../research/panel-idle-20261026/tcon-research/qd-profile-readonly-rt-state-selectors.md) — `panel-idle-20261026/tcon-research/qd-profile-readonly-rt-state-selectors.md`
-- [Independent review: selected QD profile RT-protection producer lead](../research/panel-idle-20261026/tcon-research/qd-profile-rt-producer-independent-review.md) — `panel-idle-20261026/tcon-research/qd-profile-rt-producer-independent-review.md`
-- [Selected-profile RT status: internal selector to `F3 80 ... 08` wire reply](../research/panel-idle-20261026/tcon-research/qd-profile-rt-status-wire.md) — `panel-idle-20261026/tcon-research/qd-profile-rt-status-wire.md`
-- [Independent review: selected-profile RT selector to wire status](../research/panel-idle-20261026/tcon-research/qd-profile-rt-wire-independent-review.md) — `panel-idle-20261026/tcon-research/qd-profile-rt-wire-independent-review.md`
-- [Selected QD profile image 1: RTP scan, thresholds, and local event path](../research/panel-idle-20261026/tcon-research/qd-profile-rtp-image1.md) — `panel-idle-20261026/tcon-research/qd-profile-rtp-image1.md`
-- [QD protection: bounded inventory of additional read telemetry](../research/panel-idle-20261026/tcon-research/qd-protection-additional-telemetry.md) — `panel-idle-20261026/tcon-research/qd-protection-additional-telemetry.md`
-- [RoseMQD QD resume-record replay](../research/panel-idle-20261026/tcon-research/qd-resume-record-replay.md) — `panel-idle-20261026/tcon-research/qd-resume-record-replay.md`
-- [Active RoseMQD final-duty cache lifecycle](../research/panel-idle-20261026/tcon-research/qd-rosem-cache-lifecycle.md) — `panel-idle-20261026/tcon-research/qd-rosem-cache-lifecycle.md`
-- [QD RT-status producer versus internal-TCON/RHEA identity boundary](../research/panel-idle-20261026/tcon-research/qd-rt-controller-identity-boundary.md) — `panel-idle-20261026/tcon-research/qd-rt-controller-identity-boundary.md`
-- [QD image-0 RT-field parameter/load provenance](../research/panel-idle-20261026/tcon-research/qd-rt-parameter-load-provenance.md) — `panel-idle-20261026/tcon-research/qd-rt-parameter-load-provenance.md`
-- [Image0 return guards: reset and recovered configuration routes](../research/panel-idle-20261026/tcon-research/qd-rt-return-guard-initialization.md) — `panel-idle-20261026/tcon-research/qd-rt-return-guard-initialization.md`
-- [QD RT-window alias / cross-image bridge audit](../research/panel-idle-20261026/tcon-research/qd-rt-window-alias-evidence-20261027.md) — `panel-idle-20261026/tcon-research/qd-rt-window-alias-evidence-20261027.md`
-- [Image-0 fixed RT-window live-producer census](../research/panel-idle-20261026/tcon-research/qd-rt-window-live-producer-census-20261027.md) — `panel-idle-20261026/tcon-research/qd-rt-window-live-producer-census-20261027.md`
-- [QD fixed RT-window reset output and image-1 root gap](../research/panel-idle-20261026/tcon-research/qd-rt-window-reset-output-20261027.md) — `panel-idle-20261026/tcon-research/qd-rt-window-reset-output-20261027.md`
-- [RT selector-to-wire chain: image-load-map correction](../research/panel-idle-20261026/tcon-research/qd-rt-wire-load-map-audit.md) — `panel-idle-20261026/tcon-research/qd-rt-wire-load-map-audit.md`
-- [QD profile image 1 → image 0 RTP/RT field handoff check](../research/panel-idle-20261026/tcon-research/qd-rtp-image-handoff.md) — `panel-idle-20261026/tcon-research/qd-rtp-image-handoff.md`
-- [Image-1 RTP primary event `0x338`: input and predicate provenance](../research/panel-idle-20261026/tcon-research/qd-rtp-primary-event-input-provenance.md) — `panel-idle-20261026/tcon-research/qd-rtp-primary-event-input-provenance.md`
-- [QD image-1 RTP scan invocation and immediate sample producer](../research/panel-idle-20261026/tcon-research/qd-rtp-scan-invocation.md) — `panel-idle-20261026/tcon-research/qd-rtp-scan-invocation.md`
-- [Read-only runtime observer map: QD AutoDim object](../research/panel-idle-20261026/tcon-research/qd-runtime-observer-map.md) — `panel-idle-20261026/tcon-research/qd-runtime-observer-map.md`
-- [Runtime QD profile line: exact producer and field provenance](../research/panel-idle-20261026/tcon-research/qd-runtime-profile-log-fields.md) — `panel-idle-20261026/tcon-research/qd-runtime-profile-log-fields.md`
-- [QD secondary-component / `0x4701` window: bounded loader audit](../research/panel-idle-20261026/tcon-research/qd-secondary-core-window-loader.md) — `panel-idle-20261026/tcon-research/qd-secondary-core-window-loader.md`
-- [Selected QD profile content: embedded firmware and calibration banks](../research/panel-idle-20261026/tcon-research/qd-selected-profile-content.md) — `panel-idle-20261026/tcon-research/qd-selected-profile-content.md`
-- [QD sensing entry ABI and caller boundary](../research/panel-idle-20261026/tcon-research/qd-sensing-entry-callers.md) — `panel-idle-20261026/tcon-research/qd-sensing-entry-callers.md`
-- [QD SSB readback acquisition boundary](../research/panel-idle-20261026/tcon-research/qd-ssb-readback-acquisition-boundary.md) — `panel-idle-20261026/tcon-research/qd-ssb-readback-acquisition-boundary.md`
-- [QD suspend and TCON-state gates](../research/panel-idle-20261026/tcon-research/qd-suspend-state-lifecycle.md) — `panel-idle-20261026/tcon-research/qd-suspend-state-lifecycle.md`
-- [`QD_TCON_OFF` is a monitor latch, not a current power reading](../research/panel-idle-20261026/tcon-research/qd-tcon-off-latch.md) — `panel-idle-20261026/tcon-research/qd-tcon-off-latch.md`
-- [QD UART device-tree binding follow-up](../research/panel-idle-20261026/tcon-research/qd-uart-dt-binding-followup.md) — `panel-idle-20261026/tcon-research/qd-uart-dt-binding-followup.md`
-- [QD image-0 UART to host logging boundary](../research/panel-idle-20261026/tcon-research/qd-uart-host-logging-boundary.md) — `panel-idle-20261026/tcon-research/qd-uart-host-logging-boundary.md`
-- [QD unmute's cached-PVCC guard and its lifecycle callers](../research/panel-idle-20261026/tcon-research/qd-unmute-pvcc-guard.md) — `panel-idle-20261026/tcon-research/qd-unmute-pvcc-guard.md`
-- [Erratum: AP_RTP generic-reader unsigned branch](../research/panel-idle-20261026/tcon-research/qd-usb-ap-rtp-logical-read-route-review-erratum.md) — `panel-idle-20261026/tcon-research/qd-usb-ap-rtp-logical-read-route-review-erratum.md`
-- [USB CDC ingress versus the AP_RTP logical reader](../research/panel-idle-20261026/tcon-research/qd-usb-ap-rtp-logical-read-route.md) — `panel-idle-20261026/tcon-research/qd-usb-ap-rtp-logical-read-route.md`
-- [QD image-0 CDC class-control request trace](../research/panel-idle-20261026/tcon-research/qd-usb-cdc-control-requests.md) — `panel-idle-20261026/tcon-research/qd-usb-cdc-control-requests.md`
-- [Selected-profile CDC RX completion and consumer boundary](../research/panel-idle-20261026/tcon-research/qd-usb-cdc-rx-consumer-20261027.md) — `panel-idle-20261026/tcon-research/qd-usb-cdc-rx-consumer-20261027.md`
-- [QD image-0 USB descriptor and console-binding audit](../research/panel-idle-20261026/tcon-research/qd-usb-console-binding.md) — `panel-idle-20261026/tcon-research/qd-usb-console-binding.md`
-- [USB device identity recovered from reset scatter](../research/panel-idle-20261026/tcon-research/qd-usb-device-descriptor-scatter-match-20261027.md) — `panel-idle-20261026/tcon-research/qd-usb-device-descriptor-scatter-match-20261027.md`
-- [Independent review: packaged USB descriptor scatter match](../research/panel-idle-20261026/tcon-research/qd-usb-device-descriptor-scatter-match-independent-review.md) — `panel-idle-20261026/tcon-research/qd-usb-device-descriptor-scatter-match-independent-review.md`
-- [Corrected QD image-0 USB line-coding callback](../research/panel-idle-20261026/tcon-research/qd-usb-linecoding-callback-corrected.md) — `panel-idle-20261026/tcon-research/qd-usb-linecoding-callback-corrected.md`
-- [QD image-0 diagnostic-output routes: USB CDC versus UART](../research/panel-idle-20261026/tcon-research/qd-usb-log-output-route.md) — `panel-idle-20261026/tcon-research/qd-usb-log-output-route.md`
-- [QD Weber-input producer: object count, register statistics and FRC reading](../research/panel-idle-20261026/tcon-research/qd-weber-input-producer.md) — `panel-idle-20261026/tcon-research/qd-weber-input-producer.md`
-- [Official-source feasibility for the QN77S95F kernel build](../research/panel-idle-20261026/tcon-research/qn77s95f-official-kernel-source-feasibility.md) — `panel-idle-20261026/tcon-research/qn77s95f-official-kernel-source-feasibility.md`
-- [Fresh `0x10` TCON status: host interpretation and controller boundary](../research/panel-idle-20261026/tcon-research/rt-protect-controller-path.md) — `panel-idle-20261026/tcon-research/rt-protect-controller-path.md`
-- [RT Protect (`0x10`) and host recovery boundary](../research/panel-idle-20261026/tcon-research/rt-protect-host-recovery.md) — `panel-idle-20261026/tcon-research/rt-protect-host-recovery.md`
-- [External evidence boundary: `RT Protect`, `ERR_DET`, and Samsung OLED Screen Optimization](../research/panel-idle-20261026/tcon-research/rt-protection-external-evidence.md) — `panel-idle-20261026/tcon-research/rt-protection-external-evidence.md`
-- [`sdp-pinctrl-v2` GPIO persistence callback in the paired kernel Image](../research/panel-idle-20261026/tcon-research/sdp-pinctrl-v2-config-binary.md) — `panel-idle-20261026/tcon-research/sdp-pinctrl-v2-config-binary.md`
-- [`sdp-pinctrl-v2` GPIO persistence-config source gap](../research/panel-idle-20261026/tcon-research/sdp-pinctrl-v2-gpio-config.md) — `panel-idle-20261026/tcon-research/sdp-pinctrl-v2-gpio-config.md`
-- [SDP FRC resource translation and production-mode request gate](../research/panel-idle-20261026/tcon-research/sdp-resource-and-production-gate.md) — `panel-idle-20261026/tcon-research/sdp-resource-and-production-gate.md`
-- [SerDes lock helper: positive probe/resume callers, not a diagnosed blackout timer](../research/panel-idle-20261026/tcon-research/serdes-probe-resume-path.md) — `panel-idle-20261026/tcon-research/serdes-probe-resume-path.md`
-- [HDMI/OCIF support predicate: boot-input provenance](../research/panel-idle-20261026/tcon-research/serdes-support-boot-provenance.md) — `panel-idle-20261026/tcon-research/serdes-support-boot-provenance.md`
-- [Independent review: SSB firmware-acquisition boundary](../research/panel-idle-20261026/tcon-research/ssb-acquisition-independent-review.md) — `panel-idle-20261026/tcon-research/ssb-acquisition-independent-review.md`
-- [SSB backup entry: exact initialization and ioctl boundary](../research/panel-idle-20261026/tcon-research/ssb-backup-entry-audit-20261027.md) — `panel-idle-20261026/tcon-research/ssb-backup-entry-audit-20261027.md`
-- [Device-side SSB target `0x203` read protocol](../research/panel-idle-20261026/tcon-research/ssb-device-read-protocol-20261027.md) — `panel-idle-20261026/tcon-research/ssb-device-read-protocol-20261027.md`
-- [Independent review: SSB target-`0x203` device read protocol](../research/panel-idle-20261026/tcon-research/ssb-device-read-protocol-independent-review.md) — `panel-idle-20261026/tcon-research/ssb-device-read-protocol-independent-review.md`
-- [Vendor bulk family1: addressed-memory IN lead](../research/panel-idle-20261026/tcon-research/ssb-family1-memory-in-route-lead-20261027.md) — `panel-idle-20261026/tcon-research/ssb-family1-memory-in-route-lead-20261027.md`
-- [Independent fixed-descriptor review and target result](../research/panel-idle-20261026/tcon-research/ssb-known-descriptor-reader-independent-review-20261027.md) — `panel-idle-20261026/tcon-research/ssb-known-descriptor-reader-independent-review-20261027.md`
-- [SSB mode-gate follow-up](../research/panel-idle-20261026/tcon-research/ssb-mode-gate-followup-20261027.md) — `panel-idle-20261026/tcon-research/ssb-mode-gate-followup-20261027.md`
-- [SSB transport driver binding for `/dev/ssb1` and `/dev/ssbs1`](../research/panel-idle-20261026/tcon-research/ssb-transport-driver-binding.md) — `panel-idle-20261026/tcon-research/ssb-transport-driver-binding.md`
-- [SWU/TEE firmware-decrypt feasibility: cipher-only boundary](../research/panel-idle-20261026/tcon-research/swu-decrypt-feasibility.md) — `panel-idle-20261026/tcon-research/swu-decrypt-feasibility.md`
-- [TCON MICOM debug-log backing store, producer, and read semantics](../research/panel-idle-20261026/tcon-research/tcon-micom-log-cache-producer.md) — `panel-idle-20261026/tcon-research/tcon-micom-log-cache-producer.md`
-- [Selector `0x0c` in the retained `tcon-monitor` traffic](../research/panel-idle-20261026/tcon-research/tcon-monitor-selector-0c-analysis.md) — `panel-idle-20261026/tcon-research/tcon-monitor-selector-0c-analysis.md`
-- [`ttyUSB0` CP210x identity boundary](../research/panel-idle-20261026/tcon-research/ttyusb0-cp210x-identity-boundary-20261027.md) — `panel-idle-20261026/tcon-research/ttyusb0-cp210x-identity-boundary-20261027.md`
-- [Gap register and next experiments](../research/research-20261027-external/GAPS-AND-EXPERIMENTS.md) — `research-20261027-external/GAPS-AND-EXPERIMENTS.md`
-- [External source research: Samsung S95F blackout investigation](../research/research-20261027-external/README.md) — `research-20261027-external/README.md`
-- [Target file acquisition during source comparison](../research/research-20261027-external/TARGET-ACQUISITION.md) — `research-20261027-external/TARGET-ACQUISITION.md`
-- [Samsung S95F: current investigation](../research/research-20261027-external/document-snapshots/bw-prior/CURRENT-INVESTIGATION.md) — `research-20261027-external/document-snapshots/bw-prior/CURRENT-INVESTIGATION.md`
-- [Apps-selected panel recovery](../research/research-20261027-external/document-snapshots/bw-prior/RECOVER-PANEL.md) — `research-20261027-external/document-snapshots/bw-prior/RECOVER-PANEL.md`
-- [Current ordinary-controller fault model — 2026-10-27](../research/research-20261027-external/document-snapshots/bw-prior/ordinary-fault-model-20261027.md) — `research-20261027-external/document-snapshots/bw-prior/ordinary-fault-model-20261027.md`
-- [Samsung S95F: current investigation](../research/research-20261027-external/document-snapshots/research-phase/CURRENT-INVESTIGATION.md) — `research-20261027-external/document-snapshots/research-phase/CURRENT-INVESTIGATION.md`
-- [Samsung S95F panel-blackout reverse engineering](../research/research-20261027-external/document-snapshots/research-phase/README.md) — `research-20261027-external/document-snapshots/research-phase/README.md`
-- [Apps-selected panel recovery](../research/research-20261027-external/document-snapshots/research-phase/RECOVER-PANEL.md) — `research-20261027-external/document-snapshots/research-phase/RECOVER-PANEL.md`
-- [Current ordinary-controller fault model — 2026-10-27](../research/research-20261027-external/document-snapshots/research-phase/ordinary-fault-model-20261027.md) — `research-20261027-external/document-snapshots/research-phase/ordinary-fault-model-20261027.md`
-- [Content-control experiment for the Home blackout](../research/research-20261027-external/reports/content-control-experiment.md) — `research-20261027-external/reports/content-control-experiment.md`
-- [Remote-control sources and topic discovery](../research/research-20261027-external/reports/controls-discovery.md) — `research-20261027-external/reports/controls-discovery.md`
-- [S95F hardware and firmware: external evidence against the actual gaps](../research/research-20261027-external/reports/hardware-firmware.md) — `research-20261027-external/reports/hardware-firmware.md`
-- [Kernel instrumentation: exact-image result and useful external sources](../research/research-20261027-external/reports/kernel-tools.md) — `research-20261027-external/reports/kernel-tools.md`
-- [Fixed metadata-only SWU helper: offline source prototype](../research/research-20261027-external/reports/minimal-swu-helper-design.md) — `research-20261027-external/reports/minimal-swu-helper-design.md`
-- [RGB command 0x400: retained SDP sampler dispatch and external-controller boundary](../research/research-20261027-external/reports/rgb-controller-dispatch.md) — `research-20261027-external/reports/rgb-controller-dispatch.md`
-- [Root-source research and claim audit — 2026-10-27 UTC](../research/research-20261027-external/reports/root-sources.md) — `research-20261027-external/reports/root-sources.md`
-- [Minimal SWU metadata decryption: target applicability](../research/research-20261027-external/reports/swu-target-applicability.md) — `research-20261027-external/reports/swu-target-applicability.md`
-- [Video measurement: target ABI confirmed, measurement-to-Pre-PD link absent](../research/research-20261027-external/reports/video-measurement.md) — `research-20261027-external/reports/video-measurement.md`
-- [Independent evidence audit — 2026-10-27](../research/research-20261027-external/reviews/independent-audit.md) — `research-20261027-external/reviews/independent-audit.md`
-- [Independent SWU normal-world ABI audit](../research/research-20261027-external/reviews/swu-independent-review.md) — `research-20261027-external/reviews/swu-independent-review.md`
-- [Quick start](../research/root-access/source/QUICKSTART.md) — `root-access/source/QUICKSTART.md`
-- [Samsung TV root](../research/root-access/source/README.md) — `root-access/source/README.md`
-- [Documentation](../research/root-access/source/docs/README.md) — `root-access/source/docs/README.md`
-- [Samsung SWU passphrase dump](../research/root-access/source/docs/research-notes/AES_EXTRACTION.md) — `root-access/source/docs/research-notes/AES_EXTRACTION.md`
-- [Exploit chain](../research/root-access/source/docs/research-notes/EXPLOIT_CHAIN.md) — `root-access/source/docs/research-notes/EXPLOIT_CHAIN.md`
-- [QN90B root reproduction](../research/root-access/source/docs/research-notes/QN90B_REPRODUCTION.md) — `root-access/source/docs/research-notes/QN90B_REPRODUCTION.md`
-- [QN90F root reproduction](../research/root-access/source/docs/research-notes/QN90F_REPRODUCTION.md) — `root-access/source/docs/research-notes/QN90F_REPRODUCTION.md`
-- [Host controller guide](../research/root-access/source/docs/user/CONTROLLER.md) — `root-access/source/docs/user/CONTROLLER.md`
-- [Remote input guide](../research/root-access/source/docs/user/REMOTE_POLICY.md) — `root-access/source/docs/user/REMOTE_POLICY.md`
+Retained Markdown documents: 745.
+
+- [Samsung S95F: current investigation](../research/CURRENT-INVESTIGATION.md)
+- [Samsung S95F panel-blackout reverse engineering](../research/README.md)
+- [Apps-selected panel recovery](../research/RECOVER-PANEL.md)
+- [acquisition-report.md](../research/firmware-acquisition-20261028/acquisition-report.md)
+- [Content-dependent blackout investigation](../research/panel-idle-20261026/apps-route/content-dependent-blackout-investigation.md)
+- [Enlightenment post-composition recovery probes — static client audit](../research/panel-idle-20261026/apps-route/enlightenment-recovery-probe.md)
+- [Home render, AVOC, and screen-saver call graph (static audit)](../research/panel-idle-20261026/apps-route/home-render-and-avoc-callgraph.md)
+- [Screen Saver Brightness: attended scalar test](../research/panel-idle-20261026/factory-ss-trial/README.md)
+- [Apps-only Home renderer audit](../research/panel-idle-20261026/home-audit/findings.md)
+- [Runtime HWC prevention trial — 2026-10-26](../research/panel-idle-20261026/hwc-prevention/README.md)
+- [Idle-path assessment — 2026-10-26](../research/panel-idle-20261026/idle-research/assessment.md)
+- [Preserved managed-bridge IL evidence](../research/panel-idle-20261026/idle-research/common-mute-il-audit.md)
+- [Factory service: Screen Saver Brightness (offline analysis)](../research/panel-idle-20261026/idle-research/factory-screen-saver-brightness.md)
+- [Menu Pixel Refresh / Screen Optimization UI](../research/panel-idle-20261026/idle-research/menu-screen-optimization.md)
+- [Raw native NewHome bridge evidence](../research/panel-idle-20261026/idle-research/newhome-native-bridge-disasm.md)
+- [NewHome argument bridge: proven registration and boolean route](../research/panel-idle-20261026/idle-research/newhome-ui-native-arguments.md)
+- [Overnight AVE/HWC findings (offline, no TV actions)](../research/panel-idle-20261026/idle-research/overnight-ave-hwc-findings.md)
+- [AVOC native panel-mute controller — recovered state and reset paths](../research/panel-idle-20261026/idle-research/overnight-avocd-controller.md)
+- [Full-Home AV mute versus panel-emission path](../research/panel-idle-20261026/idle-research/overnight-mute-output-chain.md)
+- [Settings overlay / Full Home path (static CSFS audit)](../research/panel-idle-20261026/idle-research/overnight-overlay-path.md)
+- [Self Diagnosis resource candidate — bounded follow-up](../research/panel-idle-20261026/idle-research/selfdiagnosis-optimization-candidate.md)
+- [Stock notification cancellation contract for the forced off-sensing warning](../research/panel-idle-20261026/idle-research/stock-notification-cancellation-contract.md)
+- [`tv-viewer` automatic QD sensing notification path](../research/panel-idle-20261026/idle-research/tv-viewer-automatic-sensing-notification.md)
+- [`tv-viewer` forced off-sensing expiry flow](../research/panel-idle-20261026/idle-research/tv-viewer-off-sensing-timeout-flow.md)
+- [Automatic Screen Optimization warning: exact installed text located](../research/panel-idle-20261026/idle-research/tv-viewer-optimization-resource-match.md)
+- [S95F reverse-engineering evidence index — October26 overnight](../research/panel-idle-20261026/overnight/RE-INDEX.md)
+- [Corrected AP_EXCO callback-source read address review](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/address-review.md)
+- [Corrected callback-source read: pointer and numeric fields corroborated](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/capture-findings.md)
+- [Independent checkpoint review: O–R callback provenance block](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/checkpoint-review.md)
+- [AP_EXCO callback-source capture runtime review](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/runtime-review.md)
+- [Fixed AP_EXCO callback-source read](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/source-checkpoint/README.md)
+- [Managed AP_EXCO callback-source reader: independent source review](../research/panel-idle-20261026/overnight/ap-exco-callback-source-20261027o/source-review.md)
+- [Corrected AP_EXCO direct-caller provenance](../research/panel-idle-20261026/overnight/ap-exco-caller-provenance-20261027q/ap-exco-caller-provenance.md)
+- [Independent review: corrected AP_EXCO caller provenance](../research/panel-idle-20261026/overnight/ap-exco-caller-provenance-20261027q/independent-review.md)
+- [Corrected AP_EXCO derived-object provenance](../research/panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/ap-exco-derived-object-provenance.md)
+- [Independent review of derived AP_EXCO object provenance](../research/panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/independent-review.md)
+- [Closure of independent P ordering finding](../research/panel-idle-20261026/overnight/ap-exco-derived-object-provenance-20261027p/review-closure.md)
+- [AP_EXCO helper-input provenance](../research/panel-idle-20261026/overnight/ap-exco-helper-inputs-20261027s/ap-exco-helper-inputs.md)
+- [W fixed ordinary-input read: independent address review](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/address-review.md)
+- [W captured aggregate interpretation](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/aggregate-interpretation.md)
+- [W live ordinary-input snapshot](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/capture-findings.md)
+- [AP_EXCO ordinary-input snapshot plan (offline)](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/read-plan.md)
+- [Managed USB AP_EXCO input snapshot](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/source-checkpoint/README.md)
+- [W source/build review before execution](../research/panel-idle-20261026/overnight/ap-exco-input-snapshot-20261027w/source-review.md)
+- [AE independent review](../research/panel-idle-20261026/overnight/ap-exco-reference-delta-20261027ae/independent-review.md)
+- [Captured ordinary state versus two stored references](../research/panel-idle-20261026/overnight/ap-exco-reference-delta-20261027ae/reference-delta.md)
+- [AP_EXCO fixed-source read address review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/address-review.md)
+- [Fixed source capture: accepted transport, rejected pointer binding](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/capture-findings.md)
+- [Independent H–M checkpoint review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/checkpoint-review.md)
+- [AP_EXCO pointer-layout follow-up](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/pointer-layout-followup.md)
+- [AP_EXCO source capture: independent runtime review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/runtime-review.md)
+- [Fixed AP_EXCO source read](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-checkpoint/README.md)
+- [Additive correction: AP_EXCO callback source lineage](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-lineage-erratum.md)
+- [Managed AP_EXCO source reader: independent offline source review](../research/panel-idle-20261026/overnight/ap-exco-source-read-20261027m/source-review.md)
+- [Y source-trace independent review closure](../research/panel-idle-20261026/overnight/ap-table-source-20261027y/review-closure.md)
+- [Fixed aggregate-table source trace](../research/panel-idle-20261026/overnight/ap-table-source-20261027y/table-source-trace.md)
+- [Owner Apps-to-ForYou transition: retained evidence analysis](../research/panel-idle-20261026/overnight/apps-foryou-transition-analysis-20261027.md)
+- [One ordinary Apps-key request with no confirmed foreground transition](../research/panel-idle-20261026/overnight/apps-key-trial-20261027bm/findings.md)
+- [BU Apps-selected physical recovery](../research/panel-idle-20261026/overnight/apps-selected-panel-recovery-20261027bu/findings.md)
+- [Automatic Screen Optimization: reconstructed path and remaining repair boundary](../research/panel-idle-20261026/overnight/automatic-optimization-end-to-end.md)
+- [Live backend, corrected storage route, and onset-capture preparation](../research/panel-idle-20261026/overnight/backend-storage-and-onset-preparation.md)
+- [Independent review: live backend and factory storage continuation](../research/panel-idle-20261026/overnight/backend-storage-independent-review.md)
+- [Independent review: budgeted 180-second HDMI onset collector](../research/panel-idle-20261026/overnight/budgeted-onset-independent-review.md)
+- [Request replay and branch-state follow-up](../research/panel-idle-20261026/overnight/cache-replay-and-branch-state-progress.md)
+- [Request-replay follow-up review and corrections](../research/panel-idle-20261026/overnight/cache-replay-followup-review.md)
+- [Descriptor 8: packaged initializer and callback argument](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/descriptor-identity.md)
+- [Callback identity and the dependency of ordinary re-enable on dispatch](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/findings.md)
+- [Bounded review and corrections](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/independent-review.md)
+- [Descriptor-8 callback lifecycle and bounded re-enable edge](../research/panel-idle-20261026/overnight/callback-lifecycle-20261027bc/reenable-trace.md)
+- [Offline QD I²C analysis of the 90-second capacity capture](../research/panel-idle-20261026/overnight/capacity-20261026t1648.onset/offline-qd-i2c-analysis.md)
+- [Candidate code-window fingerprints: three exact matches](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/capture-findings.md)
+- [Independent N checkpoint review](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/checkpoint-review.md)
+- [Image-1 low-linked-address code-map qualification follow-up](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/code-map-qualified-followup.md)
+- [Managed selector-1 code-fingerprint reader: independent source review](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/reader-source-review.md)
+- [Code-fingerprint capture runtime review](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/runtime-review.md)
+- [Managed USB code fingerprint reader](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/source-checkpoint/README.md)
+- [Fixed selector-1 code-window reader](../research/panel-idle-20261026/overnight/code-map-qualified-followup-20261027n/source-checkpoint/source-note.md)
+- [Selector-1 code-write diagnostic readiness](../research/panel-idle-20261026/overnight/code-write-readiness-20261027r/code-write-readiness.md)
+- [Independent review of selector-1 code-write readiness](../research/panel-idle-20261026/overnight/code-write-readiness-20261027r/independent-review.md)
+- [Controller fault follow-up: recovery predicates, assets and shared log](../research/panel-idle-20261026/overnight/controller-fault-followup-20261026.md)
+- [Fresh host and retained-controller state](../research/panel-idle-20261026/overnight/current-host-health-20261027v/findings.md)
+- [Independent ordinary trace reviews and corrections](../research/panel-idle-20261026/overnight/current-host-health-20261027v/ordinary-trace-reviews.md)
+- [AP_EXCO helper-input provenance](../research/panel-idle-20261026/overnight/current-host-health-20261027v/s-before-review-correction.md)
+- [S95F blackout: low-level investigation, 2026-10-26](../research/panel-idle-20261026/overnight/diagnosis-20261026.md)
+- [Panel blackout: evidence and unresolved links](../research/panel-idle-20261026/overnight/diagnostic-causal-map-20261027.md)
+- [Independent ERR_DET input sample: actual result](../research/panel-idle-20261026/overnight/errdet-direct-actual-result-20261026.md)
+- [Existing read-only route to executing image-1 identity](../research/panel-idle-20261026/overnight/executing-code-diagnostic-route-20261027h/executing-code-diagnostic-route.md)
+- [Independent H/K offline review](../research/panel-idle-20261026/overnight/executing-code-diagnostic-route-20261027h/independent-review.md)
+- [Live controller identity and CPU/DMA namespace investigation](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/README.md)
+- [D5 current-vs-active fault-path coordinates](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/current-fault-path.md)
+- [D5 independent review record](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/independent-review-record.md)
+- [Packaged persisted-log producer and bounded recovery map](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/persisted-log-storage-trace.md)
+- [Controller live identity, state and internal logs — 2026-10-27](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/progress.md)
+- [Reverse-engineering map and evidence boundaries](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/reverse-engineering-map.md)
+- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/secondary-event-log-buffer.md)
+- [Secondary logger volatile-arm protocol](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/secondary-logger-arm-protocol.md)
+- [Volatile image-1 event-logger instrumentation review](../research/panel-idle-20261026/overnight/executing-image-identity-20261027e/volatile-logger-review.md)
+- [Live diagnosis-backend identity: bounded pointer capture](../research/panel-idle-20261026/overnight/factory-backend-runtime.md)
+- [Independent review record: factory, notification and ARM32 probe](../research/panel-idle-20261026/overnight/factory-notification-abi-independent-review.md)
+- [Finite onset capture work, 2026-10-27](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/README.md)
+- [Control-v2 launch lineage audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v2-launch-lineage.md)
+- [Independent review: control-v2 launch lineage](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v2-lineage-review.md)
+- [Control v3 launch-receipt escape diagnosis](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-escape-diagnosis.md)
+- [Independent review: control-v3 launch receipt and terminal retrieval](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-receipt-review.md)
+- [Independent control-v3 runtime audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/control-v3-runtime-audit.md)
+- [Controller clean-state options after the ambiguous onset launch](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/controller-clean-state-options.md)
+- [Independent diagnostic-followup manifest review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/diagnostic-followup-manifest-review.md)
+- [Bounded public code-map search follow-up](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/external-code-map-search-followup.md)
+- [Independent D7 fault-capture freeze review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-capture-manifest-review.md)
+- [Retained numeric context after the V6 RTP fault](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-after-v6-findings.md)
+- [Independent runtime review: fault-context read after V6](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-after-v6-review.md)
+- [Prospective fixed fault-context read at `0x47010f00`](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-read-plan.md)
+- [Current two-window retained-statistic read plan](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-context-two-window-plan.md)
+- [V6: recorded RTP fault transition on the Samsung S95F](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/fault-incident-v6.md)
+- [Independent framing-wrapper review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/framing-wrapper-review.md)
+- [Image-1 executable bus-address qualification](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/image1-code-bus-qualification.md)
+- [Independent launcher-qualification runtime review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/launcher-qualification-runtime-review.md)
+- [Detached launcher qualification](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/launcher-qualification.md)
+- [Fixed ordinary selector-window capture plan](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/mode-selector-two-window-plan.md)
+- [Qualified onset wrapper: actual offline test coverage](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-test-coverage.md)
+- [V4: unattended Apps-to-For-You technical capture](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v4-plan.md)
+- [Independent onset-v4 runtime audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v4-runtime-audit.md)
+- [V5: repeat technical trigger after dismissing screensaver](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v5-plan.md)
+- [Independent onset-v5/v6 runtime audit](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v5-v6-runtime-audit.md)
+- [onset-v6-plan.md](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/onset-v6-plan.md)
+- [Decision for one corrected finite control run](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-control-execution-decision.md)
+- [Qualified supervisor port plan](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-supervisor-plan.md)
+- [Independent review: qualified detached onset wrapper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/qualified-wrapper-review.md)
+- [Independent review: fixed RT fault-context reader](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rt-fault-context-reader-review.md)
+- [Independent source review: fixed RTP mode-window reader](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rt-mode-reader-source-review.md)
+- [Independent review: RTP event 736 predicate and prospective context windows](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-736-predicate-review.md)
+- [RTP event-736 ordinary predicate and diagnostic state](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-736-predicate.md)
+- [V6 `rtp_act_736`: captured setter and host-wire boundary](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-act-736-trace.md)
+- [RTP alternate-threshold source-context provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-alternate-source-context.md)
+- [RTP alternate-selector local 16-byte layout](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-alternate-window-layout.md)
+- [RTP incident record format and packed-input provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-incident-record-format.md)
+- [Independent qualification review: image-1 RTP mode RAM reads](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-mode-ram-read-qualification.md)
+- [RTP ordinary mode-selector provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-mode-selection-provenance.md)
+- [Offline trace of `(RTP)Frame end`, `(RTP:NORMAL)(365)`, and `t(1)`](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-normal-log-trace.md)
+- [RTP ordinary predicate: observable, latched, and missing event-time state](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-observable-vs-latched-plan.md)
+- [Correction to the frozen packed-source selector interpretation](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-packed-source-address-erratum.md)
+- [Ordinary scan gating and the limits of late samples](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-post-fault-ordinary-gating.md)
+- [RTP score-input provenance: qualifying counts, not difference amplitude](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-score-input-provenance.md)
+- [RTP selector consistency after V6](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/rtp-selector-consistency-after-v6.md)
+- [Independent review: RTP score-input provenance](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/score-input-provenance-review.md)
+- [Independent selector-consistency review](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-consistency-review.md)
+- [Later selector capture: nonzero alternate byte and NORMAL-compatible mode](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-context-after-v6-findings.md)
+- [Independent runtime review: selector/context read after V6](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/selector-context-after-v6-review.md)
+- [Fixed RT fault-context reader (offline candidate)](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-fault-context/README.md)
+- [Fixed late RTP mode-window reader (offline candidate)](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-mode-selector/README.md)
+- [Managed fixed UI-tab launch helper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-ui-tab-launch/README.md)
+- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-usb-secondary-logger-onset-framing/README-native.md)
+- [Qualified detached onset wrapper: receipt framing correction](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/managed-usb-secondary-logger-onset-framing/README-qualified.md)
+- [Qualified detached onset wrapper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/source-checkpoint-v6/qualified-predecessor/README-qualified.md)
+- [Independent audit of the corrected Apps AppControl run](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-apps-runtime-audit.md)
+- [Managed fixed UI-tab launch helper](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-rejected-missing-logbuild/helper/README.md)
+- [Fixed normal-UI tab sender](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-rejected-missing-logbuild/ui-tab-launch.md)
+- [`switch_page` consumption trace](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-switch-page-consumption-trace.md)
+- [Fixed normal-UI tab sender](../research/panel-idle-20261026/overnight/finite-onset-logger-20261027g/ui-tab-launch.md)
+- [Firmware extraction workbench — CZ phase index](../research/panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/README.md)
+- [Firmware extraction phase report](../research/panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/phase-report.md)
+- [Additive publication preparation](../research/panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/publication-readiness.md)
+- [Firmware identity and acquisition work log](../research/panel-idle-20261026/overnight/firmware-fingerprint-20261027d/README.md)
+- [Independent review retained by root](../research/panel-idle-20261026/overnight/firmware-fingerprint-20261027d/independent-review-record.md)
+- [Stored firmware differs from the selected package](../research/panel-idle-20261026/overnight/firmware-fingerprint-20261027d/progress.md)
+- [Decrypted kernel and board DTB findings](../research/panel-idle-20261026/overnight/firmware-kernel-analysis-20261028cs/report.md)
+- [Firmware/profile investigation, 2026-10-27](../research/panel-idle-20261026/overnight/firmware-profile-progress-20261027.md)
+- [BX fixed-tab pixel intervention candidate](../research/panel-idle-20261026/overnight/fixed-tab-pattern-20261027bx/README.md)
+- [BW: full For You / Apps recovery confirmation](../research/panel-idle-20261026/overnight/full-confirmation-20261027bw/findings.md)
+- [Independent ERR_DET GPIO route: current evidence](../research/panel-idle-20261026/overnight/gpio-direct-route-progress.md)
+- [Hardware and HDMI investigation, 2026-10-26](../research/panel-idle-20261026/overnight/hardware-hdmi-evidence.md)
+- [Independent audit: HDMI backend metadata and copies](../research/panel-idle-20261026/overnight/hdmi-backend-acquisition-audit.md)
+- [HDMI-control binding reader offline review notes](../research/panel-idle-20261026/overnight/hdmi-control-binding-reader-review.md)
+- [HDMI control backend binding reader: prepared, not run](../research/panel-idle-20261026/overnight/hdmi-control-binding-reader-status.md)
+- [Independent parent review of the longer HDMI recorder](../research/panel-idle-20261026/overnight/hdmi-long-parent-review-20261027.md)
+- [HDMI onset: bounded long-window design review](../research/panel-idle-20261026/overnight/hdmi-long-window-design-20261027.md)
+- [Historical raw common-status zero](../research/panel-idle-20261026/overnight/historical-common-status-20261027at/historical-zero.md)
+- [Independent review closure](../research/panel-idle-20261026/overnight/historical-common-status-20261027at/review-closure.md)
+- [Historical TCON ERR DET 0x10: exact-build decode](../research/panel-idle-20261026/overnight/historical-errdet-decode.md)
+- [Independent Home/output review and correction record](../research/panel-idle-20261026/overnight/home-output-independent-review.md)
+- [Independent review closure](../research/panel-idle-20261026/overnight/host-status-lifetime-20261027as/review-closure.md)
+- [Host selector-8 status-field lifetime](../research/panel-idle-20261026/overnight/host-status-lifetime-20261027as/status-lifetime.md)
+- [Physical-blackout incident comparison](../research/panel-idle-20261026/overnight/incident-separation-20261027z/incident-comparison.md)
+- [Incident comparison review closure](../research/panel-idle-20261026/overnight/incident-separation-20261027z/review-closure.md)
+- [Native ABI availability probe — execution denied](../research/panel-idle-20261026/overnight/kernel-abi-probe/README.md)
+- [Kernel BPF/perf observer feasibility — exact-image boundary](../research/panel-idle-20261026/overnight/kernel-bpf-presence.md)
+- [Acquired kernel and Samsung runtime-use mechanism](../research/panel-idle-20261026/overnight/kernel-runtime-pm-findings.md)
+- [`libteec.so` ordinary-file copy: independent runtime audit](../research/panel-idle-20261026/overnight/libteec-copy-20261027a/runtime-audit.md)
+- [Lifecycle and observer review — parent-preserved mailbox record](../research/panel-idle-20261026/overnight/lifecycle-observer-independent-review.md)
+- [Managed fixed Apps-key launch helper](../research/panel-idle-20261026/overnight/managed-apps-key-launch-20261027bj/README.md)
+- [Independent review — managed ERR_DET cdev metadata probe](../research/panel-idle-20261026/overnight/managed-errpin-cdev/independent-review.md)
+- [Independent review — one-shot ERR_DET cdev input reader](../research/panel-idle-20261026/overnight/managed-errpin-cdev/input-independent-review.md)
+- [Independent runtime audit — one-shot ERR_DET GPIO input](../research/panel-idle-20261026/overnight/managed-errpin-cdev/input-runtime-audit.md)
+- [Independent runtime audit — ERR_DET cdev metadata probe](../research/panel-idle-20261026/overnight/managed-errpin-cdev/runtime-audit.md)
+- [ARM32 kernel-observation interface probe through the stock CLR](../research/panel-idle-20261026/overnight/managed-kernel-abi-probe/README.md)
+- [Managed TCON selector-0x128 read helper](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/README.md)
+- [Independent review of the fixed selector-0x128 read helper](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/independent-review.md)
+- [Independent review: fixed selector-0x128 duty-read runner v2](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/independent-runner-review-v2.md)
+- [Duty-read runner preparation review](../research/panel-idle-20261026/overnight/managed-tcon-duty-read/runner-review.md)
+- [Independent review: managed ERR_DET GPIO query](../research/panel-idle-20261026/overnight/managed-tcon-gpio-read/independent-review.md)
+- [Parent-preserved independent runtime audit: GPIO query a](../research/panel-idle-20261026/overnight/managed-tcon-gpio-read/runtime-audit.md)
+- [Managed QD TCON power-cycle-once helper](../research/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/README.md)
+- [Independent offline review: fixed MODE2 power-cycle helper](../research/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/independent-review.md)
+- [One-shot stock MODE2 recovery experiment plan](../research/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/recovery-experiment-plan.md)
+- [Independent review: managed TCON status read](../research/panel-idle-20261026/overnight/managed-tcon-status-read/independent-review.md)
+- [Independent review: managed TCON status read](../research/panel-idle-20261026/overnight/managed-tcon-status-read/rejected-file-guard-b/independent-review.md)
+- [Independent review: managed TCON status read](../research/panel-idle-20261026/overnight/managed-tcon-status-read/rejected-preflight-a/independent-review.md)
+- [Managed fixed UI-tab launch helper](../research/panel-idle-20261026/overnight/managed-ui-tab-launch/README.md)
+- [Fixed AP_EXCO callback-source read](../research/panel-idle-20261026/overnight/managed-usb-ap-exco-callback-read/README.md)
+- [Managed USB AP_EXCO input snapshot](../research/panel-idle-20261026/overnight/managed-usb-ap-exco-input-snapshot/README.md)
+- [Fixed AP_EXCO source read](../research/panel-idle-20261026/overnight/managed-usb-ap-exco-source-read/README.md)
+- [Managed USB code fingerprint reader](../research/panel-idle-20261026/overnight/managed-usb-code-fingerprint-read/README.md)
+- [Fixed selector-1 code-window reader](../research/panel-idle-20261026/overnight/managed-usb-code-fingerprint-read/source-note.md)
+- [Fixed common error-guard and selector reader](../research/panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/README.md)
+- [Offline reset reference for the fixed window](../research/panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/common-error-guard-reset-reference.md)
+- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-common-error-guard-read-once/derivation-diff.md)
+- [Fixed current-callback-table DMA-alias reader](../research/panel-idle-20261026/overnight/managed-usb-current-callbacks-alias-read-once/README.md)
+- [Fixed current-callback-table reader](../research/panel-idle-20261026/overnight/managed-usb-current-callbacks-read-once/README.md)
+- [Fixed controller descriptor-memory read](../research/panel-idle-20261026/overnight/managed-usb-descriptor-read-once/README.md)
+- [Fixed descriptor reader, sysfs streaming revision](../research/panel-idle-20261026/overnight/managed-usb-descriptor-read-once-v2/README.md)
+- [Bounded read-only eMMC backup helper](../research/panel-idle-20261026/overnight/managed-usb-emmc-backup-bounded/README.md)
+- [Fixed 32 KiB storage-read boundary probe](../research/panel-idle-20261026/overnight/managed-usb-emmc-backup-probe-32768/README.md)
+- [Fixed read-only eMMC sector probe](../research/panel-idle-20261026/overnight/managed-usb-emmc-sector-read-once/README.md)
+- [Fixed main-controller event-log reader](../research/panel-idle-20261026/overnight/managed-usb-main-event-log-read-once/README.md)
+- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-main-event-log-read-once/derivation-diff.md)
+- [Fixed main-log index and status-flag reader](../research/panel-idle-20261026/overnight/managed-usb-main-log-index-read-once/README.md)
+- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-main-log-index-read-once/derivation-diff.md)
+- [Managed fixed NPC_AP divisor reader](../research/panel-idle-20261026/overnight/managed-usb-npc-ap-divisor-read/README.md)
+- [Stopped partial directory](../research/panel-idle-20261026/overnight/managed-usb-ordinary-onset-observer/STOPPED.md)
+- [Fixed 256-byte RT block read](../research/panel-idle-20261026/overnight/managed-usb-rt-block-read-once/README.md)
+- [Finite RT block recorder](../research/panel-idle-20261026/overnight/managed-usb-rt-block-sampler/README.md)
+- [Fixed RT fault-context reader (offline candidate)](../research/panel-idle-20261026/overnight/managed-usb-rt-fault-context-read/README.md)
+- [Fixed late RTP mode-window reader (offline candidate)](../research/panel-idle-20261026/overnight/managed-usb-rt-mode-read/README.md)
+- [Managed USB RTP passive observer — native candidate](../research/panel-idle-20261026/overnight/managed-usb-rt-passive-observer/README-native.md)
+- [RTP passive observer — reviewed host-wrapper candidate](../research/panel-idle-20261026/overnight/managed-usb-rt-passive-observer/README-wrapper.md)
+- [Experimental fixed RT-prefix read](../research/panel-idle-20261026/overnight/managed-usb-rt-prefix-read-once/README.md)
+- [Fixed secondary-controller event-log reader](../research/panel-idle-20261026/overnight/managed-usb-secondary-event-log-read-once/README.md)
+- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/managed-usb-secondary-event-log-read-once/secondary-event-log-buffer.md)
+- [Fixed secondary event-log header reader](../research/panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/README.md)
+- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/derivation-diff.md)
+- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/managed-usb-secondary-log-header-read-once/evidence-report.md)
+- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset/README-native.md)
+- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-framing/README-native.md)
+- [Qualified detached onset wrapper: receipt framing correction](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-framing/README-qualified.md)
+- [Finite secondary-controller onset logger: native core](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-qualified/README-native.md)
+- [Qualified detached onset wrapper](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-onset-qualified/README-qualified.md)
+- [Fixed secondary logger smoke qualification](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/README.md)
+- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/secondary-event-log-buffer.md)
+- [Secondary logger volatile-arm protocol](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/secondary-logger-arm-protocol.md)
+- [Volatile image-1 event-logger instrumentation review](../research/panel-idle-20261026/overnight/managed-usb-secondary-logger-smoke/volatile-logger-review.md)
+- [Fixed secondary-root and gate reader](../research/panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/README.md)
+- [Mechanical derivation boundary](../research/panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/derivation-diff.md)
+- [Image-1 secondary-root initializer prediction](../research/panel-idle-20261026/overnight/managed-usb-secondary-root-read-once/secondary-root-initializer.md)
+- [Managed USB SSB one-shot read](../research/panel-idle-20261026/overnight/managed-usb-ssb-read-once/README.md)
+- [Independent runtime audit: bounded TCON MICOM log read](../research/panel-idle-20261026/overnight/micom-log-read-20261026b/runtime-audit.md)
+- [AZ: controller-output attribution and ordinary command mapping](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/findings.md)
+- [Ordinary selected-image usage of the four emergency-path MMIO blocks](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/ordinary-io-usage.md)
+- [Selected-image ordinary mute receiver and fixed register blocks](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/ordinary-mute-receiver.md)
+- [Primary-source assessment of the `0x4013....` output boundary](../research/panel-idle-20261026/overnight/mmio-block-attribution-20261027az/primary-map-assessment.md)
+- [Monitor provenance and FRC lifecycle: reviewed progress](../research/panel-idle-20261026/overnight/monitor-and-frc-reviewed-progress.md)
+- [Current-boot QD monitor-latch / physical-picture timeline](../research/panel-idle-20261026/overnight/monitor-latch-physical-timeline.md)
+- [BA: staged mute application and a fault-teardown connection](../research/panel-idle-20261026/overnight/mute-request-consumer-20261027ba/findings.md)
+- [Derived Failmode request consumer and fixed-register apply path](../research/panel-idle-20261026/overnight/mute-request-consumer-20261027ba/staged-consumer.md)
+- [Historical navigation archive](../research/panel-idle-20261026/overnight/navigation-archive-20261027ah/README.md)
+- [Samsung S95F: current investigation entry point](../research/panel-idle-20261026/overnight/navigation-archive-20261027ah/current-before-restructure.md)
+- [Navigation restructuring review](../research/panel-idle-20261026/overnight/navigation-archive-20261027ah/navigation-review.md)
+- [Next observed session: discriminate entry, gate state, and recovery](../research/panel-idle-20261026/overnight/next-observed-session.md)
+- [Notification, factory receiver and ARM32 availability follow-up](../research/panel-idle-20261026/overnight/notification-factory-and-compat-abi-followup.md)
+- [NPC_AP divisor provenance](../research/panel-idle-20261026/overnight/npc-ap-divisor-provenance-20261027af/divisor-provenance.md)
+- [AF independent review closure](../research/panel-idle-20261026/overnight/npc-ap-divisor-provenance-20261027af/review-closure.md)
+- [AK actual divisor snapshot](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/capture-findings.md)
+- [AK arithmetic and scope review](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/comparison-review.md)
+- [AK closer ordinary snapshot: independent runtime review](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/ordinary-runtime-review.md)
+- [NPC_AP divisor snapshot read plan](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/read-plan.md)
+- [AK divisor-read runtime review](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/runtime-review.md)
+- [AK source/build review before target execution](../research/panel-idle-20261026/overnight/npc-ap-divisor-snapshot-20261027ak/source-review.md)
+- [NPC_AP floating-input provenance](../research/panel-idle-20261026/overnight/npc-ap-floating-inputs-20261027ai/floating-inputs.md)
+- [AI independent review closure](../research/panel-idle-20261026/overnight/npc-ap-floating-inputs-20261027ai/review-closure.md)
+- [NPC_AP interpolation lookup math](../research/panel-idle-20261026/overnight/npc-ap-interpolation-lookup-20261027aq/lookup-math.md)
+- [Independent review closure](../research/panel-idle-20261026/overnight/npc-ap-interpolation-lookup-20261027aq/review-closure.md)
+- [NPC_AP low-field passive-read qualification](../research/panel-idle-20261026/overnight/npc-ap-read-qualification-20261027aj/read-qualification.md)
+- [AJ independent review closure](../research/panel-idle-20261026/overnight/npc-ap-read-qualification-20261027aj/review-closure.md)
+- [AM independent review closure](../research/panel-idle-20261026/overnight/npc-ap-writer-math-20261027am/review-closure.md)
+- [NPC_AP divisor writer math](../research/panel-idle-20261026/overnight/npc-ap-writer-math-20261027am/writer-math.md)
+- [Two cap-helper arrays: enclosing NPC package record](../research/panel-idle-20261026/overnight/npc-cap-record-20261027ag/cap-record.md)
+- [AG independent review](../research/panel-idle-20261026/overnight/npc-cap-record-20261027ag/independent-review.md)
+- [Historical NPC_AP and F3 evidence inventory](../research/panel-idle-20261026/overnight/npc-historical-evidence-20261027ao/historical-inventory.md)
+- [Independent review closure](../research/panel-idle-20261026/overnight/numeric-transform-20261027ap/review-closure.md)
+- [Image-0 `0x2dbd0` numeric transform](../research/panel-idle-20261026/overnight/numeric-transform-20261027ap/transform-math.md)
+- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-design.md)
+- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-reviewed-3aa5c94/observed-branch-onset-design.md)
+- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-reviewed-49f4e5c/observed-branch-onset-design.md)
+- [Observed branch-onset capture: bounded design](../research/panel-idle-20261026/overnight/observed-branch-onset-reviewed-cf70750/observed-branch-onset-design.md)
+- [Budgeted 180-second HDMI collector: offline implementation review](../research/panel-idle-20261026/overnight/observed-hdmi-budgeted-onset-review.md)
+- [Runtime-PM idle tracepoint addendum](../research/panel-idle-20261026/overnight/observed-pm-rejected-eabe5bde/pm-rpm-idle-extension-addendum.md)
+- [Bounded trace pre-roll for observed onset capture](../research/panel-idle-20261026/overnight/observed-preroll-onset-design.md)
+- [Bounded trace pre-roll for observed onset capture](../research/panel-idle-20261026/overnight/observed-preroll-onset-reviewed-355d98b/observed-preroll-onset-design.md)
+- [Bounded numeric-54 quiescence retry addendum](../research/panel-idle-20261026/overnight/observed-quiescent-pm-rejected-ee4ee2b/pm-prestart-quiescence-addendum.md)
+- [Ninety-second passive capture: incomplete, not a fault diagnosis](../research/panel-idle-20261026/overnight/onset-capacity-90s-result.md)
+- [Combined observed onset capture: requirements from independent review](../research/panel-idle-20261026/overnight/onset-capture-requirements.md)
+- [Combined onset observer: review findings and deployment boundary](../research/panel-idle-20261026/overnight/onset-capture-review.md)
+- [Passive post-END-drain smoke: technically accepted, physically unobserved](../research/panel-idle-20261026/overnight/onset-drain-smoke-accepted.md)
+- [Onset observer validation: current continuation](../research/panel-idle-20261026/overnight/onset-observer-validation-progress.md)
+- [CA first-header readiness premise for one synchronized onset trial](../research/panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision-v2.md)
+- [CA first-header readiness premise for one synchronized onset trial](../research/panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision.md)
+- [Command-string smoke: real data acquired, qualification failed](../research/panel-idle-20261026/overnight/onset-second-smoke-partial-result.md)
+- [First live onset smoke: unsigned-script launch rejection](../research/panel-idle-20261026/overnight/onset-smoke-uep-launch-failure.md)
+- [Bounded synchronized-onset runner](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/README-wrapper.md)
+- [BX: synchronized normal-key onset candidate](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/README.md)
+- [Optional passive enumeration monitor: central coordination plan](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/passive-enumeration-monitor.md)
+- [Independent implementation review by SWU adapter author](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/adapter-author-implementation-review.md)
+- [Independent onset synchronization design review](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-design-review.md)
+- [Independent synchronized-onset wrapper review](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-wrapper-review.md)
+- [Synchronized result parser contract and host verification](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/parse-result-contract.md)
+- [Accepted short instrumentation smoke](../research/panel-idle-20261026/overnight/onset-third-smoke-accepted.md)
+- [Onset capture: thread lineage and actual kernel metadata](../research/panel-idle-20261026/overnight/onset-thread-following-assessment.md)
+- [CB: synchronized software onset with owner-confirmed blackout and recovery](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md)
+- [CB operands: mode 1, selected threshold 40, score 0 → 38 → 44](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md)
+- [Source qualification of a reversible mode1 limit experiment](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md)
+- [Independent CB synchronized-onset capture review](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/reviews/independent-capture-review.md)
+- [Ordinary-condition sensitivity: what the divisor finding changes](../research/panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/condition-sensitivity.md)
+- [AN independent review](../research/panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/review-closure.md)
+- [Current ordinary-controller fault model — 2026-10-27](../research/panel-idle-20261026/overnight/ordinary-fault-model-20261027.md)
+- [AA independent review](../research/panel-idle-20261026/overnight/ordinary-invocation-20261027aa/independent-review.md)
+- [Ordinary aggregate updater: indirect invocation and timing boundary](../research/panel-idle-20261026/overnight/ordinary-invocation-20261027aa/invocation-findings.md)
+- [AL combined-recorder attempt status](../research/panel-idle-20261026/overnight/ordinary-onset-observer-20261027al/attempt-status.md)
+- [Owner clarification of working controls and rare recovering losses](../research/panel-idle-20261026/overnight/owner-control-clarifications-20261027.md)
+- [BH owner-paired recovery and recurrence](../research/panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/findings.md)
+- [BH lower-lifecycle and guarded post-X review](../research/panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/lifecycle-review.md)
+- [BH four-observation audit](../research/panel-idle-20261026/overnight/owner-paired-recovery-20261027bh/x-review.md)
+- [Offline log analysis of `owner-power-on-20261026a`](../research/panel-idle-20261026/overnight/owner-power-on-log-analysis.md)
+- [Independent audit of the failed-capture rescue](../research/panel-idle-20261026/overnight/owner-power-on-rescue-audit.md)
+- [Rescued owner-power-on capture: bounded offline state analysis](../research/panel-idle-20261026/overnight/owner-power-on-state-analysis.md)
+- [Owner progress update: reverse engineering and remaining fault attribution](../research/panel-idle-20261026/overnight/owner-progress-status-20261026.md)
+- [BI second owner-confirmed recovery and recorder hard stop](../research/panel-idle-20261026/overnight/owner-repeat-recovery-20261027bi/findings.md)
+- [BI lower-lifecycle, recorder-integrity, and delayed-read review](../research/panel-idle-20261026/overnight/owner-repeat-recovery-20261027bi/lifecycle-review.md)
+- [BT operational recovery with For You selected](../research/panel-idle-20261026/overnight/owner-requested-panel-recovery-20261027bt/findings.md)
+- [Independent audit: paired For You black-state fault reads](../research/panel-idle-20261026/overnight/paired-fault-status-runtime-audit-20261027.md)
+- [Paired ordinary-restart capture review — 2026-10-27](../research/panel-idle-20261026/overnight/paired-restart-capture-review-20261027.md)
+- [Working Apps control and paired-fault capture, 2026-10-27](../research/panel-idle-20261026/overnight/paired-restart-progress-20261027.md)
+- [Independent audit of the incomplete PM idle smoke](../research/panel-idle-20261026/overnight/pm-idle-smoke-runtime-audit.md)
+- [Bounded numeric-54 quiescence retry addendum](../research/panel-idle-20261026/overnight/pm-prestart-quiescence-addendum.md)
+- [PM observer pre-start quiescence review](../research/panel-idle-20261026/overnight/pm-prestart-quiescence-review.md)
+- [Runtime-PM idle tracepoint addendum](../research/panel-idle-20261026/overnight/pm-rpm-idle-extension-addendum.md)
+- [Passive PM/RPM trace extension for a future onset observer](../research/panel-idle-20261026/overnight/pm-rpm-onset-extension-design.md)
+- [Independent policy review and corrections, October26](../research/panel-idle-20261026/overnight/policy-independent-review.md)
+- [Independent audit: post-wake branch snapshots](../research/panel-idle-20261026/overnight/post-wake-branch-audit.md)
+- [Power sequence and physical timeline: independent review record](../research/panel-idle-20261026/overnight/power-notification-independent-review.md)
+- [Expanded branch baseline: parent-preserved independent audit](../research/panel-idle-20261026/overnight/pqe-branch-baseline-independent-review.md)
+- [Independent review: base QDDimming final-duty analysis](../research/panel-idle-20261026/overnight/pqe-final-duty-independent-review.md)
+- [PQE policy and Home-exit investigation](../research/panel-idle-20261026/overnight/pqe-policy-and-home-exit-progress.md)
+- [PQE policy baseline: independent review](../research/panel-idle-20261026/overnight/pqe-policy-baseline-independent-review.md)
+- [Passive policy baseline: actual results](../research/panel-idle-20261026/overnight/pqe-policy-baseline-runtime-results.md)
+- [PQE policy follow-up: independent review](../research/panel-idle-20261026/overnight/pqe-policy-followup-independent-review.md)
+- [`Pre-PD` companion consumers](../research/panel-idle-20261026/overnight/pre-pd-companion-consumers-20261027ac/companion-consumers.md)
+- [AC independent review closure](../research/panel-idle-20261026/overnight/pre-pd-companion-consumers-20261027ac/review-closure.md)
+- [Pre-PD exact cross-image reference census](../research/panel-idle-20261026/overnight/pre-pd-cross-image-20261027ad/cross-image-census.md)
+- [AD independent review closure](../research/panel-idle-20261026/overnight/pre-pd-cross-image-20261027ad/review-closure.md)
+- [AB independent review](../research/panel-idle-20261026/overnight/pre-pd-stored-values-20261027ab/independent-review.md)
+- [Pre-PD stored values and the remaining runtime source gap](../research/panel-idle-20261026/overnight/pre-pd-stored-values-20261027ab/stored-values.md)
+- [AX: source freshness, host logs, and firmware experiment readiness](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/findings.md)
+- [Flash/recovery evidence gap](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/flash-recovery-gap.md)
+- [Host DRM histogram comparison across the stock MODE2 lifecycle](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/host-histogram-reset-comparison.md)
+- [Independent review of the AX Pre-PD and host-histogram follow-up](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/independent-review.md)
+- [Pre-PD header/control consumer follow-up](../research/panel-idle-20261026/overnight/prepd-source-followup-20261027ax/prepd-control-consumers.md)
+- [Reviewed pre-roll observer: first accepted passive TV smoke](../research/panel-idle-20261026/overnight/preroll-observer-runtime-progress.md)
+- [One unchanged primary-log read after the mute-consumer reconstruction](../research/panel-idle-20261026/overnight/primary-log-followup-20261027bb/findings.md)
+- [Reuse assessment for one unchanged primary event-log read](../research/panel-idle-20261026/overnight/primary-log-followup-20261027bb/reuse-assessment.md)
+- [Private HDMI control roots and expanded passive capture audit](../research/panel-idle-20261026/overnight/private-control-and-quiescence-progress.md)
+- [Independent audit: private HDMI library acquisition](../research/panel-idle-20261026/overnight/private-hdmi-library-acquisition-audit.md)
+- [Private HDMI resume and OCIF availability follow-up](../research/panel-idle-20261026/overnight/private-resume-and-ocif-progress.md)
+- [Public display architecture context — 2026-10-27](../research/panel-idle-20261026/overnight/public-architecture-context-20261027.md)
+- [What the retained evidence can establish about QD command gates](../research/panel-idle-20261026/overnight/qd-gate-evidence-constraints.md)
+- [Offline QD command evidence decoder](../research/panel-idle-20261026/overnight/qd-trace-decoder.md)
+- [Independent review of transport, mute writers and offline decoder](../research/panel-idle-20261026/overnight/qd-transport-independent-review.md)
+- [Quiescent PM observer capacity assessment](../research/panel-idle-20261026/overnight/quiescent-pm-capacity-assessment.md)
+- [Independent audit: namespace-corrected quiescent-PM home smoke](../research/panel-idle-20261026/overnight/quiescent-pm-home-smoke-runtime-audit.md)
+- [Independent audit of the bounded-quiescence PM smoke](../research/panel-idle-20261026/overnight/quiescent-pm-smoke-runtime-audit.md)
+- [Future first-header phase after the recovered BI replay](../research/panel-idle-20261026/overnight/recovered-replay-phase-audit-20261027bs/phase-review.md)
+- [Recovery evidence gap and bounded next diagnostic plan](../research/panel-idle-20261026/overnight/recovery-evidence-gap-20261027bp/plan-review.md)
+- [Apps-selected panel recovery quick path](../research/panel-idle-20261026/overnight/recovery-quickpath-20261027bv/README.md)
+- [Observed recovery sequence](../research/panel-idle-20261026/overnight/recovery-quickpath-20261027bv/VALIDATED-SEQUENCE.md)
+- [Independent review of the AY restore-integrity audit](../research/panel-idle-20261026/overnight/restore-integrity-20261027ay/independent-review.md)
+- [SSB restore-integrity audit](../research/panel-idle-20261026/overnight/restore-integrity-20261027ay/restore-integrity.md)
+- [Additional RT-input scheduling edge, with producer still unresolved](../research/panel-idle-20261026/overnight/rt-input-producer-gap-20261027bq/source-review.md)
+- [Bounded RT-memory onset recording work, 2026-10-27](../research/panel-idle-20261026/overnight/rt-onset-memory-20261027c/README.md)
+- [Parent-retained independent review findings](../research/panel-idle-20261026/overnight/rt-onset-memory-20261027c/independent-review-record.md)
+- [RT recorder qualification and a different storage header](../research/panel-idle-20261026/overnight/rt-onset-memory-20261027c/progress.md)
+- [X analysis review closure](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/analysis-review-closure.md)
+- [Independent S–X checkpoint audit](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/checkpoint-review.md)
+- [Passive observer: native candidate review](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/native-review.md)
+- [X retained-state decode](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/retained-state-findings.md)
+- [X passive observer: independent runtime audit](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/runtime-review.md)
+- [Managed USB RTP passive observer — native candidate](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/source-checkpoint/README-native.md)
+- [RTP passive observer — reviewed host-wrapper candidate](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/source-checkpoint/README-wrapper.md)
+- [Passive observer host-wrapper review before one run](../research/panel-idle-20261026/overnight/rt-passive-observer-20261027x/wrapper-review.md)
+- [Fresh passive RT observation after the source-lifecycle analysis](../research/panel-idle-20261026/overnight/rt-state-refresh-20261027bd/findings.md)
+- [Independent replay of the unchanged passive-observer run](../research/panel-idle-20261026/overnight/rt-state-refresh-20261027bd/independent-review.md)
+- [Controller diagnostics follow-up, 2026-10-27](../research/panel-idle-20261026/overnight/rt-telemetry-followup-20261027b/README.md)
+- [Live protection-state memory access, 2026-10-27](../research/panel-idle-20261026/overnight/rt-telemetry-followup-20261027b/controller-memory-access-progress.md)
+- [RTP event action causality: latch, emergency action, and output boundary](../research/panel-idle-20261026/overnight/rtp-action-causality-20261027t/rtp-action-causality.md)
+- [AP_EXCO alternate-pair runtime-writer provenance](../research/panel-idle-20261026/overnight/rtp-alternate-runtime-origin-20261027j/rtp-alternate-runtime-origin.md)
+- [AP_EXCO baseline versus the saved candidate context](../research/panel-idle-20261026/overnight/rtp-baseline-live-comparison-20261027k/README.md)
+- [Passive RTP event observer: feasibility and minimum finite design](../research/panel-idle-20261026/overnight/rtp-observer-feasibility-20261027u/rtp-observer-feasibility.md)
+- [Independent review of I/J ordinary-source traces](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/independent-i-j-review.md)
+- [Independent root review of packed-buffer origin](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/root-review.md)
+- [RTP packed-buffer origin: selected image 1](../research/panel-idle-20261026/overnight/rtp-packed-buffer-origin-20261027l/rtp-packed-buffer-origin.md)
+- [Closure of independent input-block naming finding](../research/panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/review-closure.md)
+- [RTP ordinary scan-input origin](../research/panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/rtp-scan-input-origin.md)
+- [Self-review of RTP scan-input origin trace](../research/panel-idle-20261026/overnight/rtp-scan-input-origin-20261027i/self-review.md)
+- [Independent runtime/control review — mailbox record](../research/panel-idle-20261026/overnight/runtime-control-independent-review.md)
+- [Runtime maintenance state and actual QD output backend](../research/panel-idle-20261026/overnight/runtime-control-state.md)
+- [Read-only runtime QD dimming baseline — 2026-10-26](../research/panel-idle-20261026/overnight/runtime-dimming-baseline.md)
+- [Actual QD monitor counters and repeatable runtime reader](../research/panel-idle-20261026/overnight/runtime-monitor-baseline.md)
+- [Independent runtime audit: `sdp_pqe_frc.ko` provider candidate copy](../research/panel-idle-20261026/overnight/sdp-pqe-frc-provider-copy-20261026a/runtime-audit.md)
+- [SDP register-path follow-up and combined-observer smoke](../research/panel-idle-20261026/overnight/sdp-register-path-and-observer-smoke-progress.md)
+- [Selected QD profile ordinary-file copy: independent runtime audit](../research/panel-idle-20261026/overnight/selected-qd-profile-copy-20261027b/runtime-audit.md)
+- [Independent runtime audit of the short captures — 2026-10-27](../research/panel-idle-20261026/overnight/short-baseline-runtime-audit-20261027.md)
+- [Investigation while the owner sleeps — 27 October 2026](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/README.md)
+- [AVEMon all-syscall V3 runtime audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-all-syscalls-20261027c-runtime-audit.md)
+- [Independent review: AVEMon all-syscall checkpoint](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-independent-review.md)
+- [AVEMon all-syscall checkpoint: rejected first attempt](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-rejection-audit.md)
+- [AVEMon all-syscall V2: rejected before trace export](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-v2-runtime-audit.md)
+- [Independent review: AVEMon all-syscall V3](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/avemon-syscall-checkpoint-v3-independent-review.md)
+- [Controller-duty read and nearby runtime-state audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/controller-duty-runtime-audit.md)
+- [Stock reset result and next discriminating tests](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/diagnostic-next-tests.md)
+- [Parser design note: duplicate AVOC syscall-enter isolation](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/duplicate-avoc-parser-design.md)
+- [Independent re-review: stock MODE2 orchestrator, revision 3](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-orchestrator-independent-rereview.md)
+- [Independent review: stock MODE2 experiment orchestrator](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-orchestrator-independent-review.md)
+- [Runtime audit: rejected MODE2 paired sequence](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/mode2-sequence-runtime-audit.md)
+- [Reset-coupled USB `04e8:2001` identity and logging boundary](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/reset-coupled-usb-identity-provenance.md)
+- [Five-second SDP checkpoint: runtime audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sdp-checkpoint-runtime-audit.md)
+- [Independent review: sleep evidence-index generator](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-evidence-index-independent-review.md)
+- [Published sleep-evidence manifest: independent post-snapshot audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-evidence-publication-audit.md)
+- [Independent review: Mode-2 result summaries](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/sleep-result-summary-independent-review.md)
+- [Stock MODE2 transport audit](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/stock-mode2-transport-audit.md)
+- [Independent review: USB/AP_RTP logical-reader route](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/usb-rt-reader-independent-review.md)
+- [Addendum: correction to the USB/AP_RTP reader review](../research/panel-idle-20261026/overnight/sleep-investigation-20261027a/usb-rt-reader-review-acknowledgement.md)
+- [BI stock `F3:01` error propagation](../research/panel-idle-20261026/overnight/stock-error-propagation-20261027bo/driver-error-review.md)
+- [Read-only maintenance preflight discovery for a possible stock MODE2 test](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/maintenance-preflight.md)
+- [Practical decision for one stock-lifecycle RT test](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/practical-test-decision.md)
+- [Stock MODE2 followed by the unchanged X observer: readiness review](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/readiness-review.md)
+- [Selector `F3:0x160` in the stock MODE2 tail](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/selector-160.md)
+- [Vendor-header readiness after a stock lifecycle](../research/panel-idle-20261026/overnight/stock-lifecycle-followup-20261027au/vendor-ready-boundary.md)
+- [Independent audit of the stock RT lifecycle trial](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/baseline-and-lifecycle-audit.md)
+- [Independent consistency review of the final AV findings](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/final-findings-review.md)
+- [AV: stock controller lifecycle followed by a clean RT sample](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/findings.md)
+- [AV host-orchestration review](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/orchestration-review.md)
+- [Independent review of the delayed post-lifecycle X observation](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/post-x-independent-review.md)
+- [MODE2 reset-domain provenance for the mapped RT object](../research/panel-idle-20261026/overnight/stock-rt-lifecycle-trial-20261027av/reset-domain-provenance.md)
+- [AW: the post-lifecycle state includes a changed ordinary diagnostic input](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/findings.md)
+- [Independent review of the ordinary-input delta reproducer](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/ordinary-input-delta-review.md)
+- [Independent assessment and runtime audit of the late W input snapshot](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/post-lifecycle-input-read-assessment.md)
+- [AV pre/post RT-state delta](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/rt-state-delta.md)
+- [Selector and score-state delta across the stock lifecycle](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/selector-state-delta.md)
+- [Independent runtime audit: one stock unmute-zero](../research/panel-idle-20261026/overnight/stock-unmute-once-runtime-audit.md)
+- [Pure bounded SWU header authentication subset](../research/panel-idle-20261026/overnight/swu-header-authentication-20261028cc/README.md)
+- [Independent CC authentication review](../research/panel-idle-20261026/overnight/swu-header-authentication-20261028cc/reviews/independent-authentication-review.md)
+- [CE: private authenticated firmware-header acquisition](../research/panel-idle-20261026/overnight/swu-header-target-20261028ce/README.md)
+- [CE integration review](../research/panel-idle-20261026/overnight/swu-header-target-20261028ce/reviews/integration-review.md)
+- [CE actual target authentication: independent retained-evidence review](../research/panel-idle-20261026/overnight/swu-header-target-20261028ce/reviews/target-authentication-review.md)
+- [Actual authenticated main firmware header — 2026-10-28](../research/panel-idle-20261026/overnight/swu-header-target-20261028ce/target-trial-01.md)
+- [validation-readiness.md](../research/panel-idle-20261026/overnight/swu-header-validation-20261027bx/validation-readiness.md)
+- [Additive CV launch correction and lineage](../research/panel-idle-20261026/overnight/swu-inline-job-20261028cv/README.md)
+- [README.md](../research/panel-idle-20261026/overnight/swu-item-schema-20261028cf/README.md)
+- [schema-call-map.md](../research/panel-idle-20261026/overnight/swu-item-schema-20261028cf/schema-call-map.md)
+- [Fixed SWU metadata adapter: implementation and readiness](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/adapter-readiness.md)
+- [Independent SWU metadata adapter review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/reviews/content-author-review.md)
+- [Target preflight refusal isolated by a file-only diagnostic](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-preflight-diagnostic.md)
+- [First target attempt: preflight refusal, no TEE sequence](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-trial-01.md)
+- [adapter-readiness.md](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/adapter-readiness.md)
+- [Independent BY compatibility and orchestration review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/reviews/publication-agent-review.md)
+- [BY first target attempt: preflight passed, selector binding refused](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/target-trial-01.md)
+- [adapter-readiness.md](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/adapter-readiness.md)
+- [Independent BZ library binding review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/reviews/independent-binding-review.md)
+- [BZ first target attempt: fixed decryption sequence completed](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/target-trial-01.md)
+- [Complete main firmware extraction — 2026-10-28](../research/panel-idle-20261026/overnight/swu-platform-controller-20261028da/phase-report.md)
+- [Fixed-file preflight diagnostic source audit](../research/panel-idle-20261026/overnight/swu-preflight-diagnostic-20261027bx/source-audit.md)
+- [Additive CW prepared-inline launch correction](../research/panel-idle-20261026/overnight/swu-prepared-inline-job-20261028cw/README.md)
+- [Five additional firmware sections — actual extraction PASS](../research/panel-idle-20261026/overnight/swu-section-batch-20261028cq/actual-batch-report.md)
+- [Independent review of frozen CG section streaming engine](../research/panel-idle-20261026/overnight/swu-section-stream-20261028cg/reviews/independent-engine-review.md)
+- [metadata-integration-review.md](../research/panel-idle-20261026/overnight/swu-section-target-20261028ci/reviews/metadata-integration-review.md)
+- [Actual sign.bin decryption — PASS](../research/panel-idle-20261026/overnight/swu-section-target-20261028ci/target-trial-01.md)
+- [delta-review.md](../research/panel-idle-20261026/overnight/swu-section-target-20261028ck/reviews/delta-review.md)
+- [Actual ddr.init decryption — PASS](../research/panel-idle-20261026/overnight/swu-section-target-20261028ck/target-trial-01.md)
+- [CO/CP bounded controller integration review](../research/panel-idle-20261026/overnight/swu-stream-controller-20261028co/reviews/controller-review.md)
+- [Fixed SWU background job lifetime contract (CM)](../research/panel-idle-20261026/overnight/swu-stream-job-20261028cm/README.md)
+- [Independent CM lifetime review](../research/panel-idle-20261026/overnight/swu-stream-job-20261028cm/reviews/independent-lifetime-review.md)
+- [Actual kernel decryption — PASS](../research/panel-idle-20261026/overnight/swu-stream-target-20261028cn/target-trial-01.md)
+- [Fixed-range TLS section transport](../research/panel-idle-20261026/overnight/swu-stream-transport-20261028cj/README.md)
+- [Read-only review: root timeout and future section-stream transport](../research/panel-idle-20261026/overnight/swu-stream-transport-review-20261028ch/transport-review.md)
+- [source-audit.md](../research/panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/source-audit.md)
+- [BY loader-only target diagnostic](../research/panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/target-trial-01.md)
+- [Actual ERR_DET GPIO query: 2026-10-26](../research/panel-idle-20261026/overnight/tcon-gpio-actual-result-20261026.md)
+- [Actual TCON error-status result: 2026-10-26](../research/panel-idle-20261026/overnight/tcon-status-actual-result-20261026.md)
+- [Ugoos PROGRAM_A Farm comparison against PROGRAM_04 failure](../research/panel-idle-20261026/overnight/ugoos-PROGRAM_A-comparison-20261027.md)
+- [Ugoos media-path comparison: PROGRAM_04 and PROGRAM_A's Farm](../research/panel-idle-20261026/overnight/ugoos-media-comparison-20261027.md)
+- [Ugoos movie transition: rejected-capture salvage analysis](../research/panel-idle-20261026/overnight/ugoos-movie-transition-analysis-20261027.md)
+- [Overlay/fullscreen paired-control evidence note](../research/panel-idle-20261026/overnight/ugoos-overlay-paired-control-20261027.md)
+- [PROGRAM_B current-session observation — 20261027a](../research/panel-idle-20261026/overnight/ugoos-program_b-actual-session-20261027a.md)
+- [PROGRAM_B current-session observation — 20261027b](../research/panel-idle-20261026/overnight/ugoos-program_b-actual-session-20261027b.md)
+- [Ugoos PROGRAM_B comparison](../research/panel-idle-20261026/overnight/ugoos-program_b-comparison-20261027.md)
+- [Jellyfin administrative-route recovery for the program_b observation](../research/panel-idle-20261026/overnight/ugoos-program_b-route-recovery-20261027.md)
+- [PROGRAM_B EPISODE_REDACTED session-verification plan](../research/panel-idle-20261026/overnight/ugoos-program_b-session-20261027.md)
+- [researcher Jellyfin history and Continue Watching comparison](../research/panel-idle-20261026/overnight/ugoos-researcher-history-comparison-20261027.md)
+- [researcher two-week Jellyfin controls and diagnostic exceptions](../research/panel-idle-20261026/overnight/ugoos-researcher-two-week-controls-20261027.md)
+- [Source opening-frame luminance check](../research/panel-idle-20261026/overnight/ugoos-source-luminance-comparison-20261027.md)
+- [Apps request while screensaver remains foreground](../research/panel-idle-20261026/overnight/ui-focus-analysis-20261027bk/findings.md)
+- [Normal UI navigation runner](../research/panel-idle-20261026/overnight/ui-navigation-20261027br/README.md)
+- [Existing UI log snapshot: request windows not retained](../research/panel-idle-20261026/overnight/ui-receiver-logs-20261027bn/findings.md)
+- [RT fault-to-emergency causal gap audit](../research/panel-idle-20261026/overnight/unattended-test-assessment-20261027ar/causal-gap-audit.md)
+- [Unattended reuse assessment for the X passive observer](../research/panel-idle-20261026/overnight/unattended-test-assessment-20261027ar/review.md)
+- [Current readiness of the stock unmute-zero capture](../research/panel-idle-20261026/overnight/unmute-zero-current-readiness-review.md)
+- [Independent review — upstream AutoDim, PM lock, and maintenance IPC contracts](../research/panel-idle-20261026/overnight/upstream-contract-independent-review.md)
+- [Installed vlog time-window and format contract](../research/panel-idle-20261026/overnight/vlog-capture-contract.md)
+- [Volatile controller logger: verified finite test](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/README.md)
+- [Offline architecture review: finite secondary logger qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/architecture-review.md)
+- [Blocked combined-call wrapper revision](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/README.md)
+- [Volatile logger qualification — offline build](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/d6/README.md)
+- [Offline architecture review: finite secondary logger qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/d6/architecture-review.md)
+- [Fixed secondary logger smoke qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/blocked-wrapper-revision/helper/README.md)
+- [Independent runtime review](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/independent-runtime-review.md)
+- [Bounded trace of the newly captured `t(10)` record](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/new-log-format-trace.md)
+- [Controller diagnostic logger: actual qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/progress.md)
+- [Finite logging qualification: review decisions](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/review-history.md)
+- [Fixed secondary logger smoke qualification](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/README.md)
+- [Image-1 secondary event-log buffer](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/secondary-event-log-buffer.md)
+- [Secondary logger volatile-arm protocol](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/secondary-logger-arm-protocol.md)
+- [Volatile image-1 event-logger instrumentation review](../research/panel-idle-20261026/overnight/volatile-logger-qualification-20261027f/reviewed-helper/volatile-logger-review.md)
+- [App-control off-sensing notification producer](../research/panel-idle-20261026/tcon-research/app-control-off-sensing-producer.md)
+- [AVE static-dimming policy path (offline exact-build analysis)](../research/panel-idle-20261026/tcon-research/ave-screen-saver-api.md)
+- [AVOC `SetPanelMute`: bounded output-gate analysis (offline)](../research/panel-idle-20261026/tcon-research/avoc-panel-mute-path.md)
+- [Content/static-dimming vs. actual panel-power path](../research/panel-idle-20261026/tcon-research/content-static-power-path.md)
+- [Independent review: controller follow-up predicates and CAD route split](../research/panel-idle-20261026/tcon-research/controller-followup-independent-review.md)
+- [`deviced` EL / Screen Optimization policy — offline map](../research/panel-idle-20261026/tcon-research/deviced-el-sensing-policy.md)
+- [Off-sensing popup signal boundary](../research/panel-idle-20261026/tcon-research/deviced-off-sensing-notification-trigger.md)
+- [`deviced` off-sensing policy path](../research/panel-idle-20261026/tcon-research/deviced-off-sensing-policy.md)
+- [Daemon power-state and EL background-lock contract](../research/panel-idle-20261026/tcon-research/deviced-power-state-contract.md)
+- [Read-only `deviced` EL/off-sensing observer map](../research/panel-idle-20261026/tcon-research/deviced-runtime-observer-map.md)
+- [Base RoseM DLSR-class route: conditional PQ-index policy, not a panel-power path](../research/panel-idle-20261026/tcon-research/dlsr-class-pq-route.md)
+- [DRM histogram logging: provenance and limits](../research/panel-idle-20261026/tcon-research/drm-histogram-logging-provenance.md)
+- [ERR_DET GPIO character-device ABI and side-effect boundary](../research/panel-idle-20261026/tcon-research/errdet-gpio-cdev-abi.md)
+- [Factory Low Power Mode Level — exact offline mapping](../research/panel-idle-20261026/tcon-research/factory-low-power-mode-level.md)
+- [UID `0x506e` factory readback and storage boundary](../research/panel-idle-20261026/tcon-research/factory-off-sensing-storage-readback.md)
+- [Factory “Offsensing TEST Period” — bounded static audit](../research/panel-idle-20261026/tcon-research/factory-off-sensing-test-period.md)
+- [UID `0x506e` factory setter: transmit target audit](../research/panel-idle-20261026/tcon-research/factory-off-sensing-transmit-target.md)
+- [Factory screen-saver brightness path (exact module analysis)](../research/panel-idle-20261026/tcon-research/factory-ss-brightness-path.md)
+- [TCON reset analysis — 2026-10-26](../research/panel-idle-20261026/tcon-research/findings.md)
+- [RoseMQD FRC duty-write leg](../research/panel-idle-20261026/tcon-research/frc-duty-write-recovery.md)
+- [FRC extension bridge to SDP register access](../research/panel-idle-20261026/tcon-research/frc-extension-and-sdp-register-path.md)
+- [FRC ioctl `0xc0086626`: fixed 8-byte read ABI](../research/panel-idle-20261026/tcon-research/frc-ioctl-6626-analysis.md)
+- [GSR-from-NPU to RoseM PQ-data edge — independent bounded review](../research/panel-idle-20261026/tcon-research/gsr-npu-pq-edge-review.md)
+- [HDMI input backend loader and callback-table boundary](../research/panel-idle-20261026/tcon-research/hdmi-backend-binding.md)
+- [HDMI `CLEAR_AVMUTE` loop boundary](../research/panel-idle-20261026/tcon-research/hdmi-clear-avmute-loop-boundary.md)
+- [Exact HDMI control implementation: DPMS notification reaches a cached byte](../research/panel-idle-20261026/tcon-research/hdmi-control-dpms-chain.md)
+- [Exact `libhdmi-control` CID boundary](../research/panel-idle-20261026/tcon-research/hdmi-control-library-producers.md)
+- [HDMI DPMS cached-byte suspend policy](../research/panel-idle-20261026/tcon-research/hdmi-dpms-suspend-policy.md)
+- [Samsung HDMI input implementation: callback table and bounded control paths](../research/panel-idle-20261026/tcon-research/hdmi-input-implementation.md)
+- [HDMI input handle and kernel-control boundary](../research/panel-idle-20261026/tcon-research/hdmi-input-kernel-control-boundary.md)
+- [HDMI-control power callbacks and DPMS notification gates](../research/panel-idle-20261026/tcon-research/hdmi-library-power-callbacks.md)
+- [Stock trace messages around a private HDMI power-management caller](../research/panel-idle-20261026/tcon-research/hdmi-private-power-log-markers.md)
+- [HDMI resume registration and private dispatch](../research/panel-idle-20261026/tcon-research/hdmi-private-resume-dispatch.md)
+- [Historical ERR_DET recovery timing and latch boundary](../research/panel-idle-20261026/tcon-research/historical-fault-recovery-timing.md)
+- [QDF static-dimming path — offline module analysis](../research/panel-idle-20261026/tcon-research/kernel/qdf-static-dimming-analysis.md)
+- [Exact acquired-Image GPIO persistence helper](../research/panel-idle-20261026/tcon-research/kernel-gpio-transitory-exact.md)
+- [Retained-kernel dynamic instrumentation capability audit](../research/panel-idle-20261026/tcon-research/kernel-instrumentation-capability-audit-20261027.md)
+- [Installed `libteec.so`: ARM32 ABI and TrustWare backend boundary](../research/panel-idle-20261026/tcon-research/libteec-installed-abi.md)
+- [S95F bounded display-lock trial](../research/panel-idle-20261026/tcon-research/lock-trial/README.md)
+- [Maintenance IPC client versus executed EL sensing](../research/panel-idle-20261026/tcon-research/maintenance-ipc-client.md)
+- [QD monitor input provenance: sampled GPIO, return code, and cached health](../research/panel-idle-20261026/tcon-research/monitor-input-status-provenance.md)
+- [QD monitor-latch rearm: offline safety and reachability review](../research/panel-idle-20261026/tcon-research/monitor-rearm-experiment-review.md)
+- [QD OLED monitor task cadence and `qd_tcon_off` rearm boundary](../research/panel-idle-20261026/tcon-research/monitor-task-cadence.md)
+- [NewHome / FSAV path into AVE — offline trace](../research/panel-idle-20261026/tcon-research/newhome-ave-path.md)
+- [Deferred Home-exit restoration in the Rosem output driver](../research/panel-idle-20261026/tcon-research/newhome-exit-restore-path.md)
+- [NewHome FRC ioctl to Rosem output policy](../research/panel-idle-20261026/tcon-research/newhome-frc-output-policy.md)
+- [NewHome → QD dimming policy: resolved vtable path and content boundary](../research/panel-idle-20261026/tcon-research/newhome-qd-dimming-policy.md)
+- [Rosem NewHome TCON frame-rate backend](../research/panel-idle-20261026/tcon-research/newhome-tcon-vfreq-backend.md)
+- [Normal panel reinitialization route (offline evidence)](../research/panel-idle-20261026/tcon-research/normal-reinit-route.md)
+- [OCIF AckPolling is a one-byte zero write, not a read](../research/panel-idle-20261026/tcon-research/ocif-ack-polling.md)
+- [OCIF cached-lock byte: static producers and lifecycle paths](../research/panel-idle-20261026/tcon-research/ocif-cache-producer.md)
+- [UID `0x506e` / value `6`: off-sensing route coverage](../research/panel-idle-20261026/tcon-research/off-sensing-disable-route-coverage.md)
+- [FRC output policy: freeze, dormant, patterns, clocks, and UI-content boundary](../research/panel-idle-20261026/tcon-research/overnight-frc-output-policy.md)
+- [Device-tree GPIOs: exact driver chain and safe observation boundary](../research/panel-idle-20261026/tcon-research/overnight-gpio-dt-driver-chain.md)
+- [AVOC panel-mute route: exact QD unmute-gate analysis](../research/panel-idle-20261026/tcon-research/overnight-panel-mute-gates.md)
+- [Passive post-onset I²C capture: exact decoding](../research/panel-idle-20261026/tcon-research/overnight-passive-black-i2c-decode.md)
+- [Physical-black topology and host-visible link analysis](../research/panel-idle-20261026/tcon-research/overnight-physical-topology.md)
+- [Overnight QDF/FRC reverse engineering — policy, wire path, and safe evidence](../research/panel-idle-20261026/tcon-research/overnight-qdf-wire-and-policy.md)
+- [Retained wake `QdSsBrightness=0`: bounded upstream route](../research/panel-idle-20261026/tcon-research/owner-wake-ssbrightness-upstream.md)
+- [PM lock expiry → notifier 20 — bounded static trace](../research/panel-idle-20261026/tcon-research/pm-lock-expiry-notifier.md)
+- [PQE query-event userspace consumer — bounded offline analysis](../research/panel-idle-20261026/tcon-research/pqe-event-userspace-consumer.md)
+- [PQE kernel event records returned by `QUERY_EVENT`](../research/panel-idle-20261026/tcon-research/pqe-kernel-event-records.md)
+- [PQE event query: recurring -11 is queue-empty, not a panel-off error](../research/panel-idle-20261026/tcon-research/pqe-query-event-analysis.md)
+- [Copied-userspace census for private HDMI suspend/resume controls](../research/panel-idle-20261026/tcon-research/private-hdmi-control-producers.md)
+- [Static invocation roots for private HDMI power helpers](../research/panel-idle-20261026/tcon-research/private-hdmi-invocation-roots.md)
+- [Private PM can advance software state without confirming resume success](../research/panel-idle-20261026/tcon-research/private-rpm-state-outcomes.md)
+- [Active QDDimming-base duty path — bounded static audit](../research/panel-idle-20261026/tcon-research/qd-active-base-duty-path.md)
+- [QD AutoDim upstream route — static audit](../research/panel-idle-20261026/tcon-research/qd-autodim-upstream.md)
+- [QDF "cache dump" surface: static safety finding](../research/panel-idle-20261026/tcon-research/qd-cache-dump-surface.md)
+- [QD CAD assets and extension-command 9: exact consumer boundary](../research/panel-idle-20261026/tcon-research/qd-cad-command9-consumer.md)
+- [Independent review: QD CAD `tcon_ex_proc` provider](../research/panel-idle-20261026/tcon-research/qd-cad-provider-independent-review.md)
+- [QD CAD `tcon_ex_proc` provider and 5 MiB consumer boundary](../research/panel-idle-20261026/tcon-research/qd-cad-tcon-ex-proc-provider.md)
+- [Exact QD command-gate reference](../research/panel-idle-20261026/tcon-research/qd-command-gate-reference.md)
+- [QD command-skip lifecycle](../research/panel-idle-20261026/tcon-research/qd-command-skip-lifecycle.md)
+- [QD command transport: mute-zero observability limits](../research/panel-idle-20261026/tcon-research/qd-command-transport-failure.md)
+- [Independent review: QD configuration `AP_RTP` load table](../research/panel-idle-20261026/tcon-research/qd-config-rtp-table-independent-review.md)
+- [Selected controller profile: positive AP_RTP load binding](../research/panel-idle-20261026/tcon-research/qd-config-rtp-table-load.md)
+- [QDMNT content/duty path: a brightness ramp is distinct from panel power](../research/panel-idle-20261026/tcon-research/qd-content-duty-policy.md)
+- [Content-dependent panel-protection mechanisms: primary-source boundary](../research/panel-idle-20261026/tcon-research/qd-content-protection-primary-research.md)
+- [F3:80 controller fault-telemetry getter audit](../research/panel-idle-20261026/tcon-research/qd-controller-fault-telemetry-getters.md)
+- [`F3:0x128` controller boundary — static profile result](../research/panel-idle-20261026/tcon-research/qd-controller-final-duty-rt-boundary.md)
+- [QD current ERR_DET GPIO read: ABI and side-effect boundary](../research/panel-idle-20261026/tcon-research/qd-current-fault-gpio-read-abi.md)
+- [QDF debug input transport and fixed-exit path](../research/panel-idle-20261026/tcon-research/qd-debug-input-transport.md)
+- [QD display-state query: result acknowledgement is a side effect](../research/panel-idle-20261026/tcon-research/qd-display-state-query-contract.md)
+- [QD packaged-image selector-`0x10` emergency-loop sequence](../research/panel-idle-20261026/tcon-research/qd-emergency-loop-output-sequence.md)
+- [QD ERR-DET status word: bit interpretation and monitor boundary](../research/panel-idle-20261026/tcon-research/qd-error-status-bit-interpretation.md)
+- [QD TCON error-status read: ABI and side-effect boundary](../research/panel-idle-20261026/tcon-research/qd-error-status-read-abi.md)
+- [F3:00 read census: fixed-root fields and RT boundary](../research/panel-idle-20261026/tcon-research/qd-f300-read-rt-telemetry-census-20261027.md)
+- [Independent review: F300 staged-write gate provenance](../research/panel-idle-20261026/tcon-research/qd-f300-write-gate-independent-review.md)
+- [F300 staged-scalar write gates and their recovered producers](../research/panel-idle-20261026/tcon-research/qd-f300-write-gate-provenance.md)
+- [Image-0 `F3 00 ... 0x128` payload path](../research/panel-idle-20261026/tcon-research/qd-f300-write-payload-dispatch.md)
+- [Selector `09` latch producer and object-provenance boundary](../research/panel-idle-20261026/tcon-research/qd-f38009-latch-producer.md)
+- [`F3:80:...:09` stock telemetry / consumption audit](../research/panel-idle-20261026/tcon-research/qd-f38009-stock-telemetry.md)
+- [Selected-profile F7 action-helper semantics](../research/panel-idle-20261026/tcon-research/qd-f7-action-semantics-20261027.md)
+- [QD fault next-discriminator corpus audit](../research/panel-idle-20261026/tcon-research/qd-fault-next-discriminator-audit.md)
+- [Final consumers of the selected F3:0x128 scalar](../research/panel-idle-20261026/tcon-research/qd-final-duty-application-callers.md)
+- [Base QDDimming final-duty branch and immediate RoseMQD backend](../research/panel-idle-20261026/tcon-research/qd-final-duty-branch-analysis.md)
+- [Consumers of controller `F3:0x128` staged field](../research/panel-idle-20261026/tcon-research/qd-final-duty-controller-consumers.md)
+- [QD TCON firmware acquisition map](../research/panel-idle-20261026/tcon-research/qd-firmware-acquisition-map.md)
+- [QD firmware load-address correction, 2026-10-27](../research/panel-idle-20261026/tcon-research/qd-firmware-load-address-erratum.md)
+- [QDF firmware resolver: exact paths and bounded acquisition plan](../research/panel-idle-20261026/tcon-research/qd-firmware-resolver-exact-paths-prior-command9-inference-631e2e9e.md)
+- [QDF firmware resolver: exact paths and bounded acquisition plan](../research/panel-idle-20261026/tcon-research/qd-firmware-resolver-exact-paths.md)
+- [QDF Mode 2 versus stock PM reset routes](../research/panel-idle-20261026/tcon-research/qd-full-reset-versus-mode2.md)
+- [QD monitor / QDF function-logging plan — bounded offline design](../research/panel-idle-20261026/tcon-research/qd-function-logging-plan-20261027.md)
+- [QD generic one-command read ABI](../research/panel-idle-20261026/tcon-research/qd-generic-read-command-abi.md)
+- [Independent review: QD generic one-command read ABI](../research/panel-idle-20261026/tcon-research/qd-generic-read-command-independent-review.md)
+- [Selected-profile I2C response-family census](../research/panel-idle-20261026/tcon-research/qd-i2c-read-command-family-census-20261027.md)
+- [`mixer_sys_disable_vblank`: controller boundary](../research/panel-idle-20261026/tcon-research/qd-idle-vblank-controller-boundary.md)
+- [QD image-1 context initialization and corrected load mapping](../research/panel-idle-20261026/tcon-research/qd-image1-context-initialization.md)
+- [QD kernel F3:0x128 request cache and recovery replay](../research/panel-idle-20261026/tcon-research/qd-kernel-output-replay.md)
+- [QD packaged-image live RT-protection candidates](../research/panel-idle-20261026/tcon-research/qd-live-rt-protection-candidates.md)
+- [What the stock Mode-2 sequence can clear in reported QD state](../research/panel-idle-20261026/tcon-research/qd-mode2-reported-fault-clear-semantics.md)
+- [QD monitor: exact recovery predicates](../research/panel-idle-20261026/tcon-research/qd-monitor-exact-recovery-predicates.md)
+- [QD monitor lifecycle caller boundary](../research/panel-idle-20261026/tcon-research/qd-monitor-lifecycle-callers.md)
+- [QD monitor runtime-state map](../research/panel-idle-20261026/tcon-research/qd-monitor-runtime-map.md)
+- [QD mute/frame-mode concurrency audit](../research/panel-idle-20261026/tcon-research/qd-mute-concurrency.md)
+- [QDF mute readback: exact command correction and rescued wire evidence](../research/panel-idle-20261026/tcon-research/qd-mute-readback-wire-correction.md)
+- [QD panel-mute writer map (offline, bounded)](../research/panel-idle-20261026/tcon-research/qd-mute-writer-map.md)
+- [One-command send buffer: caller value is copied in, not copied back](../research/panel-idle-20261026/tcon-research/qd-onecommand-buffer-dataflow.md)
+- [QDF power-control hardware sequence](../research/panel-idle-20261026/tcon-research/qd-power-control-hardware-sequence.md)
+- [Independent review: QD power-control userspace ABI](../research/panel-idle-20261026/tcon-research/qd-power-control-userspace-abi-independent-review.md)
+- [QD panel power-control ABI and recovery limits](../research/panel-idle-20261026/tcon-research/qd-power-control-userspace-abi.md)
+- [Packaged QD selector `0x0d` ratio producer](../research/panel-idle-20261026/tcon-research/qd-power-level-ratio-producer.md)
+- [Selected-profile `F7` read boundary](../research/panel-idle-20261026/tcon-research/qd-profile-f7-read-boundary.md)
+- [QD profile FW/MD identity producer](../research/panel-idle-20261026/tcon-research/qd-profile-fw-identity-producer.md)
+- [Selected-profile open-register read route and RT-state boundary](../research/panel-idle-20261026/tcon-research/qd-profile-open-register-read-route.md)
+- [Selected-profile read-only selectors for RT state](../research/panel-idle-20261026/tcon-research/qd-profile-readonly-rt-state-selectors.md)
+- [Independent review: selected QD profile RT-protection producer lead](../research/panel-idle-20261026/tcon-research/qd-profile-rt-producer-independent-review.md)
+- [Selected-profile RT status: internal selector to `F3 80 ... 08` wire reply](../research/panel-idle-20261026/tcon-research/qd-profile-rt-status-wire.md)
+- [Independent review: selected-profile RT selector to wire status](../research/panel-idle-20261026/tcon-research/qd-profile-rt-wire-independent-review.md)
+- [Selected QD profile image 1: RTP scan, thresholds, and local event path](../research/panel-idle-20261026/tcon-research/qd-profile-rtp-image1.md)
+- [QD protection: bounded inventory of additional read telemetry](../research/panel-idle-20261026/tcon-research/qd-protection-additional-telemetry.md)
+- [RoseMQD QD resume-record replay](../research/panel-idle-20261026/tcon-research/qd-resume-record-replay.md)
+- [Active RoseMQD final-duty cache lifecycle](../research/panel-idle-20261026/tcon-research/qd-rosem-cache-lifecycle.md)
+- [QD RT-status producer versus internal-TCON/RHEA identity boundary](../research/panel-idle-20261026/tcon-research/qd-rt-controller-identity-boundary.md)
+- [QD image-0 RT-field parameter/load provenance](../research/panel-idle-20261026/tcon-research/qd-rt-parameter-load-provenance.md)
+- [Image0 return guards: reset and recovered configuration routes](../research/panel-idle-20261026/tcon-research/qd-rt-return-guard-initialization.md)
+- [QD RT-window alias / cross-image bridge audit](../research/panel-idle-20261026/tcon-research/qd-rt-window-alias-evidence-20261027.md)
+- [Image-0 fixed RT-window live-producer census](../research/panel-idle-20261026/tcon-research/qd-rt-window-live-producer-census-20261027.md)
+- [QD fixed RT-window reset output and image-1 root gap](../research/panel-idle-20261026/tcon-research/qd-rt-window-reset-output-20261027.md)
+- [RT selector-to-wire chain: image-load-map correction](../research/panel-idle-20261026/tcon-research/qd-rt-wire-load-map-audit.md)
+- [QD profile image 1 → image 0 RTP/RT field handoff check](../research/panel-idle-20261026/tcon-research/qd-rtp-image-handoff.md)
+- [Image-1 RTP primary event `0x338`: input and predicate provenance](../research/panel-idle-20261026/tcon-research/qd-rtp-primary-event-input-provenance.md)
+- [QD image-1 RTP scan invocation and immediate sample producer](../research/panel-idle-20261026/tcon-research/qd-rtp-scan-invocation.md)
+- [Read-only runtime observer map: QD AutoDim object](../research/panel-idle-20261026/tcon-research/qd-runtime-observer-map.md)
+- [Runtime QD profile line: exact producer and field provenance](../research/panel-idle-20261026/tcon-research/qd-runtime-profile-log-fields.md)
+- [QD secondary-component / `0x4701` window: bounded loader audit](../research/panel-idle-20261026/tcon-research/qd-secondary-core-window-loader.md)
+- [Selected QD profile content: embedded firmware and calibration banks](../research/panel-idle-20261026/tcon-research/qd-selected-profile-content.md)
+- [QD sensing entry ABI and caller boundary](../research/panel-idle-20261026/tcon-research/qd-sensing-entry-callers.md)
+- [QD SSB readback acquisition boundary](../research/panel-idle-20261026/tcon-research/qd-ssb-readback-acquisition-boundary.md)
+- [QD suspend and TCON-state gates](../research/panel-idle-20261026/tcon-research/qd-suspend-state-lifecycle.md)
+- [`QD_TCON_OFF` is a monitor latch, not a current power reading](../research/panel-idle-20261026/tcon-research/qd-tcon-off-latch.md)
+- [QD UART device-tree binding follow-up](../research/panel-idle-20261026/tcon-research/qd-uart-dt-binding-followup.md)
+- [QD image-0 UART to host logging boundary](../research/panel-idle-20261026/tcon-research/qd-uart-host-logging-boundary.md)
+- [QD unmute's cached-PVCC guard and its lifecycle callers](../research/panel-idle-20261026/tcon-research/qd-unmute-pvcc-guard.md)
+- [Erratum: AP_RTP generic-reader unsigned branch](../research/panel-idle-20261026/tcon-research/qd-usb-ap-rtp-logical-read-route-review-erratum.md)
+- [USB CDC ingress versus the AP_RTP logical reader](../research/panel-idle-20261026/tcon-research/qd-usb-ap-rtp-logical-read-route.md)
+- [QD image-0 CDC class-control request trace](../research/panel-idle-20261026/tcon-research/qd-usb-cdc-control-requests.md)
+- [Selected-profile CDC RX completion and consumer boundary](../research/panel-idle-20261026/tcon-research/qd-usb-cdc-rx-consumer-20261027.md)
+- [QD image-0 USB descriptor and console-binding audit](../research/panel-idle-20261026/tcon-research/qd-usb-console-binding.md)
+- [USB device identity recovered from reset scatter](../research/panel-idle-20261026/tcon-research/qd-usb-device-descriptor-scatter-match-20261027.md)
+- [Independent review: packaged USB descriptor scatter match](../research/panel-idle-20261026/tcon-research/qd-usb-device-descriptor-scatter-match-independent-review.md)
+- [Corrected QD image-0 USB line-coding callback](../research/panel-idle-20261026/tcon-research/qd-usb-linecoding-callback-corrected.md)
+- [QD image-0 diagnostic-output routes: USB CDC versus UART](../research/panel-idle-20261026/tcon-research/qd-usb-log-output-route.md)
+- [QD Weber-input producer: object count, register statistics and FRC reading](../research/panel-idle-20261026/tcon-research/qd-weber-input-producer.md)
+- [Official-source feasibility for the QN77S95F kernel build](../research/panel-idle-20261026/tcon-research/qn77s95f-official-kernel-source-feasibility.md)
+- [Fresh `0x10` TCON status: host interpretation and controller boundary](../research/panel-idle-20261026/tcon-research/rt-protect-controller-path.md)
+- [RT Protect (`0x10`) and host recovery boundary](../research/panel-idle-20261026/tcon-research/rt-protect-host-recovery.md)
+- [External evidence boundary: `RT Protect`, `ERR_DET`, and Samsung OLED Screen Optimization](../research/panel-idle-20261026/tcon-research/rt-protection-external-evidence.md)
+- [`sdp-pinctrl-v2` GPIO persistence callback in the paired kernel Image](../research/panel-idle-20261026/tcon-research/sdp-pinctrl-v2-config-binary.md)
+- [`sdp-pinctrl-v2` GPIO persistence-config source gap](../research/panel-idle-20261026/tcon-research/sdp-pinctrl-v2-gpio-config.md)
+- [SDP FRC resource translation and production-mode request gate](../research/panel-idle-20261026/tcon-research/sdp-resource-and-production-gate.md)
+- [SerDes lock helper: positive probe/resume callers, not a diagnosed blackout timer](../research/panel-idle-20261026/tcon-research/serdes-probe-resume-path.md)
+- [HDMI/OCIF support predicate: boot-input provenance](../research/panel-idle-20261026/tcon-research/serdes-support-boot-provenance.md)
+- [Independent review: SSB firmware-acquisition boundary](../research/panel-idle-20261026/tcon-research/ssb-acquisition-independent-review.md)
+- [SSB backup entry: exact initialization and ioctl boundary](../research/panel-idle-20261026/tcon-research/ssb-backup-entry-audit-20261027.md)
+- [Device-side SSB target `0x203` read protocol](../research/panel-idle-20261026/tcon-research/ssb-device-read-protocol-20261027.md)
+- [Independent review: SSB target-`0x203` device read protocol](../research/panel-idle-20261026/tcon-research/ssb-device-read-protocol-independent-review.md)
+- [Vendor bulk family1: addressed-memory IN lead](../research/panel-idle-20261026/tcon-research/ssb-family1-memory-in-route-lead-20261027.md)
+- [Independent fixed-descriptor review and target result](../research/panel-idle-20261026/tcon-research/ssb-known-descriptor-reader-independent-review-20261027.md)
+- [SSB mode-gate follow-up](../research/panel-idle-20261026/tcon-research/ssb-mode-gate-followup-20261027.md)
+- [SSB transport driver binding for `/dev/ssb1` and `/dev/ssbs1`](../research/panel-idle-20261026/tcon-research/ssb-transport-driver-binding.md)
+- [SWU/TEE firmware-decrypt feasibility: cipher-only boundary](../research/panel-idle-20261026/tcon-research/swu-decrypt-feasibility.md)
+- [TCON MICOM debug-log backing store, producer, and read semantics](../research/panel-idle-20261026/tcon-research/tcon-micom-log-cache-producer.md)
+- [Selector `0x0c` in the retained `tcon-monitor` traffic](../research/panel-idle-20261026/tcon-research/tcon-monitor-selector-0c-analysis.md)
+- [`ttyUSB0` CP210x identity boundary](../research/panel-idle-20261026/tcon-research/ttyusb0-cp210x-identity-boundary-20261027.md)
+- [Gap register and next experiments](../research/research-20261027-external/GAPS-AND-EXPERIMENTS.md)
+- [External source research: Samsung S95F blackout investigation](../research/research-20261027-external/README.md)
+- [Target file acquisition during source comparison](../research/research-20261027-external/TARGET-ACQUISITION.md)
+- [Samsung S95F: current investigation](../research/research-20261027-external/document-snapshots/bw-prior/CURRENT-INVESTIGATION.md)
+- [Apps-selected panel recovery](../research/research-20261027-external/document-snapshots/bw-prior/RECOVER-PANEL.md)
+- [Current ordinary-controller fault model — 2026-10-27](../research/research-20261027-external/document-snapshots/bw-prior/ordinary-fault-model-20261027.md)
+- [Samsung S95F: current investigation](../research/research-20261027-external/document-snapshots/research-phase/CURRENT-INVESTIGATION.md)
+- [Samsung S95F panel-blackout reverse engineering](../research/research-20261027-external/document-snapshots/research-phase/README.md)
+- [Apps-selected panel recovery](../research/research-20261027-external/document-snapshots/research-phase/RECOVER-PANEL.md)
+- [Current ordinary-controller fault model — 2026-10-27](../research/research-20261027-external/document-snapshots/research-phase/ordinary-fault-model-20261027.md)
+- [Content-control experiment for the Home blackout](../research/research-20261027-external/reports/content-control-experiment.md)
+- [Remote-control sources and topic discovery](../research/research-20261027-external/reports/controls-discovery.md)
+- [S95F hardware and firmware: external evidence against the actual gaps](../research/research-20261027-external/reports/hardware-firmware.md)
+- [Kernel instrumentation: exact-image result and useful external sources](../research/research-20261027-external/reports/kernel-tools.md)
+- [Fixed metadata-only SWU helper: offline source prototype](../research/research-20261027-external/reports/minimal-swu-helper-design.md)
+- [RGB command 0x400: retained SDP sampler dispatch and external-controller boundary](../research/research-20261027-external/reports/rgb-controller-dispatch.md)
+- [Root-source research and claim audit — 2026-10-27 UTC](../research/research-20261027-external/reports/root-sources.md)
+- [Minimal SWU metadata decryption: target applicability](../research/research-20261027-external/reports/swu-target-applicability.md)
+- [Video measurement: target ABI confirmed, measurement-to-Pre-PD link absent](../research/research-20261027-external/reports/video-measurement.md)
+- [Independent evidence audit — 2026-10-27](../research/research-20261027-external/reviews/independent-audit.md)
+- [Independent SWU normal-world ABI audit](../research/research-20261027-external/reviews/swu-independent-review.md)
+- [Quick start](../research/root-access/source/QUICKSTART.md)
+- [Samsung TV root](../research/root-access/source/README.md)
+- [Documentation](../research/root-access/source/docs/README.md)
+- [Samsung SWU passphrase dump](../research/root-access/source/docs/research-notes/AES_EXTRACTION.md)
+- [Exploit chain](../research/root-access/source/docs/research-notes/EXPLOIT_CHAIN.md)
+- [QN90B root reproduction](../research/root-access/source/docs/research-notes/QN90B_REPRODUCTION.md)
+- [QN90F root reproduction](../research/root-access/source/docs/research-notes/QN90F_REPRODUCTION.md)
+- [Host controller guide](../research/root-access/source/docs/user/CONTROLLER.md)
+- [Remote input guide](../research/root-access/source/docs/user/REMOTE_POLICY.md)

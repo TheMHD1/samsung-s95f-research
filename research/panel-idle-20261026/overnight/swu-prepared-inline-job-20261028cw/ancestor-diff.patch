@@ -1,0 +1,156 @@
+--- CV/job.py
++++ CW/job.py
+@@ -1,6 +1,6 @@
+-"""CV host-only fixed-job lifetime library, using hash-bound inline shell text.
+-
+-Additive CM clone: no CLI, staging, TLS, retry, UEP change, or TV default.
++"""CW host-only fixed-job library, using separately base64-prepared inline text.
++
++Additive CV clone: no CLI, payload staging, TLS, retry, UEP change, or TV default.
+ 
+ The caller freezes a JobSpec and payload manifest before importing live access.
+ An ambiguous request is never resubmitted. Raw native output is not trial acceptance.
+@@ -9,6 +9,7 @@
+ 
+ from contextlib import contextmanager
+ from dataclasses import dataclass
++import base64
+ import fcntl
+ import hashlib
+ import importlib.util
+@@ -181,15 +182,38 @@
+     return child, worker
+ 
+ 
++def preparation_commands(spec: JobSpec) -> tuple[str, ...]:
++    """Prepare exact private script bytes through safe-alphabet transport only."""
++    child, worker = scripts(spec)
++    j = spec.job
++    commands = [exact_payloads(spec) + 'command -v setsid > /dev/null\n' +
++                f'test ! -e {j}\ntest ! -L {j}\nmkdir {j}\nchmod 700 {j}\n']
++    for name, text in (("plan", spec.digest + "\n"), ("child.sh", child), ("worker.sh", worker)):
++        raw = text.encode()
++        encoded = base64.b64encode(raw).decode('ascii')
++        prefix = directory_guard(spec) if name == 'plan' else job_guard(spec)
++        commands.append(prefix +
++                        f'test ! -e {j}/{name}\ntest ! -L {j}/{name}\n' +
++                        f"printf %s '{encoded}' | base64 -d > {j}/{name}\n" +
++                        f'chmod 600 {j}/{name}\n' +
++                        f'test "$(wc -c < {j}/{name})" = {len(raw)}\n' +
++                        f'test "$(sha256sum {j}/{name} | cut -d " " -f1)" = {hashlib.sha256(raw).hexdigest()}\n')
++    for command in commands:
++        need(len(command.encode()) <= 8192, 'preparation-command-too-large')
++    return tuple(commands)
++
++
+ def launch_command(spec: JobSpec) -> str:
+     child, worker = scripts(spec)
+     j = spec.job
+-    s = exact_payloads(spec) + 'command -v setsid > /dev/null\n' + f'test ! -e {j}\ntest ! -L {j}\nmkdir {j}\nchmod 700 {j}\n'
+-    for name, text in (("plan", spec.digest + "\n"), ("child.sh", child), ("worker.sh", worker)):
+-        s += f"printf %s {quote(text)} > {j}/{name}\nchmod 600 {j}/{name}\n"
++    s = exact_payloads(spec) + job_guard(spec)
+     for name, text in (("child.sh", child), ("worker.sh", worker)):
+-        s += (f'test ! -L {j}/{name}\n'
++        s += (f'test ! -L {j}/{name}\ntest -f {j}/{name}\n'
++              f'test "$(stat -c "%u:%g:%a:%h:%s" {j}/{name})" = 0:0:600:1:{len(text.encode())}\n'
+               f'test "$(sha256sum {j}/{name} | cut -d " " -f1)" = {hashlib.sha256(text.encode()).hexdigest()}\n')
++    # POSIX noclobber makes the once marker an exclusive file creation. A
++    # repeated dispatch refuses even if no supervisor identity became visible.
++    s += f'set -C\n: > {j}/launch-once\nset +C\n'
+     # Every inherited standard handle is redirected before detachment. Root
+     # transport pipe readers therefore cannot be held open by this job.
+     s += (f'setsid /bin/sh -c "$(cat {j}/worker.sh)" < /dev/null > {j}/supervisor.out 2> {j}/supervisor.err &\n'
+@@ -198,10 +222,15 @@
+     return s
+ 
+ 
++def directory_guard(spec: JobSpec) -> str:
++    j = spec.job
++    return (common(spec) + f'test ! -L {j}\ntest -d {j}\n'
++            f'test "$(stat -c "%u:%g:%a" {j})" = 0:0:700\n')
++
++
+ def job_guard(spec: JobSpec) -> str:
+     j = spec.job
+-    return (common(spec) + f'test ! -L {j}\ntest -d {j}\n'
+-            f'test "$(stat -c "%u:%g:%a" {j})" = 0:0:700\n'
++    return (directory_guard(spec) +
+             f'test ! -L {j}/plan\ntest "$(cat {j}/plan)" = {spec.digest}\n')
+ 
+ 
+@@ -271,7 +300,7 @@
+ def cleanup_command(spec: JobSpec) -> str:
+     """Delete only a closed, exact known job tree; never payloads or raw sink."""
+     j = spec.job
+-    names = "plan child.sh worker.sh supervisor.out supervisor.err stdout stderr supervisor child go exit"
++    names = "plan child.sh worker.sh launch-once supervisor.out supervisor.err stdout stderr supervisor child go exit"
+     return (job_guard(spec) + PROC +
+             f'test ! -L {j}/exit\ntest -f {j}/exit\n'
+             f'IFS="|" read plan rc deadline terminated < {j}/exit\n'
+@@ -283,7 +312,7 @@
+             '  test "$state" = Z\n fi\ndone\n'
+             f'for p in {j}/* {j}/.[!.]* {j}/..?*; do\n'
+             ' if test ! -e "$p" && test ! -L "$p"; then continue; fi\n'
+-            ' case "${p##*/}" in plan|child.sh|worker.sh|supervisor.out|supervisor.err|stdout|stderr|stdout.safe|stdout.safe.tmp|supervisor|child|go|exit) ;; *) exit 1;; esac\n'
++            ' case "${p##*/}" in plan|child.sh|worker.sh|launch-once|supervisor.out|supervisor.err|stdout|stderr|stdout.safe|stdout.safe.tmp|supervisor|child|go|exit) ;; *) exit 1;; esac\n'
+             ' test ! -L "$p"\n test -f "$p"\n'
+             ' test "$(stat -c "%u:%g:%a:%h" "$p")" = 0:0:600:1\ndone\n' +
+             'rm ' + ' '.join(j + '/' + n for n in names.split()) + '\n' +
+@@ -296,11 +325,14 @@
+     def __init__(self, module):
+         self.module = module
+         self.lock_held = False
++        self.last_response = None
+ 
+     def exec(self, command: str) -> str:
+         need(self.lock_held, "access-lock-required")
+         need(0 < len(command.encode()) <= 8192, "short-command-size")
++        self.last_response = None
+         r = self.module.persistent_request(dict(operation="exec", command=command, timeout=10), 25)
++        self.last_response = r  # Private diagnostic, retained even on rejected frames.
+         need(all(type(r.get(k)) is int and r[k] == 0 for k in ("uid", "euid", "exit_code")) and
+              r.get("timed_out") is False and r.get("stderr") == "", "root-response-rejected")
+         need(type(r.get("stdout")) is str and len(r["stdout"].encode()) <= 16384, "root-output-size")
+@@ -366,13 +398,29 @@
+     need(evidence.is_dir() and not evidence.is_symlink() and
+          evidence.stat().st_uid == os.geteuid() and
+          evidence.stat().st_mode & 0o777 == 0o700 and not any(evidence.iterdir()), "evidence-private-empty")
+-    command = launch_command(spec)  # Refuse oversized specifications before an intent exists.
+-    save_new(evidence / "launch-intent.json", dict(spec=spec.canonical(), digest=spec.digest,
+-                                                   launch_attempts=1, trial_accepted=False))
+-    deadline = monotonic() + spec.host_seconds
++    commands = preparation_commands(spec)
++    command = launch_command(spec)  # Validate every bound before any dispatch.
++    save_new(evidence / "preparation-plan.json", dict(spec=spec.canonical(), digest=spec.digest,
++                                                      preparation_commands=len(commands), launch_attempts=0,
++                                                      trial_accepted=False))
++    launch_attempts = 0
++    phase = 'preparation'
+     polls = 0
+     try:
++        for index, prepare in enumerate(commands):
++            save_new(evidence / f'preparation-{index}-intent.json', dict(
++                index=index, command_sha256=hashlib.sha256(prepare.encode()).hexdigest(), launch_attempts=0))
++            need(access.exec(prepare) == '', 'preparation-reply')
++            save_new(evidence / f'preparation-{index}-complete.json', dict(index=index, completed=True, launch_attempts=0))
++        phase = 'launch'
++        # Preparation has a finite four-request budget and cannot run native
++        # code. The job's host lifetime begins immediately before its launch.
++        deadline = monotonic() + spec.host_seconds
++        save_new(evidence / "launch-intent.json", dict(spec=spec.canonical(), digest=spec.digest,
++                                                       launch_attempts=1, trial_accepted=False))
++        launch_attempts = 1
+         need(access.exec(command) == "LAUNCH_SUBMITTED\n", "launch-reply")
++        phase = 'monitor'
+         # Reserve one maximum 25s status request and one 25s conditional stop.
+         # The controller's socket timeout bounds attempts, not D-state tasks.
+         while monotonic() + 50 < deadline:
+@@ -391,6 +439,6 @@
+         raise RuntimeError("host-deadline-stop-requested")
+     except BaseException as error:
+         save_new(evidence / "reconciliation-required.json", dict(
+-            error_type=type(error).__name__, launch_attempts=1, retry_attempts=0,
++            error_type=type(error).__name__, phase=phase, launch_attempts=launch_attempts, retry_attempts=0,
+             job_retained=True, trial_accepted=False, remote_supervisor_deadline_seconds=spec.supervisor_seconds))
+         raise

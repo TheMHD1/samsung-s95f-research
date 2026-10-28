@@ -1,0 +1,56 @@
+EXIDX RANGE 00359434..003594bc; input 00359434; may contain multiple functions and literal pools
+00359434 f8b5       push       {r3, r4, r5, r6, r7, lr}
+00359436 0746       mov        r7, r0
+00359438 1e4e       ldr        r6, [pc, #0x78] ; literal[003594b4]=00170bb8
+0035943a 1420       movs       r0, #0x14
+0035943c fdf41eed   blx        #0x56e7c ; _Znwj
+00359440 dff874c0   ldr.w      ip, [pc, #0x74] ; literal[003594b8]=000052ec ; GOT?=004c986c
+00359444 7e44       add        r6, pc
+00359446 fa68       ldr        r2, [r7, #0xc]
+00359448 bd68       ldr        r5, [r7, #8]
+0035944a 3346       mov        r3, r6
+0035944c 0021       movs       r1, #0
+0035944e 0446       mov        r4, r0
+00359450 56f80c30   ldr.w      r3, [r6, ip]
+00359454 551b       subs       r5, r2, r5
+00359456 7a68       ldr        r2, [r7, #4]
+00359458 8d42       cmp        r5, r1
+0035945a 03f10803   add.w      r3, r3, #8
+0035945e c0e90211   strd       r1, r1, [r0, #8]
+00359462 c0e90032   strd       r3, r2, [r0]
+00359466 0161       str        r1, [r0, #0x10]
+00359468 17d0       beq        #0x35949a
+0035946a 1bdb       blt        #0x3594a4
+0035946c 2846       mov        r0, r5
+0035946e fdf406ed   blx        #0x56e7c ; _Znwj
+00359472 d7e90213   ldrd       r1, r3, [r7, #8]
+00359476 0544       add        r5, r0
+00359478 0646       mov        r6, r0
+0035947a c4e90305   strd       r0, r5, [r4, #0xc]
+0035947e a060       str        r0, [r4, #8]
+00359480 5d1a       subs       r5, r3, r1
+00359482 03d1       bne        #0x35948c
+00359484 2e44       add        r6, r5
+00359486 2046       mov        r0, r4
+00359488 e660       str        r6, [r4, #0xc]
+0035948a f8bd       pop        {r3, r4, r5, r6, r7, pc}
+0035948c 2a46       mov        r2, r5
+0035948e 2e44       add        r6, r5
+00359490 fdf4ceec   blx        #0x56e30 ; memmove
+00359494 2046       mov        r0, r4
+00359496 e660       str        r6, [r4, #0xc]
+00359498 f8bd       pop        {r3, r4, r5, r6, r7, pc}
+0035949a 2e46       mov        r6, r5
+0035949c 2046       mov        r0, r4
+0035949e 2e44       add        r6, r5
+003594a0 e660       str        r6, [r4, #0xc]
+003594a2 f8bd       pop        {r3, r4, r5, r6, r7, pc}
+003594a4 fef4dcea   blx        #0x57a60 ; _ZSt17__throw_bad_allocv
+003594a8 2046       mov        r0, r4
+003594aa 1421       movs       r1, #0x14
+003594ac fdf404ec   blx        #0x56cb8 ; _ZdlPvj
+003594b0 fef40ce8   blx        #0x574cc ; __cxa_end_cleanup
+003594b4 b80b       lsrs       r0, r7, #0xe
+003594b6 1700       movs       r7, r2
+003594b8 ec52       strh       r4, [r5, r3]
+003594ba 0000       movs       r0, r0

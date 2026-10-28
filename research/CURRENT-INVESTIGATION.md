@@ -552,3 +552,27 @@ allbuffers/session/context and removed its stage. Output was wiped; plaintext
 CRC, RSA authenticity and full nested schema remain unvalidated. A fixed
 installed publicRSAkey copy is now pinned for subsequent bounded validation.
 No privatekey or passphrase was extracted.
+
+
+## Firmware priority checkpoint — 2026-10-28 00:45 UTC
+
+User explicitly prioritizes firmware extraction over further panel experiments. Official CA 0090 package is fully acquired and verified; no firmware has been flashed. CE completed one actual authenticated metadata extraction: 4032 raw bytes, unique five-byte PKCS7 tail, 4027 selected bytes, installed RSA2048 key / SHA512 PKCS1 signature independently verified on target and host, twelve present roots. Exact temporary stage removed; plaintext retained privately only. See overnight/swu-header-target-20261028ce/target-trial-01.md and its independent actual-target review.
+
+CF host schema parsing resolves all twelve roots and 68 descriptors with no unsupported/trailing bytes. All nine main section IDs, offsets and lengths reconcile to the clear directory; all nine complete ciphertext RSA signatures independently verify. Exact section names: platform.img, uImage, factory_peq.img, secos.bin, seret.bin, secos_drv.bin, dtb.bin, ddr.init, sign.bin. CRC tag 18 describes original item bytes excluding AES padding, not ciphertext. No payload has yet been decoded or passed that CRC. Current immediate work is a bounded streaming decoder, first qualifying the small sign.bin section, then DDR/kernel/device tree/filesystem. Companion package crypto remains unqualified.
+
+TV last owner-confirmed visible on Apps after the CB recovery, which was physically successful but harness-rejected due to the documented /proc exit race. CE operations used SWU metadata TEEC only, no UI/power or controller USB operations. CB accepted onset capture remains valid and separate. No permanent prevention claim.
+
+
+Firmware update 2026-10-28: actual CI sign.bin payload decryption PASS, 1040 ciphertext/raw → 1024 original bytes after strict16-byte PKCS7; authenticated original-item CRC matches. First complete payload extracted privately. Stage removed; one native sequence, no firmware installation. Larger sections now in progress. Prior checkpoint statement that no payload had decoded is historical and superseded by this result.
+
+
+## Firmware extraction actual results — 2026-10-28 01:13 UTC
+
+Eight main payloads now pass actual decrypt/strict16-byte PKCS7/exact original-size/authenticated tag18 CRC: sign.bin (CI), ddr.init (CK), uImage (CN), dtb.bin, secos.bin, seret.bin, secos_drv.bin, factory_peq.img (CQ). Native input SHA/EOF, session/shared/context cleanup and exact temporary-stage removal all passed for these eight. Private originals are in firmware-extracted-20261028; public reports omit OEM bytes. Full original kernel header+declared payload exactly match the earlier runtime boot-slot image; CS report supplies independent CRC/identity plus ten decoded DTBs and candidate OC-tree signal mappings. Do not call static GPIO mapping live fault proof.
+
+Platform extraction startup attempts: CR/CM01 rejected because Samsung UEP refuses unsigned shell script files, before supervisor/child/native markers, zero TCP connections. Host controller interrupted once after classifying repeated STARTING; exact fixed-argv process census empty. CR stage retained privately as failed evidence. CX/CV01 refused before inline dispatch because the root Agent QuoteArgument doubles backslashes within single-quoted raw printf data: fetched child1281 vs1280 bytes, worker2884 vs2882, only printf newline escape differences. Script hash guards caught this; zero native decode/zero TCP connections. Exact three failed job files snapshotted and removed after their hashes/modes/closed-world directory guard; five pinned CX payload files remain. CW now separately prepares scripts through Base64 (known-working byte-preserving root transport), guards each size/hash, then dispatches short inline shell command once. DA/CW/CX02 currently executing; no acceptance yet. No auto retry of an ambiguous native command, firmware flash, controller USB/UI/panel action or permanent prevention claim.
+
+
+## All nine main firmware sections decoded — 2026-10-28 01:25 UTC
+
+FinalCX02platformactualnativeelapsed555190ms,22209updates/22215guards/full1455423504raw accepted by native/transport. OriginalDAwrapper rejected mixedGC/stdout status; separate offline reconciliation extracted unique actual385B status and validated all3020remainingGCpairs, preserving original_driver_accepted=false; no native reinvocation. Fullplatform original1455423488 strict16PKCS7 +signedmetadata originalCRC PASS, exactjob/stagecleanupPASS. All9main originals now privately archived; inventory lists1,493,534,000 originalbytes. No flash. Companion crypto still unqualified. See overnight/swu-platform-controller-20261028da/phase-report.md. DB has now validated fullmainimageSHA and bothGPT copies, extracted2VDFS partitions; contained VDFS catalog/file work ongoing. Blackout rootcause/prevention still open; no new panel experiments during firmware priority.

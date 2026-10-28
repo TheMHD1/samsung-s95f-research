@@ -1,0 +1,3 @@
+# Actual ddr.init decryption — PASS
+
+One fixed decrypt-only invocation completed command0 once, three command1 updates (65536+65536+35344 ciphertext bytes), and command2 once. The 166416-byte raw output has canonical sixteen-byte PKCS7 padding. Removing it produces exactly 166400 original bytes, whose standard reflected CRC32 matches the signed metadata's tag18. The entire input ciphertext's RSA signature had independently passed. Native session/buffers/context cleanup completed; the exact stage was removed after seven chunked private output fetches. 89 root calls, one native invocation, zero retries. No firmware installed or panel/UI control. Outputs remain private; no plaintext contents or hashes are reproduced here.

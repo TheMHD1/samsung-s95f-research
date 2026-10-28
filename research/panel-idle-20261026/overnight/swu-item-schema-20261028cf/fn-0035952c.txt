@@ -1,0 +1,99 @@
+EXIDX RANGE 0035952c..00359610; input 003595e4; may contain multiple functions and literal pools
+0035952c 084a       ldr        r2, [pc, #0x20] ; literal[00359550]=00170ac4
+0035952e c0ef1000   vmov.i32   d16, #0
+00359532 10b4       push       {r4}
+00359534 0021       movs       r1, #0
+00359536 074c       ldr        r4, [pc, #0x1c] ; literal[00359554]=000055f0 ; GOT?=004c9824
+00359538 7a44       add        r2, pc
+0035953a 1259       ldr        r2, [r2, r4]
+0035953c 5df8044b   ldr        r4, [sp], #4
+00359540 0832       adds       r2, #8
+00359542 c0e90211   strd       r1, r1, [r0, #8]
+00359546 c0e90021   strd       r2, r1, [r0]
+0035954a c0ed040b   vstr       d16, [r0, #0x10]
+0035954e 7047       bx         lr
+00359550 c40a       lsrs       r4, r0, #0xb
+00359552 1700       movs       r7, r2
+00359554 f055       strb       r0, [r6, r7]
+00359556 0000       movs       r0, r0
+00359558 0430       adds       r0, #4
+0035955a 7047       bx         lr
+0035955c d0e90401   ldrd       r0, r1, [r0, #0x10]
+00359560 7047       bx         lr
+00359562 00bf       nop        
+00359564 f0b4       push       {r4, r5, r6, r7}
+00359566 1f46       mov        r7, r3
+00359568 074d       ldr        r5, [pc, #0x1c] ; literal[00359588]=00170a8c
+0035956a dff820c0   ldr.w      ip, [pc, #0x20] ; literal[0035958c]=00005420 ; GOT?=004c983c
+0035956e 1646       mov        r6, r2
+00359570 7d44       add        r5, pc
+00359572 2b46       mov        r3, r5
+00359574 55f80c30   ldr.w      r3, [r5, ip]
+00359578 c0e90267   strd       r6, r7, [r0, #8]
+0035957c 0833       adds       r3, #8
+0035957e 4160       str        r1, [r0, #4]
+00359580 f0bc       pop        {r4, r5, r6, r7}
+00359582 0360       str        r3, [r0]
+00359584 7047       bx         lr
+00359586 00bf       nop        
+00359588 8c0a       lsrs       r4, r1, #0xa
+0035958a 1700       movs       r7, r2
+0035958c 2054       strb       r0, [r4, r0]
+0035958e 0000       movs       r0, r0
+00359590 074a       ldr        r2, [pc, #0x1c] ; literal[003595b0]=00170a64
+00359592 c0ef1000   vmov.i32   d16, #0
+00359596 0749       ldr        r1, [pc, #0x1c] ; literal[003595b4]=00005420 ; GOT?=004c983c
+00359598 7a44       add        r2, pc
+0035959a 10b4       push       {r4}
+0035959c 0024       movs       r4, #0
+0035959e 5258       ldr        r2, [r2, r1]
+003595a0 4460       str        r4, [r0, #4]
+003595a2 0832       adds       r2, #8
+003595a4 5df8044b   ldr        r4, [sp], #4
+003595a8 0260       str        r2, [r0]
+003595aa c0ed020b   vstr       d16, [r0, #8]
+003595ae 7047       bx         lr
+003595b0 640a       lsrs       r4, r4, #9
+003595b2 1700       movs       r7, r2
+003595b4 2054       strb       r0, [r4, r0]
+003595b6 0000       movs       r0, r0
+003595b8 4068       ldr        r0, [r0, #4]
+003595ba 7047       bx         lr
+003595bc d0e90201   ldrd       r0, r1, [r0, #8]
+003595c0 7047       bx         lr
+003595c2 00bf       nop        
+003595c4 054a       ldr        r2, [pc, #0x14] ; literal[003595dc]=00170a32
+003595c6 10b4       push       {r4}
+003595c8 054c       ldr        r4, [pc, #0x14] ; literal[003595e0]=00004278 ; GOT?=004c9854
+003595ca 7a44       add        r2, pc
+003595cc 1259       ldr        r2, [r2, r4]
+003595ce 5df8044b   ldr        r4, [sp], #4
+003595d2 0832       adds       r2, #8
+003595d4 4160       str        r1, [r0, #4]
+003595d6 0260       str        r2, [r0]
+003595d8 7047       bx         lr
+003595da 00bf       nop        
+003595dc 320a       lsrs       r2, r6, #8
+003595de 1700       movs       r7, r2
+003595e0 7842       rsbs       r0, r7, #0
+003595e2 0000       movs       r0, r0
+003595e4 4068       ldr        r0, [r0, #4]
+003595e6 7047       bx         lr
+003595e8 0749       ldr        r1, [pc, #0x1c] ; literal[00359608]=00170a0c
+003595ea 0022       movs       r2, #0
+003595ec 10b4       push       {r4}
+003595ee 074c       ldr        r4, [pc, #0x1c] ; literal[0035960c]=000052ec ; GOT?=004c986c
+003595f0 7944       add        r1, pc
+003595f2 0959       ldr        r1, [r1, r4]
+003595f4 5df8044b   ldr        r4, [sp], #4
+003595f8 0831       adds       r1, #8
+003595fa 4260       str        r2, [r0, #4]
+003595fc 8260       str        r2, [r0, #8]
+003595fe 0160       str        r1, [r0]
+00359600 c0e90322   strd       r2, r2, [r0, #0xc]
+00359604 7047       bx         lr
+00359606 00bf       nop        
+00359608 0c0a       lsrs       r4, r1, #8
+0035960a 1700       movs       r7, r2
+0035960c ec52       strh       r4, [r5, r3]
+0035960e 0000       movs       r0, r0

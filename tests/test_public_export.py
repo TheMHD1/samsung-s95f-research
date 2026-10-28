@@ -89,5 +89,62 @@ class ExportChecks(unittest.TestCase):
             self.assertEqual(row['bytes'],10)
             self.assertNotIn('source_sha256',row)
             self.assertNotIn('public_path',row)
+    def test_nested_private_and_moved_sensitive_records_never_read_or_hashed(self):
+        names = ['study/private/parsed.json', 'study/Private/tls.json',
+                 'study/section-descriptors.json', 'study/parsed-header.json',
+                 'study/numeric-reconciliation.json', 'study/tls-config.json',
+                 'study/connection-private.json', 'study/listener-port.json',
+                 'study/acquisition-private.json', 'study/section-plan.bin',
+                 'study/itemsAESPassphraseEncrypted.txt', 'study/itemsPublicRSAKey.txt']
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)/'input';dest=Path(d)/'public';root.mkdir();dest.mkdir()
+            for name in names:
+                p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('SENSITIVE_PRIVATE_CONTENT')
+            with patch.object(Path,'read_bytes',side_effect=AssertionError('private content read')), \
+                 patch.object(m,'file_sha',side_effect=AssertionError('private content hashed')):
+                m.export(root,dest)
+            rows=json.loads((dest/'manifests/source-dispositions.json').read_text())['records']
+            self.assertEqual(len(rows),len(names))
+            for row in rows:
+                self.assertEqual(row['disposition'],'omit')
+                for key in ['bytes','source_sha256','public_path','public_sha256']:
+                    self.assertNotIn(key,row)
+            self.assertEqual(list((dest/'research').rglob('*')),[])
+            self.assertNotIn('SENSITIVE_PRIVATE_CONTENT',(dest/'manifests/source-dispositions.json').read_text())
+    def test_oem_extraction_trees_and_acquisition_chunks_are_path_denied(self):
+        for name in ['firmware-extracted-20261028/uImage',
+                     'firmware-extracted-20261028/extraction-inventory.json',
+                     'study/extracted-fs/etc/config.txt',
+                     'study/partition-dump-01/partition',
+                     'study/source-acquisition-01/vendor.c',
+                     'study/SWUCoreTV.records/chunk-0001.json']:
+            self.assertEqual(m.disposition(Path(name),b'plain OEM contents',[]),
+                             ('omit','private-oem-extraction-or-acquisition'))
+        # Original authored tools/reports remain eligible beside acquisitions.
+        for name in ['study/target-file-acquisition-03/acquisition-tool-at-run.py',
+                     'study/firmware-kernel-analysis/report.md',
+                     'study/item_schema.py', 'study/test_item_schema.py']:
+            self.assertEqual(m.disposition(Path(name),b'authored source or analysis',[])[0],'export')
+        for name in ['sources/vendor/module.c','sources/vendor/LICENSE']:
+            self.assertEqual(m.disposition(Path(name),b'upstream bytes',[Path('sources/vendor')]),
+                             ('omit','upstream-source-referenced-not-vendored'))
+    def test_mixed_inventories_omit_private_reference_metadata(self):
+        with tempfile.TemporaryDirectory() as d:
+            redact=m.redactor(Path(d))
+            obj={'files':[
+                {'path':'study/private/raw.json','bytes':123,'sha256':'PRIVATE_HASH'},
+                {'path':'study/tls-config.json','sha256':'PRIVATE_CONFIG_HASH'},
+                {'path':'renamed.json','private':True,'sha256':'PRIVATE_MARKED_HASH'},
+                {'path':'study/Program.cs','bytes':456,'sha256':'AUTHORED_HASH'}],
+                'nonce_hex':'NONCE_SECRET','salt8':[1,2,3], 'signature256':'RAW_SIGNATURE',
+                'salt_bytes':{'hex':'PRIVATE_SALT'},'rsa_signature_bytes':{'hex':'PRIVATE_SIGNATURE'},
+                'signature_scope':'ciphertext', 'derive':1}
+            got=m.scrub_json(obj,redact);text=json.dumps(got)
+            for value in ['PRIVATE_HASH','PRIVATE_CONFIG_HASH','PRIVATE_MARKED_HASH',
+                          'NONCE_SECRET','RAW_SIGNATURE','PRIVATE_SALT','PRIVATE_SIGNATURE','raw.json','renamed.json']:
+                self.assertNotIn(value,text)
+            self.assertNotIn('123',text)
+            self.assertIn('AUTHORED_HASH',text);self.assertEqual(got['derive'],1)
+            self.assertEqual(got['signature_scope'],'ciphertext')
 
 if __name__=='__main__':unittest.main()

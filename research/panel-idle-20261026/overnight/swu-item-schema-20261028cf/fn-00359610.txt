@@ -1,0 +1,48 @@
+EXIDX RANGE 00359610..0035967c; input 00359668; may contain multiple functions and literal pools
+00359610 184b       ldr        r3, [pc, #0x60] ; literal[00359674]=001709e4
+00359612 70b5       push       {r4, r5, r6, lr}
+00359614 1646       mov        r6, r2
+00359616 184d       ldr        r5, [pc, #0x60] ; literal[00359678]=000052ec ; GOT?=004c986c
+00359618 7b44       add        r3, pc
+0035961a 0022       movs       r2, #0
+0035961c 0446       mov        r4, r0
+0035961e 5b59       ldr        r3, [r3, r5]
+00359620 4160       str        r1, [r0, #4]
+00359622 0833       adds       r3, #8
+00359624 0360       str        r3, [r0]
+00359626 d6e90035   ldrd       r3, r5, [r6]
+0035962a 8260       str        r2, [r0, #8]
+0035962c c0e90322   strd       r2, r2, [r0, #0xc]
+00359630 ed1a       subs       r5, r5, r3
+00359632 9542       cmp        r5, r2
+00359634 19d0       beq        #0x35966a
+00359636 1adb       blt        #0x35966e
+00359638 2846       mov        r0, r5
+0035963a fdf420ec   blx        #0x56e7c ; _Znwj
+0035963e 0346       mov        r3, r0
+00359640 1d44       add        r5, r3
+00359642 a360       str        r3, [r4, #8]
+00359644 c4e90335   strd       r3, r5, [r4, #0xc]
+00359648 d6e90015   ldrd       r1, r5, [r6]
+0035964c 6d1a       subs       r5, r5, r1
+0035964e 03d1       bne        #0x359658
+00359650 2b44       add        r3, r5
+00359652 e360       str        r3, [r4, #0xc]
+00359654 2046       mov        r0, r4
+00359656 70bd       pop        {r4, r5, r6, pc}
+00359658 2a46       mov        r2, r5
+0035965a 1846       mov        r0, r3
+0035965c fdf4e8eb   blx        #0x56e30 ; memmove
+00359660 0346       mov        r3, r0
+00359662 2b44       add        r3, r5
+00359664 e360       str        r3, [r4, #0xc]
+00359666 2046       mov        r0, r4
+00359668 70bd       pop        {r4, r5, r6, pc}
+0035966a 2b46       mov        r3, r5
+0035966c e8e7       b          #0x359640
+0035966e fef4f8e9   blx        #0x57a60 ; _ZSt17__throw_bad_allocv
+00359672 00bf       nop        
+00359674 e409       lsrs       r4, r4, #7
+00359676 1700       movs       r7, r2
+00359678 ec52       strh       r4, [r5, r3]
+0035967a 0000       movs       r0, r0

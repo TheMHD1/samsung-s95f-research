@@ -1,0 +1,7 @@
+# Actual authenticated main firmware header — 2026-10-28
+
+The single CE target invocation completed the fixed SWU TEEC command sequence 0/1/2, returned 4032 raw bytes, and passed both target and independent host authentication. The unique canonical PKCS7 representation removes five bytes, selecting 4027 bytes. Installed-key CRC binding and SHA512/RSA PKCS1 signature verification cover the exact OUIt stream at offsets 262 through 4027. Bounded framing reports twelve present roots; this header-only checker does not claim full schema validation.
+
+The raw output remains private, mode 0600, in the private live-trial directory. No plaintext, salt, signature contents, encrypted passphrase, root authentication envelope, or private output hash is reproduced here. Native cleanup closed the session, released three shared buffers, finalized the context, and the separate runner cleanup removed the exact temporary stage. There was one invocation, with no retries, firmware installation, UI control, panel reset, or vendor USB transaction.
+
+Independent actual-target review: `reviews/target-authentication-review.md`, SHA256 `893a3ef079844801606055d6e757d3605b56f425d64d73bc287066d618446e84`, 399 checks in both normal and optimized Python. The complete main MSD/ZIP and deployed encrypted header interval were rechecked. Authentication is relative to the pinned installed public key. Payload decoding, original-byte CRC validation, and firmware applicability remain separate gates.

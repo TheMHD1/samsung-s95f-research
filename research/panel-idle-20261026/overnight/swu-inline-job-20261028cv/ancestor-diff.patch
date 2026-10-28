@@ -1,0 +1,35 @@
+--- CM/job.py
++++ CV/job.py
+@@ -1,4 +1,6 @@
+-"""Host-only fixed-job lifetime library. No CLI, staging, TLS, retry, or TV default.
++"""CV host-only fixed-job lifetime library, using hash-bound inline shell text.
++
++Additive CM clone: no CLI, staging, TLS, retry, UEP change, or TV default.
+ 
+ The caller freezes a JobSpec and payload manifest before importing live access.
+ An ambiguous request is never resubmitted. Raw native output is not trial acceptance.
+@@ -154,7 +156,9 @@
+               'test "$pgrp:$session" = "$supervisor:$supervisor"\n' +
+               f'printf "%s|%s\\n" "$supervisor" "$start" > {j}/supervisor.tmp\n' +
+               f'mv {j}/supervisor.tmp {j}/supervisor\n' +
+-              f'setsid /bin/sh {j}/child.sh < /dev/null > {j}/stdout 2> {j}/stderr &\n' +
++              f'test ! -L {j}/child.sh\n'
++              f'test "$(sha256sum {j}/child.sh | cut -d " " -f1)" = {hashlib.sha256(child.encode()).hexdigest()}\n' +
++              f'setsid /bin/sh -c "$(cat {j}/child.sh)" < /dev/null > {j}/stdout 2> {j}/stderr &\n' +
+               'launcher=$!\nuptime_seconds\nready_limit=$((up+5))\n' +
+               f'while test ! -f {j}/child; do uptime_seconds; test "$up" -lt "$ready_limit" || exit 125; sleep 1; done\n' +
+               f'IFS="|" read child expected < {j}/child\n' +
+@@ -183,9 +187,12 @@
+     s = exact_payloads(spec) + 'command -v setsid > /dev/null\n' + f'test ! -e {j}\ntest ! -L {j}\nmkdir {j}\nchmod 700 {j}\n'
+     for name, text in (("plan", spec.digest + "\n"), ("child.sh", child), ("worker.sh", worker)):
+         s += f"printf %s {quote(text)} > {j}/{name}\nchmod 600 {j}/{name}\n"
++    for name, text in (("child.sh", child), ("worker.sh", worker)):
++        s += (f'test ! -L {j}/{name}\n'
++              f'test "$(sha256sum {j}/{name} | cut -d " " -f1)" = {hashlib.sha256(text.encode()).hexdigest()}\n')
+     # Every inherited standard handle is redirected before detachment. Root
+     # transport pipe readers therefore cannot be held open by this job.
+-    s += (f'setsid /bin/sh {j}/worker.sh < /dev/null > {j}/supervisor.out 2> {j}/supervisor.err &\n'
++    s += (f'setsid /bin/sh -c "$(cat {j}/worker.sh)" < /dev/null > {j}/supervisor.out 2> {j}/supervisor.err &\n'
+           'printf "LAUNCH_SUBMITTED\\n"\n')
+     need(len(s.encode()) <= 8192, "launch-command-too-large")
+     return s

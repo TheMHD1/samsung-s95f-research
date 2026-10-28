@@ -1,0 +1,31 @@
+EXIDX RANGE 00234c50..00234c90; input 00234c50; may contain multiple functions and literal pools
+00234c50 8b6a       ldr        r3, [r1, #0x28]
+00234c52 0360       str        r3, [r0]
+00234c54 0a4a       ldr        r2, [pc, #0x28] ; literal[00234c80]=002953a4
+00234c56 cb6a       ldr        r3, [r1, #0x2c]
+00234c58 7a44       add        r2, pc
+00234c5a 4360       str        r3, [r0, #4]
+00234c5c 73b1       cbz        r3, #0x234c7c
+00234c5e 0949       ldr        r1, [pc, #0x24] ; literal[00234c84]=00004a20 ; GOT?=00000000
+00234c60 5258       ldr        r2, [r2, r1]
+00234c62 42b1       cbz        r2, #0x234c76
+00234c64 0433       adds       r3, #4
+00234c66 d3e8ef2f   ldaex      r2, [r3]
+00234c6a 0132       adds       r2, #1
+00234c6c c3e8e12f   stlex      r1, r2, [r3]
+00234c70 0029       cmp        r1, #0
+00234c72 f8d1       bne        #0x234c66
+00234c74 7047       bx         lr
+00234c76 5a68       ldr        r2, [r3, #4]
+00234c78 0132       adds       r2, #1
+00234c7a 5a60       str        r2, [r3, #4]
+00234c7c 7047       bx         lr
+00234c7e 00bf       nop        
+00234c80 a453       strh       r4, [r4, r6]
+00234c82 2900       movs       r1, r5
+00234c84 204a       ldr        r2, [pc, #0x80] ; literal[00234d08]=00295366
+00234c86 0000       movs       r0, r0
+00234c88 8069       ldr        r0, [r0, #0x18]
+00234c8a 7047       bx         lr
+00234c8c c069       ldr        r0, [r0, #0x1c]
+00234c8e 7047       bx         lr

@@ -1,0 +1,5 @@
+# Actual sign.bin decryption — PASS
+
+One fixed decrypt-only TEEC sequence completed on 2026-10-28: command 0 once, command 1 once, command 2 once. All 1040 ciphertext bytes and 1040 raw output bytes were accounted for. The final block is canonical sixteen-byte PKCS7 padding; removing it gives exactly 1024 original bytes. Their standard reflected CRC32 matches the authenticated tag-18 expected value. The complete input ciphertext signature was verified separately using the installed RSA public key. These checks establish a successful first firmware payload extraction, beyond header-only authentication.
+
+Raw and original outputs, hashes and root authentication receipts remain private. The exact temporary stage was removed after extraction (29 recorded root calls, one native invocation, no retry). Native session closed, all three shared buffers released, context finalized and owned buffers wiped. No firmware installed, no UI or panel control, no persistent change. Output is available locally in the private firmware extraction directory. This trial establishes the small fixed section; larger repeated-update and bulk transport paths remain separate work.

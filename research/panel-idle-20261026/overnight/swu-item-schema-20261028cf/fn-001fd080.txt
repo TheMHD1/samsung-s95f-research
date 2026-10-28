@@ -1,0 +1,32 @@
+EXIDX RANGE 001fd080..001fd0c4; input 001fd080; may contain multiple functions and literal pools
+001fd080 0d4a       ldr        r2, [pc, #0x34] ; literal[001fd0b8]=002ccf78
+001fd082 0e4b       ldr        r3, [pc, #0x38] ; literal[001fd0bc]=00004e04 ; GOT?=00000000
+001fd084 7a44       add        r2, pc
+001fd086 10b5       push       {r4, lr}
+001fd088 0446       mov        r4, r0
+001fd08a 82b0       sub        sp, #8
+001fd08c 0968       ldr        r1, [r1]
+001fd08e d358       ldr        r3, [r2, r3]
+001fd090 1b68       ldr        r3, [r3]
+001fd092 0193       str        r3, [sp, #4]
+001fd094 4ff00003   mov.w      r3, #0
+001fd098 fff792ff   bl         #0x1fcfc0
+001fd09c 084a       ldr        r2, [pc, #0x20] ; literal[001fd0c0]=002ccf5c
+001fd09e 074b       ldr        r3, [pc, #0x1c] ; literal[001fd0bc]=00004e04 ; GOT?=00000000
+001fd0a0 7a44       add        r2, pc
+001fd0a2 d358       ldr        r3, [r2, r3]
+001fd0a4 1a68       ldr        r2, [r3]
+001fd0a6 019b       ldr        r3, [sp, #4]
+001fd0a8 5a40       eors       r2, r3
+001fd0aa 02d1       bne        #0x1fd0b2
+001fd0ac 2046       mov        r0, r4
+001fd0ae 02b0       add        sp, #8
+001fd0b0 10bd       pop        {r4, pc}
+001fd0b2 59f61eed   blx        #0x56af0 ; __stack_chk_fail
+001fd0b6 00bf       nop        
+001fd0b8 78cf       ldm        r7!, {r3, r4, r5, r6}
+001fd0ba 2c00       movs       r4, r5
+001fd0bc 044e       ldr        r6, [pc, #0x10] ; literal[001fd0d0]=447a460d
+001fd0be 0000       movs       r0, r0
+001fd0c0 5ccf       ldm        r7!, {r2, r3, r4, r6}
+001fd0c2 2c00       movs       r4, r5

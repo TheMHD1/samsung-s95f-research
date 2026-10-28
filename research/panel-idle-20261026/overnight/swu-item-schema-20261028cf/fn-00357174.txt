@@ -1,0 +1,106 @@
+EXIDX RANGE 00357174..00357280; input 003571f8; may contain multiple functions and literal pools
+00357174 2de9f04f   push.w     {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00357178 0646       mov        r6, r0
+0035717a 0d46       mov        r5, r1
+0035717c 046f       ldr        r4, [r0, #0x70]
+0035717e 83b0       sub        sp, #0xc
+00357180 00f16c0a   add.w      sl, r0, #0x6c
+00357184 002c       cmp        r4, #0
+00357186 4dd0       beq        #0x357224
+00357188 d1e900b8   ldrd       fp, r8, [r1]
+0035718c 4246       mov        r2, r8
+0035718e d4e90497   ldrd       sb, r7, [r4, #0x10]
+00357192 b845       cmp        r8, r7
+00357194 28bf       it         hs
+00357196 3a46       movhs      r2, r7
+00357198 32b1       cbz        r2, #0x3571a8
+0035719a 4946       mov        r1, sb
+0035719c 5846       mov        r0, fp
+0035719e 0192       str        r2, [sp, #4]
+003571a0 00f5e8e8   blx        #0x57374 ; memcmp
+003571a4 019a       ldr        r2, [sp, #4]
+003571a6 08b9       cbnz       r0, #0x3571ac
+003571a8 a8eb0700   sub.w      r0, r8, r7
+003571ac 0028       cmp        r0, #0
+003571ae 04db       blt        #0x3571ba
+003571b0 e368       ldr        r3, [r4, #0xc]
+003571b2 0021       movs       r1, #0
+003571b4 2bb1       cbz        r3, #0x3571c2
+003571b6 1c46       mov        r4, r3
+003571b8 e8e7       b          #0x35718c
+003571ba a368       ldr        r3, [r4, #8]
+003571bc 0121       movs       r1, #1
+003571be 002b       cmp        r3, #0
+003571c0 f9d1       bne        #0x3571b6
+003571c2 81bb       cbnz       r1, #0x357226
+003571c4 4ab1       cbz        r2, #0x3571da
+003571c6 5946       mov        r1, fp
+003571c8 4846       mov        r0, sb
+003571ca 00f5d4e8   blx        #0x57374 ; memcmp
+003571ce 20b1       cbz        r0, #0x3571da
+003571d0 0028       cmp        r0, #0
+003571d2 06db       blt        #0x3571e2
+003571d4 03b0       add        sp, #0xc
+003571d6 bde8f08f   pop.w      {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+003571da a7eb0800   sub.w      r0, r7, r8
+003571de 0028       cmp        r0, #0
+003571e0 f8da       bge        #0x3571d4
+003571e2 002c       cmp        r4, #0
+003571e4 f6d0       beq        #0x3571d4
+003571e6 4ff00108   mov.w      r8, #1
+003571ea a245       cmp        sl, r4
+003571ec 2ad1       bne        #0x357244
+003571ee 2820       movs       r0, #0x28
+003571f0 fff444ee   blx        #0x56e7c ; _Znwj
+003571f4 0746       mov        r7, r0
+003571f6 d5e90012   ldrd       r1, r2, [r5]
+003571fa 1030       adds       r0, #0x10
+003571fc 07f11805   add.w      r5, r7, #0x18
+00357200 4ff00003   mov.w      r3, #0
+00357204 0a44       add        r2, r1
+00357206 3d61       str        r5, [r7, #0x10]
+00357208 35f5b0ff   bl         #0x8d16c
+0035720c 5346       mov        r3, sl
+0035720e 2246       mov        r2, r4
+00357210 3946       mov        r1, r7
+00357212 4046       mov        r0, r8
+00357214 00f5d4ea   blx        #0x577c0 ; _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+00357218 f36f       ldr        r3, [r6, #0x7c]
+0035721a 0133       adds       r3, #1
+0035721c f367       str        r3, [r6, #0x7c]
+0035721e 03b0       add        sp, #0xc
+00357220 bde8f08f   pop.w      {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00357224 5446       mov        r4, sl
+00357226 736f       ldr        r3, [r6, #0x74]
+00357228 a342       cmp        r3, r4
+0035722a dcd0       beq        #0x3571e6
+0035722c 2046       mov        r0, r4
+0035722e 00f57cef   blx        #0x58128 ; _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
+00357232 d5e900b8   ldrd       fp, r8, [r5]
+00357236 d0e90497   ldrd       sb, r7, [r0, #0x10]
+0035723a 4745       cmp        r7, r8
+0035723c 3a46       mov        r2, r7
+0035723e 28bf       it         hs
+00357240 4246       movhs      r2, r8
+00357242 bfe7       b          #0x3571c4
+00357244 d5f80480   ldr.w      r8, [r5, #4]
+00357248 6769       ldr        r7, [r4, #0x14]
+0035724a 4246       mov        r2, r8
+0035724c b845       cmp        r8, r7
+0035724e 28bf       it         hs
+00357250 3a46       movhs      r2, r7
+00357252 22b1       cbz        r2, #0x35725e
+00357254 2169       ldr        r1, [r4, #0x10]
+00357256 2868       ldr        r0, [r5]
+00357258 00f58ce8   blx        #0x57374 ; memcmp
+0035725c 08b9       cbnz       r0, #0x357262
+0035725e a8eb0700   sub.w      r0, r8, r7
+00357262 4fead078   lsr.w      r8, r0, #0x1f
+00357266 c2e7       b          #0x3571ee
+00357268 fff406eb   blx        #0x56878 ; __cxa_begin_catch
+0035726c 3846       mov        r0, r7
+0035726e fff4c0ed   blx        #0x56df0 ; _ZdlPv
+00357272 01f54ae9   blx        #0x58508 ; __cxa_rethrow
+00357276 01f5d6e8   blx        #0x58424 ; __cxa_end_catch
+0035727a 00f528e9   blx        #0x574cc ; __cxa_end_cleanup
+0035727e 00bf       nop        

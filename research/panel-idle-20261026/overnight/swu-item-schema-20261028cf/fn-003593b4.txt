@@ -1,0 +1,52 @@
+EXIDX RANGE 003593b4..00359434; input 003593b5; may contain multiple functions and literal pools
+003593b4 f8b5       push       {r3, r4, r5, r6, r7, lr}
+003593b6 0646       mov        r6, r0
+003593b8 1c4f       ldr        r7, [pc, #0x70] ; literal[0035942c]=00170c38
+003593ba 1820       movs       r0, #0x18
+003593bc fdf45eed   blx        #0x56e7c ; _Znwj
+003593c0 dff86cc0   ldr.w      ip, [pc, #0x6c] ; literal[00359430]=000055f0 ; GOT?=004c9824
+003593c4 7f44       add        r7, pc
+003593c6 b268       ldr        r2, [r6, #8]
+003593c8 7568       ldr        r5, [r6, #4]
+003593ca 3b46       mov        r3, r7
+003593cc 0021       movs       r1, #0
+003593ce 0446       mov        r4, r0
+003593d0 57f80c30   ldr.w      r3, [r7, ip]
+003593d4 551b       subs       r5, r2, r5
+003593d6 8d42       cmp        r5, r1
+003593d8 4160       str        r1, [r0, #4]
+003593da 03f10803   add.w      r3, r3, #8
+003593de 8160       str        r1, [r0, #8]
+003593e0 0360       str        r3, [r0]
+003593e2 c160       str        r1, [r0, #0xc]
+003593e4 18d0       beq        #0x359418
+003593e6 19db       blt        #0x35941c
+003593e8 2846       mov        r0, r5
+003593ea fdf448ed   blx        #0x56e7c ; _Znwj
+003593ee d6e90113   ldrd       r1, r3, [r6, #4]
+003593f2 0544       add        r5, r0
+003593f4 0746       mov        r7, r0
+003593f6 c4e90205   strd       r0, r5, [r4, #8]
+003593fa 6060       str        r0, [r4, #4]
+003593fc 5d1a       subs       r5, r3, r1
+003593fe 07d1       bne        #0x359410
+00359400 d6e90423   ldrd       r2, r3, [r6, #0x10]
+00359404 3d44       add        r5, r7
+00359406 2046       mov        r0, r4
+00359408 c4e90423   strd       r2, r3, [r4, #0x10]
+0035940c a560       str        r5, [r4, #8]
+0035940e f8bd       pop        {r3, r4, r5, r6, r7, pc}
+00359410 2a46       mov        r2, r5
+00359412 fdf40eed   blx        #0x56e30 ; memmove
+00359416 f3e7       b          #0x359400
+00359418 2f46       mov        r7, r5
+0035941a f1e7       b          #0x359400
+0035941c fef420eb   blx        #0x57a60 ; _ZSt17__throw_bad_allocv
+00359420 2046       mov        r0, r4
+00359422 1821       movs       r1, #0x18
+00359424 fdf448ec   blx        #0x56cb8 ; _ZdlPvj
+00359428 fef450e8   blx        #0x574cc ; __cxa_end_cleanup
+0035942c 380c       lsrs       r0, r7, #0x10
+0035942e 1700       movs       r7, r2
+00359430 f055       strb       r0, [r6, r7]
+00359432 0000       movs       r0, r0

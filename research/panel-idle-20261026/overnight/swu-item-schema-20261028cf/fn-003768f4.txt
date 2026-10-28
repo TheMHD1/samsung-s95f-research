@@ -1,0 +1,14 @@
+EXIDX RANGE 003768f4..00376918; input 003768f4; may contain multiple functions and literal pools
+003768f4 0368       ldr        r3, [r0]
+003768f6 5a1e       subs       r2, r3, #1
+003768f8 0432       adds       r2, #4
+003768fa 0ad8       bhi        #0x376912
+003768fc 4ff4c040   mov.w      r0, #0x6000
+00376900 c1f6d750   movt       r0, #0x1dd7
+00376904 1422       movs       r2, #0x14
+00376906 a3fb0001   umull      r0, r1, r3, r0
+0037690a 02fb0311   mla        r1, r2, r3, r1
+0037690e fff7bfbe   b.w        #0x376690
+00376912 0020       movs       r0, #0
+00376914 0021       movs       r1, #0
+00376916 7047       bx         lr

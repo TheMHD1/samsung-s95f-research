@@ -1,14 +1,14 @@
 {
   "schema": "s95f-public-validation-v1",
   "publication_unittests": {
-    "passed": 10,
+    "passed": 13,
     "normal_and_optimized_python": true,
-    "scope": "Prior six transform tests plus large-omission bounded reads, explicit deferred-workstream exclusion, public CB verification and11 damaged/overclaimed variants."
+    "scope": "Transform/omission/privacy regressions and public onset fixture; nested/moved sensitive input no-read/no-hash/no-size checks; OEM source/filesystem/acquisition exclusion and inventory metadata redaction."
   },
   "retained_python_syntax": {
     "findings": 0,
     "scope": "All exported Python files parsed with ast.parse; no target execution",
-    "files_verified": 5738
+    "files_verified": 6162
   },
   "swu_host_mock": {
     "passed": true,
@@ -16,7 +16,7 @@
     "cases": "3 golden frames; 8 failure stages; 2 output-size-mutation successes; 3 count overflows; 2 input rejections; canaries and cleanup",
     "target_calls": 0
   },
-  "limitations": "Historical private-fixture tests and live tools were not executed by publication checks. Original C host mock validation is retained unchanged from initial release. CA/CB and BZ target outcomes are read from reviewed retained reports, not rerun. Exact physical timing, key causality, OEM signatures and valid decrypted metadata remain unproven; CC/CE/CF work explicitly deferred.",
+  "limitations": "Publication checks run offline. Actual nine-section outcomes are read from retained fixed trial results and source reports, not rerun. Platform original driver rejected GC/status interleaving; explicit offline reconciliation accepted one unique receipt without TEEC reinvocation. Authenticated metadata/signatures are relative to the pinned installed key; full policy/applicability, independent OEM certificate chain, runtime/live-tree identity and blackout causality remain open. DB/DC and private/OEM inputs excluded.",
   "public_cb_fixture": {
     "checks_normal": 211,
     "checks_optimized": 211,
@@ -24,5 +24,12 @@
     "raw_bytes": 2268,
     "damaged_variants_rejected": 11,
     "scope": "Scientific subset only; no private transport reauthentication, exact physical timestamp or causality inference."
+  },
+  "firmware_main_sections": {
+    "accepted": 9,
+    "firmware_written": false,
+    "platform_original_driver_accepted": false,
+    "platform_reconciled_native_receipt": true,
+    "native_reinvoked": false
   }
 }

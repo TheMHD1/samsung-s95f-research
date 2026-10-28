@@ -1,14 +1,37 @@
 {
-  "schema": "s95f-all-public-tree-privacy-v2",
-  "scope": "All public files excluding Git internals and ignored Python bytecode caches; actual saved credential matched only in memory, no credential/hash is included. Structured JSON candidate review supplements deterministic findings.",
-  "scanned_files": 5770,
-  "scanned_bytes": 100421424,
+  "schema": "s95f-all-public-tree-privacy-v3",
+  "scope": "All candidate release content; known actual salt/signature/nonce/saved-token matching only in memory; deterministic patterns supplemented by explicit synthetic fixture/regex review; no target or network operations",
+  "scanned_files": 6196,
+  "scanned_bytes": 138620950,
   "largest_public_file": {
     "path": "manifests/source-dispositions.json",
-    "bytes": 7384862
+    "bytes": 24843206
   },
+  "known_private_patterns": 40,
+  "known_values_or_hashes_in_report": false,
   "findings": [],
-  "structured_json_candidates": [],
+  "reviewed_synthetic_pattern_exceptions": [
+    {
+      "path": "tests/test_public_export.py",
+      "kind": "private-ipv4",
+      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
+    },
+    {
+      "path": "tests/test_public_export.py",
+      "kind": "private-absolute-home",
+      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
+    },
+    {
+      "path": "tools/export_public.py",
+      "kind": "private-absolute-home",
+      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
+    },
+    {
+      "path": "tools/verify_public.py",
+      "kind": "private-absolute-home",
+      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
+    }
+  ],
   "new_guide_missing_local_links": [],
   "target_operations": 0
 }

@@ -1,0 +1,41 @@
+EXIDX RANGE 0018f204..0018f268; input 0018f204; may contain multiple functions and literal pools
+0018f204 10b5       push       {r4, lr}
+0018f206 0446       mov        r4, r0
+0018f208 fff76afe   bl         #0x18eee0
+0018f20c d4e90801   ldrd       r0, r1, [r4, #0x20]
+0018f210 10bd       pop        {r4, pc}
+0018f212 00bf       nop        
+0018f214 10b5       push       {r4, lr}
+0018f216 0368       ldr        r3, [r0]
+0018f218 53f8284c   ldr        r4, [r3, #-0x28]
+0018f21c 0444       add        r4, r0
+0018f21e 2046       mov        r0, r4
+0018f220 fff75efe   bl         #0x18eee0
+0018f224 d4e90801   ldrd       r0, r1, [r4, #0x20]
+0018f228 10bd       pop        {r4, pc}
+0018f22a 00bf       nop        
+0018f22c 10b5       push       {r4, lr}
+0018f22e 0446       mov        r4, r0
+0018f230 c068       ldr        r0, [r0, #0xc]
+0018f232 0368       ldr        r3, [r0]
+0018f234 db69       ldr        r3, [r3, #0x1c]
+0018f236 9847       blx        r3
+0018f238 2046       mov        r0, r4
+0018f23a bde81040   pop.w      {r4, lr}
+0018f23e fff74fbe   b.w        #0x18eee0
+0018f242 00bf       nop        
+0018f244 10b5       push       {r4, lr}
+0018f246 0446       mov        r4, r0
+0018f248 fff74afe   bl         #0x18eee0
+0018f24c 2046       mov        r0, r4
+0018f24e 2368       ldr        r3, [r4]
+0018f250 1b69       ldr        r3, [r3, #0x10]
+0018f252 9847       blx        r3
+0018f254 d4e90823   ldrd       r2, r3, [r4, #0x20]
+0018f258 8b42       cmp        r3, r1
+0018f25a 08bf       it         eq
+0018f25c 8242       cmpeq      r2, r0
+0018f25e 4ff00100   mov.w      r0, #1
+0018f262 18bf       it         ne
+0018f264 0020       movne      r0, #0
+0018f266 10bd       pop        {r4, pc}

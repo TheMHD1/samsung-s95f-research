@@ -1,0 +1,24 @@
+EXIDX RANGE 003502a8..003502e0; input 003502ac; may contain multiple functions and literal pools
+003502a8 0163       str        r1, [r0, #0x30]
+003502aa 7047       bx         lr
+003502ac 10b4       push       {r4}
+003502ae 00f15c04   add.w      r4, r0, #0x5c
+003502b2 0fc9       ldm        r1, {r0, r1, r2, r3}
+003502b4 84e80f00   stm.w      r4, {r0, r1, r2, r3}
+003502b8 5df8044b   ldr        r4, [sp], #4
+003502bc 7047       bx         lr
+003502be 00bf       nop        
+003502c0 5c31       adds       r1, #0x5c
+003502c2 10b4       push       {r4}
+003502c4 0446       mov        r4, r0
+003502c6 0fc9       ldm        r1, {r0, r1, r2, r3}
+003502c8 84e80f00   stm.w      r4, {r0, r1, r2, r3}
+003502cc 2046       mov        r0, r4
+003502ce 5df8044b   ldr        r4, [sp], #4
+003502d2 7047       bx         lr
+003502d4 0b68       ldr        r3, [r1]
+003502d6 8365       str        r3, [r0, #0x58]
+003502d8 7047       bx         lr
+003502da 00bf       nop        
+003502dc 806d       ldr        r0, [r0, #0x58]
+003502de 7047       bx         lr

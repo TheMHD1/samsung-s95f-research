@@ -1,0 +1,123 @@
+EXIDX RANGE 0018ec14..0018ed40; input 0018ec14; may contain multiple functions and literal pools
+0018ec14 2de9f041   push.w     {r4, r5, r6, r7, r8, lr}
+0018ec18 0646       mov        r6, r0
+0018ec1a 1446       mov        r4, r2
+0018ec1c 9eb0       sub        sp, #0x78
+0018ec1e 0f46       mov        r7, r1
+0018ec20 1d46       mov        r5, r3
+0018ec22 dff8f480   ldr.w      r8, [pc, #0xf4] ; literal[0018ed18]=0033b3c4
+0018ec26 cde90401   strd       r0, r1, [sp, #0x10]
+0018ec2a d043       mvns       r0, r2
+0018ec2c cde90223   strd       r2, r3, [sp, #8]
+0018ec30 d943       mvns       r1, r3
+0018ec32 3a4a       ldr        r2, [pc, #0xe8] ; literal[0018ed1c]=0033b3c2
+0018ec34 b942       cmp        r1, r7
+0018ec36 3a4b       ldr        r3, [pc, #0xe8] ; literal[0018ed20]=00004e04 ; GOT?=00000000
+0018ec38 f844       add        r8, pc
+0018ec3a 7a44       add        r2, pc
+0018ec3c 08bf       it         eq
+0018ec3e b042       cmpeq      r0, r6
+0018ec40 d358       ldr        r3, [r2, r3]
+0018ec42 1b68       ldr        r3, [r3]
+0018ec44 1d93       str        r3, [sp, #0x74]
+0018ec46 4ff00003   mov.w      r3, #0
+0018ec4a 0dd3       blo        #0x18ec68
+0018ec4c 354a       ldr        r2, [pc, #0xd4] ; literal[0018ed24]=0033b3a6
+0018ec4e a019       adds       r0, r4, r6
+0018ec50 334b       ldr        r3, [pc, #0xcc] ; literal[0018ed20]=00004e04 ; GOT?=00000000
+0018ec52 45eb0701   adc.w      r1, r5, r7
+0018ec56 7a44       add        r2, pc
+0018ec58 d358       ldr        r3, [r2, r3]
+0018ec5a 1a68       ldr        r2, [r3]
+0018ec5c 1d9b       ldr        r3, [sp, #0x74]
+0018ec5e 5a40       eors       r2, r3
+0018ec60 41d1       bne        #0x18ece6
+0018ec62 1eb0       add        sp, #0x78
+0018ec64 bde8f081   pop.w      {r4, r5, r6, r7, r8, pc}
+0018ec68 2f4b       ldr        r3, [pc, #0xbc] ; literal[0018ed28]=00004f0c ; GOT?=004aba2c
+0018ec6a 0022       movs       r2, #0
+0018ec6c 4ff0ff31   mov.w      r1, #-1
+0018ec70 cde90922   strd       r2, r2, [sp, #0x24]
+0018ec74 0b92       str        r2, [sp, #0x2c]
+0018ec76 0eac       add        r4, sp, #0x38
+0018ec78 0c91       str        r1, [sp, #0x30]
+0018ec7a 07ad       add        r5, sp, #0x1c
+0018ec7c 0d91       str        r1, [sp, #0x34]
+0018ec7e 2046       mov        r0, r4
+0018ec80 2946       mov        r1, r5
+0018ec82 58f80330   ldr.w      r3, [r8, r3]
+0018ec86 03f11802   add.w      r2, r3, #0x18
+0018ec8a 3033       adds       r3, #0x30
+0018ec8c cde90723   strd       r2, r3, [sp, #0x1c]
+0018ec90 fef718ff   bl         #0x18dac4
+0018ec94 02ab       add        r3, sp, #8
+0018ec96 2549       ldr        r1, [pc, #0x94] ; literal[0018ed2c]=002204ae
+0018ec98 0093       str        r3, [sp]
+0018ec9a 16ae       add        r6, sp, #0x58
+0018ec9c 244b       ldr        r3, [pc, #0x90] ; literal[0018ed30]=002204a8
+0018ec9e 3046       mov        r0, r6
+0018eca0 04aa       add        r2, sp, #0x10
+0018eca2 7944       add        r1, pc
+0018eca4 7b44       add        r3, pc
+0018eca6 78f75bf8   bl         #0x106d60
+0018ecaa 3146       mov        r1, r6
+0018ecac 2046       mov        r0, r4
+0018ecae 0af703fe   bl         #0x998b8
+0018ecb2 0e9b       ldr        r3, [sp, #0x38]
+0018ecb4 1ea9       add        r1, sp, #0x78
+0018ecb6 1f4f       ldr        r7, [pc, #0x7c] ; literal[0018ed34]=002204a4
+0018ecb8 6326       movs       r6, #0x63
+0018ecba 2046       mov        r0, r4
+0018ecbc 53f8182c   ldr        r2, [r3, #-0x18]
+0018ecc0 7f44       add        r7, pc
+0018ecc2 0a44       add        r2, r1
+0018ecc4 1c49       ldr        r1, [pc, #0x70] ; literal[0018ed38]=0022054a
+0018ecc6 7944       add        r1, pc
+0018ecc8 42f8387c   str        r7, [r2, #-0x38]
+0018eccc 1eaf       add        r7, sp, #0x78
+0018ecce 53f8182c   ldr        r2, [r3, #-0x18]
+0018ecd2 3a44       add        r2, r7
+0018ecd4 42f8341c   str        r1, [r2, #-0x34]
+0018ecd8 53f8183c   ldr        r3, [r3, #-0x18]
+0018ecdc 3b44       add        r3, r7
+0018ecde 43f8306c   str        r6, [r3, #-0x30]
+0018ece2 0af731ff   bl         #0x99b48
+0018ece6 c7f604ef   blx        #0x56af0 ; __stack_chk_fail
+0018ecea 144b       ldr        r3, [pc, #0x50] ; literal[0018ed3c]=0000451c ; GOT?=004aab1c
+0018ecec 1798       ldr        r0, [sp, #0x5c]
+0018ecee 58f80330   ldr.w      r3, [r8, r3]
+0018ecf2 0833       adds       r3, #8
+0018ecf4 1693       str        r3, [sp, #0x58]
+0018ecf6 19ab       add        r3, sp, #0x64
+0018ecf8 9842       cmp        r0, r3
+0018ecfa 09d1       bne        #0x18ed10
+0018ecfc 2046       mov        r0, r4
+0018ecfe 0af7fbf9   bl         #0x990f8
+0018ed02 2846       mov        r0, r5
+0018ed04 0af7b0f9   bl         #0x99068
+0018ed08 c8f6e0eb   blx        #0x574cc ; __cxa_end_cleanup
+0018ed0c f6e7       b          #0x18ecfc
+0018ed0e f8e7       b          #0x18ed02
+0018ed10 c8f66ee8   blx        #0x56df0 ; _ZdlPv
+0018ed14 f2e7       b          #0x18ecfc
+0018ed16 00bf       nop        
+0018ed18 c4b3       cbz        r4, #0x18ed8c
+0018ed1a 3300       movs       r3, r6
+0018ed1c c2b3       cbz        r2, #0x18ed90
+0018ed1e 3300       movs       r3, r6
+0018ed20 044e       ldr        r6, [pc, #0x10] ; literal[0018ed34]=002204a4
+0018ed22 0000       movs       r0, r0
+0018ed24 a6b3       cbz        r6, #0x18ed90
+0018ed26 3300       movs       r3, r6
+0018ed28 0c4f       ldr        r7, [pc, #0x30] ; literal[0018ed5c]=44f858d3
+0018ed2a 0000       movs       r0, r0
+0018ed2c ae04       lsls       r6, r5, #0x12
+0018ed2e 2200       movs       r2, r4
+0018ed30 a804       lsls       r0, r5, #0x12
+0018ed32 2200       movs       r2, r4
+0018ed34 a404       lsls       r4, r4, #0x12
+0018ed36 2200       movs       r2, r4
+0018ed38 4a05       lsls       r2, r1, #0x15
+0018ed3a 2200       movs       r2, r4
+0018ed3c 1c45       cmp        r4, r3
+0018ed3e 0000       movs       r0, r0

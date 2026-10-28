@@ -15,7 +15,7 @@ import shutil
 import stat
 from datetime import datetime, timezone
 
-VERSION = '2026-10-28.1'
+VERSION = '2026-10-28.2'
 BUILD_PARTS = {'.git', '__pycache__', '.pytest_cache', 'node_modules', 'venv', 'bin', 'obj', 'dotnet10', 'sdk', 'framework', 'installer-data', 'installer-beta', 'installer-source', 'tizentube-source', 'untethered-source'}
 BINARY_EXTS = {'.dll','.so','.ko','.exe','.pdb','.bin','.img','.msd','.elf','.range','.wgt','.zip','.tgz','.tar','.gz','.xz','.zst','.nupkg','.deb','.pdf','.png','.jpg','.jpeg','.rgba','.pyc','.dat','.db','.sqlite','.woff','.ttf','.a','.o','.pem','.p12','.pfx','.crt','.key'}
 TEXT_EXTS = {'.md','.py','.sh','.cs','.csproj','.c','.h','.cjs','.js','.json','.jsonl','.txt','.disasm','.summary','.stdout','.stderr','.log','.trace','.dts','.dtsi','.xml','.yml','.yaml','.toml','.lock','.config','.intent','.svg','.patch','.diff','.csv','.tsv','.service','.socket','.rules','.conf','.props','.targets','.sln','.il'}
@@ -27,6 +27,35 @@ UUID = re.compile(r'(?i)\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f
 MAC = re.compile(r'(?i)(?<![\w:])(?:[0-9a-f]{2}:){5}[0-9a-f]{2}(?![\w:])')
 LONG_ENCODED = re.compile(r'(?<![A-Za-z0-9+/=_-])(?:[A-Za-z0-9+/_-]{320,}={0,2}|[0-9a-fA-F]{512,})(?![A-Za-z0-9+/=_-])')
 NAME_REPLACEMENTS = []  # Private filename aliases are supplied out of tree.
+# These records are private even if moved outside their original private/ tree.
+# Check before opening: JSON salts/nonces/signatures are not reliably detected
+# by credential patterns, binary extensions, or long-encoded-string filters.
+SENSITIVE_BASENAMES = {
+    'section-descriptors.json', 'parsed-header.json', 'numeric-reconciliation.json',
+    'tls-config.json', 'connection-private.json', 'listener-port.json',
+    'section-plan.bin', 'header-envelope.bin', 'authenticated-header-raw.bin',
+    'itemsaespassphraseencrypted.txt', 'itemspublicrsakey.txt',
+    'server-cert.pem', 'server-key.pem',
+}
+PRIVATE_TREE_PREFIXES = ('firmware-extracted-', 'firmware-unpacked-',
+                         'partition-dump-', 'binary-snapshot-', 'source-acquisition-')
+PRIVATE_TREE_NAMES = {'extracted-fs', 'extracted-filesystem', 'extracted-rootfs',
+                      'partition-dumps', 'oem-snapshots'}
+
+def restricted_path_reason(rel: Path) -> str | None:
+    """Path-only denial; no contents, content hash or individual size released."""
+    parts = tuple(p.lower() for p in rel.parts)
+    if not parts:
+        return None
+    name = parts[-1]
+    if 'private' in parts or parts[0] == 'devtools' or 'root-access/persistent/' in rel.as_posix().lower():
+        return 'private-access-state'
+    if name in SENSITIVE_BASENAMES or name.endswith('-private.json'):
+        return 'private-plan-or-configuration'
+    if any(p in PRIVATE_TREE_NAMES or p.startswith(PRIVATE_TREE_PREFIXES) or
+           p.endswith('.records') for p in parts):
+        return 'private-oem-extraction-or-acquisition'
+    return None
 
 def sha(data: bytes) -> str: return hashlib.sha256(data).hexdigest()
 def file_sha(path: Path) -> str:
@@ -73,12 +102,13 @@ def redactor(root: Path):
 
 def disposition(rel: Path, data: bytes, upstream_roots: list[Path], *, input_size: int | None = None):
     parts=rel.parts; low=rel.as_posix().lower(); suffix=rel.suffix.lower()
+    restricted = restricted_path_reason(rel)
+    if restricted: return 'omit', restricted
     if any(x in BUILD_PARTS for x in parts): return 'omit','dependency-build-cache'
     if rel.name.startswith('upstream-linux-') and suffix in {'.c','.h'}:return 'omit','upstream-source-referenced-not-vendored'
     if rel.name=='reserve-addresses.cjs': return 'omit','private-network-administration'
     if ('binaries' in parts and suffix in {'.xml','.txt','.json'}) or low.endswith('-tree.json'):return 'omit','mechanical-vendor-resource-or-discovery-index'
     if ('history-comparison' in low or 'two-week-controls' in low) and suffix=='.json':return 'omit','private-media-history'
-    if parts[0] in {'private','devtools'} or 'root-access/persistent/' in low: return 'omit','private-access-state'
     if any(rel==x or x in rel.parents for x in upstream_roots): return 'omit','upstream-source-referenced-not-vendored'
     if any(x in low for x in ['repository-metadata.json','commit.json','topic.html','owner-photo','repair-board','repair-oc-board','repair-guide-board','duid-read','bell-reservations','applications.before','home-content.before','preferences.json','preferences.summary','after-home.json','after-home.summary','pull-csfs2.json','pull-csfs2.summary']): return 'omit','private-or-discovery-record'
     if rel.name in {'core','control.sock','daemon.lock'} or suffix in BINARY_EXTS or '.so.' in rel.name or data.startswith((b'\x7fELF',b'MZ',b'\x1f\x8b',b'PK\x03\x04')): return 'omit','binary-firmware-media-or-build-product'
@@ -97,9 +127,15 @@ def disposition(rel: Path, data: bytes, upstream_roots: list[Path], *, input_siz
 
 def scrub_json(obj, redact):
     if isinstance(obj,dict):
+        # Mixed authored inventories must not republish nested private hashes,
+        # sizes or names after the underlying files have been withheld.
+        reference = obj.get('path', obj.get('local_path', obj.get('public_path')))
+        if obj.get('private') is True or (isinstance(reference, str) and
+                                        restricted_path_reason(Path(reference))):
+            return {'omitted': 'private-reference-metadata'}
         result={}
         for k,v in obj.items():
-            if SECRET_KEY.match(k) or k.lower() in {'userid','user_id','accountid','account_id','deviceid','device_id','title','series','seriesname','episode','season','lastplayeddate','last_played','last_played_utc','item_id','itemid','sessionid','session_id'}:result[redact(k)]='[private-identity-or-secret-omitted]'
+            if SECRET_KEY.match(k) or k.lower() in {'userid','user_id','accountid','account_id','deviceid','device_id','title','series','seriesname','episode','season','lastplayeddate','last_played','last_played_utc','item_id','itemid','sessionid','session_id','nonce','nonce_hex','salt','salt8','salt_bytes','signature256','signature_bytes','rsa_signature_bytes'}:result[redact(k)]='[private-identity-or-secret-omitted]'
             elif k in {'transport_stdout','transport_stderr'}:continue
             elif k in {'base64','data_base64','raw_base64','raw_b64','payload_base64','bytes_base64'}:result[k]='[encoded-payload-omitted]'
             else:result[redact(k)]=scrub_json(v,redact)
@@ -148,6 +184,13 @@ def export(root: Path, dest: Path, deferred_fragments: tuple[str, ...] = ()):
     files=sorted(f for f in root.rglob('*') if f.is_file() or f.is_symlink())
     for f in files:
         rel=f.relative_to(root); source_id=sha(rel.as_posix().encode())
+        restricted = restricted_path_reason(rel)
+        if restricted:
+            rows.append({'source_id':source_id,'disposition':'omit','reason':restricted,
+                         'metadata_withheld':'Private content, content hash, name and individual size are not published.'})
+            totals['omit_files']+=1;totals['omit_source_bytes']+=f.lstat().st_size
+            if f.is_symlink():totals['symlink_files']+=1
+            continue
         if any(fragment in rel.as_posix() for fragment in deferred_fragments):
             rows.append({'source_id':source_id,'disposition':'omit','reason':'in-progress-outside-public-snapshot','bytes':f.lstat().st_size,'hash_withheld':'In-progress workstream excluded from this snapshot; no input bytes read.'})
             totals['omit_files']+=1;totals['omit_source_bytes']+=f.lstat().st_size

@@ -1,0 +1,33 @@
+EXIDX RANGE 0029fc20..0029fc70; input 0029fc2c; may contain multiple functions and literal pools
+0029fc20 70b5       push       {r4, r5, r6, lr}
+0029fc22 0c46       mov        r4, r1
+0029fc24 0546       mov        r5, r0
+0029fc26 0846       mov        r0, r1
+0029fc28 0e49       ldr        r1, [pc, #0x38] ; literal[0029fc64]=0016a248
+0029fc2a 1422       movs       r2, #0x14
+0029fc2c 7944       add        r1, pc
+0029fc2e b8f598ec   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+0029fc32 0d49       ldr        r1, [pc, #0x34] ; literal[0029fc68]=0016a254
+0029fc34 0d22       movs       r2, #0xd
+0029fc36 2046       mov        r0, r4
+0029fc38 7944       add        r1, pc
+0029fc3a b8f592ec   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+0029fc3e 2046       mov        r0, r4
+0029fc40 d5e90a31   ldrd       r3, r1, [r5, #0x28]
+0029fc44 c91a       subs       r1, r1, r3
+0029fc46 b7f5a8e8   blx        #0x56d98 ; _ZNSo9_M_insertImEERSoT_
+0029fc4a 0849       ldr        r1, [pc, #0x20] ; literal[0029fc6c]=0016a24c
+0029fc4c 2046       mov        r0, r4
+0029fc4e 1022       movs       r2, #0x10
+0029fc50 7944       add        r1, pc
+0029fc52 b8f586ec   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+0029fc56 2046       mov        r0, r4
+0029fc58 d5e90e23   ldrd       r2, r3, [r5, #0x38]
+0029fc5c bde87040   pop.w      {r4, r5, r6, lr}
+0029fc60 b7f534bf   b.w        #0x57acc ; _ZNSo9_M_insertIyEERSoT_
+0029fc64 48a2       adr        r2, #0x120
+0029fc66 1600       movs       r6, r2
+0029fc68 54a2       adr        r2, #0x150
+0029fc6a 1600       movs       r6, r2
+0029fc6c 4ca2       adr        r2, #0x130
+0029fc6e 1600       movs       r6, r2

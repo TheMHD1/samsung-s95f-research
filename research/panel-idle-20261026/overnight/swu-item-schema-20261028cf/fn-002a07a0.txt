@@ -1,0 +1,51 @@
+EXIDX RANGE 002a07a0..002a0810; input 002a07a0; may contain multiple functions and literal pools
+002a07a0 184a       ldr        r2, [pc, #0x60] ; literal[002a0804]=00229858
+002a07a2 194b       ldr        r3, [pc, #0x64] ; literal[002a0808]=00004e04 ; GOT?=00000000
+002a07a4 7a44       add        r2, pc
+002a07a6 30b5       push       {r4, r5, lr}
+002a07a8 0546       mov        r5, r0
+002a07aa 83b0       sub        sp, #0xc
+002a07ac 0846       mov        r0, r1
+002a07ae d358       ldr        r3, [r2, r3]
+002a07b0 0c46       mov        r4, r1
+002a07b2 1b68       ldr        r3, [r3]
+002a07b4 0193       str        r3, [sp, #4]
+002a07b6 4ff00003   mov.w      r3, #0
+002a07ba 0b68       ldr        r3, [r1]
+002a07bc 9b68       ldr        r3, [r3, #8]
+002a07be 9847       blx        r3
+002a07c0 98b9       cbnz       r0, #0x2a07ea
+002a07c2 2368       ldr        r3, [r4]
+002a07c4 2046       mov        r0, r4
+002a07c6 0122       movs       r2, #1
+002a07c8 0df10301   add.w      r1, sp, #3
+002a07cc db68       ldr        r3, [r3, #0xc]
+002a07ce 9847       blx        r3
+002a07d0 9df80330   ldrb.w     r3, [sp, #3]
+002a07d4 2b76       strb       r3, [r5, #0x18]
+002a07d6 0d4a       ldr        r2, [pc, #0x34] ; literal[002a080c]=00229822
+002a07d8 0b4b       ldr        r3, [pc, #0x2c] ; literal[002a0808]=00004e04 ; GOT?=00000000
+002a07da 7a44       add        r2, pc
+002a07dc d358       ldr        r3, [r2, r3]
+002a07de 1a68       ldr        r2, [r3]
+002a07e0 019b       ldr        r3, [sp, #4]
+002a07e2 5a40       eors       r2, r3
+002a07e4 0cd1       bne        #0x2a0800
+002a07e6 03b0       add        sp, #0xc
+002a07e8 30bd       pop        {r4, r5, pc}
+002a07ea 297e       ldrb       r1, [r5, #0x18]
+002a07ec 2046       mov        r0, r4
+002a07ee 2368       ldr        r3, [r4]
+002a07f0 0122       movs       r2, #1
+002a07f2 8df80310   strb.w     r1, [sp, #3]
+002a07f6 0df10301   add.w      r1, sp, #3
+002a07fa db68       ldr        r3, [r3, #0xc]
+002a07fc 9847       blx        r3
+002a07fe eae7       b          #0x2a07d6
+002a0800 b6f576e9   blx        #0x56af0 ; __stack_chk_fail
+002a0804 5898       ldr        r0, [sp, #0x160]
+002a0806 2200       movs       r2, r4
+002a0808 044e       ldr        r6, [pc, #0x10] ; literal[002a081c]=d0154299
+002a080a 0000       movs       r0, r0
+002a080c 2298       ldr        r0, [sp, #0x88]
+002a080e 2200       movs       r2, r4

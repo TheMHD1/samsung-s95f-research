@@ -1,0 +1,20 @@
+EXIDX RANGE 0029d194..0029d1bc; input 0029d1a6; may contain multiple functions and literal pools
+0029d194 08b5       push       {r3, lr}
+0029d196 c368       ldr        r3, [r0, #0xc]
+0029d198 03b1       cbz        r3, #0x29d19c
+0029d19a 08bd       pop        {r3, pc}
+0029d19c 044a       ldr        r2, [pc, #0x10] ; literal[0029d1b0]=0016c220
+0029d19e ec23       movs       r3, #0xec
+0029d1a0 0449       ldr        r1, [pc, #0x10] ; literal[0029d1b4]=0016c586
+0029d1a2 0548       ldr        r0, [pc, #0x14] ; literal[0029d1b8]=0016c308
+0029d1a4 7a44       add        r2, pc
+0029d1a6 7944       add        r1, pc
+0029d1a8 7844       add        r0, pc
+0029d1aa daf0ebfd   bl         #0x377d84
+0029d1ae 00bf       nop        
+0029d1b0 20c2       stm        r2!, {r5}
+0029d1b2 1600       movs       r6, r2
+0029d1b4 86c5       stm        r5!, {r1, r2, r7}
+0029d1b6 1600       movs       r6, r2
+0029d1b8 08c3       stm        r3!, {r3}
+0029d1ba 1600       movs       r6, r2
