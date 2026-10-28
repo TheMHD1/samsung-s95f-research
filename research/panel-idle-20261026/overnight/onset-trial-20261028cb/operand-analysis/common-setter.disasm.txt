@@ -1,0 +1,47 @@
+0000c1e0 70b5         push     {r4, r5, r6, lr}
+0000c1e2 0546         mov      r5, r0
+0000c1e4 f7f78afb     bl       #0x38fc
+0000c1e8 0446         mov      r4, r0
+0000c1ea 0121         movs     r1, #1
+0000c1ec 4ff41050     mov.w    r0, #0x2400
+0000c1f0 0153         strh     r1, [r0, r4]
+0000c1f2 0021         movs     r1, #0
+0000c1f4 42f20e40     movw     r0, #0x240e
+0000c1f8 0153         strh     r1, [r0, r4]
+0000c1fa 41f20101     movw     r1, #0x1001
+0000c1fe 001f         subs     r0, r0, #4
+0000c200 0153         strh     r1, [r0, r4]
+0000c202 2946         mov      r1, r5
+0000c204 03a0         adr      r0, #0xc
+0000c206 0ff05ffb     bl       #0x1b8c8
+0000c20a 2946         mov      r1, r5
+0000c20c 01a0         adr      r0, #4
+0000c20e 0ff05bfb     bl       #0x1b8c8
+0000c212 70bd         pop      {r4, r5, r6, pc}
+0000c214 7274         strb     r2, [r6, #0x11]
+0000c216 705f         ldrsh    r0, [r6, r5]
+0000c218 6163         str      r1, [r4, #0x34]
+0000c21a 745f         ldrsh    r4, [r6, r5]
+0000c21c 2564         str      r5, [r4, #0x40]
+0000c21e 0a00         movs     r2, r1
+0000c220 10b5         push     {r4, lr}
+0000c222 f7f76bfb     bl       #0x38fc
+0000c226 0446         mov      r4, r0
+0000c228 00f080fc     bl       #0xcb2c
+0000c22c 0121         movs     r1, #1
+0000c22e 42f20840     movw     r0, #0x2408
+0000c232 0153         strh     r1, [r0, r4]
+0000c234 0020         movs     r0, #0
+0000c236 0349         ldr      r1, [pc, #0xc] ; literal[0xc244]=0x200004a2
+0000c238 0880         strh     r0, [r1]
+0000c23a 0349         ldr      r1, [pc, #0xc] ; literal[0xc248]=0x200004aa
+0000c23c 0880         strh     r0, [r1]
+0000c23e 0349         ldr      r1, [pc, #0xc] ; literal[0xc24c]=0x200004ac
+0000c240 0880         strh     r0, [r1]
+0000c242 10bd         pop      {r4, pc}
+0000c244 a204         lsls     r2, r4, #0x12
+0000c246 0020         movs     r0, #0
+0000c248 aa04         lsls     r2, r5, #0x12
+0000c24a 0020         movs     r0, #0
+0000c24c ac04         lsls     r4, r5, #0x12
+0000c24e 0020         movs     r0, #0

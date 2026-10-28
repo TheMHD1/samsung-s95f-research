@@ -1,0 +1,27 @@
+EXIDX RANGE 001d4894..001d48cc; input 001d4894; may contain multiple functions and literal pools
+001d4894 10b5       push       {r4, lr}
+001d4896 0228       cmp        r0, #2
+001d4898 084c       ldr        r4, [pc, #0x20] ; literal[001d48bc]=002f5762
+001d489a 7c44       add        r4, pc
+001d489c 00d0       beq        #0x1d48a0
+001d489e 10bd       pop        {r4, pc}
+001d48a0 0420       movs       r0, #4
+001d48a2 83f610eb   blx        #0x57ec4 ; __cxa_allocate_exception
+001d48a6 0649       ldr        r1, [pc, #0x18] ; literal[001d48c0]=00001130 ; GOT?=004b2984
+001d48a8 064a       ldr        r2, [pc, #0x18] ; literal[001d48c4]=00003808 ; GOT?=0010f789
+001d48aa 074b       ldr        r3, [pc, #0x1c] ; literal[001d48c8]=00004ac8 ; GOT?=004b2750
+001d48ac 6158       ldr        r1, [r4, r1]
+001d48ae 0831       adds       r1, #8
+001d48b0 0160       str        r1, [r0]
+001d48b2 a258       ldr        r2, [r4, r2]
+001d48b4 e158       ldr        r1, [r4, r3]
+001d48b6 82f62aeb   blx        #0x56f0c ; __cxa_throw
+001d48ba 00bf       nop        
+001d48bc 6257       ldrsb      r2, [r4, r5]
+001d48be 2f00       movs       r7, r5
+001d48c0 3011       asrs       r0, r6, #4
+001d48c2 0000       movs       r0, r0
+001d48c4 0838       subs       r0, #8
+001d48c6 0000       movs       r0, r0
+001d48c8 c84a       ldr        r2, [pc, #0x320] ; literal[001d4bec]=00004474 ; GOT?=004a9e7c
+001d48ca 0000       movs       r0, r0

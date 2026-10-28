@@ -1,0 +1,17 @@
+--- BY/verify-host.py
++++ BZ/verify-host.py
+@@ -23,12 +23,13 @@
+     build=run([DOTNET,'build','-c','Release','--nologo'])
+     (ROOT/'build.log').write_text(build.stdout+build.stderr)
+     native=run(['cc','-std=c11','-Wall','-Wextra','-Werror','-Wpedantic','-fPIC','-shared','-Wl,--version-script=host_mock.map','host_mock.c','-o',OUT/'host_mock.so'])
++    run(['cc','-std=c11','-Wall','-Wextra','-Werror','-Wpedantic','-fPIC','-shared','-Wl,--version-script=host_owner_mock.map','host_owner_mock.c','-o',OUT/'host_owner_mock.so'])
+     test=run([DOTNET,OUT/'SwuMetadataAdapter.dll','--self-test'])
+     (ROOT/'host-test.log').write_text(test.stdout+test.stderr)
+     guard=run([DOTNET,OUT/'SwuMetadataAdapter.dll'],64)
+     (ROOT/'host-guard.log').write_text(guard.stdout+guard.stderr)
+     result={'host_only':True,'native_arm_cross_build':False,'portable_il_build':True,
+-            'target_libraries_loaded':False,'real_tee_calls':0,'mock_dynamic_exports':7,
++            'target_libraries_loaded':False,'real_tee_calls':0,'mock_dynamic_exports':7,'canonical_preload_aborting_exports_resolved':8,'owner_negative_cases':7,'owner_alias_policy_cases':9,'aborting_exports_invoked':0,
+             'default_x64_exit':guard.returncode,'host_test_exit':test.returncode,
+             'assembly_sha256':hashlib.sha256((OUT/'SwuMetadataAdapter.dll').read_bytes()).hexdigest()}
+     if '--deadline' in sys.argv[1:]:

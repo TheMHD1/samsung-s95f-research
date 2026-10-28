@@ -1,0 +1,20 @@
+--- ${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/Program.cs	2026-10-27 23:21:52.525479845 +0000
++++ Program.cs	2026-10-27 23:40:36.161955249 +0000
+@@ -5,7 +5,7 @@
+ 
+ internal static class Program
+ {
+-    internal const string EnvelopePath="/tmp/swu-metadata-20261027bx/header-envelope.bin";
++    internal const string EnvelopePath="/tmp/swu-metadata-20261027by/header-envelope.bin";
+     internal const string BlobPath="/usr/share/org.tizen.tv.swu/itemsAESPassphraseEncrypted.txt";
+     internal const string Boot="00000000-0000-4000-8000-000000000000";
+     internal static readonly Pin Vconf=new Pin("/usr/lib/libvconf.so.0",57272,"007a02e106ee38d0319084c458f048c556dcf618112cc1114e3e47cb8d226619","8d53d2ed2ee1fb4c8809be0b02fb7ee71fdf7673");
+@@ -55,6 +55,8 @@
+             Result result=Core.Run(api,env.Data,blob.Data,SelectorCheck);
+             result.Print(); GC.KeepAlive(config); GC.KeepAlive(get);
+             return result.Stage=="quarantined" && result.Code==0 && result.SessionClosed && result.Released==3 && result.ContextFinalized?0:70;
++        } catch(PreflightException e) {
++            Console.WriteLine($"REFUSED_OR_FAILED stage={stage} file={e.FileLabel} file_stage={e.Stage} reason={e.Reason} metadata_published=0"); return 65;
+         } catch(Exception) {
+             // Deliberately do not print exception strings, buffers or keys.
+             Console.WriteLine("REFUSED_OR_FAILED stage="+stage+" metadata_published=0"); return 65;

@@ -1,0 +1,179 @@
+{
+  "anchors": [
+    {
+      "address": "0x1d633a",
+      "bytes": 4,
+      "hex": "01f0a1fc",
+      "role": "wrapper firstword read"
+    },
+    {
+      "address": "0x1d634c",
+      "bytes": 4,
+      "hex": "01f098fc",
+      "role": "wrapper secondword read"
+    },
+    {
+      "address": "0x1d636c",
+      "bytes": 12,
+      "hex": "92f9005009f108022a448847",
+      "role": "seek24 before encryptedCRC"
+    },
+    {
+      "address": "0x1d63ee",
+      "bytes": 12,
+      "hex": "069a1b691268db439a4240f0",
+      "role": "encryptedCRC complement/compare"
+    },
+    {
+      "address": "0x1d660c",
+      "bytes": 32,
+      "hex": "dff80837064658f80330c0e903a903f10802026003f128024033c0e90123b9f1",
+      "role": "BranchStream with decrypted input"
+    },
+    {
+      "address": "0x1d66a6",
+      "bytes": 18,
+      "hex": "01f0ebfa0df18a0330461946149301f0eefb",
+      "role": "decryptedu32/u16"
+    },
+    {
+      "address": "0x1d66d6",
+      "bytes": 16,
+      "hex": "dbe90013994203d00b9a30465ef783f8",
+      "role": "expected-signature extent read"
+    },
+    {
+      "address": "0x1d6700",
+      "bytes": 6,
+      "hex": "1a4651f15bfa",
+      "role": "RSA digest selector constructor"
+    },
+    {
+      "address": "0x1d67ea",
+      "bytes": 34,
+      "hex": "fef7d7fe159b04461b68834240f0c182149b0b9a1b88934240f03883284651f16afa",
+      "role": "keyCRC,signaturelen,RSAverification"
+    },
+    {
+      "address": "0x1bb124",
+      "bytes": 80,
+      "hex": "f0b504461546c06883b00f4603689b689847b0fa80f306465b09002d08bf002333b1237f7bb101233046237703b0f0bd237f6bb960693946324603689b689847304603b0f0bd60690368db689847eae7",
+      "role": "branch read and tee data"
+    },
+    {
+      "address": "0x1d569a",
+      "bytes": 40,
+      "hex": "1bf17ffe2468b44b2168ea580b69934248d1207b18b923682046db6898472369db439f4224d0ad48",
+      "role": "drain and plaintextCRC complement/compare"
+    },
+    {
+      "address": "0x109f00",
+      "bytes": 16,
+      "hex": "41f6b7521146cde905ba7b44c0f2c141",
+      "role": "CRC polynomial04c11db7"
+    },
+    {
+      "address": "0x246476",
+      "bytes": 14,
+      "hex": "07f00f072046c7f11007394610f6",
+      "role": "PKCS length16-minus-mod16"
+    },
+    {
+      "address": "0x2465be",
+      "bytes": 32,
+      "hex": "8b188d5c102d72d8002d45d000240134a54242d013f8012daa42f8d0574803ae",
+      "role": "padding last-byte range and repeat"
+    },
+    {
+      "address": "0x247714",
+      "bytes": 36,
+      "hex": "59462046fef742ff8146c4f8940138b13268914500f23d81a2eb0902326086e7d3487844",
+      "role": "remove detected final padding count"
+    },
+    {
+      "address": "0x327e50",
+      "bytes": 38,
+      "hex": "0546012822d1014660682ef5d2ee0546012866d13046656841f046fd014628462ff5b8e90546",
+      "role": "RSA padding1 then digestselection"
+    },
+    {
+      "address": "0x3281c0",
+      "bytes": 26,
+      "hex": "2a6bfff725fed4e90030d5e90812c01a0090521a04982ff500e8",
+      "role": "EVP_PKEY_verify signature/digest bounds"
+    },
+    {
+      "address": "0x3698f8",
+      "bytes": 50,
+      "hex": "012810d0022812d078b100b53322094b83b0094909487b44794400927844084a7a440ef003fceef42db8eef42dbaedf47fbe",
+      "role": "digest selector2 to EVP_sha512"
+    },
+    {
+      "address": "0x36c834",
+      "bytes": 8,
+      "hex": "2846eaf4c2ed0128",
+      "role": "SHA512_Init"
+    },
+    {
+      "address": "0x242dd6",
+      "bytes": 14,
+      "hex": "204615f6e4ec034620461c4614f6",
+      "role": "publickey EVP_PKEY_get_size"
+    },
+    {
+      "address": "0x2ab600",
+      "bytes": 16,
+      "hex": "029829463322abf5b6ee00283ff466af",
+      "role": "tree magic51byte compare"
+    },
+    {
+      "address": "0x40b384",
+      "bytes": 51,
+      "hex": "54697a656e20536f667477617265205570677261646520547265652042696e61727920466f726d6174207665722e20312e3900",
+      "role": "exact tree magic withNUL"
+    },
+    {
+      "address": "0x2ac8fc",
+      "bytes": 70,
+      "hex": "04230df11c0b01932046cdf800b0d4e90223096988470420d4e902230021cde90a014ff0ff316ff00400994208bf9042cde90823c0f03182043243f10003c4e90223d6e90058",
+      "role": "root u32 count"
+    },
+    {
+      "address": "0x2ac9e4",
+      "bytes": 14,
+      "hex": "9df81c308df81b30002b40f09980",
+      "role": "root presence nonzero branch"
+    },
+    {
+      "address": "0x2a0d86",
+      "bytes": 54,
+      "hex": "daf800300df15408414604225046db689847d9e90013159c5a1a944260d804d20a19934201d0c9f80420daf8003022465046db689847",
+      "role": "descriptor length then bounded bodyread"
+    },
+    {
+      "address": "0x2a0dd2",
+      "bytes": 52,
+      "hex": "baf1030fc4f8049003f10803c4f808b0236046d9086804233860a360fff73bfd064628603368214630461b6a9847a368534540f0",
+      "role": "body tagu32 factory then full-consumption check"
+    },
+    {
+      "address": "0x2a07c2",
+      "bytes": 20,
+      "hex": "2368204601220df10301db6898479df803302b76",
+      "role": "mandatoryflagu8"
+    },
+    {
+      "address": "0x2a2486",
+      "bytes": 16,
+      "hex": "2368204604226946db689847009beb61",
+      "role": "CRCleafu32"
+    },
+    {
+      "address": "0x2a75d8",
+      "bytes": 78,
+      "hex": "236806ae204631460422db689847069beb61204623689b6898470028d1d12368314602222046db689847bdf81860d5e908135a1a96423cd803d28a19934200d06a62236832462046db689847cee7",
+      "role": "RSAleaf algorithmu32,siglengthu16,bytes"
+    }
+  ],
+  "core_sha256": "b8de9e31bf6e74cf9a1f3cfd2598658d978a4edd88b36d1c2f10129ccc8a2697"
+}

@@ -1,18 +1,11 @@
-# Full research document catalog
+# Full retained report catalog
 
-This catalog preserves historical reports and reviews, including rejected and superseded results. Source code, derived data and instruction traces are indexed in the manifest.
-
-## CURRENT-INVESTIGATION.md
+718 Markdown reports are retained. Source code, JSON observations, instruction traces and other artifacts are also indexed in `manifests/source-dispositions.json`. Superseded and rejected work remains part of the corpus.
 
 - [Samsung S95F: current investigation](../research/CURRENT-INVESTIGATION.md) — `CURRENT-INVESTIGATION.md`
-## README.md
-
 - [Samsung S95F panel-blackout reverse engineering](../research/README.md) — `README.md`
-## RECOVER-PANEL.md
-
 - [Apps-selected panel recovery](../research/RECOVER-PANEL.md) — `RECOVER-PANEL.md`
-## panel-idle-20261026
-
+- [acquisition-report](../research/firmware-acquisition-20261028/acquisition-report.md) — `firmware-acquisition-20261028/acquisition-report.md`
 - [Content-dependent blackout investigation](../research/panel-idle-20261026/apps-route/content-dependent-blackout-investigation.md) — `panel-idle-20261026/apps-route/content-dependent-blackout-investigation.md`
 - [Enlightenment post-composition recovery probes — static client audit](../research/panel-idle-20261026/apps-route/enlightenment-recovery-probe.md) — `panel-idle-20261026/apps-route/enlightenment-recovery-probe.md`
 - [Home render, AVOC, and screen-saver call graph (static audit)](../research/panel-idle-20261026/apps-route/home-render-and-avoc-callgraph.md) — `panel-idle-20261026/apps-route/home-render-and-avoc-callgraph.md`
@@ -308,13 +301,23 @@ This catalog preserves historical reports and reviews, including rejected and su
 - [Combined onset observer: review findings and deployment boundary](../research/panel-idle-20261026/overnight/onset-capture-review.md) — `panel-idle-20261026/overnight/onset-capture-review.md`
 - [Passive post-END-drain smoke: technically accepted, physically unobserved](../research/panel-idle-20261026/overnight/onset-drain-smoke-accepted.md) — `panel-idle-20261026/overnight/onset-drain-smoke-accepted.md`
 - [Onset observer validation: current continuation](../research/panel-idle-20261026/overnight/onset-observer-validation-progress.md) — `panel-idle-20261026/overnight/onset-observer-validation-progress.md`
+- [CA first-header readiness premise for one synchronized onset trial](../research/panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision-v2.md) — `panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision-v2.md`
+- [CA first-header readiness premise for one synchronized onset trial](../research/panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision.md) — `panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision.md`
 - [Command-string smoke: real data acquired, qualification failed](../research/panel-idle-20261026/overnight/onset-second-smoke-partial-result.md) — `panel-idle-20261026/overnight/onset-second-smoke-partial-result.md`
 - [First live onset smoke: unsigned-script launch rejection](../research/panel-idle-20261026/overnight/onset-smoke-uep-launch-failure.md) — `panel-idle-20261026/overnight/onset-smoke-uep-launch-failure.md`
+- [Bounded synchronized-onset runner](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/README-wrapper.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/README-wrapper.md`
 - [BX: synchronized normal-key onset candidate](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/README.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/README.md`
+- [Optional passive enumeration monitor: central coordination plan](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/passive-enumeration-monitor.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/passive-enumeration-monitor.md`
 - [Independent implementation review by SWU adapter author](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/adapter-author-implementation-review.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/adapter-author-implementation-review.md`
 - [Independent onset synchronization design review](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-design-review.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-design-review.md`
+- [Independent synchronized-onset wrapper review](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-wrapper-review.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/independent-wrapper-review.md`
+- [Synchronized result parser contract and host verification](../research/panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/parse-result-contract.md) — `panel-idle-20261026/overnight/onset-sync-20261027bx/reviews/parse-result-contract.md`
 - [Accepted short instrumentation smoke](../research/panel-idle-20261026/overnight/onset-third-smoke-accepted.md) — `panel-idle-20261026/overnight/onset-third-smoke-accepted.md`
 - [Onset capture: thread lineage and actual kernel metadata](../research/panel-idle-20261026/overnight/onset-thread-following-assessment.md) — `panel-idle-20261026/overnight/onset-thread-following-assessment.md`
+- [CB: synchronized software onset with owner-confirmed blackout and recovery](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md`
+- [CB operands: mode 1, selected threshold 40, score 0 → 38 → 44](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/operand-findings.md`
+- [Source qualification of a reversible mode1 limit experiment](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/operand-analysis/prevention-experiment-readiness.md`
+- [Independent CB synchronized-onset capture review](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/reviews/independent-capture-review.md) — `panel-idle-20261026/overnight/onset-trial-20261028cb/reviews/independent-capture-review.md`
 - [Ordinary-condition sensitivity: what the divisor finding changes](../research/panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/condition-sensitivity.md) — `panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/condition-sensitivity.md`
 - [AN independent review](../research/panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/review-closure.md) — `panel-idle-20261026/overnight/ordinary-condition-sensitivity-20261027an/review-closure.md`
 - [Current ordinary-controller fault model — 2026-10-27](../research/panel-idle-20261026/overnight/ordinary-fault-model-20261027.md) — `panel-idle-20261026/overnight/ordinary-fault-model-20261027.md`
@@ -451,8 +454,20 @@ This catalog preserves historical reports and reviews, including rejected and su
 - [AV pre/post RT-state delta](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/rt-state-delta.md) — `panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/rt-state-delta.md`
 - [Selector and score-state delta across the stock lifecycle](../research/panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/selector-state-delta.md) — `panel-idle-20261026/overnight/stock-rt-state-delta-20261027aw/selector-state-delta.md`
 - [Independent runtime audit: one stock unmute-zero](../research/panel-idle-20261026/overnight/stock-unmute-once-runtime-audit.md) — `panel-idle-20261026/overnight/stock-unmute-once-runtime-audit.md`
+- [validation-readiness](../research/panel-idle-20261026/overnight/swu-header-validation-20261027bx/validation-readiness.md) — `panel-idle-20261026/overnight/swu-header-validation-20261027bx/validation-readiness.md`
 - [Fixed SWU metadata adapter: implementation and readiness](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/adapter-readiness.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/adapter-readiness.md`
 - [Independent SWU metadata adapter review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/reviews/content-author-review.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/reviews/content-author-review.md`
+- [Target preflight refusal isolated by a file-only diagnostic](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-preflight-diagnostic.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-preflight-diagnostic.md`
+- [First target attempt: preflight refusal, no TEE sequence](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-trial-01.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-trial-01.md`
+- [adapter-readiness](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/adapter-readiness.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/adapter-readiness.md`
+- [Independent BY compatibility and orchestration review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/reviews/publication-agent-review.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/reviews/publication-agent-review.md`
+- [BY first target attempt: preflight passed, selector binding refused](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/target-trial-01.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/target-trial-01.md`
+- [adapter-readiness](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/adapter-readiness.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/adapter-readiness.md`
+- [Independent BZ library binding review](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/reviews/independent-binding-review.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/reviews/independent-binding-review.md`
+- [BZ first target attempt: fixed decryption sequence completed](../research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/target-trial-01.md) — `panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/target-trial-01.md`
+- [Fixed-file preflight diagnostic source audit](../research/panel-idle-20261026/overnight/swu-preflight-diagnostic-20261027bx/source-audit.md) — `panel-idle-20261026/overnight/swu-preflight-diagnostic-20261027bx/source-audit.md`
+- [source-audit](../research/panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/source-audit.md) — `panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/source-audit.md`
+- [BY loader-only target diagnostic](../research/panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/target-trial-01.md) — `panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/target-trial-01.md`
 - [Actual ERR_DET GPIO query: 2026-10-26](../research/panel-idle-20261026/overnight/tcon-gpio-actual-result-20261026.md) — `panel-idle-20261026/overnight/tcon-gpio-actual-result-20261026.md`
 - [Actual TCON error-status result: 2026-10-26](../research/panel-idle-20261026/overnight/tcon-status-actual-result-20261026.md) — `panel-idle-20261026/overnight/tcon-status-actual-result-20261026.md`
 - [Ugoos PROGRAM_A Farm comparison against PROGRAM_04 failure](../research/panel-idle-20261026/overnight/ugoos-PROGRAM_A-comparison-20261027.md) — `panel-idle-20261026/overnight/ugoos-PROGRAM_A-comparison-20261027.md`
@@ -675,8 +690,6 @@ This catalog preserves historical reports and reviews, including rejected and su
 - [TCON MICOM debug-log backing store, producer, and read semantics](../research/panel-idle-20261026/tcon-research/tcon-micom-log-cache-producer.md) — `panel-idle-20261026/tcon-research/tcon-micom-log-cache-producer.md`
 - [Selector `0x0c` in the retained `tcon-monitor` traffic](../research/panel-idle-20261026/tcon-research/tcon-monitor-selector-0c-analysis.md) — `panel-idle-20261026/tcon-research/tcon-monitor-selector-0c-analysis.md`
 - [`ttyUSB0` CP210x identity boundary](../research/panel-idle-20261026/tcon-research/ttyusb0-cp210x-identity-boundary-20261027.md) — `panel-idle-20261026/tcon-research/ttyusb0-cp210x-identity-boundary-20261027.md`
-## research-20261027-external
-
 - [Gap register and next experiments](../research/research-20261027-external/GAPS-AND-EXPERIMENTS.md) — `research-20261027-external/GAPS-AND-EXPERIMENTS.md`
 - [External source research: Samsung S95F blackout investigation](../research/research-20261027-external/README.md) — `research-20261027-external/README.md`
 - [Target file acquisition during source comparison](../research/research-20261027-external/TARGET-ACQUISITION.md) — `research-20261027-external/TARGET-ACQUISITION.md`
@@ -698,8 +711,6 @@ This catalog preserves historical reports and reviews, including rejected and su
 - [Video measurement: target ABI confirmed, measurement-to-Pre-PD link absent](../research/research-20261027-external/reports/video-measurement.md) — `research-20261027-external/reports/video-measurement.md`
 - [Independent evidence audit — 2026-10-27](../research/research-20261027-external/reviews/independent-audit.md) — `research-20261027-external/reviews/independent-audit.md`
 - [Independent SWU normal-world ABI audit](../research/research-20261027-external/reviews/swu-independent-review.md) — `research-20261027-external/reviews/swu-independent-review.md`
-## root-access
-
 - [Quick start](../research/root-access/source/QUICKSTART.md) — `root-access/source/QUICKSTART.md`
 - [Samsung TV root](../research/root-access/source/README.md) — `root-access/source/README.md`
 - [Documentation](../research/root-access/source/docs/README.md) — `root-access/source/docs/README.md`

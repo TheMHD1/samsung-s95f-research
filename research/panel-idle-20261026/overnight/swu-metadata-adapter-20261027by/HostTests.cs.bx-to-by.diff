@@ -1,0 +1,42 @@
+--- ${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/HostTests.cs	2026-10-27 23:24:03.775444199 +0000
++++ HostTests.cs	2026-10-27 23:40:46.783686123 +0000
+@@ -81,11 +81,38 @@
+                 rejected=false; try { using PinnedFile bad=new PinnedFile(new Pin(path,bytes.Length,new string('0',64)),true); } catch { rejected=true; } Core.Require(rejected,"wrong file hash accepted");
+                 File.WriteAllText(path,"changed"); rejected=false; try { f.Recheck(); } catch { rejected=true; } Core.Require(rejected,"file drift accepted");
+             } finally { File.Delete(path); }
++            VerifyStatMaskAndOpenFlags();
+             VerifyElfPins();
+             VerifyDynamicBindings();
+-            Console.WriteLine("PASS host_only=1 target_library_loads=0 golden_frames=3 teec_failure_stages=8 count_overflows=3 allocation_faults=12 selector_drift=3 sha256_kats=2 file_guard=pass elf_pins=4 host_mock_versioned_bindings=7"); return 0;
++            Console.WriteLine("PASS host_only=1 target_library_loads=0 golden_frames=3 teec_failure_stages=8 count_overflows=3 allocation_faults=12 selector_drift=3 sha256_kats=2 file_guard=pass stat_mask_acceptances=3 missing_required_bits=9 correct_open_flags=2 nofollow_symlink_refusal=1 safe_preflight_failures=2 elf_pins=4 host_mock_versioned_bindings=7"); return 0;
+         } catch(Exception e) { Console.WriteLine("HOST_TEST_FAILED "+e.Message); return 1; }
+     }
++    private static void VerifyStatMaskAndOpenFlags()
++    {
++        foreach(uint mask in new uint[]{0x7ff,0x7df,0x3df}) {
++            byte[] stat=new byte[256];System.Buffers.Binary.BinaryPrimitives.WriteUInt32LittleEndian(stat,mask);Native.ValidateStatMask(stat);
++        }
++        int missing=0;
++        for(int bit=0;bit<11;bit++)if((Native.RequiredStatMask&(1u<<bit))!=0) {
++            byte[] stat=new byte[256];System.Buffers.Binary.BinaryPrimitives.WriteUInt32LittleEndian(stat,0x7ffu&~(1u<<bit));
++            bool rejected=false;try{Native.ValidateStatMask(stat);}catch(PreflightException e){rejected=e.Reason==PreflightReason.StatxMask;}
++            Core.Require(rejected,"required stat bit accepted");missing++;
++        }
++        Core.Require(missing==9 && Native.RequiredStatMask==0x3df,"required stat bit inventory");
++        Core.Require(Native.OpenFlags(Architecture.Arm)==0xa8000 && Native.OpenFlags(Architecture.X64)==0xa0000,"architecture open flags");
++        string path=Path.Combine(Path.GetTempPath(),"swu-nofollow-"+Guid.NewGuid().ToString("N")),link=path+"-link";
++        byte[] bytes=System.Text.Encoding.ASCII.GetBytes("public nofollow fixture");File.WriteAllBytes(path,bytes);File.CreateSymbolicLink(link,path);
++        try {
++            int fd=Native.OpenReadOnlyNoFollow(link);int error=Marshal.GetLastWin32Error();
++            if(fd>=0)Native.close(fd);Core.Require(fd==-1 && error==40,"nofollow final symlink accepted");
++            bool rejected=false;try{using PinnedFile wrong=new PinnedFile(new Pin(path,bytes.Length-1,Core.Hash(bytes)),true);}
++            catch(PreflightException e){rejected=e.Reason==PreflightReason.FileSize && e.Stage==PreflightStage.Size && e.FileLabel=="host-fixture";}
++            Core.Require(rejected,"safe file-size diagnostic");
++            rejected=false;try{using PinnedFile wrong=new PinnedFile(new Pin(path,bytes.Length,new string('0',64)),true);}
++            catch(PreflightException e){rejected=e.Reason==PreflightReason.Hash && e.Stage==PreflightStage.Hash && e.FileLabel=="host-fixture";}
++            Core.Require(rejected,"safe hash diagnostic");
++        } finally {File.Delete(link);File.Delete(path);}
++    }
+     private static void VerifyDynamicBindings()
+     {
+         string path=Path.Combine(AppContext.BaseDirectory,"host_mock.so"); byte[] bytes=File.ReadAllBytes(path);

@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/run-power-cycle-once.py", line 251, in <module>
+    main()
+    ~~~~^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/run-power-cycle-once.py", line 238, in main
+    result = run_once(Path(os.path.abspath(args.output)), manifest, files)
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-power-cycle-once/run-power-cycle-once.py", line 221, in run_once
+    return module.run_once(destination, manifest, files)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-status-read/run-status-read.py", line 549, in run_once
+    root(execute(private, boot, files), record, destination), boot, pre)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-status-read/run-status-read.py", line 166, in root
+    return validate_response(response, command)
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-status-read/run-status-read.py", line 130, in validate_response
+    require(item.get("stderr") == "", "Remote command stderr")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/managed-tcon-status-read/run-status-read.py", line 57, in require
+    raise ContractError(message)
+fixed_power_status_lifecycle.ContractError: Remote command stderr

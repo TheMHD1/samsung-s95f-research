@@ -1,0 +1,107 @@
+SHA256 package bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0
+image1 FILE=VA+0x40200; literal pools may follow bodies
+0001c0c8 70b5         push     {r4, r5, r6, lr}
+0001c0ca 0646         mov      r6, r0
+0001c0cc 0d46         mov      r5, r1
+0001c0ce e7f715fc     bl       #0x38fc
+0001c0d2 0446         mov      r4, r0
+0001c0d4 012e         cmp      r6, #1
+0001c0d6 06d0         beq      #0x1c0e6
+0001c0d8 022e         cmp      r6, #2
+0001c0da 0cd0         beq      #0x1c0f6
+0001c0dc 042e         cmp      r6, #4
+0001c0de 12d0         beq      #0x1c106
+0001c0e0 062e         cmp      r6, #6
+0001c0e2 20d1         bne      #0x1c126
+0001c0e4 17e0         b        #0x1c116
+0001c0e6 42f28640     movw     r0, #0x2486
+0001c0ea 005b         ldrh     r0, [r0, r4]
+0001c0ec 2843         orrs     r0, r5
+0001c0ee 42f28641     movw     r1, #0x2486
+0001c0f2 0853         strh     r0, [r1, r4]
+0001c0f4 18e0         b        #0x1c128
+0001c0f6 42f28840     movw     r0, #0x2488
+0001c0fa 005b         ldrh     r0, [r0, r4]
+0001c0fc 2843         orrs     r0, r5
+0001c0fe 42f28841     movw     r1, #0x2488
+0001c102 0853         strh     r0, [r1, r4]
+0001c104 10e0         b        #0x1c128
+0001c106 42f28c40     movw     r0, #0x248c
+0001c10a 005b         ldrh     r0, [r0, r4]
+0001c10c 2843         orrs     r0, r5
+0001c10e 42f28c41     movw     r1, #0x248c
+0001c112 0853         strh     r0, [r1, r4]
+0001c114 08e0         b        #0x1c128
+0001c116 42f28c40     movw     r0, #0x248c
+0001c11a 005b         ldrh     r0, [r0, r4]
+0001c11c 2843         orrs     r0, r5
+0001c11e 42f28c41     movw     r1, #0x248c
+0001c122 0853         strh     r0, [r1, r4]
+0001c124 00e0         b        #0x1c128
+0001c126 00bf         nop      
+0001c128 00bf         nop      
+0001c12a 70bd         pop      {r4, r5, r6, pc}
+0001c12c 10b5         push     {r4, lr}
+0001c12e e7f7e1fb     bl       #0x38f4
+0001c132 0446         mov      r4, r0
+0001c134 1a48         ldr      r0, [pc, #0x68]
+0001c136 0088         ldrh     r0, [r0]
+0001c138 80b3         cbz      r0, #0x1c19c
+0001c13a 94f8c706     ldrb.w   r0, [r4, #0x6c7]
+0001c13e 68b3         cbz      r0, #0x1c19c
+0001c140 1848         ldr      r0, [pc, #0x60]
+0001c142 0068         ldr      r0, [r0]
+0001c144 c088         ldrh     r0, [r0, #6]
+0001c146 68b9         cbnz     r0, #0x1c164
+0001c148 1548         ldr      r0, [pc, #0x54]
+0001c14a 0088         ldrh     r0, [r0]
+0001c14c 401c         adds     r0, r0, #1
+0001c14e 1449         ldr      r1, [pc, #0x50]
+0001c150 0880         strh     r0, [r1]
+0001c152 4ff43662     mov.w    r2, #0xb60
+0001c156 1348         ldr      r0, [pc, #0x4c]
+0001c158 0168         ldr      r1, [r0]
+0001c15a 0831         adds     r1, #8
+0001c15c 1248         ldr      r0, [pc, #0x48]
+0001c15e e4f7d5fa     bl       #0x70c
+0001c162 14e0         b        #0x1c18e
+0001c164 0f48         ldr      r0, [pc, #0x3c]
+0001c166 0068         ldr      r0, [r0]
+0001c168 c188         ldrh     r1, [r0, #6]
+0001c16a b4f8c006     ldrh.w   r0, [r4, #0x6c0]
+0001c16e 401e         subs     r0, r0, #1
+0001c170 8142         cmp      r1, r0
+0001c172 0cd1         bne      #0x1c18e
+0001c174 0a48         ldr      r0, [pc, #0x28]
+0001c176 0088         ldrh     r0, [r0]
+0001c178 401c         adds     r0, r0, #1
+0001c17a 0949         ldr      r1, [pc, #0x24]
+0001c17c 0880         strh     r0, [r1]
+0001c17e 4ff43662     mov.w    r2, #0xb60
+0001c182 0848         ldr      r0, [pc, #0x20]
+0001c184 0168         ldr      r1, [r0]
+0001c186 0831         adds     r1, #8
+0001c188 0848         ldr      r0, [pc, #0x20]
+0001c18a e4f7bffa     bl       #0x70c
+0001c18e 0448         ldr      r0, [pc, #0x10]
+0001c190 0088         ldrh     r0, [r0]
+0001c192 0228         cmp      r0, #2
+0001c194 02dd         ble      #0x1c19c
+0001c196 0020         movs     r0, #0
+0001c198 0149         ldr      r1, [pc, #4]
+0001c19a 0880         strh     r0, [r1]
+0001c19c 10bd         pop      {r4, pc}
+0001c19e 0000         movs     r0, r0
+0001c1a0 c404         lsls     r4, r0, #0x13
+0001c1a2 0020         movs     r0, #0
+0001c1a4 9804         lsls     r0, r3, #0x12
+0001c1a6 0020         movs     r0, #0
+0001c1a8 0050         str      r0, [r0, r0]
+0001c1aa 0120         movs     r0, #1
+0001c1ac 105f         ldrsh    r0, [r2, r4]
+0001c1ae 0120         movs     r0, #1
+0001c1b0 00b5         push     {lr}
+0001c1b2 41ec100b     vmov     d0, r0, r1
+0001c1b6 2ded028b     vpush    {d8}
+0001c1ba 83b0         sub      sp, #0xc
+0001c1bc b1eec08b     vsqrt.f64 d8, d0

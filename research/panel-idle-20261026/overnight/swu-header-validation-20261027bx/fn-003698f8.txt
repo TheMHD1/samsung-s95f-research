@@ -1,0 +1,31 @@
+EXIDX RANGE 003698f8..0036993c; input 003698f8; may contain multiple functions and literal pools
+003698f8 0128       cmp        r0, #1
+003698fa 10d0       beq        #0x36991e
+003698fc 0228       cmp        r0, #2
+003698fe 12d0       beq        #0x369926
+00369900 78b1       cbz        r0, #0x369922
+00369902 00b5       push       {lr}
+00369904 3322       movs       r2, #0x33
+00369906 094b       ldr        r3, [pc, #0x24] ; literal[0036992c]=000d2b0e
+00369908 83b0       sub        sp, #0xc
+0036990a 0949       ldr        r1, [pc, #0x24] ; literal[00369930]=000d2bd0
+0036990c 0948       ldr        r0, [pc, #0x24] ; literal[00369934]=00017e80 'aIcEE9rebalanceEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE'
+0036990e 7b44       add        r3, pc
+00369910 7944       add        r1, pc
+00369912 0092       str        r2, [sp]
+00369914 7844       add        r0, pc
+00369916 084a       ldr        r2, [pc, #0x20] ; literal[00369938]=000d2b64
+00369918 7a44       add        r2, pc
+0036991a 0ef003fc   bl         #0x378124
+0036991e eef42db8   b.w        #0x5797c ; EVP_sha256
+00369922 eef42dba   b.w        #0x57d80 ; EVP_sha1
+00369926 edf47fbe   b.w        #0x57628 ; EVP_sha512
+0036992a 00bf       nop        
+0036992c 0e2b       cmp        r3, #0xe
+0036992e 0d00       movs       r5, r1
+00369930 d02b       cmp        r3, #0xd0
+00369932 0d00       movs       r5, r1
+00369934 807e       ldrb       r0, [r0, #0x1a]
+00369936 0100       movs       r1, r0
+00369938 642b       cmp        r3, #0x64
+0036993a 0d00       movs       r5, r1

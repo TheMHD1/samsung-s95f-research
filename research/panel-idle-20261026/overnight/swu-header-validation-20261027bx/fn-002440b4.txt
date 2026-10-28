@@ -1,0 +1,69 @@
+EXIDX RANGE 002440b4..0024414c; input 002440b4; may contain multiple functions and literal pools
+002440b4 214a       ldr        r2, [pc, #0x84] ; literal[0024413c]=00285f44
+002440b6 224b       ldr        r3, [pc, #0x88] ; literal[00244140]=00004e04 ; GOT?=00000000
+002440b8 7a44       add        r2, pc
+002440ba f0b5       push       {r4, r5, r6, r7, lr}
+002440bc 00f10807   add.w      r7, r0, #8
+002440c0 83b0       sub        sp, #0xc
+002440c2 d358       ldr        r3, [r2, r3]
+002440c4 1b68       ldr        r3, [r3]
+002440c6 0193       str        r3, [sp, #4]
+002440c8 4ff00003   mov.w      r3, #0
+002440cc 0760       str        r7, [r0]
+002440ce 79b3       cbz        r1, #0x244130
+002440d0 0446       mov        r4, r0
+002440d2 0846       mov        r0, r1
+002440d4 0e46       mov        r6, r1
+002440d6 13f60ce8   blx        #0x570f0 ; strlen
+002440da 0546       mov        r5, r0
+002440dc 0f28       cmp        r0, #0xf
+002440de 0090       str        r0, [sp]
+002440e0 15d8       bhi        #0x24410e
+002440e2 0128       cmp        r0, #1
+002440e4 10d1       bne        #0x244108
+002440e6 96f90030   ldrsb.w    r3, [r6]
+002440ea 2372       strb       r3, [r4, #8]
+002440ec 154a       ldr        r2, [pc, #0x54] ; literal[00244144]=00285f08
+002440ee 0023       movs       r3, #0
+002440f0 6560       str        r5, [r4, #4]
+002440f2 7b55       strb       r3, [r7, r5]
+002440f4 7a44       add        r2, pc
+002440f6 124b       ldr        r3, [pc, #0x48] ; literal[00244140]=00004e04 ; GOT?=00000000
+002440f8 d358       ldr        r3, [r2, r3]
+002440fa 1a68       ldr        r2, [r3]
+002440fc 019b       ldr        r3, [sp, #4]
+002440fe 5a40       eors       r2, r3
+00244100 1ad1       bne        #0x244138
+00244102 2046       mov        r0, r4
+00244104 03b0       add        sp, #0xc
+00244106 f0bd       pop        {r4, r5, r6, r7, pc}
+00244108 0028       cmp        r0, #0
+0024410a efd0       beq        #0x2440ec
+0024410c 08e0       b          #0x244120
+0024410e 0022       movs       r2, #0
+00244110 6946       mov        r1, sp
+00244112 2046       mov        r0, r4
+00244114 14f676e9   blx        #0x58404 ; _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERjj
+00244118 009b       ldr        r3, [sp]
+0024411a 0746       mov        r7, r0
+0024411c a360       str        r3, [r4, #8]
+0024411e 2060       str        r0, [r4]
+00244120 2a46       mov        r2, r5
+00244122 3846       mov        r0, r7
+00244124 3146       mov        r1, r6
+00244126 13f6dcef   blx        #0x580e0 ; memcpy
+0024412a 009d       ldr        r5, [sp]
+0024412c 2768       ldr        r7, [r4]
+0024412e dde7       b          #0x2440ec
+00244130 0548       ldr        r0, [pc, #0x14] ; literal[00244148]=001361fe
+00244132 7844       add        r0, pc
+00244134 13f63cec   blx        #0x579b0 ; _ZSt19__throw_logic_errorPKc
+00244138 12f6daec   blx        #0x56af0 ; __stack_chk_fail
+0024413c 445f       ldrsh      r4, [r0, r5]
+0024413e 2800       movs       r0, r5
+00244140 044e       ldr        r6, [pc, #0x10] ; literal[00244154]=447cb08a
+00244142 0000       movs       r0, r0
+00244144 085f       ldrsh      r0, [r1, r4]
+00244146 2800       movs       r0, r5
+00244148 fe61       str        r6, [r7, #0x1c]
+0024414a 1300       movs       r3, r2

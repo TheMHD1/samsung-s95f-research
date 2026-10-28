@@ -1,12 +1,14 @@
 {
   "schema": "s95f-public-validation-v1",
   "publication_unittests": {
-    "passed": 6,
-    "scope": "token/identity redaction, technical vconf-key preservation, Python-safe aliases, annotated-versus-whole disassembly disposition, JSON secret/key handling, raw-envelope staging removal, opaque credential omissions and original/public hash separation"
+    "passed": 10,
+    "normal_and_optimized_python": true,
+    "scope": "Prior six transform tests plus large-omission bounded reads, explicit deferred-workstream exclusion, public CB verification and11 damaged/overclaimed variants."
   },
   "retained_python_syntax": {
     "findings": 0,
-    "scope": "All exported Python files parsed with ast.parse; no target execution"
+    "scope": "All exported Python files parsed with ast.parse; no target execution",
+    "files_verified": 5738
   },
   "swu_host_mock": {
     "passed": true,
@@ -14,5 +16,13 @@
     "cases": "3 golden frames; 8 failure stages; 2 output-size-mutation successes; 3 count overflows; 2 input rejections; canaries and cleanup",
     "target_calls": 0
   },
-  "limitations": "Historical private-fixture tests and live tools were not executed by publication checks. Post-cutoff target preflight refusal and ARM flag defect are documented separately; no TEE acceptance or permanent blackout fix is claimed."
+  "limitations": "Historical private-fixture tests and live tools were not executed by publication checks. Original C host mock validation is retained unchanged from initial release. CA/CB and BZ target outcomes are read from reviewed retained reports, not rerun. Exact physical timing, key causality, OEM signatures and valid decrypted metadata remain unproven; CC/CE/CF work explicitly deferred.",
+  "public_cb_fixture": {
+    "checks_normal": 211,
+    "checks_optimized": 211,
+    "raw_windows": 18,
+    "raw_bytes": 2268,
+    "damaged_variants_rejected": 11,
+    "scope": "Scientific subset only; no private transport reauthentication, exact physical timestamp or causality inference."
+  }
 }

@@ -8,6 +8,18 @@ its pending-work statements can be superseded by the results below.
 
 ## Current result
 
+The new [CB synchronized capture](panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md)
+records five clean cycles then stop1/fault0x1001/gate0 after one normal Left.
+The owner confirmed blackout, and a separate cached UI snapshot confirms Live.
+The conservative software transition bracket is250294us; it is not an exact
+physical light timestamp or proof of causation. All18retained windows were
+saved, transport/trial qualification passed, and the recorder cleaned up.
+A separate Apps-selected stock restart returned visible Apps according to the
+owner. Its quickpath acquisition remains rejected due to a proc-helper-exit
+race, although native output reports ioctl0/close0 and cleanup is confirmed.
+No retry was made. Subsequent byte interpretation is still under review.
+
+
 **Selecting populated Apps with normal local keys, then running one stock
 controller MODE2 restart, returned a visible Apps picture that stayed on.**
 The owner confirmed Apps and later a visible screensaver. See the
@@ -99,6 +111,29 @@ permanent prevention. A [minimal metadata-only source prototype](research-202610
 now passes host sanitizer/mock tests and independent review. It has no live
 TEE adapter and wipes unvalidated plaintext. Target bindings, file preflight,
 timeout and plaintext validation remain unfinished before a decryption test.
+
+## BX instrument implementation and first target preflight
+
+The additive [synchronized onset candidate](panel-idle-20261026/overnight/onset-sync-20261027bx/README.md)
+retains its trigger baseline and runs one normal Left down/up worker alongside
+its sole USB reader. Its 75 original and 22 synchronization host cases pass,
+including actual blocked-worker cases; independent implementation review found
+no material success-path defect. No target run or onset capture is established.
+The [fixed-tab pattern candidate](panel-idle-20261026/overnight/fixed-tab-pattern-20261027bx/README.md)
+also builds, but its EFL/ARM timer/session/presentation path remains unqualified.
+
+The new metadata adapter's [first target attempt](panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-trial-01.md)
+returned a file-preflight refusal before selector/library/TEE invocation. It was
+not retried; its stage and private records are retained. Later ordinary file
+checks match the expected identities. The post-test audit also identified an
+ARM-specific O_NOFOLLOW constant error, which is real but does not explain the
+refusal by itself. The original reviewed source remains unchanged. The subsequent [file-only diagnostic](panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/target-preflight-diagnostic.md)
+reproduces rejection of the installed files because their successful statx
+results omit unused access time (mask0x7df versus the required0x7ff). Original
+and explicit-Out signatures agree. The separately reviewed [BY attempt](panel-idle-20261026/overnight/swu-metadata-adapter-20261027by/target-trial-01.md)
+passed file preflight but stopped during selector binding before any selector
+row or TEE-client binding. A vconf-only loader diagnostic is next. No TEE
+sequence, decryption or prevention claim follows.
 
 ## Owner observations to preserve
 
@@ -484,3 +519,36 @@ retains older Linux/kernel, PM, HDMI, GPIO, UI, content-policy and controller
 research links. Its exact archive SHA-256 is
 `1c0f64035821f4005b2f10058b0ed1e03d992899d708aa292d1a52baba04f152`.
 These older findings remain available but are not all active fault hypotheses.
+
+## Subsequent loader and recorder qualification
+
+The [loader-only diagnostic](panel-idle-20261026/overnight/swu-vconf-loader-diagnostic-20261027by/target-trial-01.md)
+completed on target: both loader metadata paths identify the same pinned vconf
+file by a preexisting canonical alias, rather than the `/proc/self/fd` spelling.
+This is sufficient to explain the earlier BY binding guard refusal. No getter
+or TEE command was invoked. An additive adapter revision is being prepared;
+there is still no accepted plaintext metadata or firmware change.
+
+The owner's latest observation is a physically visible screensaver. Cached
+USB instance53 remains configured and active on the same Linux boot. New
+onset-recorder qualification requests used ordinary cached metadata and proc
+FD stats only. They exposed the stock ENOENT quote spelling and then an awk
+syntax error in the generated census. The latter scan failed before a holder
+result; no USB transfer, UI key or power action occurred. Both failed checks
+are retained, and a new synchronized onset capture is still unperformed.
+
+## Complete firmware acquisition and decryption-service result
+
+The [exact official archive](firmware-acquisition-20261028/acquisition-report.md)
+is now fully downloaded:2439527748bytes, SHA256
+5891b5ac67157403a2cfa4541845cb68f4ddb263860f41bc874e41fb748d1f42.
+All9ZIPmembers passed sizes/CRCs; main and companion encryptedMSD sections
+were extracted and hashed privately. Their payloads remain encrypted; no
+firmware was applied or modified.
+
+The [BZ target trial](panel-idle-20261026/overnight/swu-metadata-adapter-20261027bz/target-trial-01.md)
+completed the fixed0/1/2decryption sequence once with4032outputbytes, released
+allbuffers/session/context and removed its stage. Output was wiped; plaintext
+CRC, RSA authenticity and full nested schema remain unvalidated. A fixed
+installed publicRSAkey copy is now pinned for subsequent bounded validation.
+No privatekey or passphrase was extracted.

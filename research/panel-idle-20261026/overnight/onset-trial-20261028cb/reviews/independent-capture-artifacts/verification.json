@@ -1,0 +1,379 @@
+{
+  "authenticated_shell_calls": 31,
+  "census": {
+    "metadata-before-invoke.txt": {
+      "continuousAbsenceEstablished": false,
+      "expected": 10986,
+      "missingEnoent": 0,
+      "observedHolders": 0,
+      "otherErrors": 0
+    },
+    "metadata-post.txt": {
+      "continuousAbsenceEstablished": false,
+      "expected": 10986,
+      "missingEnoent": 1,
+      "observedHolders": 0,
+      "otherErrors": 0
+    },
+    "metadata-pre.txt": {
+      "continuousAbsenceEstablished": false,
+      "expected": 10984,
+      "missingEnoent": 0,
+      "observedHolders": 0,
+      "otherErrors": 0
+    }
+  },
+  "checks": 280,
+  "counters": {
+    "bulkTransfers": 72,
+    "cleanCyclesCompleted": 5,
+    "cleanCyclesDiscarded": 4,
+    "cyclesStarted": 6,
+    "headersSent": 36,
+    "inputsCompleted": 36
+  },
+  "gc_lines": 4,
+  "independently_decoded_rt_windows": [
+    {
+      "classification": "Clean",
+      "fault": 0,
+      "name": "retained-00-trigger_baseline-cycle001-00-R.bin",
+      "ordinaryGate": 1,
+      "stop": 0
+    },
+    {
+      "classification": "Clean",
+      "fault": 0,
+      "name": "retained-00-trigger_baseline-cycle001-05-R.bin",
+      "ordinaryGate": 1,
+      "stop": 0
+    },
+    {
+      "classification": "Clean",
+      "fault": 0,
+      "name": "retained-00-last_clean-cycle005-00-R.bin",
+      "ordinaryGate": 1,
+      "stop": 0
+    },
+    {
+      "classification": "Clean",
+      "fault": 0,
+      "name": "retained-00-last_clean-cycle005-05-R.bin",
+      "ordinaryGate": 1,
+      "stop": 0
+    },
+    {
+      "classification": "Faulted",
+      "fault": 4097,
+      "name": "retained-01-transition-cycle006-00-R.bin",
+      "ordinaryGate": 0,
+      "stop": 1
+    },
+    {
+      "classification": "Faulted",
+      "fault": 4097,
+      "name": "retained-02-post_fault-cycle006-04-R.bin",
+      "ordinaryGate": 0,
+      "stop": 1
+    }
+  ],
+  "inputs": [
+    {
+      "bytes": 12572,
+      "name": "native.stdout.bin",
+      "sha256": "9536615e385ac7b489460d2db1e3770ad7532953b51ec29f3e623f8c1b0a39f2"
+    },
+    {
+      "bytes": 0,
+      "name": "native.stderr.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 17312,
+      "name": "execute-envelope.txt",
+      "sha256": "45ee77be970d4f49ab0f733dbaae91857d0019fa95cd1774798513b4ff2a0f0b"
+    },
+    {
+      "bytes": 601388,
+      "name": "record.json",
+      "sha256": "d627bbaac5baeffd302a1a7e5abe0903be97396198de47a0b32da8bf677724c3"
+    },
+    {
+      "bytes": 6202,
+      "name": "result.json",
+      "sha256": "a505eed4e3045c273ad48e2de580f6a1b49263d7f357942ce7525421c5d6281d"
+    },
+    {
+      "bytes": 3974,
+      "name": "readiness-decision.json",
+      "sha256": "9c4ee8958b453d944f9dbf8279c86704e97bcca8be2bc7a7766768d7da7aacac"
+    },
+    {
+      "bytes": 2181,
+      "name": "reviewed-manifest.json",
+      "sha256": "8cb73c48ff6ef21e13e563efc96b59aa7f6353054d3f433cd3962d24523515ff"
+    },
+    {
+      "bytes": 63,
+      "name": "metadata-pre.txt",
+      "sha256": "799c2812993158fab387c1c6711aa15ad04e3cc72c06d11761aacc17ccbcfd2f"
+    },
+    {
+      "bytes": 73,
+      "name": "metadata-before-invoke.txt",
+      "sha256": "204773705d995c0b0c8b8570b83c14033aa07120fcc5fb64c66f69f35024db57"
+    },
+    {
+      "bytes": 64,
+      "name": "metadata-post.txt",
+      "sha256": "30201d7619ae9a669eee4a7b98316ee30836120221eaca402f131d6ad67b74ac"
+    },
+    {
+      "bytes": 504,
+      "name": "owner-blackout-observation.json",
+      "sha256": "523376660ba8a3b7e424c517a9f7b0a7ac15aef02c702a3a5aa1684e84553a0c"
+    },
+    {
+      "bytes": 153,
+      "name": "ui-after/before-summary.json",
+      "sha256": "953e9270f5a0c6e7b8d950458c7a1e4b0eec40eaa58273734ec1bb27c6634488"
+    }
+  ],
+  "native_stdout_bytes": 12572,
+  "network_calls": 0,
+  "pass": true,
+  "physical_report": "Owner subsequently reported panel went dark; no exact physical transition timestamp and no causal proof.",
+  "qualification": {
+    "baselineDuplicatesCountedCycle": true,
+    "globalCountersAdjusted": false,
+    "keyCausalityEstablished": false,
+    "nativeAccepted": true,
+    "observationAccepted": true,
+    "observationWindow": {
+      "completedRPairOverlappingOrAfterDownBegins": true,
+      "downBeginsBeforeOrAtLastReadCompletion": true,
+      "keyWithinObservedWindow": true,
+      "lastCompletedReadDataAfterUs": 167671261084
+    },
+    "ordering": {
+      "classification": "retained_clean_and_fault_reads_after_down_return",
+      "firstFaultRead": {
+        "afterUs": 167671260439,
+        "beforeUs": 167671260342,
+        "classification": "Faulted",
+        "cycleIndex": 6,
+        "role": "transition"
+      },
+      "firstFaultReadVsDown": "strictly_after",
+      "keyCausalityEstablished": false,
+      "latestCleanRead": {
+        "afterUs": 167671010211,
+        "beforeUs": 167671010145,
+        "classification": "Clean",
+        "cycleIndex": 5,
+        "role": "last-clean"
+      },
+      "scope": "full OUT-before/IN-after USB brackets, conditional on reply freshness; key call/return is not UI consumption; no physical-light timestamp",
+      "softwareTransitionBracket": {
+        "afterUs": 167671260439,
+        "beforeUs": 167671010145
+      },
+      "transitionBracketVsDown": "strictly_after"
+    },
+    "physicalPictureObserved": false,
+    "softwareOnsetObserved": true,
+    "transportAccepted": true,
+    "trialQualificationScope": "clean cycle-one trigger, successful down/up workflow and completed R coverage at/after Down begins; causality not established",
+    "trialQualified": true,
+    "trialRejectionReasons": [],
+    "uiReceiptObserved": false,
+    "workflowAttempts": 1
+  },
+  "readiness_evidence": [
+    {
+      "logical_path": "onset-preparation-20261028ca/phase-decision.md",
+      "sha256": "43db0d12a9a255c8ff224215ac837ad29acb5eabcb4e66922058ae03cbfc6b86"
+    },
+    {
+      "logical_path": "onset-preparation-20261028ca/initialization-01/lifecycle-after.txt",
+      "sha256": "f8756ee9342efaff8bf1820fd76ec7d13d0e412a8209629720b8d9a3117a7dc5"
+    },
+    {
+      "logical_path": "onset-preparation-20261028ca/initialization-01/summary.json",
+      "sha256": "b7b676ed5e898bf90763c6ddc0631ad0d4538033b74d30885e73e1b080d33789"
+    },
+    {
+      "logical_path": "onset-preparation-20261028ca/initialization-01/mode2.json",
+      "sha256": "f21c99a23463f15a19596e2790ccda2646187b2c384d376c58ebeb6adbfc6140"
+    },
+    {
+      "logical_path": "onset-sync-20261027bx/identity-qualification-07.json",
+      "sha256": "720ad08670adb26728bf3b82922d07084e84bc9b4afa8044d99d95d08085a740"
+    },
+    {
+      "logical_path": "onset-sync-20261027bx/census-qualification-08-summary.json",
+      "sha256": "0e57459453471bd7bd76d5043dbeb2621be70f25a271259ce1bcb8b0c218197c"
+    },
+    {
+      "logical_path": "recovered-replay-phase-audit-20261027bs/phase-review.md",
+      "sha256": "9a399ef961f1e126d2c25df39cd0f1d7c2307c7d06cda4e307b5d96ac2626ce5"
+    },
+    {
+      "logical_path": "onset-preparation-20261028ca/owner-post-initialization.json",
+      "sha256": "d5532b42622b4b6adb13b3157159acf01eefcca77c78d653eee27a24a91d633d"
+    },
+    {
+      "logical_path": "onset-preparation-20261028ca/phase-decision-v2.md",
+      "sha256": "4637297700c5f76905593e19cb43079075a014f8bed2d804315ad26a30f72f6d"
+    },
+    {
+      "logical_path": "onset-preparation-20261028ca/header-refresh-01/result.json",
+      "sha256": "ed9d468e6ed3f0b21316b119203ca68ad4e0da21194bfe0d9d5d93aab382094f"
+    },
+    {
+      "logical_path": "onset-sync-20261027bx/reviews/independent-wrapper-review.md",
+      "sha256": "ebd6807cdb10e023ee58b7af947b11632558f3da207a893f0e0a17e5a837d5f0"
+    }
+  ],
+  "retained_raw_files": [
+    {
+      "bytes": 256,
+      "name": "retained-00-trigger_baseline-cycle001-00-R.bin",
+      "sha256": "8a661633f56e7ff6be763f4c8b2b7f51a0babf239f11b4b1dbafc66b0b1f33b9"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-00-trigger_baseline-cycle001-01-M.bin",
+      "sha256": "654ed8df9da3ceeeb407bfcc330e31b4eb4f7b261880eb1a8cbc84e611e78948"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-trigger_baseline-cycle001-02-C.bin",
+      "sha256": "c9bc21efabc33dc5c687f230ecf321722552c99518957cc37b833c7aaaf9c2b0"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-00-trigger_baseline-cycle001-03-H.bin",
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-00-trigger_baseline-cycle001-04-L.bin",
+      "sha256": "3dd6842a98dc6c84280cccdb60549f261c6b13d578038a7405a388569d884795"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-trigger_baseline-cycle001-05-R.bin",
+      "sha256": "8a661633f56e7ff6be763f4c8b2b7f51a0babf239f11b4b1dbafc66b0b1f33b9"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-last_clean-cycle005-00-R.bin",
+      "sha256": "2d82e966242aecfc7731aba09f7d3e5d327ebec3c71cc0f8cc3642e5649a48b0"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-00-last_clean-cycle005-01-M.bin",
+      "sha256": "5c61ae7bf618e2aa3dced0d7e3af684894ea6999d93cb6ed985a6d6559af6e74"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-00-last_clean-cycle005-02-C.bin",
+      "sha256": "2efca8a0f734277a3df0351751a2ec11d33d20423983381f5068299289fc308a"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-00-last_clean-cycle005-03-H.bin",
+      "sha256": "045d4bb240e602779b984b7c941bbd849673d26fc050c135f4e3f7e1fa818712"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-00-last_clean-cycle005-04-L.bin",
+      "sha256": "9a85df8e02dbe10d3ab7f70f0e0d1a04e7f25712e4b7c1d7c8c793625af44fcd"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-00-last_clean-cycle005-05-R.bin",
+      "sha256": "5594fe8d65e00b653651b72f10c7e5ea4646f4d594d2b713ec412119c2daff4f"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-01-transition-cycle006-00-R.bin",
+      "sha256": "10b298910e5e1170710fb7710cdcbfe02524db0c148ddf28a7ddfc68d230ba5e"
+    },
+    {
+      "bytes": 68,
+      "name": "retained-02-post_fault-cycle006-00-M.bin",
+      "sha256": "f5af9477bdac08c7badae233f337ac204e0b108e1185fb8f4e5bc2c7dc8f3fa1"
+    },
+    {
+      "bytes": 16,
+      "name": "retained-02-post_fault-cycle006-01-C.bin",
+      "sha256": "2efca8a0f734277a3df0351751a2ec11d33d20423983381f5068299289fc308a"
+    },
+    {
+      "bytes": 96,
+      "name": "retained-02-post_fault-cycle006-02-H.bin",
+      "sha256": "31bc530dd5b8d1ddca5e8b734ba6af1482fba3d73bbb3809b18d3db36498f451"
+    },
+    {
+      "bytes": 64,
+      "name": "retained-02-post_fault-cycle006-03-L.bin",
+      "sha256": "57157055a8a1c61fa5fa9344bbd1d89af35ab87bb2f193faf73a67e2776b7271"
+    },
+    {
+      "bytes": 256,
+      "name": "retained-02-post_fault-cycle006-04-R.bin",
+      "sha256": "10b298910e5e1170710fb7710cdcbfe02524db0c148ddf28a7ddfc68d230ba5e"
+    }
+  ],
+  "schema": "cb-independent-capture-verification-v1",
+  "separate_post_ui_cached_tab": "d/ug.tab@Live",
+  "target_operations_by_reviewer": 0,
+  "timing": {
+    "armedUs": 167670018061,
+    "conservativeSoftwareBracketWidthUs": 250294,
+    "down": {
+      "afterUs": 167670151007,
+      "beforeUs": 167670020734,
+      "exitCode": 0,
+      "phase": "down",
+      "reaped": true,
+      "started": true,
+      "stderrBytes": 0,
+      "stdoutBytes": 0,
+      "timedOut": false
+    },
+    "downReturnToBracketStartUs": 859138,
+    "downReturnToFirstFaultOutUs": 1109335,
+    "endUs": 167671262404,
+    "firstFaultR": {
+      "afterUs": 167671260439,
+      "beforeUs": 167671260342,
+      "classification": "Faulted",
+      "cycleIndex": 6,
+      "role": "transition"
+    },
+    "latestCleanR": {
+      "afterUs": 167671010211,
+      "beforeUs": 167671010145,
+      "classification": "Clean",
+      "cycleIndex": 5,
+      "role": "last-clean"
+    },
+    "startUs": 167670005588,
+    "triggerBaselineEndUs": 167670015753,
+    "up": {
+      "afterUs": 167670327726,
+      "beforeUs": 167670302109,
+      "exitCode": 0,
+      "phase": "up",
+      "reaped": true,
+      "started": true,
+      "stderrBytes": 0,
+      "stdoutBytes": 0,
+      "timedOut": false
+    },
+    "upReturnToBracketStartUs": 682419
+  }
+}

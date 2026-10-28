@@ -1,0 +1,27 @@
+EXIDX RANGE 002a5a6c..002a5aa8; input 002a5a6c; may contain multiple functions and literal pools
+002a5a6c 70b5       push       {r4, r5, r6, lr}
+002a5a6e 0021       movs       r1, #0
+002a5a70 0b4d       ldr        r5, [pc, #0x2c] ; literal[002a5aa0]=00224584
+002a5a72 0446       mov        r4, r0
+002a5a74 faf76cfd   bl         #0x2a0550
+002a5a78 7d44       add        r5, pc
+002a5a7a 0a49       ldr        r1, [pc, #0x28] ; literal[002a5aa4]=0000482c ; GOT?=004c1e2c
+002a5a7c 2b46       mov        r3, r5
+002a5a7e 0022       movs       r2, #0
+002a5a80 6ff00106   mvn        r6, #1
+002a5a84 04f12c05   add.w      r5, r4, #0x2c
+002a5a88 2046       mov        r0, r4
+002a5a8a 5b58       ldr        r3, [r3, r1]
+002a5a8c e661       str        r6, [r4, #0x1c]
+002a5a8e 0833       adds       r3, #8
+002a5a90 6562       str        r5, [r4, #0x24]
+002a5a92 2360       str        r3, [r4]
+002a5a94 2262       str        r2, [r4, #0x20]
+002a5a96 a262       str        r2, [r4, #0x28]
+002a5a98 84f82c20   strb.w     r2, [r4, #0x2c]
+002a5a9c 70bd       pop        {r4, r5, r6, pc}
+002a5a9e 00bf       nop        
+002a5aa0 8445       cmp        ip, r0
+002a5aa2 2200       movs       r2, r4
+002a5aa4 2c48       ldr        r0, [pc, #0xb0] ; literal[002a5b58]=0191eba5
+002a5aa6 0000       movs       r0, r0

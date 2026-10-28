@@ -1,0 +1,164 @@
+EXIDX RANGE 002463fc..002465a0; input 002463fc; may contain multiple functions and literal pools
+002463fc 5d4a       ldr        r2, [pc, #0x174] ; literal[00246574]=00283bfc
+002463fe 5e4b       ldr        r3, [pc, #0x178] ; literal[00246578]=00004e04 ; GOT?=00000000
+00246400 7a44       add        r2, pc
+00246402 2de9f04f   push.w     {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00246406 5d48       ldr        r0, [pc, #0x174] ; literal[0024657c]=001b5ee6
+00246408 bdb0       sub        sp, #0xf4
+0024640a 0d46       mov        r5, r1
+0024640c d358       ldr        r3, [r2, r3]
+0024640e 7844       add        r0, pc
+00246410 05ae       add        r6, sp, #0x14
+00246412 1b68       ldr        r3, [r3]
+00246414 3b93       str        r3, [sp, #0xec]
+00246416 4ff00003   mov.w      r3, #0
+0024641a d1e90037   ldrd       r3, r7, [r1]
+0024641e ff1a       subs       r7, r7, r3
+00246420 6af61eff   bl         #0xb1260
+00246424 5649       ldr        r1, [pc, #0x158] ; literal[00246580]=00134370
+00246426 0346       mov        r3, r0
+00246428 4ff49c72   mov.w      r2, #0x138
+0024642c 3046       mov        r0, r6
+0024642e 0092       str        r2, [sp]
+00246430 7944       add        r1, pc
+00246432 0322       movs       r2, #3
+00246434 6bf618fb   bl         #0xb1a68
+00246438 3046       mov        r0, r6
+0024643a 6bf619fa   bl         #0xb1870
+0024643e 5149       ldr        r1, [pc, #0x144] ; literal[00246584]=001b5f44
+00246440 0f22       movs       r2, #0xf
+00246442 0446       mov        r4, r0
+00246444 7944       add        r1, pc
+00246446 12f68ce8   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+0024644a 2368       ldr        r3, [r4]
+0024644c 2046       mov        r0, r4
+0024644e 53f80c2c   ldr        r2, [r3, #-0xc]
+00246452 2244       add        r2, r4
+00246454 d368       ldr        r3, [r2, #0xc]
+00246456 23f04a03   bic        r3, r3, #0x4a
+0024645a 43f00803   orr        r3, r3, #8
+0024645e d360       str        r3, [r2, #0xc]
+00246460 d5e90031   ldrd       r3, r1, [r5]
+00246464 c91a       subs       r1, r1, r3
+00246466 10f698ec   blx        #0x56d98 ; _ZNSo9_M_insertImEERSoT_
+0024646a 4749       ldr        r1, [pc, #0x11c] ; literal[00246588]=001b5f28
+0024646c 2222       movs       r2, #0x22
+0024646e 2046       mov        r0, r4
+00246470 7944       add        r1, pc
+00246472 12f676e8   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+00246476 07f00f07   and        r7, r7, #0xf
+0024647a 2046       mov        r0, r4
+0024647c c7f11007   rsb.w      r7, r7, #0x10
+00246480 3946       mov        r1, r7
+00246482 10f68aec   blx        #0x56d98 ; _ZNSo9_M_insertImEERSoT_
+00246486 3046       mov        r0, r6
+00246488 5ffa87fa   uxtb.w     sl, r7
+0024648c 6bf65af9   bl         #0xb1744
+00246490 0026       movs       r6, #0
+00246492 6c68       ldr        r4, [r5, #4]
+00246494 08e0       b          #0x2464a8
+00246496 84f800a0   strb.w     sl, [r4]
+0024649a 0136       adds       r6, #1
+0024649c b742       cmp        r7, r6
+0024649e 6c68       ldr        r4, [r5, #4]
+002464a0 04f10104   add.w      r4, r4, #1
+002464a4 6c60       str        r4, [r5, #4]
+002464a6 34d0       beq        #0x246512
+002464a8 ab68       ldr        r3, [r5, #8]
+002464aa 9c42       cmp        r4, r3
+002464ac f3d1       bne        #0x246496
+002464ae d5f80090   ldr.w      sb, [r5]
+002464b2 6ff00043   mvn        r3, #0x80000000
+002464b6 a4eb0908   sub.w      r8, r4, sb
+002464ba 9845       cmp        r8, r3
+002464bc 44d0       beq        #0x246548
+002464be 4ff0010b   mov.w      fp, #1
+002464c2 b8f1000f   cmp.w      r8, #0
+002464c6 0dd0       beq        #0x2464e4
+002464c8 4fea480b   lsl.w      fp, r8, #1
+002464cc b8eb480f   cmp.w      r8, r8, lsl #1
+002464d0 02d9       bls        #0x2464d8
+002464d2 6ff0004b   mvn        fp, #0x80000000
+002464d6 05e0       b          #0x2464e4
+002464d8 bbf1000f   cmp.w      fp, #0
+002464dc 6ff00043   mvn        r3, #0x80000000
+002464e0 b8bf       it         lt
+002464e2 9b46       movlt      fp, r3
+002464e4 5846       mov        r0, fp
+002464e6 08f10104   add.w      r4, r8, #1
+002464ea 10f6c8ec   blx        #0x56e7c ; _Znwj
+002464ee b8f1000f   cmp.w      r8, #0
+002464f2 0346       mov        r3, r0
+002464f4 8344       add        fp, r0
+002464f6 0444       add        r4, r0
+002464f8 00f808a0   strb.w     sl, [r0, r8]
+002464fc 18dc       bgt        #0x246530
+002464fe b9f1000f   cmp.w      sb, #0
+00246502 1bd1       bne        #0x24653c
+00246504 0136       adds       r6, #1
+00246506 c5e90034   strd       r3, r4, [r5]
+0024650a b742       cmp        r7, r6
+0024650c c5f808b0   str.w      fp, [r5, #8]
+00246510 cad1       bne        #0x2464a8
+00246512 2b68       ldr        r3, [r5]
+00246514 e41a       subs       r4, r4, r3
+00246516 2307       lsls       r3, r4, #0x1c
+00246518 1cd1       bne        #0x246554
+0024651a 1c4a       ldr        r2, [pc, #0x70] ; literal[0024658c]=00283ade
+0024651c 164b       ldr        r3, [pc, #0x58] ; literal[00246578]=00004e04 ; GOT?=00000000
+0024651e 7a44       add        r2, pc
+00246520 d358       ldr        r3, [r2, r3]
+00246522 1a68       ldr        r2, [r3]
+00246524 3b9b       ldr        r3, [sp, #0xec]
+00246526 5a40       eors       r2, r3
+00246528 12d1       bne        #0x246550
+0024652a 3db0       add        sp, #0xf4
+0024652c bde8f08f   pop.w      {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00246530 4246       mov        r2, r8
+00246532 4946       mov        r1, sb
+00246534 0393       str        r3, [sp, #0xc]
+00246536 10f67cec   blx        #0x56e30 ; memmove
+0024653a 039b       ldr        r3, [sp, #0xc]
+0024653c 4846       mov        r0, sb
+0024653e 0393       str        r3, [sp, #0xc]
+00246540 10f656ec   blx        #0x56df0 ; _ZdlPv
+00246544 039b       ldr        r3, [sp, #0xc]
+00246546 dde7       b          #0x246504
+00246548 1148       ldr        r0, [pc, #0x44] ; literal[00246590]=0013abca
+0024654a 7844       add        r0, pc
+0024654c 10f62ced   blx        #0x56fa8 ; _ZSt20__throw_length_errorPKc
+00246550 10f6ceea   blx        #0x56af0 ; __stack_chk_fail
+00246554 0f4a       ldr        r2, [pc, #0x3c] ; literal[00246594]=001b5d96
+00246556 4ff4a073   mov.w      r3, #0x140
+0024655a 0f49       ldr        r1, [pc, #0x3c] ; literal[00246598]=001b5e5c
+0024655c 0f48       ldr        r0, [pc, #0x3c] ; literal[0024659c]=001b5eaa
+0024655e 7a44       add        r2, pc
+00246560 7944       add        r1, pc
+00246562 7844       add        r0, pc
+00246564 31f10efc   bl         #0x377d84
+00246568 3046       mov        r0, r6
+0024656a 6bf6ebf8   bl         #0xb1744
+0024656e 10f6aeef   blx        #0x574cc ; __cxa_end_cleanup
+00246572 00bf       nop        
+00246574 fc3b       subs       r3, #0xfc
+00246576 2800       movs       r0, r5
+00246578 044e       ldr        r6, [pc, #0x10] ; literal[0024658c]=00283ade
+0024657a 0000       movs       r0, r0
+0024657c e65e       ldrsh      r6, [r4, r3]
+0024657e 1b00       movs       r3, r3
+00246580 7043       muls       r0, r6, r0
+00246582 1300       movs       r3, r2
+00246584 445f       ldrsh      r4, [r0, r5]
+00246586 1b00       movs       r3, r3
+00246588 285f       ldrsh      r0, [r5, r4]
+0024658a 1b00       movs       r3, r3
+0024658c de3a       subs       r2, #0xde
+0024658e 2800       movs       r0, r5
+00246590 caab       add        r3, sp, #0x328
+00246592 1300       movs       r3, r2
+00246594 965d       ldrb       r6, [r2, r6]
+00246596 1b00       movs       r3, r3
+00246598 5c5e       ldrsh      r4, [r3, r1]
+0024659a 1b00       movs       r3, r3
+0024659c aa5e       ldrsh      r2, [r5, r2]
+0024659e 1b00       movs       r3, r3

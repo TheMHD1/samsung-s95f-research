@@ -1,0 +1,32 @@
+EXIDX RANGE 00327a14..00327a5c; input 00327a14; may contain multiple functions and literal pools
+00327a14 007a       ldrb       r0, [r0, #8]
+00327a16 7047       bx         lr
+00327a18 0023       movs       r3, #0
+00327a1a 0846       mov        r0, r1
+00327a1c 1a46       mov        r2, r3
+00327a1e 1946       mov        r1, r3
+00327a20 2ff54cbd   b.w        #0x574bc ; PEM_read_bio_PrivateKey
+00327a24 0023       movs       r3, #0
+00327a26 0846       mov        r0, r1
+00327a28 1a46       mov        r2, r3
+00327a2a 1946       mov        r1, r3
+00327a2c 2ff5f2bb   b.w        #0x57214 ; PEM_read_bio_PUBKEY
+00327a30 8842       cmp        r0, r1
+00327a32 10d0       beq        #0x327a56
+00327a34 08b5       push       {r3, lr}
+00327a36 4068       ldr        r0, [r0, #4]
+00327a38 4968       ldr        r1, [r1, #4]
+00327a3a 90f90030   ldrsb.w    r3, [r0]
+00327a3e 2a2b       cmp        r3, #0x2a
+00327a40 91f90030   ldrsb.w    r3, [r1]
+00327a44 08bf       it         eq
+00327a46 0130       addeq      r0, #1
+00327a48 2a2b       cmp        r3, #0x2a
+00327a4a 08bf       it         eq
+00327a4c 0131       addeq      r1, #1
+00327a4e 30f51eee   blx        #0x5868c ; strcmp
+00327a52 c00f       lsrs       r0, r0, #0x1f
+00327a54 08bd       pop        {r3, pc}
+00327a56 0020       movs       r0, #0
+00327a58 7047       bx         lr
+00327a5a 00bf       nop        

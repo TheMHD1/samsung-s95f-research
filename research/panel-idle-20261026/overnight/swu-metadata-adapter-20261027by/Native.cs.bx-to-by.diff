@@ -1,0 +1,125 @@
+--- ${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/Native.cs	2026-10-27 23:21:52.525479845 +0000
++++ Native.cs	2026-10-27 23:40:36.162185613 +0000
+@@ -6,8 +6,32 @@
+ using System.Security.Cryptography;
+ using System.Text;
+ 
++internal enum PreflightReason { PathAllowlist,Realpath,CanonicalPath,Open,StatxReturn,StatxMask,RegularMode,FileSize,Read,EndOfFile,IdentityDrift,Hash,ElfValidation,Unexpected }
++internal enum PreflightStage { Start,Realpath,CanonicalPath,Open,StatBefore,Mode,Size,Read,EndOfFile,StatAfter,Hash,Elf,RecheckHeld,RecheckOpen,RecheckPath }
++internal sealed class PreflightException : Exception
++{
++    internal readonly PreflightReason Reason;
++    internal readonly PreflightStage Stage;
++    internal readonly string FileLabel;
++    internal PreflightException(PreflightReason reason,PreflightStage stage=PreflightStage.Start,string label="none") {Reason=reason;Stage=stage;FileLabel=label;}
++}
++internal static class Preflight
++{
++    internal static void Need(bool ok,PreflightReason reason) {if(!ok)throw new PreflightException(reason);}
++    internal static string Label(string p)=>p switch {
++        Program.EnvelopePath=>"envelope",Program.BlobPath=>"master","/usr/lib/libvconf.so.0"=>"vconf-file",
++        "/usr/lib/libteec_trustware_common.so"=>"common-file","/usr/lib/libteec_trustware.so"=>"backend-file","/usr/lib/libteec.so"=>"wrapper-file",_=>"host-fixture"};
++}
+ internal static class Native
+ {
++    internal const uint RequiredStatMask=0x3df; // TYPE MODE NLINK UID GID MTIME CTIME INO SIZE; no ATIME/BLOCKS.
++    internal static int OpenFlags(Architecture architecture)=>architecture switch {
++        Architecture.Arm=>0x80000|0x8000|0x20000, // CLOEXEC|ARM NOFOLLOW|ARM LARGEFILE; RDONLY=0.
++        Architecture.X64=>0x80000|0x20000, // CLOEXEC|x64 NOFOLLOW; RDONLY=0.
++        _=>throw new InvalidOperationException("unsupported open architecture")};
++    internal static int OpenReadOnlyNoFollow(string path)=>open(path,OpenFlags(RuntimeInformation.ProcessArchitecture));
++    internal static void ValidateStatMask(byte[] b)=>Preflight.Need((BinaryPrimitives.ReadUInt32LittleEndian(b)&RequiredStatMask)==RequiredStatMask,PreflightReason.StatxMask);
++
+     [DllImport("libc.so.6",SetLastError=true)] internal static extern int open(string path,int flags);
+     [DllImport("libc.so.6",SetLastError=true)] internal static extern int close(int fd);
+     [DllImport("libc.so.6",SetLastError=true)] internal static extern IntPtr read(int fd,IntPtr data,UIntPtr count);
+@@ -39,8 +63,8 @@
+         byte[] b=new byte[256];
+         int nr=RuntimeInformation.ProcessArchitecture==Architecture.Arm?397:RuntimeInformation.ProcessArchitecture==Architecture.X64?332:-1;
+         Core.Require(nr>=0,"statx architecture");
+-        Core.Require(syscall((IntPtr)nr,(IntPtr)fd,new byte[1],(IntPtr)0x1000,(IntPtr)0x7ff,b).ToInt64()==0,"statx failed");
+-        Core.Require((BinaryPrimitives.ReadUInt32LittleEndian(b)&0x7ff)==0x7ff,"statx mask"); return b;
++        Preflight.Need(syscall((IntPtr)nr,(IntPtr)fd,new byte[1],(IntPtr)0x1000,(IntPtr)0x7ff,b).ToInt64()==0,PreflightReason.StatxReturn);
++        ValidateStatMask(b); return b;
+     }
+     internal static string Identity(byte[] s)
+     {
+@@ -55,43 +79,55 @@
+     internal readonly string Resolved,Identity;
+     internal readonly byte[] Data;
+     private bool disposed;
++    private readonly string label;
+     internal PinnedFile(Pin pin,bool hostTest=false)
+     {
+-        using Block name=new Block(4096);
+-        Core.Require(Native.realpath(pin.Path,name.Pointer)!=IntPtr.Zero,"realpath failed");
+-        Resolved=Marshal.PtrToStringUTF8(name.Pointer)??throw new InvalidOperationException("realpath string");
+-        if(!hostTest) {
+-            Core.Require(Allowed(pin.Path),"path allowlist");
+-            Core.Require(Resolved==pin.Path || (pin.Path.StartsWith("/usr/lib/",StringComparison.Ordinal) && Resolved.StartsWith("/usr/lib/",StringComparison.Ordinal)),"canonical allowlist");
+-        }
+-        Fd=Native.open(Resolved,0x80000|0x20000); // O_RDONLY|O_CLOEXEC|O_NOFOLLOW
+-        Core.Require(Fd>=0,"open failed"); Data=new byte[pin.Size];
++        label=Preflight.Label(pin.Path); Fd=-1; Data=Array.Empty<byte>(); Resolved="";Identity="";
++        PreflightStage stage=PreflightStage.Realpath;
+         try {
++            using Block name=new Block(4096);
++            Preflight.Need(Native.realpath(pin.Path,name.Pointer)!=IntPtr.Zero,PreflightReason.Realpath);
++            Resolved=Marshal.PtrToStringUTF8(name.Pointer)??throw new PreflightException(PreflightReason.Realpath);
++            stage=PreflightStage.CanonicalPath;
++            if(!hostTest) {
++                Preflight.Need(Allowed(pin.Path),PreflightReason.PathAllowlist);
++                Preflight.Need(Resolved==pin.Path || (pin.Path.StartsWith("/usr/lib/",StringComparison.Ordinal) && Resolved.StartsWith("/usr/lib/",StringComparison.Ordinal)),PreflightReason.CanonicalPath);
++            }
++            stage=PreflightStage.Open;Fd=Native.OpenReadOnlyNoFollow(Resolved);Preflight.Need(Fd>=0,PreflightReason.Open);
++            Data=new byte[pin.Size];stage=PreflightStage.StatBefore;
+             byte[] before=Native.Stat(Fd); Identity=Native.Identity(before);
+-            ushort mode=BinaryPrimitives.ReadUInt16LittleEndian(before.AsSpan(28));
+-            Core.Require((mode&0xf000)==0x8000 && (mode&0x12)==0,"regular non-group/other-writable file");
+-            Core.Require(BinaryPrimitives.ReadUInt64LittleEndian(before.AsSpan(40))==(ulong)pin.Size,"file size");
+-            GCHandle held=GCHandle.Alloc(Data,GCHandleType.Pinned);
++            stage=PreflightStage.Mode;ushort mode=BinaryPrimitives.ReadUInt16LittleEndian(before.AsSpan(28));
++            Preflight.Need((mode&0xf000)==0x8000 && (mode&0x12)==0,PreflightReason.RegularMode);
++            stage=PreflightStage.Size;Preflight.Need(BinaryPrimitives.ReadUInt64LittleEndian(before.AsSpan(40))==(ulong)pin.Size,PreflightReason.FileSize);
++            stage=PreflightStage.Read;GCHandle held=GCHandle.Alloc(Data,GCHandleType.Pinned);
+             try {
+                 int offset=0;
+                 while(offset<Data.Length) {
+                     long n=Native.read(Fd,IntPtr.Add(held.AddrOfPinnedObject(),offset),(UIntPtr)(Data.Length-offset)).ToInt64();
+-                    Core.Require(n>0 && n<=Data.Length-offset,"complete read"); offset+=(int)n;
++                    Preflight.Need(n>0 && n<=Data.Length-offset,PreflightReason.Read); offset+=(int)n;
+                 }
+-                using Block extra=new Block(1);
+-                Core.Require(Native.read(Fd,extra.Pointer,(UIntPtr)1).ToInt64()==0,"EOF");
++                stage=PreflightStage.EndOfFile;using Block extra=new Block(1);
++                Preflight.Need(Native.read(Fd,extra.Pointer,(UIntPtr)1).ToInt64()==0,PreflightReason.EndOfFile);
+             } finally { held.Free(); }
+-            Core.Require(Identity==Native.Identity(Native.Stat(Fd)),"file identity drift");
+-            Core.Require(Core.Hash(Data)==pin.Hash,"file hash");
+-            if(pin.BuildId.Length>0) Core.Require(Elf.BuildId(Data)==pin.BuildId,"ELF Build ID");
+-        } catch { CryptographicOperations.ZeroMemory(Data); Native.close(Fd); throw; }
++            stage=PreflightStage.StatAfter;Preflight.Need(Identity==Native.Identity(Native.Stat(Fd)),PreflightReason.IdentityDrift);
++            stage=PreflightStage.Hash;Preflight.Need(Core.Hash(Data)==pin.Hash,PreflightReason.Hash);
++            stage=PreflightStage.Elf;if(pin.BuildId.Length>0)Preflight.Need(Elf.BuildId(Data)==pin.BuildId,PreflightReason.ElfValidation);
++        } catch(Exception e) {
++            CryptographicOperations.ZeroMemory(Data);if(Fd>=0)Native.close(Fd);
++            throw new PreflightException(e is PreflightException p?p.Reason:stage==PreflightStage.Elf?PreflightReason.ElfValidation:PreflightReason.Unexpected,stage,label);
++        }
+     }
+     private static bool Allowed(string p) => p==Program.EnvelopePath || p==Program.BlobPath ||
+         p=="/usr/lib/libteec.so" || p=="/usr/lib/libteec_trustware.so" || p=="/usr/lib/libteec_trustware_common.so" || p=="/usr/lib/libvconf.so.0";
+     internal void Recheck() {
+-        Core.Require(!disposed && Identity==Native.Identity(Native.Stat(Fd)),"held file drift");
+-        int fd=Native.open(Resolved,0x80000|0x20000); Core.Require(fd>=0,"path disappeared");
+-        try { Core.Require(Identity==Native.Identity(Native.Stat(fd)),"path replacement"); } finally { Native.close(fd); }
++        PreflightStage stage=PreflightStage.RecheckHeld;int fd=-1;
++        try {
++            Preflight.Need(!disposed && Identity==Native.Identity(Native.Stat(Fd)),PreflightReason.IdentityDrift);
++            stage=PreflightStage.RecheckOpen;fd=Native.OpenReadOnlyNoFollow(Resolved);Preflight.Need(fd>=0,PreflightReason.Open);
++            stage=PreflightStage.RecheckPath;Preflight.Need(Identity==Native.Identity(Native.Stat(fd)),PreflightReason.IdentityDrift);
++        } catch(Exception e) {
++            throw new PreflightException(e is PreflightException p?p.Reason:PreflightReason.Unexpected,stage,label);
++        } finally {if(fd>=0)Native.close(fd);}
+     }
+     public void Dispose() { if(!disposed) { CryptographicOperations.ZeroMemory(Data); Native.close(Fd); disposed=true; } }
+ }

@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 spec=importlib.util.spec_from_file_location('public_export',Path(__file__).parents[1]/'tools/export_public.py')
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -59,5 +60,34 @@ class ExportChecks(unittest.TestCase):
             public=next(r for r in records if r['disposition']=='export')
             self.assertNotEqual(public['source_sha256'],public['public_sha256'])
             self.assertEqual(m.sha((dest/public['public_path']).read_bytes()),public['public_sha256'])
+    def test_large_omissions_are_hashed_without_full_reads(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)/'input';dest=Path(d)/'public';root.mkdir();dest.mkdir()
+            blob=b'PK\x03\x04'+b'x'*8_000_001
+            (root/'vendor.zip').write_bytes(blob)
+            (root/'bulk.txt').write_bytes(blob[4:])
+            original=Path.read_bytes
+            def bounded_read(path):
+                if path.parent==root:raise AssertionError('large input read in full')
+                return original(path)
+            with patch.object(Path,'read_bytes',bounded_read):m.export(root,dest)
+            rows=json.loads((dest/'manifests/source-dispositions.json').read_text())['records']
+            self.assertEqual({r['reason'] for r in rows},{'binary-firmware-media-or-build-product','bulk-acquisition-not-authored-analysis'})
+            self.assertEqual({r['source_sha256'] for r in rows},{m.sha(blob),m.sha(blob[4:])})
+            self.assertEqual(sum(r['bytes'] for r in rows),len(blob)*2-4)
+            self.assertTrue(all(r['disposition']=='omit' and 'public_path' not in r for r in rows))
+    def test_explicit_in_progress_scope_is_inventoried_without_reading(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)/'input';dest=Path(d)/'public';root.mkdir();dest.mkdir()
+            (root/'draft-work.md').write_text('not frozen')
+            with patch.object(Path,'read_bytes',side_effect=AssertionError('deferred input read')):
+                m.export(root,dest,('draft-work',))
+            manifest=json.loads((dest/'manifests/source-dispositions.json').read_text())
+            self.assertEqual(manifest['deferred_name_fragments'],['draft-work'])
+            row=manifest['records'][0]
+            self.assertEqual(row['reason'],'in-progress-outside-public-snapshot')
+            self.assertEqual(row['bytes'],10)
+            self.assertNotIn('source_sha256',row)
+            self.assertNotIn('public_path',row)
 
 if __name__=='__main__':unittest.main()

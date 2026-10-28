@@ -1,0 +1,17 @@
+EXIDX RANGE 002ab194..002ab1b8; input 002ab194; may contain multiple functions and literal pools
+002ab194 70b5       push       {r4, r5, r6, lr}
+002ab196 d0e90143   ldrd       r4, r3, [r0, #4]
+002ab19a 9c42       cmp        r4, r3
+002ab19c 0ad0       beq        #0x2ab1b4
+002ab19e 0546       mov        r5, r0
+002ab1a0 0e46       mov        r6, r1
+002ab1a2 54f8080b   ldr        r0, [r4], #8
+002ab1a6 3146       mov        r1, r6
+002ab1a8 0368       ldr        r3, [r0]
+002ab1aa 1b68       ldr        r3, [r3]
+002ab1ac 9847       blx        r3
+002ab1ae ab68       ldr        r3, [r5, #8]
+002ab1b0 a342       cmp        r3, r4
+002ab1b2 f6d1       bne        #0x2ab1a2
+002ab1b4 70bd       pop        {r4, r5, r6, pc}
+002ab1b6 00bf       nop        

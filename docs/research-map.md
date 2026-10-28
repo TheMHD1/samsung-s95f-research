@@ -23,7 +23,9 @@ rg --files research | rg '(reproduce|test|review|findings|disasm)'
 * [SWU target applicability](../research/research-20261027-external/reports/swu-target-applicability.md), [independent ABI and helper audit](../research/research-20261027-external/reviews/swu-independent-review.md).
 * `research/research-20261027-external/sources/swu-target-applicability/`: authored ABI inspection, offline plans and input manifests. Vendor library bytes are omitted.
 * `research/research-20261027-external/sources/minimal-swu-helper/`: isolated commands 0/1/2 prototype, mock backend and tests. [Host reproduction](reproduce.md) describes what is runnable without private inputs.
-* `research/panel-idle-20261026/overnight/swu-metadata-adapter-20261027bx/`: source-only publication snapshot of ongoing adapter/runner work. Read the additive [first target-attempt and ARM flag defect report](post-cutoff-swu-trial.md); it supersedes broad earlier readiness claims.
+* Adapter/runner source, host tests and actual outcome reports under `swu-metadata-adapter-20261027bx/`, `swu-metadata-adapter-20261027by/` and `swu-metadata-adapter-20261027bz/`. [The evidence update](update-20261028.md) connects the failed preflight/loader diagnostics to the bounded BZ service sequence without inferring validated metadata.
+* [Complete official encrypted firmware acquisition](../research/firmware-acquisition-20261028/acquisition-report.md): reusable acquisition/clear-directory inspection source, provenance, archive/member/section hashes and malformed-input tests. OEM ZIP/MSD bytes are omitted.
+* Authored SWU header-validation function traces, byte anchors and framing models under `swu-header-validation-20261027bx/`. In-progress authentication/integration/schema work is explicitly deferred from the current snapshot.
 
 ## Kernel, platform and hardware
 
@@ -36,7 +38,8 @@ rg --files research | rg '(reproduce|test|review|findings|disasm)'
 ## Instrumentation, protocol qualification and case studies
 
 * `research/panel-idle-20261026/overnight/managed-*`: bounded managed helpers with exact phase, length, error and cleanup rules; source, tests, reviews and result qualification remain together.
-* [Original passive RT observer source](../research/panel-idle-20261026/overnight/managed-usb-rt-passive-observer/Program.cs), and `onset-sync-20261027bx/`: ongoing synchronized one-key onset work and independent design review.
+* [Original passive RT observer source](../research/panel-idle-20261026/overnight/managed-usb-rt-passive-observer/Program.cs), and `onset-sync-20261027bx/`: synchronized one-key recorder/wrapper, parser, rejected-candidate diagnostics and independent reviews.
+* [CA phase preparation](../research/panel-idle-20261026/overnight/onset-preparation-20261028ca/phase-decision-v2.md) and [accepted CB onset](../research/panel-idle-20261026/overnight/onset-trial-20261028cb/findings.md), with separately rejected subsequent recovery. [Public 18-window fixture](../fixtures/onset-cb.json) and [standalone offline verifier](../tools/verify_onset.py).
 * `owner-paired-recovery-20261027bh/`, `owner-repeat-recovery-20261027bi/`, `recovered-replay-phase-audit-20261027bs/`, `apps-selected-panel-recovery-20261027bu/` and `full-confirmation-20261027bw/`: outcome reports, rejected observations and qualified recovery cases. Read their lifecycle reviews, not just headline findings.
 * Earlier `.onset/`, rejected source checkpoints, finite-logger and replay directories preserve failed collectors, timing mistakes, capacity bounds, corrective tests and reasons for non-acceptance.
 * [Recovery boundaries](recovery.md), [evidence rules](evidence-and-methods.md), [open gaps](status-and-gaps.md).

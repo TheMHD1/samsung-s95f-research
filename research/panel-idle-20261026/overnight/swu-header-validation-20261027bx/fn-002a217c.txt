@@ -1,0 +1,42 @@
+EXIDX RANGE 002a217c..002a21d8; input 002a217c; may contain multiple functions and literal pools
+002a217c 38b5       push       {r3, r4, r5, lr}
+002a217e 0c46       mov        r4, r1
+002a2180 0546       mov        r5, r0
+002a2182 0846       mov        r0, r1
+002a2184 0849       ldr        r1, [pc, #0x20] ; literal[002a21a8]=0016822c
+002a2186 1622       movs       r2, #0x16
+002a2188 7944       add        r1, pc
+002a218a b6f5eae9   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+002a218e 0749       ldr        r1, [pc, #0x1c] ; literal[002a21ac]=00168238
+002a2190 2046       mov        r0, r4
+002a2192 0522       movs       r2, #5
+002a2194 7944       add        r1, pc
+002a2196 b6f5e4e9   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+002a219a e969       ldr        r1, [r5, #0x1c]
+002a219c 2046       mov        r0, r4
+002a219e bde83840   pop.w      {r3, r4, r5, lr}
+002a21a2 b4f5f7bd   b.w        #0x56d94 ; _ZNSo9_M_insertImEERSoT_
+002a21a6 00bf       nop        
+002a21a8 2c82       strh       r4, [r5, #0x10]
+002a21aa 1600       movs       r6, r2
+002a21ac 3882       strh       r0, [r7, #0x10]
+002a21ae 1600       movs       r6, r2
+002a21b0 38b5       push       {r3, r4, r5, lr}
+002a21b2 0121       movs       r1, #1
+002a21b4 064d       ldr        r5, [pc, #0x18] ; literal[002a21d0]=00227e3e
+002a21b6 0446       mov        r4, r0
+002a21b8 fef7caf9   bl         #0x2a0550
+002a21bc 054a       ldr        r2, [pc, #0x14] ; literal[002a21d4]=000052ac ; GOT?=004c1ba4
+002a21be 7d44       add        r5, pc
+002a21c0 2b46       mov        r3, r5
+002a21c2 0021       movs       r1, #0
+002a21c4 2046       mov        r0, r4
+002a21c6 ab58       ldr        r3, [r5, r2]
+002a21c8 e161       str        r1, [r4, #0x1c]
+002a21ca 0833       adds       r3, #8
+002a21cc 2360       str        r3, [r4]
+002a21ce 38bd       pop        {r3, r4, r5, pc}
+002a21d0 3e7e       ldrb       r6, [r7, #0x18]
+002a21d2 2200       movs       r2, r4
+002a21d4 ac52       strh       r4, [r5, r2]
+002a21d6 0000       movs       r0, r0

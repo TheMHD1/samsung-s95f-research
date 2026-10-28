@@ -1,0 +1,45 @@
+EXIDX RANGE 002a2dfc..002a2e6c; input 002a2dfc; may contain multiple functions and literal pools
+002a2dfc f8b5       push       {r3, r4, r5, r6, r7, lr}
+002a2dfe 0121       movs       r1, #1
+002a2e00 164e       ldr        r6, [pc, #0x58] ; literal[002a2e5c]=002271f2
+002a2e02 0446       mov        r4, r0
+002a2e04 fdf7a4fb   bl         #0x2a0550
+002a2e08 154b       ldr        r3, [pc, #0x54] ; literal[002a2e60]=000015c4 ; GOT?=004c1c80
+002a2e0a 7e44       add        r6, pc
+002a2e0c 2546       mov        r5, r4
+002a2e0e 1549       ldr        r1, [pc, #0x54] ; literal[002a2e64]=001390d2
+002a2e10 0027       movs       r7, #0
+002a2e12 04f13c0c   add.w      ip, r4, #0x3c
+002a2e16 7944       add        r1, pc
+002a2e18 04f13400   add.w      r0, r4, #0x34
+002a2e1c f358       ldr        r3, [r6, r3]
+002a2e1e 4a1c       adds       r2, r1, #1
+002a2e20 0833       adds       r3, #8
+002a2e22 45f8243b   str        r3, [r5], #0x24
+002a2e26 c4f834c0   str.w      ip, [r4, #0x34]
+002a2e2a 4ff00003   mov.w      r3, #0
+002a2e2e c4e90757   strd       r5, r7, [r4, #0x1c]
+002a2e32 84f82470   strb.w     r7, [r4, #0x24]
+002a2e36 eaf54bf9   bl         #0x8d0d0
+002a2e3a 2046       mov        r0, r4
+002a2e3c f8bd       pop        {r3, r4, r5, r6, r7, pc}
+002a2e3e e069       ldr        r0, [r4, #0x1c]
+002a2e40 a842       cmp        r0, r5
+002a2e42 01d0       beq        #0x2a2e48
+002a2e44 b3f5d4ef   blx        #0x56df0 ; _ZdlPv
+002a2e48 074b       ldr        r3, [pc, #0x1c] ; literal[002a2e68]=00003374 ; GOT?=004c1c48
+002a2e4a 2046       mov        r0, r4
+002a2e4c f358       ldr        r3, [r6, r3]
+002a2e4e 0833       adds       r3, #8
+002a2e50 2360       str        r3, [r4]
+002a2e52 fdf7f7f9   bl         #0x2a0244
+002a2e56 b4f53aeb   blx        #0x574cc ; __cxa_end_cleanup
+002a2e5a 00bf       nop        
+002a2e5c f271       strb       r2, [r6, #7]
+002a2e5e 2200       movs       r2, r4
+002a2e60 c415       asrs       r4, r0, #0x17
+002a2e62 0000       movs       r0, r0
+002a2e64 d290       str        r0, [sp, #0x348]
+002a2e66 1300       movs       r3, r2
+002a2e68 7433       adds       r3, #0x74
+002a2e6a 0000       movs       r0, r0

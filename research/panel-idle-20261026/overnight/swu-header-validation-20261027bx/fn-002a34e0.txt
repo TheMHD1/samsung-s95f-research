@@ -1,0 +1,42 @@
+EXIDX RANGE 002a34e0..002a353c; input 002a34e0; may contain multiple functions and literal pools
+002a34e0 38b5       push       {r3, r4, r5, lr}
+002a34e2 0c46       mov        r4, r1
+002a34e4 0546       mov        r5, r0
+002a34e6 0846       mov        r0, r1
+002a34e8 0849       ldr        r1, [pc, #0x20] ; literal[002a350c]=00167250
+002a34ea 0c22       movs       r2, #0xc
+002a34ec 7944       add        r1, pc
+002a34ee b5f538e8   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+002a34f2 0749       ldr        r1, [pc, #0x1c] ; literal[002a3510]=00167254
+002a34f4 2046       mov        r0, r4
+002a34f6 0a22       movs       r2, #0xa
+002a34f8 7944       add        r1, pc
+002a34fa b5f532e8   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+002a34fe e969       ldr        r1, [r5, #0x1c]
+002a3500 2046       mov        r0, r4
+002a3502 bde83840   pop.w      {r3, r4, r5, lr}
+002a3506 b4f5fbbb   b.w        #0x57d00 ; _ZNSolsEi
+002a350a 00bf       nop        
+002a350c 5072       strb       r0, [r2, #9]
+002a350e 1600       movs       r6, r2
+002a3510 5472       strb       r4, [r2, #9]
+002a3512 1600       movs       r6, r2
+002a3514 38b5       push       {r3, r4, r5, lr}
+002a3516 0121       movs       r1, #1
+002a3518 064d       ldr        r5, [pc, #0x18] ; literal[002a3534]=00226ada
+002a351a 0446       mov        r4, r0
+002a351c fdf718f8   bl         #0x2a0550
+002a3520 054a       ldr        r2, [pc, #0x14] ; literal[002a3538]=0000230c ; GOT?=004c1cc4
+002a3522 7d44       add        r5, pc
+002a3524 2b46       mov        r3, r5
+002a3526 0021       movs       r1, #0
+002a3528 2046       mov        r0, r4
+002a352a ab58       ldr        r3, [r5, r2]
+002a352c e161       str        r1, [r4, #0x1c]
+002a352e 0833       adds       r3, #8
+002a3530 2360       str        r3, [r4]
+002a3532 38bd       pop        {r3, r4, r5, pc}
+002a3534 da6a       ldr        r2, [r3, #0x2c]
+002a3536 2200       movs       r2, r4
+002a3538 0c23       movs       r3, #0xc
+002a353a 0000       movs       r0, r0

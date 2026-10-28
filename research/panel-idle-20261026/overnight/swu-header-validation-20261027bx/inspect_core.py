@@ -33,25 +33,32 @@ for i in range(0,len(data),8):
     functions.append((ex['sh_addr']+i+w-(1<<31 if w&(1<<30) else 0))&~1)
 sym=elf.get_section_by_name('.dynsym'); rel=elf.get_section_by_name('.rel.plt')
 got={r['r_offset']:sym.get_symbol(r['r_info_sym']).name for r in rel.iter_relocations()}
-plt={}; arm=Cs(CS_ARCH_ARM,CS_MODE_ARM); start=None; ip=None
+plt={}; arm=Cs(CS_ARCH_ARM,CS_MODE_ARM); arm.skipdata=True; start=None; ip=None
 p=elf.get_section_by_name('.plt')
 for ins in arm.disasm(p.data(),p['sh_addr']):
-    m=re.fullmatch(r'ip, pc, #(0x[0-9a-f]+|[0-9]+)',ins.op_str)
-    if ins.mnemonic=='add' and m: start=ins.address; ip=ins.address+8+int(m[1],0)
+    m=re.fullmatch(r'ip, pc, #(0x[0-9a-f]+|[0-9]+)(?:, #(0x[0-9a-f]+|[0-9]+))?',ins.op_str)
+    if ins.mnemonic=='add' and m:
+        value=int(m[1],0); rotate=int(m[2],0) if m[2] else 0
+        if rotate:value=((value>>rotate)|(value<<(32-rotate)))&0xffffffff
+        start=ins.address; ip=ins.address+8+value
     m=re.fullmatch(r'ip, ip, #(0x[0-9a-f]+|[0-9]+)',ins.op_str)
     if ins.mnemonic=='add' and m and ip is not None: ip+=int(m[1],0)
     m=re.fullmatch(r'pc, \[ip, #(0x[0-9a-f]+|[0-9]+)\]!?',ins.op_str)
     if ins.mnemonic=='ldr' and m and ip is not None:
         at=ip+int(m[1],0)
         if at in got: plt[start]=got[at]
+for address,name in list(plt.items()):
+    try:
+        if read(address-4,4)==b'\x78\x47\xfd\xe7':plt[address-4]=name
+    except ValueError:pass
 thumb=Cs(CS_ARCH_ARM,CS_MODE_THUMB); thumb.skipdata=True
 def disassemble(address):
     index=bisect.bisect_right(functions,address)-1
     start,end=functions[index:index+2]
-    lines=[f'FUNCTION {start:08x}..{end:08x} ARM exidx; input {address:08x}']
+    lines=[f'EXIDX RANGE {start:08x}..{end:08x}; input {address:08x}; may contain multiple functions and literal pools']
     for ins in thumb.disasm(read(start,end-start),start):
         note=''
-        if ins.mnemonic in ('bl','blx') and ins.op_str.startswith('#'):
+        if ins.mnemonic in ('bl','blx','b.w') and ins.op_str.startswith('#'):
             target=int(ins.op_str[1:],0)
             if target in plt: note=' ; '+plt[target]
         m=re.fullmatch(r'[^,]+, \[pc, #(0x[0-9a-f]+|[0-9]+)\]',ins.op_str)
@@ -61,6 +68,12 @@ def disassemble(address):
                 value=word(at); note+=f' ; literal[{at:08x}]={value:08x}'
                 text=string(value)
                 if text:note+=' '+repr(text)
+                if value<0x10000:
+                    try:
+                        g=word(0x4ca000+value);note+=f' ; GOT?={g:08x}'
+                        text=string(g)
+                        if text:note+=' '+repr(text)
+                    except ValueError:pass
             except ValueError: pass
         lines.append(f'{ins.address:08x} {ins.bytes.hex():10s} {ins.mnemonic:10s} {ins.op_str}{note}')
     (ROOT/f'fn-{start:08x}.txt').write_text('\n'.join(lines)+'\n')

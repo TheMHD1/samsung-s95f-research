@@ -1,0 +1,28 @@
+EXIDX RANGE 002af770..002af7b4; input 002af770; may contain multiple functions and literal pools
+002af770 f8b5       push       {r3, r4, r5, r6, r7, lr}
+002af772 0021       movs       r1, #0
+002af774 0d4d       ldr        r5, [pc, #0x34] ; literal[002af7ac]=0021a882
+002af776 0e4e       ldr        r6, [pc, #0x38] ; literal[002af7b0]=00001d90 ; GOT?=004c23d0
+002af778 0446       mov        r4, r0
+002af77a 7d44       add        r5, pc
+002af77c f0f7e8fe   bl         #0x2a0550
+002af780 2246       mov        r2, r4
+002af782 2946       mov        r1, r5
+002af784 0023       movs       r3, #0
+002af786 04f15807   add.w      r7, r4, #0x58
+002af78a a959       ldr        r1, [r5, r6]
+002af78c 2046       mov        r0, r4
+002af78e 0831       adds       r1, #8
+002af790 42f8241b   str        r1, [r2], #0x24
+002af794 2765       str        r7, [r4, #0x50]
+002af796 c4e90723   strd       r2, r3, [r4, #0x1c]
+002af79a 84f82430   strb.w     r3, [r4, #0x24]
+002af79e 84f83430   strb.w     r3, [r4, #0x34]
+002af7a2 6365       str        r3, [r4, #0x54]
+002af7a4 84f85830   strb.w     r3, [r4, #0x58]
+002af7a8 f8bd       pop        {r3, r4, r5, r6, r7, pc}
+002af7aa 00bf       nop        
+002af7ac 82a8       add        r0, sp, #0x208
+002af7ae 2100       movs       r1, r4
+002af7b0 901d       adds       r0, r2, #6
+002af7b2 0000       movs       r0, r0

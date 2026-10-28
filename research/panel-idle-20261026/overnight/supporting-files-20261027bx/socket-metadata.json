@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nfor f in /run /run/user/5001 /run/user/5001/wayland-0 /run/wayland-0; do\nstat -c '%F:%u:%g:%a' \"$f\"\ndone\nreadlink -f /run/user/5001/wayland-0\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n165831.04 616823.24\ndirectory:0:1051:775\ndirectory:5001:100:775\nsymbolic link:5001:100:777\nsocket:0:201:775\n/run/wayland-0\n165831.05 616823.28\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

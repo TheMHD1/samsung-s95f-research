@@ -1,9 +1,9 @@
-FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
+EXIDX RANGE 001d503c..001d559c; input 001d503c; may contain multiple functions and literal pools
 001d503c 2de9f04f   push.w     {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 001d5040 1746       mov        r7, r2
 001d5042 dff82825   ldr.w      r2, [pc, #0x528] ; literal[001d556c]=002f4fb0
 001d5046 1e46       mov        r6, r3
-001d5048 dff82435   ldr.w      r3, [pc, #0x524] ; literal[001d5570]=00004e04
+001d5048 dff82435   ldr.w      r3, [pc, #0x524] ; literal[001d5570]=00004e04 ; GOT?=00000000
 001d504c 7a44       add        r2, pc
 001d504e 99b0       sub        sp, #0x64
 001d5050 0df1440a   add.w      sl, sp, #0x44
@@ -24,7 +24,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5078 cde91433   strd       r3, r3, [sp, #0x50]
 001d507c 1693       str        r3, [sp, #0x58]
 001d507e 6ff00bfb   bl         #0x244698
-001d5082 dff8f434   ldr.w      r3, [pc, #0x4f4] ; literal[001d5578]=000030dc
+001d5082 dff8f434   ldr.w      r3, [pc, #0x4f4] ; literal[001d5578]=000030dc ; GOT?=00419c90
 001d5086 0021       movs       r1, #0
 001d5088 3268       ldr        r2, [r6]
 001d508a 0da8       add        r0, sp, #0x34
@@ -43,7 +43,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d50ac 6df0c0ff   bl         #0x243030
 001d50b0 d4e900b7   ldrd       fp, r7, [r4]
 001d50b4 6fb1       cbz        r7, #0x1d50d2
-001d50b6 dff8c434   ldr.w      r3, [pc, #0x4c4] ; literal[001d557c]=00004a20
+001d50b6 dff8c434   ldr.w      r3, [pc, #0x4c4] ; literal[001d557c]=00004a20 ; GOT?=00000000
 001d50ba eb58       ldr        r3, [r5, r3]
 001d50bc 002b       cmp        r3, #0
 001d50be 00f08181   beq.w      #0x1d53c4
@@ -56,7 +56,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d50d2 dde90d36   ldrd       r3, r6, [sp, #0x34]
 001d50d6 0b93       str        r3, [sp, #0x2c]
 001d50d8 6eb1       cbz        r6, #0x1d50f6
-001d50da dff8a034   ldr.w      r3, [pc, #0x4a0] ; literal[001d557c]=00004a20
+001d50da dff8a034   ldr.w      r3, [pc, #0x4a0] ; literal[001d557c]=00004a20 ; GOT?=00000000
 001d50de eb58       ldr        r3, [r5, r3]
 001d50e0 002b       cmp        r3, #0
 001d50e2 00f06b81   beq.w      #0x1d53bc
@@ -67,8 +67,8 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d50f2 0029       cmp        r1, #0
 001d50f4 f8d1       bne        #0x1d50e8
 001d50f6 6820       movs       r0, #0x68
-001d50f8 81f6c0ee   blx        #0x56e7c
-001d50fc dff88034   ldr.w      r3, [pc, #0x480] ; literal[001d5580]=00001ee4
+001d50f8 81f6c0ee   blx        #0x56e7c ; _Znwj
+001d50fc dff88034   ldr.w      r3, [pc, #0x480] ; literal[001d5580]=00001ee4 ; GOT?=004b7340
 001d5100 0446       mov        r4, r0
 001d5102 0022       movs       r2, #0
 001d5104 3820       movs       r0, #0x38
@@ -79,8 +79,8 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5110 03f12802   add.w      r2, r3, #0x28
 001d5114 4033       adds       r3, #0x40
 001d5116 c4e90123   strd       r2, r3, [r4, #4]
-001d511a 81f6b0ee   blx        #0x56e7c
-001d511e dff86434   ldr.w      r3, [pc, #0x464] ; literal[001d5584]=00003164
+001d511a 81f6b0ee   blx        #0x56e7c ; _Znwj
+001d511e dff86434   ldr.w      r3, [pc, #0x464] ; literal[001d5584]=00003164 ; GOT?=004b738c
 001d5122 0122       movs       r2, #1
 001d5124 c0e90122   strd       r2, r2, [r0, #4]
 001d5128 8246       mov        sl, r0
@@ -91,7 +91,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5134 1097       str        r7, [sp, #0x40]
 001d5136 4af80c3b   str        r3, [sl], #0xc
 001d513a 6fb1       cbz        r7, #0x1d5158
-001d513c dff83c34   ldr.w      r3, [pc, #0x43c] ; literal[001d557c]=00004a20
+001d513c dff83c34   ldr.w      r3, [pc, #0x43c] ; literal[001d557c]=00004a20 ; GOT?=00000000
 001d5140 eb58       ldr        r3, [r5, r3]
 001d5142 002b       cmp        r3, #0
 001d5144 00f05281   beq.w      #0x1d53ec
@@ -113,8 +113,8 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5170 4820       movs       r0, #0x48
 001d5172 c4e903a8   strd       sl, r8, [r4, #0xc]
 001d5176 6361       str        r3, [r4, #0x14]
-001d5178 81f680ee   blx        #0x56e7c
-001d517c dff80834   ldr.w      r3, [pc, #0x408] ; literal[001d5588]=000039c0
+001d5178 81f680ee   blx        #0x56e7c ; _Znwj
+001d517c dff80834   ldr.w      r3, [pc, #0x408] ; literal[001d5588]=000039c0 ; GOT?=004b73a8
 001d5180 0122       movs       r2, #1
 001d5182 c0e90122   strd       r2, r2, [r0, #4]
 001d5186 8246       mov        sl, r0
@@ -126,7 +126,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5192 1096       str        r6, [sp, #0x40]
 001d5194 4af8103b   str        r3, [sl], #0x10
 001d5198 66b1       cbz        r6, #0x1d51b4
-001d519a f84b       ldr        r3, [pc, #0x3e0] ; literal[001d557c]=00004a20
+001d519a f84b       ldr        r3, [pc, #0x3e0] ; literal[001d557c]=00004a20 ; GOT?=00000000
 001d519c eb58       ldr        r3, [r5, r3]
 001d519e 002b       cmp        r3, #0
 001d51a0 00f02081   beq.w      #0x1d53e4
@@ -142,7 +142,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d51bc 1098       ldr        r0, [sp, #0x40]
 001d51be 08b1       cbz        r0, #0x1d51c4
 001d51c0 a8f63cfb   bl         #0x7d83c
-001d51c4 ed4b       ldr        r3, [pc, #0x3b4] ; literal[001d557c]=00004a20
+001d51c4 ed4b       ldr        r3, [pc, #0x3b4] ; literal[001d557c]=00004a20 ; GOT?=00000000
 001d51c6 c4e905a8   strd       sl, r8, [r4, #0x14]
 001d51ca d4f810b0   ldr.w      fp, [r4, #0x10]
 001d51ce e168       ldr        r1, [r4, #0xc]
@@ -160,7 +160,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d51f4 d4e905a8   ldrd       sl, r8, [r4, #0x14]
 001d51f8 b8f1000f   cmp.w      r8, #0
 001d51fc 40f0b880   bne.w      #0x1d5370
-001d5200 e24a       ldr        r2, [pc, #0x388] ; literal[001d558c]=00003acc
+001d5200 e24a       ldr        r2, [pc, #0x388] ; literal[001d558c]=00003acc ; GOT?=004b72f4
 001d5202 aa58       ldr        r2, [r5, r2]
 001d5204 c4e90a1b   strd       r1, fp, [r4, #0x28]
 001d5208 02f10800   add.w      r0, r2, #8
@@ -207,7 +207,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5290 c2e8ec0f   stlex      ip, r0, [r2]
 001d5294 bcf1000f   cmp.w      ip, #0
 001d5298 f7d1       bne        #0x1d528a
-001d529a bd4a       ldr        r2, [pc, #0x2f4] ; literal[001d5590]=00003978
+001d529a bd4a       ldr        r2, [pc, #0x2f4] ; literal[001d5590]=00003978 ; GOT?=004b72c0
 001d529c aa58       ldr        r2, [r5, r2]
 001d529e c4e9101b   strd       r1, fp, [r4, #0x40]
 001d52a2 02f10801   add.w      r1, r2, #8
@@ -244,8 +244,8 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d530c 1020       movs       r0, #0x10
 001d530e c9f80040   str.w      r4, [sb]
 001d5312 c9f80430   str.w      r3, [sb, #4]
-001d5316 81f6b2ed   blx        #0x56e7c
-001d531a 9e4b       ldr        r3, [pc, #0x278] ; literal[001d5594]=00002124
+001d5316 81f6b2ed   blx        #0x56e7c ; _Znwj
+001d531a 9e4b       ldr        r3, [pc, #0x278] ; literal[001d5594]=00002124 ; GOT?=004b84bc
 001d531c 0122       movs       r2, #1
 001d531e c0e90122   strd       r2, r2, [r0, #4]
 001d5322 eb58       ldr        r3, [r5, r3]
@@ -264,12 +264,12 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5342 a8f67bfa   bl         #0x7d83c
 001d5346 1498       ldr        r0, [sp, #0x50]
 001d5348 08b1       cbz        r0, #0x1d534e
-001d534a 81f652ed   blx        #0x56df0
+001d534a 81f652ed   blx        #0x56df0 ; _ZdlPv
 001d534e 1198       ldr        r0, [sp, #0x44]
 001d5350 08b1       cbz        r0, #0x1d5356
-001d5352 81f64eed   blx        #0x56df0
+001d5352 81f64eed   blx        #0x56df0 ; _ZdlPv
 001d5356 904a       ldr        r2, [pc, #0x240] ; literal[001d5598]=002f4ca2
-001d5358 854b       ldr        r3, [pc, #0x214] ; literal[001d5570]=00004e04
+001d5358 854b       ldr        r3, [pc, #0x214] ; literal[001d5570]=00004e04 ; GOT?=00000000
 001d535a 7a44       add        r2, pc
 001d535c d358       ldr        r3, [r2, r3]
 001d535e 1a68       ldr        r2, [r3]
@@ -286,7 +286,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d537c c2e8ec0f   stlex      ip, r0, [r2]
 001d5380 bcf1000f   cmp.w      ip, #0
 001d5384 f7d1       bne        #0x1d5376
-001d5386 814a       ldr        r2, [pc, #0x204] ; literal[001d558c]=00003acc
+001d5386 814a       ldr        r2, [pc, #0x204] ; literal[001d558c]=00003acc ; GOT?=004b72f4
 001d5388 aa58       ldr        r2, [r5, r2]
 001d538a c4e90a1b   strd       r1, fp, [r4, #0x28]
 001d538e 02f10800   add.w      r0, r2, #8
@@ -329,7 +329,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d53f2 b1e6       b          #0x1d5158
 001d53f4 bbf1000f   cmp.w      fp, #0
 001d53f8 7ff431af   bne.w      #0x1d525e
-001d53fc 644b       ldr        r3, [pc, #0x190] ; literal[001d5590]=00003978
+001d53fc 644b       ldr        r3, [pc, #0x190] ; literal[001d5590]=00003978 ; GOT?=004b72c0
 001d53fe eb58       ldr        r3, [r5, r3]
 001d5400 c4e9101b   strd       r1, fp, [r4, #0x40]
 001d5404 03f10802   add.w      r2, r3, #8
@@ -342,7 +342,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d541c c4e91733   strd       r3, r3, [r4, #0x5c]
 001d5420 6366       str        r3, [r4, #0x64]
 001d5422 72e7       b          #0x1d530a
-001d5424 5a4a       ldr        r2, [pc, #0x168] ; literal[001d5590]=00003978
+001d5424 5a4a       ldr        r2, [pc, #0x168] ; literal[001d5590]=00003978 ; GOT?=004b72c0
 001d5426 aa58       ldr        r2, [r5, r2]
 001d5428 c4e9101b   strd       r1, fp, [r4, #0x40]
 001d542c 02f10801   add.w      r1, r2, #8
@@ -405,18 +405,18 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d54dc c4e91433   strd       r3, r3, [r4, #0x50]
 001d54e0 a365       str        r3, [r4, #0x58]
 001d54e2 ece7       b          #0x1d54be
-001d54e4 81f604eb   blx        #0x56af0
+001d54e4 81f604eb   blx        #0x56af0 ; __stack_chk_fail
 001d54e8 1098       ldr        r0, [sp, #0x40]
 001d54ea 0028       cmp        r0, #0
 001d54ec 3ad1       bne        #0x1d5564
 001d54ee 4046       mov        r0, r8
-001d54f0 81f67eec   blx        #0x56df0
+001d54f0 81f67eec   blx        #0x56df0 ; _ZdlPv
 001d54f4 2069       ldr        r0, [r4, #0x10]
 001d54f6 08b1       cbz        r0, #0x1d54fc
 001d54f8 a8f6a0f9   bl         #0x7d83c
 001d54fc 2046       mov        r0, r4
 001d54fe 6821       movs       r1, #0x68
-001d5500 81f6daeb   blx        #0x56cb8
+001d5500 81f6daeb   blx        #0x56cb8 ; _ZdlPvj
 001d5504 16b1       cbz        r6, #0x1d550c
 001d5506 3046       mov        r0, r6
 001d5508 a8f698f9   bl         #0x7d83c
@@ -428,11 +428,11 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d5518 a8f690f9   bl         #0x7d83c
 001d551c 1498       ldr        r0, [sp, #0x50]
 001d551e 08b1       cbz        r0, #0x1d5524
-001d5520 81f666ec   blx        #0x56df0
+001d5520 81f666ec   blx        #0x56df0 ; _ZdlPv
 001d5524 1198       ldr        r0, [sp, #0x44]
 001d5526 08b1       cbz        r0, #0x1d552c
-001d5528 81f662ec   blx        #0x56df0
-001d552c 81f6ceef   blx        #0x574cc
+001d5528 81f662ec   blx        #0x56df0 ; _ZdlPv
+001d552c 81f6ceef   blx        #0x574cc ; __cxa_end_cleanup
 001d5530 f4e7       b          #0x1d551c
 001d5532 e3e7       b          #0x1d54fc
 001d5534 002e       cmp        r6, #0
@@ -443,13 +443,13 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d553e 08b1       cbz        r0, #0x1d5544
 001d5540 a8f67cf9   bl         #0x7d83c
 001d5544 4046       mov        r0, r8
-001d5546 81f654ec   blx        #0x56df0
+001d5546 81f654ec   blx        #0x56df0 ; _ZdlPv
 001d554a d7e7       b          #0x1d54fc
-001d554c 81f694e9   blx        #0x56878
+001d554c 81f694e9   blx        #0x56878 ; __cxa_begin_catch
 001d5550 2046       mov        r0, r4
 001d5552 e2f713fe   bl         #0x1b817c
-001d5556 82f6d8ef   blx        #0x58508
-001d555a 82f664ef   blx        #0x58424
+001d5556 82f6d8ef   blx        #0x58508 ; __cxa_rethrow
+001d555a 82f664ef   blx        #0x58424 ; __cxa_end_catch
 001d555e 002e       cmp        r6, #0
 001d5560 d1d1       bne        #0x1d5506
 001d5562 d3e7       b          #0x1d550c
@@ -458,7 +458,7 @@ FUNCTION 001d503c..001d559c ARM exidx; input 001d503c
 001d556a 00bf       nop        
 001d556c b04f       ldr        r7, [pc, #0x2c0] ; literal[001d5830]=3000f8c9
 001d556e 2f00       movs       r7, r5
-001d5570 044e       ldr        r6, [pc, #0x10] ; literal[001d5584]=00003164
+001d5570 044e       ldr        r6, [pc, #0x10] ; literal[001d5584]=00003164 ; GOT?=004b738c
 001d5572 0000       movs       r0, r0
 001d5574 864f       ldr        r7, [pc, #0x218] ; literal[001d5790]=f8c93308
 001d5576 2f00       movs       r7, r5

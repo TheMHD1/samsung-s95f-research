@@ -1,0 +1,31 @@
+# Source qualification of a reversible mode1 limit experiment
+
+Offline design only, 2026-10-28 UTC. No writer source, TV action, protection patch, reset, or UI action was implemented by this analysis. The user has authorized work; the remaining limits here concern source and experiment qualification. Firmware extraction has priority and the proposed writer is deferred.
+
+## Preferred one-field candidate and its limits
+
+The narrow candidate is the aligned halfword **0x470124c4: 40 → 200**, followed by readback, one unchanged finite onset observation, and a separate **200 → 40** restoration/readback. Payloads are `c800` and `2800`. Existing finite ordinary mode1 selection already uses 200 at +0x2430; this is a finite stock value, not a disabled or unlimited comparison. It would make the observed 44 clean under the same final mode1 comparison. Source does not establish that 200 is electrically safe for this panel, that suppressing this software event fixes its underlying cause, or that the score cannot exceed 200.
+
+The same selected field is copied by the unpacker into CPU0x4ca, the formatter's record-ID bound. This is a coupled effect: increasing +0x24c4 also permits additional record-ID publication and may expose enabled alternate event paths. It is not solely a final comparison patch. s counts already continue beyond ID40 in the existing code. The current aggregate gate1 and event344/351 enable0 are therefore material guards, as are all other source conditions and configuration fingerprints. Monitor the complete root block rather than only fault/threshold.
+
+Two alternatives are less precise. +0x2486 is an OR history/output bucket; clearing it does not prevent the comparison/setter. C+7 is callback-refreshed from AP_EXCO and also influences packed A/B source selection and copies. Changing it could change both threshold selection and the inputs being compared. Its byte width also differs from the already qualified two-byte logger primitive. Neither is a clean threshold experiment.
+
+## Positive data-RAM provenance and persistence boundary
+
+This recommendation does not assume every 0x46/0x47 address is writable RAM. The retained image0 reset scatter specifically zeroes 0x47010000..0x470147bb. Its actual AP_RTP type4 loader uses table row FILE0x3ce44 and a successful bounded-storage-read branch to memcpy **0x100 bytes to0x47012400**, from this package's FILE0x183800. Payload+c4 is40 and payload+30 is200. The second copy initializes0x47010000/0x2400. Image1 separately initializes the root pointer to0x20010000. Actual CB/V6 state changes match that data layout. This is positive allocation/initializer evidence, distinct from the unqualified 0x4600 code-write view.
+
+A direct fixed-memory write to this RAM copy is not an edit of the packaged AP_RTP payload or an invocation of flash/EEPROM programming. It can be overwritten when the specific reset/scatter or AP_RTP load paths run. The source does **not** prove which UI action, host operation, warm restart, or power transition executes those paths on this running TV. Do not present restart or operation41 as a proved restoration method. Common error handling can separately update persistent fault history under its normal behavior; “RAM limit” does not imply every downstream consequence is nonpersistent.
+
+The frozen V6 logger helper successfully used the reviewed target0x102 two-byte primitive at **0x47012406**, armed/read back/restored it, and ended ReadyForHeader. That establishes the transport shape and an ordinary write in this same data allocation. It does not establish an actual +c4 write, arbitrary address safety, or recovery after an ambiguous transport phase. A new fixed helper would require independent source review and meaningful phase tests.
+
+## Proposed finite protocol contract, not an implemented runner
+
+A future one-shot helper could hardcode target0x102, address0x470124c4, length2, header `02010000c424014702000000`, and only the two fixed values above. No caller-selected address/value, UI, reset, hold loop, log ring, background service, or retry. Full-R256 and callback/layout pins precede the write. Require exact clean stop0/fault0/gate1/logger0, selected profile/callback fingerprint, expected current limit40 (or200 for the separate restore), unchanged normal limit200, aggregate gate1, disabled alternative events, expected root and mode/selector context, a known ReadyForHeader boundary and device identity. Refuse mismatches before a write.
+
+After exact header OUT and exact payload OUT, issue the existing proven read transaction only at its known phase. Verify full R and exact halfword readback. Whitelist the c4 two-byte change, with explicit separately reported dynamic status/counter fields; do not silently ignore arbitrary changes or treat the whole volatile root as an immutable checksum. Close USB before the unchanged 20-second synchronized onset helper. That helper carries its own exact Ready boundary. After it closes, a normal Right→Apps/cached check and separate fixed restoration/readback are centrally coordinated. This is a proposed sequence; no source here performs it.
+
+The restore is a separate fixed action with its own identity/phase/precondition proof. Never send a restoration header after a short/failed/ambiguous transfer or unknown USB phase, and never automatically retry. If an actual blackout requires recovery, record a separate parent-controlled recovery action; do not hide reset/recovery inside the limit helper. A latched stop/gate is not cleared by changing c4, so this is a prevention experiment starting from an independently established clean state, not a means to recover a currently latched fault.
+
+## Remaining gates
+
+The exact selected running code/alias and electrical safety boundary remain conditional. A future writer needs fixed-address implementation, independent review, exact payload/header and short-transfer tests, dynamic-field whitelist, cleanup/phase checks and separately defined restoration refusal behavior. None has been implemented in this directory. The proposed comparison change tests whether this narrow software condition accounts for the recurrence under a matching onset; it does not identify or repair the packed-input producer. User priority now defers that implementation in favor of authenticated firmware extraction.

@@ -1,0 +1,24 @@
+EXIDX RANGE 002aa304..002aa340; input 002aa304; may contain multiple functions and literal pools
+002aa304 38b5       push       {r3, r4, r5, lr}
+002aa306 0121       movs       r1, #1
+002aa308 0b4d       ldr        r5, [pc, #0x2c] ; literal[002aa338]=0021fcea
+002aa30a 0446       mov        r4, r0
+002aa30c f6f720f9   bl         #0x2a0550
+002aa310 0a49       ldr        r1, [pc, #0x28] ; literal[002aa33c]=00005378 ; GOT?=004c21b4
+002aa312 7d44       add        r5, pc
+002aa314 c0ef1000   vmov.i32   d16, #0
+002aa318 2b46       mov        r3, r5
+002aa31a 0022       movs       r2, #0
+002aa31c 2046       mov        r0, r4
+002aa31e 6b58       ldr        r3, [r5, r1]
+002aa320 e261       str        r2, [r4, #0x1c]
+002aa322 0833       adds       r3, #8
+002aa324 84f83020   strb.w     r2, [r4, #0x30]
+002aa328 2360       str        r3, [r4]
+002aa32a 84f84c20   strb.w     r2, [r4, #0x4c]
+002aa32e c4ed080b   vstr       d16, [r4, #0x20]
+002aa332 c4ed0a0b   vstr       d16, [r4, #0x28]
+002aa336 38bd       pop        {r3, r4, r5, pc}
+002aa338 eafc2100   stc2l      p0, c0, [sl], #0x84
+002aa33c 7853       strh       r0, [r7, r5]
+002aa33e 0000       movs       r0, r0

@@ -1,0 +1,23 @@
+EXIDX RANGE 002b0778..002b07ac; input 002b0778; may contain multiple functions and literal pools
+002b0778 38b5       push       {r3, r4, r5, lr}
+002b077a 0021       movs       r1, #0
+002b077c 094d       ldr        r5, [pc, #0x24] ; literal[002b07a4]=00219878
+002b077e 0446       mov        r4, r0
+002b0780 eff7e6fe   bl         #0x2a0550
+002b0784 7d44       add        r5, pc
+002b0786 0849       ldr        r1, [pc, #0x20] ; literal[002b07a8]=000047a0 ; GOT?=004c2440
+002b0788 2a46       mov        r2, r5
+002b078a 2346       mov        r3, r4
+002b078c 0025       movs       r5, #0
+002b078e 2046       mov        r0, r4
+002b0790 5258       ldr        r2, [r2, r1]
+002b0792 0832       adds       r2, #8
+002b0794 43f8242b   str        r2, [r3], #0x24
+002b0798 84f82450   strb.w     r5, [r4, #0x24]
+002b079c c4e90735   strd       r3, r5, [r4, #0x1c]
+002b07a0 38bd       pop        {r3, r4, r5, pc}
+002b07a2 00bf       nop        
+002b07a4 7898       ldr        r0, [sp, #0x1e0]
+002b07a6 2100       movs       r1, r4
+002b07a8 a047       blx        r4
+002b07aa 0000       movs       r0, r0

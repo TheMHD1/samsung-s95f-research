@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\nLC_ALL=C stat -L -c '%F|%t:%T' /proc/self/fd/0 /proc/self/fd/1 /proc/self/fd/2\nset +e\nLC_ALL=C stat -L -c '%F|%t:%T' /proc/2147483647/fd/2147483647 2>&1\ncode=$?\nset -e\nprintf 'EXPECTED_ENOENT_EXIT=%s\\n' \"$code\"\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "character special file|1:3\nfifo|0:0\nfifo|0:0\nstat: cannot stat `/proc/2147483647/fd/2147483647': No such file or directory\nEXPECTED_ENOENT_EXIT=1\\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

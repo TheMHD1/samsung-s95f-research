@@ -1,0 +1,32 @@
+DIAGNOSTIC_EXIT=65
+OPEN file=envelope flags=0xa0000 rc=24 errno=0 original_arm_nofollow_missing=1
+STAT file=envelope at=before signature=original nr=397 rc=0 errno=0 mask=0x000007ff mode=0x8180 size=4056
+STAT file=envelope at=before signature=explicit-out nr=397 rc=0 errno=0 mask=0x000007ff mode=0x8180 size=4056 fields_equal=1
+STAT file=envelope at=after signature=original nr=397 rc=0 errno=0 mask=0x000007ff mode=0x8180 size=4056
+STAT file=envelope at=after signature=explicit-out nr=397 rc=0 errno=0 mask=0x000007ff mode=0x8180 size=4056 fields_equal=1
+FILE file=envelope pass=1 reason=None
+OPEN file=master flags=0xa0000 rc=24 errno=0 original_arm_nofollow_missing=1
+STAT file=master at=before signature=original nr=397 rc=0 errno=0 mask=0x000007df mode=0x81a4 size=416
+STAT file=master at=before signature=explicit-out nr=397 rc=0 errno=0 mask=0x000007df mode=0x81a4 size=416 fields_equal=1
+FILE file=master pass=0 stage=stat-before reason=StatxMask errno=0
+OPEN file=vconf-file flags=0xa0000 rc=24 errno=0 original_arm_nofollow_missing=1
+STAT file=vconf-file at=before signature=original nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=57272
+STAT file=vconf-file at=before signature=explicit-out nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=57272 fields_equal=1
+FILE file=vconf-file pass=0 stage=stat-before reason=StatxMask errno=0
+OPEN file=common-file flags=0xa0000 rc=24 errno=0 original_arm_nofollow_missing=1
+STAT file=common-file at=before signature=original nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=244580
+STAT file=common-file at=before signature=explicit-out nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=244580 fields_equal=1
+FILE file=common-file pass=0 stage=stat-before reason=StatxMask errno=0
+OPEN file=backend-file flags=0xa0000 rc=24 errno=0 original_arm_nofollow_missing=1
+STAT file=backend-file at=before signature=original nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=30352
+STAT file=backend-file at=before signature=explicit-out nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=30352 fields_equal=1
+FILE file=backend-file pass=0 stage=stat-before reason=StatxMask errno=0
+OPEN file=wrapper-file flags=0xa0000 rc=24 errno=0 original_arm_nofollow_missing=1
+STAT file=wrapper-file at=before signature=original nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=10892
+STAT file=wrapper-file at=before signature=explicit-out nr=397 rc=0 errno=0 mask=0x000007df mode=0x81ed size=10892 fields_equal=1
+FILE file=wrapper-file pass=0 stage=stat-before reason=StatxMask errno=0
+PREFLIGHT_ONLY files=6 failed=5 target_library_loads=0 selector_calls=0 teec_calls=0 data_bytes_printed=0
+[GC_INFO] GC_Start #1: Gen(0), Time(165956244 ms), Reason(0)
+[GC_INFO] GC_End #1: Gen(0), Time(165956244 ms)
+STDERR_BEGIN
+STDERR_END

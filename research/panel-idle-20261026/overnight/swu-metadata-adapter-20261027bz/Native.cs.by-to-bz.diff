@@ -1,0 +1,117 @@
+--- BY/Native.cs
++++ BZ/Native.cs
+@@ -75,6 +75,7 @@
+ internal readonly record struct Pin(string Path,int Size,string Hash,string BuildId="");
+ internal sealed class PinnedFile : IDisposable
+ {
++    internal readonly Pin Pin;
+     internal readonly int Fd;
+     internal readonly string Resolved,Identity;
+     internal readonly byte[] Data;
+@@ -82,7 +83,7 @@
+     private readonly string label;
+     internal PinnedFile(Pin pin,bool hostTest=false)
+     {
+-        label=Preflight.Label(pin.Path); Fd=-1; Data=Array.Empty<byte>(); Resolved="";Identity="";
++        Pin=pin;label=Preflight.Label(pin.Path); Fd=-1; Data=Array.Empty<byte>(); Resolved="";Identity="";
+         PreflightStage stage=PreflightStage.Realpath;
+         try {
+             using Block name=new Block(4096);
+@@ -152,26 +153,84 @@
+         throw new InvalidOperationException("ELF GNU Build ID absent");
+     }
+ }
++internal enum BindingStage { Load,LinkMap,LinkMapOwner,Symbol,SymbolAddress,SymbolOwner }
++internal enum BindingReason { LoaderReturn,NameBound,NameAllowlist,Realpath,CanonicalMismatch,IdentityMismatch,FileGuard,DllNotFound,EntryPointNotFound,BadImageFormat,Unexpected }
++internal sealed class BindingException : Exception
++{
++    internal readonly BindingStage Stage;
++    internal readonly BindingReason Reason;
++    internal readonly string FileLabel;
++    internal BindingException(PinnedFile file,BindingStage stage,BindingReason reason) {FileLabel=Preflight.Label(file.Pin.Path);Stage=stage;Reason=reason;}
++}
++internal static class OwnerBinding
++{
++    private static void Need(bool ok,BindingReason reason) {if(!ok)throw new OwnerFailure(reason);}
++    private sealed class OwnerFailure:Exception {internal readonly BindingReason Reason;internal OwnerFailure(BindingReason reason){Reason=reason;}}
++    internal static string Name(IntPtr pointer)
++    {
++        Need(pointer!=IntPtr.Zero,BindingReason.NameBound);
++        byte[] bytes=new byte[4096];int n=0;
++        for(;n<bytes.Length;n++){bytes[n]=Marshal.ReadByte(pointer,n);if(bytes[n]==0)break;}
++        Need(n<bytes.Length && n>0,BindingReason.NameBound);
++        // Canonical paths below use exact ordinal comparisons; no decoding replacement.
++        for(int i=0;i<n;i++)Need(bytes[i]>=0x20 && bytes[i]<=0x7e,BindingReason.NameAllowlist);
++        return Encoding.ASCII.GetString(bytes,0,n);
++    }
++    internal static bool Allowed(PinnedFile file,string name)=>Allowed(file.Pin,file.Resolved,file.Fd,name);
++    internal static bool Allowed(Pin pin,string canonical,int fd,string name)
++    {
++        if(name=="/proc/self/fd/"+fd || name==pin.Path || name==canonical)return true;
++        // Only the exact requested/resolved basenames in the two system library
++        // directories are possible extra aliases. Canonical and identity proof follows.
++        if(!pin.Path.StartsWith("/usr/lib/",StringComparison.Ordinal))return false;
++        string requested=Path.GetFileName(pin.Path),resolved=Path.GetFileName(canonical);
++        return name=="/lib/"+requested || name=="/usr/lib/"+requested || name=="/lib/"+resolved || name=="/usr/lib/"+resolved;
++    }
++    internal static void Verify(PinnedFile file,string name,BindingStage stage)
++    {
++        try {
++            Need(Allowed(file,name),BindingReason.NameAllowlist);file.Recheck();
++            using Block path=new Block(4096);Need(Native.realpath(name,path.Pointer)!=IntPtr.Zero,BindingReason.Realpath);
++            string canonical=Name(path.Pointer);Need(canonical==file.Resolved,BindingReason.CanonicalMismatch);
++            // Scope the path bypass to the independently proved canonical path.
++            // The complete original size/SHA256/ELF/Build-ID pin is reused.
++            using PinnedFile owner=new PinnedFile(file.Pin with {Path=canonical},true);
++            Need(owner.Resolved==file.Resolved,BindingReason.CanonicalMismatch);
++            Need(owner.Identity==file.Identity,BindingReason.IdentityMismatch);
++            file.Recheck();owner.Recheck();
++        } catch(Exception e) {throw Failure(file,stage,e);}
++    }
++    internal static BindingException Failure(PinnedFile file,BindingStage stage,Exception e)=>new BindingException(file,stage,
++        e is BindingException b?b.Reason:e is OwnerFailure o?o.Reason:e is PreflightException?BindingReason.FileGuard:
++        e is DllNotFoundException?BindingReason.DllNotFound:e is EntryPointNotFoundException?BindingReason.EntryPointNotFound:
++        e is BadImageFormatException?BindingReason.BadImageFormat:BindingReason.Unexpected);
++}
+ internal sealed class Binding
+ {
+     internal readonly PinnedFile File;
+     internal readonly IntPtr Handle;
+     internal Binding(PinnedFile file) {
+-        File=file; file.Recheck(); Handle=Native.dlopen("/proc/self/fd/"+file.Fd,2|0x100); // NOW|GLOBAL, dependencies pin-preloaded in order
+-        Core.Require(Handle!=IntPtr.Zero,"dlopen failed"); file.Recheck();
+-        Core.Require(Native.dlinfo(Handle,2,out IntPtr map)==0 && map!=IntPtr.Zero,"loader link map");
+-        Core.Require(Marshal.PtrToStringUTF8(Marshal.ReadIntPtr(map,IntPtr.Size))=="/proc/self/fd/"+file.Fd,"loaded object ownership");
++        File=file;BindingStage stage=BindingStage.Load;
++        try {
++            file.Recheck();Handle=Native.dlopen("/proc/self/fd/"+file.Fd,2|0x100);
++            if(Handle==IntPtr.Zero)throw new BindingException(file,stage,BindingReason.LoaderReturn);file.Recheck();
++            stage=BindingStage.LinkMap;
++            if(Native.dlinfo(Handle,2,out IntPtr map)!=0 || map==IntPtr.Zero)throw new BindingException(file,stage,BindingReason.LoaderReturn);
++            stage=BindingStage.LinkMapOwner;OwnerBinding.Verify(file,OwnerBinding.Name(Marshal.ReadIntPtr(map,IntPtr.Size)),stage);
++        } catch(Exception e) {throw OwnerBinding.Failure(file,stage,e);}
+     }
+     internal T Get<T>(string symbol,string version) where T:Delegate {
+-        IntPtr p=Native.dlvsym(Handle,symbol,version); Core.Require(p!=IntPtr.Zero,"versioned symbol absent");
+-        using Block info=new Block(IntPtr.Size*4);
+-        Core.Require(Native.dladdr(p,info.Pointer)!=0,"symbol ownership");
+-        string? owner=Marshal.PtrToStringUTF8(Marshal.ReadIntPtr(info.Pointer));
+-        Core.Require(owner=="/proc/self/fd/"+File.Fd,"symbol owner changed"); File.Recheck();
+-        return Marshal.GetDelegateForFunctionPointer<T>(p);
+-    }
+-    // Deliberately no dlclose: NODELETE/constructors have effects; process exit
+-    // owns loaded-library lifetime. Close is never advertised as rollback.
++        BindingStage stage=BindingStage.Symbol;
++        try {
++            IntPtr p=Native.dlvsym(Handle,symbol,version);
++            if(p==IntPtr.Zero)throw new BindingException(File,stage,BindingReason.LoaderReturn);
++            using Block info=new Block(IntPtr.Size*4);stage=BindingStage.SymbolAddress;
++            if(Native.dladdr(p,info.Pointer)==0)throw new BindingException(File,stage,BindingReason.LoaderReturn);
++            stage=BindingStage.SymbolOwner;OwnerBinding.Verify(File,OwnerBinding.Name(Marshal.ReadIntPtr(info.Pointer)),stage);
++            return Marshal.GetDelegateForFunctionPointer<T>(p);
++        } catch(Exception e) {throw OwnerBinding.Failure(File,stage,e);}
++    }
++    // No dlclose: process exit owns loaded-library lifetime; no rollback claim.
+ }
+ internal sealed class LiveTeec : ITeec
+ {

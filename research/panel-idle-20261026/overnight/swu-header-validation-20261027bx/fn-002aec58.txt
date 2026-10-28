@@ -1,0 +1,53 @@
+EXIDX RANGE 002aec58..002aecd4; input 002aec58; may contain multiple functions and literal pools
+002aec58 70b5       push       {r4, r5, r6, lr}
+002aec5a 0c46       mov        r4, r1
+002aec5c 0546       mov        r5, r0
+002aec5e 0846       mov        r0, r1
+002aec60 0d49       ldr        r1, [pc, #0x34] ; literal[002aec98]=0015c910
+002aec62 1422       movs       r2, #0x14
+002aec64 7944       add        r1, pc
+002aec66 a9f57cec   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+002aec6a 0c49       ldr        r1, [pc, #0x30] ; literal[002aec9c]=0015c91c
+002aec6c 1822       movs       r2, #0x18
+002aec6e 2046       mov        r0, r4
+002aec70 7944       add        r1, pc
+002aec72 a9f576ec   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+002aec76 e969       ldr        r1, [r5, #0x1c]
+002aec78 2046       mov        r0, r4
+002aec7a a8f58ee8   blx        #0x56d98 ; _ZNSo9_M_insertImEERSoT_
+002aec7e 0849       ldr        r1, [pc, #0x20] ; literal[002aeca0]=0015b218
+002aec80 2046       mov        r0, r4
+002aec82 1022       movs       r2, #0x10
+002aec84 7944       add        r1, pc
+002aec86 a9f56cec   blx        #0x58560 ; _ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_i
+002aec8a 2046       mov        r0, r4
+002aec8c d5e90823   ldrd       r2, r3, [r5, #0x20]
+002aec90 bde87040   pop.w      {r4, r5, r6, lr}
+002aec94 a8f51abf   b.w        #0x57acc ; _ZNSo9_M_insertIyEERSoT_
+002aec98 10c9       ldm        r1!, {r4}
+002aec9a 1500       movs       r5, r2
+002aec9c 1cc9       ldm        r1!, {r2, r3, r4}
+002aec9e 1500       movs       r5, r2
+002aeca0 18b2       sxth       r0, r3
+002aeca2 1500       movs       r5, r2
+002aeca4 70b5       push       {r4, r5, r6, lr}
+002aeca6 0e46       mov        r6, r1
+002aeca8 084d       ldr        r5, [pc, #0x20] ; literal[002aeccc]=0021b348
+002aecaa 0121       movs       r1, #1
+002aecac 0446       mov        r4, r0
+002aecae f1f74ffc   bl         #0x2a0550
+002aecb2 074a       ldr        r2, [pc, #0x1c] ; literal[002aecd0]=00003568 ; GOT?=004c231c
+002aecb4 7d44       add        r5, pc
+002aecb6 c0ef1000   vmov.i32   d16, #0
+002aecba 2b46       mov        r3, r5
+002aecbc 2046       mov        r0, r4
+002aecbe ab58       ldr        r3, [r5, r2]
+002aecc0 e661       str        r6, [r4, #0x1c]
+002aecc2 0833       adds       r3, #8
+002aecc4 2360       str        r3, [r4]
+002aecc6 c4ed080b   vstr       d16, [r4, #0x20]
+002aecca 70bd       pop        {r4, r5, r6, pc}
+002aeccc 48b3       cbz        r0, #0x2aed22
+002aecce 2100       movs       r1, r4
+002aecd0 6835       adds       r5, #0x68
+002aecd2 0000       movs       r0, r0

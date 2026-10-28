@@ -1,0 +1,17 @@
+EXIDX RANGE 0029d394..0029d3bc; input 0029d394; may contain multiple functions and literal pools
+0029d394 38b5       push       {r3, r4, r5, lr}
+0029d396 0d46       mov        r5, r1
+0029d398 0446       mov        r4, r0
+0029d39a 3420       movs       r0, #0x34
+0029d39c b9f56eed   blx        #0x56e7c ; _Znwj
+0029d3a0 2946       mov        r1, r5
+0029d3a2 0546       mov        r5, r0
+0029d3a4 fff7d8ff   bl         #0x29d358
+0029d3a8 2560       str        r5, [r4]
+0029d3aa 2046       mov        r0, r4
+0029d3ac 38bd       pop        {r3, r4, r5, pc}
+0029d3ae 2846       mov        r0, r5
+0029d3b0 3421       movs       r1, #0x34
+0029d3b2 b9f582ec   blx        #0x56cb8 ; _ZdlPvj
+0029d3b6 baf58ae8   blx        #0x574cc ; __cxa_end_cleanup
+0029d3ba 00bf       nop        

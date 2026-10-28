@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ndate -u '+%Y-%m-%dT%H:%M:%SZ'\nreadlink -f /sys/bus/usb/devices/7-1\nstat -c 'USB_NODE type=%F rdev=%t:%T mtime=%Y ctime=%Z' /dev/bus/usb/007/053\nstat -L -c 'FD_TEST type=%F rdev=%t:%T' /proc/self/fd/0 /proc/self/fd/1 /proc/self/fd/2\nfor n in bInterfaceNumber bAlternateSetting bInterfaceClass bInterfaceSubClass bInterfaceProtocol; do\nprintf '%s=' \"$n\"\ncat /sys/bus/usb/devices/7-1:1.2/\"$n\"\ndone\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "00000000-0000-4000-8000-000000000000\n166748.42 620197.57\n2026-10-27T23:52:19Z\n/sys/devices/platform/soc/2900000.drd/usb7/7-1\nUSB_NODE type=character special file rdev=bd:334 mtime=1793139679 ctime=1793139679\nFD_TEST type=character special file rdev=1:3\nFD_TEST type=fifo rdev=0:0\nFD_TEST type=fifo rdev=0:0\nbInterfaceNumber=02\nbAlternateSetting= 0\nbInterfaceClass=ff\nbInterfaceSubClass=00\nbInterfaceProtocol=00\n166748.44 620197.62\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

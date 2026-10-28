@@ -1,0 +1,13 @@
+{
+  "notice": "Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.",
+  "observations": [
+    {
+      "command": "set -eu\ncat /proc/uptime\nfor bx_pair in 'boot:/proc/sys/kernel/random/boot_id' 'busnum:/sys/bus/usb/devices/7-1/busnum' 'devnum:/sys/bus/usb/devices/7-1/devnum' 'configuration:/sys/bus/usb/devices/7-1/bConfigurationValue' 'authorized:/sys/bus/usb/devices/7-1/authorized' 'runtimeStatus:/sys/bus/usb/devices/7-1/power/runtime_status' 'interfaceNumber:/sys/bus/usb/devices/7-1:1.2/bInterfaceNumber' 'alternate:/sys/bus/usb/devices/7-1:1.2/bAlternateSetting' 'interfaceClass:/sys/bus/usb/devices/7-1:1.2/bInterfaceClass' 'interfaceSubClass:/sys/bus/usb/devices/7-1:1.2/bInterfaceSubClass' 'interfaceProtocol:/sys/bus/usb/devices/7-1:1.2/bInterfaceProtocol'; do\n bx_name=${bx_pair%%:*}; bx_path=${bx_pair#*:}\n printf '%s=%s\n' \"$bx_name\" \"$(awk '{print $1}' \"$bx_path\")\"\ndone\nprintf 'sysfsRealpath=%s\n' \"$(readlink -f /sys/bus/usb/devices/7-1)\"\nprintf 'sysfsStat=%s\n' \"$(stat -L -c '%d:%i' /sys/bus/usb/devices/7-1)\"\nbx_devnum=$(cat /sys/bus/usb/devices/7-1/devnum)\nbx_node=$(printf '/dev/bus/usb/007/%03d' \"$bx_devnum\")\nprintf 'deviceNode=%s\n' \"$bx_node\"\nprintf 'nodeStat=%s\n' \"$(stat -L -c '%t:%T:%i' \"$bx_node\")\"\nprintf 'descriptorsSha256=%s\n' \"$(sha256sum /sys/bus/usb/devices/7-1/descriptors | cut -d ' ' -f1)\"\ntest ! -e /sys/bus/usb/devices/7-1:1.2/driver\ntest ! -L /sys/bus/usb/devices/7-1:1.2/driver\ncat /proc/uptime\n",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "167499.17 622984.12\nboot=00000000-0000-4000-8000-000000000000\nbusnum=7\ndevnum=54\nconfiguration=1\nauthorized=1\nruntimeStatus=active\ninterfaceNumber=02\nalternate=0\ninterfaceClass=ff\ninterfaceSubClass=00\ninterfaceProtocol=00\nsysfsRealpath=/sys/devices/platform/soc/2900000.drd/usb7/7-1\nsysfsStat=19:40175\ndeviceNode=/dev/bus/usb/007/054\nnodeStat=bd:335:12965889\ndescriptorsSha256=7293efb1f43f1166a3c54f193fe584a423d25beb41597b85f5d3452f211e0bc0\n167499.21 622984.22\n",
+      "timed_out": false
+    }
+  ],
+  "schema": "public-scientific-observations-v1"
+}

@@ -1,0 +1,89 @@
+--- BY/HostTests.cs
++++ BZ/HostTests.cs
+@@ -44,6 +44,8 @@
+ }
+ internal static class HostTests
+ {
++    // Loaded fixture fds stay open together, as the live four-library scope does.
++    private static readonly List<PinnedFile> loadedFixtures=new List<PinnedFile>();
+     internal static int Run()
+     {
+         try {
+@@ -84,8 +86,10 @@
+             VerifyStatMaskAndOpenFlags();
+             VerifyElfPins();
+             VerifyDynamicBindings();
+-            Console.WriteLine("PASS host_only=1 target_library_loads=0 golden_frames=3 teec_failure_stages=8 count_overflows=3 allocation_faults=12 selector_drift=3 sha256_kats=2 file_guard=pass stat_mask_acceptances=3 missing_required_bits=9 correct_open_flags=2 nofollow_symlink_refusal=1 safe_preflight_failures=2 elf_pins=4 host_mock_versioned_bindings=7"); return 0;
++            VerifyCanonicalOwnerBindings();
++            Console.WriteLine("PASS host_only=1 target_library_loads=0 golden_frames=3 teec_failure_stages=8 count_overflows=3 allocation_faults=12 selector_drift=3 sha256_kats=2 file_guard=pass stat_mask_acceptances=3 missing_required_bits=9 correct_open_flags=2 nofollow_symlink_refusal=1 safe_preflight_failures=2 elf_pins=4 host_mock_versioned_bindings=7 canonical_preload_bindings=8 owner_negative_cases=7 owner_alias_policy_cases=9 aborting_exports_invoked=0"); return 0;
+         } catch(Exception e) { Console.WriteLine("HOST_TEST_FAILED "+e.Message); return 1; }
++        finally {foreach(PinnedFile file in loadedFixtures)file.Dispose();loadedFixtures.Clear();}
+     }
+     private static void VerifyStatMaskAndOpenFlags()
+     {
+@@ -116,7 +120,7 @@
+     private static void VerifyDynamicBindings()
+     {
+         string path=Path.Combine(AppContext.BaseDirectory,"host_mock.so"); byte[] bytes=File.ReadAllBytes(path);
+-        using PinnedFile file=new PinnedFile(new Pin(path,bytes.Length,Core.Hash(bytes)),true);
++        PinnedFile file=new PinnedFile(new Pin(path,bytes.Length,Core.Hash(bytes)),true);loadedFixtures.Add(file);
+         Binding binding=new Binding(file); LiveTeec api=new LiveTeec(binding);
+         using Block c=new Block(4),s=new Block(4),shared=new Block(36),u=new Block(16),op=new Block(60);
+         Core.Require(api.Initialize(c)==0 && c.Get(0)==0x11223344,"native mock initialize");
+@@ -131,6 +135,56 @@
+         Core.Require(s.Get(0)==0 && shared.Get(0)==0 && c.Get(0)==0,"native mock void ABI");
+         Core.Require(Native.Pointer32(new IntPtr(0x80000000L))==0x80000000u,"unsigned address");
+         bool rejected=false; try { Native.Pointer32(new IntPtr(0x1001)); } catch { rejected=true; } Core.Require(rejected,"unaligned pointer accepted");
++    }
++    [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate void AbortExport();
++    private static void OwnerReject(PinnedFile file,string name,BindingReason reason)
++    {
++        bool rejected=false;
++        try {OwnerBinding.Verify(file,name,BindingStage.SymbolOwner);}
++        catch(BindingException e){rejected=e.Stage==BindingStage.SymbolOwner && e.Reason==reason;}
++        Core.Require(rejected,"owner negative branch");
++    }
++    private static void VerifyCanonicalOwnerBindings()
++    {
++        string path=Path.Combine(AppContext.BaseDirectory,"host_owner_mock.so");byte[] bytes=File.ReadAllBytes(path);
++        PinnedFile file=new PinnedFile(new Pin(path,bytes.Length,Core.Hash(bytes)),true);loadedFixtures.Add(file);
++        Core.Require(Native.dlopen(path,2|0x100)!=IntPtr.Zero,"canonical host preload");
++        Binding binding=new Binding(file);
++        Core.Require(Native.dlinfo(binding.Handle,2,out IntPtr map)==0 && map!=IntPtr.Zero,"canonical mock link map");
++        Core.Require(OwnerBinding.Name(Marshal.ReadIntPtr(map,IntPtr.Size))==path,"preload did not coalesce");
++        // Each export aborts if invoked. Resolve all getter/TEEC names, never call.
++        AbortExport getter=binding.Get<AbortExport>("vconf_get_bool","VCONF_BUXTON_1.0");
++        string[] exports={"TEEC_InitializeContext","TEEC_AllocateSharedMemory","TEEC_OpenSession","TEEC_InvokeCommand","TEEC_CloseSession","TEEC_ReleaseSharedMemory","TEEC_FinalizeContext"};
++        foreach(string name in exports)GC.KeepAlive(binding.Get<AbortExport>(name,"TRUSTWARE3.0"));GC.KeepAlive(getter);
++        OwnerBinding.Verify(file,"/proc/self/fd/"+file.Fd,BindingStage.LinkMapOwner);
++        OwnerReject(file,"host_owner_mock.so",BindingReason.NameAllowlist);
++        OwnerReject(file,"/tmp/unknown-owner.so",BindingReason.NameAllowlist);
++        OwnerReject(file,"/proc/self/fd/2147483647",BindingReason.NameAllowlist);
++        bool rejected=false;try{binding.Get<AbortExport>("vconf_get_bool","WRONG_VERSION");}
++        catch(BindingException e){rejected=e.Stage==BindingStage.Symbol && e.Reason==BindingReason.LoaderReturn;}
++        Core.Require(rejected,"wrong symbol version accepted");
++        string temp=Path.Combine(Path.GetTempPath(),"swu-owner-"+Guid.NewGuid().ToString("N")),alias=temp+"-alias",other=temp+"-other",held=temp+"-held";
++        File.WriteAllBytes(temp,bytes);File.WriteAllBytes(other,bytes);File.CreateSymbolicLink(alias,temp);
++        try {
++            using(PinnedFile aliased=new PinnedFile(new Pin(alias,bytes.Length,Core.Hash(bytes)),true)) {
++                File.Delete(alias);File.CreateSymbolicLink(alias,other);
++                OwnerReject(aliased,alias,BindingReason.CanonicalMismatch);
++            }
++            using(PinnedFile changed=new PinnedFile(new Pin(temp,bytes.Length,Core.Hash(bytes)),true)) {
++                File.Move(temp,held);File.WriteAllBytes(temp,bytes);
++                OwnerReject(changed,temp,BindingReason.FileGuard); // equal bytes, different inode
++            }
++            using(PinnedFile changed=new PinnedFile(new Pin(temp,bytes.Length,Core.Hash(bytes)),true)) {
++                File.WriteAllBytes(temp,new byte[bytes.Length]);
++                OwnerReject(changed,temp,BindingReason.FileGuard); // same inode, modified content/identity
++            }
++        } finally {foreach(string name in new[]{temp,alias,other,held})File.Delete(name);}
++        Pin pin=Program.Vconf;string canonical="/usr/lib/libvconf.so.0.3.1";
++        foreach(string name in new[]{pin.Path,canonical,"/lib/libvconf.so.0","/lib/libvconf.so.0.3.1","/proc/self/fd/9"})
++            Core.Require(OwnerBinding.Allowed(pin,canonical,9,name),"valid owner spelling rejected");
++        foreach(string name in new[]{"libvconf.so.0","/tmp/libvconf.so.0","/lib/libvconf.so.9","/proc/self/fd/10"})
++            Core.Require(!OwnerBinding.Allowed(pin,canonical,9,name),"unapproved owner spelling accepted");
++        Console.WriteLine("OWNER_BINDING canonical_preload=pass fd_alias=pass resolved_aborting_exports=8 negative_cases=7 alias_policy_cases=9 getter_calls=0 teec_calls=0");
+     }
+     private static void VerifyElfPins()
+     {

@@ -1,0 +1,25 @@
+EXIDX RANGE 002a7d28..002a7d64; input 002a7d28; may contain multiple functions and literal pools
+002a7d28 70b5       push       {r4, r5, r6, lr}
+002a7d2a 0121       movs       r1, #1
+002a7d2c 0b4d       ldr        r5, [pc, #0x2c] ; literal[002a7d5c]=002222ca
+002a7d2e 0c4e       ldr        r6, [pc, #0x30] ; literal[002a7d60]=000047ac ; GOT?=004c1fc0
+002a7d30 0446       mov        r4, r0
+002a7d32 7d44       add        r5, pc
+002a7d34 f8f70cfc   bl         #0x2a0550
+002a7d38 2246       mov        r2, r4
+002a7d3a 2946       mov        r1, r5
+002a7d3c 0023       movs       r3, #0
+002a7d3e 2046       mov        r0, r4
+002a7d40 a959       ldr        r1, [r5, r6]
+002a7d42 0831       adds       r1, #8
+002a7d44 42f8241b   str        r1, [r2], #0x24
+002a7d48 84f82430   strb.w     r3, [r4, #0x24]
+002a7d4c c4e90723   strd       r2, r3, [r4, #0x1c]
+002a7d50 84f83430   strb.w     r3, [r4, #0x34]
+002a7d54 c4e91433   strd       r3, r3, [r4, #0x50]
+002a7d58 70bd       pop        {r4, r5, r6, pc}
+002a7d5a 00bf       nop        
+002a7d5c ca22       movs       r2, #0xca
+002a7d5e 2200       movs       r2, r4
+002a7d60 ac47       blxns      r5
+002a7d62 0000       movs       r0, r0

@@ -13,10 +13,11 @@ from pathlib import Path
 import re
 import shutil
 import stat
+from datetime import datetime, timezone
 
-VERSION = '2026-10-27.6'
+VERSION = '2026-10-28.1'
 BUILD_PARTS = {'.git', '__pycache__', '.pytest_cache', 'node_modules', 'venv', 'bin', 'obj', 'dotnet10', 'sdk', 'framework', 'installer-data', 'installer-beta', 'installer-source', 'tizentube-source', 'untethered-source'}
-BINARY_EXTS = {'.dll','.so','.ko','.exe','.pdb','.bin','.img','.elf','.range','.wgt','.zip','.tgz','.tar','.gz','.xz','.zst','.nupkg','.deb','.pdf','.png','.jpg','.jpeg','.rgba','.pyc','.dat','.db','.sqlite','.woff','.ttf','.a','.o','.pem','.p12','.pfx','.crt','.key'}
+BINARY_EXTS = {'.dll','.so','.ko','.exe','.pdb','.bin','.img','.msd','.elf','.range','.wgt','.zip','.tgz','.tar','.gz','.xz','.zst','.nupkg','.deb','.pdf','.png','.jpg','.jpeg','.rgba','.pyc','.dat','.db','.sqlite','.woff','.ttf','.a','.o','.pem','.p12','.pfx','.crt','.key'}
 TEXT_EXTS = {'.md','.py','.sh','.cs','.csproj','.c','.h','.cjs','.js','.json','.jsonl','.txt','.disasm','.summary','.stdout','.stderr','.log','.trace','.dts','.dtsi','.xml','.yml','.yaml','.toml','.lock','.config','.intent','.svg','.patch','.diff','.csv','.tsv','.service','.socket','.rules','.conf','.props','.targets','.sln','.il'}
 SOURCE_EXTS = {'.py','.sh','.cs','.csproj','.c','.h','.cjs','.js','.toml','.patch','.diff'}
 MEDIA_TITLES = []  # Private labels are supplied out of tree at export time.
@@ -28,6 +29,13 @@ LONG_ENCODED = re.compile(r'(?<![A-Za-z0-9+/=_-])(?:[A-Za-z0-9+/_-]{320,}={0,2}|
 NAME_REPLACEMENTS = []  # Private filename aliases are supplied out of tree.
 
 def sha(data: bytes) -> str: return hashlib.sha256(data).hexdigest()
+def file_sha(path: Path) -> str:
+    """Hash omitted large acquisitions with bounded memory."""
+    digest=hashlib.sha256()
+    with path.open('rb') as stream:
+        for chunk in iter(lambda: stream.read(1024*1024), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
 def dump(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=2, sort_keys=True, ensure_ascii=False)+'\n')
@@ -63,7 +71,7 @@ def redactor(root: Path):
         return text
     return redact
 
-def disposition(rel: Path, data: bytes, upstream_roots: list[Path]):
+def disposition(rel: Path, data: bytes, upstream_roots: list[Path], *, input_size: int | None = None):
     parts=rel.parts; low=rel.as_posix().lower(); suffix=rel.suffix.lower()
     if any(x in BUILD_PARTS for x in parts): return 'omit','dependency-build-cache'
     if rel.name.startswith('upstream-linux-') and suffix in {'.c','.h'}:return 'omit','upstream-source-referenced-not-vendored'
@@ -75,7 +83,7 @@ def disposition(rel: Path, data: bytes, upstream_roots: list[Path]):
     if any(x in low for x in ['repository-metadata.json','commit.json','topic.html','owner-photo','repair-board','repair-oc-board','repair-guide-board','duid-read','bell-reservations','applications.before','home-content.before','preferences.json','preferences.summary','after-home.json','after-home.summary','pull-csfs2.json','pull-csfs2.summary']): return 'omit','private-or-discovery-record'
     if rel.name in {'core','control.sock','daemon.lock'} or suffix in BINARY_EXTS or '.so.' in rel.name or data.startswith((b'\x7fELF',b'MZ',b'\x1f\x8b',b'PK\x03\x04')): return 'omit','binary-firmware-media-or-build-product'
     if '.full.disasm' in low or rel.name in {'sdp_drm.disasm','sdp_frc.disasm','sdp_tcon.disasm','rosem_frc.disasm'} or ('.il.txt' in low and len(data)>200_000): return 'omit','whole-library-mechanical-disassembly'
-    if len(data)>8_000_000: return 'omit','bulk-acquisition-not-authored-analysis'
+    if (len(data) if input_size is None else input_size)>8_000_000: return 'omit','bulk-acquisition-not-authored-analysis'
     if b'\0' in data: return 'omit','non-text-acquisition'
     if suffix not in TEXT_EXTS and rel.name not in {'Makefile','LICENSE','NOTICE','NOTICE.md','.gitignore','hosts.block','.python-version'}: return 'omit','unsupported-acquisition-or-runtime-format'
     try: text=data.decode('utf-8')
@@ -121,7 +129,7 @@ def extract_observations(obj, redact):
         if key not in seen:unique.append(r);seen.add(key)
     return {'schema':'public-scientific-observations-v1','notice':'Derived extraction; authentication, transport envelopes and payload staging omitted. Original hash is in the disposition manifest. Device output is an observation, not proof of emitted light.','observations':unique}
 
-def export(root: Path, dest: Path):
+def export(root: Path, dest: Path, deferred_fragments: tuple[str, ...] = ()):
     root=root.resolve();dest=dest.resolve()
     if root==dest or root in dest.parents:raise ValueError('destination must be outside evidence root')
     out=dest/'research'
@@ -136,19 +144,31 @@ def export(root: Path, dest: Path):
     for f in external.rglob('*'):
         if f.is_dir() and ('--' in f.name or f.name in {'linux-5.4.261','tizen-docs','quiet-tizen','ovos-skill-my-samsungctl','samsungctl','TizenAmbilight','msddecrypt','firmware-mod-kit','vdfs4','vdfs-unpack','CMSIS_6','cmsis6','vdfs_unpack','firmware_mod_kit','tizenwled','q60t'}):upstream.append(f.relative_to(root))
     redact=redactor(root); rows=[]; totals=Counter(); topics=Counter(); changed=0
+    started=datetime.now(timezone.utc).isoformat()
     files=sorted(f for f in root.rglob('*') if f.is_file() or f.is_symlink())
     for f in files:
         rel=f.relative_to(root); source_id=sha(rel.as_posix().encode())
+        if any(fragment in rel.as_posix() for fragment in deferred_fragments):
+            rows.append({'source_id':source_id,'disposition':'omit','reason':'in-progress-outside-public-snapshot','bytes':f.lstat().st_size,'hash_withheld':'In-progress workstream excluded from this snapshot; no input bytes read.'})
+            totals['omit_files']+=1;totals['omit_source_bytes']+=f.lstat().st_size
+            if f.is_symlink():totals['symlink_files']+=1
+            continue
         if f.is_symlink():
             rows.append({'source_id':source_id,'disposition':'omit','reason':'symlink-reference-not-dereferenced','bytes':0});totals['omit_files']+=1;totals['symlink_files']+=1;continue
-        try:data=f.read_bytes()
+        try:
+            size=f.stat().st_size
+            if size>8_000_000:
+                # No file above the existing public-size limit is exported.
+                # Only its magic prefix and streamed digest are needed.
+                with f.open('rb') as stream:data=stream.read(128)
+            else:data=f.read_bytes()
         except (OSError,ValueError):
             rows.append({'source_id':source_id,'disposition':'omit','reason':'unreadable-runtime-object','bytes':0});continue
-        action,reason=disposition(rel,data,upstream)
-        row={'source_id':source_id,'bytes':len(data),'disposition':action,'reason':reason}
-        if reason not in {'private-access-state','private-network-administration'}:row['source_sha256']=sha(data)
+        action,reason=disposition(rel,data,upstream,input_size=size)
+        row={'source_id':source_id,'bytes':size,'disposition':action,'reason':reason}
+        if reason not in {'private-access-state','private-network-administration'}:row['source_sha256']=file_sha(f) if size>8_000_000 else sha(data)
         else:row['hash_withheld']='credential or private access-state hash is not published'
-        totals[action+'_files']+=1;totals[action+'_source_bytes']+=len(data)
+        totals[action+'_files']+=1;totals[action+'_source_bytes']+=size
         # Name only scientific/public records; withheld records use opaque IDs
         # so the manifest does not itself reveal media or private filenames.
         if action!='omit':
@@ -177,7 +197,7 @@ def export(root: Path, dest: Path):
         rows.append(row)
     totals['regular_input_files']=len(rows)-totals['symlink_files']
     totals['total_input_entries']=len(rows)
-    manifest={'schema':'s95f-public-dispositions-v1','exporter_version':VERSION,'scope':'All regular files and symlinks discovered under the retained Samsung research root; original private paths and withheld filenames are intentionally absent.','totals':dict(totals),'exported_by_original_workstream':dict(topics),'changed_exports':changed,'records':rows}
+    manifest={'schema':'s95f-public-dispositions-v1','exporter_version':VERSION,'scope':'All regular files and symlinks enumerated under the retained Samsung research root; original private paths and withheld filenames are intentionally absent. Explicitly deferred in-progress workstreams are inventoried without reading their bytes.','enumeration_started_utc':started,'export_completed_utc':datetime.now(timezone.utc).isoformat(),'deferred_name_fragments':list(deferred_fragments),'totals':dict(totals),'exported_by_original_workstream':dict(topics),'changed_exports':changed,'records':rows}
     dump(dest/'manifests/source-dispositions.json',manifest)
     dump(dest/'manifests/omissions.json',{'schema':'s95f-omissions-v1','counts_by_reason':dict(Counter(r['reason'] for r in rows if r['disposition']=='omit')),'records':[r for r in rows if r['disposition']=='omit']})
     dump(dest/'manifests/export-summary.json',{k:v for k,v in manifest.items() if k!='records'})
@@ -186,7 +206,8 @@ def export(root: Path, dest: Path):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--source',type=Path,required=True);parser.add_argument('--destination',type=Path,required=True)
     parser.add_argument('--private-redactions',type=Path,help='Optional private label/filename-alias JSON; never copied into the release')
+    parser.add_argument('--defer-name-fragment',action='append',default=[],help='Inventory but do not read an explicitly in-progress relative-path fragment')
     args=parser.parse_args()
     if args.private_redactions:
         config=json.loads(args.private_redactions.read_text());MEDIA_TITLES=config.get('labels',[]);NAME_REPLACEMENTS=config.get('names',[])
-    export(args.source,args.destination)
+    export(args.source,args.destination,tuple(args.defer_name_fragment))
