@@ -21,7 +21,7 @@ reviewer separately reconciled those same artifacts. The preserved previous
 | Short RT recorder |20/20 accepted samples in4755ms;250–251ms start gaps; all payloads identical | Five-second unobserved baseline, no fault onset |
 | Address-zero sector | OUT12/IN512, complete/accepted, release/close0, stage absent | Storage leaf return is discarded; freshness unproved |
 
-All runs used boot34f419d2-6256-4e1f-a7a9-8d46b875857d. The recorder's
+All runs used boot00000000-0000-4000-8000-000000000000. The recorder's
 outer uptime101195.75–101200.96 encloses its actual sample window
 101196.19–101200.94. The first read took43ms and subsequent reads1–8ms;
 these are service latencies, not CPU-utilization or visible-impact measurements.

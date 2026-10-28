@@ -119,7 +119,7 @@ After the capture's cleanup was verified, the same bounded helpers returned:
 
 Both records are accepted/read usable/cleanup confirmed. The raw kernel line
 at84517.921691 names matching helper PID13669 and `ERR DET Status:0x10`.
-The boot remains34f419d2-6256-4e1f-a7a9-8d46b875857d across working and
+The boot remains00000000-0000-4000-8000-000000000000 across working and
 black samples. There was no parent power/reset/protection command. The parent
 subsequently told the owner one ordinary off/on back to full Apps could be
 used for viewing, because all acquisition was complete. No subsequent owner
@@ -305,7 +305,7 @@ throughout. This run is not promoted to a fully accepted onset trace.
 
 After cleanup, the managed status query returned0x10 at uptime87101.04 and the
 independent one-shot input pin read returned1 at87129.47. Both helpers were
-accepted and cleanup confirmed, on boot34f419d2-6256-4e1f-a7a9-8d46b875857d.
+accepted and cleanup confirmed, on boot00000000-0000-4000-8000-000000000000.
 The preceding visible Ugoos menu had returned status0 at86297.39. The new
 status/pin signature matches the previous Apps-to-ForYou black case, extending
 the failure context beyond sparse Home pages. The queries are sequential and
@@ -515,7 +515,7 @@ the old excluded preparation into an observation. A new unique capture
 The recorded countdown was02:41:29.901340UTC with at least±1.132s mapping
 uncertainty. A separate authenticated read found actual CAPTURE_START at
 uptime90501.62, trace marker90501.630636, and private tracing_on1 at90532.58
-on the same Linux boot34f419d2-6256-4e1f-a7a9-8d46b875857d. GO was then sent
+on the same Linux boot00000000-0000-4000-8000-000000000000. GO was then sent
 for program_b EPISODE_REDACTED from the beginning, roughly31seconds into the60-second window.
 This leaves limited recording time for a delayed owner start; the physical
 onset cannot be assumed to be in the trace.

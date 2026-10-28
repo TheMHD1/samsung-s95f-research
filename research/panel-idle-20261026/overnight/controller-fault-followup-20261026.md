@@ -99,7 +99,7 @@ The deliberately corrected [b result](micom-log-read-20261026b/result.json)
 contains one actual source open/read sequence, one transfer and one cleanup
 RPC, all authenticated/root/exit0/no timeout/empty remote stderr. Source module
 hash and Linux release were checked. Captured uptime79281.42..79281.44,
-UTC1793057672, boot34f419d2-6256-4e1f-a7a9-8d46b875857d. The decoded
+UTC1793057672, boot00000000-0000-4000-8000-000000000000. The decoded
 [snapshot](micom-log-read-20261026b/micom-log.bin) is1,477 bytes, SHA256
 `bd600476b7a081b58759128cff8bacd8f4fef8d8c45c33327cc575a1c65d7110`.
 Its full size/hash matched the target snapshot before guarded removal of the
@@ -209,7 +209,7 @@ found both `/dev/ssb1` and `/dev/ssbs1`, and their named class entries, absent.
 A separate [registration/USB metadata sample](ssb-registration-metadata-20261026a/client.stdout),
 SHA256 `2807922e63b27c2aef8d9b3ad9c9b5eb3b20a49f5d6e2808928784b6bff48351`,
 was authenticated uid/euid0, modelQN77S95FAFXZC, exit0, no timeout and empty
-remote/client stderr. Boot ID stayed34f419d2-6256-4e1f-a7a9-8d46b875857d,
+remote/client stderr. Boot ID stayed00000000-0000-4000-8000-000000000000,
 uptime80586.50..80586.66. It found `sdp_pqe_frc` loaded, stateLive/refcnt0,
 with module driver links to the two platform drivers `sdp_ld` and
 `sdp_pqe_frc`. Its bounded globs matched no `/dev/ssb*`,

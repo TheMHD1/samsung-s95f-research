@@ -10,7 +10,7 @@ input sample returned1; the actual result and side effects are linked below.
 ## Actual metadata
 
 [Raw metadata](gpio-route-metadata-20261026a/client.stdout) is authenticated
-root, one exit0 command, no timeout, empty stderr, same boot34f419d2-6256-4e1f-a7a9-8d46b875857d,
+root, one exit0 command, no timeout, empty stderr, same boot00000000-0000-4000-8000-000000000000,
 uptime76487.67..76487.77. Its framed response is7500 bytes. It shows:
 
 - `/dev/gpiochip15`, major254/minor15, root:root0600, among60 GPIO cdev nodes.

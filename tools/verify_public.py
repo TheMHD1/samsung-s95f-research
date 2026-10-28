@@ -10,7 +10,15 @@ from pathlib import Path
 import re
 import subprocess
 
+# Deliberately independent of exporter code: a shared transform bug must not
+# silently disable the verification gate. No runtime identity allowlist.
+ALLOWED_PUBLIC_UUIDS = frozenset({
+    '00000000-0000-4000-8000-000000000000',  # Redaction sentinel.
+    '0fc63daf-8483-4772-8e79-3d69d8477de4',  # Standard GPT Linux filesystem type.
+})
+
 PATTERNS = {
+    'boot-or-session-uuid': re.compile(r'(?i)[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}'),
     'private-ipv4': re.compile(r'(?<![\w.])(?:192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3})(?![\w.])'),
     'private-absolute-home': re.compile(r'(?<![A-Za-z0-9_])/home/(?!researcher\b)[^/\s"\']+'),
     'github-token': re.compile(r'\b(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,})\b'),
@@ -37,7 +45,8 @@ def verify(root: Path):
         if p.stat().st_mode & 0o111:errors.append({'kind':'executable-archive-artifact','path':rel})
         text=data.decode('utf-8')
         for label,pattern in PATTERNS.items():
-            match=pattern.search(text)
+            match=(next((item for item in pattern.finditer(text) if item.group().lower() not in ALLOWED_PUBLIC_UUIDS),None)
+                   if label=='boot-or-session-uuid' else pattern.search(text))
             if match:errors.append({'kind':label,'path':rel,'line':text.count('\n',0,match.start())+1})
         if p.suffix=='.json':
             try:json.loads(text)

@@ -31,7 +31,7 @@ listing a declared range does not upgrade their acceptance status.
 ## Two historical F3:128 readings
 
 Two accepted/read-usable records preserve operation19 fixed selector128
-results on boot34f419d2-6256-4e1f-a7a9-8d46b875857d:
+results on boot00000000-0000-4000-8000-000000000000:
 
 | File | Execute uptime | Recorded result |
 | --- | ---: | --- |

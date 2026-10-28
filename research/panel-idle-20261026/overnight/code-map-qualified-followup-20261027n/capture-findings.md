@@ -2,7 +2,7 @@
 
 Recorded2026-10-27 UTC. One root-controlled invocation used independently
 reviewed manifest550be573257e5d8e726fbf5b4d223a4eeb82e03376edde5dd8062a0eeb37662c
-on the pinned Linux boot34f419d2-6256-4e1f-a7a9-8d46b875857d.
+on the pinned Linux boot00000000-0000-4000-8000-000000000000.
 Terminal uptime was122877.73. The record retains20 authenticated root calls,
 one native execution and the preceding native50-case self-test.
 

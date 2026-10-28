@@ -2,7 +2,7 @@
 
 Recorded2026-10-27 UTC. One independently reviewed invocation used final
 manifest48b202a87cd714dab866a32cb36cb716a65cdec6745519463a346bab9d35f00a.
-It completed on boot34f419d2-6256-4e1f-a7a9-8d46b875857d with terminal
+It completed on boot00000000-0000-4000-8000-000000000000 with terminal
 uptime123267.81. Its19 authenticated root calls retain the preceding47-case
 native self-test, one native execution, six exact bulk transfers, terminal
 ReadyForHeader, successful release/close and STAGE_ABSENT cleanup. No retry,

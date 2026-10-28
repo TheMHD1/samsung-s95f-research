@@ -1,7 +1,7 @@
 # X passive observer: independent runtime audit
 
 One reviewed fixed read-only run completed at terminal Linux uptime126642.16,
-boot34f419d2-6256-4e1f-a7a9-8d46b875857d. Independent read-only audit passed
+boot00000000-0000-4000-8000-000000000000. Independent read-only audit passed
 with no discrepancies and made no target/network calls.
 
 The auditor reconstructed all24 authenticated root calls: each raw response

@@ -16,7 +16,7 @@ import shutil
 import stat
 from datetime import datetime, timezone
 
-VERSION = '2026-10-28.3'
+VERSION = '2026-10-28.4'
 BUILD_PARTS = {'.git', '__pycache__', '.pytest_cache', 'node_modules', 'venv', 'bin', 'obj', 'dotnet10', 'sdk', 'framework', 'installer-data', 'installer-beta', 'installer-source', 'tizentube-source', 'untethered-source'}
 BINARY_EXTS = {'.dll','.so','.ko','.exe','.pdb','.bin','.img','.msd','.elf','.range','.wgt','.zip','.tgz','.tar','.gz','.xz','.zst','.nupkg','.deb','.pdf','.png','.jpg','.jpeg','.rgba','.pyc','.dat','.db','.sqlite','.woff','.ttf','.a','.o','.pem','.p12','.pfx','.crt','.key'}
 TEXT_EXTS = {'.md','.py','.sh','.cs','.csproj','.c','.h','.cjs','.js','.json','.jsonl','.txt','.disasm','.summary','.stdout','.stderr','.log','.trace','.dts','.dtsi','.xml','.yml','.yaml','.toml','.lock','.config','.intent','.svg','.patch','.diff','.csv','.tsv','.service','.socket','.rules','.conf','.props','.targets','.sln','.il'}
@@ -24,7 +24,13 @@ SOURCE_EXTS = {'.py','.sh','.cs','.csproj','.c','.h','.cjs','.js','.toml','.patc
 MEDIA_TITLES = []  # Private labels are supplied out of tree at export time.
 SECRET_KEY = re.compile(r'(?i)^(?:.*(?:password|passwd|credential|cookie|access.?token|auth.?token|client.?secret|session.?id|serial.?number|duid|mac.?address)|boot_?id|expected_?boot|token|secret|ssid|bssid)$')
 PRIVATE_IPV4 = re.compile(r'(?<![\w.])(?:192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(?:1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3})(?![\w.])')
-UUID = re.compile(r'(?i)\b[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\b')
+# Literal UUID shapes also occur beside escaped newlines/quotes and prose.
+# Word/hex boundaries would miss those identities in nested serialized output.
+UUID = re.compile(r'(?i)[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}')
+UUID_SENTINEL = '00000000-0000-4000-8000-000000000000'
+PUBLIC_PROTOCOL_UUIDS = frozenset({
+    '0fc63daf-8483-4772-8e79-3d69d8477de4',  # Standard GPT Linux filesystem type.
+})
 MAC = re.compile(r'(?i)(?<![\w:])(?:[0-9a-f]{2}:){5}[0-9a-f]{2}(?![\w:])')
 LONG_ENCODED = re.compile(r'(?<![A-Za-z0-9+/=_-])(?:[A-Za-z0-9+/_-]{320,}={0,2}|[0-9a-fA-F]{512,})(?![A-Za-z0-9+/=_-])')
 NAME_REPLACEMENTS = []  # Private filename aliases are supplied out of tree.
@@ -91,7 +97,7 @@ def redactor(root: Path):
         text=re.sub(r'(?i)\bS\d{2}E\d{2}(?:[–-]\d{2})?\b','EPISODE_REDACTED',text)
         text=re.sub(r'(?i)\b(?:Pilot|Americans|Conjuring)\b','PROGRAM_LABEL',text)
         text=PRIVATE_IPV4.sub(lambda m: '198.51.100.20' if m.group().endswith('.201') else '198.51.100.10', text)
-        text=UUID.sub('00000000-0000-4000-8000-000000000000',text)
+        text=UUID.sub(lambda match: match.group() if match.group().lower() in PUBLIC_PROTOCOL_UUIDS else UUID_SENTINEL,text)
         text=MAC.sub('00:00:00:00:00:00',text)
         for value in secrets:
             text=text.replace(value,'REDACTED_AUTH_TOKEN')

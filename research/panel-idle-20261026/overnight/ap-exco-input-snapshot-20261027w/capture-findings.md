@@ -1,7 +1,7 @@
 # W live ordinary-input snapshot
 
 One fixed read-only acquisition completed on2026-10-27 at terminal Linux
-uptime125699.16, boot34f419d2-6256-4e1f-a7a9-8d46b875857d. It returned the
+uptime125699.16, boot00000000-0000-4000-8000-000000000000. It returned the
 expected pointer anchors, an824-byte ordinary AP_EXCO prefix and the1004-byte
 derived object. All six USB bulk transfers were exact. The native helper
 ended ReadyForHeader, released and closed the interface, and verified removal

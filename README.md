@@ -22,6 +22,8 @@ The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY
 
 **Additive logging and reconciliation cutoff:** the original combined logger refusal remains rejected despite its known terminal phase. A separate fixed logger1→0 readback and final software-Clean40/logger0/N0 validation are independently replayed; Clean was already sampled before the logger write. [Read the source, tooling and sixth-fixture guide](docs/logging-refusal-restoration-20261028.md). FK and FN are host-qualified only at this cutoff; FO/FP and live mutable CURRENT are excluded. No optical recovery or permanent fix is established.
 
+The logging-cutoff successor also corrects a historical UUID-redaction boundary gap in 24 archived files. Only boot/session identity text changes; the six scientific fixtures, source conclusions and license notices remain unchanged. The [privacy correction ledger](manifests/uuid-privacy-correction.json) records exact file hashes and the preserved candidate commit. Earlier Git history is retained and still contains the pre-correction text.
+
 ## Start here
 
 | Topic | Entry point |

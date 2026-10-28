@@ -53,7 +53,7 @@ Three unique timestamped write-skip/read-state pairs appear:
 | --- | --- | --- |
 | 1803.266962/966 | `tcon-deep-probe.json`: nearby `turn off TCON`, then deviced `Tcon Power On`, off-sensing ready/power-normal, status checking | Real state0 skips near power lifecycle; this file's header lacks a boot ID, so do not establish cross-file alignment solely from uptime |
 | 1834.698328/344 | Same file: preceding explicit deviced power-off at1826.601; subsequent power-on at1835.640 and init-check OK at1836.483 | State0 can accompany an intentional power-off interval; these logs alone do not identify a spontaneous panel fault |
-| 6196.672722/732 | `recovery-reboot/capture-00.json`: boot34f419d2-6256-4e1f-a7a9-8d46b875857d; nearby wake-reason change and `lcdon` at6196.680540 | Real skips near wake, before the later visibleApps7206/black7393 comparison; not a captured initiating failure for that pair |
+| 6196.672722/732 | `recovery-reboot/capture-00.json`: boot00000000-0000-4000-8000-000000000000; nearby wake-reason change and `lcdon` at6196.680540 | Real skips near wake, before the later visibleApps7206/black7393 comparison; not a captured initiating failure for that pair |
 
 `off sensing available[val:1]` means the availability getter's result, not proof
 that sensing was active. Likewise OledDeviceTimer's minute-based elapsed-time
@@ -65,7 +65,7 @@ not evidence that they never occurred.
 ## Fresh read-only baseline and memory-observer boundary
 
 `gate-log-baseline-20261026T055728Z.json` confirms at05:57:28UTC:
-same boot ID34f419d2-6256-4e1f-a7a9-8d46b875857d, uptime15857.89,
+same boot ID00000000-0000-4000-8000-000000000000, uptime15857.89,
 HWC `deactive:0`, global tracing0 and no private instance listed. The last2000
 dmesg lines contain no selected gate messages. This short rolling tail and
 software state do not establish the current physical picture or onset cause.

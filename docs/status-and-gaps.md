@@ -1,5 +1,7 @@
 # Snapshot status and open questions
 
+The current-tree UUID privacy successor corrects 24 historical archive files without changing scientific metadata or the six fixtures. See the [privacy ledger](../manifests/uuid-privacy-correction.json); earlier Git history remains preserved and contains pre-correction text.
+
 The newest fixed [logging cutoff](logging-refusal-restoration-20261028.md) preserves the original FH refusal and independently verifies separate FM logger1→0 readback plus final software-Clean40/logger0/N0 validation without reset. Pre-write Clean prevents attributing that state to the logger-off write. Cached Apps+saver is not optical evidence. FK/FN are host-only within this release; FO/FP and the mutable CURRENT are excluded. The explicit fixed cutoff status supersedes earlier "latest" wording below only for this new scope.
 
 The latest [finite-limit contrast](finite-limit-contrast-20261028.md) records23 sampled clean/C7=1 scores above40 under limit200, maximum76 and final52, followed by exact restoration40 and a later separately navigated40 fault. The first restored40 control had H0/C7 both zero and is an inconclusive exposure control. The fifth public scientific fixture verifies the bounded contrast without private device state. Actual FP selection, physical output, matched threshold causality and permanent prevention remain unresolved; the same field also changes publication capacity. Fresh clean40 recovery validation follows a separate accepted MODE2, with FA restoration already complete before that recovery.
