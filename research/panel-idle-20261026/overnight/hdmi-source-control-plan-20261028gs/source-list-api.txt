@@ -1,0 +1,171 @@
+TYPE NotPublic .<Module> : 
+TYPE AutoLayout, AnsiClass, Class, Abstract, Sealed, BeforeFieldInit .Interop : System.Object
+TYPE BeforeFieldInit Tizen.TV.Service.SourceList.PrivilegeUtil : System.Object
+ FIELD 04000001 Private String smackLabel
+ FIELD 04000002 Private String uid
+ FIELD 04000003 Private String clientSession
+ FIELD 04000004 Private, Static, Literal, HasDefault String logTag
+ METHOD 06000001 PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000002 PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 06000003 PrivateScope, Assembly, HideBySig Void PrivilegeChecker()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.SourceList.SourceItem : System.Object
+ FIELD 04000005 Private, InitOnly Int32 <sourceType>k__BackingField
+ FIELD 04000006 Private String <editName>k__BackingField
+ FIELD 04000007 Private String <detectedName>k__BackingField
+ FIELD 04000008 Private, InitOnly String <iconPath>k__BackingField
+ FIELD 04000009 Private, InitOnly String <uniqueKey>k__BackingField
+ FIELD 0400000a Private, InitOnly Boolean <connectionState>k__BackingField
+ FIELD 0400000b Private, InitOnly Int32 <powerState>k__BackingField
+ FIELD 0400000c Private, InitOnly Int32 <mbrActivityIndex>k__BackingField
+ FIELD 0400000d Private, InitOnly String <launcherFocusedIconPath>k__BackingField
+ FIELD 0400000e Private, InitOnly String <launcherUnfocusedIconPath>k__BackingField
+ FIELD 0400000f Private, InitOnly Int32 <settingMethod>k__BackingField
+ FIELD 04000010 Private, InitOnly Int32 <editState>k__BackingField
+ METHOD 06000004 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Int32,String,String,String,String,Boolean,Int32,Int32)
+ METHOD 06000005 PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName Void .ctor(Int32,String,String,String,String,Boolean,Int32,Int32,String,String)
+ METHOD 06000006 PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName Void .ctor(Int32,String,String,String,String,Boolean,Int32,Int32,Int32,String,String)
+ METHOD 06000007 PrivateScope, Assembly, HideBySig, SpecialName, RTSpecialName Void .ctor(Int32,String,String,String,String,Boolean,Int32,Int32,Int32,String,String,Int32)
+ METHOD 06000008 PrivateScope, Public, HideBySig, SpecialName Int32 get_sourceType()
+ METHOD 06000009 PrivateScope, Public, HideBySig, SpecialName String get_editName()
+ METHOD 0600000a PrivateScope, Public, HideBySig, SpecialName Void set_editName(String)
+ METHOD 0600000b PrivateScope, Public, HideBySig, SpecialName String get_detectedName()
+ METHOD 0600000c PrivateScope, Public, HideBySig, SpecialName Void set_detectedName(String)
+ METHOD 0600000d PrivateScope, Public, HideBySig, SpecialName String get_iconPath()
+ METHOD 0600000e PrivateScope, Public, HideBySig, SpecialName String get_uniqueKey()
+ METHOD 0600000f PrivateScope, Public, HideBySig, SpecialName Boolean get_connectionState()
+ METHOD 06000010 PrivateScope, Public, HideBySig, SpecialName Int32 get_powerState()
+ METHOD 06000011 PrivateScope, Public, HideBySig, SpecialName Int32 get_mbrActivityIndex()
+ METHOD 06000012 PrivateScope, Public, HideBySig, SpecialName String get_launcherFocusedIconPath()
+ METHOD 06000013 PrivateScope, Public, HideBySig, SpecialName String get_launcherUnfocusedIconPath()
+ METHOD 06000014 PrivateScope, Public, HideBySig, SpecialName Int32 get_settingMethod()
+ METHOD 06000015 PrivateScope, Public, HideBySig, SpecialName Int32 get_editState()
+TYPE BeforeFieldInit Tizen.TV.Service.SourceList.SourceItemConverter : System.Text.Json.Serialization.JsonConverter`1<Tizen.TV.Service.SourceList.SourceItem>
+ METHOD 06000016 PrivateScope, Public, Virtual, HideBySig Tizen.TV.Service.SourceList.SourceItem Read(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
+ METHOD 06000017 PrivateScope, Public, Virtual, HideBySig Void Write(System.Text.Json.Utf8JsonWriter,Tizen.TV.Service.SourceList.SourceItem,System.Text.Json.JsonSerializerOptions)
+ METHOD 06000018 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.SourceList.SourceChangedEventType : System.Enum
+ FIELD 04000011 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000012 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceChangedEventType invalid
+ FIELD 04000013 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceChangedEventType changed
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.SourceList.SourceListChanged : System.MulticastDelegate
+ METHOD 06000019 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(Object,IntPtr)
+ METHOD 0600001a PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void Invoke(Tizen.TV.Service.SourceList.SourceChangedEventType,IntPtr)
+ METHOD 0600001b PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult BeginInvoke(Tizen.TV.Service.SourceList.SourceChangedEventType,IntPtr,System.AsyncCallback,Object)
+ METHOD 0600001c PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask Void EndInvoke(System.IAsyncResult)
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.SourceList.SourceType : System.Enum
+ FIELD 04000014 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000015 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType Invalid
+ FIELD 04000016 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType OIPF
+ FIELD 04000017 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType ISP
+ FIELD 04000018 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType USB
+ FIELD 04000019 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType PVR
+ FIELD 0400001a Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType PTP
+ FIELD 0400001b Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType DLNA
+ FIELD 0400001c Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType RVU
+ FIELD 0400001d Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType RUI
+ FIELD 0400001e Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType WIDI
+ FIELD 0400001f Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType MBRRES
+ FIELD 04000020 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType MagicInfoS
+ FIELD 04000021 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType WebBrowser
+ FIELD 04000022 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType URLLauncher
+ FIELD 04000023 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType BTMusicPlayer
+ FIELD 04000024 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType RemoteWS
+ FIELD 04000025 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType Sample
+ FIELD 04000026 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType USBCam
+ FIELD 04000027 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceType Storage
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.SourceList.DeviceType : System.Enum
+ FIELD 04000028 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000029 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType Undefined
+ FIELD 0400002a Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType VCR
+ FIELD 0400002b Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType DVD
+ FIELD 0400002c Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType CableSTB
+ FIELD 0400002d Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType SatiSTB
+ FIELD 0400002e Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType PVRSTB
+ FIELD 0400002f Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType AVRCV
+ FIELD 04000030 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType Game
+ FIELD 04000031 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType Cam
+ FIELD 04000032 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType PC
+ FIELD 04000033 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType DVI
+ FIELD 04000034 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType DVIPC
+ FIELD 04000035 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType DVIDevices
+ FIELD 04000036 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType TV
+ FIELD 04000037 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType IPTV
+ FIELD 04000038 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType BluRay
+ FIELD 04000039 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType HDDVD
+ FIELD 0400003a Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType DigitalMediaAdapter
+ FIELD 0400003b Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType MagicInfo
+ FIELD 0400003c Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType DisplayPort
+ FIELD 0400003d Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType OPS
+ FIELD 0400003e Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType HDBT
+ FIELD 0400003f Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType DiscPlayer
+ FIELD 04000040 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType STB
+ FIELD 04000041 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType BDDVR
+ FIELD 04000042 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType HTS
+ FIELD 04000043 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType OTT
+ FIELD 04000044 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.DeviceType Other
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.SourceList.SourcePowerState : System.Enum
+ FIELD 04000045 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 04000046 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourcePowerState Unknown
+ FIELD 04000047 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourcePowerState On
+ FIELD 04000048 Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourcePowerState Off
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.SourceList.SourceSettingMethod : System.Enum
+ FIELD 04000049 Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 0400004a Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceSettingMethod None
+ FIELD 0400004b Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceSettingMethod Manual
+ FIELD 0400004c Public, Static, Literal, HasDefault Tizen.TV.Service.SourceList.SourceSettingMethod AutoDetection
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.SourceList.SourceList : System.Object
+ FIELD 0400004d Private, Static Tizen.TV.Service.SourceList.PrivilegeUtil privTest
+ FIELD 0400004e Private, Static System.Collections.Generic.List`1<Tizen.TV.Service.SourceList.SourceListChanged> mCallBack
+ FIELD 0400004f Private, Static, Literal, HasDefault String logTag
+ FIELD 04000050 Private, Static System.Text.Json.JsonSerializerOptions jsonSerializeOptaion
+ METHOD 0600001d PrivateScope, Public, Static, HideBySig Void NotifySourceListChanged(Tizen.TV.Service.SourceList.SourceListChanged)
+ METHOD 0600001e PrivateScope, Public, Static, HideBySig Void IgnoreSourceListChanged(Tizen.TV.Service.SourceList.SourceListChanged)
+ METHOD 0600001f PrivateScope, Public, Static, HideBySig Void GetSourceList(System.Collections.Generic.List`1<Tizen.TV.Service.SourceList.SourceItem>&)
+ METHOD 06000020 PrivateScope, Public, Static, HideBySig Void GetUsbData(String,Tizen.TV.Service.SourceList.USBData&)
+ METHOD 06000021 PrivateScope, Public, Static, HideBySig Void ChangeSource(Int32)
+ METHOD 06000022 PrivateScope, Public, Static, HideBySig Void ChangeSourceWithUniqueKey(Int32,String)
+ METHOD 06000023 PrivateScope, Public, Static, HideBySig Void SetSourceEditName(Int32,String,Int32)
+ METHOD 06000024 PrivateScope, Public, Static, HideBySig Void SetSourceDeviceType(Int32,Int32,Int32)
+ METHOD 06000025 PrivateScope, Public, Static, HideBySig Void GetSourceEditName(Int32,String&,Int32)
+ METHOD 06000026 PrivateScope, Public, Static, HideBySig Void GetSourceDeviceType(Int32,Int32&,Int32)
+ METHOD 06000027 PrivateScope, Public, Static, HideBySig Boolean GetSourceOSDText(Int32,String&)
+ METHOD 06000028 PrivateScope, Private, Static, HideBySig System.Collections.Generic.List`1<Tizen.TV.Service.SourceList.SourceItem> DecodeSourceList(System.Collections.Generic.List`1<Tizen.TV.Service.SourceList.SourceItem>)
+ METHOD 06000029 PrivateScope, Public, Static, HideBySig Boolean SetSourceDetectedNameAndDeviceType(Int32,String,UInt32,Int32)
+ METHOD 0600002a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 0600002b PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, Public, BeforeFieldInit Tizen.TV.Service.SourceList.USBData : System.Object
+ FIELD 04000051 Private, InitOnly String <calledApp>k__BackingField
+ FIELD 04000052 Private, InitOnly String <deviceType>k__BackingField
+ FIELD 04000053 Private, InitOnly String <deviceName>k__BackingField
+ FIELD 04000054 Private, InitOnly String <vendorName>k__BackingField
+ FIELD 04000055 Private, InitOnly String <volumeName>k__BackingField
+ FIELD 04000056 Private, InitOnly String <devicePath>k__BackingField
+ METHOD 0600002c PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(String,String,String,String,String)
+ METHOD 0600002d PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(String,String,String,String,String,String)
+ METHOD 0600002e PrivateScope, Public, HideBySig, SpecialName String get_calledApp()
+ METHOD 0600002f PrivateScope, Public, HideBySig, SpecialName String get_deviceType()
+ METHOD 06000030 PrivateScope, Public, HideBySig, SpecialName String get_deviceName()
+ METHOD 06000031 PrivateScope, Public, HideBySig, SpecialName String get_vendorName()
+ METHOD 06000032 PrivateScope, Public, HideBySig, SpecialName String get_volumeName()
+ METHOD 06000033 PrivateScope, Public, HideBySig, SpecialName String get_devicePath()
+TYPE BeforeFieldInit Tizen.TV.Service.SourceList.USBDataConverter : System.Text.Json.Serialization.JsonConverter`1<Tizen.TV.Service.SourceList.USBData>
+ METHOD 06000034 PrivateScope, Public, Virtual, HideBySig Tizen.TV.Service.SourceList.USBData Read(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)
+ METHOD 06000035 PrivateScope, Public, Virtual, HideBySig Void Write(System.Text.Json.Utf8JsonWriter,Tizen.TV.Service.SourceList.USBData,System.Text.Json.JsonSerializerOptions)
+ METHOD 06000036 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+TYPE Sealed .<PrivateImplementationDetails> : System.Object
+ METHOD 06000037 PrivateScope, Assembly, Static, HideBySig UInt32 ComputeStringHash(String)
+TYPE AutoLayout, AnsiClass, Class, NestedAssembly, Abstract, Sealed, BeforeFieldInit .Libraries : System.Object
+ FIELD 04000057 Public, Static, Literal, HasDefault String SourceAPI
+TYPE AutoLayout, AnsiClass, Class, NestedAssembly, Abstract, Sealed, BeforeFieldInit .SourceAPI : System.Object
+ METHOD 06000038 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl String get_source_list()
+ METHOD 06000039 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl String get_usb_data(String)
+ METHOD 0600003a PrivateScope, Assembly, Static, HideBySig, PinvokeImpl String get_edit_name(Int32,Int32)
+ METHOD 0600003b PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Int32 get_device_type(Int32,Int32)
+ METHOD 0600003c PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean set_edit_name(Int32,String,Int32)
+ METHOD 0600003d PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean set_device_type(Int32,Int32,Int32)
+ METHOD 0600003e PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean connect_source(Int32)
+ METHOD 0600003f PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean connect_source_with_uniquekey(Int32,String)
+ METHOD 06000040 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Void register_sourcelist_changed_callback(Tizen.TV.Service.SourceList.SourceListChanged,IntPtr)
+ METHOD 06000041 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Void unregister_sourcelist_changed_callback(IntPtr)
+ METHOD 06000042 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl String get_source_osd_text(Int32)
+ METHOD 06000043 PrivateScope, Assembly, Static, HideBySig, PinvokeImpl Boolean set_source_detetedname_and_devicetype(Int32,String,UInt32,Int32)

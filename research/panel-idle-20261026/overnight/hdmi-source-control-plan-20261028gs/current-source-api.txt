@@ -1,0 +1,80 @@
+TYPE BeforeFieldInit Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceInfo : System.Object
+ FIELD 0400023e Private, Static System.Collections.Generic.Dictionary`2<String,.SourceInfoStatus> currentSource
+ METHOD 0600044e PrivateScope, Family, Static, HideBySig Void Add(String)
+ METHOD 0600044f PrivateScope, Family, Static, HideBySig Void Remove(String)
+ METHOD 06000450 PrivateScope, Family, Static, HideBySig Void Update(String,.Status)
+ METHOD 06000451 PrivateScope, Family, Static, HideBySig Int32 GetCount(Tizen.TV.Service.CoBA.Core.Manager.SourceType)
+ METHOD 06000452 PrivateScope, Public, Static, HideBySig Void GetCurrentSource(String&,.Status&)
+ METHOD 06000453 PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor()
+ METHOD 06000454 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+TYPE AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract Tizen.TV.Service.CoBA.Core.Manager.ICurrentSource : 
+ METHOD 06000455 PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract Void OnCurrentSourceChanged(Boolean)
+TYPE AutoLayout, AnsiClass, Class, Sealed, BeforeFieldInit Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceMonitor : Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceInfo
+ INTERFACE System.IDisposable
+ INTERFACE Tizen.TV.Service.CoBA.Core.IChangeValue
+ FIELD 0400023f Private, Static, Literal, HasDefault String VCONF_VS_TOP_APP_ID
+ FIELD 04000240 Private, Static, Literal, HasDefault String VCONF_VS_RUNNING_STATE
+ FIELD 04000241 Private, Static, Literal, HasDefault String VCONF_FULLSCREEN_APPID
+ FIELD 04000242 Private, Static, Literal, HasDefault String VCONF_LAST_SERVICE
+ FIELD 04000243 Private, Static, Literal, HasDefault String VCONF_CURRENT_SOURCE
+ FIELD 04000244 Private, Static, Literal, HasDefault String VCONF_CURRENT_MBR_ACTIVITY_INDEX
+ FIELD 04000245 Private, Static, Literal, HasDefault String REQUEST_TO_REFRESH
+ FIELD 04000246 Private, Static, Literal, HasDefault Int32 TIME_1SEC_TO_MSEC
+ FIELD 04000247 Private, Static, Literal, HasDefault Int32 TIMEOUT_MSEC
+ FIELD 04000248 Private, Static, Literal, HasDefault String VDB_CUSTOM_REFRESH
+ FIELD 04000249 Private, Static Object lockForFullscreenAppID
+ FIELD 0400024a Private, Static String fullscreenAppID
+ FIELD 0400024b Private Boolean running
+ FIELD 0400024c Private Boolean retry
+ FIELD 0400024d Private Object autolock
+ FIELD 0400024e Private, Static, InitOnly System.Collections.Generic.List`1<String> currentSourceMonitorBlackList
+ FIELD 0400024f Private .Source interestSource
+ FIELD 04000250 Private System.Collections.Generic.List`1<String> interestAppIDs
+ FIELD 04000251 Private System.Collections.Generic.List`1<String> additionalAppIDs
+ FIELD 04000252 Private Object lockForCurrentSource
+ FIELD 04000253 Private Tizen.TV.Service.CoBA.Core.Manager.ICurrentSource listener
+ FIELD 04000254 Private String caller
+ FIELD 04000255 Private Boolean <IsCurrent>k__BackingField
+ FIELD 04000256 Private Boolean isVCService
+ METHOD 06000456 PrivateScope, Public, HideBySig, SpecialName String get_Caller()
+ METHOD 06000457 PrivateScope, Private, HideBySig, SpecialName Void set_Caller(String)
+ METHOD 06000458 PrivateScope, Public, HideBySig, SpecialName Boolean get_IsCurrent()
+ METHOD 06000459 PrivateScope, Private, HideBySig, SpecialName Void set_IsCurrent(Boolean)
+ METHOD 0600045a PrivateScope, Public, HideBySig, SpecialName, RTSpecialName Void .ctor(String,System.Collections.Generic.List`1<String>,Tizen.TV.Service.CoBA.Core.Manager.ICurrentSource,String)
+ METHOD 0600045b PrivateScope, Family, Virtual, HideBySig Void Finalize()
+ METHOD 0600045c PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void Dispose()
+ METHOD 0600045d PrivateScope, Public, HideBySig Void OnVconfCallback(IntPtr,IntPtr)
+ METHOD 0600045e PrivateScope, Public, HideBySig Void SetInterestInformation(String,System.Collections.Generic.List`1<String>)
+ METHOD 0600045f PrivateScope, Public, HideBySig Void UpdateInterestSourceID(String)
+ METHOD 06000460 PrivateScope, Public, HideBySig Void SetAdditionalAppIDs(System.Collections.Generic.List`1<String>)
+ METHOD 06000461 PrivateScope, Public, HideBySig Void Refresh()
+ METHOD 06000462 PrivateScope, Private, HideBySig String GetFullScreenVconf()
+ METHOD 06000463 PrivateScope, Private, HideBySig Boolean IsVirtualControllerConfict()
+ METHOD 06000464 PrivateScope, Private, HideBySig Void UpdateFullScreenAppID(String)
+ METHOD 06000465 PrivateScope, Private, HideBySig Void UpdateCurrentSource()
+ METHOD 06000466 PrivateScope, Private, HideBySig Void CurrentSourceCheckThread()
+ METHOD 06000467 PrivateScope, Private, HideBySig Boolean Process()
+ METHOD 06000468 PrivateScope, Private, HideBySig Boolean CheckInterestAPPIDs(Boolean&)
+ METHOD 06000469 PrivateScope, Private, HideBySig Boolean NeedToCheckMore()
+ METHOD 0600046a PrivateScope, Private, HideBySig Boolean CheckLastService()
+ METHOD 0600046b PrivateScope, Private, HideBySig Boolean CheckCurrentSource()
+ METHOD 0600046c PrivateScope, Private, HideBySig Boolean GetSourceTypeFromUUID(String,Tizen.TV.Service.CoBA.Core.Manager.SourceType&)
+ METHOD 0600046d PrivateScope, Private, HideBySig Tizen.TV.Service.CoBA.Core.Manager.SourceType ConvertSourceNameToSourceType(String)
+ METHOD 0600046e PrivateScope, Private, HideBySig Boolean CheckCurrentSourceWithSourceType(Tizen.TV.Service.CoBA.Core.Manager.SourceType,Boolean&)
+ METHOD 0600046f PrivateScope, Private, HideBySig Int32 GetMbrCurrentActivityIndex()
+ METHOD 06000470 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnChangeValue(.StringKey,String)
+ METHOD 06000471 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnChangeValue(.IntegerKey,Int32)
+ METHOD 06000472 PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask Void OnChangeValue(String,Object)
+ METHOD 06000473 PrivateScope, Private, Static, HideBySig, SpecialName, RTSpecialName Void .cctor()
+ METHOD 06000474 PrivateScope, Private, HideBySig Object <UpdateCurrentSource>b__42_0(Object)
+ METHOD 06000475 PrivateScope, Private, HideBySig Void <CurrentSourceCheckThread>b__43_0(.Object)
+TYPE AutoLayout, AnsiClass, Class, Public, Sealed Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceState : System.Enum
+ FIELD 0400025c Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 0400025d Public, Static, Literal, HasDefault Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceState Unknown
+ FIELD 0400025e Public, Static, Literal, HasDefault Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceState Unselected
+ FIELD 0400025f Public, Static, Literal, HasDefault Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceState Selected
+TYPE AutoLayout, AnsiClass, Class, NestedPrivate, Sealed .CurrentSourceEventType : System.Enum
+ FIELD 0400062b Public, SpecialName, RTSpecialName Int32 value__
+ FIELD 0400062c Public, Static, Literal, HasDefault .CurrentSourceEventType Init
+ FIELD 0400062d Public, Static, Literal, HasDefault .CurrentSourceEventType Vconf
+ FIELD 0400062e Public, Static, Literal, HasDefault .CurrentSourceEventType User

@@ -1,0 +1,194 @@
+METHOD 0600000e researcher.Home.Entry::Register
+ 0000: ldstr "/etc/tizen-release"
+ 0005: call System.IO.File::ReadAllLines
+ 000a: ldstr "BUILD_ID=T-RSMFAKUC-0090-REL-202607141953"
+ 000f: call System.Linq.Enumerable::Contains
+ 0014: brtrue.s 0B
+ 0016: ldstr "Unsupported TV build"
+ 001b: newobj System.InvalidOperationException::.ctor
+ 0020: throw 
+ 0021: ldarg.0 
+ 0022: castclass Tizen.TV.Service.CoBA.Core.ComponentVersionManager
+ 0027: ldstr "d/owner.shortcut"
+ 002c: ldsfld FieldDefinition:0400000e
+ 0031: dup 
+ 0032: brtrue.s 17
+ 0034: pop 
+ 0035: ldsfld FieldDefinition:0400000d
+ 003a: ldftn <Register>b__2_0
+ 0040: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 0045: dup 
+ 0046: stsfld FieldDefinition:0400000e
+ 004b: ldc.i4.1 
+ 004c: newobj Tizen.TV.Service.CoBA.Core.ComponentAgent::.ctor
+ 0051: callvirt Tizen.TV.Service.CoBA.Core.ComponentVersionManager::Add
+ 0056: pop 
+ 0057: ret 
+METHOD 0600000f researcher.Home.Entry::GetTiles
+ 0000: ldstr "/etc/tizen-release"
+ 0005: call System.IO.File::ReadAllLines
+ 000a: ldstr "BUILD_ID=T-RSMFAKUC-0090-REL-202607141953"
+ 000f: call System.Linq.Enumerable::Contains
+ 0014: brtrue.s 0F
+ 0016: ldc.i4.1 
+ 0017: newarr System.String
+ 001c: dup 
+ 001d: ldc.i4.0 
+ 001e: ldstr "s/livetv@TVPLUS"
+ 0023: stelem.ref 
+ 0024: ret 
+ 0025: call TypeSpecification:1b000014::GetInstance
+ 002a: ldstr "d/owner.shortcut"
+ 002f: ldsfld FieldDefinition:0400000f
+ 0034: dup 
+ 0035: brtrue.s 17
+ 0037: pop 
+ 0038: ldsfld FieldDefinition:0400000d
+ 003d: ldftn <GetTiles>b__3_0
+ 0043: newobj Tizen.TV.Service.CoBA.Core.DelegateFork::.ctor
+ 0048: dup 
+ 0049: stsfld FieldDefinition:0400000f
+ 004e: ldc.i4.1 
+ 004f: callvirt Tizen.TV.Service.CoBA.Core.ComponentManager::AddComponent
+ 0054: pop 
+ 0055: ldc.i4.s 0A
+ 0057: newarr System.String
+ 005c: dup 
+ 005d: ldc.i4.0 
+ 005e: ldstr "s/livetv@TVPLUS"
+ 0063: stelem.ref 
+ 0064: dup 
+ 0065: ldc.i4.1 
+ 0066: ldstr "d/owner.shortcut@Netflix"
+ 006b: stelem.ref 
+ 006c: dup 
+ 006d: ldc.i4.2 
+ 006e: ldstr "d/owner.shortcut@Prime"
+ 0073: stelem.ref 
+ 0074: dup 
+ 0075: ldc.i4.3 
+ 0076: ldstr "d/owner.shortcut@HDMI1"
+ 007b: stelem.ref 
+ 007c: dup 
+ 007d: ldc.i4.4 
+ 007e: ldstr "d/owner.shortcut@HDMI2"
+ 0083: stelem.ref 
+ 0084: dup 
+ 0085: ldc.i4.5 
+ 0086: ldstr "d/owner.shortcut@HDMI3"
+ 008b: stelem.ref 
+ 008c: dup 
+ 008d: ldc.i4.6 
+ 008e: ldstr "d/owner.shortcut@HDMI4"
+ 0093: stelem.ref 
+ 0094: dup 
+ 0095: ldc.i4.7 
+ 0096: ldstr "d/owner.shortcut@Cast"
+ 009b: stelem.ref 
+ 009c: dup 
+ 009d: ldc.i4.8 
+ 009e: ldstr "d/owner.shortcut@AirPlay"
+ 00a3: stelem.ref 
+ 00a4: dup 
+ 00a5: ldc.i4.s 09
+ 00a7: ldstr "d/owner.shortcut@Settings"
+ 00ac: stelem.ref 
+ 00ad: ret 
+METHOD 06000010 researcher.Home.Entry::Activate
+ 0000: ldarg.0 
+ 0001: ldstr "HDMI"
+ 0006: callvirt System.String::StartsWith
+ 000b: brfalse 8D000000
+ 0010: ldarg.0 
+ 0011: callvirt System.String::get_Length
+ 0016: ldc.i4.5 
+ 0017: bne.un 81000000
+ 001c: ldarg.0 
+ 001d: ldc.i4.4 
+ 001e: callvirt System.String::get_Chars
+ 0023: ldc.i4.s 31
+ 0025: blt.s 76
+ 0027: ldarg.0 
+ 0028: ldc.i4.4 
+ 0029: callvirt System.String::get_Chars
+ 002e: ldc.i4.s 34
+ 0030: bgt.s 6B
+ 0032: ldstr "/usr/share/dotnet.tizen/framework/Tizen.TV.Service.SourceList.dll"
+ 0037: call System.Reflection.Assembly::LoadFrom
+ 003c: ldstr "Tizen.TV.Service.SourceList.SourceList"
+ 0041: ldc.i4.1 
+ 0042: callvirt System.Reflection.Assembly::GetType
+ 0047: ldtoken Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 004c: call System.Type::GetTypeFromHandle
+ 0051: ldarg.0 
+ 0052: call System.Enum::Parse
+ 0057: unbox.any System.Int32
+ 005c: stloc.0 
+ 005d: ldstr "ChangeSource"
+ 0062: ldc.i4.1 
+ 0063: newarr System.Type
+ 0068: dup 
+ 0069: ldc.i4.0 
+ 006a: ldtoken System.Int32
+ 006f: call System.Type::GetTypeFromHandle
+ 0074: stelem.ref 
+ 0075: callvirt System.Type::GetMethod
+ 007a: ldnull 
+ 007b: ldc.i4.1 
+ 007c: newarr System.Object
+ 0081: dup 
+ 0082: ldc.i4.0 
+ 0083: ldloc.0 
+ 0084: box System.Int32
+ 0089: stelem.ref 
+ 008a: callvirt System.Reflection.MethodBase::Invoke
+ 008f: pop 
+ 0090: ldstr "org.tizen.tv-viewer"
+ 0095: ldnull 
+ 0096: ldc.i4.0 
+ 0097: call Tizen.TV.Service.CoBA.Core.Util.AppLauncher::LaunchApp
+ 009c: ret 
+ 009d: ldarg.0 
+ 009e: ldstr "Cast"
+ 00a3: call System.String::op_Equality
+ 00a8: brtrue.s 36
+ 00aa: ldarg.0 
+ 00ab: ldstr "AirPlay"
+ 00b0: call System.String::op_Equality
+ 00b5: brtrue.s 31
+ 00b7: ldarg.0 
+ 00b8: ldstr "Settings"
+ 00bd: call System.String::op_Equality
+ 00c2: brtrue.s 2C
+ 00c4: ldarg.0 
+ 00c5: ldstr "Netflix"
+ 00ca: call System.String::op_Equality
+ 00cf: brtrue.s 27
+ 00d1: ldarg.0 
+ 00d2: ldstr "Prime"
+ 00d7: call System.String::op_Equality
+ 00dc: brtrue.s 22
+ 00de: br.s 28
+ 00e0: ldstr "ByJlgt0XeD.CastSettingsApp"
+ 00e5: stloc.1 
+ 00e6: br.s 2B
+ 00e8: ldstr "com.samsung.tv.airplay-app-2"
+ 00ed: stloc.1 
+ 00ee: br.s 23
+ 00f0: ldstr "org.tizen.menu"
+ 00f5: stloc.1 
+ 00f6: br.s 1B
+ 00f8: ldstr "org.tizen.netflix-app"
+ 00fd: stloc.1 
+ 00fe: br.s 13
+ 0100: ldstr "org.tizen.primevideo"
+ 0105: stloc.1 
+ 0106: br.s 0B
+ 0108: ldstr "Unknown shortcut"
+ 010d: newobj System.ArgumentException::.ctor
+ 0112: throw 
+ 0113: ldloc.1 
+ 0114: ldnull 
+ 0115: ldc.i4.0 
+ 0116: call Tizen.TV.Service.CoBA.Core.Util.AppLauncher::LaunchApp
+ 011b: ret 

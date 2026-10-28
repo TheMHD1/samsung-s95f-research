@@ -1,0 +1,56 @@
+--- frozen-GT/probe.py
++++ GT-v2/probe.py
+@@ -45,10 +45,16 @@
+  'test "$(id -u)" = 0','test "$(id -ru)" = 0','printf "UID=0 EUID=0\\n"',
+  'printf "SMACK_BEGIN\\n"','cat /proc/self/attr/current','printf "\\nSMACK_END\\n"',
+  f'grep -Fx {BUILD} /etc/tizen-release','uname -r',
+- 'test "$(readlink -f /bin/sh)" = /bin/bash',
+- 'test "$(readlink -f /lib/ld-linux.so.3)" = /lib/ld-2.30.so',
+- 'test "$(readlink -f /lib/libc.so.6)" = /lib/libc-2.30.so',
++ 'test "$(readlink -f /bin/sh)" = /usr/bin/bash',
++ 'test "$(readlink -f /lib/ld-linux.so.3)" = /usr/lib/ld-2.30.so',
++ 'test "$(readlink -f /lib/libc.so.6)" = /usr/lib/libc-2.30.so',
+  'test "$(readlink -f /usr/lib/libbuxton2.so.1)" = /usr/lib/libbuxton2.so.1.1',
++ 'test "$(readlink -f /bin/bash)" = /usr/bin/bash',
++ 'test "$(readlink -f /lib/ld-2.30.so)" = /usr/lib/ld-2.30.so',
++ 'test "$(readlink -f /lib/libc-2.30.so)" = /usr/lib/libc-2.30.so',
++ 'test "$(readlink -f /usr/lib/libbuxton2.so.1.1)" = /usr/lib/libbuxton2.so.1.1',
++ 'test "$(readlink -f /usr/bin/vconftool)" = /usr/bin/vconftool',
++ 'test "$(readlink -f /usr/bin/buxton2ctl)" = /usr/bin/buxton2ctl',
+  'sha256sum -c <<\'GT_SOURCE_FILE_PINS\'']
+  lines += [digest+'  '+path for path,digest in TARGET_FILES]
+  lines += ['GT_SOURCE_FILE_PINS','printf "GT_FILES_VERIFIED\\n"']
+@@ -93,11 +99,11 @@
+   need(type(k)is str and 1<=len(k)<=128 and type(v)is str and len(v.encode())<=2048,'flat bounded current-source strings')
+   need(all(ord(c)>=32 and ord(c)!=127 for c in k+v),'source JSON controls')
+  need(type(obj.get('source_type'))is str and 1<=len(obj['source_type'])<=128 and type(obj.get('uuid'))is str,'source_type/uuid fields')
+- return {'schema':'gt-source-observation-v1','acceptedRead':True,'expectedModel':MODEL,'freshModelGetterPerformed':False,'boot':boot,'uptimeBefore':before,'uptimeAfter':after,'observedRootSmackLabel':label,'onDiskQueryComponentPinsVerified':True,'transitiveRuntimeAttested':False,'loadedBytesAttested':False,'cachedSourceType':source_type,'cachedPortCandidate':{13:'HDMI1',14:'HDMI2',15:'HDMI3',16:'HDMI4'}.get(source_type),'cachedCurrentSource':obj,'currentSourceKeysAtomic':False,'sourceListQueried':False,'primaryUgoosIdentified':False,'sourceSelectionPerformed':False,'physicalPictureObserved':False}
++ return {'schema':'gt-v2-source-observation-v1','acceptedRead':True,'expectedModel':MODEL,'freshModelGetterPerformed':False,'boot':boot,'uptimeBefore':before,'uptimeAfter':after,'observedRootSmackLabel':label,'onDiskQueryComponentPinsVerified':True,'transitiveRuntimeAttested':False,'loadedBytesAttested':False,'cachedSourceType':source_type,'cachedPortCandidate':{13:'HDMI1',14:'HDMI2',15:'HDMI3',16:'HDMI4'}.get(source_type),'cachedCurrentSource':obj,'currentSourceKeysAtomic':False,'sourceListQueried':False,'primaryUgoosIdentified':False,'sourceSelectionPerformed':False,'physicalPictureObserved':False}
+ 
+ def manifest(boot):
+  c=command(boot)
+- return {'schema':'gt-fixed-source-read-manifest-v1','model':MODEL,'expectedBoot':boot,'build':BUILD,'probeSha256':sha(Path(__file__).read_bytes()),'rootAdapterSha256':ROOT_SHA,'inputPinsSha256':sha((P/'input-pins.json').read_bytes()),'commandSha256':sha(c.encode()),'commandBytes':len(c.encode()),'keys':list(KEYS),'rootCalls':1,'retries':0,'remoteTimeoutSeconds':45,'hostTimeoutSeconds':75,'commandCap':MAX_COMMAND,'rootEnvelopeCap':MAX_ROOT,'sourceTextCap':MAX_TEXT,'vconfRowCap':MAX_KEY_BYTES,'targetStagedFiles':0,'sourceSelectionCalls':0,'targetWrites':0,'transitiveRuntimeAttested':False,'loadedBytesAttested':False}
++ return {'schema':'gt-v2-fixed-source-read-manifest-v1','model':MODEL,'expectedBoot':boot,'build':BUILD,'probeSha256':sha(Path(__file__).read_bytes()),'rootAdapterSha256':ROOT_SHA,'inputPinsSha256':sha((P/'input-pins.json').read_bytes()),'commandSha256':sha(c.encode()),'commandBytes':len(c.encode()),'keys':list(KEYS),'rootCalls':1,'retries':0,'remoteTimeoutSeconds':45,'hostTimeoutSeconds':75,'commandCap':MAX_COMMAND,'rootEnvelopeCap':MAX_ROOT,'sourceTextCap':MAX_TEXT,'vconfRowCap':MAX_KEY_BYTES,'targetStagedFiles':0,'sourceSelectionCalls':0,'targetWrites':0,'transitiveRuntimeAttested':False,'loadedBytesAttested':False}
+ 
+ def check_inputs():
+  d=json.loads((P/'input-pins.json').read_text())
+@@ -122,8 +128,8 @@
+  try:output.mkdir(mode=0o700)
+  finally:os.umask(old)
+  c=command(boot);save(output/'manifest.json',manifest(boot));(output/'command.txt').write_bytes(c.encode());(output/'command.txt').chmod(0o600)
+- start=time.monotonic_ns();save(output/'intent.json',{'schema':'gt-read-intent-v1','submitted':True,'rootCallsMaximum':1,'noRetries':True,'startedMonotonicNs':start})
+- record={'schema':'gt-root-read-record-v1','calls':[]}
++ start=time.monotonic_ns();save(output/'intent.json',{'schema':'gt-v2-read-intent-v1','submitted':True,'rootCallsMaximum':1,'noRetries':True,'startedMonotonicNs':start})
++ record={'schema':'gt-v2-root-read-record-v1','calls':[]}
+  try:
+   text=call(c,record,output/'root.json');returned=time.monotonic_ns()
+   if (output/'root.json').is_file():(output/'root.json').chmod(0o600)
+@@ -136,7 +142,7 @@
+   save(output/'result.json',result);return result
+  except Exception as exc:
+   if (output/'root.json').is_file():(output/'root.json').chmod(0o600)
+-  save(output/'refusal.json',{'schema':'gt-read-refusal-v1','acceptedRead':False,'errorType':type(exc).__name__,'reason':str(exc)[:1024],'rootCallsRecorded':len(record.get('calls',[])),'noAutomaticRetry':True,'sourceSelectionPerformed':False});raise
++  save(output/'refusal.json',{'schema':'gt-v2-read-refusal-v1','acceptedRead':False,'errorType':type(exc).__name__,'reason':str(exc)[:1024],'rootCallsRecorded':len(record.get('calls',[])),'noAutomaticRetry':True,'sourceSelectionPerformed':False});raise
+ 
+ def main():
+  a=argparse.ArgumentParser(description=__doc__);a.add_argument('--expected-boot',required=True);a.add_argument('--execute',action='store_true');a.add_argument('--manifest-sha256');a.add_argument('--output',type=Path);args=a.parse_args()

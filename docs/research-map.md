@@ -76,3 +76,8 @@ Start with the [wake/fault logging guide](wake-fault-logging-20261028.md): inter
 ## Matched wake contrast and remaining HDMI boundary
 
 The [latest finite contrast guide](matched-wake-contrast-20261028.md) connects GG/GH source and reviews, GJ's completed200/40 comparison and stock recovery, GK planning, GL HDMI recorder gaps and GN's explicit correction of the GD helper label. Its ninth offline fixture retains honest Quiescent counts and ordinal52; the previous eight fixtures remain unchanged. This is broader platform RE evidence, not a demonstrated physical fix.
+
+
+## Controller formats, initialization and stock logging
+
+Use the [new source/tool guide](firmware-controller-20261028.md), [format/domain map](controller-firmware-formats.md), and [full catalog](catalog.md) for completed GR through HG. It includes failed/rejected logging and its narrowly tested correction, stock callback/return caveats, the host status bridge and unresolved secondary receiver. Private endpoint administration is omitted; original annotated source analyses remain available.

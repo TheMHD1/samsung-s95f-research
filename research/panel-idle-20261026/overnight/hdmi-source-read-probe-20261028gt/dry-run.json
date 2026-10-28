@@ -1,0 +1,33 @@
+{
+  "execute": false,
+  "fixedCommand": "set -eu\nset -o pipefail\nPATH=/usr/bin:/bin; export PATH\nLC_ALL=C; export LC_ALL\nunset LD_PRELOAD LD_LIBRARY_PATH ENV BASH_ENV\nprintf \"GT_SOURCE_READ_BEGIN\\n\"\ntest \"$(cat /proc/sys/kernel/random/boot_id)\" = 00000000-0000-4000-8000-000000000000\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\ntest \"$(id -u)\" = 0\ntest \"$(id -ru)\" = 0\nprintf \"UID=0 EUID=0\\n\"\nprintf \"SMACK_BEGIN\\n\"\ncat /proc/self/attr/current\nprintf \"\\nSMACK_END\\n\"\ngrep -Fx BUILD_ID=T-RSMFAKUC-0090-REL-202607141953 /etc/tizen-release\nuname -r\ntest \"$(readlink -f /bin/sh)\" = /bin/bash\ntest \"$(readlink -f /lib/ld-linux.so.3)\" = /lib/ld-2.30.so\ntest \"$(readlink -f /lib/libc.so.6)\" = /lib/libc-2.30.so\ntest \"$(readlink -f /usr/lib/libbuxton2.so.1)\" = /usr/lib/libbuxton2.so.1.1\nsha256sum -c <<'GT_SOURCE_FILE_PINS'\ne4d04ac482f6a25133d7cd3be8f03fd6cf0b2106b0397aa13b094127a9ed6864  /usr/bin/vconftool\ne3d05a7b592492fa8815c025328da4e9bc980269035dd778f4fcec5803fbd0d5  /usr/bin/buxton2ctl\ne34a07cabf2748c3d180e131b068e8382b31e0f12dabe4d884471a7a738e55d4  /usr/lib/libbuxton2.so.1.1\n5cf101248e6418ee72ab1144aed551beea0ae7aeda1dad78c7808f901b286bfe  /bin/bash\nc3d873492560ead2db138c3b4859210ce3b5fb2fef128decd84c9e6a587a966a  /lib/ld-2.30.so\n588d0362d99db1507cd66162570596c9dab5c43cdbe4faca009f9b514bf0c17b  /lib/libc-2.30.so\nGT_SOURCE_FILE_PINS\nprintf \"GT_FILES_VERIFIED\\n\"\nprintf \"GT_KEY_1_BEGIN\\n\"\n/usr/bin/vconftool get memory/system/source_type | head -c 4097\nprintf \"\\nGT_KEY_1_END\\n\"\nprintf \"GT_KEY_2_BEGIN\\n\"\n/usr/bin/vconftool get memory/eden/source/current_source | head -c 4097\nprintf \"\\nGT_KEY_2_END\\n\"\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\nprintf \"GT_SOURCE_READ_END\\n\"\n",
+  "manifest": {
+    "build": "BUILD_ID=T-RSMFAKUC-0090-REL-202607141953",
+    "commandBytes": 1663,
+    "commandCap": 8192,
+    "commandSha256": "3b8b4e28878573b9582f35ef4d2678b076f74942294fd84310a083a227925e5c",
+    "expectedBoot": "[private-identity-or-secret-omitted]",
+    "hostTimeoutSeconds": 75,
+    "inputPinsSha256": "9902259cd317f0e0721add48df2d5bb62e6d6a1cecb70e32a79b6f68777e8100",
+    "keys": [
+      "memory/system/source_type",
+      "memory/eden/source/current_source"
+    ],
+    "loadedBytesAttested": false,
+    "model": "QN77S95FAFXZC",
+    "probeSha256": "b55b3bce2f1546e23f4a3ed27f3fcc5e07752d0bc5c902bd0f729c6d7c7765cc",
+    "remoteTimeoutSeconds": 45,
+    "retries": 0,
+    "rootAdapterSha256": "bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a",
+    "rootCalls": 1,
+    "rootEnvelopeCap": 65536,
+    "schema": "gt-fixed-source-read-manifest-v1",
+    "sourceSelectionCalls": 0,
+    "sourceTextCap": 12288,
+    "targetStagedFiles": 0,
+    "targetWrites": 0,
+    "transitiveRuntimeAttested": false,
+    "vconfRowCap": 4096
+  },
+  "manifestSha256": "1f945229d991031a63aecff2319c851fd0aa4165b9002db4e236552e11ca4a9e"
+}

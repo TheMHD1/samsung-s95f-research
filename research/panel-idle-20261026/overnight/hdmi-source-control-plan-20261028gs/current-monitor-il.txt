@@ -1,0 +1,556 @@
+METHOD 0600046b Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceMonitor::CheckCurrentSource
+ 0000: nop 
+ 0001: ldstr "[%s1] check current_source"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: ldfld FieldDefinition:0400024f
+ 002a: callvirt get_Type
+ 002f: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0034: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0039: ldnull 
+ 003a: ldnull 
+ 003b: ldnull 
+ 003c: ldnull 
+ 003d: ldc.r8 000000E0CF126341
+ 0046: ldc.r8 000000E0CF126341
+ 004f: ldc.r8 000000E0CF126341
+ 0058: ldc.r8 000000E0CF126341
+ 0061: ldc.r8 000000E0CF126341
+ 006a: ldstr "CheckCurrentSource"
+ 006f: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAManager/CurrentSource/CurrentSourceMonitor.cs"
+ 0074: ldc.i4 ED010000
+ 0079: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 007e: nop 
+ 007f: ldc.i4.0 
+ 0080: stloc.0 
+ 0081: nop 
+ 0082: call Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetInstance
+ 0087: ldstr "memory/eden/source/current_source"
+ 008c: ldloca.s 01
+ 008e: callvirt Tizen.TV.Service.CoBA.Common.FSConfigAdapter::GetConfigStr
+ 0093: pop 
+ 0094: ldnull 
+ 0095: stloc.2 
+ 0096: ldnull 
+ 0097: stloc.3 
+ 0098: ldnull 
+ 0099: stloc.s 04
+ 009b: ldnull 
+ 009c: stloc.s 05
+ 009e: ldloc.1 
+ 009f: ldstr "{"
+ 00a4: callvirt System.String::StartsWith
+ 00a9: stloc.s 07
+ 00ab: ldloc.s 07
+ 00ad: brfalse BD000000
+ 00b2: nop 
+ 00b3: newobj Tizen.TV.Service.CoBA.Common.JsonMap::.ctor
+ 00b8: stloc.s 08
+ 00ba: nop 
+ 00bb: ldloc.s 08
+ 00bd: ldloc.1 
+ 00be: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::Parse
+ 00c3: pop 
+ 00c4: ldloc.s 08
+ 00c6: ldloc.s 08
+ 00c8: ldstr "source_type"
+ 00cd: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 00d2: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 00d7: dup 
+ 00d8: brtrue.s 04
+ 00da: pop 
+ 00db: ldnull 
+ 00dc: br.s 05
+ 00de: call System.String::ToUpperInvariant
+ 00e3: dup 
+ 00e4: brtrue.s 02
+ 00e6: pop 
+ 00e7: ldnull 
+ 00e8: stloc.2 
+ 00e9: ldloc.s 08
+ 00eb: ldloc.s 08
+ 00ed: ldstr "uuid"
+ 00f2: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 00f7: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 00fc: dup 
+ 00fd: brtrue.s 02
+ 00ff: pop 
+ 0100: ldnull 
+ 0101: stloc.3 
+ 0102: ldloc.2 
+ 0103: ldstr "USB"
+ 0108: call System.String::op_Equality
+ 010d: stloc.s 09
+ 010f: ldloc.s 09
+ 0111: brfalse.s 1C
+ 0113: nop 
+ 0114: ldloc.s 08
+ 0116: ldloc.s 08
+ 0118: ldstr "mount_path"
+ 011d: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 0122: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 0127: dup 
+ 0128: brtrue.s 02
+ 012a: pop 
+ 012b: ldnull 
+ 012c: stloc.s 04
+ 012e: nop 
+ 012f: ldloc.2 
+ 0130: ldstr "PTP"
+ 0135: call System.String::op_Equality
+ 013a: stloc.s 0A
+ 013c: ldloc.s 0A
+ 013e: brfalse.s 1C
+ 0140: nop 
+ 0141: ldloc.s 08
+ 0143: ldloc.s 08
+ 0145: ldstr "address_number"
+ 014a: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetNode
+ 014f: callvirt Tizen.TV.Service.CoBA.Common.JsonMap::GetValueStr
+ 0154: dup 
+ 0155: brtrue.s 02
+ 0157: pop 
+ 0158: ldnull 
+ 0159: stloc.s 05
+ 015b: nop 
+ 015c: nop 
+ 015d: leave.s 0D
+ 015f: ldloc.s 08
+ 0161: brfalse.s 08
+ 0163: ldloc.s 08
+ 0165: callvirt System.IDisposable::Dispose
+ 016a: nop 
+ 016b: endfinally 
+ 016c: nop 
+ 016d: br.s 09
+ 016f: nop 
+ 0170: ldloc.1 
+ 0171: callvirt System.String::ToUpperInvariant
+ 0176: stloc.2 
+ 0177: nop 
+ 0178: ldstr "[%s1] Current:%s2|%s3|%s4|%s5"
+ 017d: ldc.i4 7F969800
+ 0182: conv.i8 
+ 0183: ldc.i4 7F969800
+ 0188: conv.i8 
+ 0189: ldc.i4 7F969800
+ 018e: conv.i8 
+ 018f: ldc.i4 7F969800
+ 0194: conv.i8 
+ 0195: ldc.i4 7F969800
+ 019a: conv.i8 
+ 019b: ldarg.0 
+ 019c: ldfld FieldDefinition:0400024f
+ 01a1: callvirt get_Type
+ 01a6: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 01ab: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 01b0: ldloc.2 
+ 01b1: ldloc.3 
+ 01b2: ldloc.s 04
+ 01b4: ldloc.s 05
+ 01b6: ldc.r8 000000E0CF126341
+ 01bf: ldc.r8 000000E0CF126341
+ 01c8: ldc.r8 000000E0CF126341
+ 01d1: ldc.r8 000000E0CF126341
+ 01da: ldc.r8 000000E0CF126341
+ 01e3: ldstr "CheckCurrentSource"
+ 01e8: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAManager/CurrentSource/CurrentSourceMonitor.cs"
+ 01ed: ldc.i4 11020000
+ 01f2: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 01f7: nop 
+ 01f8: ldstr "[%s1] Interest:%s2|%s3"
+ 01fd: ldc.i4 7F969800
+ 0202: conv.i8 
+ 0203: ldc.i4 7F969800
+ 0208: conv.i8 
+ 0209: ldc.i4 7F969800
+ 020e: conv.i8 
+ 020f: ldc.i4 7F969800
+ 0214: conv.i8 
+ 0215: ldc.i4 7F969800
+ 021a: conv.i8 
+ 021b: ldarg.0 
+ 021c: ldfld FieldDefinition:0400024f
+ 0221: callvirt get_Type
+ 0226: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 022b: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0230: ldarg.0 
+ 0231: ldfld FieldDefinition:0400024f
+ 0236: callvirt get_Type
+ 023b: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0240: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0245: ldarg.0 
+ 0246: ldfld FieldDefinition:0400024f
+ 024b: callvirt get_UID
+ 0250: ldnull 
+ 0251: ldnull 
+ 0252: ldc.r8 000000E0CF126341
+ 025b: ldc.r8 000000E0CF126341
+ 0264: ldc.r8 000000E0CF126341
+ 026d: ldc.r8 000000E0CF126341
+ 0276: ldc.r8 000000E0CF126341
+ 027f: ldstr "CheckCurrentSource"
+ 0284: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAManager/CurrentSource/CurrentSourceMonitor.cs"
+ 0289: ldc.i4 12020000
+ 028e: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 0293: nop 
+ 0294: ldc.i4.m1 
+ 0295: stloc.s 06
+ 0297: ldloc.2 
+ 0298: stloc.s 0D
+ 029a: ldloc.s 0D
+ 029c: stloc.s 0C
+ 029e: ldloc.s 0C
+ 02a0: ldstr "TV-SERVICE"
+ 02a5: call System.String::op_Equality
+ 02aa: brtrue.s 54
+ 02ac: ldloc.s 0C
+ 02ae: ldstr "DLNA"
+ 02b3: call System.String::op_Equality
+ 02b8: brtrue.s 74
+ 02ba: ldloc.s 0C
+ 02bc: ldstr "USBCAM"
+ 02c1: call System.String::op_Equality
+ 02c6: brtrue.s 66
+ 02c8: ldloc.s 0C
+ 02ca: ldstr "PTP"
+ 02cf: call System.String::op_Equality
+ 02d4: brtrue 96000000
+ 02d9: ldloc.s 0C
+ 02db: ldstr "USB"
+ 02e0: call System.String::op_Equality
+ 02e5: brtrue C7000000
+ 02ea: ldloc.s 0C
+ 02ec: ldstr "REMOTEWORKSPACE"
+ 02f1: call System.String::op_Equality
+ 02f6: brtrue 19010000
+ 02fb: br 3E010000
+ 0300: ldarg.0 
+ 0301: ldloc.3 
+ 0302: ldloca.s 06
+ 0304: call GetSourceTypeFromUUID
+ 0309: ldc.i4.0 
+ 030a: ceq 
+ 030c: stloc.s 0E
+ 030e: ldloc.s 0E
+ 0310: brfalse.s 08
+ 0312: nop 
+ 0313: ldc.i4.0 
+ 0314: stloc.0 
+ 0315: br 26010000
+ 031a: ldarg.0 
+ 031b: ldloc.s 06
+ 031d: ldarg.0 
+ 031e: ldflda FieldDefinition:04000256
+ 0323: call CheckCurrentSourceWithSourceType
+ 0328: stloc.0 
+ 0329: br 12010000
+ 032e: ldtoken Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0333: call System.Type::GetTypeFromHandle
+ 0338: ldloc.2 
+ 0339: ldc.i4.1 
+ 033a: call System.Enum::Parse
+ 033f: unbox.any Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0344: stloc.s 06
+ 0346: ldarg.0 
+ 0347: ldfld FieldDefinition:0400024f
+ 034c: callvirt get_Type
+ 0351: ldloc.s 06
+ 0353: bne.un.s 13
+ 0355: ldarg.0 
+ 0356: ldfld FieldDefinition:0400024f
+ 035b: callvirt get_UID
+ 0360: ldloc.3 
+ 0361: call System.String::op_Equality
+ 0366: br.s 01
+ 0368: ldc.i4.0 
+ 0369: stloc.0 
+ 036a: br D1000000
+ 036f: ldtoken Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0374: call System.Type::GetTypeFromHandle
+ 0379: ldloc.2 
+ 037a: ldc.i4.1 
+ 037b: call System.Enum::Parse
+ 0380: unbox.any Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0385: stloc.s 06
+ 0387: ldarg.0 
+ 0388: ldfld FieldDefinition:0400024f
+ 038d: callvirt get_Type
+ 0392: ldloc.s 06
+ 0394: bne.un.s 14
+ 0396: ldarg.0 
+ 0397: ldfld FieldDefinition:0400024f
+ 039c: callvirt get_UID
+ 03a1: ldloc.s 05
+ 03a3: call System.String::op_Equality
+ 03a8: br.s 01
+ 03aa: ldc.i4.0 
+ 03ab: stloc.0 
+ 03ac: br 8F000000
+ 03b1: ldtoken Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 03b6: call System.Type::GetTypeFromHandle
+ 03bb: ldloc.2 
+ 03bc: ldc.i4.1 
+ 03bd: call System.Enum::Parse
+ 03c2: unbox.any Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 03c7: stloc.s 06
+ 03c9: ldloc.s 04
+ 03cb: ldstr "."
+ 03d0: call System.String::Concat
+ 03d5: stloc.s 0B
+ 03d7: ldarg.0 
+ 03d8: ldfld FieldDefinition:0400024f
+ 03dd: callvirt get_Type
+ 03e2: ldloc.s 06
+ 03e4: bne.un.s 2A
+ 03e6: ldarg.0 
+ 03e7: ldfld FieldDefinition:0400024f
+ 03ec: callvirt get_UID
+ 03f1: ldloc.3 
+ 03f2: call System.String::op_Equality
+ 03f7: brtrue.s 14
+ 03f9: ldarg.0 
+ 03fa: ldfld FieldDefinition:0400024f
+ 03ff: callvirt get_UID
+ 0404: ldloc.s 0B
+ 0406: callvirt System.String::Contains
+ 040b: br.s 01
+ 040d: ldc.i4.1 
+ 040e: br.s 01
+ 0410: ldc.i4.0 
+ 0411: stloc.0 
+ 0412: br.s 2C
+ 0414: ldtoken Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0419: call System.Type::GetTypeFromHandle
+ 041e: ldloc.2 
+ 041f: ldc.i4.1 
+ 0420: call System.Enum::Parse
+ 0425: unbox.any Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 042a: stloc.s 06
+ 042c: ldarg.0 
+ 042d: ldfld FieldDefinition:0400024f
+ 0432: callvirt get_Type
+ 0437: ldloc.s 06
+ 0439: ceq 
+ 043b: stloc.0 
+ 043c: br.s 02
+ 043e: br.s 00
+ 0440: nop 
+ 0441: leave 8A000000
+ 0446: stloc.s 0F
+ 0448: nop 
+ 0449: ldstr "[%s1] Exception: %s2"
+ 044e: ldc.i4 7F969800
+ 0453: conv.i8 
+ 0454: ldc.i4 7F969800
+ 0459: conv.i8 
+ 045a: ldc.i4 7F969800
+ 045f: conv.i8 
+ 0460: ldc.i4 7F969800
+ 0465: conv.i8 
+ 0466: ldc.i4 7F969800
+ 046b: conv.i8 
+ 046c: ldarg.0 
+ 046d: ldfld FieldDefinition:0400024f
+ 0472: callvirt get_Type
+ 0477: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 047c: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0481: ldloc.s 0F
+ 0483: callvirt System.Exception::get_Message
+ 0488: ldnull 
+ 0489: ldnull 
+ 048a: ldnull 
+ 048b: ldc.r8 000000E0CF126341
+ 0494: ldc.r8 000000E0CF126341
+ 049d: ldc.r8 000000E0CF126341
+ 04a6: ldc.r8 000000E0CF126341
+ 04af: ldc.r8 000000E0CF126341
+ 04b8: ldstr "CheckCurrentSource"
+ 04bd: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAManager/CurrentSource/CurrentSourceMonitor.cs"
+ 04c2: ldc.i4 39020000
+ 04c7: call Tizen.TV.Service.CoBA.Common.FSLogger::ErrorC
+ 04cc: nop 
+ 04cd: nop 
+ 04ce: leave.s 00
+ 04d0: ldloc.0 
+ 04d1: stloc.s 10
+ 04d3: br.s 00
+ 04d5: ldloc.s 10
+ 04d7: ret 
+METHOD 0600046e Tizen.TV.Service.CoBA.Core.Manager.CurrentSourceMonitor::CheckCurrentSourceWithSourceType
+ 0000: nop 
+ 0001: ldstr "[%s1] Current:%s2 Interest:%s3|%s4"
+ 0006: ldc.i4 7F969800
+ 000b: conv.i8 
+ 000c: ldc.i4 7F969800
+ 0011: conv.i8 
+ 0012: ldc.i4 7F969800
+ 0017: conv.i8 
+ 0018: ldc.i4 7F969800
+ 001d: conv.i8 
+ 001e: ldc.i4 7F969800
+ 0023: conv.i8 
+ 0024: ldarg.0 
+ 0025: ldfld FieldDefinition:0400024f
+ 002a: callvirt get_Type
+ 002f: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0034: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0039: ldarg.1 
+ 003a: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 003f: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0044: ldarg.0 
+ 0045: ldfld FieldDefinition:0400024f
+ 004a: callvirt get_Type
+ 004f: box Tizen.TV.Service.CoBA.Core.Manager.SourceType
+ 0054: call Tizen.TV.Service.CoBA.Common.FSLogger::GetEnumName
+ 0059: ldarg.0 
+ 005a: ldfld FieldDefinition:0400024f
+ 005f: callvirt get_UID
+ 0064: ldnull 
+ 0065: ldc.r8 000000E0CF126341
+ 006e: ldc.r8 000000E0CF126341
+ 0077: ldc.r8 000000E0CF126341
+ 0080: ldc.r8 000000E0CF126341
+ 0089: ldc.r8 000000E0CF126341
+ 0092: ldstr "CheckCurrentSourceWithSourceType"
+ 0097: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-coba-1.7.4/Tizen.TV.Service.CoBA.Core/Tizen.TV.Service.CoBA.Core/CoBAManager/CurrentSource/CurrentSourceMonitor.cs"
+ 009c: ldc.i4 89020000
+ 00a1: call Tizen.TV.Service.CoBA.Common.FSLogger::DebugC
+ 00a6: nop 
+ 00a7: ldarg.1 
+ 00a8: stloc.2 
+ 00a9: ldloc.2 
+ 00aa: stloc.1 
+ 00ab: ldloc.1 
+ 00ac: ldc.i4.s 21
+ 00ae: bgt.s 56
+ 00b0: ldloc.1 
+ 00b1: switch 1100000028000000500000005000000050000000FA000000FA000000FA000000500000005000000050000000FA000000FA000000FA00000072000000720000007200000072000000
+ 00fa: br.s 00
+ 00fc: ldloc.1 
+ 00fd: ldc.i4.s 21
+ 00ff: beq.s 49
+ 0101: br EE000000
+ 0106: ldloc.1 
+ 0107: ldc.i4.s 26
+ 0109: sub 
+ 010a: ldc.i4.1 
+ 010b: ble.un.s 5F
+ 010d: br.s 00
+ 010f: ldloc.1 
+ 0110: ldc.i4.s 29
+ 0112: beq.s 36
+ 0114: br.s 00
+ 0116: ldloc.1 
+ 0117: ldc.i4.s 2E
+ 0119: sub 
+ 011a: ldc.i4.1 
+ 011b: ble.un.s 4F
+ 011d: br D2000000
+ 0122: ldarg.0 
+ 0123: ldfld FieldDefinition:0400024f
+ 0128: callvirt get_Type
+ 012d: ldarg.1 
+ 012e: ceq 
+ 0130: stloc.3 
+ 0131: ldloc.3 
+ 0132: brfalse.s 11
+ 0134: nop 
+ 0135: ldarg.2 
+ 0136: ldarg.0 
+ 0137: call CheckLastService
+ 013c: stind.i1 
+ 013d: ldc.i4.1 
+ 013e: stloc.s 04
+ 0140: br B6000000
+ 0145: br AC000000
+ 014a: ldarg.0 
+ 014b: ldfld FieldDefinition:0400024f
+ 0150: callvirt get_Type
+ 0155: ldarg.1 
+ 0156: ceq 
+ 0158: stloc.s 05
+ 015a: ldloc.s 05
+ 015c: brfalse.s 09
+ 015e: nop 
+ 015f: ldc.i4.1 
+ 0160: stloc.s 04
+ 0162: br 94000000
+ 0167: br 8A000000
+ 016c: ldarg.0 
+ 016d: ldfld FieldDefinition:0400024f
+ 0172: callvirt get_Type
+ 0177: ldarg.1 
+ 0178: ceq 
+ 017a: ldc.i4.0 
+ 017b: ceq 
+ 017d: stloc.s 06
+ 017f: ldloc.s 06
+ 0181: brfalse.s 06
+ 0183: nop 
+ 0184: ldc.i4.0 
+ 0185: stloc.s 04
+ 0187: br.s 72
+ 0189: ldarg.0 
+ 018a: call GetMbrCurrentActivityIndex
+ 018f: stloc.0 
+ 0190: ldarg.0 
+ 0191: ldfld FieldDefinition:0400024f
+ 0196: callvirt get_UID
+ 019b: call System.String::IsNullOrEmpty
+ 01a0: brfalse.s 07
+ 01a2: ldloc.0 
+ 01a3: ldc.i4.s FE
+ 01a5: ceq 
+ 01a7: br.s 01
+ 01a9: ldc.i4.0 
+ 01aa: stloc.s 07
+ 01ac: ldloc.s 07
+ 01ae: brfalse.s 06
+ 01b0: nop 
+ 01b1: ldc.i4.1 
+ 01b2: stloc.s 04
+ 01b4: br.s 45
+ 01b6: ldloc.0 
+ 01b7: ldc.i4.0 
+ 01b8: blt.s 1E
+ 01ba: ldarg.0 
+ 01bb: ldfld FieldDefinition:0400024f
+ 01c0: callvirt get_UID
+ 01c5: ldc.i4 FF010000
+ 01ca: call System.Globalization.CultureInfo::get_InvariantCulture
+ 01cf: ldloca.s 08
+ 01d1: call System.Int32::TryParse
+ 01d6: br.s 01
+ 01d8: ldc.i4.0 
+ 01d9: stloc.s 09
+ 01db: ldloc.s 09
+ 01dd: brfalse.s 13
+ 01df: nop 
+ 01e0: ldloc.s 08
+ 01e2: ldloc.0 
+ 01e3: ceq 
+ 01e5: stloc.s 0A
+ 01e7: ldloc.s 0A
+ 01e9: brfalse.s 06
+ 01eb: nop 
+ 01ec: ldc.i4.1 
+ 01ed: stloc.s 04
+ 01ef: br.s 0A
+ 01f1: nop 
+ 01f2: br.s 02
+ 01f4: br.s 00
+ 01f6: ldc.i4.0 
+ 01f7: stloc.s 04
+ 01f9: br.s 00
+ 01fb: ldloc.s 04
+ 01fd: ret 

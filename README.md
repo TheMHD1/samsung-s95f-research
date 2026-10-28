@@ -1,5 +1,7 @@
 # Samsung S95F reverse-engineering workbench
 
+The latest [firmware/controller workbench update](docs/firmware-controller-20261028.md) adds completed input-buffer, initialization/emergency, stock kernel-log and OCL mailbox source maps, including [format/address-domain documentation](docs/controller-firmware-formats.md). A tenth typed fixture records one instrumented stock MODE2 with positive normal-tail reports and later historical software-clean state; the original log refusal and separate later CEC standby request remain distinct. No physical recovery, full reset domain, active firmware identity or permanent fix is established.
+
 
 The latest fixed [matched-wake contrast](docs/matched-wake-contrast-20261028.md) adds completed GG/GH/GJ/GK/GL/GN source and reviews plus a ninth typed scientific fixture:200 ends55Clean+1Quiescent/Hmax36 without a>40 witness; restored40 captures25Clean+1Quiescent+1Faulted/H48 and new paired736 text. This finite association does not isolate comparator threshold from publication capacity or prove optical prevention. Retained globalR16=4 coexists with source-conditional RTP category1; historical “mode1” shorthand does not mean global1. GN explicitly corrects the historical1c0c8 “hardware action” shorthand to a RAM status-OR helper. Final separate software validation is Clean40/logger0/current counts0 with ordinal52 and populated columns; HDMI profile/no-key-marker qualification remains open. Earlier cutoffs below retain their historical scopes.
 
@@ -33,7 +35,7 @@ The logging-cutoff successor also corrects a historical UUID-redaction boundary 
 | --- | --- |
 | Research map and searchable catalog | [Topic navigation](docs/research-map.md), [full document catalog](docs/catalog.md) |
 | Evidence rules and experimental limitations | [Evidence and methods](docs/evidence-and-methods.md) |
-| Platform, kernel, controller and firmware architecture | [Architecture map](docs/architecture.md) |
+| Platform, kernel, controller and firmware architecture | [Architecture map](docs/architecture.md), [controller formats](docs/controller-firmware-formats.md), [new source/tool guide](docs/firmware-controller-20261028.md) |
 | Access, persistence, UI, application and debloat work | [Topic navigation](docs/research-map.md#access-ui-and-applications) |
 | Controller reverse engineering | [Detailed RE index](research/panel-idle-20261026/overnight/RE-INDEX.md), [TCON findings](research/panel-idle-20261026/tcon-research/findings.md) |
 | New accepted capture and offline fixture | [Evidence update](docs/update-20261028.md), [scientific fixture](fixtures/onset-cb.json), [offline verifier](tools/verify_onset.py) |

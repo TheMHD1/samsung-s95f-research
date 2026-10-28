@@ -1,0 +1,624 @@
+{
+  "actualInstructionOracleCases": 256,
+  "checks": 865,
+  "commandBoundCases": 256,
+  "componentFileOffset": "0xf000",
+  "dataCorrespondenceAnchors": [
+    {
+      "fileOffset": "0x3a8e8",
+      "linkedDataAddress": "0xa802b8a8",
+      "text": "[ERROR]:   \n Audio Undefined Sub Write Cmd!(0x%x) \n"
+    },
+    {
+      "fileOffset": "0x3a988",
+      "linkedDataAddress": "0xa802b948",
+      "text": "[ERROR]:   \n CVBS Undefined Sub Read Cmd!(0x%x) \n"
+    },
+    {
+      "fileOffset": "0x3b938",
+      "linkedDataAddress": "0xa802c8f8",
+      "text": "[ERROR]:   \n Leon_Inter_COMM Undefined Sub Read Cmd!(0x%x) \n"
+    },
+    {
+      "fileOffset": "0x3b988",
+      "linkedDataAddress": "0xa802c948",
+      "text": "[ERROR]:   \n Leon_Inter_COMM Undefined Sub Write Cmd!(0x%x) \n"
+    },
+    {
+      "fileOffset": "0x3b918",
+      "linkedDataAddress": "0xa802c8d8",
+      "text": "APP_Mailbox_IPC_System_Read"
+    },
+    {
+      "fileOffset": "0x361d8",
+      "linkedDataAddress": "0xa8027198",
+      "text": "[ERROR]:   %s, STBC reply timeout!\n"
+    }
+  ],
+  "decision": "CANDIDATE_HANDLER_TO_STBC_COMMAND_CLOSED",
+  "defaultCommandCases": 196,
+  "header": {
+    "architectureId": 10,
+    "compressionId": 0,
+    "dataCrc32": "0x5f82b60",
+    "entry": "0xa0020000",
+    "headerCrc32": "0x7afe4346",
+    "imageTypeId": 1,
+    "load": "0xa0020000",
+    "magic": "0x27051956",
+    "name": "fw_sys.uimg",
+    "osId": 5,
+    "payloadBytes": 183264,
+    "timestamp": 1707294171
+  },
+  "identity": {
+    "acceptedExtractedCandidatePinned": true,
+    "flashedMcuIdentityProven": false,
+    "loaderRmfPmdEquivalenceProven": false,
+    "parentAvailableFileHashesMatch": true,
+    "parentInstalledOclModuleHashMatches": true
+  },
+  "incoming": {
+    "actualHandlerFile": "0x2f7e0",
+    "actualHandlerLinked": "0xa00407a0",
+    "bytes": 1,
+    "command": 63,
+    "header": "0x00013f01",
+    "nonzeroArgument": 2,
+    "op": 1,
+    "pinArgument": 20,
+    "register": "0xfc311020",
+    "zeroArgument": 3
+  },
+  "instructionCount": 109,
+  "limits": {
+    "image0SharedRootResetProven": false,
+    "linkedPcIsObservedRuntimePc": false,
+    "liveCalls": 0,
+    "liveRamAliasesQualified": false,
+    "networkCalls": 0,
+    "oemCopies": 0,
+    "oemExecutions": 0,
+    "physicalResetProven": false
+  },
+  "linkedTextBase": "0xa0020000",
+  "malformedCasesRejected": 15,
+  "oracleAllNonzeroSame": true,
+  "oracleCase0": {
+    "argument": 3,
+    "payload": 0,
+    "pin": 20
+  },
+  "oracleCase1": {
+    "argument": 2,
+    "payload": 1,
+    "pin": 20
+  },
+  "outgoing": {
+    "command": 64,
+    "downstreamReceiverIdentified": false,
+    "mode2And3ElectricalMeaningQualified": false,
+    "nonzeroWord": "0x40140200",
+    "pinBoardNetIdentified": false,
+    "register": "0xfc040000",
+    "replyCommandExpected": 64,
+    "replyKindExpected": 241,
+    "returnCheckedBy3fHandler": false,
+    "zeroWord": "0x40140300"
+  },
+  "payloadFileInterval": [
+    "0xf040",
+    "0x3bc20"
+  ],
+  "pins": [
+    {
+      "bytes": 15986,
+      "path": "overnight/ocl-reset-receiver-map-20261028he/audit.py",
+      "sha256": "03ddc30de36fc002ca1057fbbfdb989413b91f375149074480bbba23f6616f89"
+    },
+    {
+      "bytes": 984,
+      "path": "overnight/ocl-reset-receiver-map-20261028he/source-inventory.json",
+      "sha256": "55712bbc11905098ff7cdc3d3b0cd7b714a818b5490fa26361c5638d3e5cda34"
+    },
+    {
+      "omitted": "private-reference-metadata"
+    },
+    {
+      "bytes": 594110,
+      "path": "overnight/serdes-ack-copy-20261026/sdp_ocl_jp.ko",
+      "sha256": "e5a064da2cfbd37194f5e97463c3519126a09aedaf4b3c95107b08ab0680aa2c"
+    },
+    {
+      "bytes": 893,
+      "path": "overnight/menu-recovery-branch-trial-20261028hf/ocl-file-identity/response.txt",
+      "sha256": "768cd19fbd0cc2ce4d45b276bede099ad1a4d33a16778ca24fd6ec15ae4cc7d3"
+    }
+  ],
+  "schema": "hg-ocl-candidate-system-dispatch-v1",
+  "sourceSpans": [
+    {
+      "bytes": 64,
+      "fileOffset": "0xf000",
+      "meaning": "word-reversed component legacy header",
+      "originalSha256": "92af0dc8126bd77664dd86e80a6a77b320640db9611b718bf92fea898afa12a5",
+      "wordReversedSha256": "9b3e399e22155f85fb0e394bda6af6178728236ee092dbf35718ac0ab2be0574"
+    },
+    {
+      "bytes": 980,
+      "fileOffset": "0x2cffc",
+      "meaning": "incoming mailbox channels and read/write dispatch",
+      "originalSha256": "a03b6f6a5f61ce5a7ba61064709fd8d463120a724e9f9a9f7f39d813fc59bbdd",
+      "wordReversedSha256": "71e2695cf4217f234c30704267e085bde17e6272828c4af3a9973b4df5628ad1"
+    },
+    {
+      "bytes": 760,
+      "fileOffset": "0x2caec",
+      "meaning": "write header/payload extraction and op table",
+      "originalSha256": "8ec889245b5721f19b59a1a11f54d0680b04206ce097a9edea558d5be2aefa1f",
+      "wordReversedSha256": "d1b33d1af2bceec376fe6b61ac7af6c938345515af4cd36661cd68a377ae2dac"
+    },
+    {
+      "bytes": 344,
+      "fileOffset": "0x2f6a8",
+      "meaning": "command table and real command3f branch",
+      "originalSha256": "9496fafcf30f9c6c8569fef51741b23901872b97bd9dfb2f1bae99449f6d6caf",
+      "wordReversedSha256": "63bc6a2a4be07f70653cc298ab2f48013a00473833ee6409f9c21d824655cd5e"
+    },
+    {
+      "bytes": 56,
+      "fileOffset": "0x177a4",
+      "meaning": "secondary command40 wrapper",
+      "originalSha256": "460df716645f376ef3372eb02dfc08cfb6f763769a2c199d4637ea0fdc1cc5c6",
+      "wordReversedSha256": "7d93569018c7a7c8bf8c7b68b16160106bb8d898f984dfe5f0a3a37d450401a4"
+    },
+    {
+      "bytes": 360,
+      "fileOffset": "0x1705c",
+      "meaning": "command packing/write/ack validation",
+      "originalSha256": "57aaabf6e84bf9fa085110803fd9a02fdff6d8f59d09c41a046f57bf576208a9",
+      "wordReversedSha256": "a4b1c27e592d6db7dffd500af96bfe1dcaa7d41ce755378f28ec88b126b4f82c"
+    },
+    {
+      "bytes": 144,
+      "fileOffset": "0x16e50",
+      "meaning": "secondary mailbox write and queued-reply wait",
+      "originalSha256": "29e464d7062925591819b619958c69e5f1ed77466e40d3b80a74c2a627b36ae1",
+      "wordReversedSha256": "4c955c19d9891f77429dd9e5cc1b85c5e9c94b4119efe51f71d12bc60d9d7a37"
+    },
+    {
+      "bytes": 160,
+      "fileOffset": "0x2bb80",
+      "meaning": "distinct console question-mark case",
+      "originalSha256": "370630044b825c0b3102e398b37ea275f527b27992c0dfcdd86710809db730fa",
+      "wordReversedSha256": "62b3c1b2d771cfb162ee9837f44191382771f8e857e8a8c2a32008530f6f88f5"
+    }
+  ],
+  "textTables": [
+    {
+      "entries": [
+        {
+          "fileOffset": "0x2cce8",
+          "index": 0,
+          "linkedAddress": "0xa003dca8"
+        },
+        {
+          "fileOffset": "0x2cd6c",
+          "index": 1,
+          "linkedAddress": "0xa003dd2c"
+        },
+        {
+          "fileOffset": "0x2cce8",
+          "index": 2,
+          "linkedAddress": "0xa003dca8"
+        },
+        {
+          "fileOffset": "0x2cd78",
+          "index": 3,
+          "linkedAddress": "0xa003dd38"
+        },
+        {
+          "fileOffset": "0x2cd84",
+          "index": 4,
+          "linkedAddress": "0xa003dd44"
+        },
+        {
+          "fileOffset": "0x2cd90",
+          "index": 5,
+          "linkedAddress": "0xa003dd50"
+        },
+        {
+          "fileOffset": "0x2cd9c",
+          "index": 6,
+          "linkedAddress": "0xa003dd5c"
+        },
+        {
+          "fileOffset": "0x2cda8",
+          "index": 7,
+          "linkedAddress": "0xa003dd68"
+        },
+        {
+          "fileOffset": "0x2cdb4",
+          "index": 8,
+          "linkedAddress": "0xa003dd74"
+        },
+        {
+          "fileOffset": "0x2cdc0",
+          "index": 9,
+          "linkedAddress": "0xa003dd80"
+        },
+        {
+          "fileOffset": "0x2cdcc",
+          "index": 10,
+          "linkedAddress": "0xa003dd8c"
+        }
+      ],
+      "fileOffset": "0x2caec"
+    },
+    {
+      "entries": [
+        {
+          "fileOffset": "0x2d180",
+          "index": 0,
+          "linkedAddress": "0xa003e140"
+        },
+        {
+          "fileOffset": "0x2d3b0",
+          "index": 1,
+          "linkedAddress": "0xa003e370"
+        },
+        {
+          "fileOffset": "0x2d180",
+          "index": 2,
+          "linkedAddress": "0xa003e140"
+        },
+        {
+          "fileOffset": "0x2d398",
+          "index": 3,
+          "linkedAddress": "0xa003e358"
+        },
+        {
+          "fileOffset": "0x2d380",
+          "index": 4,
+          "linkedAddress": "0xa003e340"
+        },
+        {
+          "fileOffset": "0x2d368",
+          "index": 5,
+          "linkedAddress": "0xa003e328"
+        },
+        {
+          "fileOffset": "0x2d350",
+          "index": 6,
+          "linkedAddress": "0xa003e310"
+        },
+        {
+          "fileOffset": "0x2d338",
+          "index": 7,
+          "linkedAddress": "0xa003e2f8"
+        },
+        {
+          "fileOffset": "0x2d320",
+          "index": 8,
+          "linkedAddress": "0xa003e2e0"
+        },
+        {
+          "fileOffset": "0x2d308",
+          "index": 9,
+          "linkedAddress": "0xa003e2c8"
+        },
+        {
+          "fileOffset": "0x2d2f0",
+          "index": 10,
+          "linkedAddress": "0xa003e2b0"
+        }
+      ],
+      "fileOffset": "0x2cfd0"
+    },
+    {
+      "entries": [
+        {
+          "fileOffset": "0x2ff10",
+          "index": 0,
+          "linkedAddress": "0xa0040ed0"
+        },
+        {
+          "fileOffset": "0x2feec",
+          "index": 1,
+          "linkedAddress": "0xa0040eac"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 2,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2feb0",
+          "index": 3,
+          "linkedAddress": "0xa0040e70"
+        },
+        {
+          "fileOffset": "0x2fe64",
+          "index": 4,
+          "linkedAddress": "0xa0040e24"
+        },
+        {
+          "fileOffset": "0x3009c",
+          "index": 5,
+          "linkedAddress": "0xa004105c"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 6,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 7,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 8,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 9,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2ffa8",
+          "index": 10,
+          "linkedAddress": "0xa0040f68"
+        },
+        {
+          "fileOffset": "0x2ffec",
+          "index": 11,
+          "linkedAddress": "0xa0040fac"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 12,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 13,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2fd24",
+          "index": 14,
+          "linkedAddress": "0xa0040ce4"
+        },
+        {
+          "fileOffset": "0x2fe48",
+          "index": 15,
+          "linkedAddress": "0xa0040e08"
+        },
+        {
+          "fileOffset": "0x2fd30",
+          "index": 16,
+          "linkedAddress": "0xa0040cf0"
+        },
+        {
+          "fileOffset": "0x2fcf8",
+          "index": 17,
+          "linkedAddress": "0xa0040cb8"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 18,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 19,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 20,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 21,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2fcc0",
+          "index": 22,
+          "linkedAddress": "0xa0040c80"
+        },
+        {
+          "fileOffset": "0x2fca0",
+          "index": 23,
+          "linkedAddress": "0xa0040c60"
+        },
+        {
+          "fileOffset": "0x2fc78",
+          "index": 24,
+          "linkedAddress": "0xa0040c38"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 25,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2fc3c",
+          "index": 26,
+          "linkedAddress": "0xa0040bfc"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 27,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 28,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 29,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2fc04",
+          "index": 30,
+          "linkedAddress": "0xa0040bc4"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 31,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 32,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2faf4",
+          "index": 33,
+          "linkedAddress": "0xa0040ab4"
+        },
+        {
+          "fileOffset": "0x2faa0",
+          "index": 34,
+          "linkedAddress": "0xa0040a60"
+        },
+        {
+          "fileOffset": "0x2fa68",
+          "index": 35,
+          "linkedAddress": "0xa0040a28"
+        },
+        {
+          "fileOffset": "0x2fa24",
+          "index": 36,
+          "linkedAddress": "0xa00409e4"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 37,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 38,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 39,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 40,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 41,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 42,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2fbd0",
+          "index": 43,
+          "linkedAddress": "0xa0040b90"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 44,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2fb6c",
+          "index": 45,
+          "linkedAddress": "0xa0040b2c"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 46,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 47,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2fa0c",
+          "index": 48,
+          "linkedAddress": "0xa00409cc"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 49,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 50,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f9dc",
+          "index": 51,
+          "linkedAddress": "0xa004099c"
+        },
+        {
+          "fileOffset": "0x2f854",
+          "index": 52,
+          "linkedAddress": "0xa0040814"
+        },
+        {
+          "fileOffset": "0x2f83c",
+          "index": 53,
+          "linkedAddress": "0xa00407fc"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 54,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f960",
+          "index": 55,
+          "linkedAddress": "0xa0040920"
+        },
+        {
+          "fileOffset": "0x2f800",
+          "index": 56,
+          "linkedAddress": "0xa00407c0"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 57,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7c8",
+          "index": 58,
+          "linkedAddress": "0xa0040788"
+        },
+        {
+          "fileOffset": "0x2f7e0",
+          "index": 59,
+          "linkedAddress": "0xa00407a0"
+        }
+      ],
+      "fileOffset": "0x2f6a8"
+    }
+  ]
+}

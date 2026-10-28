@@ -1,0 +1,265 @@
+--- EB/Program.cs
++++ HA/Program.cs
+@@ -14,7 +14,7 @@
+  readonly record struct Identity(int Bus,int Device) {public string Node=>$"/dev/bus/usb/{Bus:D3}/{Device:D3}";}
+  readonly record struct NativeResult(int Value,int Errno);
+  sealed record Spec(string Name,uint Address,int Length);
+- static readonly Spec[] Specs={new("start-R",0x47012400,256),new("M",0x470004a0,68),new("C",0x47000bc0,16),new("start-N",0x4700ba28,36),new("D",0x4700a60a,48),new("X",0x47011000,96),new("Y",0x47011400,96),new("RGB",0x47011800,96),new("B",0x47011c00,96),new("Diff",0x47012000,96),new("primary-lane-gate",0x47010470,136),new("secondary-lane-gate",0x4700cb94,68),new("fixed-top-candidate",0x47015354,104),new("fixed-bottom-candidate",0x47016264,104),new("end-N",0x4700ba28,36),new("end-R",0x47012400,256)};
++ static readonly Spec[] Specs={new("start-R",0x47012400,256),new("AP",0x4500f0e0,20),new("AP-EXCO-data",0x4500ff14,12),new("AP-EXCO-context",0x45015924,4),new("end-R",0x47012400,256)};
+  static byte[] Header(Spec s){byte[] b=new byte[12];BitConverter.GetBytes(0x101u).CopyTo(b,0);BitConverter.GetBytes(s.Address).CopyTo(b,4);BitConverter.GetBytes(s.Length).CopyTo(b,8);return b;}
+  static bool AllowedHeader(byte[] b){foreach(var s in Specs)if(b.AsSpan().SequenceEqual(Header(s)))return true;return false;}
+  static bool InputLength(int n){foreach(var s in Specs)if(s.Length==n)return true;return false;}
+@@ -25,11 +25,11 @@
+  sealed record Step(string Name,string Direction,int Expected,int? Count,int Errno,long BeforeUs,long AfterUs,string Before,string After);
+  sealed record Window(string Name,uint Address,int Bytes,string Sha256,string Base64);
+  sealed class Outcome {
+-  public string Schema{get;set;}="eb-rtp-lane-gate-v1";public string ProtocolPhase{get;set;}="ReadyForHeader";public int Device{get;set;}
+-  public bool PackingQualified{get;set;} public bool LaneGateContextQualified{get;set;} public bool Opened{get;set;} public bool Claimed{get;set;} public bool Released{get;set;}=true;public bool Closed{get;set;}=true;public bool Accepted{get;set;}
++  public string Schema{get;set;}="ha-ap-fault-witness-v1";public string ProtocolPhase{get;set;}="ReadyForHeader";public int Device{get;set;}
++  public bool Opened{get;set;} public bool Claimed{get;set;} public bool Released{get;set;}=true;public bool Closed{get;set;}=true;public bool Accepted{get;set;}
+   public int HeadersSent{get;set;}public int BulkTransfers{get;set;}public int Writes{get;set;}public int UiOperations{get;set;}public bool AtomicSnapshot{get;set;}public bool PhysicalPictureObserved{get;set;}
+   public List<BindingCheck> BindingChecks{get;}=new();
+-  public List<Step> Steps{get;}=new(24);public List<Window> Windows{get;}=new(12);public List<string> Errors{get;}=new();
++  public List<Step> Steps{get;}=new(10);public List<Window> Windows{get;}=new(5);public List<string> Errors{get;}=new();
+  }
+  sealed class Controller {
+   readonly IOps ops;readonly IClock clock;readonly Outcome o;readonly int fd;readonly long deadline;long last=-1;
+@@ -45,10 +45,10 @@
+   public void Read(Spec s,byte[] header,byte[] raw){Need(o.ProtocolPhase=="ReadyForHeader","header phase");Need(Time()+4_000_000<=deadline,"transaction budget");Transfer(s.Name+"-header",false,header,"ExpectingIn");Transfer(s.Name+"-data",true,raw,"ReadyForHeader");o.Windows.Add(new(s.Name,s.Address,raw.Length,Sha(raw),Convert.ToBase64String(raw)));Need(o.Errors.Count==0,"clock failure after completed pair");}
+  }
+  static Outcome Run(IOps p,IClock c){var o=new Outcome();var headers=new byte[Specs.Length][];var raws=new byte[Specs.Length][];for(int i=0;i<Specs.Length;i++){headers[i]=Header(Specs[i]);raws[i]=new byte[Specs[i].Length];}int fd=-1;
+-  try{long deadline=checked(c.NowUs()+40_000_000);var id=p.Preflight();o.Device=id.Device;fd=p.Open(id).Value;Need(fd>=0,"open");o.Opened=true;o.Closed=false;p.ValidateFd(fd,id);p.Revalidate(id);Need(p.Claim(fd).Value==0,"claim");o.Claimed=true;o.Released=false;p.Revalidate(id);var engine=new Controller(p,c,o,fd,deadline);for(int i=0;i<Specs.Length;i++){if(Specs[i].Name=="primary-lane-gate"){ValidateLaneContext(raws[0],raws[1],raws[2]);o.PackingQualified=true;o.LaneGateContextQualified=true;}engine.Read(Specs[i],headers[i],raws[i]);}}
++  try{long deadline=checked(c.NowUs()+40_000_000);var id=p.Preflight();o.Device=id.Device;fd=p.Open(id).Value;Need(fd>=0,"open");o.Opened=true;o.Closed=false;p.ValidateFd(fd,id);p.Revalidate(id);Need(p.Claim(fd).Value==0,"claim");o.Claimed=true;o.Released=false;p.Revalidate(id);var engine=new Controller(p,c,o,fd,deadline);for(int i=0;i<Specs.Length;i++){engine.Read(Specs[i],headers[i],raws[i]);}}
+   catch(Exception e){o.Errors.Add(e.GetType().Name+": "+e.Message);}
+   finally{if(o.Claimed)try{o.Released=p.Release(fd).Value==0;if(!o.Released)o.Errors.Add("release failed");}catch(Exception e){o.Errors.Add("release "+e.Message);}if(fd>=0)try{o.Closed=p.Close(fd).Value==0;if(!o.Closed)o.Errors.Add("close failed");}catch(Exception e){o.Errors.Add("close "+e.Message);}o.BindingChecks.AddRange(p.BindingChecks);}
+-  o.Accepted=o.Errors.Count==0&&o.Windows.Count==16&&o.PackingQualified&&o.LaneGateContextQualified&&o.ProtocolPhase=="ReadyForHeader"&&o.Released&&o.Closed;return o;
++  o.Accepted=o.Errors.Count==0&&o.Windows.Count==5&&o.ProtocolPhase=="ReadyForHeader"&&o.Released&&o.Closed;return o;
+  }
+  static string Serialize(Outcome o)=>JsonSerializer.Serialize(o,new JsonSerializerOptions{PropertyNamingPolicy=JsonNamingPolicy.CamelCase});
+  static byte[] ReadCachedDescriptors(Stream s){byte[] b=new byte[117];int used=0;while(used<b.Length){int n=s.Read(b,used,b.Length-used);if(n==0)return b.AsSpan(0,used).ToArray();Need(n>0&&n<=b.Length-used,"descriptor count");used+=n;}throw new InvalidOperationException("descriptors exceed116");}
+--- EB/ReceiptMain.cs
++++ HA/ReceiptMain.cs
+@@ -9,7 +9,7 @@
+     [DllImport("libc.so.6",EntryPoint="geteuid")] static extern uint ReceiptEuid();
+     static FileStream Receipt(string name) {
+       Need(name=="selftest.receipt.json"||name=="native.receipt.json","fixed receipt name");
+-      string dir=Directory.GetCurrentDirectory(),prefix="/tmp/researcher-eb-";Need(dir.StartsWith(prefix,StringComparison.Ordinal)&&dir.Length==prefix.Length+32,"private fixed stage path");
++      string dir=Directory.GetCurrentDirectory(),prefix="/tmp/researcher-ha-";Need(dir.StartsWith(prefix,StringComparison.Ordinal)&&dir.Length==prefix.Length+32,"private fixed stage path");
+       foreach(char c in dir.Substring(prefix.Length))Need((c>='0'&&c<='9')||(c>='a'&&c<='f'),"stage nonce");
+       byte[] st=new byte[256];Need(ReceiptStat(-100,dir,0x100,0xb,st)==0,"receipt directory stat");
+       Need((BitConverter.ToUInt32(st,0)&0xb)==0xb,"receipt directory required fields");
+@@ -25,7 +25,7 @@
+       if(args.Length==1&&args[0]=="--host-fixture"){Console.WriteLine(Serialize(Run(new FakeOps(),new FakeClock())));return 0;}
+       bool execute=args.Length==3&&args[0]=="--execute";
+       if(execute){if(args[1]!="--device"||!int.TryParse(args[2],out ExpectedDevice)||ExpectedDevice<1||ExpectedDevice>127||args[2]!=ExpectedDevice.ToString())return 64;}
+-      if(!execute){Console.WriteLine("{\"schema\":\"eb-rtp-lane-gate-dry-v1\",\"targetOperations\":0,\"writes\":0,\"uiOperations\":0,\"fixedReadPairs\":16}");return args.Length==0?0:64;}
++      if(!execute){Console.WriteLine("{\"schema\":\"ha-ap-fault-witness-dry-v1\",\"targetOperations\":0,\"writes\":0,\"uiOperations\":0,\"fixedReadPairs\":5}");return args.Length==0?0:64;}
+       if(!RealOps.AbiReady){Console.WriteLine("REFUSED_ARM32_ABI");return 64;}
+       using var nativeReceipt=Receipt("native.receipt.json");var o=Run(new RealOps(),new RealClock());PublishReceipt(nativeReceipt,Serialize(o)+"\n");return o.Accepted?0:1;
+     }
+--- EB/run-once.py
++++ HA/run-once.py
+@@ -14,13 +14,13 @@
+ B = HERE.parent
+ OLD = B / 'managed-usb-rt-passive-observer/run-once.py'
+ OLD_SHA = 'a4146bc302a764f476e068f456398b8dc34a6e3cc480b876f6e44ed65098cc82'
+-PARSER_SHA = 'e44f4c96989f895ec8ce8d1f72c9a1d8c1423a28cc1ec5358a885bd9f38d4523'
++PARSER_SHA = '72fdfc382529e15688b762d2077ab3b009364d47b37ced99c7b3b679f9c74d24'
+ ROOT = B / 'managed-ui-tab-launch/root-with-margin.py'
+ ROOT_SHA = 'bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a'
+-CHECKPOINT_SHA = '03d21901ed7fe187791f4e116c9ec34a0c7d9df791b9affc4cb8af21dcc30e31'
++CHECKPOINT_SHA = '6ff6ac0bb114fd6fcce0fb26f8736e6271fefcb55ed19e8c13ff0bd1d7266104'
+ BOOT = '00000000-0000-4000-8000-000000000000'
+ DOTNET_SHA = 'e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310'
+-ASSEMBLY = 'RecordCapture'
++ASSEMBLY = 'APFaultWitness'
+ NAMES = [ASSEMBLY + suffix for suffix in ('.dll', '.deps.json', '.runtimeconfig.json')]
+ DESCRIPTORS = '12010002ef020140e8040120500201020301090262000301048032080b00020202010a09040000010202010a052400100105240100010424020205240600010705830308001009040100020a00000a07050102400010070581024000000904020002ff0000000705820200020007050202000200'
+ MAX_STDOUT, MAX_STDERR, MAX_ROOT = 16384, 2048, 65536
+@@ -72,7 +72,7 @@
+     checkpoint_raw = (HERE / 'host-build-checkpoint.json').read_bytes()
+     need(sha(checkpoint_raw) == CHECKPOINT_SHA, 'native host checkpoint pin')
+     checkpoint = strict_json(checkpoint_raw)
+-    need(checkpoint['schema'] == 'eb-rtp-lane-gate-host-checkpoint-v1' and
++    need(checkpoint['schema'] == 'ha-ap-fault-witness-host-checkpoint-v1' and
+          checkpoint['target_executions'] == 0, 'host checkpoint contract')
+     pinned = {}
+     payload = {}
+@@ -90,19 +90,19 @@
+     for name in ('run-once.py', 'test-runner.py', 'README-wrapper.md'):
+         raw = (HERE / name).read_bytes()
+         wrapper_files[name] = {'bytes': len(raw), 'sha256': sha(raw)}
+-    manifest = {'schema': 'eb-rtp-lane-gate-wrapper-manifest-v1',
++    manifest = {'schema': 'ha-ap-fault-witness-wrapper-manifest-v1',
+                 'nativeCheckpointSha256': CHECKPOINT_SHA, 'nativeFiles': pinned,
+                 'wrapperFiles': wrapper_files, 'parentWrapperSha256': OLD_SHA,
+                 'parserSha256': PARSER_SHA, 'rootAdapterSha256': ROOT_SHA,
+                 'targetDotnetSha256': DOTNET_SHA, 'boot': BOOT,
+-                'nativeDurationUs': 40000000, 'writes': 0,
++                'nativeDurationUs': 40000000, 'writes': 0,'fixedReadPairs':5,'sourceQualifiedNewApWindows':True,'exactApIntervalsPreviouslyLiveQualified':False,
+                 'rootTimeoutSeconds': 45, 'hostTimeoutSeconds': 75,
+                 'nativeStdoutCap': MAX_STDOUT, 'nativeStderrCap': MAX_STDERR,
+                 'structuredReceiptCap': 24576, 'receiptStorage': 'exclusive_private_fixed_files',
+                 'nativeStdoutSemanticReceipt': False,
+                 'rootResponseCap': MAX_ROOT, 'nativeInvocations': 1, 'retries': 0,
+                 'wrapperUiOperations': 0, 'recoveryOperations': 0,
+-                'readinessSchema': 'eb-rtp-lane-gate-readiness-decision-v1'}
++                'readinessSchema': 'ha-ap-fault-witness-readiness-decision-v1'}
+     return manifest, payload
+ 
+ 
+@@ -119,7 +119,7 @@
+     value = strict_json(raw)
+     need(type(value) is dict and set(value) == {'schema', 'accepted', 'identity', 'interfaceUnbound',
+          'noHolders', 'closedWorldVendorOutLineage', 'evidence', 'endpointQueueProof'}, 'readiness exact fields')
+-    need(value['schema'] == 'eb-rtp-lane-gate-readiness-decision-v1' and value['accepted'] is True,
++    need(value['schema'] == 'ha-ap-fault-witness-readiness-decision-v1' and value['accepted'] is True,
+          'readiness accepted decision')
+     need(value['interfaceUnbound'] is True and value['noHolders'] is True and
+          value['endpointQueueProof'] is False, 'readiness metadata/premise distinction')
+@@ -230,11 +230,11 @@
+ 
+ def receipt_envelope(raw):
+     need(type(raw) is str and len(raw.encode()) <= MAX_ROOT, 'receipt envelope bound')
+-    pattern = (r'EBMETA_BEGIN\n([^\n]+)\n([^\n]+)\n([0-9]+)\n' +
++    pattern = (r'HAMETA_BEGIN\n([^\n]+)\n([^\n]+)\n([0-9]+)\n' +
+                r'([0-9]+)\n([0-9a-f]{64})\n'*3 +
+-               r'EBMETA_END\nRECEIPT_B64_BEGIN\n([A-Za-z0-9+/=\n]*)RECEIPT_B64_END\n' +
++               r'HAMETA_END\nRECEIPT_B64_BEGIN\n([A-Za-z0-9+/=\n]*)RECEIPT_B64_END\n' +
+                r'STDOUT_B64_BEGIN\n([A-Za-z0-9+/=\n]*)STDOUT_B64_END\n' +
+-               r'STDERR_B64_BEGIN\n([A-Za-z0-9+/=\n]*)STDERR_B64_END\nEBRUN_COMPLETE\n')
++               r'STDERR_B64_BEGIN\n([A-Za-z0-9+/=\n]*)STDERR_B64_END\nHARUN_COMPLETE\n')
+     match = re.fullmatch(pattern, raw)
+     need(match is not None, 'receipt envelope framing')
+     g = match.groups(); need(g[0] == BOOT and re.fullmatch(r'[0-9]+[.][0-9]+ [0-9]+[.][0-9]+', g[1]), 'receipt boot/uptime')
+@@ -255,9 +255,9 @@
+     output.mkdir(parents=True,exist_ok=False,mode=0o700)
+     (output/'readiness-decision.json').write_bytes(readiness_raw)
+     (output/'reviewed-manifest.json').write_bytes(reviewed_manifest)
+-    stage='/tmp/researcher-eb-'+uuid.uuid4().hex
++    stage='/tmp/researcher-ha-'+uuid.uuid4().hex
+     record_path=output/'record.json'
+-    record={'schema':'eb-rtp-lane-gate-wrapper-record-v1','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}
++    record={'schema':'ha-ap-fault-witness-wrapper-record-v1','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}
+     save(record_path,record)
+     def call(command):
+         need(len(command.encode())<=8192,'root command bound')
+@@ -297,11 +297,11 @@
+                  frozen.file_guard(receipt)+frozen.file_guard(out)+frozen.file_guard(err)+
+                  f'test "$(wc -c < {receipt})" -le 24576\ntest "$(wc -c < {out})" -le {MAX_STDOUT}\ntest "$(wc -c < {err})" -le {MAX_STDERR}\n'+
+                  frozen.exact_inventory(stage,names)+
+-                 'echo EBMETA_BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho "$native_rc"\n')
++                 'echo HAMETA_BEGIN\ncat /proc/sys/kernel/random/boot_id\ncat /proc/uptime\necho "$native_rc"\n')
+         for f in [receipt,out,err]:command+=f'wc -c < {f}\nsha256sum {f} | cut -d " " -f1\n'
+-        command+='echo EBMETA_END\n'
++        command+='echo HAMETA_END\n'
+         for f,label in [(receipt,'RECEIPT'),(out,'STDOUT'),(err,'STDERR')]:command+=f'echo {label}_B64_BEGIN\nbase64 {f}\necho {label}_B64_END\n'
+-        command+='echo EBRUN_COMPLETE\n'
++        command+='echo HARUN_COMPLETE\n'
+         if mode=='native':record.update(native_invocations=1,target_operations=None,target_operations_status='inflight_or_unknown')
+         record['phase']=tag;save(record_path,record)
+         response=call(command);(output/(tag+'-envelope.txt')).write_text(response)
+@@ -313,19 +313,19 @@
+         need(terminal['exit_code']==0 and stderr==b'','exact successful exit and empty stderr')
+         return receipt_raw
+     test_raw=run('selftest')
+-    test=strict_json(test_raw.decode('utf8'));need(type(test)is dict and all(type(test.get(k))is int for k in ['selfTestsPassed','targetOperations']), 'self-test integer fields');need(test=={'selfTestsPassed':2071,'targetOperations':0} and set(test)=={'selfTestsPassed','targetOperations'},'exclusive self-test receipt')
++    test=strict_json(test_raw.decode('utf8'));need(type(test)is dict and all(type(test.get(k))is int for k in ['selfTestsPassed','targetOperations']), 'self-test integer fields');need(test=={'selfTestsPassed':516,'targetOperations':0} and set(test)=={'selfTestsPassed','targetOperations'},'exclusive self-test receipt')
+     before=call(prefix+metadata_body(identity,'BEFORE_INVOKE_READY'));(output/'metadata-before-invoke.txt').write_text(before);record['beforeInvokeCensus']=parse_metadata(before,'BEFORE_INVOKE_READY');save(record_path,record)
+     native_raw=run('native');native,raw_files,interpretation=parser.parse_native(native_raw.decode('utf8'));save(output/'interpretation.json',interpretation)
+     need(str(native['device'])==identity['devnum'],'device binding')
+     for name,raw,digest in raw_files:
+-        need(re.fullmatch(r'(start-R|M|C|start-N|D|X|Y|RGB|B|Diff|primary-lane-gate|secondary-lane-gate|fixed-top-candidate|fixed-bottom-candidate|end-N|end-R)\.bin',name)and sha(raw)==digest,'window contract');(output/name).write_bytes(raw)
++        need(re.fullmatch(r'(start-R|AP|AP-EXCO-data|AP-EXCO-context|end-R)\.bin',name)and sha(raw)==digest,'window contract');(output/name).write_bytes(raw)
+     record.update(native_invocations_status='one_completed',target_operations=native['headersSent'],target_operations_status='accepted_fixed_read_only_record_capture',retained_raw_files=[{'name':n,'bytes':len(v),'sha256':h}for n,v,h in raw_files]);save(record_path,record)
+     post=call(prefix+metadata_body(identity,'POST_READY'));(output/'metadata-post.txt').write_text(post);record['postCensus']=parse_metadata(post,'POST_READY');save(record_path,record)
+     # Integrity is checked separately before deletion so each command remains bounded.
+     guarded=call(prefix+frozen.integrity(stage,all_remote,list(all_remote))+'echo FINAL_INTEGRITY_OK\n');need(guarded=='FINAL_INTEGRITY_OK\n','final exact inventory/hash receipt')
+     cleanup=call(prefix+frozen.dir_guard(stage)+frozen.exact_inventory(stage,list(all_remote))+'rm -- '+' '.join(stage+'/'+n for n in all_remote)+'\n'+f'rmdir -- {stage}\ntest ! -e {stage}\ntest ! -L {stage}\necho STAGE_ABSENT\n');need(cleanup=='STAGE_ABSENT\n','cleanup receipt')
+     record['cleanup_required']=False;record['cleanup_stdout']=cleanup;save(record_path,record)
+-    result={'schema':'eb-rtp-lane-gate-wrapper-result-v1','accepted':True,'operation':'fixed_read_only_record_capture','headersSent':16,'bulkTransfers':32,'rawFiles':record['retained_raw_files'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'automaticRestore':False,'wrapperUiOperations':0,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','structuredReceipt':'exclusive_private_file','diagnosticStdoutIsSemanticReceipt':False}
++    result={'schema':'ha-ap-fault-witness-wrapper-result-v1','accepted':True,'operation':'fixed_read_only_record_capture','headersSent':5,'bulkTransfers':10,'rawFiles':record['retained_raw_files'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'automaticRestore':False,'wrapperUiOperations':0,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','structuredReceipt':'exclusive_private_file','diagnosticStdoutIsSemanticReceipt':False}
+     save(output/'result.json',result);return result
+ 
+ 
+@@ -340,8 +340,8 @@
+     args = cli.parse_args()
+     need(not (args.execute and args.print_manifest), 'one mode')
+     if not args.execute and not args.print_manifest:
+-        print(json.dumps({'schema': 'eb-rtp-lane-gate-wrapper-dry-v1', 'targetOperations': 0,
+-                          'nativeDurationUs': 40000000, 'writes': 0,
++        print(json.dumps({'schema': 'ha-ap-fault-witness-wrapper-dry-v1', 'targetOperations': 0,
++                          'nativeDurationUs': 40000000, 'writes': 0,'fixedReadPairs':5,'sourceQualifiedNewApWindows':True,'exactApIntervalsPreviouslyLiveQualified':False,
+                           'rootTimeoutSeconds': 45, 'hostTimeoutSeconds': 75, 'nativeInvocations': 0,
+                           'plannedNativeInvocations': 1, 'wrapperUiOperations': 0, 'retries': 0,
+                           'readinessRequired': True, 'endpointQueueProof': False}, separators=(',', ':')))
+--- EB/parse-result.py
++++ HA/parse-result.py
+@@ -1,8 +1,8 @@
+ #!/usr/bin/env python3
+ """Strict offline fixed DM capture parser. Transport acceptance is not atomicity."""
+ import base64,hashlib,json,struct
+-SPECS=[('start-R',0x47012400,256),('M',0x470004a0,68),('C',0x47000bc0,16),('start-N',0x4700ba28,36),('D',0x4700a60a,48),('X',0x47011000,96),('Y',0x47011400,96),('RGB',0x47011800,96),('B',0x47011c00,96),('Diff',0x47012000,96),('primary-lane-gate',0x47010470,136),('secondary-lane-gate',0x4700cb94,68),('fixed-top-candidate',0x47015354,104),('fixed-bottom-candidate',0x47016264,104),('end-N',0x4700ba28,36),('end-R',0x47012400,256)]
+-FIELDS={'laneGateContextQualified','packingQualified','bindingChecks','schema','protocolPhase','device','opened','claimed','released','closed','accepted','headersSent','bulkTransfers','writes','uiOperations','atomicSnapshot','physicalPictureObserved','steps','windows','errors'}
++SPECS=[('start-R',0x47012400,256),('AP',0x4500f0e0,20),('AP-EXCO-data',0x4500ff14,12),('AP-EXCO-context',0x45015924,4),('end-R',0x47012400,256)]
++FIELDS={'bindingChecks','schema','protocolPhase','device','opened','claimed','released','closed','accepted','headersSent','bulkTransfers','writes','uiOperations','atomicSnapshot','physicalPictureObserved','steps','windows','errors'}
+ def need(ok,why):
+  if not ok:raise ValueError(why)
+ def integer(v):return type(v)is int and 0<=v<2**63
+@@ -41,22 +41,15 @@
+    kernel(c['kernel'],True)
+    need(typed(c['link'],0xa000) and typed(c['follow'],0x4000),'owned native link/directory')
+    need(all(c['follow'][k]==c['canonical'][k] for k in ['inode','devMajor','devMinor']),'owned canonical device/inode')
+-def decode_fixed(raw):
+- need(type(raw)is bytes and len(raw)==104,'fixed candidate extent')
+- values=[]
+- for at in range(0,102,6):
+-  word,tail=struct.unpack_from('<IH',raw,at)
+-  values.extend((word&4095,(word>>12)&4095,(word>>24)|((tail&15)<<8),tail>>4))
+- return {str(x):values[x-568] for x in (570,571,622,623,624,625,632,633)}
+ def parse_native(text):
+  need(type(text)is str and len(text.encode('utf8'))<=24576,'receipt bound')
+  n=strict_json(text);need(type(n)is dict and set(n)==FIELDS,'native fields');binding_checks(n['bindingChecks'])
+- need(n['schema']=='eb-rtp-lane-gate-v1' and n['protocolPhase']=='ReadyForHeader' and n['errors']==[],'terminal')
++ need(n['schema']=='ha-ap-fault-witness-v1' and n['protocolPhase']=='ReadyForHeader' and n['errors']==[],'terminal')
+  need(type(n['device'])is int and 1<=n['device']<=127,'device')
+- for k in ('opened','claimed','released','closed','accepted','packingQualified','laneGateContextQualified'):need(n[k]is True,'success '+k)
++ for k in ('opened','claimed','released','closed','accepted'):need(n[k]is True,'success '+k)
+  for k in ('atomicSnapshot','physicalPictureObserved'):need(n[k]is False,'claim '+k)
+- for k,v in [('headersSent',16),('bulkTransfers',32),('writes',0),('uiOperations',0)]:need(type(n[k])is int and n[k]==v,'count '+k)
+- need(type(n['steps'])is list and len(n['steps'])==32,'steps');last=0
++ for k,v in [('headersSent',5),('bulkTransfers',10),('writes',0),('uiOperations',0)]:need(type(n[k])is int and n[k]==v,'count '+k)
++ need(type(n['steps'])is list and len(n['steps'])==10,'steps');last=0
+  for i,(name,address,length) in enumerate(SPECS):
+   for j in (0,1):
+    s=n['steps'][2*i+j];need(type(s)is dict and set(s)=={'name','direction','expected','count','errno','beforeUs','afterUs','before','after'},'step fields')
+@@ -66,7 +59,7 @@
+    need(s['before']==('ReadyForHeader' if j==0 else 'ExpectingIn') and s['after']==('ExpectingIn' if j==0 else 'ReadyForHeader'),'step phase')
+    need(integer(s['beforeUs']) and integer(s['afterUs']) and last<=s['beforeUs']<=s['afterUs'],'time order');last=s['afterUs']
+  need(last-n['steps'][0]['beforeUs']<=40_000_000,'pair span')
+- need(type(n['windows'])is list and len(n['windows'])==16,'window count');raws=[];d={};brackets={}
++ need(type(n['windows'])is list and len(n['windows'])==5,'window count');raws=[];d={};brackets={}
+  for i,(w,(name,address,size)) in enumerate(zip(n['windows'],SPECS)):
+   need(type(w)is dict and set(w)=={'name','address','bytes','sha256','base64'},'window fields')
+   need(w['name']==name and type(w['address'])is int and w['address']==address and type(w['bytes'])is int and w['bytes']==size,'window spec')
+@@ -74,17 +67,9 @@
+   need(base64.b64encode(b).decode()==w['base64'] and len(b)==size and sha(b)==w['sha256'],'raw extent/hash')
+   d[name]=b;raws.append((name+'.bin',b,sha(b)));brackets[name]={'headerBeforeUs':n['steps'][2*i]['beforeUs'],'dataAfterUs':n['steps'][2*i+1]['afterUs']}
+  half=lambda b,o:struct.unpack_from('<H',b,o)[0]
+- need(struct.unpack_from('<I',d['M'],64)[0]==0x20010000 and half(d['M'],6)==2880 and half(d['M'],8)==1920 and half(d['M'],32)==0 and struct.unpack_from('<3H',d['C'])==(2160,1920,2880),'packing qualification')
+- need(half(d['start-R'],16)<6,'ordinary lane gate operating mode')
+- context={'operatingMode':half(d['start-R'],16),'categoryIsOperatingMode':False,'secondaryOverrideByte4cc':d['M'][44],'xBase':half(d['M'],32),'packedBytes':half(d['M'],6),'lanes':half(d['M'],8),'rootMatches':struct.unpack_from('<I',d['M'],64)[0]==0x20010000,'geometryMatches':struct.unpack_from('<3H',d['C'])==(2160,1920,2880),'aa':half(d['M'],10),'ac':half(d['M'],12),'selectorC7':d['C'][7],'publicationBoundMirror':half(d['M'],42)}
+- counters=lambda b:{'ordinals':list(struct.unpack_from('<6I',b)),'sourceCounts':list(struct.unpack_from('<6H',b,24))}
+- state=lambda b:{'stop':half(b,0),'fault':half(b,10),'ordinaryGate':half(b,14),'alternateLimit':half(b,0xc4),'mode1RecordLatch':half(b,0x90)}
+- columns={k:struct.unpack('<48H',d[k]) for k in ('X','Y','RGB','B','Diff')}
+- tuples=[{'index':i,'x':columns['X'][i],'y':columns['Y'][i],'rgb':columns['RGB'][i],'b':columns['B'][i],'absoluteDifferenceOrMode6Zero':columns['Diff'][i]} for i in range(48)]
+- primary=struct.unpack('<68H',d['primary-lane-gate']);secondary=d['secondary-lane-gate']
+- sb=(context['aa']==1 or context['ac']==1) and context['secondaryOverrideByte4cc']!=0
+- gate_rows=[{'lane':568+i,'primaryHalfword':v,'primaryLowBit':v&1,'secondaryByte':secondary[i],'secondaryOverrideSB':sb,'locallyAdmittedByCapturedTables':(v&1)==0 and (secondary[i]==0 or sb)} for i,v in enumerate(primary)]
+- interpretation={'schema':'eb-rtp-lane-gate-interpretation-v1','transportAccepted':True,'sourceContext':context,'laneGateSamples':gate_rows,'historicalGateExecutionProven':False,'localEligibilityOnly':True,'actualComparatorCallProven':False,'gateBodyLiveFingerprinted':False,'lanePhysicalMappingProven':False,'fixedReferenceCandidates':{'top':decode_fixed(d['fixed-top-candidate']),'bottom':decode_fixed(d['fixed-bottom-candidate'])},'fixedReferenceIdentityAtFaultProven':False,'startR':state(d['start-R']),'endR':state(d['end-R']),'startN':counters(d['start-N']),'endN':counters(d['end-N']),'rBytesEqual':d['start-R']==d['end-R'],'nBytesEqual':d['start-N']==d['end-N'],'readBrackets':brackets,'candidateTuples':tuples,'descriptorRawHalfwords':list(struct.unpack('<24H',d['D'])),'atomicSnapshot':False,'recordEpochProven':False,'actualFixedABranchProven':False,'physicalPictureObserved':False,'limitations':['local admission requires loop reaching lane; earlier comparator return0 can exit loop atbfac','lane values are sequential samples; not eligibility at any historical comparator call','lane window568..635 omits possible faulting562/563 and other lanes','source labels conditional on selected running layout','same bracket values do not prove atomicity or no intervening resets','five sequential column arrays may mix epochs/types or partially cleared data','B sample and unsigned difference do not generally recover selected A or its sign','D and current metadata are not a direct B ring header','no bus alias assumed for CPU20253002 ring','fixed payload has no header/epoch/channel tag; matching candidates do not prove historical A branch']}
++ state=lambda b:{'stop':half(b,0),'fault':half(b,10),'ordinaryGate':half(b,14),'limit':half(b,0xc4),'logger':half(b,6)}
++ apMagic=half(d['AP'],0);dataMagic=half(d['AP-EXCO-data'],0);context=struct.unpack('<I',d['AP-EXCO-context'])[0]
++ interpretation={'schema':'ha-ap-fault-witness-interpretation-v1','transportAccepted':True,'startR':state(d['start-R']),'endR':state(d['end-R']),'rBytesEqual':d['start-R']==d['end-R'],'apMagic':apMagic,'apReasonHalfword10':half(d['AP'],0x10),'apExcoDataMagic':dataMagic,'apExcoDataHalfword8':half(d['AP-EXCO-data'],8),'apExcoContextWord7c':context,'apExcoContextBit12':(context>>12)&1,'sampledMagicPairMatchesInitialBypass':apMagic==0x1234 and dataMagic==0xabcd,'historicalInitialBypassProven':False,'currentPcProven':False,'emergencyLoopExitProven':False,'rootResetProven':False,'recoveryProven':False,'atomicSnapshot':False,'physicalPictureObserved':False,'sourceAliasQualified':True,'exactApIntervalsPreviouslyLiveQualified':False,'readBrackets':brackets,'limitations':['Three new image0 low SRAM intervals are source-qualified, not previously USB-qualified.','Equal R brackets do not establish atomicity or no intervening mutations.','Magic predicate only governs initial bypass; emergency backedge does not recheck it.','Reason16 match does not establish current PC, unique cause, or kernel EL status identity.','No field write, logger change, reset, UI operation or physical recovery claim.']}
+  return n,raws,interpretation
+ if __name__=='__main__':
+  import sys

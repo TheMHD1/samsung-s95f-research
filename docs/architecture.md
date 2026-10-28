@@ -39,3 +39,8 @@ The [CZ phase index](../research/panel-idle-20261026/overnight/firmware-extracti
 ## Content-sensitive source and evidence graph
 
 The [integrated firmware guide](firmware-evidence-guide-20261028.md) connects exact AVE scene/NPC dispatch and controller sends to the separately proven image0 AP_EXCO selector bridge. The FRC-to-AP_EXCO data-field edge and physical RTP aperture producer remain unknown. The [machine graph](../research/panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/graph-with-dh-onset-02.json) preserves address domains, original source hashes, static/inferred/unknown distinctions and negative controls. Packaged identity, actual controller observation and emitted light remain separate layers.
+
+
+## Controller initialization and mailbox source closure
+
+The [firmware/controller guide](firmware-controller-20261028.md) and [format map](controller-firmware-formats.md) add the three-slot input selector/copy chain, shared image0 root versus image1 counters, fault-lowbit/emergency/AP/host-bit4 bridge, and candidate OCL/SPARC/STBC dispatch. Source callbacks, loaded identity, secondary pin electrical meaning and full reset domains remain separate. Positive actual normal-tail printks and a historical clean software tuple in HF are a bounded observation, not a guarantee for every MODE2 invocation.

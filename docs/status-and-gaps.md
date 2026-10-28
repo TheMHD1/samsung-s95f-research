@@ -50,3 +50,8 @@ The [firmware evidence guide](firmware-evidence-guide-20261028.md) is the curren
 ## Fixed matched-wake contrast cutoff
 
 The [GJ contrast](matched-wake-contrast-20261028.md) observed200 maxH36/no>40 witness and a later40 software fault atH48 with paired736. No actual FP, executing PC, reference-epoch equivalence or optical prevention is established. Final stock recovery validates Clean40/logger0/current counts0 while retaining ordinal52 and populated columns. GN identifies1c0c8 as RAM status-OR, preserving GD history and unresolved alias/consumer boundaries. HDMI-specific external profile and supervised no-key arm-marker qualification remain prospective. This fixed historical boundary excludes mutable CURRENT and later work.
+
+
+## Fixed firmware/controller cutoff
+
+The [new fixed guide](firmware-controller-20261028.md) preserves completed GR/GS/GT-v2/GV/GX/GY/GZ/HA/HB/HC/HC-v2/HD/HE/HG source and independent reviews. Private GQ network/authentication records are withheld with a nonidentifying methodology summary. HF adds a typed observation of one stock MODE2 normal tail and historical software fault-to-clean state; a later witness refuses before staging and a separate later CEC standby request has unknown peer attribution. No optical recovery, instruction reload, universal RAM clearing or permanent fix is established. Ongoing HH/HI, disabled GU, nonexistent GW and later ordinary wake are outside this cutoff.

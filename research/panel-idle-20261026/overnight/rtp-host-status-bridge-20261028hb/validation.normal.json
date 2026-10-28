@@ -1,0 +1,252 @@
+{
+  "actualImage0EmergencyEntryProven": false,
+  "actualWireExchangeObservedHere": false,
+  "apCpuObject": "0x2000f0e0",
+  "causeOrPhysicalSuppressionReversalProven": false,
+  "checks": 143,
+  "commandHex": "f38000000008",
+  "inputPins": [
+    {
+      "bytes": 5242880,
+      "path": "overnight/selected-qd-profile-copy-20261027b/F_RSM1_BN9659934B_COMMON.bin",
+      "sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0"
+    },
+    {
+      "bytes": 403294,
+      "path": "binaries/qdf_tcon.ko",
+      "sha256": "97fff5ba5cf3cff758807abbc2bdfb835b4696cbf88626dec5f7eb0e33b7ea63"
+    },
+    {
+      "bytes": 6657066,
+      "path": "binaries/libave.so.0.1",
+      "sha256": "a205924fcd05dffb50ee39d88523d298be9362f727dd37035eeb212779bc1777"
+    },
+    {
+      "bytes": 10525,
+      "path": "tcon-research/rt-protect-controller-path.md",
+      "sha256": "e0513f03aee37aeeaa63a7765210c626aa7d4e4b6e86b55c87ae573cdb21403e"
+    },
+    {
+      "bytes": 5111,
+      "path": "tcon-research/rt-protect-controller-path.disasm",
+      "sha256": "e825be8d3eeb819af107209349e78dc031d291d0158b386cec269d0ae3f1aa19"
+    },
+    {
+      "bytes": 797,
+      "path": "overnight/menu-fault-rearm-design-20261028gy/source-inventory.json",
+      "sha256": "27a596fd3094779efbca3616654c774b6520b49f50cd170aea9fd511ec2b5f4b"
+    },
+    {
+      "bytes": 12759,
+      "path": "overnight/menu-fault-rearm-design-20261028gy/validation.normal.json",
+      "sha256": "b73cf67707f26dc62c4a74434516190ca2d3bd3d1d41dc49d92841ef2326b007"
+    }
+  ],
+  "networkOperations": 0,
+  "reasonHalfwordOffset": "0x10",
+  "receiverGlobals": {
+    "command": "0x200008c8",
+    "register": "0x200008cc",
+    "replyIndex": "0x2000090c",
+    "replyWord": "0x20000900"
+  },
+  "register08DispatchTarget": "0x21e66",
+  "responseCases": [
+    {
+      "apHalfword": 0,
+      "fourByteHex": "00000000",
+      "hostBit4": 0,
+      "hostWord": 0
+    },
+    {
+      "apHalfword": 1,
+      "fourByteHex": "00000001",
+      "hostBit4": 0,
+      "hostWord": 1
+    },
+    {
+      "apHalfword": 2,
+      "fourByteHex": "00000002",
+      "hostBit4": 0,
+      "hostWord": 2
+    },
+    {
+      "apHalfword": 15,
+      "fourByteHex": "0000000f",
+      "hostBit4": 0,
+      "hostWord": 15
+    },
+    {
+      "apHalfword": 16,
+      "fourByteHex": "00000010",
+      "hostBit4": 1,
+      "hostWord": 16
+    },
+    {
+      "apHalfword": 17,
+      "fourByteHex": "00000011",
+      "hostBit4": 1,
+      "hostWord": 17
+    },
+    {
+      "apHalfword": 31,
+      "fourByteHex": "0000001f",
+      "hostBit4": 1,
+      "hostWord": 31
+    },
+    {
+      "apHalfword": 32,
+      "fourByteHex": "00000020",
+      "hostBit4": 0,
+      "hostWord": 32
+    },
+    {
+      "apHalfword": 128,
+      "fourByteHex": "00000080",
+      "hostBit4": 0,
+      "hostWord": 128
+    },
+    {
+      "apHalfword": 255,
+      "fourByteHex": "000000ff",
+      "hostBit4": 1,
+      "hostWord": 255
+    },
+    {
+      "apHalfword": 256,
+      "fourByteHex": "00000100",
+      "hostBit4": 0,
+      "hostWord": 256
+    },
+    {
+      "apHalfword": 4097,
+      "fourByteHex": "00001001",
+      "hostBit4": 0,
+      "hostWord": 4097
+    },
+    {
+      "apHalfword": 4660,
+      "fourByteHex": "00001234",
+      "hostBit4": 1,
+      "hostWord": 4660
+    },
+    {
+      "apHalfword": 43981,
+      "fourByteHex": "0000abcd",
+      "hostBit4": 0,
+      "hostWord": 43981
+    },
+    {
+      "apHalfword": 65535,
+      "fourByteHex": "0000ffff",
+      "hostBit4": 1,
+      "hostWord": 65535
+    }
+  ],
+  "runtimeHandlerOrOverrideModeAttested": false,
+  "sameInstantAsPriorEL10Proven": false,
+  "schema": "hb-rtp-host-status-static-bridge-v1",
+  "sourceChain": [
+    "image1c1e0→rootfault1001",
+    "image0214d4testsrootfaultlowbit→b660reason10",
+    "b660→2b764→AP+10=10",
+    "F380/08→21df8TBBentry8→e670AP+10u16",
+    "12a92caches32bitreturn→fourMSB-firstresponsebytes",
+    "QDFsix-bytecommand/four-byteread→REV32→status",
+    "AVEbit4decoderRTProtect"
+  ],
+  "sourceSpans": [
+    {
+      "address": "0x214d4",
+      "bytes": 62,
+      "domain": "firmware-image0",
+      "endExclusive": "0x21512",
+      "fileOffset": "0x216d4",
+      "sha256": "6636bd288c51f566df590a89e48aabb761377a5da4a64d01e868a8fdee371049"
+    },
+    {
+      "address": "0xb660",
+      "bytes": 154,
+      "domain": "firmware-image0",
+      "endExclusive": "0xb6fa",
+      "fileOffset": "0xb860",
+      "sha256": "40e434612828833aa7b433798a352a99c766cbb47351d2cb42ba364a868d2c6a"
+    },
+    {
+      "address": "0x2b764",
+      "bytes": 22,
+      "domain": "firmware-image0",
+      "endExclusive": "0x2b77a",
+      "fileOffset": "0x2b964",
+      "sha256": "3d538c104bca6958c66173c7d56a095ded57e9453134e78933ee6d0e26fffb03"
+    },
+    {
+      "address": "0xe670",
+      "bytes": 8,
+      "domain": "firmware-image0",
+      "endExclusive": "0xe678",
+      "fileOffset": "0xe870",
+      "sha256": "2f24cbd0d31aea9c8e387aac1ce94e6aa00ea1a72dff69c96f6a5c6e752ccf54"
+    },
+    {
+      "address": "0x1289a",
+      "bytes": 40,
+      "domain": "firmware-image0",
+      "endExclusive": "0x128c2",
+      "fileOffset": "0x12a9a",
+      "sha256": "38493bd06c5092c63fd1e9e0dda14de5fab273eba43c1b5db7727fee0a7a9f4e"
+    },
+    {
+      "address": "0x12966",
+      "bytes": 100,
+      "domain": "firmware-image0",
+      "endExclusive": "0x129ca",
+      "fileOffset": "0x12b66",
+      "sha256": "7fe741c844620d0b63d38cfda11c77639e6ed932e53171c6570fee891d86a4e6"
+    },
+    {
+      "address": "0x12a92",
+      "bytes": 58,
+      "domain": "firmware-image0",
+      "endExclusive": "0x12acc",
+      "fileOffset": "0x12c92",
+      "sha256": "d5c3703b8d0e6e15e9a7a35def8661316924b2f2a84476d34dbe36acfad6fd5d"
+    },
+    {
+      "address": "0x21624",
+      "bytes": 82,
+      "domain": "firmware-image0",
+      "endExclusive": "0x21676",
+      "fileOffset": "0x21824",
+      "sha256": "5f9a3da21a8aff22610a23c58b4e79bc20836d4111a456ccb393044616abacbe"
+    },
+    {
+      "address": "0x21df8",
+      "bytes": 242,
+      "domain": "firmware-image0",
+      "endExclusive": "0x21eea",
+      "fileOffset": "0x21ff8",
+      "sha256": "7b7038d870a46b9f897a44d3368618a13a61025ed86a9c5c61b6dccddba23aa0"
+    },
+    {
+      "address": "0xa000",
+      "bytes": 252,
+      "domain": "qdf-text",
+      "endExclusive": "0xa0fc",
+      "fileOffset": "0xa080",
+      "sha256": "81b7409fa6fc372c49f338072ab423c556680da0f1b294d268e983b020c53600"
+    },
+    {
+      "address": "0x9b88",
+      "bytes": 396,
+      "domain": "qdf-text",
+      "endExclusive": "0x9d14",
+      "fileOffset": "0x9c08",
+      "sha256": "10a71495ad5719d5f5f4b483f850bb7adb6a985a3a0305d4b89068b00ebc974a"
+    }
+  ],
+  "status": "PASS_CONDITIONAL_SOURCE_BRIDGE",
+  "targetOperations": 0,
+  "wireSourceSemanticsMatch": true,
+  "writerImplemented": false
+}

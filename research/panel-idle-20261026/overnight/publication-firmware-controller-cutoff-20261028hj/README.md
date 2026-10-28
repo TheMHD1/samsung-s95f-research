@@ -1,0 +1,11 @@
+# Firmware and controller publication cutoff
+
+This additive public snapshot preserves the complete prior public archive at `b7d8a8f283b10e960484efcc84a1d6322e1a6792` and adds completed source-backed firmware, controller, initialization, mailbox and stock-log work. It is a reusable Samsung S95F/Tizen research workbench, with the blackout investigation as one application.
+
+The fixed authored selection is GQ, GR, GS, GT-v2, GV, GX, GY, GZ, HA, HB, HC and HC-v2, HD, HE and HG, plus their explicitly sealed reviews where present. Only files named by the selected frozen inventories enter the exporter. Existing public research, nine scientific fixtures and three license artifacts remain byte-identical. Annotated source excerpts and original analysis are preserved; OEM firmware, vendor libraries, emulator wheels/native binaries, private identities/authentication, raw kernel logs and runtime envelopes are withheld.
+
+The actual HF case is a separate typed observational projection of `publication-cutoff-01.json`: a faulted software tuple precedes one stock MODE2; its source-bound normal tail is printed; later software validation is clean at limit40/logger0. This does not prove instruction reload, universal RAM clearing, optical recovery or a permanent fix. A separate later CEC standby request has an unknown peer/owner attribution. The original HC capture refusal remains refused with unknown dmesg exit; separately preserved raw is not a manufactured successful receipt. The later HA preparation refusal has zero native invocations/vendor transfers. No original raw log/identity file is published.
+
+HH and HI are ongoing and excluded, GU is disabled/partial and excluded, GW does not exist, and subsequent ordinary wake or mutable checkpoints are outside this cutoff. Publication performs no target, controller, USB, UI, reset or network operation. A local candidate is prepared in an isolated Git worktree for independent parent audit before public push.
+
+GQ private endpoint, SSH/authentication-fingerprint and route administration records are withheld; the public guide retains only their nonidentifying methodology and unproved-current-state boundary. This is a privacy omission, not a successful TV source-control observation.

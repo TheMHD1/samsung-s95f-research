@@ -1,0 +1,1876 @@
+METHOD 06000001 Tizen.TV.Service.SourceList.PrivilegeUtil::.ctor
+ 0000: ldarg.0 
+ 0001: ldstr ""
+ 0006: stfld FieldDefinition:04000003
+ 000b: ldarg.0 
+ 000c: call System.Object::.ctor
+ 0011: nop 
+ 0012: nop 
+ 0013: ldc.i4.0 
+ 0014: call Tizen.TV.Security.Privilege.Cynara::CynaraInitialize
+ 0019: ldc.i4.0 
+ 001a: cgt.un 
+ 001c: stloc.0 
+ 001d: ldloc.0 
+ 001e: brfalse.s 28
+ 0020: nop 
+ 0021: ldstr "dotnet-sourcelist"
+ 0026: ldstr "Cynara Initialization Fail"
+ 002b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/PrivilegeUtil.cs"
+ 0030: ldstr ".ctor"
+ 0035: ldc.i4.s 16
+ 0037: call Tizen.Log::Info
+ 003c: nop 
+ 003d: ldstr "Cynara Initialization Fail"
+ 0042: newobj System.Exception::.ctor
+ 0047: throw 
+ 0048: ldarg.0 
+ 0049: ldstr "/proc/self/attr/current"
+ 004e: call System.IO.File::ReadAllText
+ 0053: stfld FieldDefinition:04000001
+ 0058: ldarg.0 
+ 0059: call Tizen.TV.Security.Privilege.Cynara::GetUid
+ 005e: stfld FieldDefinition:04000002
+ 0063: ret 
+METHOD 06000002 Tizen.TV.Service.SourceList.PrivilegeUtil::Finalize
+ 0000: nop 
+ 0001: nop 
+ 0002: call Tizen.TV.Security.Privilege.Cynara::CynaraFinish
+ 0007: pop 
+ 0008: leave.s 08
+ 000a: ldarg.0 
+ 000b: call System.Object::Finalize
+ 0010: nop 
+ 0011: endfinally 
+ 0012: ret 
+METHOD 06000003 Tizen.TV.Service.SourceList.PrivilegeUtil::PrivilegeChecker
+ 0000: nop 
+ 0001: nop 
+ 0002: ldstr "dotnet-sourcelist"
+ 0007: ldstr "PrivilegeChecker"
+ 000c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/PrivilegeUtil.cs"
+ 0011: ldstr "PrivilegeChecker"
+ 0016: ldc.i4.s 2C
+ 0018: call Tizen.Log::Info
+ 001d: nop 
+ 001e: ldarg.0 
+ 001f: ldfld FieldDefinition:04000001
+ 0024: ldarg.0 
+ 0025: ldfld FieldDefinition:04000003
+ 002a: ldarg.0 
+ 002b: ldfld FieldDefinition:04000002
+ 0030: ldstr "http://tizen.org/privilege/internal/default/platform"
+ 0035: call Tizen.TV.Security.Privilege.Cynara::CynaraCheck
+ 003a: ldc.i4.2 
+ 003b: ceq 
+ 003d: stloc.0 
+ 003e: ldloc.0 
+ 003f: brfalse.s 20
+ 0041: nop 
+ 0042: ldstr "dotnet-sourcelist"
+ 0047: ldstr "Cynara check success"
+ 004c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/PrivilegeUtil.cs"
+ 0051: ldstr "PrivilegeChecker"
+ 0056: ldc.i4.s 2F
+ 0058: call Tizen.Log::Info
+ 005d: nop 
+ 005e: nop 
+ 005f: br.s 0C
+ 0061: nop 
+ 0062: ldstr "http://tizen.org/privilege/internal/default/platform"
+ 0067: newobj System.MethodAccessException::.ctor
+ 006c: throw 
+ 006d: nop 
+ 006e: leave.s 0E
+ 0070: stloc.1 
+ 0071: nop 
+ 0072: ldstr "Cynara Initialization Fail"
+ 0077: ldloc.1 
+ 0078: newobj System.Exception::.ctor
+ 007d: throw 
+ 007e: ret 
+METHOD 06000004 Tizen.TV.Service.SourceList.SourceItem::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ldarg.0 
+ 0009: ldarg.1 
+ 000a: stfld FieldDefinition:04000005
+ 000f: ldarg.0 
+ 0010: ldarg.2 
+ 0011: call set_editName
+ 0016: nop 
+ 0017: ldarg.0 
+ 0018: ldarg.3 
+ 0019: call set_detectedName
+ 001e: nop 
+ 001f: ldarg.0 
+ 0020: ldarg.s 04
+ 0022: stfld FieldDefinition:04000008
+ 0027: ldarg.0 
+ 0028: ldarg.s 05
+ 002a: stfld FieldDefinition:04000009
+ 002f: ldarg.0 
+ 0030: ldarg.s 06
+ 0032: stfld FieldDefinition:0400000a
+ 0037: ldarg.0 
+ 0038: ldarg.s 07
+ 003a: stfld FieldDefinition:0400000b
+ 003f: ldarg.0 
+ 0040: ldarg.s 08
+ 0042: stfld FieldDefinition:0400000c
+ 0047: ret 
+METHOD 06000005 Tizen.TV.Service.SourceList.SourceItem::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ldarg.0 
+ 0009: ldarg.1 
+ 000a: stfld FieldDefinition:04000005
+ 000f: ldarg.0 
+ 0010: ldarg.2 
+ 0011: call set_editName
+ 0016: nop 
+ 0017: ldarg.0 
+ 0018: ldarg.3 
+ 0019: call set_detectedName
+ 001e: nop 
+ 001f: ldarg.0 
+ 0020: ldarg.s 04
+ 0022: stfld FieldDefinition:04000008
+ 0027: ldarg.0 
+ 0028: ldarg.s 05
+ 002a: stfld FieldDefinition:04000009
+ 002f: ldarg.0 
+ 0030: ldarg.s 06
+ 0032: stfld FieldDefinition:0400000a
+ 0037: ldarg.0 
+ 0038: ldarg.s 07
+ 003a: stfld FieldDefinition:0400000b
+ 003f: ldarg.0 
+ 0040: ldarg.s 08
+ 0042: stfld FieldDefinition:0400000c
+ 0047: ldarg.0 
+ 0048: ldarg.s 09
+ 004a: stfld FieldDefinition:0400000d
+ 004f: ldarg.0 
+ 0050: ldarg.s 0A
+ 0052: stfld FieldDefinition:0400000e
+ 0057: ret 
+METHOD 06000006 Tizen.TV.Service.SourceList.SourceItem::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ldarg.0 
+ 0009: ldarg.1 
+ 000a: stfld FieldDefinition:04000005
+ 000f: ldarg.0 
+ 0010: ldarg.2 
+ 0011: call set_editName
+ 0016: nop 
+ 0017: ldarg.0 
+ 0018: ldarg.3 
+ 0019: call set_detectedName
+ 001e: nop 
+ 001f: ldarg.0 
+ 0020: ldarg.s 04
+ 0022: stfld FieldDefinition:04000008
+ 0027: ldarg.0 
+ 0028: ldarg.s 05
+ 002a: stfld FieldDefinition:04000009
+ 002f: ldarg.0 
+ 0030: ldarg.s 06
+ 0032: stfld FieldDefinition:0400000a
+ 0037: ldarg.0 
+ 0038: ldarg.s 07
+ 003a: stfld FieldDefinition:0400000b
+ 003f: ldarg.0 
+ 0040: ldarg.s 08
+ 0042: stfld FieldDefinition:0400000c
+ 0047: ldarg.0 
+ 0048: ldarg.s 0A
+ 004a: stfld FieldDefinition:0400000d
+ 004f: ldarg.0 
+ 0050: ldarg.s 0B
+ 0052: stfld FieldDefinition:0400000e
+ 0057: ldarg.0 
+ 0058: ldarg.s 09
+ 005a: stfld FieldDefinition:0400000f
+ 005f: ret 
+METHOD 06000007 Tizen.TV.Service.SourceList.SourceItem::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ldarg.0 
+ 0009: ldarg.1 
+ 000a: stfld FieldDefinition:04000005
+ 000f: ldarg.0 
+ 0010: ldarg.2 
+ 0011: call set_editName
+ 0016: nop 
+ 0017: ldarg.0 
+ 0018: ldarg.3 
+ 0019: call set_detectedName
+ 001e: nop 
+ 001f: ldarg.0 
+ 0020: ldarg.s 04
+ 0022: stfld FieldDefinition:04000008
+ 0027: ldarg.0 
+ 0028: ldarg.s 05
+ 002a: stfld FieldDefinition:04000009
+ 002f: ldarg.0 
+ 0030: ldarg.s 06
+ 0032: stfld FieldDefinition:0400000a
+ 0037: ldarg.0 
+ 0038: ldarg.s 07
+ 003a: stfld FieldDefinition:0400000b
+ 003f: ldarg.0 
+ 0040: ldarg.s 08
+ 0042: stfld FieldDefinition:0400000c
+ 0047: ldarg.0 
+ 0048: ldarg.s 0A
+ 004a: stfld FieldDefinition:0400000d
+ 004f: ldarg.0 
+ 0050: ldarg.s 0B
+ 0052: stfld FieldDefinition:0400000e
+ 0057: ldarg.0 
+ 0058: ldarg.s 09
+ 005a: stfld FieldDefinition:0400000f
+ 005f: ldarg.0 
+ 0060: ldarg.s 0C
+ 0062: stfld FieldDefinition:04000010
+ 0067: ret 
+METHOD 06000008 Tizen.TV.Service.SourceList.SourceItem::get_sourceType
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000005
+ 0006: ret 
+METHOD 06000009 Tizen.TV.Service.SourceList.SourceItem::get_editName
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000006
+ 0006: ret 
+METHOD 0600000a Tizen.TV.Service.SourceList.SourceItem::set_editName
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000006
+ 0007: ret 
+METHOD 0600000b Tizen.TV.Service.SourceList.SourceItem::get_detectedName
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000007
+ 0006: ret 
+METHOD 0600000c Tizen.TV.Service.SourceList.SourceItem::set_detectedName
+ 0000: ldarg.0 
+ 0001: ldarg.1 
+ 0002: stfld FieldDefinition:04000007
+ 0007: ret 
+METHOD 0600000d Tizen.TV.Service.SourceList.SourceItem::get_iconPath
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000008
+ 0006: ret 
+METHOD 0600000e Tizen.TV.Service.SourceList.SourceItem::get_uniqueKey
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000009
+ 0006: ret 
+METHOD 0600000f Tizen.TV.Service.SourceList.SourceItem::get_connectionState
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400000a
+ 0006: ret 
+METHOD 06000010 Tizen.TV.Service.SourceList.SourceItem::get_powerState
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400000b
+ 0006: ret 
+METHOD 06000011 Tizen.TV.Service.SourceList.SourceItem::get_mbrActivityIndex
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400000c
+ 0006: ret 
+METHOD 06000012 Tizen.TV.Service.SourceList.SourceItem::get_launcherFocusedIconPath
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400000d
+ 0006: ret 
+METHOD 06000013 Tizen.TV.Service.SourceList.SourceItem::get_launcherUnfocusedIconPath
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400000e
+ 0006: ret 
+METHOD 06000014 Tizen.TV.Service.SourceList.SourceItem::get_settingMethod
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:0400000f
+ 0006: ret 
+METHOD 06000015 Tizen.TV.Service.SourceList.SourceItem::get_editState
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000010
+ 0006: ret 
+METHOD 06000016 Tizen.TV.Service.SourceList.SourceItemConverter::Read
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: call System.Text.Json.Utf8JsonReader::get_TokenType
+ 0007: ldc.i4.1 
+ 0008: ceq 
+ 000a: ldc.i4.0 
+ 000b: ceq 
+ 000d: stloc.s 0D
+ 000f: ldloc.s 0D
+ 0011: brfalse.s 0C
+ 0013: nop 
+ 0014: ldstr "Failed to read. reader.TokenType is not StartObject"
+ 0019: newobj System.Text.Json.JsonException::.ctor
+ 001e: throw 
+ 001f: ldc.i4.0 
+ 0020: stloc.0 
+ 0021: ldstr ""
+ 0026: stloc.1 
+ 0027: ldstr ""
+ 002c: stloc.2 
+ 002d: ldstr ""
+ 0032: stloc.3 
+ 0033: ldstr ""
+ 0038: stloc.s 04
+ 003a: ldc.i4.0 
+ 003b: stloc.s 05
+ 003d: ldc.i4.0 
+ 003e: stloc.s 06
+ 0040: ldc.i4.s FE
+ 0042: stloc.s 07
+ 0044: ldstr ""
+ 0049: stloc.s 08
+ 004b: ldstr ""
+ 0050: stloc.s 09
+ 0052: ldc.i4.0 
+ 0053: stloc.s 0A
+ 0055: ldc.i4.0 
+ 0056: stloc.s 0B
+ 0058: br 84020000
+ 005d: nop 
+ 005e: ldarg.1 
+ 005f: call System.Text.Json.Utf8JsonReader::get_TokenType
+ 0064: ldc.i4.2 
+ 0065: ceq 
+ 0067: stloc.s 0E
+ 0069: ldloc.s 0E
+ 006b: brfalse.s 06
+ 006d: nop 
+ 006e: br 7D020000
+ 0073: ldarg.1 
+ 0074: call System.Text.Json.Utf8JsonReader::get_TokenType
+ 0079: ldc.i4.5 
+ 007a: ceq 
+ 007c: stloc.s 0F
+ 007e: ldloc.s 0F
+ 0080: brfalse 5B020000
+ 0085: nop 
+ 0086: ldarg.1 
+ 0087: call System.Text.Json.Utf8JsonReader::GetString
+ 008c: stloc.s 10
+ 008e: ldarg.1 
+ 008f: call System.Text.Json.Utf8JsonReader::Read
+ 0094: pop 
+ 0095: ldloc.s 10
+ 0097: stloc.s 12
+ 0099: ldloc.s 12
+ 009b: stloc.s 11
+ 009d: ldloc.s 11
+ 009f: call ComputeStringHash
+ 00a4: stloc.s 13
+ 00a6: ldloc.s 13
+ 00a8: ldc.i4 62C7B64A
+ 00ad: bgt.un.s 63
+ 00af: ldloc.s 13
+ 00b1: ldc.i4 DFFC9904
+ 00b6: bgt.un.s 2D
+ 00b8: ldloc.s 13
+ 00ba: ldc.i4 1D811700
+ 00bf: beq 03010000
+ 00c4: br.s 00
+ 00c6: ldloc.s 13
+ 00c8: ldc.i4 30D18501
+ 00cd: beq 9D000000
+ 00d2: br.s 00
+ 00d4: ldloc.s 13
+ 00d6: ldc.i4 DFFC9904
+ 00db: beq 29010000
+ 00e0: br FA010000
+ 00e5: ldloc.s 13
+ 00e7: ldc.i4 37B04710
+ 00ec: beq C0000000
+ 00f1: br.s 00
+ 00f3: ldloc.s 13
+ 00f5: ldc.i4 79A2DF44
+ 00fa: beq 36010000
+ 00ff: br.s 00
+ 0101: ldloc.s 13
+ 0103: ldc.i4 62C7B64A
+ 0108: beq 4E010000
+ 010d: br CD010000
+ 0112: ldloc.s 13
+ 0114: ldc.i4 CAB4BD92
+ 0119: bgt.un.s 2D
+ 011b: ldloc.s 13
+ 011d: ldc.i4 BC421269
+ 0122: beq F8000000
+ 0127: br.s 00
+ 0129: ldloc.s 13
+ 012b: ldc.i4 FA1BA76D
+ 0130: beq A8000000
+ 0135: br.s 00
+ 0137: ldloc.s 13
+ 0139: ldc.i4 CAB4BD92
+ 013e: beq 05010000
+ 0143: br 97010000
+ 0148: ldloc.s 13
+ 014a: ldc.i4 6ABBF1D3
+ 014f: beq.s 34
+ 0151: br.s 00
+ 0153: ldloc.s 13
+ 0155: ldc.i4 3BE931F4
+ 015a: beq 94000000
+ 015f: br.s 00
+ 0161: ldloc.s 13
+ 0163: ldc.i4 C8486EF4
+ 0168: beq.s 31
+ 016a: br 70010000
+ 016f: ldloc.s 11
+ 0171: ldstr "sourceType"
+ 0176: call System.String::op_Equality
+ 017b: brtrue EB000000
+ 0180: br 5A010000
+ 0185: ldloc.s 11
+ 0187: ldstr "editName"
+ 018c: call System.String::op_Equality
+ 0191: brtrue DE000000
+ 0196: br 44010000
+ 019b: ldloc.s 11
+ 019d: ldstr "detectedName"
+ 01a2: call System.String::op_Equality
+ 01a7: brtrue D1000000
+ 01ac: br 2E010000
+ 01b1: ldloc.s 11
+ 01b3: ldstr "iconPath"
+ 01b8: call System.String::op_Equality
+ 01bd: brtrue C4000000
+ 01c2: br 18010000
+ 01c7: ldloc.s 11
+ 01c9: ldstr "uniqueKey"
+ 01ce: call System.String::op_Equality
+ 01d3: brtrue B7000000
+ 01d8: br 02010000
+ 01dd: ldloc.s 11
+ 01df: ldstr "connectionState"
+ 01e4: call System.String::op_Equality
+ 01e9: brtrue AB000000
+ 01ee: br EC000000
+ 01f3: ldloc.s 11
+ 01f5: ldstr "powerState"
+ 01fa: call System.String::op_Equality
+ 01ff: brtrue 9F000000
+ 0204: br D6000000
+ 0209: ldloc.s 11
+ 020b: ldstr "mbrActivityIndex"
+ 0210: call System.String::op_Equality
+ 0215: brtrue 93000000
+ 021a: br C0000000
+ 021f: ldloc.s 11
+ 0221: ldstr "launcherFocusedIconPath"
+ 0226: call System.String::op_Equality
+ 022b: brtrue 87000000
+ 0230: br AA000000
+ 0235: ldloc.s 11
+ 0237: ldstr "launcherUnfocusedIconPath"
+ 023c: call System.String::op_Equality
+ 0241: brtrue.s 7E
+ 0243: br 97000000
+ 0248: ldloc.s 11
+ 024a: ldstr "settingMethod"
+ 024f: call System.String::op_Equality
+ 0254: brtrue.s 75
+ 0256: br 84000000
+ 025b: ldloc.s 11
+ 025d: ldstr "editState"
+ 0262: call System.String::op_Equality
+ 0267: brtrue.s 6C
+ 0269: br.s 74
+ 026b: ldarg.1 
+ 026c: call System.Text.Json.Utf8JsonReader::GetInt32
+ 0271: stloc.0 
+ 0272: br.s 6B
+ 0274: ldarg.1 
+ 0275: call System.Text.Json.Utf8JsonReader::GetString
+ 027a: stloc.1 
+ 027b: br.s 62
+ 027d: ldarg.1 
+ 027e: call System.Text.Json.Utf8JsonReader::GetString
+ 0283: stloc.2 
+ 0284: br.s 59
+ 0286: ldarg.1 
+ 0287: call System.Text.Json.Utf8JsonReader::GetString
+ 028c: stloc.3 
+ 028d: br.s 50
+ 028f: ldarg.1 
+ 0290: call System.Text.Json.Utf8JsonReader::GetString
+ 0295: stloc.s 04
+ 0297: br.s 46
+ 0299: ldarg.1 
+ 029a: call System.Text.Json.Utf8JsonReader::GetBoolean
+ 029f: stloc.s 05
+ 02a1: br.s 3C
+ 02a3: ldarg.1 
+ 02a4: call System.Text.Json.Utf8JsonReader::GetInt32
+ 02a9: stloc.s 06
+ 02ab: br.s 32
+ 02ad: ldarg.1 
+ 02ae: call System.Text.Json.Utf8JsonReader::GetInt32
+ 02b3: stloc.s 07
+ 02b5: br.s 28
+ 02b7: ldarg.1 
+ 02b8: call System.Text.Json.Utf8JsonReader::GetString
+ 02bd: stloc.s 08
+ 02bf: br.s 1E
+ 02c1: ldarg.1 
+ 02c2: call System.Text.Json.Utf8JsonReader::GetString
+ 02c7: stloc.s 09
+ 02c9: br.s 14
+ 02cb: ldarg.1 
+ 02cc: call System.Text.Json.Utf8JsonReader::GetInt32
+ 02d1: stloc.s 0A
+ 02d3: br.s 0A
+ 02d5: ldarg.1 
+ 02d6: call System.Text.Json.Utf8JsonReader::GetInt32
+ 02db: stloc.s 0B
+ 02dd: br.s 00
+ 02df: nop 
+ 02e0: nop 
+ 02e1: ldarg.1 
+ 02e2: call System.Text.Json.Utf8JsonReader::Read
+ 02e7: stloc.s 14
+ 02e9: ldloc.s 14
+ 02eb: brtrue 6DFDFFFF
+ 02f0: ldloc.0 
+ 02f1: ldloc.1 
+ 02f2: ldloc.2 
+ 02f3: ldloc.3 
+ 02f4: ldloc.s 04
+ 02f6: ldloc.s 05
+ 02f8: ldloc.s 06
+ 02fa: ldloc.s 07
+ 02fc: ldloc.s 0A
+ 02fe: ldloc.s 08
+ 0300: ldloc.s 09
+ 0302: ldloc.s 0B
+ 0304: newobj .ctor
+ 0309: stloc.s 0C
+ 030b: ldloc.s 0C
+ 030d: stloc.s 15
+ 030f: br.s 00
+ 0311: ldloc.s 15
+ 0313: ret 
+METHOD 06000017 Tizen.TV.Service.SourceList.SourceItemConverter::Write
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: callvirt System.Text.Json.Utf8JsonWriter::WriteStartObject
+ 0007: nop 
+ 0008: ldarg.1 
+ 0009: ldstr "sourceType"
+ 000e: ldarg.2 
+ 000f: callvirt get_sourceType
+ 0014: callvirt System.Text.Json.Utf8JsonWriter::WriteNumber
+ 0019: nop 
+ 001a: ldarg.1 
+ 001b: ldstr "editName"
+ 0020: ldarg.2 
+ 0021: callvirt get_editName
+ 0026: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 002b: nop 
+ 002c: ldarg.1 
+ 002d: ldstr "detectedName"
+ 0032: ldarg.2 
+ 0033: callvirt get_detectedName
+ 0038: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 003d: nop 
+ 003e: ldarg.1 
+ 003f: ldstr "iconPath"
+ 0044: ldarg.2 
+ 0045: callvirt get_iconPath
+ 004a: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 004f: nop 
+ 0050: ldarg.1 
+ 0051: ldstr "uniqueKey"
+ 0056: ldarg.2 
+ 0057: callvirt get_uniqueKey
+ 005c: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 0061: nop 
+ 0062: ldarg.1 
+ 0063: ldstr "connectionState"
+ 0068: ldarg.2 
+ 0069: callvirt get_connectionState
+ 006e: callvirt System.Text.Json.Utf8JsonWriter::WriteBoolean
+ 0073: nop 
+ 0074: ldarg.1 
+ 0075: ldstr "powerState"
+ 007a: ldarg.2 
+ 007b: callvirt get_powerState
+ 0080: callvirt System.Text.Json.Utf8JsonWriter::WriteNumber
+ 0085: nop 
+ 0086: ldarg.1 
+ 0087: ldstr "mbrActivityIndex"
+ 008c: ldarg.2 
+ 008d: callvirt get_mbrActivityIndex
+ 0092: callvirt System.Text.Json.Utf8JsonWriter::WriteNumber
+ 0097: nop 
+ 0098: ldarg.1 
+ 0099: ldstr "settingMethod"
+ 009e: ldarg.2 
+ 009f: callvirt get_settingMethod
+ 00a4: callvirt System.Text.Json.Utf8JsonWriter::WriteNumber
+ 00a9: nop 
+ 00aa: ldarg.1 
+ 00ab: ldstr "launcherFocusedIconPath"
+ 00b0: ldarg.2 
+ 00b1: callvirt get_launcherFocusedIconPath
+ 00b6: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 00bb: nop 
+ 00bc: ldarg.1 
+ 00bd: ldstr "launcherUnfocusedIconPath"
+ 00c2: ldarg.2 
+ 00c3: callvirt get_launcherUnfocusedIconPath
+ 00c8: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 00cd: nop 
+ 00ce: ldarg.1 
+ 00cf: ldstr "editState"
+ 00d4: ldarg.2 
+ 00d5: callvirt get_editState
+ 00da: callvirt System.Text.Json.Utf8JsonWriter::WriteNumber
+ 00df: nop 
+ 00e0: ldarg.1 
+ 00e1: callvirt System.Text.Json.Utf8JsonWriter::WriteEndObject
+ 00e6: nop 
+ 00e7: ret 
+METHOD 06000018 Tizen.TV.Service.SourceList.SourceItemConverter::.ctor
+ 0000: ldarg.0 
+ 0001: call TypeSpecification:1b000001::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 06000019 Tizen.TV.Service.SourceList.SourceListChanged::.ctor
+METHOD 0600001a Tizen.TV.Service.SourceList.SourceListChanged::Invoke
+METHOD 0600001b Tizen.TV.Service.SourceList.SourceListChanged::BeginInvoke
+METHOD 0600001c Tizen.TV.Service.SourceList.SourceListChanged::EndInvoke
+METHOD 0600001d Tizen.TV.Service.SourceList.SourceList::NotifySourceListChanged
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldarg.0 
+ 000e: ldnull 
+ 000f: ceq 
+ 0011: stloc.1 
+ 0012: ldloc.1 
+ 0013: brfalse.s 2B
+ 0015: nop 
+ 0016: ldstr "dotnet-sourcelist"
+ 001b: ldstr "callBack is null!!"
+ 0020: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0025: ldstr "NotifySourceListChanged"
+ 002a: ldc.i4 B2000000
+ 002f: call Tizen.Log::Info
+ 0034: nop 
+ 0035: ldstr "Input value is Null"
+ 003a: newobj System.ArgumentNullException::.ctor
+ 003f: throw 
+ 0040: ldsfld FieldDefinition:0400004e
+ 0045: ldnull 
+ 0046: ceq 
+ 0048: stloc.2 
+ 0049: ldloc.2 
+ 004a: brfalse.s 0C
+ 004c: nop 
+ 004d: newobj TypeSpecification:1b000003::.ctor
+ 0052: stsfld FieldDefinition:0400004e
+ 0057: nop 
+ 0058: ldsfld FieldDefinition:0400004e
+ 005d: ldarg.0 
+ 005e: callvirt TypeSpecification:1b000003::Add
+ 0063: nop 
+ 0064: ldarg.0 
+ 0065: call System.Runtime.InteropServices.Marshal::GetFunctionPointerForDelegate
+ 006a: stloc.0 
+ 006b: ldstr "dotnet-sourcelist"
+ 0070: ldstr "register_sourcelist_changed_callback: "
+ 0075: ldloca.s 00
+ 0077: call System.IntPtr::ToString
+ 007c: call System.String::Concat
+ 0081: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0086: ldstr "NotifySourceListChanged"
+ 008b: ldc.i4 BF000000
+ 0090: call Tizen.Log::Info
+ 0095: nop 
+ 0096: ldarg.0 
+ 0097: ldloc.0 
+ 0098: call register_sourcelist_changed_callback
+ 009d: nop 
+ 009e: nop 
+ 009f: leave.s 0E
+ 00a1: stloc.3 
+ 00a2: nop 
+ 00a3: ldstr "Access Denied"
+ 00a8: ldloc.3 
+ 00a9: newobj System.Exception::.ctor
+ 00ae: throw 
+ 00af: ret 
+METHOD 0600001e Tizen.TV.Service.SourceList.SourceList::IgnoreSourceListChanged
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldarg.0 
+ 000e: ldnull 
+ 000f: ceq 
+ 0011: stloc.1 
+ 0012: ldloc.1 
+ 0013: brfalse.s 2B
+ 0015: nop 
+ 0016: ldstr "dotnet-sourcelist"
+ 001b: ldstr "callBack is null!!"
+ 0020: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0025: ldstr "IgnoreSourceListChanged"
+ 002a: ldc.i4 D5000000
+ 002f: call Tizen.Log::Info
+ 0034: nop 
+ 0035: ldstr "Input value is Null"
+ 003a: newobj System.ArgumentNullException::.ctor
+ 003f: throw 
+ 0040: ldarg.0 
+ 0041: call System.Runtime.InteropServices.Marshal::GetFunctionPointerForDelegate
+ 0046: stloc.0 
+ 0047: ldstr "dotnet-sourcelist"
+ 004c: ldstr "unregister_sourcelist_changed_callback: "
+ 0051: ldloca.s 00
+ 0053: call System.IntPtr::ToString
+ 0058: call System.String::Concat
+ 005d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0062: ldstr "IgnoreSourceListChanged"
+ 0067: ldc.i4 DB000000
+ 006c: call Tizen.Log::Info
+ 0071: nop 
+ 0072: ldloc.0 
+ 0073: call unregister_sourcelist_changed_callback
+ 0078: nop 
+ 0079: ldsfld FieldDefinition:0400004e
+ 007e: ldarg.0 
+ 007f: callvirt TypeSpecification:1b000003::Remove
+ 0084: pop 
+ 0085: nop 
+ 0086: leave.s 0E
+ 0088: stloc.2 
+ 0089: nop 
+ 008a: ldstr "Access Denied"
+ 008f: ldloc.2 
+ 0090: newobj System.Exception::.ctor
+ 0095: throw 
+ 0096: ret 
+METHOD 0600001f Tizen.TV.Service.SourceList.SourceList::GetSourceList
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldstr "dotnet-sourcelist"
+ 0012: ldstr "GetSourceList Called!!"
+ 0017: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 001c: ldstr "GetSourceList"
+ 0021: ldc.i4 F1000000
+ 0026: call Tizen.Log::Info
+ 002b: nop 
+ 002c: call get_source_list
+ 0031: stloc.0 
+ 0032: ldloc.0 
+ 0033: call System.String::IsNullOrWhiteSpace
+ 0038: stloc.1 
+ 0039: ldloc.1 
+ 003a: brfalse.s 2C
+ 003c: nop 
+ 003d: ldstr "dotnet-sourcelist"
+ 0042: ldstr "GetSourceList Fail!!"
+ 0047: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 004c: ldstr "GetSourceList"
+ 0051: ldc.i4 F6000000
+ 0056: call Tizen.Log::Info
+ 005b: nop 
+ 005c: ldarg.0 
+ 005d: newobj TypeSpecification:1b000004::.ctor
+ 0062: stind.ref 
+ 0063: leave D4000000
+ 0068: ldstr "dotnet-sourcelist"
+ 006d: ldloc.0 
+ 006e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0073: ldstr "GetSourceList"
+ 0078: ldc.i4 FB000000
+ 007d: call Tizen.Log::Info
+ 0082: nop 
+ 0083: ldarg.0 
+ 0084: ldloc.0 
+ 0085: ldsfld FieldDefinition:04000050
+ 008a: call System.Text.Json.JsonSerializer::Deserialize
+ 008f: stind.ref 
+ 0090: ldarg.0 
+ 0091: ldind.ref 
+ 0092: ldnull 
+ 0093: ceq 
+ 0095: stloc.2 
+ 0096: ldloc.2 
+ 0097: brfalse.s 29
+ 0099: nop 
+ 009a: ldstr "dotnet-sourcelist"
+ 009f: ldstr "sourceList is NULL!!"
+ 00a4: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00a9: ldstr "GetSourceList"
+ 00ae: ldc.i4 00010000
+ 00b3: call Tizen.Log::Info
+ 00b8: nop 
+ 00b9: ldarg.0 
+ 00ba: newobj TypeSpecification:1b000004::.ctor
+ 00bf: stind.ref 
+ 00c0: leave.s 7A
+ 00c2: ldarg.0 
+ 00c3: ldarg.0 
+ 00c4: ldind.ref 
+ 00c5: call DecodeSourceList
+ 00ca: stind.ref 
+ 00cb: nop 
+ 00cc: leave.s 6E
+ 00ce: stloc.3 
+ 00cf: nop 
+ 00d0: ldarg.0 
+ 00d1: newobj TypeSpecification:1b000004::.ctor
+ 00d6: stind.ref 
+ 00d7: ldstr "dotnet-sourcelist"
+ 00dc: ldstr "Access Denied "
+ 00e1: ldloc.3 
+ 00e2: callvirt System.Exception::get_Message
+ 00e7: call System.String::Concat
+ 00ec: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00f1: ldstr "GetSourceList"
+ 00f6: ldc.i4 0A010000
+ 00fb: call Tizen.Log::Info
+ 0100: nop 
+ 0101: nop 
+ 0102: leave.s 38
+ 0104: stloc.s 04
+ 0106: nop 
+ 0107: ldarg.0 
+ 0108: newobj TypeSpecification:1b000004::.ctor
+ 010d: stind.ref 
+ 010e: ldstr "dotnet-sourcelist"
+ 0113: ldstr "Exception "
+ 0118: ldloc.s 04
+ 011a: callvirt System.Exception::get_Message
+ 011f: call System.String::Concat
+ 0124: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0129: ldstr "GetSourceList"
+ 012e: ldc.i4 0F010000
+ 0133: call Tizen.Log::Info
+ 0138: nop 
+ 0139: nop 
+ 013a: leave.s 00
+ 013c: ret 
+METHOD 06000020 Tizen.TV.Service.SourceList.SourceList::GetUsbData
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldstr "dotnet-sourcelist"
+ 0012: ldstr "GetUsbData Called!!"
+ 0017: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 001c: ldstr "GetUsbData"
+ 0021: ldc.i4 1F010000
+ 0026: call Tizen.Log::Info
+ 002b: nop 
+ 002c: ldarg.0 
+ 002d: call System.String::IsNullOrWhiteSpace
+ 0032: stloc.1 
+ 0033: ldloc.1 
+ 0034: brfalse.s 2B
+ 0036: nop 
+ 0037: ldstr "dotnet-sourcelist"
+ 003c: ldstr "uniqueKey is empty!!"
+ 0041: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0046: ldstr "GetUsbData"
+ 004b: ldc.i4 22010000
+ 0050: call Tizen.Log::Info
+ 0055: nop 
+ 0056: ldstr "uniqueKey is empty"
+ 005b: newobj System.ArgumentException::.ctor
+ 0060: throw 
+ 0061: ldarg.0 
+ 0062: call get_usb_data
+ 0067: stloc.0 
+ 0068: ldloc.0 
+ 0069: call System.String::IsNullOrWhiteSpace
+ 006e: stloc.2 
+ 006f: ldloc.2 
+ 0070: brfalse.s 2B
+ 0072: nop 
+ 0073: ldstr "dotnet-sourcelist"
+ 0078: ldstr "GetUsbData Fail!!"
+ 007d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0082: ldstr "GetUsbData"
+ 0087: ldc.i4 2A010000
+ 008c: call Tizen.Log::Info
+ 0091: nop 
+ 0092: ldstr "usb data is empty"
+ 0097: newobj System.InvalidOperationException::.ctor
+ 009c: throw 
+ 009d: ldstr "dotnet-sourcelist"
+ 00a2: ldloc.0 
+ 00a3: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00a8: ldstr "GetUsbData"
+ 00ad: ldc.i4 2E010000
+ 00b2: call Tizen.Log::Info
+ 00b7: nop 
+ 00b8: ldarg.1 
+ 00b9: ldloc.0 
+ 00ba: ldsfld FieldDefinition:04000050
+ 00bf: call System.Text.Json.JsonSerializer::Deserialize
+ 00c4: stind.ref 
+ 00c5: nop 
+ 00c6: leave.s 0E
+ 00c8: stloc.3 
+ 00c9: nop 
+ 00ca: ldstr "Access Denied"
+ 00cf: ldloc.3 
+ 00d0: newobj System.Exception::.ctor
+ 00d5: throw 
+ 00d6: ret 
+METHOD 06000021 Tizen.TV.Service.SourceList.SourceList::ChangeSource
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldarg.0 
+ 000e: ldc.i4.0 
+ 000f: clt 
+ 0011: stloc.1 
+ 0012: ldloc.1 
+ 0013: brfalse.s 0C
+ 0015: nop 
+ 0016: ldstr "invalid sourceType"
+ 001b: newobj System.ArgumentException::.ctor
+ 0020: throw 
+ 0021: ldarg.0 
+ 0022: call connect_source
+ 0027: stloc.0 
+ 0028: ldstr "dotnet-sourcelist"
+ 002d: ldstr "ChangeSource Called!! retValue: "
+ 0032: ldloca.s 00
+ 0034: call System.Boolean::ToString
+ 0039: call System.String::Concat
+ 003e: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0043: ldstr "ChangeSource"
+ 0048: ldc.i4 48010000
+ 004d: call Tizen.Log::Info
+ 0052: nop 
+ 0053: ldloc.0 
+ 0054: ldc.i4.0 
+ 0055: ceq 
+ 0057: stloc.2 
+ 0058: ldloc.2 
+ 0059: brfalse.s 2B
+ 005b: nop 
+ 005c: ldstr "dotnet-sourcelist"
+ 0061: ldstr "Fail to Change Source!!"
+ 0066: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 006b: ldstr "ChangeSource"
+ 0070: ldc.i4 4C010000
+ 0075: call Tizen.Log::Info
+ 007a: nop 
+ 007b: ldstr ""
+ 0080: newobj System.InvalidOperationException::.ctor
+ 0085: throw 
+ 0086: nop 
+ 0087: leave.s 0E
+ 0089: stloc.3 
+ 008a: nop 
+ 008b: ldstr "Access Denied"
+ 0090: ldloc.3 
+ 0091: newobj System.Exception::.ctor
+ 0096: throw 
+ 0097: ret 
+METHOD 06000022 Tizen.TV.Service.SourceList.SourceList::ChangeSourceWithUniqueKey
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldarg.0 
+ 000e: ldc.i4.0 
+ 000f: clt 
+ 0011: stloc.1 
+ 0012: ldloc.1 
+ 0013: brfalse.s 0C
+ 0015: nop 
+ 0016: ldstr "invalid sourceType"
+ 001b: newobj System.ArgumentException::.ctor
+ 0020: throw 
+ 0021: ldarg.1 
+ 0022: call System.String::IsNullOrWhiteSpace
+ 0027: stloc.2 
+ 0028: ldloc.2 
+ 0029: brfalse.s 2B
+ 002b: nop 
+ 002c: ldstr "dotnet-sourcelist"
+ 0031: ldstr "uniqueKey is empty!!"
+ 0036: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 003b: ldstr "ChangeSourceWithUniqueKey"
+ 0040: ldc.i4 69010000
+ 0045: call Tizen.Log::Info
+ 004a: nop 
+ 004b: ldstr "uniqueKey is empty"
+ 0050: newobj System.ArgumentException::.ctor
+ 0055: throw 
+ 0056: ldarg.0 
+ 0057: ldarg.1 
+ 0058: call connect_source_with_uniquekey
+ 005d: stloc.0 
+ 005e: ldstr "dotnet-sourcelist"
+ 0063: ldstr "ChangeSourceWithUniqueKey Called!! retValue: "
+ 0068: ldloca.s 00
+ 006a: call System.Boolean::ToString
+ 006f: call System.String::Concat
+ 0074: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0079: ldstr "ChangeSourceWithUniqueKey"
+ 007e: ldc.i4 6E010000
+ 0083: call Tizen.Log::Info
+ 0088: nop 
+ 0089: ldloc.0 
+ 008a: ldc.i4.0 
+ 008b: ceq 
+ 008d: stloc.3 
+ 008e: ldloc.3 
+ 008f: brfalse.s 2B
+ 0091: nop 
+ 0092: ldstr "dotnet-sourcelist"
+ 0097: ldstr "Fail to Change Source With UniqueKey!!"
+ 009c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00a1: ldstr "ChangeSourceWithUniqueKey"
+ 00a6: ldc.i4 72010000
+ 00ab: call Tizen.Log::Info
+ 00b0: nop 
+ 00b1: ldstr ""
+ 00b6: newobj System.InvalidOperationException::.ctor
+ 00bb: throw 
+ 00bc: nop 
+ 00bd: leave.s 10
+ 00bf: stloc.s 04
+ 00c1: nop 
+ 00c2: ldstr "Access Denied"
+ 00c7: ldloc.s 04
+ 00c9: newobj System.Exception::.ctor
+ 00ce: throw 
+ 00cf: ret 
+METHOD 06000023 Tizen.TV.Service.SourceList.SourceList::SetSourceEditName
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldstr "dotnet-sourcelist"
+ 0012: ldc.i4.7 
+ 0013: newarr System.String
+ 0018: dup 
+ 0019: ldc.i4.0 
+ 001a: ldstr "SetSourceEditName sourceType["
+ 001f: stelem.ref 
+ 0020: dup 
+ 0021: ldc.i4.1 
+ 0022: ldarga.s 00
+ 0024: call System.Int32::ToString
+ 0029: stelem.ref 
+ 002a: dup 
+ 002b: ldc.i4.2 
+ 002c: ldstr "] editName["
+ 0031: stelem.ref 
+ 0032: dup 
+ 0033: ldc.i4.3 
+ 0034: ldarg.1 
+ 0035: stelem.ref 
+ 0036: dup 
+ 0037: ldc.i4.4 
+ 0038: ldstr "] mbrActivityIndex["
+ 003d: stelem.ref 
+ 003e: dup 
+ 003f: ldc.i4.5 
+ 0040: ldarga.s 02
+ 0042: call System.Int32::ToString
+ 0047: stelem.ref 
+ 0048: dup 
+ 0049: ldc.i4.6 
+ 004a: ldstr "]"
+ 004f: stelem.ref 
+ 0050: call System.String::Concat
+ 0055: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 005a: ldstr "SetSourceEditName"
+ 005f: ldc.i4 89010000
+ 0064: call Tizen.Log::Info
+ 0069: nop 
+ 006a: ldarg.0 
+ 006b: ldc.i4.0 
+ 006c: clt 
+ 006e: stloc.1 
+ 006f: ldloc.1 
+ 0070: brfalse.s 2B
+ 0072: nop 
+ 0073: ldstr "dotnet-sourcelist"
+ 0078: ldstr "Invalid SourceType!!"
+ 007d: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0082: ldstr "SetSourceEditName"
+ 0087: ldc.i4 8D010000
+ 008c: call Tizen.Log::Info
+ 0091: nop 
+ 0092: ldstr "Invalid SourceType!!"
+ 0097: newobj System.ArgumentException::.ctor
+ 009c: throw 
+ 009d: ldarg.0 
+ 009e: ldarg.1 
+ 009f: ldarg.2 
+ 00a0: call set_edit_name
+ 00a5: stloc.0 
+ 00a6: ldstr "dotnet-sourcelist"
+ 00ab: ldstr "SetSourceEditName Called!! retValue: "
+ 00b0: ldloca.s 00
+ 00b2: call System.Boolean::ToString
+ 00b7: call System.String::Concat
+ 00bc: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00c1: ldstr "SetSourceEditName"
+ 00c6: ldc.i4 92010000
+ 00cb: call Tizen.Log::Info
+ 00d0: nop 
+ 00d1: ldloc.0 
+ 00d2: ldc.i4.0 
+ 00d3: ceq 
+ 00d5: stloc.2 
+ 00d6: ldloc.2 
+ 00d7: brfalse.s 2B
+ 00d9: nop 
+ 00da: ldstr "dotnet-sourcelist"
+ 00df: ldstr "SetSourceEditName Fail!!"
+ 00e4: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00e9: ldstr "SetSourceEditName"
+ 00ee: ldc.i4 96010000
+ 00f3: call Tizen.Log::Info
+ 00f8: nop 
+ 00f9: ldstr "SetSourceEditName Fail!!"
+ 00fe: newobj System.InvalidOperationException::.ctor
+ 0103: throw 
+ 0104: nop 
+ 0105: leave.s 0E
+ 0107: stloc.3 
+ 0108: nop 
+ 0109: ldstr "Access Denied"
+ 010e: ldloc.3 
+ 010f: newobj System.Exception::.ctor
+ 0114: throw 
+ 0115: ret 
+METHOD 06000024 Tizen.TV.Service.SourceList.SourceList::SetSourceDeviceType
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldstr "dotnet-sourcelist"
+ 0012: ldc.i4.7 
+ 0013: newarr System.String
+ 0018: dup 
+ 0019: ldc.i4.0 
+ 001a: ldstr "SetSourceDeviceType sourceType["
+ 001f: stelem.ref 
+ 0020: dup 
+ 0021: ldc.i4.1 
+ 0022: ldarga.s 00
+ 0024: call System.Int32::ToString
+ 0029: stelem.ref 
+ 002a: dup 
+ 002b: ldc.i4.2 
+ 002c: ldstr "] deviceType["
+ 0031: stelem.ref 
+ 0032: dup 
+ 0033: ldc.i4.3 
+ 0034: ldarga.s 01
+ 0036: call System.Int32::ToString
+ 003b: stelem.ref 
+ 003c: dup 
+ 003d: ldc.i4.4 
+ 003e: ldstr "] mbrActivityIndex["
+ 0043: stelem.ref 
+ 0044: dup 
+ 0045: ldc.i4.5 
+ 0046: ldarga.s 02
+ 0048: call System.Int32::ToString
+ 004d: stelem.ref 
+ 004e: dup 
+ 004f: ldc.i4.6 
+ 0050: ldstr "]"
+ 0055: stelem.ref 
+ 0056: call System.String::Concat
+ 005b: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0060: ldstr "SetSourceDeviceType"
+ 0065: ldc.i4 AD010000
+ 006a: call Tizen.Log::Info
+ 006f: nop 
+ 0070: ldarg.0 
+ 0071: ldc.i4.0 
+ 0072: clt 
+ 0074: stloc.1 
+ 0075: ldloc.1 
+ 0076: brfalse.s 2B
+ 0078: nop 
+ 0079: ldstr "dotnet-sourcelist"
+ 007e: ldstr "Invalid SourceType!!"
+ 0083: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0088: ldstr "SetSourceDeviceType"
+ 008d: ldc.i4 B1010000
+ 0092: call Tizen.Log::Info
+ 0097: nop 
+ 0098: ldstr "invalid sourceType"
+ 009d: newobj System.ArgumentException::.ctor
+ 00a2: throw 
+ 00a3: ldarg.0 
+ 00a4: ldarg.1 
+ 00a5: ldarg.2 
+ 00a6: call set_device_type
+ 00ab: stloc.0 
+ 00ac: ldstr "dotnet-sourcelist"
+ 00b1: ldstr "SetSourceDeviceType Called!! retValue: "
+ 00b6: ldloca.s 00
+ 00b8: call System.Boolean::ToString
+ 00bd: call System.String::Concat
+ 00c2: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00c7: ldstr "SetSourceDeviceType"
+ 00cc: ldc.i4 B6010000
+ 00d1: call Tizen.Log::Info
+ 00d6: nop 
+ 00d7: ldloc.0 
+ 00d8: ldc.i4.0 
+ 00d9: ceq 
+ 00db: stloc.2 
+ 00dc: ldloc.2 
+ 00dd: brfalse.s 2B
+ 00df: nop 
+ 00e0: ldstr "dotnet-sourcelist"
+ 00e5: ldstr "SetSourceDeviceType Fail!!"
+ 00ea: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00ef: ldstr "SetSourceDeviceType"
+ 00f4: ldc.i4 BA010000
+ 00f9: call Tizen.Log::Info
+ 00fe: nop 
+ 00ff: ldstr "SetSourceDeviceType Fail!!"
+ 0104: newobj System.InvalidOperationException::.ctor
+ 0109: throw 
+ 010a: nop 
+ 010b: leave.s 0E
+ 010d: stloc.3 
+ 010e: nop 
+ 010f: ldstr "Access Denied"
+ 0114: ldloc.3 
+ 0115: newobj System.Exception::.ctor
+ 011a: throw 
+ 011b: ret 
+METHOD 06000025 Tizen.TV.Service.SourceList.SourceList::GetSourceEditName
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldstr "dotnet-sourcelist"
+ 0012: ldc.i4.5 
+ 0013: newarr System.String
+ 0018: dup 
+ 0019: ldc.i4.0 
+ 001a: ldstr "GetSourceEditName sourceType["
+ 001f: stelem.ref 
+ 0020: dup 
+ 0021: ldc.i4.1 
+ 0022: ldarga.s 00
+ 0024: call System.Int32::ToString
+ 0029: stelem.ref 
+ 002a: dup 
+ 002b: ldc.i4.2 
+ 002c: ldstr "] mbrActivityIndex["
+ 0031: stelem.ref 
+ 0032: dup 
+ 0033: ldc.i4.3 
+ 0034: ldarga.s 02
+ 0036: call System.Int32::ToString
+ 003b: stelem.ref 
+ 003c: dup 
+ 003d: ldc.i4.4 
+ 003e: ldstr "]"
+ 0043: stelem.ref 
+ 0044: call System.String::Concat
+ 0049: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 004e: ldstr "GetSourceEditName"
+ 0053: ldc.i4 D0010000
+ 0058: call Tizen.Log::Info
+ 005d: nop 
+ 005e: ldarg.0 
+ 005f: ldc.i4.0 
+ 0060: clt 
+ 0062: stloc.0 
+ 0063: ldloc.0 
+ 0064: brfalse.s 2B
+ 0066: nop 
+ 0067: ldstr "dotnet-sourcelist"
+ 006c: ldstr "Invalid SourceType!!"
+ 0071: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0076: ldstr "GetSourceEditName"
+ 007b: ldc.i4 D4010000
+ 0080: call Tizen.Log::Info
+ 0085: nop 
+ 0086: ldstr "invalid sourceType"
+ 008b: newobj System.ArgumentException::.ctor
+ 0090: throw 
+ 0091: ldarg.1 
+ 0092: ldarg.0 
+ 0093: ldarg.2 
+ 0094: call get_edit_name
+ 0099: stind.ref 
+ 009a: ldstr "dotnet-sourcelist"
+ 009f: ldstr "GetSourceEditName success ["
+ 00a4: ldarg.1 
+ 00a5: ldind.ref 
+ 00a6: ldstr "]"
+ 00ab: call System.String::Concat
+ 00b0: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00b5: ldstr "GetSourceEditName"
+ 00ba: ldc.i4 D9010000
+ 00bf: call Tizen.Log::Info
+ 00c4: nop 
+ 00c5: nop 
+ 00c6: leave.s 0E
+ 00c8: stloc.1 
+ 00c9: nop 
+ 00ca: ldstr "Access Denied"
+ 00cf: ldloc.1 
+ 00d0: newobj System.Exception::.ctor
+ 00d5: throw 
+ 00d6: ret 
+METHOD 06000026 Tizen.TV.Service.SourceList.SourceList::GetSourceDeviceType
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldstr "dotnet-sourcelist"
+ 0012: ldc.i4.5 
+ 0013: newarr System.String
+ 0018: dup 
+ 0019: ldc.i4.0 
+ 001a: ldstr "GetSourceDeviceType sourceType["
+ 001f: stelem.ref 
+ 0020: dup 
+ 0021: ldc.i4.1 
+ 0022: ldarga.s 00
+ 0024: call System.Int32::ToString
+ 0029: stelem.ref 
+ 002a: dup 
+ 002b: ldc.i4.2 
+ 002c: ldstr "] mbrActivityIndex["
+ 0031: stelem.ref 
+ 0032: dup 
+ 0033: ldc.i4.3 
+ 0034: ldarga.s 02
+ 0036: call System.Int32::ToString
+ 003b: stelem.ref 
+ 003c: dup 
+ 003d: ldc.i4.4 
+ 003e: ldstr "]"
+ 0043: stelem.ref 
+ 0044: call System.String::Concat
+ 0049: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 004e: ldstr "GetSourceDeviceType"
+ 0053: ldc.i4 ED010000
+ 0058: call Tizen.Log::Info
+ 005d: nop 
+ 005e: ldarg.0 
+ 005f: ldc.i4.0 
+ 0060: clt 
+ 0062: stloc.0 
+ 0063: ldloc.0 
+ 0064: brfalse.s 2B
+ 0066: nop 
+ 0067: ldstr "dotnet-sourcelist"
+ 006c: ldstr "Invalid SourceType!!"
+ 0071: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0076: ldstr "GetSourceDeviceType"
+ 007b: ldc.i4 F1010000
+ 0080: call Tizen.Log::Info
+ 0085: nop 
+ 0086: ldstr "invalid sourceType"
+ 008b: newobj System.ArgumentException::.ctor
+ 0090: throw 
+ 0091: ldarg.1 
+ 0092: ldarg.0 
+ 0093: ldarg.2 
+ 0094: call get_device_type
+ 0099: stind.i4 
+ 009a: ldstr "dotnet-sourcelist"
+ 009f: ldstr "GetSourceDeviceType success ["
+ 00a4: ldarg.1 
+ 00a5: call System.Int32::ToString
+ 00aa: ldstr "]"
+ 00af: call System.String::Concat
+ 00b4: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 00b9: ldstr "GetSourceDeviceType"
+ 00be: ldc.i4 F6010000
+ 00c3: call Tizen.Log::Info
+ 00c8: nop 
+ 00c9: nop 
+ 00ca: leave.s 0E
+ 00cc: stloc.1 
+ 00cd: nop 
+ 00ce: ldstr "Access Denied"
+ 00d3: ldloc.1 
+ 00d4: newobj System.Exception::.ctor
+ 00d9: throw 
+ 00da: ret 
+METHOD 06000027 Tizen.TV.Service.SourceList.SourceList::GetSourceOSDText
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldarg.1 
+ 000e: ldarg.0 
+ 000f: call get_source_osd_text
+ 0014: stind.ref 
+ 0015: ldstr "dotnet-sourcelist"
+ 001a: ldstr "GetSourceOSDText sourceType[{0}] text[{1}]"
+ 001f: ldarg.0 
+ 0020: box System.Int32
+ 0025: ldarg.1 
+ 0026: ldind.ref 
+ 0027: call System.String::Format
+ 002c: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 0031: ldstr "GetSourceOSDText"
+ 0036: ldc.i4 0B020000
+ 003b: call Tizen.Log::Info
+ 0040: nop 
+ 0041: nop 
+ 0042: leave.s 0E
+ 0044: stloc.0 
+ 0045: nop 
+ 0046: ldstr "Access Denied"
+ 004b: ldloc.0 
+ 004c: newobj System.MethodAccessException::.ctor
+ 0051: throw 
+ 0052: ldarg.1 
+ 0053: ldind.ref 
+ 0054: call System.String::IsNullOrEmpty
+ 0059: brtrue.s 0E
+ 005b: ldarg.1 
+ 005c: ldind.ref 
+ 005d: ldstr "---"
+ 0062: call System.String::op_Equality
+ 0067: br.s 01
+ 0069: ldc.i4.1 
+ 006a: stloc.1 
+ 006b: ldloc.1 
+ 006c: brfalse.s 05
+ 006e: nop 
+ 006f: ldc.i4.0 
+ 0070: stloc.2 
+ 0071: br.s 04
+ 0073: ldc.i4.1 
+ 0074: stloc.2 
+ 0075: br.s 00
+ 0077: ldloc.2 
+ 0078: ret 
+METHOD 06000028 Tizen.TV.Service.SourceList.SourceList::DecodeSourceList
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldc.i4.0 
+ 000e: stloc.0 
+ 000f: br.s 42
+ 0011: nop 
+ 0012: ldarg.0 
+ 0013: ldloc.0 
+ 0014: callvirt TypeSpecification:1b000004::get_Item
+ 0019: ldarg.0 
+ 001a: ldloc.0 
+ 001b: callvirt TypeSpecification:1b000004::get_Item
+ 0020: callvirt get_editName
+ 0025: call System.Uri::UnescapeDataString
+ 002a: callvirt set_editName
+ 002f: nop 
+ 0030: ldarg.0 
+ 0031: ldloc.0 
+ 0032: callvirt TypeSpecification:1b000004::get_Item
+ 0037: ldarg.0 
+ 0038: ldloc.0 
+ 0039: callvirt TypeSpecification:1b000004::get_Item
+ 003e: callvirt get_detectedName
+ 0043: call System.Uri::UnescapeDataString
+ 0048: callvirt set_detectedName
+ 004d: nop 
+ 004e: nop 
+ 004f: ldloc.0 
+ 0050: ldc.i4.1 
+ 0051: add 
+ 0052: stloc.0 
+ 0053: ldloc.0 
+ 0054: ldarg.0 
+ 0055: callvirt TypeSpecification:1b000004::get_Count
+ 005a: clt 
+ 005c: stloc.1 
+ 005d: ldloc.1 
+ 005e: brtrue.s B1
+ 0060: ldarg.0 
+ 0061: stloc.2 
+ 0062: leave.s 0E
+ 0064: stloc.3 
+ 0065: nop 
+ 0066: ldstr "Access Denied"
+ 006b: ldloc.3 
+ 006c: newobj System.Exception::.ctor
+ 0071: throw 
+ 0072: ldloc.2 
+ 0073: ret 
+METHOD 06000029 Tizen.TV.Service.SourceList.SourceList::SetSourceDetectedNameAndDeviceType
+ 0000: nop 
+ 0001: nop 
+ 0002: ldsfld FieldDefinition:0400004d
+ 0007: callvirt PrivilegeChecker
+ 000c: nop 
+ 000d: ldstr "dotnet-sourcelist"
+ 0012: ldstr "SetSourceDetectedNameAndDeviceType"
+ 0017: ldstr "/home/researcher/rpmbuild/BUILD/csapi-tv-service-sourcelist-1.0.12/Tizen.TV.Service.SourceList/Tizen.TV.Service.SourceList/SourceList.cs"
+ 001c: ldstr "SetSourceDetectedNameAndDeviceType"
+ 0021: ldc.i4 3F020000
+ 0026: call Tizen.Log::Info
+ 002b: nop 
+ 002c: ldarg.0 
+ 002d: ldarg.1 
+ 002e: ldarg.2 
+ 002f: ldarg.3 
+ 0030: call set_source_detetedname_and_devicetype
+ 0035: stloc.0 
+ 0036: leave.s 0E
+ 0038: stloc.1 
+ 0039: nop 
+ 003a: ldstr "Access Denied"
+ 003f: ldloc.1 
+ 0040: newobj System.Exception::.ctor
+ 0045: throw 
+ 0046: ldloc.0 
+ 0047: ret 
+METHOD 0600002a Tizen.TV.Service.SourceList.SourceList::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 0600002b Tizen.TV.Service.SourceList.SourceList::.cctor
+ 0000: newobj .ctor
+ 0005: stsfld FieldDefinition:0400004d
+ 000a: ldnull 
+ 000b: stsfld FieldDefinition:0400004e
+ 0010: newobj System.Text.Json.JsonSerializerOptions::.ctor
+ 0015: dup 
+ 0016: callvirt System.Text.Json.JsonSerializerOptions::get_Converters
+ 001b: newobj .ctor
+ 0020: callvirt TypeSpecification:1b000005::Add
+ 0025: nop 
+ 0026: dup 
+ 0027: callvirt System.Text.Json.JsonSerializerOptions::get_Converters
+ 002c: newobj .ctor
+ 0031: callvirt TypeSpecification:1b000005::Add
+ 0036: nop 
+ 0037: stsfld FieldDefinition:04000050
+ 003c: ret 
+METHOD 0600002c Tizen.TV.Service.SourceList.USBData::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ldarg.0 
+ 0009: ldarg.1 
+ 000a: stfld FieldDefinition:04000051
+ 000f: ldarg.0 
+ 0010: ldarg.2 
+ 0011: stfld FieldDefinition:04000052
+ 0016: ldarg.0 
+ 0017: ldarg.3 
+ 0018: stfld FieldDefinition:04000053
+ 001d: ldarg.0 
+ 001e: ldarg.s 04
+ 0020: stfld FieldDefinition:04000054
+ 0025: ldarg.0 
+ 0026: ldarg.s 05
+ 0028: stfld FieldDefinition:04000056
+ 002d: ret 
+METHOD 0600002d Tizen.TV.Service.SourceList.USBData::.ctor
+ 0000: ldarg.0 
+ 0001: call System.Object::.ctor
+ 0006: nop 
+ 0007: nop 
+ 0008: ldarg.0 
+ 0009: ldarg.1 
+ 000a: stfld FieldDefinition:04000051
+ 000f: ldarg.0 
+ 0010: ldarg.2 
+ 0011: stfld FieldDefinition:04000052
+ 0016: ldarg.0 
+ 0017: ldarg.3 
+ 0018: stfld FieldDefinition:04000053
+ 001d: ldarg.0 
+ 001e: ldarg.s 04
+ 0020: stfld FieldDefinition:04000054
+ 0025: ldarg.0 
+ 0026: ldarg.s 05
+ 0028: stfld FieldDefinition:04000055
+ 002d: ldarg.0 
+ 002e: ldarg.s 06
+ 0030: stfld FieldDefinition:04000056
+ 0035: ret 
+METHOD 0600002e Tizen.TV.Service.SourceList.USBData::get_calledApp
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000051
+ 0006: ret 
+METHOD 0600002f Tizen.TV.Service.SourceList.USBData::get_deviceType
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000052
+ 0006: ret 
+METHOD 06000030 Tizen.TV.Service.SourceList.USBData::get_deviceName
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000053
+ 0006: ret 
+METHOD 06000031 Tizen.TV.Service.SourceList.USBData::get_vendorName
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000054
+ 0006: ret 
+METHOD 06000032 Tizen.TV.Service.SourceList.USBData::get_volumeName
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000055
+ 0006: ret 
+METHOD 06000033 Tizen.TV.Service.SourceList.USBData::get_devicePath
+ 0000: ldarg.0 
+ 0001: ldfld FieldDefinition:04000056
+ 0006: ret 
+METHOD 06000034 Tizen.TV.Service.SourceList.USBDataConverter::Read
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: call System.Text.Json.Utf8JsonReader::get_TokenType
+ 0007: ldc.i4.1 
+ 0008: ceq 
+ 000a: ldc.i4.0 
+ 000b: ceq 
+ 000d: stloc.s 07
+ 000f: ldloc.s 07
+ 0011: brfalse.s 0C
+ 0013: nop 
+ 0014: ldstr "Failed to read. reader.TokenType is not StartObject"
+ 0019: newobj System.Text.Json.JsonException::.ctor
+ 001e: throw 
+ 001f: ldstr ""
+ 0024: stloc.0 
+ 0025: ldstr ""
+ 002a: stloc.1 
+ 002b: ldstr ""
+ 0030: stloc.2 
+ 0031: ldstr ""
+ 0036: stloc.3 
+ 0037: ldstr ""
+ 003c: stloc.s 04
+ 003e: ldstr ""
+ 0043: stloc.s 05
+ 0045: br D0000000
+ 004a: nop 
+ 004b: ldarg.1 
+ 004c: call System.Text.Json.Utf8JsonReader::get_TokenType
+ 0051: ldc.i4.2 
+ 0052: ceq 
+ 0054: stloc.s 08
+ 0056: ldloc.s 08
+ 0058: brfalse.s 06
+ 005a: nop 
+ 005b: br C9000000
+ 0060: ldarg.1 
+ 0061: call System.Text.Json.Utf8JsonReader::get_TokenType
+ 0066: ldc.i4.5 
+ 0067: ceq 
+ 0069: stloc.s 09
+ 006b: ldloc.s 09
+ 006d: brfalse A7000000
+ 0072: nop 
+ 0073: ldarg.1 
+ 0074: call System.Text.Json.Utf8JsonReader::GetString
+ 0079: stloc.s 0A
+ 007b: ldarg.1 
+ 007c: call System.Text.Json.Utf8JsonReader::Read
+ 0081: pop 
+ 0082: ldloc.s 0A
+ 0084: stloc.s 0C
+ 0086: ldloc.s 0C
+ 0088: stloc.s 0B
+ 008a: ldloc.s 0B
+ 008c: ldstr "calledApp"
+ 0091: call System.String::op_Equality
+ 0096: brtrue.s 48
+ 0098: ldloc.s 0B
+ 009a: ldstr "deviceType"
+ 009f: call System.String::op_Equality
+ 00a4: brtrue.s 43
+ 00a6: ldloc.s 0B
+ 00a8: ldstr "deviceName"
+ 00ad: call System.String::op_Equality
+ 00b2: brtrue.s 3E
+ 00b4: ldloc.s 0B
+ 00b6: ldstr "vendorName"
+ 00bb: call System.String::op_Equality
+ 00c0: brtrue.s 39
+ 00c2: ldloc.s 0B
+ 00c4: ldstr "volumeName"
+ 00c9: call System.String::op_Equality
+ 00ce: brtrue.s 34
+ 00d0: ldloc.s 0B
+ 00d2: ldstr "devicePath"
+ 00d7: call System.String::op_Equality
+ 00dc: brtrue.s 30
+ 00de: br.s 38
+ 00e0: ldarg.1 
+ 00e1: call System.Text.Json.Utf8JsonReader::GetString
+ 00e6: stloc.0 
+ 00e7: br.s 2F
+ 00e9: ldarg.1 
+ 00ea: call System.Text.Json.Utf8JsonReader::GetString
+ 00ef: stloc.1 
+ 00f0: br.s 26
+ 00f2: ldarg.1 
+ 00f3: call System.Text.Json.Utf8JsonReader::GetString
+ 00f8: stloc.2 
+ 00f9: br.s 1D
+ 00fb: ldarg.1 
+ 00fc: call System.Text.Json.Utf8JsonReader::GetString
+ 0101: stloc.3 
+ 0102: br.s 14
+ 0104: ldarg.1 
+ 0105: call System.Text.Json.Utf8JsonReader::GetString
+ 010a: stloc.s 04
+ 010c: br.s 0A
+ 010e: ldarg.1 
+ 010f: call System.Text.Json.Utf8JsonReader::GetString
+ 0114: stloc.s 05
+ 0116: br.s 00
+ 0118: nop 
+ 0119: nop 
+ 011a: ldarg.1 
+ 011b: call System.Text.Json.Utf8JsonReader::Read
+ 0120: stloc.s 0D
+ 0122: ldloc.s 0D
+ 0124: brtrue 21FFFFFF
+ 0129: ldloc.0 
+ 012a: ldloc.1 
+ 012b: ldloc.2 
+ 012c: ldloc.3 
+ 012d: ldloc.s 04
+ 012f: ldloc.s 05
+ 0131: newobj .ctor
+ 0136: stloc.s 06
+ 0138: ldloc.s 06
+ 013a: stloc.s 0E
+ 013c: br.s 00
+ 013e: ldloc.s 0E
+ 0140: ret 
+METHOD 06000035 Tizen.TV.Service.SourceList.USBDataConverter::Write
+ 0000: nop 
+ 0001: ldarg.1 
+ 0002: callvirt System.Text.Json.Utf8JsonWriter::WriteStartObject
+ 0007: nop 
+ 0008: ldarg.1 
+ 0009: ldstr "calledApp"
+ 000e: ldarg.2 
+ 000f: callvirt get_calledApp
+ 0014: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 0019: nop 
+ 001a: ldarg.1 
+ 001b: ldstr "deviceType"
+ 0020: ldarg.2 
+ 0021: callvirt get_deviceType
+ 0026: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 002b: nop 
+ 002c: ldarg.1 
+ 002d: ldstr "deviceName"
+ 0032: ldarg.2 
+ 0033: callvirt get_deviceName
+ 0038: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 003d: nop 
+ 003e: ldarg.1 
+ 003f: ldstr "vendorName"
+ 0044: ldarg.2 
+ 0045: callvirt get_vendorName
+ 004a: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 004f: nop 
+ 0050: ldarg.1 
+ 0051: ldstr "volumeName"
+ 0056: ldarg.2 
+ 0057: callvirt get_volumeName
+ 005c: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 0061: nop 
+ 0062: ldarg.1 
+ 0063: ldstr "devicePath"
+ 0068: ldarg.2 
+ 0069: callvirt get_devicePath
+ 006e: callvirt System.Text.Json.Utf8JsonWriter::WriteString
+ 0073: nop 
+ 0074: ldarg.1 
+ 0075: callvirt System.Text.Json.Utf8JsonWriter::WriteEndObject
+ 007a: nop 
+ 007b: ret 
+METHOD 06000036 Tizen.TV.Service.SourceList.USBDataConverter::.ctor
+ 0000: ldarg.0 
+ 0001: call TypeSpecification:1b000002::.ctor
+ 0006: nop 
+ 0007: ret 
+METHOD 06000037 .<PrivateImplementationDetails>::ComputeStringHash
+ 0000: ldarg.0 
+ 0001: brfalse.s 29
+ 0003: ldc.i4 C59D1C81
+ 0008: stloc.0 
+ 0009: ldc.i4.0 
+ 000a: stloc.1 
+ 000b: br.s 14
+ 000d: ldarg.0 
+ 000e: ldloc.1 
+ 000f: callvirt System.String::get_Chars
+ 0014: ldloc.0 
+ 0015: xor 
+ 0016: ldc.i4 93010001
+ 001b: mul 
+ 001c: stloc.0 
+ 001d: ldloc.1 
+ 001e: ldc.i4.1 
+ 001f: add 
+ 0020: stloc.1 
+ 0021: ldloc.1 
+ 0022: ldarg.0 
+ 0023: callvirt System.String::get_Length
+ 0028: bge.s 02
+ 002a: br.s E1
+ 002c: ldloc.0 
+ 002d: ret 
+METHOD 06000038 .SourceAPI::get_source_list
+METHOD 06000039 .SourceAPI::get_usb_data
+METHOD 0600003a .SourceAPI::get_edit_name
+METHOD 0600003b .SourceAPI::get_device_type
+METHOD 0600003c .SourceAPI::set_edit_name
+METHOD 0600003d .SourceAPI::set_device_type
+METHOD 0600003e .SourceAPI::connect_source
+METHOD 0600003f .SourceAPI::connect_source_with_uniquekey
+METHOD 06000040 .SourceAPI::register_sourcelist_changed_callback
+METHOD 06000041 .SourceAPI::unregister_sourcelist_changed_callback
+METHOD 06000042 .SourceAPI::get_source_osd_text
+METHOD 06000043 .SourceAPI::set_source_detetedname_and_devicetype

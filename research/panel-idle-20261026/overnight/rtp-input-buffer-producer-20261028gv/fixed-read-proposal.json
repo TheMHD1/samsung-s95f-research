@@ -1,0 +1,84 @@
+{
+  "bulkTimeoutSeconds": 2,
+  "bulks": 14,
+  "guards": [
+    "same current identity/owned FD and completed first-header premise",
+    "existing fixed root/geometry/context qualification; no new arbitrary pointer dereference",
+    "only start a pair when the selected reader budget admits it; complete the matching data phase after accepted header",
+    "no new header after Unknown or terminal error; close/release with honest partial receipt"
+  ],
+  "headers": 7,
+  "implemented": false,
+  "limits": [
+    "D-before/P/D-after are sequential, not atomic; equal D does not rule out a producer lap or intermediate change",
+    "D contains previous and filtered current scratch metadata, not actual B ring header",
+    "P points to dynamic slots, not necessarily actual final A",
+    "N/H publication counters are not included in this minimal metadata-only proposal",
+    "CPU20253000 and ring slots are rejected by the inspected tag1 low-SRAM mapper; no guessed 4725 alias",
+    "no aperture/MMIO/raw ring read, key, reset, mask, logger arm or threshold write"
+  ],
+  "optionalOnsetDerivativeDesignOnly": {
+    "bulksPerCompleteCycle": 16,
+    "change": "A separately reviewed eight-read family could replace the existing diagnostic L window with D48 while retaining P/N/H. This is not an in-place change to any frozen recorder.",
+    "headersPerCompleteCycle": 8,
+    "limits": [
+      "one D snapshot is not an epoch bracket",
+      "per-pair deadline admission and honest partial-cycle accounting must be requalified",
+      "publication N/H alongside D/P improves correlation but does not establish comparator invocation or causation"
+    ],
+    "orderedNames": [
+      "R",
+      "M",
+      "C",
+      "D",
+      "P",
+      "N",
+      "H",
+      "R"
+    ],
+    "worstBulkBudgetSeconds": 32
+  },
+  "orderedWindows": [
+    {
+      "busAddress": "0x47012400",
+      "bytes": 256,
+      "name": "start-R"
+    },
+    {
+      "busAddress": "0x470004a0",
+      "bytes": 68,
+      "name": "M"
+    },
+    {
+      "busAddress": "0x47000bc0",
+      "bytes": 16,
+      "name": "C"
+    },
+    {
+      "busAddress": "0x4700a60a",
+      "bytes": 48,
+      "name": "before-D"
+    },
+    {
+      "busAddress": "0x47000490",
+      "bytes": 16,
+      "name": "P"
+    },
+    {
+      "busAddress": "0x4700a60a",
+      "bytes": 48,
+      "name": "after-D"
+    },
+    {
+      "busAddress": "0x47012400",
+      "bytes": 256,
+      "name": "end-R"
+    }
+  ],
+  "purpose": "Bracket low-SRAM descriptor metadata around selected dynamic pointers; not a live input-content or execution witness",
+  "qualification": "All fixed ranges already occur in DM/DF families and are inside real image1 mapper low-SRAM bounds; a new reader still requires independent packet/receipt/deadline/readiness review",
+  "rawBytes": 708,
+  "schema": "gv-source-only-fixed-read-proposal-v1",
+  "targetOperations": 0,
+  "worstBulkBudgetSeconds": 28
+}

@@ -50,3 +50,8 @@ The [GC/GF guide](wake-fault-logging-20261028.md) documents two additional offli
 ## Ninth matched-wake comparison fixture
 
 Run `python3 -B tools/verify_matched_wake_contrast.py --fixture fixtures/matched-wake-contrast.json` and repeat with `python3 -O -B`. The [guide](matched-wake-contrast-20261028.md) explains the50-byte pointer-free projection, typed endpoint-candidate log records, finite200/40 association and populated final diagnostics. No original authenticated receipt, OEM instruction or runtime identity is required. The source-dependent generator needs explicitly supplied withheld private inputs; public verification does not pretend those originals are available.
+
+
+## Stock-log and firmware-format tools
+
+The [new guide](firmware-controller-20261028.md#reproduce-and-adapt) links a tenth offline scientific fixture and all selected source-audit/read-helper tests. The [controller format map](controller-firmware-formats.md) describes hashes, word transform, legacy uImage CRCs, address domains and SPARC delay-slot tests. Target helpers retain their private readiness/authentication prerequisites; publication performs no target operation.
