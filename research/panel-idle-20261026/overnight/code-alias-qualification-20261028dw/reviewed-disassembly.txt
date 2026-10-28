@@ -1,0 +1,487 @@
+# Bounded instruction excerpts, selected package identity pinned in source-qualification.json.
+ # File = linkedVA + image bias; literal/data ranges are described separately, not decoded as instructions.
+
+IMAGE1 mapper VA0x1bb74 FILE0x5bd74
+0001bb74 mov        r2, r0
+0001bb76 cbnz       r1, #0x1bb7c
+0001bb78 movs       r0, #0
+0001bb7a bx         lr
+0001bb7c cbnz       r2, #0x1bb9c
+0001bb7e cmp.w      r1, #0x40000
+0001bb82 bhs        #0x1bb8a
+0001bb84 add.w      r0, r1, #0x44000000
+0001bb88 b          #0x1bb7a
+0001bb8a cmp.w      r1, #0x20000000
+0001bb8e blo        #0x1bbba
+0001bb90 ldr        r0, [pc, #0x2c]
+0001bb92 cmp        r1, r0
+0001bb94 bhs        #0x1bbba
+0001bb96 add.w      r0, r1, #0x25000000
+0001bb9a b          #0x1bb7a
+0001bb9c cmp.w      r1, #0x20000
+0001bba0 bhs        #0x1bba8
+0001bba2 add.w      r0, r1, #0x46000000
+0001bba6 b          #0x1bb7a
+0001bba8 cmp.w      r1, #0x20000000
+0001bbac blo        #0x1bbba
+0001bbae ldr        r0, [pc, #0x10]
+0001bbb0 cmp        r1, r0
+0001bbb2 bhs        #0x1bbba
+0001bbb4 add.w      r0, r1, #0x27000000
+0001bbb8 b          #0x1bb7a
+0001bbba movs       r0, #0
+0001bbbc b          #0x1bb7a
+
+IMAGE0 identical mapper VA0x39d4c FILE0x39f4c
+00039d4c mov        r2, r0
+00039d4e cbnz       r1, #0x39d54
+00039d50 movs       r0, #0
+00039d52 bx         lr
+00039d54 cbnz       r2, #0x39d74
+00039d56 cmp.w      r1, #0x40000
+00039d5a bhs        #0x39d62
+00039d5c add.w      r0, r1, #0x44000000
+00039d60 b          #0x39d52
+00039d62 cmp.w      r1, #0x20000000
+00039d66 blo        #0x39d92
+00039d68 ldr        r0, [pc, #0x2c]
+00039d6a cmp        r1, r0
+00039d6c bhs        #0x39d92
+00039d6e add.w      r0, r1, #0x25000000
+00039d72 b          #0x39d52
+00039d74 cmp.w      r1, #0x20000
+00039d78 bhs        #0x39d80
+00039d7a add.w      r0, r1, #0x46000000
+00039d7e b          #0x39d52
+00039d80 cmp.w      r1, #0x20000000
+00039d84 blo        #0x39d92
+00039d86 ldr        r0, [pc, #0x10]
+00039d88 cmp        r1, r0
+00039d8a bhs        #0x39d92
+00039d8c add.w      r0, r1, #0x27000000
+00039d90 b          #0x39d52
+00039d92 movs       r0, #0
+00039d94 b          #0x39d52
+
+IMAGE0 tag-preserving context resolver VA0x39dac FILE0x39fac
+00039dac push       {r4, r5, r6, lr}
+00039dae mov        r6, r0
+00039db0 mov        r4, r1
+00039db2 mov        r2, r4
+00039db4 ldr        r1, [pc, #0x18]
+00039db6 mov        r0, r6
+00039db8 bl         #0x39dd4
+00039dbc mov        r5, r0
+00039dbe cbnz       r5, #0x39dc4
+00039dc0 movs       r0, #0
+00039dc2 pop        {r4, r5, r6, pc}
+00039dc4 mov        r0, r6
+00039dc6 ldr        r1, [r5, #4]
+00039dc8 bl         #0x39d4c
+00039dcc b          #0x39dc2
+
+IMAGE0 directory walk VA0x39dd4 FILE0x39fd4
+00039dd4 push.w     {r0, r1, r2, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+00039dd8 sub        sp, #8
+00039dda mov        r4, r1
+00039ddc mov        r1, r4
+00039dde ldr        r0, [sp, #8]
+00039de0 bl         #0x39d9c
+00039de4 subs       r4, r0, #0
+00039de6 bne        #0x39dee
+00039de8 add        sp, #0x14
+00039dea pop.w      {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+00039dee ldr        r1, [r4]
+00039df0 ldr        r0, [sp, #8]
+00039df2 bl         #0x39d4c
+00039df6 subs       r5, r0, #0
+00039df8 bne        #0x39dfc
+00039dfa b          #0x39de8
+00039dfc ldr        r0, [r5]
+00039dfe str        r0, [sp, #4]
+00039e00 ldr        r6, [r4, #4]
+00039e02 ldr        r0, [sp, #4]
+00039e04 sdiv       sl, r0, r6
+00039e08 ldr        r1, [r4, #8]
+00039e0a ldr        r0, [sp, #8]
+00039e0c bl         #0x39d4c
+00039e10 subs.w     r8, r0, #0
+00039e14 bne        #0x39e18
+00039e16 b          #0x39de8
+00039e18 mov.w      sb, #0
+00039e1c b          #0x39e44
+00039e1e mla        fp, sb, r6, r8
+00039e22 ldr.w      r7, [fp]
+00039e26 mov        r1, r7
+00039e28 ldr        r0, [sp, #8]
+00039e2a bl         #0x39d4c
+00039e2e str        r0, [sp]
+00039e30 cbz        r7, #0x39e40
+00039e32 ldr        r1, [sp, #0x10]
+00039e34 ldr        r0, [sp]
+00039e36 bl         #0xc04
+00039e3a cbnz       r0, #0x39e40
+00039e3c mov        r0, fp
+00039e3e b          #0x39de8
+00039e40 add.w      sb, sb, #1
+00039e44 cmp        sb, sl
+00039e46 blo        #0x39e1e
+00039e48 movs       r0, #0
+00039e4a b          #0x39de8
+
+IMAGE0 actual tag1 caller VA0x3a120 FILE0x3a320
+0003a120 push       {r4, r5, r6, lr}
+0003a122 movs       r4, #0
+0003a124 b          #0x3a12c
+0003a126 adr        r0, #0x28
+0003a128 bl         #0x56c
+0003a12c bl         #0x3a164
+0003a130 cmp        r0, #0
+0003a132 beq        #0x3a126
+0003a134 adr        r1, #0x24
+0003a136 movs       r0, #1
+0003a138 bl         #0x39dac
+0003a13c mov        r5, r0
+0003a13e bl         #0x24e80
+0003a142 mov        r4, r0
+0003a144 cbnz       r4, #0x3a14a
+0003a146 movs       r0, #0
+0003a148 pop        {r4, r5, r6, pc}
+0003a14a movs       r0, #1
+0003a14c b          #0x3a148
+
+IMAGE0 CPU reads from translated name VA0xc04 FILE0xe04
+00000c04 mov.w      ip, #0x1010101
+00000c08 ldr        r2, [r0], #4
+00000c0c ldr        r3, [r1], #4
+00000c10 cmp        r2, r3
+00000c12 bne        #0xc40
+00000c14 sub.w      r3, r2, ip
+00000c18 bics       r3, r2
+00000c1a ands.w     r3, r3, ip, lsl #7
+00000c1e bne        #0xc38
+00000c20 ldr        r2, [r0], #4
+00000c24 ldr        r3, [r1], #4
+00000c28 cmp        r2, r3
+00000c2a bne        #0xc40
+00000c2c sub.w      r3, r2, ip
+00000c30 bics       r3, r2
+00000c32 ands.w     r3, r3, ip, lsl #7
+00000c36 beq        #0xc08
+
+IMAGE0 header decoding VA0x28f44 FILE0x29144
+00028f44 movs       r0, #2
+00028f46 ldr        r1, [pc, #0x2a8]
+00028f48 strb       r0, [r1]
+00028f4a bl         #0xe670
+00028f4e mov        r5, r0
+00028f50 ldr        r0, [r4, #0x10]
+00028f52 ldr        r0, [r0, #8]
+00028f54 str        r0, [r4, #8]
+00028f56 ldr        r0, [r4, #0x10]
+00028f58 ldr        r0, [r0]
+00028f5a str        r0, [r4, #0xc]
+00028f5c ldr        r0, [r4, #0x10]
+00028f5e ldr        r0, [r0, #4]
+00028f60 str        r0, [r4, #4]
+00028f62 mov        r2, r6
+00028f64 mov        r1, r4
+00028f66 mov        r0, sl
+00028f68 bl         #0x29258
+
+IMAGE0 low operation normalization VA0x28fb4 FILE0x291b4
+00028fb4 ldrb       r0, [r4, #0xc]
+00028fb6 ubfx       r0, r0, #4, #1
+00028fba ldr        r1, [pc, #0x23c]
+00028fbc strb       r0, [r1]
+00028fbe ldrb       r0, [r4, #0xc]
+00028fc0 and        r0, r0, #0xef
+00028fc4 str        r0, [r4, #0xc]
+
+IMAGE0 operation1 mode0 producer VA0x29046 FILE0x29246
+00029046 ldr        r0, [r4, #0xc]
+00029048 cmp        r0, #1
+0002904a beq        #0x29052
+0002904c ldr        r0, [r4, #0xc]
+0002904e cmp        r0, #2
+00029050 bne        #0x29062
+00029052 ldr        r0, [pc, #0x1a4]
+00029054 ldrb       r0, [r0]
+00029056 ldr        r1, [pc, #0x1a4]
+00029058 strb       r0, [r1]
+0002905a movs       r0, #0
+0002905c ldr        r1, [pc, #0x190]
+0002905e strb       r0, [r1]
+00029060 b          #0x2907c
+
+IMAGE0 direct-address IN dispatch VA0x290c8 FILE0x292c8
+000290c8 ldr        r0, [pc, #0x158]
+000290ca ldrb       r0, [r0]
+000290cc cbz        r0, #0x290d6
+000290ce ldr        r0, [r4, #4]
+000290d0 bl         #0xefa4
+000290d4 str        r0, [r4, #4]
+000290d6 ldr        r0, [pc, #0x118]
+000290d8 ldrb       r0, [r0]
+000290da cmp        r0, #2
+000290dc bne        #0x290e0
+000290de b          #0x28f70
+000290e0 ldr        r1, [pc, #0x130]
+000290e2 ldr        r0, [r4, #8]
+000290e4 ldr        r1, [r1]
+000290e6 cmp        r0, r1
+000290e8 bls        #0x290f0
+000290ea ldr        r0, [pc, #0x128]
+000290ec ldr        r0, [r0]
+000290ee b          #0x290f2
+000290f0 ldr        r0, [r4, #8]
+000290f2 ldr        r1, [pc, #0x134]
+000290f4 str        r0, [r1]
+000290f6 ldr        r0, [r4, #0xc]
+000290f8 cmp        r0, #1
+000290fa bne        #0x2912a
+000290fc mov        r0, r1
+000290fe ldr        r2, [r4, #4]
+00029100 mov        r1, r7
+00029102 ldr        r3, [r0]
+00029104 mov        r0, r6
+00029106 bl         #0x8054
+0002910a ldr        r0, [pc, #0xf0]
+0002910c ldrb       r0, [r0]
+0002910e cmp        r0, #0
+00029110 beq        #0x291ec
+00029112 ldr        r2, [pc, #0x114]
+00029114 ldr        r2, [r2]
+00029116 lsrs       r1, r2, #2
+00029118 ldr        r0, [r4, #4]
+0002911a bl         #0x4650
+0002911e ldr        r1, [pc, #0xe4]
+00029120 ldr        r1, [r1]
+00029122 add        r0, r1
+00029124 ldr        r1, [pc, #0xdc]
+00029126 str        r0, [r1]
+00029128 b          #0x291ec
+0002912a ldr        r0, [r4, #0xc]
+
+IMAGE0 validator VA0x29258 FILE0x29458
+00029258 push.w     {r4, r5, r6, r7, r8, sb, sl, lr}
+0002925c mov        r6, r0
+0002925e mov        r4, r1
+00029260 mov        r7, r2
+00029262 mov        sb, r7
+00029264 ldr        r0, [r4, #0xc]
+00029266 ubfx       r8, r0, #8, #0x10
+0002926a bl         #0xe670
+0002926e mov        r5, r0
+00029270 cmp.w      r8, #0
+00029274 bne        #0x2927e
+00029276 movs       r0, #1
+00029278 ldr        r1, [pc, #0x138]
+0002927a strb       r0, [r1]
+0002927c b          #0x29284
+0002927e movs       r0, #0
+00029280 ldr        r1, [pc, #0x130]
+00029282 strb       r0, [r1]
+00029284 cmp        r6, #0xc
+00029286 bhs        #0x2929a
+00029288 ldrh       r0, [r5, #0x24]
+0002928a cmp        r0, #1
+0002928c bne        #0x29294
+0002928e adr        r0, #0x128
+00029290 bl         #0x56c
+00029294 movs       r0, #2
+00029296 pop.w      {r4, r5, r6, r7, r8, sb, sl, pc}
+0002929a ldr        r0, [r4, #8]
+0002929c cbnz       r0, #0x292a2
+0002929e movs       r0, #2
+000292a0 b          #0x29296
+000292a2 ldr        r0, [r4, #0xc]
+000292a4 cmp        r0, #1
+000292a6 beq        #0x29382
+000292a8 ldr        r0, [r4, #0xc]
+000292aa cmp        r0, #2
+000292ac beq        #0x29382
+000292ae ldr        r0, [r4, #0xc]
+000292b0 cmp        r0, #3
+000292b2 beq        #0x29382
+000292b4 ldr        r0, [r4, #0xc]
+000292b6 cmp        r0, #4
+000292b8 beq        #0x29382
+000292ba ldr        r0, [r4, #0xc]
+000292bc cmp        r0, #5
+000292be beq        #0x29382
+000292c0 ldr        r0, [r4, #0xc]
+000292c2 cmp        r0, #7
+000292c4 beq        #0x29382
+000292c6 ldr        r0, [r4, #0xc]
+000292c8 cmp        r0, #0x11
+000292ca beq        #0x29382
+000292cc ldr        r0, [r4, #0xc]
+000292ce cmp        r0, #0x12
+000292d0 beq        #0x29382
+000292d2 ldr        r0, [r4, #0xc]
+000292d4 cmp        r0, #0x13
+000292d6 beq        #0x29382
+000292d8 ldr        r0, [r4, #0xc]
+000292da cmp        r0, #0x14
+000292dc beq        #0x29382
+000292de movw       r1, #0x101
+000292e2 ldr        r0, [r4, #0xc]
+000292e4 cmp        r0, r1
+000292e6 beq        #0x29382
+000292e8 ldr        r0, [r4, #0xc]
+000292ea cmp.w      r0, #0x102
+000292ee beq        #0x29382
+000292f0 adds       r1, r1, #2
+000292f2 ldr        r0, [r4, #0xc]
+000292f4 cmp        r0, r1
+000292f6 beq        #0x29382
+000292f8 ldr        r0, [r4, #0xc]
+000292fa cmp.w      r0, #0x104
+000292fe beq        #0x29382
+00029300 movw       r1, #0x111
+00029304 ldr        r0, [r4, #0xc]
+00029306 cmp        r0, r1
+00029308 beq        #0x29382
+0002930a ldr        r0, [r4, #0xc]
+0002930c cmp.w      r0, #0x112
+00029310 beq        #0x29382
+00029312 adds       r1, r1, #2
+00029314 ldr        r0, [r4, #0xc]
+00029316 cmp        r0, r1
+00029318 beq        #0x29382
+0002931a ldr        r0, [r4, #0xc]
+0002931c cmp.w      r0, #0x114
+00029320 beq        #0x29382
+00029322 movw       r1, #0x201
+00029326 ldr        r0, [r4, #0xc]
+00029328 cmp        r0, r1
+0002932a beq        #0x29382
+0002932c adds       r1, r1, #1
+0002932e ldr        r0, [r4, #0xc]
+00029330 cmp        r0, r1
+00029332 beq        #0x29382
+00029334 adds       r1, r1, #1
+00029336 ldr        r0, [r4, #0xc]
+00029338 cmp        r0, r1
+0002933a beq        #0x29382
+0002933c ldr        r0, [r4, #0xc]
+0002933e cmp.w      r0, #0x204
+00029342 beq        #0x29382
+00029344 movw       r1, #0x211
+00029348 ldr        r0, [r4, #0xc]
+0002934a cmp        r0, r1
+0002934c beq        #0x29382
+0002934e adds       r1, r1, #1
+00029350 ldr        r0, [r4, #0xc]
+00029352 cmp        r0, r1
+00029354 beq        #0x29382
+00029356 adds       r1, r1, #1
+00029358 ldr        r0, [r4, #0xc]
+0002935a cmp        r0, r1
+0002935c beq        #0x29382
+0002935e ldr        r0, [r4, #0xc]
+00029360 cmp.w      r0, #0x214
+00029364 beq        #0x29382
+00029366 ldr        r0, [r4, #0xc]
+00029368 cmp.w      r0, #0x300
+0002936c beq        #0x29382
+0002936e movw       r1, #0x301
+00029372 ldr        r0, [r4, #0xc]
+00029374 cmp        r0, r1
+00029376 beq        #0x29382
+00029378 ldrh       r0, [r5, #0x20]
+0002937a movs       r0, #3
+0002937c strh       r0, [r5, #0x20]
+0002937e movs       r0, #2
+00029380 b          #0x29296
+00029382 cmp.w      r8, #2
+00029386 bne        #0x293b0
+00029388 ldr        r0, [r4, #4]
+0002938a cmp.w      r0, #0x1000000
+0002938e blo        #0x2939a
+00029390 ldrh       r0, [r5, #0x20]
+00029392 movs       r0, #4
+00029394 strh       r0, [r5, #0x20]
+00029396 movs       r0, #2
+00029398 b          #0x29296
+0002939a ldrd       r0, r1, [r4, #4]
+0002939e add        r0, r1
+000293a0 cmp.w      r0, #0x1000000
+000293a4 blo        #0x293b0
+000293a6 ldrh       r0, [r5, #0x20]
+000293a8 movs       r0, #5
+000293aa strh       r0, [r5, #0x20]
+000293ac movs       r0, #2
+000293ae b          #0x29296
+000293b0 movs       r0, #0
+000293b2 b          #0x29296
+
+IMAGE0 IN scheduler pointer retention VA0x8054 FILE0x8254
+00008054 push.w     {r4, r5, r6, r7, r8, lr}
+00008058 mov        r7, r0
+0000805a mov        r5, r1
+0000805c mov        r6, r2
+0000805e mov        r8, r3
+00008060 and        r0, r5, #0x7f
+00008064 rsb        r1, r0, r0, lsl #3
+00008068 add.w      r0, r7, #0x1c
+0000806c add.w      r4, r0, r1, lsl #3
+00008070 movs       r0, #1
+00008072 strb       r0, [r4, #1]
+00008074 and        r0, r5, #0x7f
+00008078 strb       r0, [r4]
+0000807a str        r6, [r4, #0x10]
+0000807c str        r6, [r4, #0x14]
+0000807e movs       r0, #0
+00008080 str        r0, [r4, #0x1c]
+00008082 str.w      r8, [r4, #0x18]
+00008086 mov        r1, r4
+00008088 mov        r0, r7
+0000808a bl         #0x2ac10
+0000808e movs       r0, #0
+
+IMAGE0 DMA descriptor builder call VA0x2ac42 FILE0x2ae42
+0002ac42 mov        r0, r4
+0002ac44 ldr        r2, [r4, #0x18]
+0002ac46 ldr        r1, [r4, #0x10]
+0002ac48 bl         #0x280c
+
+IMAGE0 DMA descriptor source address VA0x296e FILE0x2b6e
+0000296e adds       r0, r6, r4
+00002970 str        r0, [r1, #4]
+00002972 dsb        sy
+00002976 ldr        r0, [r1, #4]
+00002978 str        r0, [sp]
+
+IMAGE1 fixed fingerprint predicate VA0x2020
+00002020 strh       r7, [r0, r5]
+00002022 b          #0x202a
+00002024 movw       r0, #0xf08
+00002028 strh       r7, [r0, r5]
+0000202a cmp        r7, fp
+0000202c ble        #0x203e
+0000202e uxtb       r0, r4
+
+IMAGE1 fixed fingerprint selection VA0xbd58
+0000bd58 push.w     {r0, r1, r2, r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}
+0000bd5c subw       sp, sp, #0xf1c
+0000bd60 mov        sl, r2
+0000bd62 mov        r6, r3
+0000bd64 bl         #0x38f4
+
+IMAGE1 fixed fingerprint tuple VA0xc5d0
+0000c5d0 push.w     {r0, r1, r2, r3, r4, r5, r6, r7, r8, sb, sl, fp, ip, lr}
+0000c5d4 mov        r7, r0
+0000c5d6 mov        r6, r1
+0000c5d8 mov        r8, r2
+0000c5da mov        sb, r3
+0000c5dc ldrd       sl, r4, [sp, #0x38]
+
+IMAGE1 fixed fingerprint setter VA0xc1e0
+0000c1e0 push       {r4, r5, r6, lr}
+0000c1e2 mov        r5, r0
+0000c1e4 bl         #0x38fc
+0000c1e8 mov        r4, r0
+0000c1ea movs       r1, #1
+0000c1ec mov.w      r0, #0x2400

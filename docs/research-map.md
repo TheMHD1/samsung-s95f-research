@@ -50,4 +50,8 @@ rg --files research | rg '(reproduce|test|review|findings|disasm)'
 
 ## Firmware evidence graph and autonomous experiments
 
-See the [current integrated guide](firmware-evidence-guide-20261028.md) for DE display/AVE source, DF cross-core RTP provenance and eight-window capture, DG graph/playbook and DH layered actual outcomes. The initial graph and later actual-outcome extension are separate snapshots. Volatile-limit work remains deferred.
+See the [current integrated guide](firmware-evidence-guide-20261028.md) for DE display/AVE source, DF cross-core RTP provenance and eight-window capture, DG graph/playbook and DH layered actual outcomes. The initial graph and later actual-outcome extension are separate snapshots. The later record/reference and reversible-limit observations are linked below.
+
+## Read-only RTP instrumentation update
+
+The [record/score guide](rtp-records-20261028.md) links completed DO native-binding diagnostics, DM/DP observations, DR packed12 qualification, DT fixed-reference comparison, DS host hook design, DU profile model, DV reversible-limit comparison and DW code-alias qualification. Two separate public fixtures retain their distinct last-clean scores38 and28, both later42. A third retains accepted set/restore with80 clean cycles at200 and80 clean cycles after restoring40; no score above40 occurred at200, so prevention is inconclusive. The archived DJ/DL/DN refusals and cleanup remain visible.

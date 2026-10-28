@@ -1,0 +1,124 @@
+{
+  "blockers": [
+    {
+      "id": "live_code_alias_and_identity",
+      "qualified": false
+    },
+    {
+      "id": "executable_write_attributes_and_visibility",
+      "qualified": false
+    },
+    {
+      "id": "owned_scratch_and_lifetime",
+      "qualified": false
+    },
+    {
+      "id": "atomic_install_and_remove",
+      "qualified": false
+    },
+    {
+      "id": "relocated_ABI_flags_SP_LR_and_IT_safety",
+      "qualified": false
+    },
+    {
+      "id": "nested_interrupt_concurrency",
+      "qualified": false
+    },
+    {
+      "id": "stack_and_watchdog_time_budget",
+      "qualified": false
+    },
+    {
+      "id": "independent_rollback_after_transport_ambiguity",
+      "qualified": false
+    }
+  ],
+  "currentEvidenceDoesNotObserve": [
+    "decision-time FP",
+    "actual selected-A branch/pointer",
+    "actual A register directly",
+    "common-setter original caller at execution",
+    "physical packed-data producer",
+    "physical emitted light"
+  ],
+  "patchPayloadGenerated": false,
+  "physicalSafetyOrRootCauseEstablished": false,
+  "preferredSites": [
+    {
+      "event": "predicate",
+      "linkedVa": "0x2024",
+      "payload": [
+        "mode_r4",
+        "scoreLow16_r7",
+        "threshold_r11",
+        "helperT_r10",
+        "rowLike_r8",
+        "channelLike_r9"
+      ]
+    },
+    {
+      "event": "selection",
+      "linkedVa": "0xbd58",
+      "payload": [
+        "selectedAPointer_r0",
+        "selectedBPointer_r1",
+        "rowLike_r2",
+        "channelLike_r3"
+      ]
+    },
+    {
+      "event": "tuple",
+      "linkedVa": "0xc5d0",
+      "originalNormalizedLrAllowlist": [
+        "0xbc78",
+        "0xbcac",
+        "0xbce2",
+        "0xbd22"
+      ],
+      "payload": [
+        "actualA_original_r8",
+        "B_r0",
+        "lane_r1",
+        "rowLike_r2",
+        "channelLike_r3",
+        "difference_original_sp0",
+        "type_original_sp4"
+      ]
+    },
+    {
+      "event": "setter-entered",
+      "linkedVa": "0xc1e0",
+      "payload": [
+        "event_r0"
+      ]
+    }
+  ],
+  "proposedEvent": {
+    "bytes": 64,
+    "controllerTimestampQualified": false,
+    "dispatchTokenImplementationQualified": false,
+    "header": [
+      "u32_sequence",
+      "u16_kind",
+      "u16_payloadWords",
+      "u32_originalLR",
+      "u32_dispatchToken"
+    ],
+    "headerBytes": 16,
+    "payloadU32Capacity": 12
+  },
+  "proposedPools": {
+    "controlBytes": 64,
+    "eventBytes": 5888,
+    "policy": "fixed nonwrapping pools, reserved fault capacity, explicit saturation; hypothetical only",
+    "predicate": 16,
+    "scratchAddress": null,
+    "selection": 8,
+    "setter-entered": 4,
+    "totalDataBytes": 5952,
+    "tuple": 64
+  },
+  "schema": "ds-hook-feasibility-v1",
+  "status": "source-defined; executable-RAM deployment unqualified",
+  "targetOperations": 0
+}

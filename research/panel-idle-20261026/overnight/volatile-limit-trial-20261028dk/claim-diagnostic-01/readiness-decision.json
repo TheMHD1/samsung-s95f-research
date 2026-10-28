@@ -1,0 +1,64 @@
+{
+  "accepted": true,
+  "closedWorldVendorOutLineage": {
+    "accepted": true,
+    "evidenceSha256": "edfffc423ced968fa8c9eee16d5b3de22594a1517bb894392d6989b3ecd35fc6",
+    "statement": "Same recorded boot/USB58 as the accepted DH02 stock initialization. DJ only ran\nits completed zero-I/O self-test. DL and DN each completed a single open, cached\ndescriptor validation, successful claim, pre-vendor driver-guard refusal, release\nand close. All exact stages were removed after authenticated receipt/file hash\nchecks; original rejections remain. No controller vendor headers, bulk/control\ntransactions, RAM writes or reset have occurred since that initialization. Later\nTV calls are ordinary Apps wake and cached filesystem metadata reads only.\nThe parent is the sole TV coordinator; agents are host-only. DO is strictly a\nkernel-cached metadata/claim/release diagnostic with no controller vendor path.\nIts new receipt must not be treated as qualification of a subsequent driver\npolicy without examining actual results. The inherited conditional first-header\npremise remains untested by this zero-vendor operation; neither FD census nor\ncached metadata nor claim success proves endpoint queue liveness or continuous\nglobal exclusion. A fresh cached identity/FD census is required before invocation."
+  },
+  "endpointQueueProof": false,
+  "evidence": [
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/claim-diagnostic-phase.md",
+      "sha256": "edfffc423ced968fa8c9eee16d5b3de22594a1517bb894392d6989b3ecd35fc6"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/set-readiness/identity.json",
+      "sha256": "5c4028e26aa44bb007ad34c21aca873fe7f5d228c04f24defdfd0d9117a748ca"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/prewrite-attempt-ledger.json",
+      "sha256": "e1131e3ffb57ee0f99bdc21dc52be67e9fc00517f696078fc43d0483ec87153f"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/set-03/native.receipt.json",
+      "sha256": "f56af43754e000f7ca16417be8dc7b8cfbcf8092e7610745cb006b2824e10940"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/set-03-cleanup/result.json",
+      "sha256": "9daf6368c744043bd55cb0e0e2e69c487cf2b2301280e71729b8157c8c5f2cd2"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/usbfs-static-metadata/metadata.txt",
+      "sha256": "2fa4a10ee12687fb3fbee1a53fadd5bf963e05a86a10ccdf94f16deccae09185"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/claim-diagnostic-readiness/metadata.txt",
+      "sha256": "54f1075ded22f0e54ec14a1e47a727f840003f7d66418242bf707c33df64e0d4"
+    },
+    {
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/claim-diagnostic-readiness/census-summary.json",
+      "sha256": "93a1c8ea037d2365b871367e611eb334dcaecc204db261fdacc3a04b0fc311ea"
+    }
+  ],
+  "identity": {
+    "alternate": "0",
+    "authorized": "1",
+    "boot": "00000000-0000-4000-8000-000000000000",
+    "busnum": "7",
+    "configuration": "1",
+    "descriptorsSha256": "7293efb1f43f1166a3c54f193fe584a423d25beb41597b85f5d3452f211e0bc0",
+    "deviceNode": "/dev/bus/usb/007/058",
+    "devnum": "58",
+    "interfaceClass": "ff",
+    "interfaceNumber": "02",
+    "interfaceProtocol": "00",
+    "interfaceSubClass": "00",
+    "nodeStat": "bd:339:13452475",
+    "runtimeStatus": "active",
+    "sysfsRealpath": "/sys/devices/platform/soc/2900000.drd/usb7/7-1",
+    "sysfsStat": "19:40999"
+  },
+  "interfaceUnbound": true,
+  "noHolders": true,
+  "schema": "do-usb-owned-claim-diagnostic-readiness-decision-v1"
+}

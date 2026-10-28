@@ -1,0 +1,53 @@
+{
+  "accepted": true,
+  "normal_optimized_qualification_identical": true,
+  "qualification_checks": 1354,
+  "runs": [
+    {
+      "argv": [
+        "python3",
+        "qualify.py"
+      ],
+      "exit": 0,
+      "output": "normal-qualification.json",
+      "sha256": "fa57fe0efa5bf11ba78be01c873cad115c32d8eb5d09a41dd7487a4c2c2d13d1"
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_reference.py"
+      ],
+      "exit": 0,
+      "output": "normal-tests.log",
+      "sha256": "83b9a5613003ea91147c99abccc07360abbf03247f5a476c032d7673fabb8bcf"
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "qualify.py"
+      ],
+      "exit": 0,
+      "output": "optimized-qualification.json",
+      "sha256": "fa57fe0efa5bf11ba78be01c873cad115c32d8eb5d09a41dd7487a4c2c2d13d1"
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "-m",
+        "unittest",
+        "-v",
+        "test_reference.py"
+      ],
+      "exit": 0,
+      "output": "optimized-tests.log",
+      "sha256": "372a6dc330d8d330bebd295b82408172a6d82b4a9aa7c2598cc9777fe6cff765"
+    }
+  ],
+  "target_operations": 0,
+  "tests": 7
+}

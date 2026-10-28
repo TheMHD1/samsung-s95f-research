@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import hashlib
+D=Path(__file__).resolve().parent;src=D.parent/'volatile-limit-receipt-20261028dl/run-once.py';b=src.read_bytes()
+if hashlib.sha256(b).hexdigest()!='eaaacabc19bbf948db3a83391d15a1cf41c0405b1d30d0eea68e27f660316c40':raise ValueError('DL wrapper pin')
+s=b.decode().replace('One fixed two-byte volatile limit transaction','One fixed read-only RTP record capture').replace('dl-fixed-limit','dm-rtp-record').replace('researcher-limit-dl-','researcher-dm-').replace('DLMETA','DMMETA').replace('DLRUN','DMRUN').replace("ASSEMBLY = 'FixedLimit'","ASSEMBLY = 'RecordCapture'").replace('DJ self-test','DM self-test').replace('nativeFiles','nativeFiles')
+s=s.replace("CHECKPOINT_SHA = '","CHECKPOINT_SHA = '",1)
+import re
+s=re.sub(r"PARSER_SHA = '[0-9a-f]+'","PARSER_SHA = '"+hashlib.sha256((D/'parse-result.py').read_bytes()).hexdigest()+"'",s)
+s=re.sub(r"CHECKPOINT_SHA = '[0-9a-f]+'","CHECKPOINT_SHA = 'CHECKPOINT_PENDING'",s)
+s=s.replace("'automaticRestore': False","'writes': 0")
+s=s.replace("def execute(output, readiness, readiness_raw, reviewed_manifest, payload, root, parser, action):","def execute(output, readiness, readiness_raw, reviewed_manifest, payload, root, parser):")
+s=s.replace("    need(action in ('set','restore'), 'fixed action only')\n",'')
+s=s.replace("f'--execute-{action} --device {identity[\"devnum\"]}'","f'--execute --device {identity[\"devnum\"]}'")
+s=s.replace("644","485")
+s=s.replace("native_raw=run('native');native,raw_files,gc=parser.parse_native(native_raw.decode('utf8'));need(gc==[],'no console diagnostics in structured receipt')","native_raw=run('native');native,raw_files,interpretation=parser.parse_native(native_raw.decode('utf8'));save(output/'interpretation.json',interpretation)")
+s=s.replace("need(native['action']==('set40to200' if action=='set' else 'restore200to40') and str(native['device'])==identity['devnum'],'action/device binding')","need(str(native['device'])==identity['devnum'],'device binding')")
+s=s.replace("r'(callbacks|baseline-R|pre-M|pre-C|fresh-R|readback-R)\\.bin'","r'(start-R|M|C|start-N|D|X|Y|RGB|B|Diff|end-N|end-R)\\.bin'")
+s=s.replace("'accepted_exact_fixed_write_and_readback'","'accepted_fixed_read_only_record_capture'")
+s=s.replace("'action':native['action'],'headersSent':7,'bulkTransfers':14","'operation':'fixed_read_only_record_capture','headersSent':12,'bulkTransfers':24")
+s=s.replace("    cli.add_argument('--action', choices=('set','restore'))\n",'')
+s=s.replace("    need(args.action in ('set','restore'), 'fixed action required')\n",'')
+s=s.replace('payload, root, parser, args.action)','payload, root, parser)')
+if any(x in s for x in ['args.action',"native['action']",'--execute-{action}','40to200','200to40']):raise ValueError('leftover action')
+(D/'run-once.py').write_text(s)

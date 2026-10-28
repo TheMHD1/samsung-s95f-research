@@ -1,5 +1,110 @@
 # Samsung S95F: current investigation
 
+Updated **2026-10-28 UTC**. This is the mutable investigation entry point.
+The checkpoint below supersedes older “current,” “latest operation,” and
+pending-firmware statements in the preserved historical body. It records
+completed observations and the coordinator's current experiment boundary;
+it does not authorize replay of historical device commands.
+
+## Completed comparison checkpoint — 2026-10-28 03:47 UTC
+
+The first actual **40→200→40** volatile-limit experiment completed, including
+separate guarded writes and exact readbacks. Both 80-cycle observations were
+clean: maximum sampled score26 at200 and24 after restoring40. **Prevention is
+inconclusive** because neither run supplied a sampled score above40. The
+[comparison findings](panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/comparison-findings-20261028.md)
+record the full sequence, changed reference/input state and evidence limits.
+The larger limit is not left enabled. After normal Apps navigation, final DM
+verified actual40 and clean0/0/1; all transactions and exact cleanup completed.
+No unattended physical-light confirmation, permanent fix or code patch is claimed.
+
+The custom readers have captured actual fault transitions and a strong later
+bottom-reference match. DS identifies four precise execution-logger sites;
+DW now source-qualifies their image1 code aliases. A minimal fixed live-code
+fingerprint reader is being built offline before any instruction-level hook.
+No executable logger, kernel patch or persistent bypass is installed. Boot
+and network access are preserved. The public repository's next sanitized
+research/fixture batch is staged; the older published checkpoint below remains
+historical until that batch is committed and verified.
+
+## Reference-input checkpoint — 2026-10-28 03:26 UTC
+
+The new [fixed-reference findings](panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/reference-findings-20261028.md) record accepted DT Apps and fault captures around a second unchanged40 DP onset. All41 source-compatible amplitude candidates match the later **bottom** reference buffer exactly; none match the later top value. The missing622/623 group is compatible with its reference changing550→454 under the low-B premise, but its unrecorded newB and historical selected-pointer/epoch remain unresolved. This run's sampled A0 changed28→42; do not substitute38 from the earlier run. DS now supplies four exact proposed execution-checkpoint sites and ABI/rollback requirements; no executable hook has been installed.
+
+Separate Apps-selected stock recovery passed and USB60 enumerated. A subsequent DM read verified clean0/0/1 and actual limit40, with a transient other-mode/init profile that reinforces conditional runtime-input handling. No threshold write or code patch has executed. Apps is the latest cached selection; physical light remains unverified during unattended work. The earlier public release does not yet contain this batch; new sanitized source/fixtures are being staged without changing the old evidence.
+
+## New instrumentation checkpoint — 2026-10-28 03:12 UTC
+
+The newer [instrumented findings](panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/instrumented-findings-20261028.md) supersede the pending DN statement below. DO diagnosed our managed sysfs alias error; custom read-only DM and DP recorders then completed actual controller captures. DP retained five clean cycles followed by a fault: last sampled score38, postfault42, limit40. DM retained41 source-compatible candidate records sharing row-like2159 and eight repeated column values. Packed12-bit reference-buffer qualification is now underway; physical mapping and the actual historical A branch remain unproven.
+
+Separate Apps-selected stock recovery completed, USB59 enumerated, and a subsequent DM read verified clean stop/fault/gate and actual limit40. **No limit write has executed.** The proposed DQ comparison is held because the recovered profile has genuine B-band input changes and other pinned-byte differences. Its guards remain intact. Target activity is serialized by the parent; current parallel work covers reference reads, exact profile meanings and reversible checkpoint-hook feasibility. No unattended physical-light verification, permanent fix, persistent root or flash is claimed. Earlier published commit2dc0180 does not yet include this new instrumentation batch.
+
+## Current checkpoint — 2026-10-28
+
+**Firmware acquisition and offline extraction are complete for all nine main
+sections.** Each accepted payload passed its fixed ciphertext authentication,
+strict padding, original length and original-byte CRC checks. The platform
+payload required explicit offline reconciliation of a GC-interleaved native
+receipt: the original driver rejection remains recorded, and no TEE retry
+was used. Both contained VDFS filesystems were extracted with zero reported
+errors. Their six display-driver modules and `libave.so.0.1` match the retained
+live-acquired files byte for byte. These are file-identity results, not proof
+of complete executing-image identity or a firmware installation. See the
+[frozen extraction checkpoint](panel-idle-20261026/overnight/firmware-extraction-workbench-20261028cz/phase-report.md),
+[accepted filesystem results](panel-idle-20261026/overnight/firmware-platform-analysis-20261028db/accepted-report.md),
+and [exact AVE/display-path analysis](panel-idle-20261026/overnight/firmware-display-path-20261028de/findings.md).
+Original research source, tests, sanitized reports and the evidence guide are
+published at [commit `2dc0180`](https://github.com/TheMHD1/samsung-s95f-research/commit/2dc018012336188f61ef90d66a9e3aa012f63fb8);
+private metadata and OEM binaries are excluded.
+
+**DH retained two accepted automated controller-fault captures and an
+80-clean-cycle Apps control.** The control used no key and completed
+480 reads/960 bulk transfers. On that same USB57 instance, without an
+intervening reset, DH02's one-Left observation retained four clean cycles
+before stop1/fault0x1001/gate0 at cycle5. The captured fault score was44 in
+DH01 and42 in DH02, each above the selected limit40. Conservative software
+clean-to-fault brackets were **251.920 ms** and **250.334 ms** respectively;
+sequential reads do not provide an exact trigger or optical timestamp.
+DH01's child capture passed, but its enclosing workflow was rejected and its
+separate recovery continuation is recorded separately. DH02's full workflow,
+normal Right-to-Apps navigation, separate stock MODE2 request and cleanup
+passed. Its final cached state was Apps, followed by USB58 enumeration.
+There was **no physical verification during these unattended trials**.
+See the [frozen DH report](panel-idle-20261026/overnight/autonomous-fault-harness-20261028dh/README.md),
+[machine summary](panel-idle-20261026/overnight/autonomous-fault-harness-20261028dh/phase-outcomes.json),
+[second-trial evidence guide](panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/addenda/dh-onset-02.md),
+and [local DH02 recovery receipt](panel-idle-20261026/overnight/autonomous-fault-harness-20261028dh/menu-onset-02/recovery-mode2/result.json).
+
+**No experimental limit change has executed at this checkpoint.** DJ's target
+self-test receipt was split by runtime GC output; the wrapper refused before
+production invocation: zero production invocations, zero vendor transfers
+and zero writes. Its exact stage was subsequently removed. DL separated
+managed receipts from GC stdout, then refused after claiming its own usbfs
+interface because its guard treated that binding as unexpected. Its native
+receipt records zero headers, zero bulk transfers and no write attempt;
+claim release, FD close and exact stage cleanup passed. The original wrapper
+rejections remain preserved. Local private evidence:
+[DJ attempt](panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/set-01/record.json)
+and [cleanup](panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/set-01-cleanup/result.json);
+[DL native receipt](panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/set-02/native.receipt.json)
+and [cleanup](panel-idle-20261026/overnight/volatile-limit-trial-20261028dk/set-02-cleanup/result.json).
+The additive [DN owned-claim revision](panel-idle-20261026/overnight/volatile-limit-owned-claim-20261028dn/README-wrapper.md)
+is under review. The finite **40→200 comparison and separate 200→40 restore
+remain proposals, not executed interventions**. No prevention result follows
+from a refused helper or from a larger finite source limit.
+
+The [evidence guide and graph](panel-idle-20261026/overnight/firmware-evidence-graph-20261028dg/README.md)
+separate observed captures, static source bridges, inference and unknowns.
+The physical input-table producer/units, complete running-controller identity,
+and final electrical loss-of-light edge remain unresolved. The two failing
+fullscreen HDMI cases, their Ugoos Home overlay controls and working movie
+controls remain constraints on any eventual explanation. No permanent
+prevention fix, autonomous permanent root, firmware flash or installed patch
+is established. The parent remains the sole TV coordinator; this entry-point
+update performed no TV operation.
+
+## Historical body — superseded where the checkpoint above differs
+
 Updated 2026-10-27 UTC. This page is the mutable entry point. The
 [working fault model](panel-idle-20261026/overnight/ordinary-fault-model-20261027.md)
 contains the fuller explanation and evidence links. Historical progress is

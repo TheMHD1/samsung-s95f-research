@@ -1,0 +1,139 @@
+{
+  "accepted": true,
+  "nativeBuild": "net6.0 IL host build;0warnings0errors; not target-run",
+  "networkOperations": 0,
+  "runs": [
+    {
+      "argv": [
+        "python3",
+        "verify_source.py"
+      ],
+      "exit": 0,
+      "output": "host-run-1.json",
+      "result": {
+        "accepted": true,
+        "allOriginal12WindowsPreserved": true,
+        "checksPassed": 51,
+        "controllerByteIdenticalDM": true,
+        "fixedReadPairs": 14,
+        "historicalFixedABranchProven": false,
+        "nativeBindingByteIdenticalDM": true,
+        "newWindowsDeviceObserved": false,
+        "schema": "dt-source-verification-v1",
+        "targetOperations": 0
+      },
+      "sha256": "28658cc4d6a9bb973912dd8e141282d85c70f366f479abc320c758e1c1c545fc"
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "verify_source.py"
+      ],
+      "exit": 0,
+      "output": "host-run-2.json",
+      "result": {
+        "accepted": true,
+        "allOriginal12WindowsPreserved": true,
+        "checksPassed": 51,
+        "controllerByteIdenticalDM": true,
+        "fixedReadPairs": 14,
+        "historicalFixedABranchProven": false,
+        "nativeBindingByteIdenticalDM": true,
+        "newWindowsDeviceObserved": false,
+        "schema": "dt-source-verification-v1",
+        "targetOperations": 0
+      },
+      "sha256": "28658cc4d6a9bb973912dd8e141282d85c70f366f479abc320c758e1c1c545fc"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "test-runner.py"
+      ],
+      "exit": 0,
+      "output": "host-run-3.json",
+      "result": {
+        "checksPassed": 1200,
+        "commandsSyntaxChecked": 280,
+        "maximumCommandBytes": 7696,
+        "targetOperations": 0
+      },
+      "sha256": "902e79785452629107a1353408662b401e333d8f5341a6df025f5cffa4418ba6"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-O",
+        "test-runner.py"
+      ],
+      "exit": 0,
+      "output": "host-run-4.json",
+      "result": {
+        "checksPassed": 1200,
+        "commandsSyntaxChecked": 280,
+        "maximumCommandBytes": 7696,
+        "targetOperations": 0
+      },
+      "sha256": "902e79785452629107a1353408662b401e333d8f5341a6df025f5cffa4418ba6"
+    },
+    {
+      "argv": [
+        "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+        "bin/Release/net6.0/RecordCapture.dll",
+        "--self-test"
+      ],
+      "exit": 0,
+      "output": "host-run-5.json",
+      "result": {
+        "selfTestsPassed": 620,
+        "targetOperations": 0
+      },
+      "sha256": "b80c3ccf7fc76faf44c770bd6195428438ce203f44e2d599af334a0129856a2f"
+    },
+    {
+      "argv": [
+        "${S95F_EVIDENCE_ROOT}/live-cast/sdk/runtime/dotnet",
+        "bin/Release/net6.0/RecordCapture.dll"
+      ],
+      "exit": 0,
+      "output": "host-run-6.json",
+      "result": {
+        "fixedReadPairs": 14,
+        "schema": "dt-rtp-fixed-reference-dry-v1",
+        "targetOperations": 0,
+        "uiOperations": 0,
+        "writes": 0
+      },
+      "sha256": "dcd3afb9ad7062a1902a91aad98df87d3a1f6f9da23cc59bc3d960539a90b689"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "run-once.py"
+      ],
+      "exit": 0,
+      "output": "host-run-7.json",
+      "result": {
+        "endpointQueueProof": false,
+        "hostTimeoutSeconds": 75,
+        "nativeDurationUs": 40000000,
+        "nativeInvocations": 0,
+        "plannedNativeInvocations": 1,
+        "readinessRequired": true,
+        "retries": 0,
+        "rootTimeoutSeconds": 45,
+        "schema": "dt-rtp-fixed-reference-wrapper-dry-v1",
+        "targetOperations": 0,
+        "wrapperUiOperations": 0,
+        "writes": 0
+      },
+      "sha256": "fb1d07d3de54df4b4b23b6959f45d8cf91c8e700120ea2409ba8cfdd4c975c1a"
+    }
+  ],
+  "schema": "dt-host-validation-v1",
+  "targetOperations": 0
+}

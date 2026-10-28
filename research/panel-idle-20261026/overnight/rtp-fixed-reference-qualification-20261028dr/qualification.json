@@ -1,0 +1,718 @@
+{
+  "accepted_host_static_checks": true,
+  "candidate_rows": 41,
+  "captured_xbase": 0,
+  "checks": 1354,
+  "conditional_reconstructed_A": {
+    "570": 1861,
+    "571": 1861,
+    "622": 550,
+    "623": 550,
+    "624": 3052,
+    "625": 3052,
+    "632": 1718,
+    "633": 1718
+  },
+  "historical_fixed_branch_proven": false,
+  "inputs": [
+    {
+      "bytes": 68,
+      "path": "volatile-limit-trial-20261028dk/record-fault-01/M.bin",
+      "sha256": "e8e6637a86146ec648417deb253cc63f5b0383d794795dd0005d1e882f57c186"
+    },
+    {
+      "bytes": 16,
+      "path": "volatile-limit-trial-20261028dk/record-fault-01/C.bin",
+      "sha256": "2efca8a0f734277a3df0351751a2ec11d33d20423983381f5068299289fc308a"
+    },
+    {
+      "bytes": 96,
+      "path": "volatile-limit-trial-20261028dk/record-fault-01/X.bin",
+      "sha256": "a02390579ce3b8eb10da1b088b87cd8560ed766b7d9c06daf664990c0da8612a"
+    },
+    {
+      "bytes": 96,
+      "path": "volatile-limit-trial-20261028dk/record-fault-01/Y.bin",
+      "sha256": "34fba5b7c4a926f1c78487d2c119f17fdc7a6621b83976451bdf3e7edbd64ef4"
+    },
+    {
+      "bytes": 96,
+      "path": "volatile-limit-trial-20261028dk/record-fault-01/RGB.bin",
+      "sha256": "2ea9ab9198d1638007400cd2c3bef1cc745b864b76011a0e1bc52180ac6452d4"
+    },
+    {
+      "bytes": 96,
+      "path": "volatile-limit-trial-20261028dk/record-fault-01/B.bin",
+      "sha256": "d7352c9577bea33bec09b6c600ef3871105a56e175744092894ffb1fc287623b"
+    },
+    {
+      "bytes": 96,
+      "path": "volatile-limit-trial-20261028dk/record-fault-01/Diff.bin",
+      "sha256": "ee9c62d524813314c08b315189b411f6f1244878f402144b6f1fd4a8f9773462"
+    }
+  ],
+  "network_operations": 0,
+  "schema": "dr-fixed-reference-qualification-v1",
+  "source": {
+    "anchors": [
+      {
+        "bytes_hex": "2de9ff4f",
+        "instruction": "push.w   {r0, r1, r2, r3, r4, r5, r6, r7, r8, sb, sl, fp, lr}",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbd58"
+      },
+      {
+        "bytes_hex": "ddf81c0f",
+        "instruction": "ldr.w    r0, [sp, #0xf1c]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe3a"
+      },
+      {
+        "bytes_hex": "00eb0b07",
+        "instruction": "add.w    r7, r0, fp",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe3e"
+      },
+      {
+        "bytes_hex": "ddf8200f",
+        "instruction": "ldr.w    r0, [sp, #0xf20]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe42"
+      },
+      {
+        "bytes_hex": "00eb0b08",
+        "instruction": "add.w    r8, r0, fp",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe46"
+      },
+      {
+        "bytes_hex": "d8f80000",
+        "instruction": "ldr.w    r0, [r8]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe4a"
+      },
+      {
+        "bytes_hex": "c0f30b00",
+        "instruction": "ubfx     r0, r0, #0, #0xc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe4e"
+      },
+      {
+        "bytes_hex": "c0f30b31",
+        "instruction": "ubfx     r1, r0, #0xc, #0xc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe5c"
+      },
+      {
+        "bytes_hex": "000e",
+        "instruction": "lsrs     r0, r0, #0x18",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe6c"
+      },
+      {
+        "bytes_hex": "b8f80410",
+        "instruction": "ldrh.w   r1, [r8, #4]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe6e"
+      },
+      {
+        "bytes_hex": "01f00f01",
+        "instruction": "and      r1, r1, #0xf",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe72"
+      },
+      {
+        "bytes_hex": "00eb0121",
+        "instruction": "add.w    r1, r0, r1, lsl #8",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe76"
+      },
+      {
+        "bytes_hex": "b8f80400",
+        "instruction": "ldrh.w   r0, [r8, #4]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe80"
+      },
+      {
+        "bytes_hex": "0109",
+        "instruction": "lsrs     r1, r0, #4",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbe84"
+      },
+      {
+        "bytes_hex": "3b68",
+        "instruction": "ldr      r3, [r7]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbed4"
+      },
+      {
+        "bytes_hex": "c3f30b00",
+        "instruction": "ubfx     r0, r3, #0, #0xc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbed6"
+      },
+      {
+        "bytes_hex": "fff76efe",
+        "instruction": "bl       #0xbbbc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbedc"
+      },
+      {
+        "bytes_hex": "3b68",
+        "instruction": "ldr      r3, [r7]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf0c"
+      },
+      {
+        "bytes_hex": "c3f30b30",
+        "instruction": "ubfx     r0, r3, #0xc, #0xc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf0e"
+      },
+      {
+        "bytes_hex": "fff750fe",
+        "instruction": "bl       #0xbbbc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf18"
+      },
+      {
+        "bytes_hex": "3b68",
+        "instruction": "ldr      r3, [r7]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf3c"
+      },
+      {
+        "bytes_hex": "1b0e",
+        "instruction": "lsrs     r3, r3, #0x18",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf3e"
+      },
+      {
+        "bytes_hex": "b7f804c0",
+        "instruction": "ldrh.w   ip, [r7, #4]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf40"
+      },
+      {
+        "bytes_hex": "0cf00f0c",
+        "instruction": "and      ip, ip, #0xf",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf44"
+      },
+      {
+        "bytes_hex": "03eb0c20",
+        "instruction": "add.w    r0, r3, ip, lsl #8",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf48"
+      },
+      {
+        "bytes_hex": "fff72ffe",
+        "instruction": "bl       #0xbbbc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf5a"
+      },
+      {
+        "bytes_hex": "bb88",
+        "instruction": "ldrh     r3, [r7, #4]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf8a"
+      },
+      {
+        "bytes_hex": "1809",
+        "instruction": "lsrs     r0, r3, #4",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf8c"
+      },
+      {
+        "bytes_hex": "fff714fe",
+        "instruction": "bl       #0xbbbc",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf90"
+      },
+      {
+        "bytes_hex": "241d",
+        "instruction": "adds     r4, r4, #4",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf98"
+      },
+      {
+        "bytes_hex": "0bf10600",
+        "instruction": "add.w    r0, fp, #6",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf9a"
+      },
+      {
+        "bytes_hex": "1ffa80fb",
+        "instruction": "uxth.w   fp, r0",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbf9e"
+      },
+      {
+        "bytes_hex": "2a48",
+        "instruction": "ldr      r0, [pc, #0xa8] ; literal[0xc04c]=0x200004a6",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbfa2"
+      },
+      {
+        "bytes_hex": "8345",
+        "instruction": "cmp      fp, r0",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbfa6"
+      },
+      {
+        "bytes_hex": "fff647af",
+        "instruction": "blt.w    #0xbe3a",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "va": "0xbfa8"
+      },
+      {
+        "bytes_hex": "8046",
+        "instruction": "mov      r8, r0",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbbc0"
+      },
+      {
+        "bytes_hex": "0f46",
+        "instruction": "mov      r7, r1",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbbc2"
+      },
+      {
+        "bytes_hex": "1446",
+        "instruction": "mov      r4, r2",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbbc4"
+      },
+      {
+        "bytes_hex": "b845",
+        "instruction": "cmp      r8, r7",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbc20"
+      },
+      {
+        "bytes_hex": "a7eb0800",
+        "instruction": "sub.w    r0, r7, r8",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbc24"
+      },
+      {
+        "bytes_hex": "a8eb0700",
+        "instruction": "sub.w    r0, r8, r7",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbc38"
+      },
+      {
+        "bytes_hex": "3846",
+        "instruction": "mov      r0, r7",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbcda"
+      },
+      {
+        "bytes_hex": "00f077fc",
+        "instruction": "bl       #0xc5d0",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "va": "0xbcde"
+      },
+      {
+        "bytes_hex": "8d48",
+        "instruction": "ldr      r0, [pc, #0x234] ; literal[0xc888]=0x200004c0",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/all-formatter-with-literals.disasm.txt",
+        "va": "0xc652"
+      },
+      {
+        "bytes_hex": "0088",
+        "instruction": "ldrh     r0, [r0]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/all-formatter-with-literals.disasm.txt",
+        "va": "0xc654"
+      },
+      {
+        "bytes_hex": "3044",
+        "instruction": "add      r0, r6",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/all-formatter-with-literals.disasm.txt",
+        "va": "0xc656"
+      },
+      {
+        "bytes_hex": "81b2",
+        "instruction": "uxth     r1, r0",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/all-formatter-with-literals.disasm.txt",
+        "va": "0xc658"
+      },
+      {
+        "bytes_hex": "20f81210",
+        "instruction": "strh.w   r1, [r0, r2, lsl #1]",
+        "retained_path": "onset-trial-20261028cb/operand-analysis/all-formatter-with-literals.disasm.txt",
+        "va": "0xc666"
+      },
+      {
+        "bytes_hex": "1b48",
+        "instruction": "ldr      r0, [pc, #0x6c]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb82c"
+      },
+      {
+        "bytes_hex": "10bb",
+        "instruction": "cbnz     r0, #0xb878",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb830"
+      },
+      {
+        "bytes_hex": "c088",
+        "instruction": "ldrh     r0, [r0, #6]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb836"
+      },
+      {
+        "bytes_hex": "94f8c706",
+        "instruction": "ldrb.w   r0, [r4, #0x6c7]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb83a"
+      },
+      {
+        "bytes_hex": "0831",
+        "instruction": "adds     r1, #8",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb848"
+      },
+      {
+        "bytes_hex": "1548",
+        "instruction": "ldr      r0, [pc, #0x54]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb84a"
+      },
+      {
+        "bytes_hex": "00f084fa",
+        "instruction": "bl       #0xbd58",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb84c"
+      },
+      {
+        "bytes_hex": "c188",
+        "instruction": "ldrh     r1, [r0, #6]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb856"
+      },
+      {
+        "bytes_hex": "b4f8c006",
+        "instruction": "ldrh.w   r0, [r4, #0x6c0]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb858"
+      },
+      {
+        "bytes_hex": "401e",
+        "instruction": "subs     r0, r0, #1",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb85c"
+      },
+      {
+        "bytes_hex": "8142",
+        "instruction": "cmp      r1, r0",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb85e"
+      },
+      {
+        "bytes_hex": "94f8c706",
+        "instruction": "ldrb.w   r0, [r4, #0x6c7]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb862"
+      },
+      {
+        "bytes_hex": "0831",
+        "instruction": "adds     r1, #8",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb870"
+      },
+      {
+        "bytes_hex": "0c48",
+        "instruction": "ldr      r0, [pc, #0x30]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb872"
+      },
+      {
+        "bytes_hex": "00f070fa",
+        "instruction": "bl       #0xbd58",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb874"
+      },
+      {
+        "bytes_hex": "0830",
+        "instruction": "adds     r0, #8",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb888"
+      },
+      {
+        "bytes_hex": "00f065fa",
+        "instruction": "bl       #0xbd58",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0xb88a"
+      },
+      {
+        "bytes_hex": "1a48",
+        "instruction": "ldr      r0, [pc, #0x68]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c134"
+      },
+      {
+        "bytes_hex": "94f8c706",
+        "instruction": "ldrb.w   r0, [r4, #0x6c7]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c13a"
+      },
+      {
+        "bytes_hex": "c088",
+        "instruction": "ldrh     r0, [r0, #6]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c144"
+      },
+      {
+        "bytes_hex": "401c",
+        "instruction": "adds     r0, r0, #1",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c14c"
+      },
+      {
+        "bytes_hex": "0880",
+        "instruction": "strh     r0, [r1]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c150"
+      },
+      {
+        "bytes_hex": "4ff43662",
+        "instruction": "mov.w    r2, #0xb60",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c152"
+      },
+      {
+        "bytes_hex": "0831",
+        "instruction": "adds     r1, #8",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c15a"
+      },
+      {
+        "bytes_hex": "1248",
+        "instruction": "ldr      r0, [pc, #0x48]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c15c"
+      },
+      {
+        "bytes_hex": "e4f7d5fa",
+        "instruction": "bl       #0x70c",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c15e"
+      },
+      {
+        "bytes_hex": "4ff43662",
+        "instruction": "mov.w    r2, #0xb60",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c17e"
+      },
+      {
+        "bytes_hex": "0831",
+        "instruction": "adds     r1, #8",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c186"
+      },
+      {
+        "bytes_hex": "0848",
+        "instruction": "ldr      r0, [pc, #0x20]",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c188"
+      },
+      {
+        "bytes_hex": "e4f7bffa",
+        "instruction": "bl       #0x70c",
+        "retained_path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "va": "0x1c18a"
+      },
+      {
+        "bytes_hex": "b1f1005f",
+        "instruction": "cmp.w    r1, #0x20000000",
+        "retained_path": "firmware-rtp-producer-20261028df/cross-core-slg-disassembly.txt",
+        "va": "0x1bba8"
+      },
+      {
+        "bytes_hex": "02d2",
+        "instruction": "bhs      #0x1bbba",
+        "retained_path": "firmware-rtp-producer-20261028df/cross-core-slg-disassembly.txt",
+        "va": "0x1bbb2"
+      },
+      {
+        "bytes_hex": "01f11c50",
+        "instruction": "add.w    r0, r1, #0x27000000",
+        "retained_path": "firmware-rtp-producer-20261028df/cross-core-slg-disassembly.txt",
+        "va": "0x1bbb4"
+      }
+    ],
+    "file_offset_formula": "VA+0x40200",
+    "image": 1,
+    "literals": [
+      {
+        "va": "0xb8a0",
+        "value": "0x20015000"
+      },
+      {
+        "va": "0xb8a4",
+        "value": "0x20015f10"
+      },
+      {
+        "va": "0xb89c",
+        "value": "0x200004c4"
+      },
+      {
+        "va": "0xb898",
+        "value": "0x20000498"
+      },
+      {
+        "va": "0xc888",
+        "value": "0x200004c0"
+      },
+      {
+        "va": "0xc04c",
+        "value": "0x200004a6"
+      },
+      {
+        "va": "0x1c1a8",
+        "value": "0x20015000"
+      },
+      {
+        "va": "0x1c1ac",
+        "value": "0x20015f10"
+      },
+      {
+        "va": "0x1bbc0",
+        "value": "0x20020000"
+      }
+    ],
+    "package_bytes": 5242880,
+    "package_sha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0",
+    "ranges": [
+      {
+        "bytes": 728,
+        "file_offset": "0x4bf58",
+        "label": "packing",
+        "sha256": "50d1ad3c80e4f7c721710412debd8cfcc93cb032f4a50a13260b088a7739f955",
+        "va": "0xbd58"
+      },
+      {
+        "bytes": 724,
+        "file_offset": "0x4c7d0",
+        "label": "formatter",
+        "sha256": "0e1131ed571b58c1a6bce949468ffa8286df24dcc6bedf94ea0189b0233a2604",
+        "va": "0xc5d0"
+      },
+      {
+        "bytes": 370,
+        "file_offset": "0x4bdbc",
+        "label": "comparator",
+        "sha256": "9161e90f083f9e3f230c6e8d6f2b2f2503c7cbcd6c2ca1525e025f116a30dd71",
+        "va": "0xbbbc"
+      },
+      {
+        "bytes": 188,
+        "file_offset": "0x4b9ec",
+        "label": "dispatch",
+        "sha256": "78bbf2da87adaa7cc1c9c30cbed5381d079810c8d9e3809a1c0e6744cd6d8c07",
+        "va": "0xb7ec"
+      },
+      {
+        "bytes": 132,
+        "file_offset": "0x5c32c",
+        "label": "snapshot_writer",
+        "sha256": "e2618ea424ceac33f70c3fdccb069e32fa4d62a89abecb834f118560bb6479a4",
+        "va": "0x1c12c"
+      },
+      {
+        "bytes": 238,
+        "file_offset": "0x4090c",
+        "label": "raw_copy",
+        "sha256": "040a233df266e7cb649d2c6c8a695f6e1be7c69f83df17d3af7c023ace348bc8",
+        "va": "0x70c"
+      },
+      {
+        "bytes": 40,
+        "file_offset": "0x5bd9c",
+        "label": "mode1_alias",
+        "sha256": "a667071367d629144d2ed672609481fe491e698748f812de72be69454ba95a98",
+        "va": "0x1bb9c"
+      }
+    ],
+    "raw_copy_anchors": {
+      "0x70c": "032a",
+      "0x752": "51f8043b",
+      "0x758": "51f804cb",
+      "0x75c": "a0e80810",
+      "0x79e": "b1e81850",
+      "0x7a4": "a0e81850"
+    },
+    "retained_disassembly_inputs": [
+      {
+        "path": "onset-trial-20261028cb/operand-analysis/unpacker-with-literals.disasm.txt",
+        "sha256": "5090ababbf6fd0f6b7699f013f0f630bf2751cdeef08ae22ce4b779c69139314"
+      },
+      {
+        "path": "onset-trial-20261028cb/operand-analysis/difference-with-literals.disasm.txt",
+        "sha256": "b7ff47238bf8d318ff86880bc3509231083d0d7e49643e2158063b8bf5a65de5"
+      },
+      {
+        "path": "onset-trial-20261028cb/operand-analysis/all-formatter-with-literals.disasm.txt",
+        "sha256": "7d2ae3cc43d610eb9d09951defe1873f4dfeff5cc46c72ef56ac2dfc018251f9"
+      },
+      {
+        "path": "firmware-rtp-producer-20261028df/producer-pointer-disassembly.txt",
+        "sha256": "98327b5cb11adabd2bc5b71fafd5d956f5fa1765b895a567ec8e32059ecaeb68"
+      },
+      {
+        "path": "firmware-rtp-producer-20261028df/cross-core-slg-disassembly.txt",
+        "sha256": "e8152a0d4d22d0e99e9393a64b6b0ce414de562a1d65c281228bbce58a1985a0"
+      }
+    ]
+  },
+  "status": "source-qualified windows; no fixed reference target capture yet",
+  "target_operations": 0,
+  "whole_live_image_attested": false,
+  "windows": [
+    {
+      "bus": 1191269204,
+      "bytes": 104,
+      "complete_lanes": 68,
+      "cpu": 536957780,
+      "decode_bytes": 102,
+      "first_lane": 568,
+      "header_hex": "010100005453014768000000",
+      "ignored_tail_bytes": 2,
+      "kind": "top"
+    },
+    {
+      "bus": 1191273060,
+      "bytes": 104,
+      "complete_lanes": 68,
+      "cpu": 536961636,
+      "decode_bytes": 102,
+      "first_lane": 568,
+      "header_hex": "010100006462014768000000",
+      "ignored_tail_bytes": 2,
+      "kind": "bottom"
+    },
+    {
+      "bus": 1191269204,
+      "bytes": 120,
+      "complete_lanes": 80,
+      "cpu": 536957780,
+      "decode_bytes": 120,
+      "first_lane": 568,
+      "header_hex": "010100005453014778000000",
+      "ignored_tail_bytes": 0,
+      "kind": "top"
+    },
+    {
+      "bus": 1191273060,
+      "bytes": 120,
+      "complete_lanes": 80,
+      "cpu": 536961636,
+      "decode_bytes": 120,
+      "first_lane": 568,
+      "header_hex": "010100006462014778000000",
+      "ignored_tail_bytes": 0,
+      "kind": "bottom"
+    }
+  ]
+}

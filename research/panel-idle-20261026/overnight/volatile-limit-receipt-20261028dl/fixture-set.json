@@ -1,0 +1,215 @@
+{
+  "accepted": true,
+  "action": "set40to200",
+  "bulkTransfers": 14,
+  "claimed": true,
+  "closed": true,
+  "device": 57,
+  "errors": [],
+  "headersSent": 7,
+  "limitMayHaveChanged": false,
+  "opened": true,
+  "physicalPictureObserved": false,
+  "protocolPhase": "ReadyForHeader",
+  "readbackVerified": true,
+  "released": true,
+  "rootCauseFixEstablished": false,
+  "schema": "dl-fixed-limit-v1",
+  "stage": "complete",
+  "steps": [
+    {
+      "after": "ExpectingReadIn",
+      "afterUs": 400,
+      "before": "ReadyForHeader",
+      "beforeUs": 300,
+      "count": 12,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 12,
+      "name": "callbacks-header"
+    },
+    {
+      "after": "ReadyForHeader",
+      "afterUs": 600,
+      "before": "ExpectingReadIn",
+      "beforeUs": 500,
+      "count": 64,
+      "direction": "IN",
+      "errno": 0,
+      "expected": 64,
+      "name": "callbacks-data"
+    },
+    {
+      "after": "ExpectingReadIn",
+      "afterUs": 900,
+      "before": "ReadyForHeader",
+      "beforeUs": 800,
+      "count": 12,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 12,
+      "name": "baseline-R-header"
+    },
+    {
+      "after": "ReadyForHeader",
+      "afterUs": 1100,
+      "before": "ExpectingReadIn",
+      "beforeUs": 1000,
+      "count": 256,
+      "direction": "IN",
+      "errno": 0,
+      "expected": 256,
+      "name": "baseline-R-data"
+    },
+    {
+      "after": "ExpectingReadIn",
+      "afterUs": 1400,
+      "before": "ReadyForHeader",
+      "beforeUs": 1300,
+      "count": 12,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 12,
+      "name": "pre-M-header"
+    },
+    {
+      "after": "ReadyForHeader",
+      "afterUs": 1600,
+      "before": "ExpectingReadIn",
+      "beforeUs": 1500,
+      "count": 68,
+      "direction": "IN",
+      "errno": 0,
+      "expected": 68,
+      "name": "pre-M-data"
+    },
+    {
+      "after": "ExpectingReadIn",
+      "afterUs": 1900,
+      "before": "ReadyForHeader",
+      "beforeUs": 1800,
+      "count": 12,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 12,
+      "name": "pre-C-header"
+    },
+    {
+      "after": "ReadyForHeader",
+      "afterUs": 2100,
+      "before": "ExpectingReadIn",
+      "beforeUs": 2000,
+      "count": 16,
+      "direction": "IN",
+      "errno": 0,
+      "expected": 16,
+      "name": "pre-C-data"
+    },
+    {
+      "after": "ExpectingReadIn",
+      "afterUs": 2400,
+      "before": "ReadyForHeader",
+      "beforeUs": 2300,
+      "count": 12,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 12,
+      "name": "fresh-R-header"
+    },
+    {
+      "after": "ReadyForHeader",
+      "afterUs": 2600,
+      "before": "ExpectingReadIn",
+      "beforeUs": 2500,
+      "count": 256,
+      "direction": "IN",
+      "errno": 0,
+      "expected": 256,
+      "name": "fresh-R-data"
+    },
+    {
+      "after": "ExpectingWritePayload",
+      "afterUs": 2900,
+      "before": "ReadyForHeader",
+      "beforeUs": 2800,
+      "count": 12,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 12,
+      "name": "write-header"
+    },
+    {
+      "after": "ReadyForHeader",
+      "afterUs": 3100,
+      "before": "ExpectingWritePayload",
+      "beforeUs": 3000,
+      "count": 2,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 2,
+      "name": "write-payload"
+    },
+    {
+      "after": "ExpectingReadIn",
+      "afterUs": 3400,
+      "before": "ReadyForHeader",
+      "beforeUs": 3300,
+      "count": 12,
+      "direction": "OUT",
+      "errno": 0,
+      "expected": 12,
+      "name": "readback-R-header"
+    },
+    {
+      "after": "ReadyForHeader",
+      "afterUs": 3600,
+      "before": "ExpectingReadIn",
+      "beforeUs": 3500,
+      "count": 256,
+      "direction": "IN",
+      "errno": 0,
+      "expected": 256,
+      "name": "readback-R-data"
+    }
+  ],
+  "windows": [
+    {
+      "base64": "[encoded-payload-omitted]",
+      "bytes": 64,
+      "name": "callbacks",
+      "sha256": "a08fd6ef3596e345d8fb59c932afd5c676e8b3a8429d8f18014fe268243b5050"
+    },
+    {
+      "base64": "[encoded-payload-omitted]",
+      "bytes": 256,
+      "name": "baseline-R",
+      "sha256": "5a934e9bf5c54603858b56066ad7c1738816b08795407ad0eb7b453e401e7727"
+    },
+    {
+      "base64": "[encoded-payload-omitted]",
+      "bytes": 68,
+      "name": "pre-M",
+      "sha256": "5ce2140c811c0c9cb391a133347389e606e3697e4bd4097bd6061f2755a1d69e"
+    },
+    {
+      "base64": "[encoded-payload-omitted]",
+      "bytes": 16,
+      "name": "pre-C",
+      "sha256": "c9bc21efabc33dc5c687f230ecf321722552c99518957cc37b833c7aaaf9c2b0"
+    },
+    {
+      "base64": "[encoded-payload-omitted]",
+      "bytes": 256,
+      "name": "fresh-R",
+      "sha256": "5a934e9bf5c54603858b56066ad7c1738816b08795407ad0eb7b453e401e7727"
+    },
+    {
+      "base64": "[encoded-payload-omitted]",
+      "bytes": 256,
+      "name": "readback-R",
+      "sha256": "b90875023b9b24165bbeb8ae5a1f25d3470e7379438811ce08671d988f35be9a"
+    }
+  ],
+  "writeAttempted": true,
+  "writeTransportComplete": true
+}

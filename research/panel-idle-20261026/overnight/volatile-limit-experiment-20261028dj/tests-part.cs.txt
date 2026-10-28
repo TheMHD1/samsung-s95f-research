@@ -1,0 +1,43 @@
+    sealed class FakeClock:IClock {public long At;public int Calls,Fail=-1;public long NowUs(){if(++Calls==Fail)throw new IOException("clock injected");return At+=100;}public void SleepUs(long us){throw new Exception("sleep forbidden");}}
+    sealed class FakeOps:IOps {
+      public int Opens,Claims,Revalidates,FailRevalidate=-1;public int Calls,Fail=-1,ThrowAt=-1,Releases,Closes,Writes;public bool WrongReadback,ReleaseFail,CloseFail,OpenFail,ClaimFail,CallbackBad,ContextBad,RootBad,Dirty,ProfileBad,ValidateFail;public int Current=40;Spec? pending;
+      public Identity Preflight()=>new(7,57);public NativeResult Open(Identity id){Opens++;return new(OpenFail?-1:10,0);}public void ValidateFd(int fd,Identity id){if(ValidateFail)throw new Exception("fd");}public void Revalidate(Identity id){if(++Revalidates==FailRevalidate)throw new IOException("instance changed");}public NativeResult Claim(int fd){Claims++;return new(ClaimFail?-1:0,0);}
+      public NativeResult Release(int fd){Releases++;return new(ReleaseFail?-1:0,0);}public NativeResult Close(int fd){Closes++;return new(CloseFail?-1:0,0);}
+      public NativeResult Bulk(int fd,bool input,byte[] b,int length){Calls++;if(Calls==ThrowAt)throw new IOException("bulk injected");if(Calls==Fail)return new(length-1,5);
+        if(!input&&length==12){Need(pending==null,"fake header when pending");if(b.AsSpan().SequenceEqual(WriteHeader))pending=new("write",0,2);else foreach(var s in new[]{Callback,R,M,C})if(b.AsSpan().SequenceEqual(Header(s)))pending=s;Need(pending!=null,"fake fixed header");}
+        else if(!input){Need(pending?.Name=="write"&&length==2,"fake payload phase");Current=Half(b,0);Writes++;pending=null;}
+        else{Need(pending!=null&&pending.Length==length,"fake read phase");var s=pending!;pending=null;
+          if(s.Name=="R"){Profile.CopyTo(b,0);Put(b,0xc4,WrongReadback&&Writes>0?40:Current);if(Dirty)Put(b,0,1);if(ProfileBad)b[0x20]^=1;}
+          if(s.Name=="Callback"){uint[] cb={0x2945d,0x293d1,0x294fb,0,0,0x28b85,0x28cf1,0x294f5};for(int i=0;i<cb.Length;i++)BitConverter.GetBytes(cb[i]).CopyTo(b,12+4*i);if(CallbackBad)b[12]^=1;}
+          if(s.Name=="M"){BitConverter.GetBytes(RootBad?0x20020000u:0x20010000u).CopyTo(b,64);Put(b,12,ContextBad?1:2);b[56]=1;Put(b,22,500);Put(b,26,500);Put(b,38,3183);Put(b,40,500);}
+          if(s.Name=="C"){Put(b,0,2160);Put(b,2,1920);Put(b,4,2880);b[6]=92;b[8]=3;}
+        }return new(length,0);
+      }
+    }
+    static void Put(byte[] b,int i,int v){b[i]=(byte)v;b[i+1]=(byte)(v>>8);}
+    static string Serialize(Outcome o)=>JsonSerializer.Serialize(o,new JsonSerializerOptions{PropertyNamingPolicy=JsonNamingPolicy.CamelCase});
+    static int SelfTest(){int checks=0;void Check(bool b,string s){Need(b,s);checks++;}
+      Outcome Test(FakeOps f,bool restore=false,FakeClock? c=null){var o=Run(f,c??new(),restore);Check(f.Closes==(f.Opens==1&&!f.OpenFail?1:0),"exact close");Check(f.Releases==(f.Claims==1&&!f.ClaimFail?1:0),"exact release");return o;}
+      var f=new FakeOps();var good=Test(f);Check(good.Accepted&&good.BulkTransfers==14&&good.HeadersSent==7&&f.Writes==1,"set success");
+      f=new(){Current=200};var restored=Test(f,true);Check(restored.Accepted&&f.Current==40&&f.Writes==1,"restore success");
+      for(int i=1;i<=14;i++){f=new(){Fail=i};var o=Test(f);Check(!o.Accepted&&f.Calls==i&&o.ProtocolPhase=="Unknown","short transfer stops absolutely");}
+      for(int i=1;i<=14;i++){f=new(){ThrowAt=i};var o=Test(f);Check(!o.Accepted&&f.Calls==i&&o.ProtocolPhase=="Unknown","throw stops absolutely");}
+      foreach(var bad in new[]{new FakeOps{Dirty=true},new FakeOps{CallbackBad=true},new FakeOps{ContextBad=true},new FakeOps{RootBad=true},new FakeOps{ProfileBad=true},new FakeOps{Current=200},new FakeOps{OpenFail=true},new FakeOps{ClaimFail=true},new FakeOps{ValidateFail=true}}){var o=Test(bad);Check(!o.Accepted&&bad.Writes==0,"precondition forbids write");}
+      foreach(var bad in new[]{new FakeOps{ReleaseFail=true},new FakeOps{CloseFail=true},new FakeOps{WrongReadback=true}}){var o=Test(bad);Check(!o.Accepted&&bad.Writes==1,"post failure not hidden");}
+      for(int i=1;i<=70;i++){f=new();var o=Test(f,false,new FakeClock{Fail=i});if(!o.Accepted)Check(o.Errors.Count>0,"clock rejection recorded");Check(f.Writes<=1,"clock no repeat");}
+      for(int i=0;i<256;i++){var a=(byte[])Profile.Clone();a[i]^=0x80;bool pass=true;try{GuardR(a,40);}catch{pass=false;}Check(pass==DynamicR(i),"profile rejection matrix "+i);}
+      foreach(int fail in new[]{3,28}){f=new();var o=Test(f,false,new FakeClock{Fail=fail});Check(!o.Accepted&&f.Writes==0&&o.ProtocolPhase=="ReadyForHeader"&&f.Calls==(fail==3?0:10),"preheader clock failure sends no OUT");}
+      f=new();var obligatory=Test(f,false,new FakeClock{Fail=29});Check(!obligatory.Accepted&&f.Calls==12&&f.Writes==1&&obligatory.ProtocolPhase=="ReadyForHeader","postheader clock failure completes payload then stops");
+      foreach(int which in new[]{1,2}){f=new(){FailRevalidate=which};var o=Test(f);Check(!o.Accepted&&f.Calls==0&&f.Writes==0,"instance race rejects before first header");}
+      Check(WriteHeader.AsSpan().SequenceEqual(Convert.FromHexString("02010000c424014702000000")),"exact write header");
+      Console.WriteLine(JsonSerializer.Serialize(new{selfTestsPassed=checks,targetOperations=0}));return 0;
+    }
+    static int Main(string[] args){
+      if(args.Length==1&&args[0]=="--self-test")return SelfTest();
+      if(args.Length==1&&(args[0]=="--host-fixture-set"||args[0]=="--host-fixture-restore")){bool restore=args[0].EndsWith("restore");Console.WriteLine(Serialize(Run(new FakeOps{Current=restore?200:40},new FakeClock(),restore)));return 0;}
+      bool set=args.Length==3&&args[0]=="--execute-set", restoreAction=args.Length==3&&args[0]=="--execute-restore";
+      if(set||restoreAction){if(args[1]!="--device"||!int.TryParse(args[2],out ExpectedDevice)||ExpectedDevice<1||ExpectedDevice>127||args[2]!=ExpectedDevice.ToString())return 64;}
+      if(!set&&!restoreAction){Console.WriteLine("{\"schema\":\"dj-fixed-limit-dry-v1\",\"targetOperations\":0,\"fixedAddress\":\"0x470124c4\",\"bytes\":2,\"automaticRestore\":false}");return args.Length==0?0:64;}
+      if(!RealOps.AbiReady){Console.WriteLine("{\"error\":\"ARM32 ABI required before any native operation\"}");return 64;}
+      var outcome=Run(new RealOps(),new RealClock(),restoreAction);Console.WriteLine(Serialize(outcome));return outcome.Accepted?0:1;
+    }

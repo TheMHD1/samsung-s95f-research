@@ -1,0 +1,201 @@
+{
+  "baselineDuplicatesCountedCycle": true,
+  "globalCountersAdjusted": false,
+  "keyCausalityEstablished": false,
+  "nativeAccepted": true,
+  "observationAccepted": true,
+  "observationWindow": {
+    "completedRPairOverlappingOrAfterDownBegins": true,
+    "downBeginsBeforeOrAtLastReadCompletion": true,
+    "keyWithinObservedWindow": true,
+    "lastCompletedReadDataAfterUs": 178075995672
+  },
+  "ordering": {
+    "classification": "retained_clean_and_fault_reads_after_down_return",
+    "firstFaultRead": {
+      "afterUs": 178075994144,
+      "beforeUs": 178075994002,
+      "classification": "Faulted",
+      "cycleIndex": 6,
+      "role": "transition"
+    },
+    "firstFaultReadVsDown": "strictly_after",
+    "keyCausalityEstablished": false,
+    "latestCleanRead": {
+      "afterUs": 178075744874,
+      "beforeUs": 178075744603,
+      "classification": "Clean",
+      "cycleIndex": 5,
+      "role": "last-clean"
+    },
+    "scope": "full OUT-before/IN-after USB brackets, conditional on reply freshness; key call/return is not UI consumption; no physical-light timestamp",
+    "softwareTransitionBracket": {
+      "afterUs": 178075994144,
+      "beforeUs": 178075744603
+    },
+    "transitionBracketVsDown": "strictly_after"
+  },
+  "physicalPictureObserved": false,
+  "scoreCheckpoints": {
+    "cleanBracketA0Low16Above40Cycles": [],
+    "count": 5,
+    "everyComparatorCallObserved": false,
+    "limitations": [
+      "250ms nominal sequential polling, not a callback trace",
+      "H state lies inside full read-pair bracket; no exact device sampling timestamp",
+      "M publication-bound mirror and Nordinal0 were read earlier sequentially in same cycle; no compact M/N pair timestamp, source count or R pair times retained",
+      "H may change/reset between reads; matching clean R brackets do not prove atomicity or no transient fault",
+      "partial transition retains original H/N raw context without inventing a full checkpoint",
+      "A0 low16 above40 is a sampled counterfactual witness, not complete predicate inputs or emitted light"
+    ],
+    "missingAbove40WitnessExcludesCrossing": false,
+    "mode1AndThresholdSelectionStillSourceConditional": true,
+    "physicalPictureObserved": false,
+    "recordBytes": 34,
+    "rows": [
+      {
+        "a0Low16": 0,
+        "a0Low16Above40": false,
+        "a0U32": 0,
+        "cleanRBrackets": true,
+        "cycleIndex": 1,
+        "endAlternateThreshold": 40,
+        "endRtClassification": "Clean",
+        "hReadBracket": {
+          "dataAfterUs": 178074749265,
+          "headerBeforeUs": 178074749184
+        },
+        "history0U16x4": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "publicationBoundMirror": 200,
+        "publicationBoundMirrorIsActualFpProven": false,
+        "q0U16": 0,
+        "recordOrdinal0U32": 0,
+        "selectorC7": 0,
+        "startAlternateThreshold": 40,
+        "startEndRtExactTimesRetained": false,
+        "startRtClassification": "Clean"
+      },
+      {
+        "a0Low16": 0,
+        "a0Low16Above40": false,
+        "a0U32": 0,
+        "cleanRBrackets": true,
+        "cycleIndex": 2,
+        "endAlternateThreshold": 40,
+        "endRtClassification": "Clean",
+        "hReadBracket": {
+          "dataAfterUs": 178074992104,
+          "headerBeforeUs": 178074992025
+        },
+        "history0U16x4": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "publicationBoundMirror": 200,
+        "publicationBoundMirrorIsActualFpProven": false,
+        "q0U16": 0,
+        "recordOrdinal0U32": 0,
+        "selectorC7": 0,
+        "startAlternateThreshold": 40,
+        "startEndRtExactTimesRetained": false,
+        "startRtClassification": "Clean"
+      },
+      {
+        "a0Low16": 0,
+        "a0Low16Above40": false,
+        "a0U32": 0,
+        "cleanRBrackets": true,
+        "cycleIndex": 3,
+        "endAlternateThreshold": 40,
+        "endRtClassification": "Clean",
+        "hReadBracket": {
+          "dataAfterUs": 178075242262,
+          "headerBeforeUs": 178075242181
+        },
+        "history0U16x4": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "publicationBoundMirror": 200,
+        "publicationBoundMirrorIsActualFpProven": false,
+        "q0U16": 0,
+        "recordOrdinal0U32": 0,
+        "selectorC7": 1,
+        "startAlternateThreshold": 40,
+        "startEndRtExactTimesRetained": false,
+        "startRtClassification": "Clean"
+      },
+      {
+        "a0Low16": 0,
+        "a0Low16Above40": false,
+        "a0U32": 0,
+        "cleanRBrackets": true,
+        "cycleIndex": 4,
+        "endAlternateThreshold": 40,
+        "endRtClassification": "Clean",
+        "hReadBracket": {
+          "dataAfterUs": 178075494831,
+          "headerBeforeUs": 178075494688
+        },
+        "history0U16x4": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "publicationBoundMirror": 40,
+        "publicationBoundMirrorIsActualFpProven": false,
+        "q0U16": 0,
+        "recordOrdinal0U32": 0,
+        "selectorC7": 1,
+        "startAlternateThreshold": 40,
+        "startEndRtExactTimesRetained": false,
+        "startRtClassification": "Clean"
+      },
+      {
+        "a0Low16": 38,
+        "a0Low16Above40": false,
+        "a0U32": 38,
+        "cleanRBrackets": true,
+        "cycleIndex": 5,
+        "endAlternateThreshold": 40,
+        "endRtClassification": "Clean",
+        "hReadBracket": {
+          "dataAfterUs": 178075744242,
+          "headerBeforeUs": 178075743954
+        },
+        "history0U16x4": [
+          0,
+          4,
+          0,
+          4
+        ],
+        "publicationBoundMirror": 40,
+        "publicationBoundMirrorIsActualFpProven": false,
+        "q0U16": 0,
+        "recordOrdinal0U32": 41,
+        "selectorC7": 1,
+        "startAlternateThreshold": 40,
+        "startEndRtExactTimesRetained": false,
+        "startRtClassification": "Clean"
+      }
+    ],
+    "schema": "dp-score-checkpoint-interpretation-v1"
+  },
+  "softwareOnsetObserved": true,
+  "transportAccepted": true,
+  "trialQualificationScope": "clean cycle-one trigger, successful down/up workflow and completed R coverage at/after Down begins; causality not established",
+  "trialQualified": true,
+  "trialRejectionReasons": [],
+  "uiReceiptObserved": false,
+  "workflowAttempts": 1
+}

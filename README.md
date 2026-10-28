@@ -8,6 +8,8 @@ This repository preserves the substantive work performed during the investigatio
 
 **2026-10-28 evidence-guide update:** completed contained filesystem readers, display/AVE and cross-core RTP source maps, an evidence graph and autonomous software-onset records are now linked in the [firmware evidence guide](docs/firmware-evidence-guide-20261028.md). Accepted controller subrecords, rejected enclosing workflows and separate recovery remain distinct. Physical visibility is unobserved for new unattended trials.
 
+**2026-10-28 RTP instrumentation update:** three separate scientific fixtures reproduce two unchanged-limit40 faults, later fixed-bottom input consistency, and an accepted reversible40→200→40 experiment. Both observations in the latter experiment stayed clean, so prevention remains inconclusive. See the [record and score guide](docs/rtp-records-20261028.md); all three verifiers run offline without private device/authentication state. Rejected preparations, exact restoration and software/physical limits remain explicit.
+
 The investigated software model identifies as **QN77S95FAFXZC**, with panel **CY-AF077FLLV2H** and Linux **5.4.261**. A separate board marking identifies a regional QN77S95FAFXZA assembly. Those observations do not make other firmware or hardware revisions equivalent.
 
 ## Start here

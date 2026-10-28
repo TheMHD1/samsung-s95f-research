@@ -1,37 +1,35 @@
 {
-  "schema": "s95f-all-public-tree-privacy-v3",
-  "scope": "All candidate release content; known actual salt/signature/nonce/saved-token matching only in memory; private filename-key/path-field JSON metadata audit; deterministic patterns supplemented by explicit synthetic fixture/regex review; no target or network operations",
-  "scanned_files": 6581,
-  "scanned_bytes": 147321577,
-  "largest_public_file": {
-    "path": "manifests/source-dispositions.json",
-    "bytes": 25142560
-  },
-  "known_private_patterns": 40,
-  "known_values_or_hashes_in_report": false,
   "findings": [],
+  "known_private_patterns": 60,
+  "known_values_or_hashes_in_report": false,
+  "local_links_checked": 960,
+  "missing_local_links": [],
   "reviewed_synthetic_pattern_exceptions": [
     {
-      "path": "tests/test_public_export.py",
       "kind": "private-ipv4",
-      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
-    },
-    {
       "path": "tests/test_public_export.py",
-      "kind": "private-absolute-home",
-      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
+      "reason": "explicit synthetic redaction regression inputs"
     },
     {
+      "kind": "private-home",
+      "path": "tests/test_public_export.py",
+      "reason": "explicit synthetic redaction regression inputs"
+    },
+    {
+      "kind": "private-home",
       "path": "tools/export_public.py",
-      "kind": "private-absolute-home",
-      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
+      "reason": "explicit synthetic redaction regression inputs"
     },
     {
+      "kind": "private-home",
       "path": "tools/verify_public.py",
-      "kind": "private-absolute-home",
-      "classification": "Reviewed synthetic redaction fixture or regex implementation, not actual private identity"
+      "reason": "explicit synthetic redaction regression inputs"
     }
   ],
-  "new_guide_missing_local_links": [],
+  "scanned_bytes": 153412364,
+  "scanned_files": 7328,
+  "schema": "s95f-all-public-tree-privacy-v4",
+  "scope": "All candidate content scanned before sealing this receipt; known actual salt/signature/nonce/saved-token/private-label checks performed in memory. Explicit fixture schemas omit device/binding/authentication state and OEM callback instruction bytes. Synthetic redaction inputs and regex literals separately reviewed. No target activity.",
+  "selected_frozen_inputs_verified": 959,
   "target_operations": 0
 }

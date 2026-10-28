@@ -1,52 +1,194 @@
 {
-  "schema": "s95f-public-validation-v1",
-  "publication_unittests": {
-    "passed": 17,
-    "normal_and_optimized_python": true,
-    "scope": "Transform/omission/privacy regressions, private filename-key inventories, upstream MIT notice and public CB fixture"
-  },
-  "retained_python_syntax": {
-    "findings": 0,
-    "scope": "All exported Python files parsed with ast.parse; no target execution",
-    "files_verified": 6544
-  },
-  "swu_host_mock": {
-    "passed": true,
-    "compiler": "C11, -Wall -Wextra -Werror -Wpedantic, AddressSanitizer and UndefinedBehaviorSanitizer",
-    "cases": "3 golden frames; 8 failure stages; 2 output-size-mutation successes; 3 count overflows; 2 input rejections; canaries and cleanup",
-    "target_calls": 0
-  },
-  "limitations": "Offline publication checks; no target activity. Actual DH outcomes retain accepted controller subrecords versus rejected enclosing first workflow, separate accepted continuation, accepted80-cycle Apps control and accepted second workflow. Physical visibility unobserved and permanent prevention unestablished. Original firmware platform driver rejection/offline receipt reconciliation remains. OEM/private inputs, DJ and unfinished DF analysis excluded.",
-  "public_cb_fixture": {
-    "checks_normal": 211,
-    "checks_optimized": 211,
-    "raw_windows": 18,
-    "raw_bytes": 2268,
-    "damaged_variants_rejected": 11,
-    "scope": "Scientific subset only; no private transport reauthentication, exact physical timestamp or causality inference."
+  "evidence_guide": {
+    "apps_control_clean_cycles": 80,
+    "dg_normal_unittest_cases": 6,
+    "dg_optimized_unittest_cases": 6,
+    "dh_frozen_checkpoint_sha256": "76377fc1a66d6901ab9274a29e4a249228beee2f44b423474534c380695f33d0",
+    "first_parent_workflow_accepted": false,
+    "initial_graph_edges": 119,
+    "initial_graph_nodes": 98,
+    "latest_graph_edges": 130,
+    "latest_graph_nodes": 105,
+    "new_physical_state": "unobserved",
+    "original_authored_refs": 17,
+    "second_parent_workflow_accepted": true,
+    "source_files_verified_unchanged": 382,
+    "stock_mode2_requests": 3,
+    "volatile_threshold_writes": 0
   },
   "firmware_main_sections": {
     "accepted": 9,
     "firmware_written": false,
+    "native_reinvoked": false,
     "platform_original_driver_accepted": false,
-    "platform_reconciled_native_receipt": true,
-    "native_reinvoked": false
+    "platform_reconciled_native_receipt": true
   },
-  "evidence_guide": {
-    "initial_graph_nodes": 98,
-    "initial_graph_edges": 119,
-    "latest_graph_nodes": 105,
-    "latest_graph_edges": 130,
-    "original_authored_refs": 17,
-    "dg_normal_unittest_cases": 6,
-    "dg_optimized_unittest_cases": 6,
-    "source_files_verified_unchanged": 382,
-    "dh_frozen_checkpoint_sha256": "76377fc1a66d6901ab9274a29e4a249228beee2f44b423474534c380695f33d0",
-    "apps_control_clean_cycles": 80,
-    "new_physical_state": "unobserved",
-    "first_parent_workflow_accepted": false,
-    "second_parent_workflow_accepted": true,
-    "stock_mode2_requests": 3,
-    "volatile_threshold_writes": 0
+  "limitations": "No target activity in publication checks. Scientific subsets do not reauthenticate private transport/readiness. All original refusals and separate recovery remain. Accepted reversible RAM-field set/restore is not causal prevention: clean80 at200/max26 and clean80 at restored40/max24, no sampled >40 witness. OEM/private inputs and moving DX excluded. Historical fixed-A branch/record epoch, physical picture and permanent fix remain unproved.",
+  "public_cb_fixture": {
+    "checks_normal": 211,
+    "checks_optimized": 211,
+    "damaged_variants_rejected": 11,
+    "raw_bytes": 2268,
+    "raw_windows": 18,
+    "scope": "Scientific subset only; no private transport reauthentication, exact physical timestamp or causality inference."
+  },
+  "publication_unittests": {
+    "normal_and_optimized_python": true,
+    "passed": 28,
+    "scope": "Export/privacy/license and CB plus three distinct RTP fixture semantic/corruption/privacy regressions"
+  },
+  "retained_python_syntax": {
+    "files_verified": 7277,
+    "findings": 0,
+    "scope": "See verification.json generated against the sealed export; ast.parse only, no target execution"
+  },
+  "rtp_fixtures": {
+    "dp40_dm": {
+      "accepted": true,
+      "actualFixedABranchProven": false,
+      "checkpointBytes": 170,
+      "checks": 773,
+      "dmConditionalAByX": {
+        "570": 1861,
+        "571": 1861,
+        "622": 550,
+        "623": 550,
+        "624": 3052,
+        "625": 3052,
+        "632": 1718,
+        "633": 1718
+      },
+      "dpCleanScores": [
+        0,
+        0,
+        0,
+        0,
+        38
+      ],
+      "dpPostfaultA0": 42,
+      "dpSoftwareBracket": {
+        "afterUs": 178075994144,
+        "beforeUs": 178075744603,
+        "widthUs": 249541
+      },
+      "physicalPictureObserved": false,
+      "preventionEstablished": false,
+      "rawBytesIncludingCheckpoints": 4986,
+      "rawWindows": 48,
+      "recordEpochProven": false,
+      "schema": "public-rtp-verification-v1",
+      "targetOperations": 0,
+      "wholeLiveImageAttested": false
+    },
+    "finite_limit_comparison": {
+      "accepted": true,
+      "callbackAdmissionReplayed": false,
+      "causalPreventionEstablished": false,
+      "checkpointBytes": 5440,
+      "checks": 965,
+      "greaterThan40WitnessAt200": false,
+      "observe200": {
+        "c7Values": [
+          0,
+          1
+        ],
+        "cleanCycles": 80,
+        "endUs": 180357739520,
+        "limit": 200,
+        "maximumA0": 26,
+        "startUs": 180337735512
+      },
+      "physicalPictureObserved": false,
+      "rawBytesIncludingCheckpoints": 10376,
+      "rawWindows": 42,
+      "rechallenge40": {
+        "c7Values": [
+          0,
+          1
+        ],
+        "cleanCycles": 80,
+        "endUs": 180514763449,
+        "limit": 40,
+        "maximumA0": 24,
+        "startUs": 180494756532
+      },
+      "restoredValue": 40,
+      "schema": "public-rtp-limit-verification-v1",
+      "targetOperations": 0
+    },
+    "fixed_reference": {
+      "absent622623BSourceObserved": false,
+      "accepted": true,
+      "actualFixedABranchProven": false,
+      "checkpointBytes": 170,
+      "checks": 841,
+      "conditionalBottomMatches": 41,
+      "dpCleanScores": [
+        0,
+        0,
+        0,
+        0,
+        28
+      ],
+      "dpPostfaultA0": 42,
+      "dpSoftwareBracket": {
+        "afterUs": 179323254213,
+        "beforeUs": 179323001087,
+        "widthUs": 253126
+      },
+      "dtConditionalAByX": {
+        "570": 1857,
+        "571": 1857,
+        "624": 3053,
+        "625": 3053,
+        "632": 1717,
+        "633": 1717
+      },
+      "fixedCandidates": {
+        "bottom": {
+          "570": 1857,
+          "571": 1857,
+          "622": 454,
+          "623": 454,
+          "624": 3053,
+          "625": 3053,
+          "632": 1717,
+          "633": 1717
+        },
+        "top": {
+          "570": 2168,
+          "571": 2168,
+          "622": 2160,
+          "623": 2160,
+          "624": 2149,
+          "625": 2149,
+          "632": 2157,
+          "633": 2157
+        }
+      },
+      "physicalPictureObserved": false,
+      "preventionEstablished": false,
+      "rawBytesIncludingCheckpoints": 5402,
+      "rawWindows": 52,
+      "recordEpochProven": false,
+      "schema": "public-rtp-reference-verification-v1",
+      "targetOperations": 0,
+      "topMismatches": 41,
+      "wholeLiveImageAttested": false
+    }
+  },
+  "rtp_independent_comparison": {
+    "analysis_inventory_sha256": "010380cea31ae62d13246d3b80fba9427f2992ff753bc498332aa0b8848bc4f5",
+    "checks_normal": 3788,
+    "checks_optimized": 3788,
+    "pinned_inputs": 338,
+    "scope": "Retained private-evidence replay already performed independently; fresh public clone reproduces the explicitly whitelisted subsets only."
+  },
+  "schema": "s95f-public-validation-v1",
+  "swu_host_mock": {
+    "cases": "3 golden frames; 8 failure stages; 2 output-size-mutation successes; 3 count overflows; 2 input rejections; canaries and cleanup",
+    "compiler": "C11, -Wall -Wextra -Werror -Wpedantic, AddressSanitizer and UndefinedBehaviorSanitizer",
+    "passed": true,
+    "target_calls": 0
   }
 }
