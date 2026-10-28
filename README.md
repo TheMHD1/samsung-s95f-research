@@ -1,5 +1,8 @@
 # Samsung S95F reverse-engineering workbench
 
+
+The latest fixed [wake-window logging update](docs/wake-fault-logging-20261028.md) adds completed FO–GF sources/reviews and two public scientific projections: GC ends77rows76Clean+1Quiescent with Hmax36; GF captures CleanH40→FaultH48 with a newly paired stock736event and zero wrapper keys. The separate checked stock recovery ends Clean40/logger0/N0 and cached Apps+saver; physical light and an actual FP/caller remain unobserved. Earlier logging cutoffs below retain their historical scope; GG/GH and mutable CURRENT remain outside this release.
+
 An experimental research corpus for the Samsung S95F / Tizen platform: access and host-assisted persistence, UI and application control, firmware formats, kernel and display architecture, external controller protocols, hardware attribution, and bounded instrumentation.
 
 This repository preserves the substantive work performed during the investigation, including failed experiments, rejected collectors, independent reviews, superseded interpretations, instruction traces, source reproducers, helpers, and host tests. A content-dependent physical blackout is one case study within the broader platform research. There is no demonstrated permanent blackout fix.

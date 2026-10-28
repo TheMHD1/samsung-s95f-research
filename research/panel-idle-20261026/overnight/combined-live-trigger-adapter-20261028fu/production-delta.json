@@ -1,0 +1,195 @@
+{
+  "base": "combined-event-successor-20261028fn",
+  "files": {
+    "prepare-readiness.py": [
+      {
+        "new": "    'fu': ('combined-live-trigger-adapter-20261028fu/run-once.py', 'fu-combined-live-event-readiness-decision-v1'),\n",
+        "old": "    'fn': ('combined-event-successor-20261028fn/run-once.py', 'fn-combined-event-readiness-decision-v1'),\n",
+        "oldEnd": 14,
+        "oldStart": 13
+      },
+      {
+        "new": "    cli.add_argument('--preparation', required=True, type=Path)\n    cli.add_argument('--preparation-sha256', required=True)\n    cli.add_argument('--manifest-sha256', required=True)\n    cli.add_argument('--execute', action='store_true')\n",
+        "old": "",
+        "oldEnd": 32,
+        "oldStart": 32
+      },
+      {
+        "new": "    wrapper = load(B / relative, args.wrapper_sha256, 'fu_readiness_wrapper')\n    manifest, _ = wrapper.build_manifest()\n    manifest_raw = wrapper.manifest_bytes(manifest)\n    if sha(manifest_raw) != args.manifest_sha256 or manifest_raw != (B / 'combined-live-trigger-adapter-20261028fu/deployment-manifest.json').read_bytes():\n        raise ValueError('sealed derivative manifest')\n    preparation = load(B / 'combined-live-trigger-adapter-20261028fu/prepare-live.py', manifest['sources']['prepare-live.py']['sha256'], 'fu_preparation_certificate')\n    preparation.load_certificate(args.preparation, args.preparation_sha256, args.manifest_sha256)\n",
+        "old": "    wrapper = load(B / relative, args.wrapper_sha256, 'fn_readiness_wrapper')\n",
+        "oldEnd": 39,
+        "oldStart": 38
+      },
+      {
+        "new": "    paths = [args.phase_note, args.identity, args.preparation, *args.evidence]\n",
+        "old": "    paths = [args.phase_note, args.identity, *args.evidence]\n",
+        "oldEnd": 45,
+        "oldStart": 44
+      },
+      {
+        "new": "    if not args.execute:\n        print(json.dumps({'mode': 'dry', 'manifestSha256': args.manifest_sha256, 'targetOperations': 0, 'preparationValidated': True}))\n        return\n",
+        "old": "",
+        "oldEnd": 57,
+        "oldStart": 57
+      },
+      {
+        "new": "    root = load(ROOT, ROOT_SHA, 'fu_readiness_root')\n    record = {'schema': 'fu-fresh-cached-readiness-v1', 'calls': []}\n    text = root.root('set -eu\\n' + wrapper.metadata_body(identity, 'FU_CURRENT_READY'),\n",
+        "old": "    root = load(ROOT, ROOT_SHA, 'fn_readiness_root')\n    record = {'schema': 'fn-fresh-cached-readiness-v1', 'calls': []}\n    text = root.root('set -eu\\n' + wrapper.metadata_body(identity, 'FN_CURRENT_READY'),\n",
+        "oldEnd": 61,
+        "oldStart": 58
+      },
+      {
+        "new": "    census = wrapper.parse_metadata(text, 'FU_CURRENT_READY')\n",
+        "old": "    census = wrapper.parse_metadata(text, 'FN_CURRENT_READY')\n",
+        "oldEnd": 64,
+        "oldStart": 63
+      }
+    ],
+    "run-once.py": [
+      {
+        "new": "\"\"\"FU Live-header event adapter using unchanged FN native/parser; dry by default.\"\"\"\n",
+        "old": "\"\"\"FN stock event logger/checkpoints, one owner; dry by default.\"\"\"\n",
+        "oldEnd": 2,
+        "oldStart": 1
+      },
+      {
+        "new": "FN = B / 'combined-event-successor-20261028fn'\n",
+        "old": "",
+        "oldEnd": 15,
+        "oldStart": 15
+      },
+      {
+        "new": "WAKE_SHA = '2d228ed789b83bfe94d7b88bc7617d39309790e57567909611623eaac16e7214'\n",
+        "old": "WAKE_SHA = '8eed8a0192304a57e0356b8960a82e18cf8e4eddf81de82301833479e7bd7574'\n",
+        "oldEnd": 22,
+        "oldStart": 21
+      },
+      {
+        "new": "SOURCE_NAMES=['run-once.py','wake-check.py','prepare-live.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','input-pins.json','build-host.sh','finalize.py','production-delta.json']\n",
+        "old": "SOURCE_NAMES=['Protocol.cs','Engine.cs','NativeBinding.cs','OnsetKey.cs','ScoreCheckpoints.cs','ReceiptMain.cs','HostTests.cs','CombinedEventSuccessor.csproj','NuGet.Config','run-once.py','parse-result.py','wake-check.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','budget.json','input-pins.json','build-host.sh','finalize.py','qualify-scan.py','test-key-exposure.py','key-exposure-revision.json','qualify-context.py','successor-delta.json']\n",
+        "oldEnd": 79,
+        "oldStart": 78
+      },
+      {
+        "new": "    checkpoint_raw=(FN/'host-build-checkpoint.json').read_bytes()\n",
+        "old": "    checkpoint_raw=(HERE/'host-build-checkpoint.json').read_bytes()\n",
+        "oldEnd": 81,
+        "oldStart": 80
+      },
+      {
+        "new": "        raw=(FN/name).read_bytes();need(expected=={'bytes':len(raw),'sha256':sha(raw)},'host source/payload '+name)\n",
+        "old": "        raw=(HERE/name).read_bytes();need(expected=={'bytes':len(raw),'sha256':sha(raw)},'host source/payload '+name)\n",
+        "oldEnd": 86,
+        "oldStart": 85
+      },
+      {
+        "new": "    need(sha((FN/'parse-result.py').read_bytes())==PARSER_SHA and sha((HERE/'wake-check.py').read_bytes())==WAKE_SHA,'parser/wake pins')\n",
+        "old": "    need(sha((HERE/'parse-result.py').read_bytes())==PARSER_SHA and sha((HERE/'wake-check.py').read_bytes())==WAKE_SHA,'parser/wake pins')\n",
+        "oldEnd": 92,
+        "oldStart": 91
+      },
+      {
+        "new": "    return {'schema':'fu-combined-live-event-wrapper-manifest-v1','hostCheckpointSha256':CHECKPOINT_SHA,'nativeFiles':cp['files'],'sources':sources,'parentWakeWrapperSha256':'2330853ea796dcb1a0a98602553c9a9f04750892f9161de439a39875f5010b15','rootAdapterSha256':ROOT_SHA,'nativeInvocations':1,'retries':0,'threshold':40,'loggerWritesMaximum':2,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'structuredReceiptCap':24576,'sidecarBytesEach':15372,'sidecarNames':['baseline-ring.bin','post-ring.bin'],'wholeCooperativeBudgetUs':40000000,'cleanupReserveUs':26000000,'keyJoinReserveUs':7000000,'expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','wrapperUiOperations':1,'readinessSchema':'fu-combined-live-event-readiness-decision-v1','physicalPictureObserved':False,'keyExposureRequiresSuccessfulDownBeforeLaterOptionalR':True,'keyExposureIsSeparateFromProtocolAcceptance':True},payload\n",
+        "old": "    return {'schema':'fn-combined-event-wrapper-manifest-v1','hostCheckpointSha256':CHECKPOINT_SHA,'nativeFiles':cp['files'],'sources':sources,'parentWakeWrapperSha256':'2330853ea796dcb1a0a98602553c9a9f04750892f9161de439a39875f5010b15','rootAdapterSha256':ROOT_SHA,'nativeInvocations':1,'retries':0,'threshold':40,'loggerWritesMaximum':2,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'structuredReceiptCap':24576,'sidecarBytesEach':15372,'sidecarNames':['baseline-ring.bin','post-ring.bin'],'wholeCooperativeBudgetUs':40000000,'cleanupReserveUs':26000000,'keyJoinReserveUs':7000000,'wrapperUiOperations':1,'readinessSchema':'fn-combined-event-readiness-decision-v1','physicalPictureObserved':False,'keyExposureRequiresSuccessfulDownBeforeLaterOptionalR':True,'keyExposureIsSeparateFromProtocolAcceptance':True},payload\n",
+        "oldEnd": 94,
+        "oldStart": 93
+      },
+      {
+        "new": "    need(value['schema'] == 'fu-combined-live-event-readiness-decision-v1' and value['accepted'] is True,\n",
+        "old": "    need(value['schema'] == 'fn-combined-event-readiness-decision-v1' and value['accepted'] is True,\n",
+        "oldEnd": 110,
+        "oldStart": 109
+      },
+      {
+        "new": "    wake=load_pinned(HERE/'wake-check.py',WAKE_SHA,'fu_frozen_live_wake')\n",
+        "old": "    wake=load_pinned(HERE/'wake-check.py',WAKE_SHA,'fn_frozen_fc_wake')\n",
+        "oldEnd": 242,
+        "oldStart": 241
+      },
+      {
+        "new": "    record={'schema':'fu-combined-live-event-wrapper-record-v1','expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}\n",
+        "old": "    record={'schema':'fn-combined-event-wrapper-record-v1','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}\n",
+        "oldEnd": 249,
+        "oldStart": 248
+      },
+      {
+        "new": "    primary={'schema':'fu-primary-native-outcome-v1','expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','accepted':native['accepted'],'protocolAccepted':interpretation['protocolAccepted'],'terminalKnownPhase':interpretation['terminalKnownPhase'],'phase':native['phase'],'bindingQualified':native['bindingQualified'],'released':native['released'],'closed':native['closed'],'terminal':native['terminal'],'error':native.get('error'),'cleanupError':native.get('cleanupError'),'keyError':native.get('keyError'),'loggerRestore':native['restore'],'loggerMayRemain':native['loggerMayRemain'],'nativeExitCode':record['nativeTerminal']['exit_code'],'receiptSha256':sha(native_raw)}\n",
+        "old": "    primary={'schema':'fn-primary-native-outcome-v1','accepted':native['accepted'],'protocolAccepted':interpretation['protocolAccepted'],'terminalKnownPhase':interpretation['terminalKnownPhase'],'phase':native['phase'],'bindingQualified':native['bindingQualified'],'released':native['released'],'closed':native['closed'],'terminal':native['terminal'],'error':native.get('error'),'cleanupError':native.get('cleanupError'),'keyError':native.get('keyError'),'loggerRestore':native['restore'],'loggerMayRemain':native['loggerMayRemain'],'nativeExitCode':record['nativeTerminal']['exit_code'],'receiptSha256':sha(native_raw)}\n",
+        "oldEnd": 324,
+        "oldStart": 323
+      },
+      {
+        "new": "        result=dict(primary,schema='fu-combined-live-event-wrapper-result-v1',accepted=False,protocolAccepted=False,cleanup='retained',cleanup_required=True,keyExposureQualified=False,manifestSha256=sha(reviewed_manifest),readinessSha256=sha(readiness_raw),nativeInvocations=1,retries=0,thresholdWrites=0)\n",
+        "old": "        result=dict(primary,schema='fn-combined-event-wrapper-result-v1',accepted=False,protocolAccepted=False,cleanup='retained',cleanup_required=True,keyExposureQualified=False,manifestSha256=sha(reviewed_manifest),readinessSha256=sha(readiness_raw),nativeInvocations=1,retries=0,thresholdWrites=0)\n",
+        "oldEnd": 328,
+        "oldStart": 327
+      },
+      {
+        "new": "    result={'schema':'fu-combined-live-event-wrapper-result-v1','expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','accepted':True,'protocolAccepted':True,'keyExposureQualified':interpretation['keyExposureQualified'],'keyExposureReason':interpretation['keyExposureReason'],'downBeganBeforeLaterOptionalR':interpretation['downBeganBeforeLaterOptionalR'],'keyExposure':interpretation['keyExposure'],'headers':native['headers'],'bulks':native['bulks'],'rows':native['rows']['count'],'loggerPayloads':native['writes'],'thresholdWrites':0,'loggerRestore':native['restore'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'wrapperUiOperations':1,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','ringSidecars':record['rawRingSidecars'],'stockLoggerEventArgumentIsExecutingPc':False}\n",
+        "old": "    result={'schema':'fn-combined-event-wrapper-result-v1','accepted':True,'protocolAccepted':True,'keyExposureQualified':interpretation['keyExposureQualified'],'keyExposureReason':interpretation['keyExposureReason'],'downBeganBeforeLaterOptionalR':interpretation['downBeganBeforeLaterOptionalR'],'keyExposure':interpretation['keyExposure'],'headers':native['headers'],'bulks':native['bulks'],'rows':native['rows']['count'],'loggerPayloads':native['writes'],'thresholdWrites':0,'loggerRestore':native['restore'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'wrapperUiOperations':1,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','ringSidecars':record['rawRingSidecars'],'stockLoggerEventArgumentIsExecutingPc':False}\n",
+        "oldEnd": 349,
+        "oldStart": 348
+      },
+      {
+        "new": "    cli.add_argument('--preparation', type=Path)\n    cli.add_argument('--preparation-sha256')\n",
+        "old": "",
+        "oldEnd": 360,
+        "oldStart": 360
+      },
+      {
+        "new": "        print(json.dumps({'schema': 'fu-combined-live-event-wrapper-dry-v1', 'targetOperations': 0,\n",
+        "old": "        print(json.dumps({'schema': 'fn-combined-event-wrapper-dry-v1', 'targetOperations': 0,\n",
+        "oldEnd": 364,
+        "oldStart": 363
+      },
+      {
+        "new": "    need(args.preparation is not None,'bound Live header preparation required')\n    preparation=load_pinned(HERE/'prepare-live.py',manifest['sources']['prepare-live.py']['sha256'],'fu_header_preparation')\n    preparation.load_certificate(args.preparation,args.preparation_sha256,sha(raw_manifest))\n    need({'path':str(args.preparation),'sha256':args.preparation_sha256}in readiness['evidence'],'readiness must bind exact Live preparation certificate')\n",
+        "old": "",
+        "oldEnd": 379,
+        "oldStart": 379
+      },
+      {
+        "new": "    parser = load_pinned(FN / 'parse-result.py', PARSER_SHA, 'bx_synchronized_parser')\n",
+        "old": "    parser = load_pinned(HERE / 'parse-result.py', PARSER_SHA, 'bx_synchronized_parser')\n",
+        "oldEnd": 382,
+        "oldStart": 381
+      }
+    ],
+    "wake-check.py": [
+      {
+        "new": "\"\"\"One fixed ordinary wake and strict cached Live checkpoint; no controller access.\"\"\"\n",
+        "old": "\"\"\"One fixed ordinary wake and strict cached Apps checkpoint; no controller access.\"\"\"\n",
+        "oldEnd": 2,
+        "oldStart": 1
+      },
+      {
+        "new": " need(tabs==['memory/eden/current_tab, value = d/ug.tab@Live (String)'],'exactly one canonical Live row')\n return {'cachedTab':'d/ug.tab@Live','screensaverWindowsPresent':any(v in text for v in ['ScreenSaver.dll','ScreenSaverContent.dll']),'csfsWindowPresent':'/opt/usr/apps/com.samsung.tv.csfs/bin/csfs.dll'in text,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}\n",
+        "old": " need(tabs==['memory/eden/current_tab, value = d/apps.tab (String)'],'exactly one canonical Apps row')\n return {'cachedTab':'d/apps.tab','screensaverWindowsPresent':any(v in text for v in ['ScreenSaver.dll','ScreenSaverContent.dll']),'csfsWindowPresent':'/opt/usr/apps/com.samsung.tv.csfs/bin/csfs.dll'in text,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}\n",
+        "oldEnd": 32,
+        "oldStart": 30
+      },
+      {
+        "new": " checkpoint.update(schema='fu-live-wake-checkpoint-v1',status='intent',startedHostMonotonicNs=start,wrapperUiOperationsAttempted=1,wrapperUiOperationsCompleted=0,keyChildAttempts=None,keyPairReceiptComplete=False,navigationSourceSha256=NAV_SHA,keyBinarySha256=KEY_SHA,executionConfirmed=False,uiConsumptionProven=False,physicalPictureObserved=False,snapshots=[])\n",
+        "old": " checkpoint.update(schema='fc-ordinary-wake-checkpoint-v1',status='intent',startedHostMonotonicNs=start,wrapperUiOperationsAttempted=1,wrapperUiOperationsCompleted=0,keyChildAttempts=None,keyPairReceiptComplete=False,navigationSourceSha256=NAV_SHA,keyBinarySha256=KEY_SHA,executionConfirmed=False,uiConsumptionProven=False,physicalPictureObserved=False,snapshots=[])\n",
+        "oldEnd": 36,
+        "oldStart": 35
+      },
+      {
+        "new": "  raise ValueError('cached Live/noSaver/CSFS settle exhausted')\n",
+        "old": "  raise ValueError('cached Apps/noSaver/CSFS settle exhausted')\n",
+        "oldEnd": 58,
+        "oldStart": 57
+      },
+      {
+        "new": " need(type(checkpoint)is dict and checkpoint.get('schema')=='fu-live-wake-checkpoint-v1'and checkpoint.get('status')=='accepted_cached_checkpoint','completed wake schema')\n",
+        "old": " need(type(checkpoint)is dict and checkpoint.get('schema')=='fc-ordinary-wake-checkpoint-v1'and checkpoint.get('status')=='accepted_cached_checkpoint','completed wake schema')\n",
+        "oldEnd": 70,
+        "oldStart": 69
+      }
+    ]
+  },
+  "nativeExecutionFlowChanges": 0,
+  "nativeSourceParserAndPayloadChanges": 0,
+  "prepareKeysSeparate": true,
+  "schema": "fu-production-delta-v1"
+}

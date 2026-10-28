@@ -1,0 +1,13 @@
+# GC diagnostic decision and scope
+
+The prior FW trial was not an intended For You onset capture: the initial R was already faulted before arm or native Left. Its 288.7-second baseline-to-fault interval cannot identify an individual UI trigger. GC begins from a separately accepted fresh EB66 clean Apps baseline and does not reuse FW as an armed event trace.
+
+FZ is the directly constructible next intervention: retain Apps preparation, source-identical ordinary Apps wake, same native one Left and all original40 guards/packets, but allow up to81 rows within the existing two-second window. The actual native pre-arm and first-clean checks remain mandatory. More rows alone do not establish destination or physical picture. The dry source manifest must regenerate exactly and independent review must close before native invocation.
+
+The useful positive result would be an armed clean-to-fault transition plus a newly bounded candidate stock setter event. A faulted pre-arm is still an honest refusal and must be separately reconciled. A clean completed run with score no higher than40 is inconclusive for a threshold workaround. A deadline-partial run remains refused even if it includes useful partial evidence and a verified logger restore; its stage stays until separately qualified preservation/cleanup. Missing log text cannot establish event absence because stock formatting, ring history and asynchronous writers remain possible.
+
+GA's no-wrapper-key Live+saver recorder solves a different ordering problem: it can place a saver-intended wake after arm if the clean Live+saver premise exists. Current cached Apps+saver and cleanR do not establish that premise. GB/GE qualify a separate stock-init prerequisite; no Apps guard is silently removed from the existing recovery helper and no automatic wake/reset retry is introduced.
+
+GD now executes the actual selected Thumb predicate on the host. The actual GC sampled controls select200 when hypothetical C7=0 and40 when C7=1. A supplied score41 therefore takes different branches. Matching alternate200 to fallback200 is a concrete source-level workaround hypothesis, supported but not established by earlier EX actual finite200/40 observations. GD's T, score and selector interventions are explicit counterfactuals; they neither record live FP nor prove physical prevention. The limit also controls publication capacity, and prior experiment history/reference state differs, so no pure-threshold causal claim is made.
+
+Parent alone controls the TV. Current root/transport state, actual operation results and raw bytes override all prior notes. No threshold, executable, kernel, boot or flash write is part of this trial plan. Completion of one capture is not completion of the diagnosis/prevention objective.

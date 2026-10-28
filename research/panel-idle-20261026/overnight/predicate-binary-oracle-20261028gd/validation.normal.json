@@ -1,0 +1,128 @@
+{
+  "actualComparisonOperandsProven": false,
+  "actualTargetInvocationProven": false,
+  "cases": 1000,
+  "checks": 7004,
+  "currentControlCounterfactual": [
+    {
+      "actualCapturedFallbackLimit": 200,
+      "comparison": {
+        "mode": 1,
+        "score": 41,
+        "t": 0,
+        "threshold": 200
+      },
+      "counterfactualNotObservedInvocation": true,
+      "faultTuple": [
+        0,
+        0,
+        1
+      ],
+      "suppliedAlternateLimit": 40,
+      "suppliedScore": 41,
+      "suppliedSelector": 0
+    },
+    {
+      "actualCapturedFallbackLimit": 200,
+      "comparison": {
+        "mode": 1,
+        "score": 41,
+        "t": 0,
+        "threshold": 40
+      },
+      "counterfactualNotObservedInvocation": true,
+      "faultTuple": [
+        1,
+        4097,
+        0
+      ],
+      "suppliedAlternateLimit": 40,
+      "suppliedScore": 41,
+      "suppliedSelector": 1
+    },
+    {
+      "actualCapturedFallbackLimit": 200,
+      "comparison": {
+        "mode": 1,
+        "score": 41,
+        "t": 0,
+        "threshold": 200
+      },
+      "counterfactualNotObservedInvocation": true,
+      "faultTuple": [
+        0,
+        0,
+        1
+      ],
+      "suppliedAlternateLimit": 200,
+      "suppliedScore": 41,
+      "suppliedSelector": 1
+    },
+    {
+      "actualCapturedFallbackLimit": 200,
+      "comparison": {
+        "mode": 1,
+        "score": 76,
+        "t": 0,
+        "threshold": 200
+      },
+      "counterfactualNotObservedInvocation": true,
+      "faultTuple": [
+        0,
+        0,
+        1
+      ],
+      "suppliedAlternateLimit": 200,
+      "suppliedScore": 76,
+      "suppliedSelector": 1
+    }
+  ],
+  "currentControlCounterfactualCases": 4,
+  "currentControlInputs": [
+    {
+      "bytes": 256,
+      "name": "start-R.bin",
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/wake-window-trial-20261028gc/baseline-capture/start-R.bin",
+      "sha256": "6b0164a2d8d8bd4fe829feade4cfc429fa6386e54b147c5caa66230fb1335050"
+    },
+    {
+      "bytes": 16,
+      "name": "C.bin",
+      "path": "${S95F_EVIDENCE_ROOT}/panel-idle-20261026/overnight/wake-window-trial-20261028gc/baseline-capture/C.bin",
+      "sha256": "c9bc21efabc33dc5c687f230ecf321722552c99518957cc37b833c7aaaf9c2b0"
+    }
+  ],
+  "fixedStubs": {
+    "0x1b8c8": "records formatter call; no ring side effects",
+    "0x1c0c8": "records mode/action4; no hardware action",
+    "0x35a4": "ordinary gate busywait reports available0",
+    "0xc8a0": "caller-supplied model T",
+    "0xca10": "caller-supplied model T"
+  },
+  "instructionHookInstalled": false,
+  "maximumInstructions": 176,
+  "physicalOrRootCauseFixProven": false,
+  "realInstructionRanges": [
+    [
+      "0x1e46",
+      "0x2042"
+    ],
+    [
+      "0x38f4",
+      "0x38f8"
+    ],
+    [
+      "0x38fc",
+      "0x3902"
+    ],
+    [
+      "0xc1e0",
+      "0xc214"
+    ]
+  ],
+  "schema": "gd-predicate-binary-oracle-v1",
+  "selectedPackageSha256": "bad60bca4d6064406f14e53da3528d46701ec9c81673f4323db1937f6a2017e0",
+  "setterCases": 291,
+  "targetOperations": 0,
+  "unicornVersion": "2.1.4"
+}

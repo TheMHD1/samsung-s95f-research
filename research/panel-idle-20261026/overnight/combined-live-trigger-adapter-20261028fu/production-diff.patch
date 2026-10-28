@@ -1,0 +1,238 @@
+--- FN/run-once.py
++++ FU/run-once.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""FN stock event logger/checkpoints, one owner; dry by default."""
++"""FU Live-header event adapter using unchanged FN native/parser; dry by default."""
+ import argparse
+ import base64
+ import hashlib
+@@ -13,13 +13,14 @@
+ 
+ HERE = Path(__file__).resolve().parent
+ B = HERE.parent
++FN = B / 'combined-event-successor-20261028fn'
+ ER = B / 'rtp-quiescent-checkpoints-20261028er'
+ ER_WRAPPER_SHA = '775348193491a927e82731a8e7cbc2d201b903f39d7e9359cc4a17fb921f433f'
+ NAV = B / 'ui-navigation-20261027br/navigate.py'
+ NAV_SHA = '74b60a9611f35a76d272b33677f773cc955838c2c6dda2c3565c371cc9d4d530'
+ FB = B / 'reader-wake-window-design-20261028fb'
+ FB_INVENTORY_SHA = '97def99d445fe2d7a7a3cd8b370bf4ed80fd6014df3d84f9d0a5ac2582cded7e'
+-WAKE_SHA = '8eed8a0192304a57e0356b8960a82e18cf8e4eddf81de82301833479e7bd7574'
++WAKE_SHA = '2d228ed789b83bfe94d7b88bc7617d39309790e57567909611623eaac16e7214'
+ 
+ OLD = B / 'managed-usb-rt-passive-observer/run-once.py'
+ OLD_SHA = 'a4146bc302a764f476e068f456398b8dc34a6e3cc480b876f6e44ed65098cc82'
+@@ -76,22 +77,22 @@
+     path.write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
+ 
+ 
+-SOURCE_NAMES=['Protocol.cs','Engine.cs','NativeBinding.cs','OnsetKey.cs','ScoreCheckpoints.cs','ReceiptMain.cs','HostTests.cs','CombinedEventSuccessor.csproj','NuGet.Config','run-once.py','parse-result.py','wake-check.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','budget.json','input-pins.json','build-host.sh','finalize.py','qualify-scan.py','test-key-exposure.py','key-exposure-revision.json','qualify-context.py','successor-delta.json']
++SOURCE_NAMES=['run-once.py','wake-check.py','prepare-live.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','input-pins.json','build-host.sh','finalize.py','production-delta.json']
+ def build_manifest():
+-    checkpoint_raw=(HERE/'host-build-checkpoint.json').read_bytes()
++    checkpoint_raw=(FN/'host-build-checkpoint.json').read_bytes()
+     need(sha(checkpoint_raw)==CHECKPOINT_SHA,'host checkpoint pin')
+     cp=strict_json(checkpoint_raw);need(cp['targetOperations']==0 and cp['schema']=='fn-host-checkpoint-v1','host checkpoint contract');need(cp['nativeQualification']['targetOperations']==0 and cp['nativeQualification']['maxReceiptBytes']<24576,'host preflight receipt bound')
+     payload={}
+     for name,expected in cp['files'].items():
+-        raw=(HERE/name).read_bytes();need(expected=={'bytes':len(raw),'sha256':sha(raw)},'host source/payload '+name)
++        raw=(FN/name).read_bytes();need(expected=={'bytes':len(raw),'sha256':sha(raw)},'host source/payload '+name)
+         if name.startswith('bin/Release/net6.0/'):
+             need(Path(name).name in NAMES,'payload whitelist');payload[Path(name).name]=raw
+     need(set(payload)==set(NAMES),'three files')
+     for row in strict_json((HERE/'input-pins.json').read_bytes())['files']:
+         need(sha((B/row['path']).read_bytes())==row['sha256'],'frozen source dependency')
+-    need(sha((HERE/'parse-result.py').read_bytes())==PARSER_SHA and sha((HERE/'wake-check.py').read_bytes())==WAKE_SHA,'parser/wake pins')
++    need(sha((FN/'parse-result.py').read_bytes())==PARSER_SHA and sha((HERE/'wake-check.py').read_bytes())==WAKE_SHA,'parser/wake pins')
+     sources={name:{'bytes':len((HERE/name).read_bytes()),'sha256':sha((HERE/name).read_bytes())}for name in SOURCE_NAMES}
+-    return {'schema':'fn-combined-event-wrapper-manifest-v1','hostCheckpointSha256':CHECKPOINT_SHA,'nativeFiles':cp['files'],'sources':sources,'parentWakeWrapperSha256':'2330853ea796dcb1a0a98602553c9a9f04750892f9161de439a39875f5010b15','rootAdapterSha256':ROOT_SHA,'nativeInvocations':1,'retries':0,'threshold':40,'loggerWritesMaximum':2,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'structuredReceiptCap':24576,'sidecarBytesEach':15372,'sidecarNames':['baseline-ring.bin','post-ring.bin'],'wholeCooperativeBudgetUs':40000000,'cleanupReserveUs':26000000,'keyJoinReserveUs':7000000,'wrapperUiOperations':1,'readinessSchema':'fn-combined-event-readiness-decision-v1','physicalPictureObserved':False,'keyExposureRequiresSuccessfulDownBeforeLaterOptionalR':True,'keyExposureIsSeparateFromProtocolAcceptance':True},payload
++    return {'schema':'fu-combined-live-event-wrapper-manifest-v1','hostCheckpointSha256':CHECKPOINT_SHA,'nativeFiles':cp['files'],'sources':sources,'parentWakeWrapperSha256':'2330853ea796dcb1a0a98602553c9a9f04750892f9161de439a39875f5010b15','rootAdapterSha256':ROOT_SHA,'nativeInvocations':1,'retries':0,'threshold':40,'loggerWritesMaximum':2,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'structuredReceiptCap':24576,'sidecarBytesEach':15372,'sidecarNames':['baseline-ring.bin','post-ring.bin'],'wholeCooperativeBudgetUs':40000000,'cleanupReserveUs':26000000,'keyJoinReserveUs':7000000,'expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','wrapperUiOperations':1,'readinessSchema':'fu-combined-live-event-readiness-decision-v1','physicalPictureObserved':False,'keyExposureRequiresSuccessfulDownBeforeLaterOptionalR':True,'keyExposureIsSeparateFromProtocolAcceptance':True},payload
+ 
+ 
+ def manifest_bytes(manifest):
+@@ -107,7 +108,7 @@
+     value = strict_json(raw)
+     need(type(value) is dict and set(value) == {'schema', 'accepted', 'identity', 'interfaceUnbound',
+          'noHolders', 'closedWorldVendorOutLineage', 'evidence', 'endpointQueueProof'}, 'readiness exact fields')
+-    need(value['schema'] == 'fn-combined-event-readiness-decision-v1' and value['accepted'] is True,
++    need(value['schema'] == 'fu-combined-live-event-readiness-decision-v1' and value['accepted'] is True,
+          'readiness accepted decision')
+     need(value['interfaceUnbound'] is True and value['noHolders'] is True and
+          value['endpointQueueProof'] is False, 'readiness metadata/premise distinction')
+@@ -239,14 +240,14 @@
+ 
+ def execute(output, readiness, readiness_raw, reviewed_manifest, payload, root, parser, clock=time.monotonic_ns, sleeper=time.sleep):
+     frozen=old()
+-    wake=load_pinned(HERE/'wake-check.py',WAKE_SHA,'fn_frozen_fc_wake')
++    wake=load_pinned(HERE/'wake-check.py',WAKE_SHA,'fu_frozen_live_wake')
+     need(output.is_absolute() and not output.exists() and not output.is_symlink(),'fresh absolute output')
+     output.mkdir(parents=True,exist_ok=False,mode=0o700)
+     (output/'readiness-decision.json').write_bytes(readiness_raw)
+     (output/'reviewed-manifest.json').write_bytes(reviewed_manifest)
+     stage='/tmp/researcher-fn-'+uuid.uuid4().hex
+     record_path=output/'record.json'
+-    record={'schema':'fn-combined-event-wrapper-record-v1','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}
++    record={'schema':'fu-combined-live-event-wrapper-record-v1','expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}
+     save(record_path,record)
+     def call(command, native_submission=False, ui_wake_submission=False):
+         need(len(command.encode())<=8192,'root command bound')
+@@ -321,11 +322,11 @@
+     native_raw=run('native');native,rows,interpretation=parser.parse_native(native_raw.decode('utf8'));save(output/'interpretation.json',interpretation)
+     # Retain the primary semantic outcome before any ring completeness check or further root call.
+     # Ready/released/closed describes lifecycle; it cannot promote a refused observation.
+-    primary={'schema':'fn-primary-native-outcome-v1','accepted':native['accepted'],'protocolAccepted':interpretation['protocolAccepted'],'terminalKnownPhase':interpretation['terminalKnownPhase'],'phase':native['phase'],'bindingQualified':native['bindingQualified'],'released':native['released'],'closed':native['closed'],'terminal':native['terminal'],'error':native.get('error'),'cleanupError':native.get('cleanupError'),'keyError':native.get('keyError'),'loggerRestore':native['restore'],'loggerMayRemain':native['loggerMayRemain'],'nativeExitCode':record['nativeTerminal']['exit_code'],'receiptSha256':sha(native_raw)}
++    primary={'schema':'fu-primary-native-outcome-v1','expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','accepted':native['accepted'],'protocolAccepted':interpretation['protocolAccepted'],'terminalKnownPhase':interpretation['terminalKnownPhase'],'phase':native['phase'],'bindingQualified':native['bindingQualified'],'released':native['released'],'closed':native['closed'],'terminal':native['terminal'],'error':native.get('error'),'cleanupError':native.get('cleanupError'),'keyError':native.get('keyError'),'loggerRestore':native['restore'],'loggerMayRemain':native['loggerMayRemain'],'nativeExitCode':record['nativeTerminal']['exit_code'],'receiptSha256':sha(native_raw)}
+     save(output/'primary-native-outcome.json',primary)
+     record.update(native_invocations_status='one_completed',target_operations=native['headers'],target_operations_status='native_accepted_pending_sidecars'if native['accepted']else'native_refused',nativeOutcome=primary,loggerPayloads=native['writes']);save(record_path,record)
+     if native['accepted']is not True or record['nativeTerminal']['exit_code']!=0:
+-        result=dict(primary,schema='fn-combined-event-wrapper-result-v1',accepted=False,protocolAccepted=False,cleanup='retained',cleanup_required=True,keyExposureQualified=False,manifestSha256=sha(reviewed_manifest),readinessSha256=sha(readiness_raw),nativeInvocations=1,retries=0,thresholdWrites=0)
++        result=dict(primary,schema='fu-combined-live-event-wrapper-result-v1',accepted=False,protocolAccepted=False,cleanup='retained',cleanup_required=True,keyExposureQualified=False,manifestSha256=sha(reviewed_manifest),readinessSha256=sha(readiness_raw),nativeInvocations=1,retries=0,thresholdWrites=0)
+         save(output/'result.json',result)
+         need(False,'original native refusal preserved: '+str(primary['error']or primary['cleanupError']or primary['keyError']or primary['terminal']))
+     need(str(native['device'])==identity['devnum'],'device binding')
+@@ -346,7 +347,7 @@
+     guarded=call(prefix+frozen.integrity(stage,all_remote,list(all_remote))+'echo FINAL_INTEGRITY_OK\n');need(guarded=='FINAL_INTEGRITY_OK\n','final exact inventory/hash receipt')
+     cleanup=call(prefix+frozen.dir_guard(stage)+frozen.exact_inventory(stage,list(all_remote))+'rm -- '+' '.join(stage+'/'+n for n in all_remote)+'\n'+f'rmdir -- {stage}\ntest ! -e {stage}\ntest ! -L {stage}\necho STAGE_ABSENT\n');need(cleanup=='STAGE_ABSENT\n','cleanup receipt')
+     record['cleanup_required']=False;record['cleanup_stdout']=cleanup;save(record_path,record)
+-    result={'schema':'fn-combined-event-wrapper-result-v1','accepted':True,'protocolAccepted':True,'keyExposureQualified':interpretation['keyExposureQualified'],'keyExposureReason':interpretation['keyExposureReason'],'downBeganBeforeLaterOptionalR':interpretation['downBeganBeforeLaterOptionalR'],'keyExposure':interpretation['keyExposure'],'headers':native['headers'],'bulks':native['bulks'],'rows':native['rows']['count'],'loggerPayloads':native['writes'],'thresholdWrites':0,'loggerRestore':native['restore'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'wrapperUiOperations':1,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','ringSidecars':record['rawRingSidecars'],'stockLoggerEventArgumentIsExecutingPc':False}
++    result={'schema':'fu-combined-live-event-wrapper-result-v1','expectedCachedTab':'Live','intendedNavigation':'Live-header-to-ForYou','accepted':True,'protocolAccepted':True,'keyExposureQualified':interpretation['keyExposureQualified'],'keyExposureReason':interpretation['keyExposureReason'],'downBeganBeforeLaterOptionalR':interpretation['downBeganBeforeLaterOptionalR'],'keyExposure':interpretation['keyExposure'],'headers':native['headers'],'bulks':native['bulks'],'rows':native['rows']['count'],'loggerPayloads':native['writes'],'thresholdWrites':0,'loggerRestore':native['restore'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'wrapperUiOperations':1,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','ringSidecars':record['rawRingSidecars'],'stockLoggerEventArgumentIsExecutingPc':False}
+     save(output/'result.json',result);return result
+ 
+ 
+@@ -358,10 +359,12 @@
+     cli.add_argument('--readiness', type=Path)
+     cli.add_argument('--readiness-sha256')
+     cli.add_argument('--output', type=Path)
++    cli.add_argument('--preparation', type=Path)
++    cli.add_argument('--preparation-sha256')
+     args = cli.parse_args()
+     need(not (args.execute and args.print_manifest), 'one mode')
+     if not args.execute and not args.print_manifest:
+-        print(json.dumps({'schema': 'fn-combined-event-wrapper-dry-v1', 'targetOperations': 0,
++        print(json.dumps({'schema': 'fu-combined-live-event-wrapper-dry-v1', 'targetOperations': 0,
+                           'nativeDurationUs': 2000000, 'nativeMaxCycles': 56, 'checkpointRecordBytes': 58, 'nominalPeriodUs': 25000, 'loggerPayloadsMaximum': 2, 'thresholdWrites': 0, 'nativeUiWorkflow': 'one_Left_after_first_full_clean_cycle',
+                           'rootTimeoutSeconds': 45, 'hostTimeoutSeconds': 75, 'nativeInvocations': 0,
+                           'plannedNativeInvocations': 1, 'wrapperUiOperations': 0, 'plannedWrapperUiOperations':1, 'plannedWrapperKeyChildren':2, 'retries': 0,
+@@ -377,9 +380,13 @@
+          not args.output.is_symlink(), 'fresh absolute output required')
+     need(args.readiness is not None, 'readiness path required')
+     readiness, readiness_raw = load_readiness(args.readiness, args.readiness_sha256)
++    need(args.preparation is not None,'bound Live header preparation required')
++    preparation=load_pinned(HERE/'prepare-live.py',manifest['sources']['prepare-live.py']['sha256'],'fu_header_preparation')
++    preparation.load_certificate(args.preparation,args.preparation_sha256,sha(raw_manifest))
++    need({'path':str(args.preparation),'sha256':args.preparation_sha256}in readiness['evidence'],'readiness must bind exact Live preparation certificate')
+     # No root transport module load or target operation occurs until both local
+     # review contracts have passed. Pass pinned payload bytes, never reread them.
+-    parser = load_pinned(HERE / 'parse-result.py', PARSER_SHA, 'bx_synchronized_parser')
++    parser = load_pinned(FN / 'parse-result.py', PARSER_SHA, 'bx_synchronized_parser')
+     root = load_pinned(ROOT, ROOT_SHA, 'bx_synchronized_root')
+     need(root.REMOTE_TIMEOUT_SECONDS == 45 and root.HOST_TIMEOUT_SECONDS == 75 and
+          root.MAX_COMMAND == 8192 and root.MAX_RESPONSE == MAX_ROOT, 'root transport bounds')
+--- FN/wake-check.py
++++ FU/wake-check.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""One fixed ordinary wake and strict cached Apps checkpoint; no controller access."""
++"""One fixed ordinary wake and strict cached Live checkpoint; no controller access."""
+ import hashlib,json,re,time
+ from pathlib import Path
+ BOOT='00000000-0000-4000-8000-000000000000'
+@@ -28,12 +28,12 @@
+  from decimal import Decimal
+  need(Decimal(lines[-1].split()[0])>=Decimal(lines[1].split()[0]),'uptime ordering')
+  tabs=[v for v in lines if v.startswith('memory/eden/current_tab')]
+- need(tabs==['memory/eden/current_tab, value = d/apps.tab (String)'],'exactly one canonical Apps row')
+- return {'cachedTab':'d/apps.tab','screensaverWindowsPresent':any(v in text for v in ['ScreenSaver.dll','ScreenSaverContent.dll']),'csfsWindowPresent':'/opt/usr/apps/com.samsung.tv.csfs/bin/csfs.dll'in text,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}
++ need(tabs==['memory/eden/current_tab, value = d/ug.tab@Live (String)'],'exactly one canonical Live row')
++ return {'cachedTab':'d/ug.tab@Live','screensaverWindowsPresent':any(v in text for v in ['ScreenSaver.dll','ScreenSaverContent.dll']),'csfsWindowPresent':'/opt/usr/apps/com.samsung.tv.csfs/bin/csfs.dll'in text,'boot':BOOT,'uptimeBefore':lines[1],'uptimeAfter':lines[-1],'physicalPictureObserved':False}
+ def qualified(v):return not v['screensaverWindowsPresent']and v['csfsWindowPresent']
+ def perform(output,call,checkpoint,clock=time.monotonic_ns,sleeper=time.sleep):
+  path=output/'wake-checkpoint.json';start=stamp(clock)
+- checkpoint.update(schema='fc-ordinary-wake-checkpoint-v1',status='intent',startedHostMonotonicNs=start,wrapperUiOperationsAttempted=1,wrapperUiOperationsCompleted=0,keyChildAttempts=None,keyPairReceiptComplete=False,navigationSourceSha256=NAV_SHA,keyBinarySha256=KEY_SHA,executionConfirmed=False,uiConsumptionProven=False,physicalPictureObserved=False,snapshots=[])
++ checkpoint.update(schema='fu-live-wake-checkpoint-v1',status='intent',startedHostMonotonicNs=start,wrapperUiOperationsAttempted=1,wrapperUiOperationsCompleted=0,keyChildAttempts=None,keyPairReceiptComplete=False,navigationSourceSha256=NAV_SHA,keyBinarySha256=KEY_SHA,executionConfirmed=False,uiConsumptionProven=False,physicalPictureObserved=False,snapshots=[])
+  save(path,checkpoint) # Intent precedes the sole key-pair submission.
+  def request(command,label):
+   before=stamp(clock);need(0<=before-start<=BUDGET_NS,'cooperative wake/settle budget before request')
+@@ -55,7 +55,7 @@
+    if qualified(summary):
+     checkpoint.update(status='accepted_cached_checkpoint',wrapperUiOperationsCompleted=1,acceptedSnapshotIndex=i,acceptedQueryReturnedHostMonotonicNs=after);save(path,checkpoint);return checkpoint
+    if i<MAX_SNAPSHOTS:sleeper(SETTLE_SECONDS)
+-  raise ValueError('cached Apps/noSaver/CSFS settle exhausted')
++  raise ValueError('cached Live/noSaver/CSFS settle exhausted')
+  except Exception as exc:
+   checkpoint.update(status='refused_or_ambiguous',errorType=type(exc).__name__);save(path,checkpoint);raise
+ 
+@@ -67,7 +67,7 @@
+  return now
+ 
+ def validate(output,checkpoint):
+- need(type(checkpoint)is dict and checkpoint.get('schema')=='fc-ordinary-wake-checkpoint-v1'and checkpoint.get('status')=='accepted_cached_checkpoint','completed wake schema')
++ need(type(checkpoint)is dict and checkpoint.get('schema')=='fu-live-wake-checkpoint-v1'and checkpoint.get('status')=='accepted_cached_checkpoint','completed wake schema')
+  need(all(type(checkpoint.get(k))is int for k in ['wrapperUiOperationsAttempted','wrapperUiOperationsCompleted','keyChildAttempts','startedHostMonotonicNs','wakeBeforeHostMonotonicNs','wakeReturnedHostMonotonicNs','acceptedSnapshotIndex','acceptedQueryReturnedHostMonotonicNs']),'exact integer wake counters/times')
+  need(checkpoint.get('wrapperUiOperationsAttempted')==checkpoint.get('wrapperUiOperationsCompleted')==1 and checkpoint.get('keyChildAttempts')==2 and checkpoint.get('keyPairReceiptComplete')is True,'one visible workflow/two acknowledged child attempts')
+  need(checkpoint.get('navigationSourceSha256')==NAV_SHA and checkpoint.get('keyBinarySha256')==KEY_SHA and checkpoint.get('executionConfirmed')is False and checkpoint.get('uiConsumptionProven')is False and checkpoint.get('physicalPictureObserved')is False,'source/scope')
+--- FN/prepare-readiness.py
++++ FU/prepare-readiness.py
+@@ -11,7 +11,7 @@
+ ROOT = B / 'managed-ui-tab-launch/root-with-margin.py'
+ ROOT_SHA = 'bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a'
+ WRAPPERS = {
+-    'fn': ('combined-event-successor-20261028fn/run-once.py', 'fn-combined-event-readiness-decision-v1'),
++    'fu': ('combined-live-trigger-adapter-20261028fu/run-once.py', 'fu-combined-live-event-readiness-decision-v1'),
+ }
+ 
+ def sha(raw):
+@@ -30,19 +30,29 @@
+     cli = argparse.ArgumentParser(description=__doc__)
+     cli.add_argument('--wrapper', required=True, choices=WRAPPERS)
+     cli.add_argument('--wrapper-sha256', required=True)
++    cli.add_argument('--preparation', required=True, type=Path)
++    cli.add_argument('--preparation-sha256', required=True)
++    cli.add_argument('--manifest-sha256', required=True)
++    cli.add_argument('--execute', action='store_true')
+     cli.add_argument('--identity', required=True, type=Path)
+     cli.add_argument('--phase-note', required=True, type=Path)
+     cli.add_argument('--evidence', action='append', default=[], type=Path)
+     cli.add_argument('--output', required=True, type=Path)
+     args = cli.parse_args()
+     relative, schema = WRAPPERS[args.wrapper]
+-    wrapper = load(B / relative, args.wrapper_sha256, 'fn_readiness_wrapper')
++    wrapper = load(B / relative, args.wrapper_sha256, 'fu_readiness_wrapper')
++    manifest, _ = wrapper.build_manifest()
++    manifest_raw = wrapper.manifest_bytes(manifest)
++    if sha(manifest_raw) != args.manifest_sha256 or manifest_raw != (B / 'combined-live-trigger-adapter-20261028fu/deployment-manifest.json').read_bytes():
++        raise ValueError('sealed derivative manifest')
++    preparation = load(B / 'combined-live-trigger-adapter-20261028fu/prepare-live.py', manifest['sources']['prepare-live.py']['sha256'], 'fu_preparation_certificate')
++    preparation.load_certificate(args.preparation, args.preparation_sha256, args.manifest_sha256)
+     identity = json.loads(args.identity.read_text())
+     note_raw = args.phase_note.read_bytes()
+     statement = note_raw.decode().strip()
+     if not 40 <= len(statement) <= 4096:
+         raise ValueError('explicit bounded parent phase premise')
+-    paths = [args.phase_note, args.identity, *args.evidence]
++    paths = [args.phase_note, args.identity, args.preparation, *args.evidence]
+     if len(paths) > 32 or len(set(paths)) != len(paths):
+         raise ValueError('bounded distinct evidence')
+     evidence = []
+@@ -55,13 +65,16 @@
+                  'closedWorldVendorOutLineage': {'accepted': True, 'statement': statement,
+                                                 'evidenceSha256': sha(note_raw)},
+                  'evidence': evidence, 'endpointQueueProof': False}
++    if not args.execute:
++        print(json.dumps({'mode': 'dry', 'manifestSha256': args.manifest_sha256, 'targetOperations': 0, 'preparationValidated': True}))
++        return
+     args.output.mkdir(mode=0o700)
+-    root = load(ROOT, ROOT_SHA, 'fn_readiness_root')
+-    record = {'schema': 'fn-fresh-cached-readiness-v1', 'calls': []}
+-    text = root.root('set -eu\n' + wrapper.metadata_body(identity, 'FN_CURRENT_READY'),
++    root = load(ROOT, ROOT_SHA, 'fu_readiness_root')
++    record = {'schema': 'fu-fresh-cached-readiness-v1', 'calls': []}
++    text = root.root('set -eu\n' + wrapper.metadata_body(identity, 'FU_CURRENT_READY'),
+                      record, args.output / 'metadata-root.json')
+     (args.output / 'metadata.txt').write_text(text)
+-    census = wrapper.parse_metadata(text, 'FN_CURRENT_READY')
++    census = wrapper.parse_metadata(text, 'FU_CURRENT_READY')
+     (args.output / 'census-summary.json').write_text(json.dumps(census, indent=2) + '\n')
+     # Bind the fresh observation as well as the historical phase evidence.
+     for name in ['metadata.txt', 'census-summary.json']:

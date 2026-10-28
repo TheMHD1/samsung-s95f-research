@@ -1,0 +1,320 @@
+--- FN/Protocol.cs
++++ FZ/Protocol.cs
+@@ -67,7 +67,7 @@
+     sealed class Config
+     {
+         public long DurationUs = 2_000_000;
+-        public int MaxCycles = 56;
++        public int MaxCycles = 81;
+         public long PeriodUs = 25_000;
+     }
+ 
+@@ -150,7 +150,7 @@
+ 
+     sealed class Outcome
+     {
+-        public string Schema { get; set; } = "combined-event-checkpoints-fn-v1";
++        public string Schema { get; set; } = "combined-event-checkpoints-fz-v1";
+         public ScoreCheckpointBuffer ScoreCheckpoints { get; } = new();
+         public int Device{get;set;}
+         public bool BindingQualified{get;set;}
+--- FN/Engine.cs
++++ FZ/Engine.cs
+@@ -53,7 +53,7 @@
+  static Combined Run(IOps ops,IClock clock,Config config,IIntervention? key=null){
+   Combined x=new();var o=x.O;ProtocolPhase phase=ProtocolPhase.ReadyForHeader;int fd=-1;bool clockLost=false;
+   try{
+-   Need(config.MaxCycles>=1&&config.MaxCycles<=56&&config.DurationUs==2_000_000&&config.PeriodUs==25_000,"fixed observation caps");
++   Need(config.MaxCycles>=1&&config.MaxCycles<=81&&config.DurationUs==2_000_000&&config.PeriodUs==25_000,"fixed observation caps");
+    o.StartUs=clock.NowUs();x.WholeDeadline=checked(o.StartUs.Value+WholeBudgetUs);
+    Identity id=ops.Preflight();o.Device=id.Device;var n=ops.Open(id);Need(n.Value>=0,"open");fd=n.Value;o.Opened=true;o.Closed=false;
+    ops.ValidateFd(fd,id);ops.Revalidate(id);n=ops.Claim(fd);Need(n.Value==0,"claim");o.Claimed=true;o.Released=false;ops.Revalidate(id);o.BindingQualified=true;
+@@ -115,5 +115,5 @@
+   var w=c.Windows[i];int count=Math.Max(0,Math.Min(w.Count,w.Spec!.Length));return new{name=w.Spec.Name,count=w.Count,raw=raw?Convert.ToBase64String(w.Buffer,0,count):null};}),
+   transfers=Enumerable.Range(0,c.TransferCount).Select(i=>{var t=c.Transfers[i];return new object?[]{t.Direction,t.Expected,t.Count,t.Errno,t.BeforeUs,t.AfterUs,t.Error};})};
+  static object RingMeta(Capture c)=>new{complete=c.WindowCount==1&&c.Windows[0].Count==15372,bytes=c.WindowCount==1?Math.Max(0,Math.Min(c.Windows[0].Count,15372)):0,sha256=c.WindowCount==1&&c.Windows[0].Count>0?Sha(c.Windows[0].Buffer.AsSpan(0,Math.Min(c.Windows[0].Count,15372)).ToArray()):Sha(Array.Empty<byte>()),transfer=Compact(c,false)};
+- static string Serialize(Combined x)=>JsonSerializer.Serialize(new{schema="combined-event-checkpoints-fn-v1",accepted=x.O.Accepted,observationComplete=x.ObservationComplete,arm=x.Arm,restore=x.Restore,armAttempted=x.ArmAttempted,restoreAttempted=x.RestoreAttempted,loggerMayRemain=x.ArmAttempted&&x.Restore!="readback-zero"&&x.Restore!="already-zero-no-write",phase=x.O.ProtocolPhase,device=x.O.Device,bindingQualified=x.O.BindingQualified,bindingChecks=x.O.BindingChecks,opened=x.O.Opened,claimed=x.O.Claimed,released=x.O.Released,closed=x.O.Closed,terminal=x.O.TerminalReason,error=x.O.Error,cleanupError=x.CleanupError,keyError=x.KeyError,headers=x.O.HeadersSent,bulks=x.O.BulkTransfers,inputs=x.O.InputsCompleted,writes=x.O.Writes,retries=0,threshold=40,physicalPictureObserved=false,keyCausalityEstablished=false,startUs=x.O.StartUs,endUs=x.O.EndUs,wholeDeadlineUs=x.WholeDeadline,observationDeadlineUs=x.O.DeadlineUs,cyclesStarted=x.O.CyclesStarted,cleanCycles=x.O.CleanCyclesCompleted,quiescentCycles=x.O.QuiescentCyclesCompleted,rows=x.O.ScoreCheckpoints,intervention=x.O.Intervention,controls=x.Controls.Select(c=>Compact(c)),retained=new[]{x.Initial,x.Last,x.Current}.Where(c=>c.Present).Select(c=>Compact(c)),baselineRing=RingMeta(x.PreRing),postRing=RingMeta(x.PostRing)},new JsonSerializerOptions{PropertyNamingPolicy=JsonNamingPolicy.CamelCase,DefaultIgnoreCondition=JsonIgnoreCondition.WhenWritingNull});
++ static string Serialize(Combined x)=>JsonSerializer.Serialize(new{schema="combined-event-checkpoints-fz-v1",accepted=x.O.Accepted,observationComplete=x.ObservationComplete,arm=x.Arm,restore=x.Restore,armAttempted=x.ArmAttempted,restoreAttempted=x.RestoreAttempted,loggerMayRemain=x.ArmAttempted&&x.Restore!="readback-zero"&&x.Restore!="already-zero-no-write",phase=x.O.ProtocolPhase,device=x.O.Device,bindingQualified=x.O.BindingQualified,bindingChecks=x.O.BindingChecks,opened=x.O.Opened,claimed=x.O.Claimed,released=x.O.Released,closed=x.O.Closed,terminal=x.O.TerminalReason,error=x.O.Error,cleanupError=x.CleanupError,keyError=x.KeyError,headers=x.O.HeadersSent,bulks=x.O.BulkTransfers,inputs=x.O.InputsCompleted,writes=x.O.Writes,retries=0,threshold=40,physicalPictureObserved=false,keyCausalityEstablished=false,startUs=x.O.StartUs,endUs=x.O.EndUs,wholeDeadlineUs=x.WholeDeadline,observationDeadlineUs=x.O.DeadlineUs,cyclesStarted=x.O.CyclesStarted,cleanCycles=x.O.CleanCyclesCompleted,quiescentCycles=x.O.QuiescentCyclesCompleted,rows=x.O.ScoreCheckpoints,intervention=x.O.Intervention,controls=x.Controls.Select(c=>Compact(c)),retained=new[]{x.Initial,x.Last,x.Current}.Where(c=>c.Present).Select(c=>Compact(c)),baselineRing=RingMeta(x.PreRing),postRing=RingMeta(x.PostRing)},new JsonSerializerOptions{PropertyNamingPolicy=JsonNamingPolicy.CamelCase,DefaultIgnoreCondition=JsonIgnoreCondition.WhenWritingNull});
+ }
+--- FN/ScoreCheckpoints.cs
++++ FZ/ScoreCheckpoints.cs
+@@ -5,9 +5,9 @@
+ {
+  sealed class ScoreCheckpointBuffer
+  {
+-  const int Size=58, Capacity=56;
++  const int Size=58, Capacity=81;
+   readonly byte[] raw=new byte[Size*Capacity];
+-  public string Schema=>"fg-stockevent-checkpoints-v1";
++  public string Schema=>"fz-stockevent-81-checkpoints-v1";
+   public int RecordBytes=>Size;
+   public int Count{get;private set;}
+   public string RawBase64=>Convert.ToBase64String(raw,0,Count*Size);
+--- FN/ReceiptMain.cs
++++ FZ/ReceiptMain.cs
+@@ -10,7 +10,7 @@
+     [DllImport("libc.so.6",EntryPoint="geteuid")] static extern uint ReceiptEuid();
+     static FileStream Receipt(string name) {
+       Need(name=="selftest.receipt.json"||name=="native.receipt.json"||name=="baseline-ring.bin"||name=="post-ring.bin","fixed receipt name");
+-      string dir=Directory.GetCurrentDirectory(),prefix="/tmp/researcher-fn-";Need(dir.StartsWith(prefix,StringComparison.Ordinal)&&dir.Length==prefix.Length+32,"private fixed stage path");
++      string dir=Directory.GetCurrentDirectory(),prefix="/tmp/researcher-fz-";Need(dir.StartsWith(prefix,StringComparison.Ordinal)&&dir.Length==prefix.Length+32,"private fixed stage path");
+       foreach(char c in dir.Substring(prefix.Length))Need((c>='0'&&c<='9')||(c>='a'&&c<='f'),"stage nonce");
+       byte[] st=new byte[256];Need(ReceiptStat(-100,dir,0x100,0xb,st)==0,"receipt directory stat");
+       Need((BitConverter.ToUInt32(st,0)&0xb)==0xb,"receipt directory required fields");
+@@ -24,7 +24,8 @@
+     static void Sidecar(FileStream stream,Capture c){if(c.WindowCount==1){int n=Math.Max(0,Math.Min(15372,c.Windows[0].Count));stream.Write(c.Windows[0].Buffer,0,n);}stream.Flush(true);}
+     static int Main(string[] args){
+       if(args.Length==1&&args[0]=="--self-test"){Console.WriteLine(SelfTest());return 0;}
+-      if(args.Length==1&&args[0]=="--fixture"){var c=new FakeClock();var a=new TestOps(c);var x=Run(a,c,new Config(),new TestKey());Console.WriteLine(Serialize(x));return x.O.Accepted?0:1;}
++      if(args.Length==1&&(args[0]=="--time-fixture"||args[0]=="--partial-fixture")){var c=new FakeClock();var a=new TestOps(c);if(args[0]=="--partial-fixture")a.Step=5_000;var x=Run(a,c,new Config(),new TestKey());Console.WriteLine(Serialize(x));return 0;}
++      if(args.Length==1&&args[0]=="--fixture"){var host=new FastClock();var c=host.C;var a=new TestOps(c);var x=Run(a,host,new Config(),new TestKey());Console.WriteLine(Serialize(x));return x.O.Accepted?0:1;}
+       if(args.Length==1&&args[0]=="--receipt-self-test"){using var f=Receipt("selftest.receipt.json");PublishReceipt(f,SmokeTest()+"\n");return 0;}
+       if(args.Length==3&&args[0]=="--execute"){
+         if(args[1]!="--device"||!int.TryParse(args[2],out ExpectedDevice)||ExpectedDevice<1||ExpectedDevice>127||args[2]!=ExpectedDevice.ToString()||!RealOps.AbiReady)return 64;
+@@ -33,6 +34,6 @@
+         var outcome=Run(new RealOps(),new RealClock(),new Config(),new OneLeft(new RealKeyOps()));
+         Sidecar(before,outcome.PreRing);Sidecar(after,outcome.PostRing);PublishReceipt(receipt,Serialize(outcome)+"\n");return outcome.O.Accepted?0:1;
+       }
+-      Console.WriteLine("{\"schema\":\"fn-dry-v1\",\"targetOperations\":0,\"threshold\":40,\"readOnly\":false,\"loggerWritesOnly\":true}");return args.Length==0?0:64;
++      Console.WriteLine("{\"schema\":\"fz-dry-v1\",\"targetOperations\":0,\"threshold\":40,\"readOnly\":false,\"loggerWritesOnly\":true}");return args.Length==0?0:64;
+     }
+ }
+--- FN/HostTests.cs
++++ FZ/HostTests.cs
+@@ -21,12 +21,13 @@
+    if(s==Ring){U(b,0,4);b[12]=7;}pending=null;return new(length,0);
+   }
+  }
++ sealed class FastClock:IClock{public readonly FakeClock C=new();public long NowUs()=>C.NowUs();public void SleepUs(long us){Need(us>=0,"host no-wait sleep");}}
+  static int tests;static void Check(bool b,string message){Need(b,message);tests++;}
+  static string SmokeTest(){var c=new FakeClock();var a=new TestOps(c);var x=Run(a,c,new Config{MaxCycles=1},new TestKey());Need(x.O.Accepted&&x.O.HeadersSent==20&&x.O.BulkTransfers==40&&x.O.Writes==2&&x.Restore=="readback-zero"&&x.PreRing.Windows[0].Count==15372&&x.PostRing.Windows[0].Count==15372&&x.O.ScoreCheckpoints.Count==1,"compact zero-target smoke");return "{\"smokeTestsPassed\":8,\"targetOperations\":0}";}
+  static string SelfTest(){tests=0;int max=0;
+-  Combined Case(Action<TestOps>? setup=null){var c=new FakeClock();var a=new TestOps(c);setup?.Invoke(a);var x=Run(a,c,new Config(),new TestKey());Check(a.Releases==1&&a.Closes==1,"cleanup lifecycle");max=Math.Max(max,System.Text.Encoding.UTF8.GetByteCount(Serialize(x))+1);return x;}
++  Combined Case(Action<TestOps>? setup=null){var host=new FastClock();var c=host.C;var a=new TestOps(c);setup?.Invoke(a);var x=Run(a,host,new Config(),new TestKey());Check(a.Releases==1&&a.Closes==1,"cleanup lifecycle");max=Math.Max(max,System.Text.Encoding.UTF8.GetByteCount(Serialize(x))+1);return x;}
+   foreach(string? fail in new string?[]{null,"down","hold","up"}){var k=new FakeKeyOps{Fail=fail,BadExit=false,Unreaped=false,Oversized=false};var key=new OneLeft(k);key.Start(new RealClock());key.Finish();Check(k.Calls.Contains("up")&&key.State.Completed,"up attempted despite child failure");}
+-  var good=Case();Check(good.O.Accepted&&good.O.ScoreCheckpoints.Count==56&&good.O.HeadersSent==460&&good.O.BulkTransfers==920&&good.O.Writes==2,"56cycles plus12controlpairs");Check(good.Restore=="readback-zero"&&good.PostRing.Windows[0].Count==15372,"sidecars restore");
++  var good=Case();Check(good.O.Accepted&&good.O.ScoreCheckpoints.Count==81&&good.O.HeadersSent==660&&good.O.BulkTransfers==1320&&good.O.Writes==2,"81cycles plus12controlpairs");Check(good.Restore=="readback-zero"&&good.PostRing.Windows[0].Count==15372,"sidecars restore");
+   for(int i=0;i<good.O.BulkTransfers;i++){var x=Case(a=>a.FailAt=i);Check(!x.O.Accepted&&x.O.ProtocolPhase=="Unknown","any short means unknown");Check(x.O.BulkTransfers==i+1,"no header after unknown");}
+   for(int i=0;i<28;i++){var x=Case(a=>a.ThrowAt=i);Check(!x.O.Accepted&&x.O.BulkTransfers==i+1,"exception stops no retry");}
+   for(int i=0;i<28;i++){var x=Case(a=>a.ClockAt=i);Check(!x.O.Accepted&&x.O.ProtocolPhase=="ReadyForHeader","afterbulk clock failure completes pair");Check(x.O.BulkTransfers==(i/2+1)*2,"clock no next header");}
+@@ -40,12 +41,12 @@
+   foreach(int kind in new[]{0,1,2}){var firstNotClean=Case(a=>{if(kind==0)a.QFrom=3;else if(kind==1)a.FaultR=3;else a.ScanZeroFrom=3;});Check(!firstNotClean.O.Accepted&&firstNotClean.Restore=="readback-zero"&&firstNotClean.O.Intervention?.Attempted!=true&&firstNotClean.O.ScoreCheckpoints.Count==0,"initialQ/fault/scan0 stillcleanup noLeft");}
+   var zeroInitial=Case(a=>a.FixedScan=0);Check(!zeroInitial.ArmAttempted&&zeroInitial.O.Writes==0,"prearm scan0 refuses noarm");
+   var q=Case(a=>a.QFrom=5);Check(q.O.Accepted&&q.O.QuiescentCyclesCompleted>0,"Q retained not projected clean");
+-  var drift=Case(a=>a.GateDriftAt=115);Check(!drift.O.Accepted&&drift.O.Writes==1&&drift.Restore=="not-attempted","upper drift no restore");
++  var drift=Case(a=>a.GateDriftAt=165);Check(!drift.O.Accepted&&drift.O.Writes==1&&drift.Restore=="not-attempted","upper drift no restore");
+   for(int t=0;t<40;t++){Check(Admit(t,40,30)==(t<=10),"pair reserve predicate");}
+   for(int at=0;at<90;at++){var c=new FakeClock{ThrowAtCall=at};var a=new TestOps(c);var x=Run(a,c,new Config(),new TestKey());Check(!x.O.Accepted&&a.Bulks%2==0&&a.AfterClockBulks<=1,"preheaderclock no newheader/pendingcompletion");Check(a.Releases==(x.O.Claimed?1:0)&&a.Closes==(x.O.Opened?1:0),"clock lifecycle exact");}
+   for(int i=0;i<28;i++){var over=Case(a=>{a.FailAt=i;a.FailDelta=1;});Check(over.O.ProtocolPhase=="Unknown"&&over.O.BulkTransfers==i+1,"overlong no nextheader");var negative=Case(a=>{a.FailAt=i;a.FailDelta=-20000;});Check(negative.O.ProtocolPhase=="Unknown"&&negative.O.BulkTransfers==i+1,"negative no nextheader");}
+   var badRelease=Case(a=>a.FailRelease=true);Check(!badRelease.O.Accepted&&!badRelease.O.Released&&badRelease.O.Closed,"releasefail stillclose");var badClose=Case(a=>a.FailClose=true);Check(!badClose.O.Accepted&&badClose.O.Released&&!badClose.O.Closed,"closefail retained");
+-  var already=Case(a=>a.GateAlreadyZeroAt=115);Check(already.O.Accepted&&already.Restore=="already-zero-no-write"&&already.O.Writes==1,"fresh alreadyzero distinct");
++  var already=Case(a=>a.GateAlreadyZeroAt=165);Check(already.O.Accepted&&already.Restore=="already-zero-no-write"&&already.O.Writes==1,"fresh alreadyzero distinct");
+   foreach(int value in new[]{0,1,2,4}){
+    var runtime=Case(a=>{a.C8From=3;a.C8Value=value;});Check(runtime.O.Accepted&&runtime.Restore=="readback-zero"&&runtime.Initial.Windows[2].Buffer[8]==3&&runtime.Last.Windows[2].Buffer[8]==value,"positive FL runtimeC8 and cleanup accepted");
+    if(value==0)Check(Convert.ToHexString(runtime.Last.Windows[2].Buffer.AsSpan(0,16))=="70088007400B5C010000000000000000","actual FH currentC16-byte fixture");
+@@ -54,22 +55,25 @@
+   }
+   var unqualified=Case(a=>{a.C8From=3;a.C8Value=5;});Check(!unqualified.O.Accepted&&unqualified.O.Error!=null&&unqualified.Restore=="not-attempted"&&unqualified.O.Writes==1,"unqualified C8 semantic refusal unchanged");
+   for(int kind=0;kind<5;kind++){
+-   var zeroFailed=Case(a=>{a.GateAlreadyZeroAt=115;if(kind==0)a.GateOneAt=116;else if(kind==1)a.GateDriftAt=116;else if(kind==2)a.FailAt=915;else if(kind==3)a.ThrowAt=915;else a.LimitDriftAt=116;});
++   var zeroFailed=Case(a=>{a.GateAlreadyZeroAt=165;if(kind==0)a.GateOneAt=166;else if(kind==1)a.GateDriftAt=166;else if(kind==2)a.FailAt=1315;else if(kind==3)a.ThrowAt=1315;else a.LimitDriftAt=166;});
+    Check(!zeroFailed.O.Accepted&&zeroFailed.Restore=="observed-zero-unverified"&&Serialize(zeroFailed).Contains("\"loggerMayRemain\":true"),"already-zero requires checked finalR0 before commit");
+   }
+   var earlyZero=Case(a=>a.GateAlreadyZeroAt=3);Check(!earlyZero.O.Accepted&&earlyZero.Restore=="already-zero-no-write"&&earlyZero.O.Intervention?.Attempted!=true,"earlyzero no key/no blindwrite");
+-  for(int i=1;i<=116;i++){var bad=Case(a=>a.LimitDriftAt=i);Check(!bad.O.Accepted,"fixed40 drift allreads "+i);}
++  for(int i=1;i<=166;i++){var bad=Case(a=>a.LimitDriftAt=i);Check(!bad.O.Accepted,"fixed40 drift allreads "+i);}
++  var ordinaryClock=new FakeClock();var ordinaryOps=new TestOps(ordinaryClock);var ordinary=Run(ordinaryOps,ordinaryClock,new Config(),new TestKey());Check(ordinary.O.Accepted&&ordinary.O.TerminalReason=="TimeLimit"&&ordinary.O.ScoreCheckpoints.Count>56&&ordinary.O.ScoreCheckpoints.Count<81,"ordinary clock reaches TimeLimit beyond oldcap");
++  var partialClock=new FakeClock();var partialOps=new TestOps(partialClock){Step=5_000};var partial=Run(partialOps,partialClock,new Config(),new TestKey());Check(!partial.O.Accepted&&partial.O.TerminalReason=="TimeLimitedPartial"&&partial.Restore=="readback-zero","partial deadline remains refusal after restore");
+   // Constructive serializer maximum: all bounded retention slots simultaneously full,
+   // extreme integer widths and every error field that can coexist on one failure path.
+   var wide=Case();string bounded=ShortError(new IOException(new string('\u0001',300)));
+   foreach(var cap in wide.Controls)Widen(cap);foreach(var cap in new[]{wide.Initial,wide.Last,wide.Current,wide.PreRing,wide.PostRing})Widen(cap);
+   void Widen(Capture cap){for(int i=0;i<cap.TransferCount;i++){cap.Transfers[i].BeforeUs=long.MaxValue-1;cap.Transfers[i].AfterUs=long.MaxValue;}}
+-  wide.O.StartUs=long.MaxValue-40000000;wide.O.EndUs=long.MaxValue;wide.O.DeadlineUs=long.MaxValue;wide.WholeDeadline=long.MaxValue;wide.O.Error=bounded;wide.CleanupError=bounded;wide.KeyError=bounded;
+-  wide.O.Intervention!.Error=bounded;wide.O.Intervention.ArmedUs=wide.O.Intervention.EndUs=long.MaxValue;
+-  foreach(var call in wide.O.Intervention.Calls){call.BeforeUs=call.AfterUs=long.MaxValue;call.Error=bounded;call.StdoutBytes=call.StderrBytes=1000000000;}
++  wide.Arm="payload-completed-unverified";wide.Restore="payload-completed-unverified";wide.O.TerminalReason="InitialNotCleanOrScanOneOrC8Three";wide.O.Accepted=wide.ObservationComplete=wide.ArmAttempted=wide.RestoreAttempted=wide.O.BindingQualified=wide.O.Opened=wide.O.Claimed=wide.O.Released=wide.O.Closed=false;wide.O.QuiescentCyclesCompleted=81;
++  wide.O.Device=127;wide.Current.Transfers[15].Count=int.MinValue;wide.Current.Transfers[15].Errno=int.MaxValue;wide.O.StartUs=long.MaxValue-40000000;wide.O.EndUs=long.MaxValue;wide.O.DeadlineUs=long.MaxValue;wide.WholeDeadline=long.MaxValue;wide.O.Error=bounded;wide.CleanupError=bounded;wide.KeyError=bounded;
++  wide.O.Intervention!.Attempted=wide.O.Intervention.Completed=false;wide.O.Intervention.Error=bounded;wide.O.Intervention.ArmedUs=wide.O.Intervention.EndUs=long.MaxValue;
++  foreach(var call in wide.O.Intervention.Calls){call.BeforeUs=call.AfterUs=long.MaxValue;call.Error=bounded;call.ExitCode=int.MinValue;call.Started=call.Reaped=call.TimedOut=false;call.StdoutBytes=call.StderrBytes=long.MaxValue;}
+   wide.Current.Transfers[15].Error=bounded;max=Math.Max(max,System.Text.Encoding.UTF8.GetByteCount(Serialize(wide))+1);
+   var rejectedBinding=new Combined();rejectedBinding.O.BindingChecks=new();for(int i=0;i<3;i++){var binding=ModelBinding(true,true,UsbfsDriver);rejectedBinding.O.BindingChecks.Add(binding with {Kernel=DriverRecord(0,0,new string('\u0001',255))});}max=Math.Max(max,System.Text.Encoding.UTF8.GetByteCount(Serialize(rejectedBinding))+1);
+   Check(max<=OutputLimit,"all receipt lengths including stress and preheader binding bound "+max);
+-  return JsonSerializer.Serialize(new{selfTestsPassed=tests,targetOperations=0,maxReceiptBytes=max,sidecarBytes=15372,maxControlPairs=12,maxRows=56});
++  return JsonSerializer.Serialize(new{selfTestsPassed=tests,targetOperations=0,maxReceiptBytes=max,sidecarBytes=15372,maxControlPairs=12,maxRows=81});
+  }
+ }
+--- FN/CombinedEventSuccessor.csproj
++++ FZ/CombinedEvent81Successor.csproj
+@@ -1,3 +1,3 @@
+ <Project Sdk="Microsoft.NET.Sdk">
+-  <PropertyGroup><AssemblyName>CombinedEventSuccessor</AssemblyName><OutputType>Exe</OutputType><TargetFramework>net6.0</TargetFramework><ImplicitUsings>disable</ImplicitUsings><Nullable>enable</Nullable><UseAppHost>false</UseAppHost><DebugType>none</DebugType><Deterministic>true</Deterministic><EnableNETAnalyzers>false</EnableNETAnalyzers></PropertyGroup>
++  <PropertyGroup><AssemblyName>CombinedEvent81Successor</AssemblyName><OutputType>Exe</OutputType><TargetFramework>net6.0</TargetFramework><ImplicitUsings>disable</ImplicitUsings><Nullable>enable</Nullable><UseAppHost>false</UseAppHost><DebugType>none</DebugType><Deterministic>true</Deterministic><EnableNETAnalyzers>false</EnableNETAnalyzers></PropertyGroup>
+ </Project>
+--- FN/parse-result.py
++++ FZ/parse-result.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Strict FN receipt and separate ring binding; no target access or acceptance waiver."""
++"""Strict FZ81 receipt and separate ring binding; no target access or acceptance waiver."""
+ import base64,hashlib,json,struct
+ LIMIT=24576
+ SPECS={'R':256,'M':68,'C':16,'P':16,'N':36,'H':96,'L':64,'Ring':15372}
+@@ -26,7 +26,7 @@
+  need(struct.unpack_from('<I',m,64)[0]==0x20010000 and half(m,10)==0 and half(m,12)==2 and m[56]in [0,1]and(not initial or m[56]==1),'M context')
+  need([half(c,0),half(c,2),half(c,4),c[6]]==[2160,1920,2880,92]and c[7]<=1 and c[8]in [0,1,2,3,4]and(not initial or c[8]==3),'C context')
+ def capture(c,complete=True):
+- need(type(c)is dict and set(c)=={'role','cycle','windows','transfers'},'capture fields');need(integer(c['cycle'],0,56),'capture cycle');need(type(c['windows'])is list and len(c['windows'])<=8 and type(c['transfers'])is list and len(c['transfers'])<=16,'capture capacities')
++ need(type(c)is dict and set(c)=={'role','cycle','windows','transfers'},'capture fields');need(integer(c['cycle'],0,81),'capture cycle');need(type(c['windows'])is list and len(c['windows'])<=8 and type(c['transfers'])is list and len(c['transfers'])<=16,'capture capacities')
+  raw=[];previous=None
+  for w in c['windows']:
+   need(type(w)is dict and set(w)=={'name','count','raw'}and w['name']in SPECS and integer(w['count'],-1,2**31-1),'window fields/count');r=b64(w['raw']);need(len(r)==max(0,min(w['count'],SPECS[w['name']])),'raw exact clampedcount');raw.append(r)
+@@ -72,12 +72,12 @@
+  need(type(text)is str and len(text.encode())<=LIMIT and text.endswith('\n'),'bounded exclusive receipt');v=strict(text);need(type(v)is dict,'object')
+  required={'schema','accepted','observationComplete','arm','restore','armAttempted','restoreAttempted','loggerMayRemain','phase','device','bindingQualified','opened','claimed','released','closed','terminal','headers','bulks','inputs','writes','retries','threshold','physicalPictureObserved','keyCausalityEstablished','startUs','endUs','wholeDeadlineUs','cyclesStarted','cleanCycles','quiescentCycles','rows','controls','retained','baselineRing','postRing'}
+  allowed=required|{'bindingChecks','observationDeadlineUs','intervention','error','cleanupError','keyError'};need(required<=set(v)<=allowed,'receipt fields')
+- need(v['schema']=='combined-event-checkpoints-fn-v1'and v['threshold']==40 and v['retries']==0 and v['physicalPictureObserved']is False and v['keyCausalityEstablished']is False,'family/scope')
++ need(v['schema']=='combined-event-checkpoints-fz-v1'and v['threshold']==40 and v['retries']==0 and v['physicalPictureObserved']is False and v['keyCausalityEstablished']is False,'family/scope')
+  for k in ['accepted','observationComplete','armAttempted','restoreAttempted','loggerMayRemain','bindingQualified','opened','claimed','released','closed']:need(type(v[k])is bool,'bool '+k)
+- for k in ['device','headers','bulks','inputs','writes','cyclesStarted','cleanCycles','quiescentCycles','retries','threshold']:need(integer(v[k],0,1000),'counter '+k)
++ for k,maximum in {'device':127,'headers':660,'bulks':1320,'inputs':658,'writes':2,'cyclesStarted':81,'cleanCycles':81,'quiescentCycles':81,'retries':0,'threshold':40}.items():need(integer(v[k],0,maximum),'counter '+k)
+  need(1<=v['device']<=127 and v['phase']in ['ReadyForHeader','ExpectingIn','ExpectingPayload','Unknown'],'device/phase')
+  need(type(v['controls'])is list and len(v['controls'])<=10 and type(v['retained'])is list and len(v['retained'])<=3,'retention bound')
+- rows=v['rows'];need(set(rows)=={'schema','recordBytes','count','rawBase64','sha256'}and rows['schema']=='fg-stockevent-checkpoints-v1'and rows['recordBytes']==58 and integer(rows['count'],0,56),'row fields');packed=b64(rows['rawBase64']);need(len(packed)==rows['count']*58 and sha(packed)==rows['sha256'],'row extent/hash')
++ rows=v['rows'];need(set(rows)=={'schema','recordBytes','count','rawBase64','sha256'}and rows['schema']=='fz-stockevent-81-checkpoints-v1'and rows['recordBytes']==58 and integer(rows['count'],0,81),'row fields');packed=b64(rows['rawBase64']);need(len(packed)==rows['count']*58 and sha(packed)==rows['sha256'],'row extent/hash')
+  decoded=[]
+  for i in range(rows['count']):
+   b=packed[i*58:(i+1)*58];s,e=b[0]>>4,b[0]&15;need(s in [0,1,3]and e in [0,1,3]and half(b,2)==half(b,4)==40,'row state/limit');need(b[1]<=1,'selector domain');decoded.append({'cycle':i+1,'startRt':s,'endRt':e,'c7':b[1],'a0':struct.unpack_from('<I',b,6)[0],'selectorMirror':half(b,54),'referenceCounter':half(b,38)})
+@@ -85,7 +85,7 @@
+   need(v['observationComplete']and not v['loggerMayRemain'] and v['phase']=='ReadyForHeader'and all(v[k]is True for k in ['bindingQualified','opened','claimed','released','closed']),'accepted lifecycle')
+   need(not(set(v)&{'error','cleanupError','keyError','bindingChecks'}),'accepted errors/refusal metadata')
+   need(v['arm']=='readback-one'and v['restore']in ['readback-zero','already-zero-no-write'],'accepted logger outcome');need(v['armAttempted']and v['restoreAttempted']==(v['restore']=='readback-zero'),'write flags')
+-  need(all(integer(v.get(k))for k in ['startUs','endUs','wholeDeadlineUs','observationDeadlineUs']),'accepted clock fields');need(v['startUs']<=v['endUs']<=v['wholeDeadlineUs']==v['startUs']+40000000,'whole budget');need(1<=rows['count']==v['cyclesStarted']<=56,'complete row cycles');need(decoded[0]['startRt']==decoded[0]['endRt']==0,'fullclean first cycle')
++  need(all(integer(v.get(k))for k in ['startUs','endUs','wholeDeadlineUs','observationDeadlineUs']),'accepted clock fields');need(v['startUs']<=v['endUs']<=v['wholeDeadlineUs']==v['startUs']+40000000,'whole budget');need(1<=rows['count']==v['cyclesStarted']<=81,'complete row cycles');need(decoded[0]['startRt']==decoded[0]['endRt']==0,'fullclean first cycle')
+   roles=['prearm-R','prearm-M','prearm-C','arm','armed-R','prerestore-M','prerestore-C','prerestore-R']+(['restore']if v['restoreAttempted']else[])+['restored-R'];need([c['role']for c in v['controls']]==roles,'control order')
+   raw={}
+   previous=v['startUs']
+--- FN/run-once.py
++++ FZ/run-once.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""FN stock event logger/checkpoints, one owner; dry by default."""
++"""FZ81 stock event logger/checkpoints, one owner; dry by default."""
+ import argparse
+ import base64
+ import hashlib
+@@ -23,13 +23,13 @@
+ 
+ OLD = B / 'managed-usb-rt-passive-observer/run-once.py'
+ OLD_SHA = 'a4146bc302a764f476e068f456398b8dc34a6e3cc480b876f6e44ed65098cc82'
+-PARSER_SHA = 'd222a8830f222bd0643b2e86bf4b47e2397258cd6cdae62e0b93141b2be7d78d'
++PARSER_SHA = '66d0e358a2af4edc363451246ddfd8f79b5b66e570be5527c9dcfe7180863090'
+ ROOT = B / 'managed-ui-tab-launch/root-with-margin.py'
+ ROOT_SHA = 'bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a'
+-CHECKPOINT_SHA = 'e3d14bc1705a2c91b94fcc4e8dbebe3b96bd8936216870287f55e63a009b05dd'
++CHECKPOINT_SHA = '667e11ea785f9df483e2074109fde8e54e42c699d4a80b847ee11503b324b184'
+ BOOT = '00000000-0000-4000-8000-000000000000'
+ DOTNET_SHA = 'e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310'
+-ASSEMBLY = 'CombinedEventSuccessor'
++ASSEMBLY = 'CombinedEvent81Successor'
+ NAMES = [ASSEMBLY + suffix for suffix in ('.dll', '.deps.json', '.runtimeconfig.json')]
+ DESCRIPTORS = '12010002ef020140e8040120500201020301090262000301048032080b00020202010a09040000010202010a052400100105240100010424020205240600010705830308001009040100020a00000a07050102400010070581024000000904020002ff0000000705820200020007050202000200'
+ MAX_STDOUT, MAX_STDERR, MAX_ROOT = 16384, 2048, 65536
+@@ -76,11 +76,11 @@
+     path.write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
+ 
+ 
+-SOURCE_NAMES=['Protocol.cs','Engine.cs','NativeBinding.cs','OnsetKey.cs','ScoreCheckpoints.cs','ReceiptMain.cs','HostTests.cs','CombinedEventSuccessor.csproj','NuGet.Config','run-once.py','parse-result.py','wake-check.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','budget.json','input-pins.json','build-host.sh','finalize.py','qualify-scan.py','test-key-exposure.py','key-exposure-revision.json','qualify-context.py','successor-delta.json']
++SOURCE_NAMES=['Protocol.cs','Engine.cs','NativeBinding.cs','OnsetKey.cs','ScoreCheckpoints.cs','ReceiptMain.cs','HostTests.cs','CombinedEvent81Successor.csproj','NuGet.Config','run-once.py','parse-result.py','wake-check.py','prepare-readiness.py','verify-source.py','test-host.py','README.md','input-pins.json','build-host.sh','finalize.py','test-key-exposure.py']
+ def build_manifest():
+     checkpoint_raw=(HERE/'host-build-checkpoint.json').read_bytes()
+     need(sha(checkpoint_raw)==CHECKPOINT_SHA,'host checkpoint pin')
+-    cp=strict_json(checkpoint_raw);need(cp['targetOperations']==0 and cp['schema']=='fn-host-checkpoint-v1','host checkpoint contract');need(cp['nativeQualification']['targetOperations']==0 and cp['nativeQualification']['maxReceiptBytes']<24576,'host preflight receipt bound')
++    cp=strict_json(checkpoint_raw);need(cp['targetOperations']==0 and cp['schema']=='fz-host-checkpoint-v1','host checkpoint contract');need(cp['nativeQualification']['targetOperations']==0 and cp['nativeQualification']['maxReceiptBytes']<24576,'host preflight receipt bound')
+     payload={}
+     for name,expected in cp['files'].items():
+         raw=(HERE/name).read_bytes();need(expected=={'bytes':len(raw),'sha256':sha(raw)},'host source/payload '+name)
+@@ -91,7 +91,7 @@
+         need(sha((B/row['path']).read_bytes())==row['sha256'],'frozen source dependency')
+     need(sha((HERE/'parse-result.py').read_bytes())==PARSER_SHA and sha((HERE/'wake-check.py').read_bytes())==WAKE_SHA,'parser/wake pins')
+     sources={name:{'bytes':len((HERE/name).read_bytes()),'sha256':sha((HERE/name).read_bytes())}for name in SOURCE_NAMES}
+-    return {'schema':'fn-combined-event-wrapper-manifest-v1','hostCheckpointSha256':CHECKPOINT_SHA,'nativeFiles':cp['files'],'sources':sources,'parentWakeWrapperSha256':'2330853ea796dcb1a0a98602553c9a9f04750892f9161de439a39875f5010b15','rootAdapterSha256':ROOT_SHA,'nativeInvocations':1,'retries':0,'threshold':40,'loggerWritesMaximum':2,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'structuredReceiptCap':24576,'sidecarBytesEach':15372,'sidecarNames':['baseline-ring.bin','post-ring.bin'],'wholeCooperativeBudgetUs':40000000,'cleanupReserveUs':26000000,'keyJoinReserveUs':7000000,'wrapperUiOperations':1,'readinessSchema':'fn-combined-event-readiness-decision-v1','physicalPictureObserved':False,'keyExposureRequiresSuccessfulDownBeforeLaterOptionalR':True,'keyExposureIsSeparateFromProtocolAcceptance':True},payload
++    return {'schema':'fz-combined-event-81-wrapper-manifest-v1','hostCheckpointSha256':CHECKPOINT_SHA,'nativeFiles':cp['files'],'sources':sources,'parentWakeWrapperSha256':'2330853ea796dcb1a0a98602553c9a9f04750892f9161de439a39875f5010b15','rootAdapterSha256':ROOT_SHA,'nativeInvocations':1,'retries':0,'threshold':40,'loggerWritesMaximum':2,'rootTimeoutSeconds':45,'hostTimeoutSeconds':75,'rootCommandCap':8192,'rootResponseCap':65536,'structuredReceiptCap':24576,'sidecarBytesEach':15372,'sidecarNames':['baseline-ring.bin','post-ring.bin'],'wholeCooperativeBudgetUs':40000000,'cleanupReserveUs':26000000,'keyJoinReserveUs':7000000,'nativeMaxCycles':81,'maxHeaders':660,'maxInputs':658,'maxBulks':1320,'wrapperUiOperations':1,'readinessSchema':'fz-combined-event-81-readiness-decision-v1','physicalPictureObserved':False,'keyExposureRequiresSuccessfulDownBeforeLaterOptionalR':True,'keyExposureIsSeparateFromProtocolAcceptance':True},payload
+ 
+ 
+ def manifest_bytes(manifest):
+@@ -107,7 +107,7 @@
+     value = strict_json(raw)
+     need(type(value) is dict and set(value) == {'schema', 'accepted', 'identity', 'interfaceUnbound',
+          'noHolders', 'closedWorldVendorOutLineage', 'evidence', 'endpointQueueProof'}, 'readiness exact fields')
+-    need(value['schema'] == 'fn-combined-event-readiness-decision-v1' and value['accepted'] is True,
++    need(value['schema'] == 'fz-combined-event-81-readiness-decision-v1' and value['accepted'] is True,
+          'readiness accepted decision')
+     need(value['interfaceUnbound'] is True and value['noHolders'] is True and
+          value['endpointQueueProof'] is False, 'readiness metadata/premise distinction')
+@@ -244,9 +244,9 @@
+     output.mkdir(parents=True,exist_ok=False,mode=0o700)
+     (output/'readiness-decision.json').write_bytes(readiness_raw)
+     (output/'reviewed-manifest.json').write_bytes(reviewed_manifest)
+-    stage='/tmp/researcher-fn-'+uuid.uuid4().hex
++    stage='/tmp/researcher-fz-'+uuid.uuid4().hex
+     record_path=output/'record.json'
+-    record={'schema':'fn-combined-event-wrapper-record-v1','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}
++    record={'schema':'fz-combined-event-81-wrapper-record-v1','manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'remote_stage':stage,'calls':[],'native_invocations':0,'target_operations':0,'target_operations_status':'not_started','cleanup_required':True,'no_retry':True,'wrapperUiOperations':0,'endpointQueueProof':False}
+     save(record_path,record)
+     def call(command, native_submission=False, ui_wake_submission=False):
+         need(len(command.encode())<=8192,'root command bound')
+@@ -321,11 +321,11 @@
+     native_raw=run('native');native,rows,interpretation=parser.parse_native(native_raw.decode('utf8'));save(output/'interpretation.json',interpretation)
+     # Retain the primary semantic outcome before any ring completeness check or further root call.
+     # Ready/released/closed describes lifecycle; it cannot promote a refused observation.
+-    primary={'schema':'fn-primary-native-outcome-v1','accepted':native['accepted'],'protocolAccepted':interpretation['protocolAccepted'],'terminalKnownPhase':interpretation['terminalKnownPhase'],'phase':native['phase'],'bindingQualified':native['bindingQualified'],'released':native['released'],'closed':native['closed'],'terminal':native['terminal'],'error':native.get('error'),'cleanupError':native.get('cleanupError'),'keyError':native.get('keyError'),'loggerRestore':native['restore'],'loggerMayRemain':native['loggerMayRemain'],'nativeExitCode':record['nativeTerminal']['exit_code'],'receiptSha256':sha(native_raw)}
++    primary={'schema':'fz-primary-native-outcome-v1','accepted':native['accepted'],'protocolAccepted':interpretation['protocolAccepted'],'terminalKnownPhase':interpretation['terminalKnownPhase'],'phase':native['phase'],'bindingQualified':native['bindingQualified'],'released':native['released'],'closed':native['closed'],'terminal':native['terminal'],'error':native.get('error'),'cleanupError':native.get('cleanupError'),'keyError':native.get('keyError'),'loggerRestore':native['restore'],'loggerMayRemain':native['loggerMayRemain'],'nativeExitCode':record['nativeTerminal']['exit_code'],'receiptSha256':sha(native_raw)}
+     save(output/'primary-native-outcome.json',primary)
+     record.update(native_invocations_status='one_completed',target_operations=native['headers'],target_operations_status='native_accepted_pending_sidecars'if native['accepted']else'native_refused',nativeOutcome=primary,loggerPayloads=native['writes']);save(record_path,record)
+     if native['accepted']is not True or record['nativeTerminal']['exit_code']!=0:
+-        result=dict(primary,schema='fn-combined-event-wrapper-result-v1',accepted=False,protocolAccepted=False,cleanup='retained',cleanup_required=True,keyExposureQualified=False,manifestSha256=sha(reviewed_manifest),readinessSha256=sha(readiness_raw),nativeInvocations=1,retries=0,thresholdWrites=0)
++        result=dict(primary,schema='fz-combined-event-81-wrapper-result-v1',accepted=False,protocolAccepted=False,cleanup='retained',cleanup_required=True,keyExposureQualified=False,manifestSha256=sha(reviewed_manifest),readinessSha256=sha(readiness_raw),nativeInvocations=1,retries=0,thresholdWrites=0)
+         save(output/'result.json',result)
+         need(False,'original native refusal preserved: '+str(primary['error']or primary['cleanupError']or primary['keyError']or primary['terminal']))
+     need(str(native['device'])==identity['devnum'],'device binding')
+@@ -346,7 +346,7 @@
+     guarded=call(prefix+frozen.integrity(stage,all_remote,list(all_remote))+'echo FINAL_INTEGRITY_OK\n');need(guarded=='FINAL_INTEGRITY_OK\n','final exact inventory/hash receipt')
+     cleanup=call(prefix+frozen.dir_guard(stage)+frozen.exact_inventory(stage,list(all_remote))+'rm -- '+' '.join(stage+'/'+n for n in all_remote)+'\n'+f'rmdir -- {stage}\ntest ! -e {stage}\ntest ! -L {stage}\necho STAGE_ABSENT\n');need(cleanup=='STAGE_ABSENT\n','cleanup receipt')
+     record['cleanup_required']=False;record['cleanup_stdout']=cleanup;save(record_path,record)
+-    result={'schema':'fn-combined-event-wrapper-result-v1','accepted':True,'protocolAccepted':True,'keyExposureQualified':interpretation['keyExposureQualified'],'keyExposureReason':interpretation['keyExposureReason'],'downBeganBeforeLaterOptionalR':interpretation['downBeganBeforeLaterOptionalR'],'keyExposure':interpretation['keyExposure'],'headers':native['headers'],'bulks':native['bulks'],'rows':native['rows']['count'],'loggerPayloads':native['writes'],'thresholdWrites':0,'loggerRestore':native['restore'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'wrapperUiOperations':1,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','ringSidecars':record['rawRingSidecars'],'stockLoggerEventArgumentIsExecutingPc':False}
++    result={'schema':'fz-combined-event-81-wrapper-result-v1','accepted':True,'protocolAccepted':True,'keyExposureQualified':interpretation['keyExposureQualified'],'keyExposureReason':interpretation['keyExposureReason'],'downBeganBeforeLaterOptionalR':interpretation['downBeganBeforeLaterOptionalR'],'keyExposure':interpretation['keyExposure'],'headers':native['headers'],'bulks':native['bulks'],'rows':native['rows']['count'],'loggerPayloads':native['writes'],'thresholdWrites':0,'loggerRestore':native['restore'],'manifestSha256':sha(reviewed_manifest),'readinessSha256':sha(readiness_raw),'endpointQueueProof':False,'identitySnapshotsAtomic':False,'physicalPictureObserved':False,'rootCauseFixEstablished':False,'wrapperUiOperations':1,'nativeInvocations':1,'retries':0,'cleanup':'STAGE_ABSENT','ringSidecars':record['rawRingSidecars'],'stockLoggerEventArgumentIsExecutingPc':False}
+     save(output/'result.json',result);return result
+ 
+ 
+@@ -361,8 +361,8 @@
+     args = cli.parse_args()
+     need(not (args.execute and args.print_manifest), 'one mode')
+     if not args.execute and not args.print_manifest:
+-        print(json.dumps({'schema': 'fn-combined-event-wrapper-dry-v1', 'targetOperations': 0,
+-                          'nativeDurationUs': 2000000, 'nativeMaxCycles': 56, 'checkpointRecordBytes': 58, 'nominalPeriodUs': 25000, 'loggerPayloadsMaximum': 2, 'thresholdWrites': 0, 'nativeUiWorkflow': 'one_Left_after_first_full_clean_cycle',
++        print(json.dumps({'schema': 'fz-combined-event-81-wrapper-dry-v1', 'targetOperations': 0,
++                          'nativeDurationUs': 2000000, 'nativeMaxCycles': 81, 'checkpointRecordBytes': 58, 'nominalPeriodUs': 25000, 'loggerPayloadsMaximum': 2, 'thresholdWrites': 0, 'nativeUiWorkflow': 'one_Left_after_first_full_clean_cycle',
+                           'rootTimeoutSeconds': 45, 'hostTimeoutSeconds': 75, 'nativeInvocations': 0,
+                           'plannedNativeInvocations': 1, 'wrapperUiOperations': 0, 'plannedWrapperUiOperations':1, 'plannedWrapperKeyChildren':2, 'retries': 0,
+                           'readinessRequired': True, 'endpointQueueProof': False}, separators=(',', ':')))
+--- FN/prepare-readiness.py
++++ FZ/prepare-readiness.py
+@@ -11,7 +11,7 @@
+ ROOT = B / 'managed-ui-tab-launch/root-with-margin.py'
+ ROOT_SHA = 'bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a'
+ WRAPPERS = {
+-    'fn': ('combined-event-successor-20261028fn/run-once.py', 'fn-combined-event-readiness-decision-v1'),
++    'fz': ('combined-event-81-successor-20261028fz/run-once.py', 'fz-combined-event-81-readiness-decision-v1'),
+ }
+ 
+ def sha(raw):
+@@ -57,7 +57,7 @@
+                  'evidence': evidence, 'endpointQueueProof': False}
+     args.output.mkdir(mode=0o700)
+     root = load(ROOT, ROOT_SHA, 'fn_readiness_root')
+-    record = {'schema': 'fn-fresh-cached-readiness-v1', 'calls': []}
++    record = {'schema': 'fz-fresh-cached-readiness-v1', 'calls': []}
+     text = root.root('set -eu\n' + wrapper.metadata_body(identity, 'FN_CURRENT_READY'),
+                      record, args.output / 'metadata-root.json')
+     (args.output / 'metadata.txt').write_text(text)

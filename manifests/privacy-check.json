@@ -6,7 +6,7 @@
   "known_boot_occurrences_in_current_package": 0,
   "known_private_patterns": 62,
   "known_values_or_own_hashes_in_report": false,
-  "local_links_checked": 1225,
+  "local_links_checked": 1304,
   "missing_local_links": [],
   "reviewed_synthetic_pattern_exceptions": [
     {
@@ -28,14 +28,24 @@
       "kind": "private-home",
       "path": "tools/verify_public.py",
       "reason": "explicit synthetic redaction regression inputs"
+    },
+    {
+      "kind": "synthetic-uuid-test",
+      "path": "tests/test_public_export.py",
+      "reason": "byte-identical admitted baseline test literals, no runtime identity source; exact file bytes checked against320114e8"
+    },
+    {
+      "kind": "synthetic-uuid-test",
+      "path": "tests/test_uuid_privacy.py",
+      "reason": "byte-identical admitted baseline test literals, no runtime identity source; exact file bytes checked against320114e8"
     }
   ],
   "runtime_identity_allowlist_entries": 0,
-  "scanned_bytes": 161743002,
-  "scanned_files": 8316,
-  "schema": "s95f-all-public-tree-privacy-v6",
-  "scope": "All fixed public package content scanned before sealing generated receipts; Git internals and ignored Python caches are excluded and exact package/index membership is checked separately. Known private labels, values and the historical actual boot value are checked only in memory. Current-tree correction does not erase prior Git history. Raw OEM/identity-bearing capture bytes remain excluded. Existing explicit synthetic redaction tests retain their scope. No target operations.",
-  "selected_frozen_inputs_verified": 269,
+  "scanned_bytes": 164343686,
+  "scanned_files": 8630,
+  "schema": "s95f-all-public-tree-privacy-v7",
+  "scope": "All fixed wake-cutoff package content scanned before sealing generated receipts; exact package/index/committed membership separately checked. Known private values and actual boot checked only in memory; boundary-free canonical UUID gate has no runtime exceptions. Only byte-identical admitted synthetic regression literals and exact public Linux filesystem-type GUID/sentinel are allowed. Pattern checks are not a proof of arbitrary-secret absence. No target operations.",
+  "selected_frozen_inputs_verified": 308,
   "target_operations": 0,
-  "withheld_inputs_without_content_hash_or_export": 63
+  "withheld_inputs_without_content_hash_or_export": 37
 }

@@ -67,3 +67,7 @@ The [source and observation guide](reference-refresh-20261028.md) links complete
 ## Logging and lifecycle instrumentation
 
 Use the [logging/refusal/restoration guide](logging-refusal-restoration-20261028.md) for FC–FN sources, independent reviews and the sixth public fixture. It links strict wake/admission, rejected combined logging, source correction, restore-only maintenance and the internal TCON reader prototype. This is part of the broader access, firmware, kernel, controller and instrumentation archive.
+
+## Wake-window logging and domain separation
+
+Start with the [wake/fault logging guide](wake-fault-logging-20261028.md): internal kernel/TCON versus external-controller evidence, FO/FS completed acquisitions, FW's prearm refusal, GC's clean control, GF's captured onset and separate stock recovery. Two bounded fixtures reproduce scientific fields without original private transport or OEM code. The [fixed GI cutoff](../research/panel-idle-20261026/overnight/publication-wake-fault-cutoff-20261028gi/CURRENT-WAKE-FAULT-CUTOFF.md) states the final software boundary and remaining blind spots.

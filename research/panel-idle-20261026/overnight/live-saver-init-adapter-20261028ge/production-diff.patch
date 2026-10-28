@@ -1,0 +1,110 @@
+--- DH/run-deadline-mode2.py
++++ GE/helper.py
+@@ -9,9 +9,10 @@
+ import re
+ import shlex
+ import uuid
++import time
+ 
+ HERE = Path(__file__).resolve().parent
+-BUILD = HERE / 'deadline-mode2'
++BUILD = HERE.parent / 'autonomous-fault-harness-20261028dh/deadline-mode2'
+ BASE = HERE.parent
+ ADAPTER = BASE / 'managed-ui-tab-launch/root-with-margin.py'
+ ADAPTER_SHA = 'bbf73130091b1a7ac5ec80490193821f0c8a0f150cfcb8f71d79ccc41633d66a'
+@@ -21,6 +22,9 @@
+ BOOT = '00000000-0000-4000-8000-000000000000'
+ DOTNET_SHA = 'e5840c05c567183295f0bb37e3b28613618cec5e0c8c08a44a400672a1c73310'
+ NAMES = ('DeadlineMode2.dll', 'DeadlineMode2.deps.json', 'DeadlineMode2.runtimeconfig.json')
++
++POLICY_SHA = 'a8930454d12991eb4c8896ded2ffb2dccf28ab6d9681342482ccda2854383948'
++BV_SHA = '4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f'
+ 
+ def need(ok, message):
+     if not ok:
+@@ -75,18 +79,24 @@
+     need(all(0 < len(c.encode()) <= 8192 for c in commands), 'root command limit')
+     return commands
+ 
+-def execute(output, payloads):
++def execute(output, payloads, adapter, identity, clock=time.monotonic_ns):
+     output.mkdir(mode=0o700)
+-    adapter = load(ADAPTER, ADAPTER_SHA, 'deadline_root')
+     stock = load(STOCK, STOCK_SHA, 'deadline_stock_parser')
+     stock.contract()
++    policy = load(HERE / 'policy.py', POLICY_SHA, 'ge_fixed_policy')
++    gates = load(BASE / 'recovery-quickpath-20261027bv/recover.py', BV_SHA, 'ge_public_gates')
+     remote = '/tmp/s95f-mode2-' + uuid.uuid4().hex
+-    record = {'schema': 'deadline-stock-mode2-run-v1', 'remote_private_directory': remote,
++    record = {'schema': 'ge-deadline-stock-mode2-run-v1', 'remote_private_directory': remote,
+               'accepted': False, 'physical_state': 'unobserved', 'max_requests': 1,
+               'automatic_retries': 0, 'calls': []}
++    record.update(nativeInvocations=0, nativeInvocationStatus='not_submitted', wrapperUiOperations=0)
+     root_path = output / 'root.json'
+     for command in render_stage(remote, payloads):
+         adapter.root(command, record, root_path)
++    policy.identity_checkpoint(adapter, record, root_path, output, identity, 'GE_BEFORE_NATIVE')
++    public = output / 'pre-native-public'; public.mkdir(mode=0o700)
++    gates.public_gate(public, adapter_module=adapter)
++    checkpoint = policy.snapshot(adapter, record, root_path, output, 'pre-native', clock)
+     hashes = ''.join(f'test "$(sha256sum {remote}/{name} | cut -d " " -f 1)" = {sha(data)}\n'
+                      for name, data in payloads.items())
+     command = guard() + stock.lifecycle_module().stock_checks() + '\n' + hashes + f'''cd {remote}
+@@ -105,8 +115,16 @@
+ echo AFTER
+ cat /proc/uptime
+ '''
++    policy.dispatch(checkpoint, clock)
++    policy.save(output / 'pre-native-checkpoint.json', checkpoint)
++    record.update(nativeInvocations=1, nativeInvocationStatus='submitted_or_unknown')
++    policy.save(root_path, record)
+     framed = adapter.root(command, record, root_path)
++    need(type(framed) is str and len(framed.encode()) <= 65536, 'bounded native root response')
+     (output / 'framed.txt').write_text(framed)
++    policy.validate_framed(framed)
++    record['nativeInvocationStatus'] = 'terminal_framing_retained'
++    policy.save(root_path, record)
+     rc = int(framed.split('HELPER_EXIT\n', 1)[1].splitlines()[0])
+     raw = framed.split('RECEIPT_BASE64\n', 1)[1].split('NATIVE_STDERR_BASE64\n', 1)[0]
+     receipt = base64.b64decode(''.join(raw.split()), validate=True)
+@@ -114,37 +132,20 @@
+     stderr = framed.split('NATIVE_STDERR_BASE64\n', 1)[1].split('AFTER\n', 1)[0]
+     err = base64.b64decode(''.join(stderr.split()), validate=True)
+     (output / 'native.stderr').write_bytes(err)
++    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':False,'physicalPictureObserved':False})
+     need(rc == 0, 'helper exit ' + str(rc) + '; no retry')
+     need(err == b'', 'native stderr; no retry')
+     parsed = parse_receipt(receipt.decode('utf-8'), stock)
++    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':True,'classification':parsed['classification'],'physicalPictureObserved':False})
+     # Foreground invocation has returned: no racy /proc/PID/stat success premise.
+     cleanup = guard() + f'cd {remote}\n' + hashes
+     cleanup += 'rm -- ' + ' '.join(shlex.quote(name) for name in (*NAMES, 'receipt.txt', 'native.stdout', 'native.stderr')) + '\n'
+     cleanup += f'cd /\nrmdir {remote}\ntest ! -e {remote}\n'
+     adapter.root(cleanup, record, root_path)
+-    result = {'schema': 'deadline-stock-mode2-result-v1', 'accepted': True,
++    result = {'schema': 'ge-deadline-stock-mode2-result-v1', 'accepted': True,
+               'helper_exit': rc, 'cleanup_confirmed': True, 'request_count': 1,
+               'classification': parsed['classification'], 'physical_state': 'unobserved',
+               'recovery_inferred': False, 'power_action_acknowledged': False,
+               'native_deadline_seconds': 12, 'receipt_sha256': sha(receipt)}
+     (output / 'result.json').write_text(json.dumps(result, indent=2) + '\n')
+     return result
+-
+-def main():
+-    parser = argparse.ArgumentParser(description=__doc__)
+-    parser.add_argument('--execute', action='store_true')
+-    parser.add_argument('--output', type=Path)
+-    args = parser.parse_args()
+-    payloads = contract()
+-    if not args.execute:
+-        need(args.output is None, 'output requires execute')
+-        print(json.dumps({'dry_run': True, 'operation': 41, 'mode': 2,
+-                          'max_requests': 1, 'native_deadline_seconds': 12,
+-                          'payloads': {k: sha(v) for k, v in payloads.items()},
+-                          'stage_commands': len(render_stage('/tmp/s95f-mode2-' + '0'*32, payloads))}))
+-        return
+-    need(args.output is not None and args.output.is_absolute(), 'fresh absolute output required')
+-    print(json.dumps(execute(args.output, payloads)))
+-
+-if __name__ == '__main__':
+-    main()

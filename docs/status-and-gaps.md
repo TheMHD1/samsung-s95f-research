@@ -1,5 +1,10 @@
 # Snapshot status and open questions
 
+
+## Latest fixed wake-window endpoint
+
+See the [GC/GF logging guide](wake-fault-logging-20261028.md). A clean77-row control peaksH36; a later26-row intended Live saver wake captures CleanH40→FaultH48 and paired736text. Final separate stock recovery is softwareClean40/logger0/N0 and cachedApps+saver. No actual FP, caller, selected-A, physical darkness, matched200contrast or permanent fix is established. Prior cutoff paragraphs below are historical. GG/GH and mutable CURRENT are excluded.
+
 The current-tree UUID privacy successor corrects 24 historical archive files without changing scientific metadata or the six fixtures. See the [privacy ledger](../manifests/uuid-privacy-correction.json); earlier Git history remains preserved and contains pre-correction text.
 
 The newest fixed [logging cutoff](logging-refusal-restoration-20261028.md) preserves the original FH refusal and independently verifies separate FM logger1→0 readback plus final software-Clean40/logger0/N0 validation without reset. Pre-write Clean prevents attributing that state to the logger-off write. Cached Apps+saver is not optical evidence. FK/FN are host-only within this release; FO/FP and the mutable CURRENT are excluded. The explicit fixed cutoff status supersedes earlier "latest" wording below only for this new scope.

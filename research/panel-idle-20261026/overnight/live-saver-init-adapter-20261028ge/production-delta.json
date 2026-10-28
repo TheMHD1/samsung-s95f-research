@@ -1,0 +1,104 @@
+{
+  "base": "autonomous-fault-harness-20261028dh/run-deadline-mode2.py",
+  "hunks": [
+    {
+      "new": "import time\n",
+      "old": "",
+      "oldEnd": 11,
+      "oldStart": 11
+    },
+    {
+      "new": "BUILD = HERE.parent / 'autonomous-fault-harness-20261028dh/deadline-mode2'\n",
+      "old": "BUILD = HERE / 'deadline-mode2'\n",
+      "oldEnd": 14,
+      "oldStart": 13
+    },
+    {
+      "new": "\nPOLICY_SHA = 'a8930454d12991eb4c8896ded2ffb2dccf28ab6d9681342482ccda2854383948'\nBV_SHA = '4fddc3f6e933a19b15ba208e1ffc029ccd7df323c66cdb7ae24157f374e64a0f'\n",
+      "old": "",
+      "oldEnd": 23,
+      "oldStart": 23
+    },
+    {
+      "new": "def execute(output, payloads, adapter, identity, clock=time.monotonic_ns):\n",
+      "old": "def execute(output, payloads):\n",
+      "oldEnd": 78,
+      "oldStart": 77
+    },
+    {
+      "new": "",
+      "old": "    adapter = load(ADAPTER, ADAPTER_SHA, 'deadline_root')\n",
+      "oldEnd": 80,
+      "oldStart": 79
+    },
+    {
+      "new": "    policy = load(HERE / 'policy.py', POLICY_SHA, 'ge_fixed_policy')\n    gates = load(BASE / 'recovery-quickpath-20261027bv/recover.py', BV_SHA, 'ge_public_gates')\n",
+      "old": "",
+      "oldEnd": 82,
+      "oldStart": 82
+    },
+    {
+      "new": "    record = {'schema': 'ge-deadline-stock-mode2-run-v1', 'remote_private_directory': remote,\n",
+      "old": "    record = {'schema': 'deadline-stock-mode2-run-v1', 'remote_private_directory': remote,\n",
+      "oldEnd": 84,
+      "oldStart": 83
+    },
+    {
+      "new": "    record.update(nativeInvocations=0, nativeInvocationStatus='not_submitted', wrapperUiOperations=0)\n",
+      "old": "",
+      "oldEnd": 86,
+      "oldStart": 86
+    },
+    {
+      "new": "    policy.identity_checkpoint(adapter, record, root_path, output, identity, 'GE_BEFORE_NATIVE')\n    public = output / 'pre-native-public'; public.mkdir(mode=0o700)\n    gates.public_gate(public, adapter_module=adapter)\n    checkpoint = policy.snapshot(adapter, record, root_path, output, 'pre-native', clock)\n",
+      "old": "",
+      "oldEnd": 89,
+      "oldStart": 89
+    },
+    {
+      "new": "    policy.dispatch(checkpoint, clock)\n    policy.save(output / 'pre-native-checkpoint.json', checkpoint)\n    record.update(nativeInvocations=1, nativeInvocationStatus='submitted_or_unknown')\n    policy.save(root_path, record)\n",
+      "old": "",
+      "oldEnd": 107,
+      "oldStart": 107
+    },
+    {
+      "new": "    need(type(framed) is str and len(framed.encode()) <= 65536, 'bounded native root response')\n",
+      "old": "",
+      "oldEnd": 108,
+      "oldStart": 108
+    },
+    {
+      "new": "    policy.validate_framed(framed)\n    record['nativeInvocationStatus'] = 'terminal_framing_retained'\n    policy.save(root_path, record)\n",
+      "old": "",
+      "oldEnd": 109,
+      "oldStart": 109
+    },
+    {
+      "new": "    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':False,'physicalPictureObserved':False})\n",
+      "old": "",
+      "oldEnd": 116,
+      "oldStart": 116
+    },
+    {
+      "new": "    policy.save(output / 'helper-terminal.json', {'schema':'ge-helper-terminal-v1','helperExit':rc,'receiptSha256':sha(receipt),'stderrSha256':sha(err),'nativeInvocations':1,'nativeTerminalAccepted':True,'classification':parsed['classification'],'physicalPictureObserved':False})\n",
+      "old": "",
+      "oldEnd": 119,
+      "oldStart": 119
+    },
+    {
+      "new": "    result = {'schema': 'ge-deadline-stock-mode2-result-v1', 'accepted': True,\n",
+      "old": "    result = {'schema': 'deadline-stock-mode2-result-v1', 'accepted': True,\n",
+      "oldEnd": 125,
+      "oldStart": 124
+    },
+    {
+      "new": "",
+      "old": "\ndef main():\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument('--execute', action='store_true')\n    parser.add_argument('--output', type=Path)\n    args = parser.parse_args()\n    payloads = contract()\n    if not args.execute:\n        need(args.output is None, 'output requires execute')\n        print(json.dumps({'dry_run': True, 'operation': 41, 'mode': 2,\n                          'max_requests': 1, 'native_deadline_seconds': 12,\n                          'payloads': {k: sha(v) for k, v in payloads.items()},\n                          'stage_commands': len(render_stage('/tmp/s95f-mode2-' + '0'*32, payloads))}))\n        return\n    need(args.output is not None and args.output.is_absolute(), 'fresh absolute output required')\n    print(json.dumps(execute(args.output, payloads)))\n\nif __name__ == '__main__':\n    main()\n",
+      "oldEnd": 150,
+      "oldStart": 131
+    }
+  ],
+  "nativeChanges": 0,
+  "schema": "ge-helper-delta-v1",
+  "uiOperations": 0
+}

@@ -1,0 +1,7 @@
+# Fixed status at the GF completion boundary
+
+GC completed77 sampled rows (76Clean, oneQuiescent) through its two-second observation deadline. H peaked36, so this control supplies no sampled score above40. GF began from cached Live+saver and a fresh Clean40/logger0 baseline; its wrapper sent zero keys and the native sent one planned Left after its full clean baseline. Its26rows contain24Clean, oneQuiescent and oneFaulted. Clean cycle25 H40 precedes sampled Faulted cycle26 H48. A cursor-selected candidate contains two event736 lines, compatible with a single selected-source common-setter call; no caller PC/LR, actual FP, selected A, packed producer or optical edge was captured.
+
+The intended saver wake is captured, while a ForYou transition and key consumption are not established. The earlier FW run already faulted before arming; that historical refusal and the later GF onset answer different timing questions. GC and GF are not matched threshold contrasts and demonstrate no prevention or permanent fix.
+
+GF separately confirmed stable Faulted40/logger0, prepared Apps, ran one fixed stock mode2 and positively observed the USB instance boundary without reboot. Fresh EB then confirmed stable Clean40/logger0/N0. X/Y/RGB/Diff are zero, but B has22nonzero entries; universal RAM clearing and executable reload are not inferred. Final cached Apps+saver is not physical visibility. Further200 experimentation remains outside this cutoff and needs its separate recovery contract.

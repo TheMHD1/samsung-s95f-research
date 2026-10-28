@@ -42,3 +42,7 @@ The [reference-event guide](reference-events-20261028.md) adds two pure host-mod
 ## Sixth refusal/restoration scientific fixture
 
 Run `python3 tools/verify_logger_reconciliation.py` and its `python3 -O` equivalent. This verifier consumes only the public fixture and imports no target tooling. It reproduces the original rejected/knownReady state, complete unpublished Quiescent set, checked logger1→0 and final Clean40/logger0/N0. The [guide](logging-refusal-restoration-20261028.md) documents typed projections and limits. Its generator requires explicitly supplied private inputs, intentionally absent from a public clone.
+
+## Wake-window scientific projections
+
+The [GC/GF guide](wake-fault-logging-20261028.md) documents two additional offline fixtures. Run `python3 -B tools/verify_wake_onset.py --fixture fixtures/wake-gc.json` and the same command with `fixtures/wake-gf.json`. The verifier removes dynamic pointers, binds50retained scientific bytes per row to selected full windows, and distinguishes Clean/Quiescent/Faulted. Original authenticated receipts, raw ring backing and emulator/OEM instruction inputs remain private; the fixture does not claim to reproduce them.
